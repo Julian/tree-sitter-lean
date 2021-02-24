@@ -1,0 +1,10 @@
+======
+Simple
+======
+
+theorem foo : p := sorry
+
+---
+
+(source_file
+  (theorem_definition (identifier) (identifier) (identifier)))

@@ -1,0 +1,117 @@
+===============
+Empty Namespace
+===============
+
+namespace Foo
+end Foo
+
+---
+
+(source_file (namespace_definition (identifier) (identifier)))
+
+=============
+Empty Section
+=============
+
+section Foo
+end Foo
+
+---
+
+(source_file (section_definition (identifier) (identifier)))
+
+======================
+Nested Empty Namespace
+======================
+
+namespace Foo
+namespace Bar
+end Bar
+end Foo
+
+---
+
+(source_file
+  (namespace_definition (identifier)
+    (namespace_definition (identifier) (identifier)) (identifier)))
+
+====================
+Nested Empty Section
+====================
+
+section Foo
+section Bar
+end Bar
+end Foo
+
+---
+
+(source_file
+  (section_definition (identifier)
+    (section_definition (identifier) (identifier)) (identifier)))
+
+==========================
+Namespace With Definitions
+==========================
+
+namespace Foo
+
+theorem foo : p := sorry
+theorem bar : q := sorry
+
+end Foo
+
+---
+
+(source_file
+  (namespace_definition (identifier)
+    (theorem_definition (identifier) (identifier) (identifier))
+    (theorem_definition (identifier) (identifier) (identifier)) (identifier)))
+
+========================
+Section With Definitions
+========================
+
+section Foo
+
+theorem foo : p := sorry
+theorem bar : q := sorry
+
+end Foo
+
+---
+
+(source_file
+  (section_definition (identifier)
+    (theorem_definition (identifier) (identifier) (identifier))
+    (theorem_definition (identifier) (identifier) (identifier)) (identifier)))
+
+=======================
+Namespace With Sections
+=======================
+
+namespace Foo
+
+section Bar
+
+theorem bar : q := sorry
+
+end Bar
+
+section Baz
+
+theorem baz : r := sorry
+
+end Baz
+
+end Foo
+
+---
+
+(source_file
+  (namespace_definition (identifier)
+    (section_definition (identifier)
+      (theorem_definition (identifier) (identifier) (identifier)) (identifier))
+    (section_definition (identifier)
+      (theorem_definition (identifier) (identifier) (identifier)) (identifier))
+    (identifier)))
