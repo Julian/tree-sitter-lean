@@ -1,0 +1,10 @@
+======
+Global
+======
+
+-- Foo
+-- bar
+
+---
+
+(source_file (comment) (comment))

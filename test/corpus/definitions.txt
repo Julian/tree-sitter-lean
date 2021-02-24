@@ -54,3 +54,58 @@ def twice (f : Nat → Nat) (a : Nat) :=
     (function_application (identifier)
       (argument_list
         (function_application (identifier) (argument_list (identifier)))))))
+
+==================
+Anonymous Function
+==================
+
+#check fun x => x + 2
+
+---
+
+(source_file
+  (check_command
+    (lambda
+      (parameter_list (identifier))
+      (binary_expression (identifier) (number)))))
+
+==============================
+Anonymous Function Application
+==============================
+
+#eval (fun x => x + 2) 10
+
+---
+
+(source_file
+  (eval_command
+    (function_application
+      (lambda
+        (parameter_list (identifier))
+        (binary_expression (identifier) (number)))
+      (argument_list (number)))))
+
+=======
+Theorem
+=======
+
+theorem twiceAdd2 (a : Nat) : twice (fun x => x + 2) a = a + 4 :=
+  -- The proof is by reflexivity. Lean "symbolically" reduces both sides of the equality
+  -- until they are identical.
+  rfl
+
+---
+
+(source_file
+  (theorem_definition (identifier)
+    (parameter_list (annotated (identifier) (identifier)))
+    (function_application (identifier)
+      (argument_list
+        (function_application
+          (lambda
+            (parameter_list (identifier))
+            (binary_expression (identifier) (number)))
+          (argument_list
+            (binary_expression
+              (binary_expression (identifier) (identifier))
+              (number)))))) (comment) (comment) (identifier)))

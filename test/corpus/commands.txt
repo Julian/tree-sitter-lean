@@ -2,12 +2,16 @@
 #commands
 =========
 
+#check 2+2
 #eval 2+2
+#reduce 2+2
 
 ---
 
 (source_file
-  (eval_command (binary_expression (number) (number))))
+  (check_command (binary_expression (number) (number)))
+  (eval_command (binary_expression (number) (number)))
+  (reduce_command (binary_expression (number) (number))))
 
 =========
 Same Line

@@ -1,9 +1,17 @@
 const PREC = {
+  function_application: 1,
   parenthesized_expression: 1,
 }
 
 module.exports = grammar({
   name: 'lean',
+
+  extras: $ => [
+    $.comment,
+    /\s/,
+  ],
+
+  word: $ => $.identifier,
 
   rules: {
     source_file: $ => repeat($._command),
@@ -18,16 +26,18 @@ module.exports = grammar({
     ),
 
     _hash_command: $ => choice(
+      $.check_command,
       $.eval_command,
+      $.reduce_command,
     ),
 
-    eval_command: $ => seq(
-      '#eval', $._expression,
-    ),
+    check_command: $ => seq('#check', $._expression),
+    eval_command: $ => seq('#eval', $._expression),
+    reduce_command: $ => seq('#reduce', $._expression),
 
     namespace_definition: $ => seq(
       'namespace',
-      $.identifier,
+      field('name', $.identifier),
       repeat($._command),
       'end',
       $.identifier,
@@ -35,7 +45,7 @@ module.exports = grammar({
 
     section_definition: $ => seq(
       'section',
-      $.identifier,
+      field('name', $.identifier),
       repeat($._command),
       'end',
       $.identifier,
@@ -74,7 +84,8 @@ module.exports = grammar({
 
     theorem_definition: $ => seq(
       'theorem',
-      $.identifier,
+      field('name', $.identifier),
+      field('parameters', optional($.parameter_list)),
       ':',
       $._expression,
       ':=',
@@ -85,10 +96,10 @@ module.exports = grammar({
       prec(1, $.identifier),
       $._parenthesized_expression,
       $.function_application,
+      $.lambda,
       $.binary_expression,
       $.number,
       $.string,
-      // TODO: other kinds of expressions
     ),
 
     _parenthesized_expression: $ => prec(PREC.parenthesized_expression, seq(
@@ -101,15 +112,20 @@ module.exports = grammar({
       prec.left(repeat1($._expression)),
     ),
 
-    function_application: $ => seq(
-      field('name', $.identifier),
-      prec.left(1, field('arguments', $.argument_list)),
+    lambda: $ => seq(
+      'fun', $.parameter_list, '=>', $._expression,
     ),
+
+    function_application: $ => prec(PREC.function_application, seq(
+      field('name', $._expression),
+      prec.left(1, field('arguments', $.argument_list)),
+    )),
 
     binary_expression: $ => choice(
       prec.left(2, seq($._expression, '*', $._expression)),
       prec.left(1, seq($._expression, '+', $._expression)),
       prec.left(1, seq($._expression, '-', $._expression)),
+      prec.left(1, seq($._expression, '=', $._expression)),
     ),
 
     string: $ => seq(
@@ -124,6 +140,8 @@ module.exports = grammar({
 
     // TODO: actual right string content, escape sequences, etc.
     _string_content: $ => /[^"]/,
+
+    comment: $ => token(seq('--', /.*/)),
 
     identifier: $ => /[A-za-z][A-za-z0-9!]*/,
 

@@ -4,11 +4,21 @@
   "description": "tree-sitter parser for the Lean interactive theorem prover",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "tree-sitter test"
   },
   "author": "Julian Berman",
   "license": "MIT",
   "dependencies": {
     "nan": "^2.14.2"
-  }
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.18.0"
+  },
+  "repository": "https://github.com/Julian/tree-sitter-lean",
+  "tree-sitter": [
+    {
+      "scope": "source.lean",
+      "file-types": ["lean"]
+    }
+  ]
 }
