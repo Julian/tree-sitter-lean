@@ -38,7 +38,17 @@ module.exports = grammar({
     ),
 
     parameter_list: $ => seq(
-      repeat1($.identifier),
+      repeat1(
+        choice($.identifier, $.annotated)
+      ),
+    ),
+
+    annotated: $ => seq(
+      '(',
+      $.identifier,
+      ':',
+      $._expression,
+      ')',
     ),
 
     function_definition: $ => seq(
@@ -79,6 +89,7 @@ module.exports = grammar({
     binary_expression: $ => choice(
       prec.left(2, seq($._expression, '*', $._expression)),
       prec.left(1, seq($._expression, '+', $._expression)),
+      prec.left(1, seq($._expression, '-', $._expression)),
     ),
 
     string: $ => seq(

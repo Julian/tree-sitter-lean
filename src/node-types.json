@@ -1,5 +1,36 @@
 [
   {
+    "type": "annotated",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "binary_expression",
+          "named": true
+        },
+        {
+          "type": "function_application",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "argument_list",
     "named": true,
     "fields": {},
@@ -229,6 +260,10 @@
       "required": true,
       "types": [
         {
+          "type": "annotated",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         }
@@ -356,11 +391,23 @@
     "named": false
   },
   {
+    "type": "(",
+    "named": false
+  },
+  {
+    "type": ")",
+    "named": false
+  },
+  {
     "type": "*",
     "named": false
   },
   {
     "type": "+",
+    "named": false
+  },
+  {
+    "type": "-",
     "named": false
   },
   {

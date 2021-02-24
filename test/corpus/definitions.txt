@@ -2,18 +2,37 @@
 Simple
 ======
 
-theorem foo : p := sorry
-
 def sampleFunction1 x := x*x + 3
 
 def result1 := sampleFunction1 4573
 
+theorem foo : p := sorry
+
 ---
 
 (source_file
-  (theorem_definition (identifier) (identifier) (identifier))
   (function_definition (identifier)
     (parameter_list (identifier))
     (binary_expression (binary_expression (identifier) (identifier)) (number)))
   (function_definition (identifier)
-    (function_application (identifier) (argument_list (number)))))
+    (function_application (identifier) (argument_list (number))))
+  (theorem_definition (identifier) (identifier) (identifier)))
+
+=========
+Annotated
+=========
+
+def sampleFunction2 (x : Nat) := 2*x*x - x + 3
+
+---
+
+(source_file
+  (function_definition (identifier)
+    (parameter_list (annotated (identifier) (identifier)))
+    (binary_expression
+      (binary_expression
+        (binary_expression
+          (binary_expression (number) (identifier))
+          (identifier))
+        (identifier))
+      (number))))
