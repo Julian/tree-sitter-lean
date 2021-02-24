@@ -99,7 +99,7 @@ module.exports = grammar({
     ),
 
     interpolation: $ => seq(
-      '{', $.identifier, '}'
+      '{', $._expression, '}'
     ),
 
     // TODO: actual right string content, escape sequences, etc.

@@ -1,6 +1,6 @@
-=======
-println
-=======
+=============
+Interpolation
+=============
 
 #eval println! "The result of squaring the integer 4573 and adding 3 is {result1}"
 
@@ -9,4 +9,18 @@ println
 (source_file
   (eval_command
     (function_application (identifier)
-        (argument_list (string (interpolation (identifier)))))))
+      (argument_list (string (interpolation (identifier)))))))
+
+=======================================
+Interpolation With Function Application
+=======================================
+
+#eval println! "The result of applying sampleFunction3 to 2 is {sampleFunction3 2}"
+
+---
+
+(source_file
+  (eval_command
+    (function_application (identifier)
+      (argument_list (string (interpolation
+        (function_application (identifier) (argument_list (number)))))))))
