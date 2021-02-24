@@ -1,3 +1,7 @@
+const PREC = {
+  parenthesized_expression: 1,
+}
+
 module.exports = grammar({
   name: 'lean',
 
@@ -47,8 +51,17 @@ module.exports = grammar({
       '(',
       $.identifier,
       ':',
-      $._expression,
+      $._type_annotation,
       ')',
+    ),
+
+    _type_annotation: $ => choice(
+      $._expression,
+      $.function_annotation,
+    ),
+
+    function_annotation: $ => seq(
+      $._expression, '→', $._expression,
     ),
 
     function_definition: $ => seq(
@@ -70,12 +83,19 @@ module.exports = grammar({
 
     _expression: $ => choice(
       prec(1, $.identifier),
+      $._parenthesized_expression,
       $.function_application,
       $.binary_expression,
       $.number,
       $.string,
       // TODO: other kinds of expressions
     ),
+
+    _parenthesized_expression: $ => prec(PREC.parenthesized_expression, seq(
+      '(',
+      $._expression,
+      ')'
+    )),
 
     argument_list: $ => seq(
       prec.left(repeat1($._expression)),

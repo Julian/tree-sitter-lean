@@ -149,11 +149,41 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_expression"
+          "name": "_type_annotation"
         },
         {
           "type": "STRING",
           "value": ")"
+        }
+      ]
+    },
+    "_type_annotation": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_expression"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "function_annotation"
+        }
+      ]
+    },
+    "function_annotation": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_expression"
+        },
+        {
+          "type": "STRING",
+          "value": "→"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_expression"
         }
       ]
     },
@@ -240,6 +270,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "_parenthesized_expression"
+        },
+        {
+          "type": "SYMBOL",
           "name": "function_application"
         },
         {
@@ -255,6 +289,27 @@
           "name": "string"
         }
       ]
+    },
+    "_parenthesized_expression": {
+      "type": "PREC",
+      "value": 1,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "("
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_expression"
+          },
+          {
+            "type": "STRING",
+            "value": ")"
+          }
+        ]
+      }
     },
     "argument_list": {
       "type": "SEQ",

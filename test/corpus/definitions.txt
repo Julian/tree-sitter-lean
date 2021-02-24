@@ -36,3 +36,21 @@ def sampleFunction2 (x : Nat) := 2*x*x - x + 3
           (identifier))
         (identifier))
       (number))))
+
+====================
+First Class Function
+====================
+
+def twice (f : Nat → Nat) (a : Nat) :=
+  f (f a)
+
+---
+
+(source_file
+  (function_definition (identifier)
+    (parameter_list
+      (annotated (identifier) (function_annotation (identifier) (identifier)))
+      (annotated (identifier) (identifier)))
+    (function_application (identifier)
+      (argument_list
+        (function_application (identifier) (argument_list (identifier)))))))
