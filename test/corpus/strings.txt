@@ -1,0 +1,12 @@
+=======
+println
+=======
+
+#eval println! "The result of squaring the integer 4573 and adding 3 is {result1}"
+
+---
+
+(source_file
+  (eval_command
+    (function_application (identifier)
+        (argument_list (string (interpolation (identifier)))))))

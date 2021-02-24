@@ -37,7 +37,16 @@ module.exports = grammar({
       $.identifier,
     ),
 
-    function_definition: $ => choice(
+    parameter_list: $ => seq(
+      repeat1($.identifier),
+    ),
+
+    function_definition: $ => seq(
+      'def',
+      field('name', $.identifier),
+      field('parameters', optional($.parameter_list)),
+      ':=',
+      $._expression,
     ),
 
     theorem_definition: $ => seq(
@@ -50,12 +59,42 @@ module.exports = grammar({
     ),
 
     _expression: $ => choice(
-      $.identifier,
-      $.number
+      prec(1, $.identifier),
+      $.function_application,
+      $.binary_expression,
+      $.number,
+      $.string,
       // TODO: other kinds of expressions
     ),
 
-    identifier: $ => /[A-za-z]+/,
+    argument_list: $ => seq(
+      prec.left(repeat1($._expression)),
+    ),
+
+    function_application: $ => seq(
+      field('name', $.identifier),
+      prec.left(1, field('arguments', $.argument_list)),
+    ),
+
+    binary_expression: $ => choice(
+      prec.left(2, seq($._expression, '*', $._expression)),
+      prec.left(1, seq($._expression, '+', $._expression)),
+    ),
+
+    string: $ => seq(
+      '"',
+      repeat(choice($._string_content, $.interpolation)),
+      '"',
+    ),
+
+    interpolation: $ => seq(
+      '{', $.identifier, '}'
+    ),
+
+    // TODO: actual right string content, escape sequences, etc.
+    _string_content: $ => /[^"]/,
+
+    identifier: $ => /[A-za-z][A-za-z0-9!]*/,
 
     number: $ => /\d+/
   }

@@ -2,8 +2,21 @@
 #commands
 =========
 
-#eval 2
+#eval 2+2
 
 ---
 
-(source_file (eval_command (number)))
+(source_file
+  (eval_command (binary_expression (number) (number))))
+
+=========
+Same Line
+=========
+
+#eval id 2 #eval 5
+
+---
+
+(source_file
+  (eval_command (function_application (identifier) (argument_list (number))))
+  (eval_command (number)))
