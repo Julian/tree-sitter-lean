@@ -77,3 +77,14 @@ inductive FooBar where
   (inductive_type (identifier)
     (constructor (identifier) (identifier))
     (constructor (identifier) (identifier))))
+
+============
+Field Access
+============
+
+#check FooBar.foo
+
+---
+
+(source_file
+  (hash_command (element_of (identifier) (identifier))))

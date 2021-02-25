@@ -20,6 +20,10 @@
           "named": true
         },
         {
+          "type": "element_of",
+          "named": true
+        },
+        {
           "type": "function_annotation",
           "named": true
         },
@@ -67,6 +71,10 @@
           "named": true
         },
         {
+          "type": "element_of",
+          "named": true
+        },
+        {
           "type": "function_application",
           "named": true
         },
@@ -107,6 +115,10 @@
         },
         {
           "type": "conditional",
+          "named": true
+        },
+        {
+          "type": "element_of",
           "named": true
         },
         {
@@ -153,6 +165,10 @@
           "named": true
         },
         {
+          "type": "element_of",
+          "named": true
+        },
+        {
           "type": "function_application",
           "named": true
         },
@@ -191,6 +207,32 @@
     }
   },
   {
+    "type": "element_of",
+    "named": true,
+    "fields": {
+      "field": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "example_definition",
     "named": true,
     "fields": {},
@@ -208,6 +250,10 @@
         },
         {
           "type": "conditional",
+          "named": true
+        },
+        {
+          "type": "element_of",
           "named": true
         },
         {
@@ -251,6 +297,10 @@
         },
         {
           "type": "conditional",
+          "named": true
+        },
+        {
+          "type": "element_of",
           "named": true
         },
         {
@@ -305,6 +355,10 @@
             "named": true
           },
           {
+            "type": "element_of",
+            "named": true
+          },
+          {
             "type": "function_application",
             "named": true
           },
@@ -348,6 +402,10 @@
           },
           {
             "type": "conditional",
+            "named": true
+          },
+          {
+            "type": "element_of",
             "named": true
           },
           {
@@ -416,6 +474,10 @@
           "named": true
         },
         {
+          "type": "element_of",
+          "named": true
+        },
+        {
           "type": "function_application",
           "named": true
         },
@@ -456,6 +518,10 @@
         },
         {
           "type": "conditional",
+          "named": true
+        },
+        {
+          "type": "element_of",
           "named": true
         },
         {
@@ -528,6 +594,10 @@
           "named": true
         },
         {
+          "type": "element_of",
+          "named": true
+        },
+        {
           "type": "function_application",
           "named": true
         },
@@ -568,6 +638,10 @@
         },
         {
           "type": "conditional",
+          "named": true
+        },
+        {
+          "type": "element_of",
           "named": true
         },
         {
@@ -820,6 +894,10 @@
           "named": true
         },
         {
+          "type": "element_of",
+          "named": true
+        },
+        {
           "type": "function_application",
           "named": true
         },
@@ -876,6 +954,10 @@
   },
   {
     "type": "-",
+    "named": false
+  },
+  {
+    "type": ".",
     "named": false
   },
   {

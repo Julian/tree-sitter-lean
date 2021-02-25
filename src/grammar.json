@@ -397,6 +397,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "element_of"
+        },
+        {
+          "type": "SYMBOL",
           "name": "function_application"
         },
         {
@@ -515,6 +519,31 @@
           }
         ]
       }
+    },
+    "element_of": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "type",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "."
+        },
+        {
+          "type": "FIELD",
+          "name": "field",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        }
+      ]
     },
     "binary_expression": {
       "type": "CHOICE",

@@ -115,6 +115,7 @@ module.exports = grammar({
       $._parenthesized_expression,
       $.comparison,
       $.conditional,
+      $.element_of,
       $.function_application,
       $.lambda,
       $.binary_expression,
@@ -145,6 +146,12 @@ module.exports = grammar({
       field('name', $._expression),
       field('arguments', repeat1($._expression)),
     )),
+
+    element_of: $ => seq(
+      field('type', $.identifier),
+      '.',
+      field('field', $.identifier),
+    ),
 
     binary_expression: $ => choice(
       prec.left(2, seq($._expression, '*', $._expression)),
