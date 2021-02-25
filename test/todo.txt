@@ -1,0 +1,18 @@
+This file contains some tests that are written but fail for now.
+
+(So they won't execute at all...)
+
+===================
+Lambda Syntax Sugar
+===================
+
+#eval twice (. + 2) 10
+
+---
+
+(source_file
+  (eval_command
+    (function_application (identifier)
+      (number)
+      (lambda (identifier) (binary_expression (identifier) (number)) (number))
+      (number))))
