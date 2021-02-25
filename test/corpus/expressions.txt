@@ -62,3 +62,18 @@ Multiple Function Arguments
 (source_file
   (check_command
     (function_application (identifier) (number) (number) (number))))
+
+==============
+Inductive Type
+==============
+
+inductive FooBar where
+  | foo    : Foo
+  | bar    : Bar
+
+---
+
+(source_file
+  (inductive_type (identifier)
+    (constructor (identifier) (identifier))
+    (constructor (identifier) (identifier))))

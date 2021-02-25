@@ -219,6 +219,21 @@
     }
   },
   {
+    "type": "constructor",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "eval_command",
     "named": true,
     "fields": {},
@@ -510,6 +525,32 @@
     }
   },
   {
+    "type": "inductive_type",
+    "named": true,
+    "fields": {
+      "constructors": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "constructor",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "interpolation",
     "named": true,
     "fields": {},
@@ -639,6 +680,10 @@
           "named": true
         },
         {
+          "type": "inductive_type",
+          "named": true
+        },
+        {
           "type": "namespace_definition",
           "named": true
         },
@@ -759,6 +804,10 @@
           "named": true
         },
         {
+          "type": "inductive_type",
+          "named": true
+        },
+        {
           "type": "namespace_definition",
           "named": true
         },
@@ -799,6 +848,10 @@
         },
         {
           "type": "function_definition",
+          "named": true
+        },
+        {
+          "type": "inductive_type",
           "named": true
         },
         {
@@ -992,6 +1045,10 @@
     "named": false
   },
   {
+    "type": "inductive",
+    "named": false
+  },
+  {
     "type": "namespace",
     "named": false
   },
@@ -1012,7 +1069,15 @@
     "named": false
   },
   {
+    "type": "where",
+    "named": false
+  },
+  {
     "type": "{",
+    "named": false
+  },
+  {
+    "type": "|",
     "named": false
   },
   {
