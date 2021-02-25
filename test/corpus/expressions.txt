@@ -1,0 +1,64 @@
+======
+Number
+======
+
+#eval 2
+
+---
+
+(source_file (eval_command (number)))
+
+======
+String
+======
+
+#eval "foo"
+
+---
+
+(source_file (eval_command (string)))
+
+===========
+Conditional
+===========
+
+#eval if true then "foo" else "bar"
+
+---
+
+(source_file (eval_command (conditional (identifier) (string) (string))))
+
+==========
+Comparison
+==========
+
+#eval 2 > 3
+
+---
+
+(source_file (eval_command (comparison (number) (number))))
+
+=====================
+Comparison Precedence
+=====================
+
+#check id 2 < 3
+
+---
+
+(source_file (check_command
+  (comparison
+    (function_application (identifier) (number))
+    (number))))
+
+===========================
+Multiple Function Arguments
+===========================
+
+#check foo 2 3 4
+
+---
+
+(source_file
+  (check_command
+    (function_application (identifier) (number) (number) (number))))

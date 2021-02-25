@@ -1,6 +1,9 @@
 const PREC = {
-  function_application: 1,
+  function_application: -1,
   parenthesized_expression: 1,
+  compare: -1,
+
+  equal: -1,
 }
 
 module.exports = grammar({
@@ -20,6 +23,7 @@ module.exports = grammar({
       $._hash_command,
       $.namespace_definition,
       $.section_definition,
+      $.example_definition,
       $.function_definition,
       $.theorem_definition,
       // TODO: other kinds of definitions
@@ -92,9 +96,19 @@ module.exports = grammar({
       $.identifier,
     ),
 
+    example_definition: $ => seq(
+      'example',
+      ':',
+      $._expression,
+      ':=',
+      $._expression,
+    ),
+
     _expression: $ => choice(
-      prec(1, $.identifier),
+      $.identifier,
       $._parenthesized_expression,
+      $.comparison,
+      $.conditional,
       $.function_application,
       $.lambda,
       $.binary_expression,
@@ -108,8 +122,13 @@ module.exports = grammar({
       ')'
     )),
 
-    argument_list: $ => seq(
-      prec.left(repeat1($._expression)),
+    conditional: $ => seq(
+      'if',
+      $._expression,
+      'then',
+      $._expression,
+      'else',
+      $._expression,
     ),
 
     lambda: $ => seq(
@@ -118,15 +137,24 @@ module.exports = grammar({
 
     function_application: $ => prec(PREC.function_application, seq(
       field('name', $._expression),
-      prec.left(1, field('arguments', $.argument_list)),
+      field('arguments', repeat1($._expression)),
     )),
 
     binary_expression: $ => choice(
       prec.left(2, seq($._expression, '*', $._expression)),
       prec.left(1, seq($._expression, '+', $._expression)),
       prec.left(1, seq($._expression, '-', $._expression)),
-      prec.left(1, seq($._expression, '=', $._expression)),
+      prec.left(PREC.equal, seq($._expression, '=', $._expression)),
     ),
+
+    comparison: $ => prec.left(PREC.compare, seq(
+      $._expression,
+      choice(
+        '<',
+        '>',
+      ),
+      $._expression,
+    )),
 
     string: $ => seq(
       '"',

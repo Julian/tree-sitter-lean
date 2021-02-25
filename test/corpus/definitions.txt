@@ -15,7 +15,7 @@ theorem foo : p := sorry
     (parameter_list (identifier))
     (binary_expression (binary_expression (identifier) (identifier)) (number)))
   (function_definition (identifier)
-    (function_application (identifier) (argument_list (number))))
+    (function_application (identifier) (number)))
   (theorem_definition (identifier) (identifier) (identifier)))
 
 =========
@@ -52,8 +52,7 @@ def twice (f : Nat → Nat) (a : Nat) :=
       (annotated (identifier) (function_annotation (identifier) (identifier)))
       (annotated (identifier) (identifier)))
     (function_application (identifier)
-      (argument_list
-        (function_application (identifier) (argument_list (identifier)))))))
+      (function_application (identifier) (identifier)))))
 
 ==================
 Anonymous Function
@@ -83,29 +82,58 @@ Anonymous Function Application
       (lambda
         (parameter_list (identifier))
         (binary_expression (identifier) (number)))
-      (argument_list (number)))))
+      (number))))
+
+============
+Conditionals
+============
+
+def sampleFunction3 (x : Int) :=
+if x > 100 then
+  2*x*x - x + 3
+else
+  2*x*x + x - 37
+
+---
+
+(source_file
+(function_definition (identifier)
+  (parameter_list (annotated (identifier) (identifier)))
+  (conditional (comparison (identifier) (number))
+      (binary_expression
+        (binary_expression
+          (binary_expression
+            (binary_expression (number) (identifier))
+            (identifier))
+          (identifier))
+        (number))
+      (binary_expression
+        (binary_expression
+          (binary_expression
+            (binary_expression (number) (identifier))
+            (identifier))
+          (identifier))
+        (number)))))
+
 
 =======
 Theorem
 =======
 
 theorem twiceAdd2 (a : Nat) : twice (fun x => x + 2) a = a + 4 :=
-  -- The proof is by reflexivity. Lean "symbolically" reduces both sides of the equality
-  -- until they are identical.
+-- The proof is by reflexivity. Lean "symbolically" reduces both sides of the equality
+-- until they are identical.
   rfl
 
 ---
 
 (source_file
-  (theorem_definition (identifier)
-    (parameter_list (annotated (identifier) (identifier)))
+(theorem_definition (identifier)
+  (parameter_list (annotated (identifier) (identifier)))
+  (binary_expression
     (function_application (identifier)
-      (argument_list
-        (function_application
-          (lambda
-            (parameter_list (identifier))
-            (binary_expression (identifier) (number)))
-          (argument_list
-            (binary_expression
-              (binary_expression (identifier) (identifier))
-              (number)))))) (comment) (comment) (identifier)))
+      (lambda
+        (parameter_list (identifier))
+        (binary_expression (identifier) (number))) (identifier))
+    (binary_expression (identifier) (number)))
+    (comment) (comment) (identifier)))

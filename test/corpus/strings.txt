@@ -9,7 +9,7 @@ Interpolation
 (source_file
   (eval_command
     (function_application (identifier)
-      (argument_list (string (interpolation (identifier)))))))
+      (string (interpolation (identifier))))))
 
 =======================================
 Interpolation With Function Application
@@ -22,5 +22,5 @@ Interpolation With Function Application
 (source_file
   (eval_command
     (function_application (identifier)
-      (argument_list (string (interpolation
-        (function_application (identifier) (argument_list (number)))))))))
+      (string (interpolation
+        (function_application (identifier) (number)))))))

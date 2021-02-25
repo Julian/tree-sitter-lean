@@ -22,5 +22,24 @@ Same Line
 ---
 
 (source_file
-  (eval_command (function_application (identifier) (argument_list (number))))
+  (eval_command (function_application (identifier) (number)))
   (eval_command (number)))
+
+=======
+Example
+=======
+
+example : (fun x => x * 2) 4 < 3 = false := rfl
+
+---
+
+(source_file
+  (example_definition
+    (binary_expression
+      (comparison
+        (function_application
+          (lambda (parameter_list (identifier))
+            (binary_expression (identifier) (number))) (number))
+        (number))
+      (identifier))
+    (identifier)))
