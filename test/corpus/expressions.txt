@@ -6,7 +6,7 @@ Number
 
 ---
 
-(source_file (eval_command (number)))
+(source_file (hash_command (number)))
 
 ======
 String
@@ -16,7 +16,7 @@ String
 
 ---
 
-(source_file (eval_command (string)))
+(source_file (hash_command (string)))
 
 ===========
 Conditional
@@ -26,7 +26,7 @@ Conditional
 
 ---
 
-(source_file (eval_command (conditional (identifier) (string) (string))))
+(source_file (hash_command (conditional (identifier) (string) (string))))
 
 ==========
 Comparison
@@ -36,7 +36,7 @@ Comparison
 
 ---
 
-(source_file (eval_command (comparison (number) (number))))
+(source_file (hash_command (comparison (number) (number))))
 
 =====================
 Comparison Precedence
@@ -46,7 +46,7 @@ Comparison Precedence
 
 ---
 
-(source_file (check_command
+(source_file (hash_command
   (comparison
     (function_application (identifier) (number))
     (number))))
@@ -60,7 +60,7 @@ Multiple Function Arguments
 ---
 
 (source_file
-  (check_command
+  (hash_command
     (function_application (identifier) (number) (number) (number))))
 
 ==============

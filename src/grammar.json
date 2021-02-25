@@ -14,7 +14,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_hash_command"
+          "name": "hash_command"
         },
         {
           "type": "SYMBOL",
@@ -42,55 +42,25 @@
         }
       ]
     },
-    "_hash_command": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "check_command"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "eval_command"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "reduce_command"
-        }
-      ]
-    },
-    "check_command": {
+    "hash_command": {
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "#check"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_expression"
-        }
-      ]
-    },
-    "eval_command": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "#eval"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_expression"
-        }
-      ]
-    },
-    "reduce_command": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "#reduce"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "#check"
+            },
+            {
+              "type": "STRING",
+              "value": "#eval"
+            },
+            {
+              "type": "STRING",
+              "value": "#reduce"
+            }
+          ]
         },
         {
           "type": "SYMBOL",

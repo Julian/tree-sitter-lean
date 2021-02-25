@@ -90,49 +90,6 @@
     }
   },
   {
-    "type": "check_command",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "binary_expression",
-          "named": true
-        },
-        {
-          "type": "comparison",
-          "named": true
-        },
-        {
-          "type": "conditional",
-          "named": true
-        },
-        {
-          "type": "function_application",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "lambda",
-          "named": true
-        },
-        {
-          "type": "number",
-          "named": true
-        },
-        {
-          "type": "string",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "comparison",
     "named": true,
     "fields": {},
@@ -228,49 +185,6 @@
       "types": [
         {
           "type": "identifier",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "eval_command",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "binary_expression",
-          "named": true
-        },
-        {
-          "type": "comparison",
-          "named": true
-        },
-        {
-          "type": "conditional",
-          "named": true
-        },
-        {
-          "type": "function_application",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "lambda",
-          "named": true
-        },
-        {
-          "type": "number",
-          "named": true
-        },
-        {
-          "type": "string",
           "named": true
         }
       ]
@@ -525,6 +439,49 @@
     }
   },
   {
+    "type": "hash_command",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "binary_expression",
+          "named": true
+        },
+        {
+          "type": "comparison",
+          "named": true
+        },
+        {
+          "type": "conditional",
+          "named": true
+        },
+        {
+          "type": "function_application",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "lambda",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "inductive_type",
     "named": true,
     "fields": {
@@ -660,19 +617,15 @@
       "required": true,
       "types": [
         {
-          "type": "check_command",
-          "named": true
-        },
-        {
-          "type": "eval_command",
-          "named": true
-        },
-        {
           "type": "example_definition",
           "named": true
         },
         {
           "type": "function_definition",
+          "named": true
+        },
+        {
+          "type": "hash_command",
           "named": true
         },
         {
@@ -685,10 +638,6 @@
         },
         {
           "type": "namespace_definition",
-          "named": true
-        },
-        {
-          "type": "reduce_command",
           "named": true
         },
         {
@@ -722,49 +671,6 @@
     }
   },
   {
-    "type": "reduce_command",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "binary_expression",
-          "named": true
-        },
-        {
-          "type": "comparison",
-          "named": true
-        },
-        {
-          "type": "conditional",
-          "named": true
-        },
-        {
-          "type": "function_application",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "lambda",
-          "named": true
-        },
-        {
-          "type": "number",
-          "named": true
-        },
-        {
-          "type": "string",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "section_definition",
     "named": true,
     "fields": {
@@ -784,19 +690,15 @@
       "required": true,
       "types": [
         {
-          "type": "check_command",
-          "named": true
-        },
-        {
-          "type": "eval_command",
-          "named": true
-        },
-        {
           "type": "example_definition",
           "named": true
         },
         {
           "type": "function_definition",
+          "named": true
+        },
+        {
+          "type": "hash_command",
           "named": true
         },
         {
@@ -809,10 +711,6 @@
         },
         {
           "type": "namespace_definition",
-          "named": true
-        },
-        {
-          "type": "reduce_command",
           "named": true
         },
         {
@@ -835,14 +733,6 @@
       "required": false,
       "types": [
         {
-          "type": "check_command",
-          "named": true
-        },
-        {
-          "type": "eval_command",
-          "named": true
-        },
-        {
           "type": "example_definition",
           "named": true
         },
@@ -851,15 +741,15 @@
           "named": true
         },
         {
+          "type": "hash_command",
+          "named": true
+        },
+        {
           "type": "inductive_type",
           "named": true
         },
         {
           "type": "namespace_definition",
-          "named": true
-        },
-        {
-          "type": "reduce_command",
           "named": true
         },
         {

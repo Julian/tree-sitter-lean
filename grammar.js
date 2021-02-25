@@ -20,25 +20,19 @@ module.exports = grammar({
     source_file: $ => repeat($._command),
 
     _command: $ => choice(
-      $._hash_command,
+      $.hash_command,
       $.namespace_definition,
       $.section_definition,
       $.example_definition,
       $.function_definition,
       $.inductive_type,
       $.theorem_definition,
-      // TODO: other kinds of definitions
     ),
 
-    _hash_command: $ => choice(
-      $.check_command,
-      $.eval_command,
-      $.reduce_command,
+    hash_command: $ => seq(
+      choice('#check', '#eval', '#reduce'),
+      $._expression,
     ),
-
-    check_command: $ => seq('#check', $._expression),
-    eval_command: $ => seq('#eval', $._expression),
-    reduce_command: $ => seq('#reduce', $._expression),
 
     inductive_type: $ => seq(
       'inductive',

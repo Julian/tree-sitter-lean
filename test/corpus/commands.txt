@@ -9,9 +9,9 @@
 ---
 
 (source_file
-  (check_command (binary_expression (number) (number)))
-  (eval_command (binary_expression (number) (number)))
-  (reduce_command (binary_expression (number) (number))))
+  (hash_command (binary_expression (number) (number)))
+  (hash_command (binary_expression (number) (number)))
+  (hash_command (binary_expression (number) (number))))
 
 =========
 Same Line
@@ -22,8 +22,8 @@ Same Line
 ---
 
 (source_file
-  (eval_command (function_application (identifier) (number)))
-  (eval_command (number)))
+  (hash_command (function_application (identifier) (number)))
+  (hash_command (number)))
 
 =======
 Example

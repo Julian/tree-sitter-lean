@@ -63,7 +63,7 @@ Anonymous Function
 ---
 
 (source_file
-  (check_command
+  (hash_command
     (lambda
       (parameter_list (identifier))
       (binary_expression (identifier) (number)))))
@@ -77,7 +77,7 @@ Anonymous Function Application
 ---
 
 (source_file
-  (eval_command
+  (hash_command
     (function_application
       (lambda
         (parameter_list (identifier))

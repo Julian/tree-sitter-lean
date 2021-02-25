@@ -7,7 +7,7 @@ Interpolation
 ---
 
 (source_file
-  (eval_command
+  (hash_command
     (function_application (identifier)
       (string (interpolation (identifier))))))
 
@@ -20,7 +20,7 @@ Interpolation With Function Application
 ---
 
 (source_file
-  (eval_command
+  (hash_command
     (function_application (identifier)
       (string (interpolation
         (function_application (identifier) (number)))))))
