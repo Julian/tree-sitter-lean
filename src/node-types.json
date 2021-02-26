@@ -638,6 +638,26 @@
     }
   },
   {
+    "type": "import",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": ".",
+            "named": false
+          },
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "inductive_type",
     "named": true,
     "fields": {
@@ -1065,6 +1085,10 @@
           "named": true
         },
         {
+          "type": "import",
+          "named": true
+        },
+        {
           "type": "inductive_type",
           "named": true
         },
@@ -1271,6 +1295,10 @@
           "named": true
         },
         {
+          "type": "import",
+          "named": true
+        },
+        {
           "type": "inductive_type",
           "named": true
         },
@@ -1315,6 +1343,10 @@
         },
         {
           "type": "hash_command",
+          "named": true
+        },
+        {
+          "type": "import",
           "named": true
         },
         {
@@ -1533,6 +1565,10 @@
   },
   {
     "type": "if",
+    "named": false
+  },
+  {
+    "type": "import",
     "named": false
   },
   {

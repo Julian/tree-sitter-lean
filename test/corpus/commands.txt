@@ -26,7 +26,7 @@ Same Line #commands
   (hash_command (number)))
 
 ====
-open
+Open
 ====
 
 open Foo
@@ -34,6 +34,26 @@ open Foo
 ---
 
 (source_file (open (identifier)))
+
+======
+Import
+======
+
+import Foo
+
+---
+
+(source_file (import (identifier)))
+
+=============
+Import Nested
+=============
+
+import Foo.Bar.Baz
+
+---
+
+(source_file (import (identifier) (identifier) (identifier)))
 
 =======
 Example

@@ -21,6 +21,7 @@ module.exports = grammar({
 
     _command: $ => choice(
       $.hash_command,
+      $.import,
       $.open,
       $.namespace,
       $.section,
@@ -29,6 +30,14 @@ module.exports = grammar({
       $.inductive_type,
       $.instance,
       $.theorem,
+    ),
+
+    import: $ => seq(
+      'import',
+      field(
+        'name',
+        seq($.identifier, optional(repeat1(seq('.', $.identifier)))),
+      ),
     ),
 
     open: $ => seq('open', $.identifier),
