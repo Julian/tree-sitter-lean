@@ -24,6 +24,10 @@
           "named": true
         },
         {
+          "type": "do",
+          "named": true
+        },
+        {
           "type": "element_of",
           "named": true
         },
@@ -91,6 +95,10 @@
             "named": true
           },
           {
+            "type": "do",
+            "named": true
+          },
+          {
             "type": "element_of",
             "named": true
           },
@@ -146,6 +154,10 @@
           },
           {
             "type": "conditional",
+            "named": true
+          },
+          {
+            "type": "do",
             "named": true
           },
           {
@@ -205,6 +217,10 @@
           "named": true
         },
         {
+          "type": "do",
+          "named": true
+        },
+        {
           "type": "element_of",
           "named": true
         },
@@ -260,6 +276,10 @@
           "named": true
         },
         {
+          "type": "do",
+          "named": true
+        },
+        {
           "type": "element_of",
           "named": true
         },
@@ -312,6 +332,10 @@
         },
         {
           "type": "conditional",
+          "named": true
+        },
+        {
+          "type": "do",
           "named": true
         },
         {
@@ -385,11 +409,63 @@
         ]
       },
       "return_type": {
-        "multiple": false,
+        "multiple": true,
         "required": false,
         "types": [
           {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "apply",
+            "named": true
+          },
+          {
+            "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "comparison",
+            "named": true
+          },
+          {
+            "type": "conditional",
+            "named": true
+          },
+          {
+            "type": "do",
+            "named": true
+          },
+          {
+            "type": "element_of",
+            "named": true
+          },
+          {
             "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "lambda",
+            "named": true
+          },
+          {
+            "type": "match",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "product",
+            "named": true
+          },
+          {
+            "type": "string",
             "named": true
           }
         ]
@@ -413,6 +489,69 @@
         },
         {
           "type": "conditional",
+          "named": true
+        },
+        {
+          "type": "do",
+          "named": true
+        },
+        {
+          "type": "element_of",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "lambda",
+          "named": true
+        },
+        {
+          "type": "match",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "product",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "do",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "apply",
+          "named": true
+        },
+        {
+          "type": "binary_expression",
+          "named": true
+        },
+        {
+          "type": "comparison",
+          "named": true
+        },
+        {
+          "type": "conditional",
+          "named": true
+        },
+        {
+          "type": "do",
           "named": true
         },
         {
@@ -497,6 +636,10 @@
           "named": true
         },
         {
+          "type": "do",
+          "named": true
+        },
+        {
           "type": "element_of",
           "named": true
         },
@@ -552,6 +695,10 @@
           "named": true
         },
         {
+          "type": "do",
+          "named": true
+        },
+        {
           "type": "element_of",
           "named": true
         },
@@ -604,6 +751,10 @@
         },
         {
           "type": "conditional",
+          "named": true
+        },
+        {
+          "type": "do",
           "named": true
         },
         {
@@ -716,6 +867,10 @@
             "named": true
           },
           {
+            "type": "do",
+            "named": true
+          },
+          {
             "type": "element_of",
             "named": true
           },
@@ -800,6 +955,10 @@
             "named": true
           },
           {
+            "type": "do",
+            "named": true
+          },
+          {
             "type": "element_of",
             "named": true
           },
@@ -878,6 +1037,10 @@
             "named": true
           },
           {
+            "type": "do",
+            "named": true
+          },
+          {
             "type": "element_of",
             "named": true
           },
@@ -934,6 +1097,10 @@
           "named": true
         },
         {
+          "type": "do",
+          "named": true
+        },
+        {
           "type": "element_of",
           "named": true
         },
@@ -986,6 +1153,10 @@
         },
         {
           "type": "conditional",
+          "named": true
+        },
+        {
+          "type": "do",
           "named": true
         },
         {
@@ -1178,6 +1349,10 @@
           "named": true
         },
         {
+          "type": "do",
+          "named": true
+        },
+        {
           "type": "element_of",
           "named": true
         },
@@ -1230,6 +1405,10 @@
         },
         {
           "type": "conditional",
+          "named": true
+        },
+        {
+          "type": "do",
           "named": true
         },
         {
@@ -1449,6 +1628,10 @@
           "named": true
         },
         {
+          "type": "do",
+          "named": true
+        },
+        {
           "type": "element_of",
           "named": true
         },
@@ -1553,6 +1736,10 @@
   },
   {
     "type": "def",
+    "named": false
+  },
+  {
+    "type": "do",
     "named": false
   },
   {

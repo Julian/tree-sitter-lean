@@ -1,0 +1,31 @@
+=========
+Braceless
+=========
+
+def main : IO UInt32 := do
+  IO.println "hello"
+  IO.println "world"
+
+---
+
+(source_file
+  (def (identifier) (apply (identifier) (identifier))
+    (do
+      (apply (element_of (identifier) (identifier)) (string))
+      (apply (element_of (identifier) (identifier)) (string)))))
+
+========
+Repeated
+========
+
+def main : IO UInt32 := do do
+  IO.println "hello"
+  IO.println "world"
+
+---
+
+(source_file
+  (def (identifier) (apply (identifier) (identifier))
+    (do (do)
+      (apply (element_of (identifier) (identifier)) (string))
+      (apply (element_of (identifier) (identifier)) (string)))))

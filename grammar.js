@@ -14,6 +14,10 @@ module.exports = grammar({
     /\s/,
   ],
 
+  externals: $ => [
+    $._newline,
+  ],
+
   word: $ => $.identifier,
 
   rules: {
@@ -122,7 +126,7 @@ module.exports = grammar({
       'def',
       field('name', $.identifier),
       field('parameters', optional($.parameter_list)),
-      optional(seq(':', field('return_type', $.identifier))),
+      optional(seq(':', field('return_type', $._expression))),
       ':=',
       $._expression,
     ),
@@ -155,6 +159,7 @@ module.exports = grammar({
       $.match,
       $.apply,
       $.lambda,
+      $.do,
       $.binary_expression,
       $.number,
       $.string,
@@ -181,6 +186,11 @@ module.exports = grammar({
       'else',
       $._expression,
     ),
+
+    do: $ => prec.right(seq(
+      'do',
+      repeat(seq($._expression, $._newline)),
+    )),
 
     match: $ => prec.left(seq(
       'match',
