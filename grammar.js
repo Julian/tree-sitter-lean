@@ -136,6 +136,7 @@ module.exports = grammar({
     _expression: $ => choice(
       $.identifier,
       $._parenthesized_expression,
+      $.product,
       $.comparison,
       $.conditional,
       $.element_of,
@@ -152,6 +153,13 @@ module.exports = grammar({
       $._expression,
       ')'
     )),
+
+    product: $ => seq(
+      '(',
+        $._expression,
+        repeat1(seq(',', $._expression)),
+      ')'
+    ),
 
     conditional: $ => seq(
       'if',

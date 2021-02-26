@@ -18,6 +18,16 @@ String
 
 (source_file (hash_command (string)))
 
+=======
+Product
+=======
+
+#check (10, "foo", 30, 40)
+
+---
+
+(source_file (hash_command (product (number) (string) (number) (number))))
+
 ===========
 Conditional
 ===========
