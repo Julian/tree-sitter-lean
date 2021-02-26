@@ -13,9 +13,9 @@
   (hash_command (binary_expression (number) (number)))
   (hash_command (binary_expression (number) (number))))
 
-=========
-Same Line
-=========
+===================
+Same Line #commands
+===================
 
 #eval id 2 #eval 5
 
@@ -24,6 +24,16 @@ Same Line
 (source_file
   (hash_command (apply (identifier) (number)))
   (hash_command (number)))
+
+====
+open
+====
+
+open Foo
+
+---
+
+(source_file (open (identifier)))
 
 =======
 Example
@@ -34,7 +44,7 @@ example : (fun x => x * 2) 4 < 3 = false := rfl
 ---
 
 (source_file
-  (example_definition
+  (example
     (binary_expression
       (comparison
         (apply

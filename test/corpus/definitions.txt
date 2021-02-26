@@ -11,12 +11,12 @@ theorem foo : p := sorry
 ---
 
 (source_file
-  (function_definition (identifier)
+  (def (identifier)
     (parameter_list (identifier))
     (binary_expression (binary_expression (identifier) (identifier)) (number)))
-  (function_definition (identifier)
+  (def (identifier)
     (apply (identifier) (number)))
-  (theorem_definition (identifier) (identifier) (identifier)))
+  (theorem (identifier) (identifier) (identifier)))
 
 =========
 Annotated
@@ -27,7 +27,7 @@ def sampleFunction2 (x : Nat) := 2*x*x - x + 3
 ---
 
 (source_file
-  (function_definition (identifier)
+  (def (identifier)
     (parameter_list (annotated (identifier) (identifier)))
     (binary_expression
       (binary_expression
@@ -47,7 +47,7 @@ def twice (f : Nat → Nat) (a : Nat) :=
 ---
 
 (source_file
-  (function_definition (identifier)
+  (def (identifier)
     (parameter_list
       (annotated (identifier) (function_annotation (identifier) (identifier)))
       (annotated (identifier) (identifier)))
@@ -97,7 +97,7 @@ else
 ---
 
 (source_file
-(function_definition (identifier)
+(def (identifier)
   (parameter_list (annotated (identifier) (identifier)))
   (conditional (comparison (identifier) (number))
       (binary_expression
@@ -128,7 +128,7 @@ theorem twiceAdd2 (a : Nat) : twice (fun x => x + 2) a = a + 4 :=
 ---
 
 (source_file
-(theorem_definition (identifier)
+(theorem (identifier)
   (parameter_list (annotated (identifier) (identifier)))
   (binary_expression
     (apply (identifier)

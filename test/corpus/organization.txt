@@ -7,7 +7,7 @@ end Foo
 
 ---
 
-(source_file (namespace_definition (identifier) (identifier)))
+(source_file (namespace (identifier) (identifier)))
 
 =============
 Empty Section
@@ -18,7 +18,7 @@ end Foo
 
 ---
 
-(source_file (section_definition (identifier) (identifier)))
+(source_file (section (identifier) (identifier)))
 
 ======================
 Nested Empty Namespace
@@ -32,8 +32,8 @@ end Foo
 ---
 
 (source_file
-  (namespace_definition (identifier)
-    (namespace_definition (identifier) (identifier)) (identifier)))
+  (namespace (identifier)
+    (namespace (identifier) (identifier)) (identifier)))
 
 ====================
 Nested Empty Section
@@ -47,8 +47,8 @@ end Foo
 ---
 
 (source_file
-  (section_definition (identifier)
-    (section_definition (identifier) (identifier)) (identifier)))
+  (section (identifier)
+    (section (identifier) (identifier)) (identifier)))
 
 ==========================
 Namespace With Definitions
@@ -64,9 +64,9 @@ end Foo
 ---
 
 (source_file
-  (namespace_definition (identifier)
-    (theorem_definition (identifier) (identifier) (identifier))
-    (theorem_definition (identifier) (identifier) (identifier)) (identifier)))
+  (namespace (identifier)
+    (theorem (identifier) (identifier) (identifier))
+    (theorem (identifier) (identifier) (identifier)) (identifier)))
 
 ========================
 Section With Definitions
@@ -82,9 +82,9 @@ end Foo
 ---
 
 (source_file
-  (section_definition (identifier)
-    (theorem_definition (identifier) (identifier) (identifier))
-    (theorem_definition (identifier) (identifier) (identifier)) (identifier)))
+  (section (identifier)
+    (theorem (identifier) (identifier) (identifier))
+    (theorem (identifier) (identifier) (identifier)) (identifier)))
 
 =======================
 Namespace With Sections
@@ -109,9 +109,9 @@ end Foo
 ---
 
 (source_file
-  (namespace_definition (identifier)
-    (section_definition (identifier)
-      (theorem_definition (identifier) (identifier) (identifier)) (identifier))
-    (section_definition (identifier)
-      (theorem_definition (identifier) (identifier) (identifier)) (identifier))
+  (namespace (identifier)
+    (section (identifier)
+      (theorem (identifier) (identifier) (identifier)) (identifier))
+    (section (identifier)
+      (theorem (identifier) (identifier) (identifier)) (identifier))
     (identifier)))

@@ -21,14 +21,17 @@ module.exports = grammar({
 
     _command: $ => choice(
       $.hash_command,
-      $.namespace_definition,
-      $.section_definition,
-      $.example_definition,
-      $.function_definition,
+      $.open,
+      $.namespace,
+      $.section,
+      $.example,
+      $.def,
       $.inductive_type,
       $.instance,
-      $.theorem_definition,
+      $.theorem,
     ),
+
+    open: $ => seq('open', $.identifier),
 
     hash_command: $ => seq(
       choice('#check', '#eval', '#reduce'),
@@ -64,7 +67,7 @@ module.exports = grammar({
       '|', $.identifier, ':', $.identifier,
     ),
 
-    namespace_definition: $ => seq(
+    namespace: $ => seq(
       'namespace',
       field('name', $.identifier),
       repeat($._command),
@@ -72,7 +75,7 @@ module.exports = grammar({
       $.identifier,
     ),
 
-    section_definition: $ => seq(
+    section: $ => seq(
       'section',
       field('name', $.identifier),
       repeat($._command),
@@ -103,7 +106,7 @@ module.exports = grammar({
       $._expression, '→', $._expression,
     ),
 
-    function_definition: $ => seq(
+    def: $ => seq(
       'def',
       field('name', $.identifier),
       field('parameters', optional($.parameter_list)),
@@ -111,7 +114,7 @@ module.exports = grammar({
       $._expression,
     ),
 
-    theorem_definition: $ => seq(
+    theorem: $ => seq(
       'theorem',
       field('name', $.identifier),
       field('parameters', optional($.parameter_list)),
@@ -121,7 +124,7 @@ module.exports = grammar({
       $.identifier,
     ),
 
-    example_definition: $ => seq(
+    example: $ => seq(
       'example',
       ':',
       $._expression,

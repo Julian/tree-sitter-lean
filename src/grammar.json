@@ -18,19 +18,23 @@
         },
         {
           "type": "SYMBOL",
-          "name": "namespace_definition"
+          "name": "open"
         },
         {
           "type": "SYMBOL",
-          "name": "section_definition"
+          "name": "namespace"
         },
         {
           "type": "SYMBOL",
-          "name": "example_definition"
+          "name": "section"
         },
         {
           "type": "SYMBOL",
-          "name": "function_definition"
+          "name": "example"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "def"
         },
         {
           "type": "SYMBOL",
@@ -42,7 +46,20 @@
         },
         {
           "type": "SYMBOL",
-          "name": "theorem_definition"
+          "name": "theorem"
+        }
+      ]
+    },
+    "open": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "open"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
         }
       ]
     },
@@ -222,7 +239,7 @@
         }
       ]
     },
-    "namespace_definition": {
+    "namespace": {
       "type": "SEQ",
       "members": [
         {
@@ -254,7 +271,7 @@
         }
       ]
     },
-    "section_definition": {
+    "section": {
       "type": "SEQ",
       "members": [
         {
@@ -362,7 +379,7 @@
         }
       ]
     },
-    "function_definition": {
+    "def": {
       "type": "SEQ",
       "members": [
         {
@@ -403,7 +420,7 @@
         }
       ]
     },
-    "theorem_definition": {
+    "theorem": {
       "type": "SEQ",
       "members": [
         {
@@ -452,7 +469,7 @@
         }
       ]
     },
-    "example_definition": {
+    "example": {
       "type": "SEQ",
       "members": [
         {
