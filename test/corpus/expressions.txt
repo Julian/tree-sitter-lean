@@ -70,6 +70,7 @@ Binary Expressions
 #eval 2 - 3
 #eval 2 = 3
 #eval 2 ≠ 3
+#eval "foo" ++ "bar"
 
 ---
 
@@ -77,7 +78,8 @@ Binary Expressions
   (hash_command (binary_expression (number) (number)))
   (hash_command (binary_expression (number) (number)))
   (hash_command (binary_expression (number) (number)))
-  (hash_command (binary_expression (number) (number))))
+  (hash_command (binary_expression (number) (number)))
+  (hash_command (binary_expression (string) (string))))
 
 ==========
 Comparison
