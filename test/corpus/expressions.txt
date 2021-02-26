@@ -73,3 +73,18 @@ Field Access
 
 (source_file
   (hash_command (element_of (identifier) (identifier))))
+
+=====
+Match
+=====
+
+def foo (d : Bar) : Baz :=
+  match d with
+  | quux    => 1
+
+---
+
+(source_file
+  (def (identifier) (parameter_list (annotated (identifier) (identifier)))
+    (identifier)
+    (match (identifier) (pattern (identifier) (number)))))

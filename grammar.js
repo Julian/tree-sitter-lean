@@ -110,6 +110,7 @@ module.exports = grammar({
       'def',
       field('name', $.identifier),
       field('parameters', optional($.parameter_list)),
+      optional(seq(':', field('return_type', $.identifier))),
       ':=',
       $._expression,
     ),
@@ -138,6 +139,7 @@ module.exports = grammar({
       $.comparison,
       $.conditional,
       $.element_of,
+      $.match,
       $.apply,
       $.lambda,
       $.binary_expression,
@@ -157,6 +159,20 @@ module.exports = grammar({
       'then',
       $._expression,
       'else',
+      $._expression,
+    ),
+
+    match: $ => prec.left(seq(
+      'match',
+      $.identifier,
+      'with',
+      field('patterns', repeat1($.pattern)),
+    )),
+
+    pattern: $ => seq(
+      '|',
+      $.identifier,
+      '=>',
       $._expression,
     ),
 
