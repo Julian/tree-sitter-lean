@@ -20,6 +20,7 @@ module.exports = grammar({
     source_file: $ => repeat($._command),
 
     _command: $ => choice(
+      $.prelude,
       $.hash_command,
       $.import,
       $.open,
@@ -31,6 +32,8 @@ module.exports = grammar({
       $.instance,
       $.theorem,
     ),
+
+    prelude: $ => 'prelude',
 
     import: $ => seq(
       'import',

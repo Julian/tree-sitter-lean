@@ -25,6 +25,19 @@ Same Line #commands
   (hash_command (apply (identifier) (number)))
   (hash_command (number)))
 
+=======
+Prelude
+=======
+
+prelude
+import Foo
+
+---
+
+(source_file
+  (prelude)
+  (import (identifier)))
+
 ====
 Open
 ====

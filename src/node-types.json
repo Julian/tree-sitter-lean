@@ -1105,6 +1105,10 @@
           "named": true
         },
         {
+          "type": "prelude",
+          "named": true
+        },
+        {
           "type": "section",
           "named": true
         },
@@ -1315,6 +1319,10 @@
           "named": true
         },
         {
+          "type": "prelude",
+          "named": true
+        },
+        {
           "type": "section",
           "named": true
         },
@@ -1363,6 +1371,10 @@
         },
         {
           "type": "open",
+          "named": true
+        },
+        {
+          "type": "prelude",
           "named": true
         },
         {
@@ -1594,6 +1606,10 @@
   {
     "type": "open",
     "named": false
+  },
+  {
+    "type": "prelude",
+    "named": true
   },
   {
     "type": "section",
