@@ -38,15 +38,35 @@ Conditional
 
 (source_file (hash_command (conditional (identifier) (string) (string))))
 
+==================
+Binary Expressions
+==================
+
+#eval 2 + 3
+#eval 2 - 3
+#eval 2 = 3
+#eval 2 ≠ 3
+
+---
+
+(source_file
+  (hash_command (binary_expression (number) (number)))
+  (hash_command (binary_expression (number) (number)))
+  (hash_command (binary_expression (number) (number)))
+  (hash_command (binary_expression (number) (number))))
+
 ==========
 Comparison
 ==========
 
+#eval 2 < 3
 #eval 2 > 3
 
 ---
 
-(source_file (hash_command (comparison (number) (number))))
+(source_file
+  (hash_command (comparison (number) (number)))
+  (hash_command (comparison (number) (number))))
 
 =====================
 Comparison Precedence
