@@ -39,13 +39,7 @@ module.exports = grammar({
 
     prelude: $ => 'prelude',
 
-    import: $ => seq(
-      'import',
-      field(
-        'name',
-        seq($.identifier, optional(repeat1(seq('.', $.identifier)))),
-      ),
-    ),
+    import: $ => seq('import', field('name', $.dotted_name)),
 
     open: $ => seq('open', $.identifier),
 
@@ -254,6 +248,8 @@ module.exports = grammar({
       '{', $._expression, '}'
     ),
 
+    dotted_name: $ => sep1($.identifier, '.'),
+
     // TODO: actual right string content, escape sequences, etc.
     _string_content: $ => /[^"]/,
 
@@ -274,3 +270,7 @@ module.exports = grammar({
     number: $ => /\d+/
   }
 });
+
+function sep1 (rule, separator) {
+  return seq(rule, repeat(seq(separator, rule)))
+}
