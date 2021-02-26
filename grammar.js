@@ -188,9 +188,14 @@ module.exports = grammar({
     ),
 
     do: $ => prec.right(seq(
-      'do',
-      repeat(seq($._expression, $._newline)),
+      'do', repeat(
+        seq(choice($._expression, $.let), $._newline),
+      ),
     )),
+
+    let: $ => seq(
+      'let', $.identifier, choice('<-', '←', ':='), $._expression,
+    ),
 
     match: $ => prec.left(seq(
       'match',

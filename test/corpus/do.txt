@@ -29,3 +29,21 @@ def main : IO UInt32 := do do
     (do (do)
       (apply (element_of (identifier) (identifier)) (string))
       (apply (element_of (identifier) (identifier)) (string)))))
+
+===
+Let
+===
+
+def f : Unit := do
+  let c <- 2
+  let d ← 2
+  let e := 2
+
+---
+
+(source_file
+  (def (identifier) (identifier)
+    (do
+      (let (identifier) (number))
+      (let (identifier) (number))
+      (let (identifier) (number)))))

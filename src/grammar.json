@@ -733,8 +733,17 @@
               "type": "SEQ",
               "members": [
                 {
-                  "type": "SYMBOL",
-                  "name": "_expression"
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "_expression"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "let"
+                    }
+                  ]
                 },
                 {
                   "type": "SYMBOL",
@@ -745,6 +754,40 @@
           }
         ]
       }
+    },
+    "let": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "let"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "<-"
+            },
+            {
+              "type": "STRING",
+              "value": "←"
+            },
+            {
+              "type": "STRING",
+              "value": ":="
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_expression"
+        }
+      ]
     },
     "match": {
       "type": "PREC_LEFT",
