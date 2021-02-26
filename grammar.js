@@ -237,7 +237,17 @@ module.exports = grammar({
     // TODO: actual right string content, escape sequences, etc.
     _string_content: $ => /[^"]/,
 
-    comment: $ => token(seq('--', /.*/)),
+    comment: $ => token(choice(
+      seq('--', /.*/),
+      seq(
+        '/-',
+        repeat(choice(
+          /[^-]/,
+          /-[^/]/
+        )),
+        '-/',
+      ),
+    )),
 
     identifier: $ => /[A-za-z][A-za-z0-9!]*/,
 

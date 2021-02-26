@@ -8,3 +8,16 @@ Global
 ---
 
 (source_file (comment) (comment))
+
+=========
+Multiline
+=========
+
+/-
+Foo
+Bar
+-/
+
+---
+
+(source_file (comment))
