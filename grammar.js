@@ -172,14 +172,18 @@ module.exports = grammar({
       ')'
     ),
 
-    conditional: $ => seq(
+    conditional: $ => prec.right(seq(
       'if',
       $._expression,
       'then',
       $._expression,
-      'else',
-      $._expression,
-    ),
+      optional(
+        seq(
+          'else',
+          $._expression,
+        ),
+      ),
+    )),
 
     do: $ => prec.right(seq(
       'do', repeat(

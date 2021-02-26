@@ -28,15 +28,39 @@ Product
 
 (source_file (hash_command (product (number) (string) (number) (number))))
 
-===========
-Conditional
-===========
+=======
+If/Then
+=======
+
+#eval if true then "foo"
+
+---
+
+(source_file (hash_command (conditional (identifier) (string))))
+
+============
+If/Then/Else
+============
 
 #eval if true then "foo" else "bar"
 
 ---
 
 (source_file (hash_command (conditional (identifier) (string) (string))))
+
+===================
+Nested If/Then/Else
+===================
+
+#eval if true then if false then "foo" else "bar" else "baz"
+
+---
+
+(source_file
+  (hash_command
+    (conditional (identifier)
+      (conditional (identifier) (string) (string))
+      (string))))
 
 ==================
 Binary Expressions
