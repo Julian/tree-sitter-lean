@@ -12,7 +12,7 @@ Lambda Syntax Sugar
 
 (source_file
   (eval_command
-    (function_application (identifier)
+    (apply (identifier)
       (number)
       (lambda (identifier) (binary_expression (identifier) (number)) (number))
       (number))))

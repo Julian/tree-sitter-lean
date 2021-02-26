@@ -8,7 +8,7 @@ Interpolation
 
 (source_file
   (hash_command
-    (function_application (identifier)
+    (apply (identifier)
       (string (interpolation (identifier))))))
 
 =======================================
@@ -21,6 +21,6 @@ Interpolation With Function Application
 
 (source_file
   (hash_command
-    (function_application (identifier)
+    (apply (identifier)
       (string (interpolation
-        (function_application (identifier) (number)))))))
+        (apply (identifier) (number)))))))

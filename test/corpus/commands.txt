@@ -22,7 +22,7 @@ Same Line
 ---
 
 (source_file
-  (hash_command (function_application (identifier) (number)))
+  (hash_command (apply (identifier) (number)))
   (hash_command (number)))
 
 =======
@@ -37,9 +37,58 @@ example : (fun x => x * 2) 4 < 3 = false := rfl
   (example_definition
     (binary_expression
       (comparison
-        (function_application
+        (apply
           (lambda (parameter_list (identifier))
             (binary_expression (identifier) (number))) (number))
         (number))
       (identifier))
     (identifier)))
+
+==============
+Inductive Type
+==============
+
+inductive FooBar where
+  | foo    : Foo
+  | bar    : Bar
+
+---
+
+(source_file
+  (inductive_type (identifier)
+    (constructor (identifier) (identifier))
+    (constructor (identifier) (identifier))))
+
+========
+Instance
+========
+
+instance : ToString Foo where
+  toString (d : Foo) : String := "Foo"
+
+---
+
+(source_file
+  (instance (apply (identifier) (identifier))
+    (instance_fields
+      (identifier)
+      (parameter_list (annotated (identifier) (identifier)))
+      (identifier)
+      (string))))
+
+==============
+Named Instance
+==============
+
+instance toStringFoo : ToString Foo where
+  toString (d : Foo) : String := "Foo"
+
+---
+
+(source_file
+  (instance (identifier) (apply (identifier) (identifier))
+    (instance_fields
+      (identifier)
+      (parameter_list (annotated (identifier) (identifier)))
+      (identifier)
+      (string))))

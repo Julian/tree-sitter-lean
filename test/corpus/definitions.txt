@@ -15,7 +15,7 @@ theorem foo : p := sorry
     (parameter_list (identifier))
     (binary_expression (binary_expression (identifier) (identifier)) (number)))
   (function_definition (identifier)
-    (function_application (identifier) (number)))
+    (apply (identifier) (number)))
   (theorem_definition (identifier) (identifier) (identifier)))
 
 =========
@@ -51,8 +51,8 @@ def twice (f : Nat → Nat) (a : Nat) :=
     (parameter_list
       (annotated (identifier) (function_annotation (identifier) (identifier)))
       (annotated (identifier) (identifier)))
-    (function_application (identifier)
-      (function_application (identifier) (identifier)))))
+    (apply (identifier)
+      (apply (identifier) (identifier)))))
 
 ==================
 Anonymous Function
@@ -78,7 +78,7 @@ Anonymous Function Application
 
 (source_file
   (hash_command
-    (function_application
+    (apply
       (lambda
         (parameter_list (identifier))
         (binary_expression (identifier) (number)))
@@ -131,7 +131,7 @@ theorem twiceAdd2 (a : Nat) : twice (fun x => x + 2) a = a + 4 :=
 (theorem_definition (identifier)
   (parameter_list (annotated (identifier) (identifier)))
   (binary_expression
-    (function_application (identifier)
+    (apply (identifier)
       (lambda
         (parameter_list (identifier))
         (binary_expression (identifier) (number))) (identifier))

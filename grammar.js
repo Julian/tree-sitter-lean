@@ -1,5 +1,5 @@
 const PREC = {
-  function_application: -1,
+  apply: -1,
   parenthesized_expression: 1,
   compare: -1,
 
@@ -26,6 +26,7 @@ module.exports = grammar({
       $.example_definition,
       $.function_definition,
       $.inductive_type,
+      $.instance,
       $.theorem_definition,
     ),
 
@@ -39,6 +40,24 @@ module.exports = grammar({
       field('name', $.identifier),
       'where',
       field('constructors', repeat1($.constructor)),
+    ),
+
+    instance: $ => seq(
+      'instance',
+      optional(field('name', $.identifier)),
+      ':',
+      field('class', $._expression),
+      'where',
+      field('fields', repeat1($.instance_fields)),
+    ),
+
+    instance_fields: $ => seq(
+      field('name', $.identifier),
+      field('parameters', $.parameter_list),
+      ':',
+      field('return_type', $._expression),
+      ':=',
+      field('implementation', $._expression),
     ),
 
     constructor: $ => seq(
@@ -116,7 +135,7 @@ module.exports = grammar({
       $.comparison,
       $.conditional,
       $.element_of,
-      $.function_application,
+      $.apply,
       $.lambda,
       $.binary_expression,
       $.number,
@@ -142,7 +161,7 @@ module.exports = grammar({
       'fun', $.parameter_list, '=>', $._expression,
     ),
 
-    function_application: $ => prec(PREC.function_application, seq(
+    apply: $ => prec(PREC.apply, seq(
       field('name', $._expression),
       field('arguments', repeat1($._expression)),
     )),

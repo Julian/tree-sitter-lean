@@ -48,7 +48,7 @@ Comparison Precedence
 
 (source_file (hash_command
   (comparison
-    (function_application (identifier) (number))
+    (apply (identifier) (number))
     (number))))
 
 ===========================
@@ -61,22 +61,7 @@ Multiple Function Arguments
 
 (source_file
   (hash_command
-    (function_application (identifier) (number) (number) (number))))
-
-==============
-Inductive Type
-==============
-
-inductive FooBar where
-  | foo    : Foo
-  | bar    : Bar
-
----
-
-(source_file
-  (inductive_type (identifier)
-    (constructor (identifier) (identifier))
-    (constructor (identifier) (identifier))))
+    (apply (identifier) (number) (number) (number))))
 
 ============
 Field Access
