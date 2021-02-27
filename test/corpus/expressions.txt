@@ -144,3 +144,24 @@ def foo (d : Bar) : Baz :=
   (def (identifier) (parameter_list (annotated (identifier) (identifier)))
     (identifier)
     (match (identifier) (pattern (identifier) (number)))))
+
+=============
+$ Application
+=============
+
+#eval foo bar (baz (1 + 1))
+#eval foo bar $ baz (1 + 1)
+#eval foo bar $ baz $ 1 + 1
+
+---
+
+(source_file
+  (hash_command
+    (apply (identifier) (identifier)
+      (apply (identifier) (binary_expression (number) (number)))))
+  (hash_command
+    (apply (apply (identifier) (identifier))
+      (apply (identifier) (binary_expression (number) (number)))))
+  (hash_command
+    (apply (apply (identifier) (identifier))
+      (apply (identifier) (binary_expression (number) (number))))))

@@ -1,4 +1,5 @@
 const PREC = {
+  dollar: -2,
   apply: -1,
   parenthesized_expression: 1,
   compare: -1,
@@ -213,9 +214,18 @@ module.exports = grammar({
       'fun', $.parameter_list, '=>', $._expression,
     ),
 
-    apply: $ => prec(PREC.apply, seq(
+    apply: $ => choice($._apply, $._dollar),
+
+    _apply: $ => prec(PREC.apply, seq(
       field('name', $._expression),
       field('arguments', repeat1($._expression)),
+    )),
+
+    // FIXME: This is almost certainly wrong
+    _dollar: $ => prec.right(PREC.dollar, seq(
+      field('name', $._expression),
+      '$',
+      field('argument', $._expression),
     )),
 
     element_of: $ => seq(

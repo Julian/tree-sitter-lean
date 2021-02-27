@@ -852,6 +852,19 @@
       ]
     },
     "apply": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_apply"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_dollar"
+        }
+      ]
+    },
+    "_apply": {
       "type": "PREC",
       "value": -1,
       "content": {
@@ -874,6 +887,35 @@
                 "type": "SYMBOL",
                 "name": "_expression"
               }
+            }
+          }
+        ]
+      }
+    },
+    "_dollar": {
+      "type": "PREC_RIGHT",
+      "value": -2,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "FIELD",
+            "name": "name",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_expression"
+            }
+          },
+          {
+            "type": "STRING",
+            "value": "$"
+          },
+          {
+            "type": "FIELD",
+            "name": "argument",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_expression"
             }
           }
         ]
