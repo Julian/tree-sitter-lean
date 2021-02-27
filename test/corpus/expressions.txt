@@ -62,6 +62,20 @@ Nested If/Then/Else
       (conditional (identifier) (string) (string))
       (string))))
 
+========
+Negation
+========
+
+#eval !true
+#eval !!!true
+
+---
+
+(source_file
+  (hash_command (unary_expression (identifier)))
+  (hash_command
+    (unary_expression (unary_expression (unary_expression (identifier))))))
+
 ==================
 Binary Expressions
 ==================

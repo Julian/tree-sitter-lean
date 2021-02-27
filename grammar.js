@@ -6,6 +6,7 @@ const PREC = {
   element_of: 1,
 
   equal: -1,
+  negation: 1,
 }
 
 module.exports = grammar({
@@ -172,6 +173,7 @@ module.exports = grammar({
       $.apply,
       $.lambda,
       $.do,
+      $.unary_expression,
       $.binary_expression,
       $.number,
       $.string,
@@ -284,6 +286,10 @@ module.exports = grammar({
       '.',
       field('field', $.identifier),
     )),
+
+    unary_expression: $ => choice(
+      prec.left(PREC.negation, seq('!', $._expression)),
+    ),
 
     binary_expression: $ => choice(
       prec.left(2, seq($._expression, '*', $._expression)),
