@@ -231,11 +231,16 @@ module.exports = grammar({
       'fun', $.parameter_list, '=>', $._expression,
     ),
 
+    _argument: $ => choice($._expression, $.named_argument),
+    named_argument: $ => seq(
+      '(', $.identifier, ':=', $._expression, ')',
+    ),
+
     apply: $ => choice($._apply, $._dollar),
 
     _apply: $ => prec(PREC.apply, seq(
       field('name', $._expression),
-      field('arguments', repeat1($._expression)),
+      field('arguments', repeat1($._argument)),
     )),
 
     // FIXME: This is almost certainly wrong

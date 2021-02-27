@@ -119,6 +119,34 @@ Multiple Function Arguments
   (hash_command
     (apply (identifier) (number) (number) (number))))
 
+===============
+Named Arguments
+===============
+
+#check foo (bar := 3)
+
+---
+
+(source_file
+  (hash_command
+    (apply (identifier) (named_argument (identifier) (number)))))
+
+=====================
+Mixed Named Arguments
+=====================
+
+#check foo 1 (bar := 3) 2 (baz := 4)
+
+---
+
+(source_file
+  (hash_command
+    (apply (identifier)
+        (number)
+        (named_argument (identifier) (number))
+        (number)
+        (named_argument (identifier) (number)))))
+
 ============
 Field Access
 ============
