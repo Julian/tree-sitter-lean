@@ -151,3 +151,19 @@ partial def g x : Nat := g (x + 1)
     (parameter_list (identifier))
     (identifier)
     (apply (identifier) (binary_expression (identifier) (number)))))
+
+=========
+Structure
+=========
+
+structure Point (α : Type u) where
+  x : α
+  y : α
+
+---
+
+(source_file
+  (structure_definition (identifier)
+    (parameter_list (annotated (identifier) (apply (identifier) (identifier))))
+    (structure_field (identifier) (identifier))
+    (structure_field (identifier) (identifier))))

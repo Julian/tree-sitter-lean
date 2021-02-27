@@ -34,6 +34,7 @@ module.exports = grammar({
       $.section,
       $.example,
       $.def,
+      $.structure_definition,
       $.inductive_type,
       $.instance,
       $.theorem,
@@ -63,10 +64,10 @@ module.exports = grammar({
       ':',
       field('class', $._expression),
       'where',
-      field('fields', repeat1($.instance_fields)),
+      field('fields', repeat1($.instance_field)),
     ),
 
-    instance_fields: $ => seq(
+    instance_field: $ => seq(
       field('name', $.identifier),
       field('parameters', $.parameter_list),
       ':',
@@ -126,6 +127,20 @@ module.exports = grammar({
       optional(seq(':', field('return_type', $._expression))),
       ':=',
       $._expression,
+    ),
+
+    structure_field: $ => seq(
+      $.identifier,
+      ':',
+      $._expression,
+    ),
+
+    structure_definition: $ => seq(
+      'structure',
+      $.identifier,
+      field('parameters', optional($.parameter_list)),
+      'where',
+      field('fields', repeat1($.structure_field)),
     ),
 
     theorem: $ => seq(
@@ -283,7 +298,8 @@ module.exports = grammar({
       ),
     )),
 
-    identifier: $ => /[A-za-z][A-za-z0-9!]*/,
+    // FIXME: see name.cpp for the real definition...
+    identifier: $ => /[_a-zA-ZͰ-ϿĀ-ſ∇][_a-zA-Z0-9Ͱ-ϿĀ-ſ∇!]*/,
 
     number: $ => /\d+/
   }

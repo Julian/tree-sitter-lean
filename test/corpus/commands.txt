@@ -113,7 +113,7 @@ instance : ToString Foo where
 
 (source_file
   (instance (apply (identifier) (identifier))
-    (instance_fields
+    (instance_field
       (identifier)
       (parameter_list (annotated (identifier) (identifier)))
       (identifier)
@@ -130,7 +130,7 @@ instance toStringFoo : ToString Foo where
 
 (source_file
   (instance (identifier) (apply (identifier) (identifier))
-    (instance_fields
+    (instance_field
       (identifier)
       (parameter_list (annotated (identifier) (identifier)))
       (identifier)

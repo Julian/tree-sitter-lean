@@ -46,6 +46,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "structure_definition"
+        },
+        {
+          "type": "SYMBOL",
           "name": "inductive_type"
         },
         {
@@ -196,13 +200,13 @@
             "type": "REPEAT1",
             "content": {
               "type": "SYMBOL",
-              "name": "instance_fields"
+              "name": "instance_field"
             }
           }
         }
       ]
     },
-    "instance_fields": {
+    "instance_field": {
       "type": "SEQ",
       "members": [
         {
@@ -487,6 +491,67 @@
         {
           "type": "SYMBOL",
           "name": "_expression"
+        }
+      ]
+    },
+    "structure_field": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "STRING",
+          "value": ":"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_expression"
+        }
+      ]
+    },
+    "structure_definition": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "structure"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "FIELD",
+          "name": "parameters",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "parameter_list"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "where"
+        },
+        {
+          "type": "FIELD",
+          "name": "fields",
+          "content": {
+            "type": "REPEAT1",
+            "content": {
+              "type": "SYMBOL",
+              "name": "structure_field"
+            }
+          }
         }
       ]
     },
@@ -1254,7 +1319,7 @@
     },
     "identifier": {
       "type": "PATTERN",
-      "value": "[A-za-z][A-za-z0-9!]*"
+      "value": "[_a-zA-ZͰ-ϿĀ-ſ∇][_a-zA-Z0-9Ͱ-ϿĀ-ſ∇!]*"
     },
     "number": {
       "type": "PATTERN",
