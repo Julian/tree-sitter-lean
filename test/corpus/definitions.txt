@@ -37,6 +37,19 @@ def sampleFunction2 (x : Nat) := 2*x*x - x + 3
         (identifier))
       (number))))
 
+==================
+Multiple Annotated
+==================
+
+def sampleFunction2 (x y : Nat) := x + y
+
+---
+
+(source_file
+  (def (identifier)
+    (parameter_list (annotated (identifier) (identifier) (identifier)))
+    (binary_expression (identifier) (identifier))))
+
 ====================
 First Class Function
 ====================

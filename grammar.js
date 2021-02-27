@@ -104,7 +104,7 @@ module.exports = grammar({
 
     annotated: $ => seq(
       '(',
-      $.identifier,
+      repeat1($.identifier),
       ':',
       $._type_annotation,
       ')',

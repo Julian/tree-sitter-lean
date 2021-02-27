@@ -365,8 +365,11 @@
           "value": "("
         },
         {
-          "type": "SYMBOL",
-          "name": "identifier"
+          "type": "REPEAT1",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
         },
         {
           "type": "STRING",
@@ -1337,6 +1340,7 @@
     }
   ],
   "conflicts": [],
+  "precedences": [],
   "externals": [
     {
       "type": "SYMBOL",
