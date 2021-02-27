@@ -119,6 +119,7 @@ module.exports = grammar({
     ),
 
     def: $ => seq(
+      field('partial', optional('partial')),
       'def',
       field('name', $.identifier),
       field('parameters', optional($.parameter_list)),

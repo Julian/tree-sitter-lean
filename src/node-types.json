@@ -470,6 +470,16 @@
           }
         ]
       },
+      "partial": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "partial",
+            "named": false
+          }
+        ]
+      },
       "return_type": {
         "multiple": true,
         "required": false,
@@ -1996,6 +2006,10 @@
   },
   {
     "type": "open",
+    "named": false
+  },
+  {
+    "type": "partial",
     "named": false
   },
   {

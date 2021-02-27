@@ -412,6 +412,22 @@
       "type": "SEQ",
       "members": [
         {
+          "type": "FIELD",
+          "name": "partial",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "partial"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
+        },
+        {
           "type": "STRING",
           "value": "def"
         },

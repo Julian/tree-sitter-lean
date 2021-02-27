@@ -137,3 +137,17 @@ theorem twiceAdd2 (a : Nat) : twice (fun x => x + 2) a = a + 4 :=
         (binary_expression (identifier) (number))) (identifier))
     (binary_expression (identifier) (number)))
     (comment) (comment) (identifier)))
+
+================
+Partial Function
+================
+
+partial def g x : Nat := g (x + 1)
+
+---
+
+(source_file
+  (def (identifier)
+    (parameter_list (identifier))
+    (identifier)
+    (apply (identifier) (binary_expression (identifier) (number)))))
