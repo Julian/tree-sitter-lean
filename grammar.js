@@ -3,6 +3,7 @@ const PREC = {
   apply: -1,
   parenthesized_expression: 1,
   compare: -1,
+  element_of: 1,
 
   equal: -1,
 }
@@ -228,11 +229,11 @@ module.exports = grammar({
       field('argument', $._expression),
     )),
 
-    element_of: $ => seq(
-      field('type', $.identifier),
+    element_of: $ => prec(PREC.element_of, seq(
+      field('type', $._expression),
       '.',
       field('field', $.identifier),
-    ),
+    )),
 
     binary_expression: $ => choice(
       prec.left(2, seq($._expression, '*', $._expression)),

@@ -130,6 +130,36 @@ Field Access
 (source_file
   (hash_command (element_of (identifier) (identifier))))
 
+===================
+Nested Field Access
+===================
+
+#check Foo.bar.baz.quux
+
+---
+
+(source_file
+  (hash_command
+    (element_of
+      (element_of
+        (element_of (identifier) (identifier))
+        (identifier))
+      (identifier))))
+
+=======================
+Expression Field Access
+=======================
+
+#check (Foo.bar baz).baz
+
+---
+
+(source_file
+  (hash_command
+    (element_of
+      (apply (element_of (identifier) (identifier)) (identifier))
+      (identifier))))
+
 =====
 Match
 =====
