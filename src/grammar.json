@@ -1200,7 +1200,7 @@
       "members": [
         {
           "type": "PREC_LEFT",
-          "value": 2,
+          "value": 1,
           "content": {
             "type": "SEQ",
             "members": [

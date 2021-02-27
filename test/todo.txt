@@ -16,3 +16,9 @@ Lambda Syntax Sugar
       (number)
       (lambda (identifier) (binary_expression (identifier) (number)) (number))
       (number))))
+
+==============
+String With --
+==============
+
+#eval "--"
