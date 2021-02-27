@@ -26,7 +26,7 @@ struct Scanner {
 
   bool scan(TSLexer *lexer, const bool *valid_symbols) {
     if (valid_symbols[NEWLINE]) {
-      if (lexer->lookahead == '\n') {
+      if (lexer->lookahead == '\n' || lexer->lookahead == 0) {
         skip(lexer);
         lexer->result_symbol = NEWLINE;
         return true;

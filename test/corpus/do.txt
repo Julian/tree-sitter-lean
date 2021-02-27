@@ -47,3 +47,97 @@ def f : Unit := do
       (let (identifier) (number))
       (let (identifier) (number))
       (let (identifier) (number)))))
+
+=========
+Try/Catch
+=========
+
+def f : IO Unit := do
+  try
+    println! "foo"
+  catch ex =>
+    throw ex
+
+---
+
+(source_file
+  (def (identifier) (apply (identifier) (identifier))
+    (do
+      (try
+        (apply (identifier) (string))
+        (catch (identifier)
+          (throw (identifier)))))))
+
+=========
+Empty Try
+=========
+
+def f : IO Unit := do
+  try
+  catch ex =>
+    throw ex
+
+---
+
+(source_file
+  (def (identifier) (apply (identifier) (identifier))
+    (do))
+      (ERROR
+        (apply (identifier) (identifier))
+        (ERROR) (throw (identifier))))
+
+===========
+Try/Finally
+===========
+
+def f : IO Unit := do
+  try
+    println! "foo"
+  finally
+    println! "bar"
+
+---
+
+(source_file
+  (def (identifier) (apply (identifier) (identifier))
+    (do
+      (try
+        (apply (identifier) (string))
+        (finally
+          (apply (identifier) (string)))))))
+
+=================
+Try/Catch/Finally
+=================
+
+def f : IO Unit := do
+  try
+    println! "foo"
+  catch ex =>
+    throw ex
+  finally
+    println! "bar"
+
+---
+
+(source_file
+  (def (identifier) (apply (identifier) (identifier))
+    (do
+      (try
+        (apply (identifier) (string))
+        (catch (identifier) (throw (identifier)))
+        (finally (apply (identifier) (string)))))))
+
+===================
+No Catch or Finally
+===================
+
+def f : IO Unit := do
+  try
+    println! "foo"
+
+---
+
+(source_file
+  (def (identifier) (apply (identifier) (identifier))
+    (do)) (ERROR (apply (identifier) (string))))

@@ -203,14 +203,43 @@ module.exports = grammar({
       ),
     )),
 
-    do: $ => prec.right(seq(
-      'do', repeat(
-        seq(choice($._expression, $.let), $._newline),
+    _do_expression: $ => seq(
+      choice(
+        $._expression,
+        $.let,
+        $.try,
+        $.throw,
       ),
-    )),
+      $._newline,
+    ),
+
+    do: $ => prec.right(seq('do', repeat($._do_expression))),
 
     let: $ => seq(
       'let', $.identifier, choice('<-', '←', ':='), $._expression,
+    ),
+
+    // FIXME: nesting (which depends on the indent processing)
+    try: $ => prec.left(seq(
+      'try',
+      repeat1($._do_expression),
+      choice(
+        seq($.catch, optional($.finally)),
+        $.finally,
+    ))),
+
+    throw: $ => seq('throw', $._expression),
+
+    catch: $ => prec.left(seq(
+      'catch',
+      $._expression,
+      '=>',
+      repeat1($._do_expression),
+    )),
+
+    finally: $ => seq(
+      'finally',
+      repeat1($._do_expression),
     ),
 
     match: $ => prec.left(seq(
