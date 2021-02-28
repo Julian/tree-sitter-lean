@@ -19,7 +19,7 @@ Testing
 
 Tests for the grammar live in ``test/corpus/*.txt``, and can be run as usual
 for ``tree-sitter`` grammars via the `tree-sitter-cli
-<https://tree-sitter.github.io/tree-sitter/creating-parsers#command-test`_ via:
+<https://tree-sitter.github.io/tree-sitter/creating-parsers#command-test>`_ via:
 
 .. code-block:: sh
 
