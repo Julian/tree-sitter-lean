@@ -231,14 +231,56 @@ Match
 
 def foo (d : Bar) : Baz :=
   match d with
-  | quux    => 1
+  | quux => 1
 
 ---
 
 (source_file
-  (def (identifier) (parameter_list (annotated (identifier) (identifier)))
-    (identifier)
-    (match (identifier) (pattern (identifier) (number)))))
+  (def
+    name: (identifier)
+    parameters: (parameter_list (annotated (identifier) (identifier)))
+    return_type: (identifier)
+    body:
+      (match (identifier)
+        patterns: (pattern (identifier) (number)))))
+
+==================
+Match Syntax Sugar
+==================
+
+def foo : Nat → Nat
+  | 0 => 2
+  | 2 => 3
+  | _ => 5
+
+---
+
+(source_file
+  (def
+    name: (identifier)
+    return_type: (function_annotation (identifier) (identifier))
+    body: (pattern (number) (number))
+    body: (pattern (number) (number))
+    body: (pattern (identifier) (number))))
+
+==================
+Multimatch Syntax Sugar
+==================
+
+def foo : Nat → Nat -> Nat
+  | 0, foo => 2
+  | 2, bar => 3
+  | _, _ => 5
+
+---
+
+(source_file
+  (def
+    name: (identifier)
+    return_type: (function_annotation (identifier) (identifier) (identifier))
+    body: (pattern (lhs (number) (identifier)) (number))
+    body: (pattern (lhs (number) (identifier)) (number))
+    body: (pattern (lhs (identifier) (identifier)) (number))))
 
 =============
 $ Application

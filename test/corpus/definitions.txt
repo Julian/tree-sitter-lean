@@ -67,6 +67,35 @@ def twice (f : Nat → Nat) (a : Nat) :=
     (apply (identifier)
       (apply (identifier) (identifier)))))
 
+====================
+Function Return Type
+====================
+
+def foo : Nat -> Nat := id
+
+---
+
+(source_file
+  (def
+    name: (identifier)
+    return_type: (function_annotation (identifier) (identifier))
+    body: (identifier)))
+
+==================================
+Multiargument Function Return Type
+==================================
+
+def foo : Nat -> Nat -> Nat -> Nat := id
+
+---
+
+(source_file
+  (def
+    name: (identifier)
+    return_type: (function_annotation
+                    (identifier) (identifier) (identifier) (identifier))
+    body: (identifier)))
+
 ==================
 Anonymous Function
 ==================

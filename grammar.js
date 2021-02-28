@@ -117,7 +117,7 @@ module.exports = grammar({
     ),
 
     function_annotation: $ => seq(
-      $._expression, '→', $._expression,
+      $._expression, repeat1(seq($._arrow, $._expression)),
     ),
 
     def: $ => seq(
@@ -125,9 +125,11 @@ module.exports = grammar({
       'def',
       field('name', $.identifier),
       field('parameters', optional($.parameter_list)),
-      optional(seq(':', field('return_type', $._expression))),
-      ':=',
-      $._expression,
+      optional(seq(':', field('return_type', $._type_annotation))),
+      field('body', choice(
+        seq(':=', $._expression),
+        repeat($.pattern),
+      )),
     ),
 
     structure_field: $ => seq(
@@ -259,10 +261,12 @@ module.exports = grammar({
 
     pattern: $ => seq(
       '|',
-      $.identifier,
+      choice($._expression, $.lhs),
       '=>',
       $._expression,
     ),
+
+    lhs: $ => seq($._expression, repeat1(seq(',', $._expression))),
 
     lambda: $ => seq(
       'fun', $.parameter_list, '=>', $._expression,
@@ -335,6 +339,9 @@ module.exports = grammar({
     ),
 
     dotted_name: $ => sep1($.identifier, '.'),
+
+    _arrow: $ => choice('->', '→'),
+
 
     // TODO: actual right string content, escape sequences, etc.
     _string_content: $ => /[^"]/,
