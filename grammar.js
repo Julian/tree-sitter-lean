@@ -3,7 +3,7 @@ const PREC = {
   apply: -1,
   parenthesized_expression: 1,
   compare: -1,
-  element_of: 1,
+  field_of: 1,
 
   equal: -1,
   negation: 1,
@@ -172,7 +172,7 @@ module.exports = grammar({
       $.product,
       $.comparison,
       $.conditional,
-      $.element_of,
+      $.field_of,
       $.match,
       $.apply,
       $.lambda,
@@ -296,10 +296,10 @@ module.exports = grammar({
       field('argument', $._expression),
     )),
 
-    element_of: $ => prec(PREC.element_of, seq(
-      field('type', $._expression),
+    field_of: $ => prec(PREC.field_of, seq(
+      field('term', $._expression),
       '.',
-      field('field', $.identifier),
+      field('name', $.identifier),
     )),
 
     unary_expression: $ => choice(

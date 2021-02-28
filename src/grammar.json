@@ -725,7 +725,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "element_of"
+          "name": "field_of"
         },
         {
           "type": "SYMBOL",
@@ -1334,7 +1334,7 @@
         ]
       }
     },
-    "element_of": {
+    "field_of": {
       "type": "PREC",
       "value": 1,
       "content": {
@@ -1342,7 +1342,7 @@
         "members": [
           {
             "type": "FIELD",
-            "name": "type",
+            "name": "term",
             "content": {
               "type": "SYMBOL",
               "name": "_expression"
@@ -1354,7 +1354,7 @@
           },
           {
             "type": "FIELD",
-            "name": "field",
+            "name": "name",
             "content": {
               "type": "SYMBOL",
               "name": "identifier"

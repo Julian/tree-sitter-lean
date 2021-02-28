@@ -11,8 +11,8 @@ def main : IO UInt32 := do
 (source_file
   (def (identifier) (apply (identifier) (identifier))
     (do
-      (apply (element_of (identifier) (identifier)) (string))
-      (apply (element_of (identifier) (identifier)) (string)))))
+      (apply (field_of (identifier) (identifier)) (string))
+      (apply (field_of (identifier) (identifier)) (string)))))
 
 ========
 Repeated
@@ -27,8 +27,8 @@ def main : IO UInt32 := do do
 (source_file
   (def (identifier) (apply (identifier) (identifier))
     (do (do)
-      (apply (element_of (identifier) (identifier)) (string))
-      (apply (element_of (identifier) (identifier)) (string)))))
+      (apply (field_of (identifier) (identifier)) (string))
+      (apply (field_of (identifier) (identifier)) (string)))))
 
 ===
 Let

@@ -232,7 +232,10 @@ Field Access
 ---
 
 (source_file
-  (hash_command (element_of (identifier) (identifier))))
+  (hash_command
+    (field_of
+      term: (identifier)
+      name: (identifier))))
 
 ===================
 Nested Field Access
@@ -244,9 +247,9 @@ Nested Field Access
 
 (source_file
   (hash_command
-    (element_of
-      (element_of
-        (element_of (identifier) (identifier))
+    (field_of
+      (field_of
+        (field_of (identifier) (identifier))
         (identifier))
       (identifier))))
 
@@ -260,8 +263,8 @@ Expression Field Access
 
 (source_file
   (hash_command
-    (element_of
-      (apply (element_of (identifier) (identifier)) (identifier))
+    (field_of
+      (apply (field_of (identifier) (identifier)) (identifier))
       (identifier))))
 
 =====
@@ -299,9 +302,9 @@ Match Expression
       value:
         (apply
           name:
-            (element_of
-              type: (identifier)
-              field: (identifier))
+            (field_of
+              term: (identifier)
+              name: (identifier))
           arguments: (number))
       patterns: (pattern (identifier) (true)))))
 
