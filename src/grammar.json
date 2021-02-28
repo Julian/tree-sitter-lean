@@ -1542,7 +1542,7 @@
     },
     "identifier": {
       "type": "PATTERN",
-      "value": "[_a-zA-ZͰ-ϿĀ-ſ∇][_a-zA-Z0-9Ͱ-ϿĀ-ſ∇!]*"
+      "value": "[_a-zA-ZͰ-ϿĀ-ſ∇][_a-zA-Z0-9Ͱ-ϿĀ-ſ∇!\\u2070-\\u209F]*"
     },
     "number": {
       "type": "PATTERN",

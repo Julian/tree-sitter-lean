@@ -18,6 +18,16 @@ String
 
 (source_file (hash_command (string)))
 
+===================
+Unicode Identifiers
+===================
+
+#eval foo₁
+
+---
+
+(source_file (hash_command (identifier)))
+
 =======
 Product
 =======

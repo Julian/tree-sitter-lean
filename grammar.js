@@ -344,7 +344,7 @@ module.exports = grammar({
     )),
 
     // FIXME: see name.cpp for the real definition...
-    identifier: $ => /[_a-zA-ZͰ-ϿĀ-ſ∇][_a-zA-Z0-9Ͱ-ϿĀ-ſ∇!]*/,
+    identifier: $ => /[_a-zA-ZͰ-ϿĀ-ſ∇][_a-zA-Z0-9Ͱ-ϿĀ-ſ∇!\u2070-\u209F]*/,
 
     number: $ => /\d+/,
 

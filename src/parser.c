@@ -1257,6 +1257,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
           ('a' <= lookahead && lookahead <= 'z') ||
           (256 <= lookahead && lookahead <= 383) ||
           (880 <= lookahead && lookahead <= 1023) ||
+          (8304 <= lookahead && lookahead <= 8351) ||
           lookahead == 8711) ADVANCE(56);
       END_STATE();
     case 57:
