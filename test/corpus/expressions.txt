@@ -18,6 +18,19 @@ String
 
 (source_file (hash_command (string)))
 
+====
+List
+====
+
+#check [1, 2, 3]
+#check []
+
+---
+
+(source_file
+  (hash_command (list (number) (number) (number)))
+  (hash_command (list)))
+
 ===================
 Unicode Identifiers
 ===================

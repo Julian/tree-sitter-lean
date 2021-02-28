@@ -48,6 +48,10 @@
           "named": true
         },
         {
+          "type": "list",
+          "named": true
+        },
+        {
           "type": "match",
           "named": true
         },
@@ -127,6 +131,10 @@
             "named": true
           },
           {
+            "type": "list",
+            "named": true
+          },
+          {
             "type": "match",
             "named": true
           },
@@ -198,6 +206,10 @@
           },
           {
             "type": "lambda",
+            "named": true
+          },
+          {
+            "type": "list",
             "named": true
           },
           {
@@ -279,6 +291,10 @@
             "named": true
           },
           {
+            "type": "list",
+            "named": true
+          },
+          {
             "type": "match",
             "named": true
           },
@@ -348,6 +364,10 @@
         },
         {
           "type": "lambda",
+          "named": true
+        },
+        {
+          "type": "list",
           "named": true
         },
         {
@@ -423,6 +443,10 @@
         },
         {
           "type": "let",
+          "named": true
+        },
+        {
+          "type": "list",
           "named": true
         },
         {
@@ -509,6 +533,10 @@
           "named": true
         },
         {
+          "type": "list",
+          "named": true
+        },
+        {
           "type": "match",
           "named": true
         },
@@ -577,6 +605,10 @@
         },
         {
           "type": "lambda",
+          "named": true
+        },
+        {
+          "type": "list",
           "named": true
         },
         {
@@ -704,6 +736,10 @@
             "named": true
           },
           {
+            "type": "list",
+            "named": true
+          },
+          {
             "type": "match",
             "named": true
           },
@@ -768,6 +804,10 @@
         },
         {
           "type": "lambda",
+          "named": true
+        },
+        {
+          "type": "list",
           "named": true
         },
         {
@@ -843,6 +883,10 @@
         },
         {
           "type": "let",
+          "named": true
+        },
+        {
+          "type": "list",
           "named": true
         },
         {
@@ -962,6 +1006,10 @@
             "named": true
           },
           {
+            "type": "list",
+            "named": true
+          },
+          {
             "type": "match",
             "named": true
           },
@@ -1031,6 +1079,10 @@
         },
         {
           "type": "lambda",
+          "named": true
+        },
+        {
+          "type": "list",
           "named": true
         },
         {
@@ -1106,6 +1158,10 @@
         },
         {
           "type": "let",
+          "named": true
+        },
+        {
+          "type": "list",
           "named": true
         },
         {
@@ -1192,6 +1248,10 @@
           "named": true
         },
         {
+          "type": "list",
+          "named": true
+        },
+        {
           "type": "match",
           "named": true
         },
@@ -1260,6 +1320,10 @@
         },
         {
           "type": "lambda",
+          "named": true
+        },
+        {
+          "type": "list",
           "named": true
         },
         {
@@ -1384,6 +1448,10 @@
             "named": true
           },
           {
+            "type": "list",
+            "named": true
+          },
+          {
             "type": "match",
             "named": true
           },
@@ -1484,6 +1552,10 @@
             "named": true
           },
           {
+            "type": "list",
+            "named": true
+          },
+          {
             "type": "match",
             "named": true
           },
@@ -1578,6 +1650,10 @@
             "named": true
           },
           {
+            "type": "list",
+            "named": true
+          },
+          {
             "type": "match",
             "named": true
           },
@@ -1650,6 +1726,10 @@
           "named": true
         },
         {
+          "type": "list",
+          "named": true
+        },
+        {
           "type": "match",
           "named": true
         },
@@ -1718,6 +1798,10 @@
         },
         {
           "type": "lambda",
+          "named": true
+        },
+        {
+          "type": "list",
           "named": true
         },
         {
@@ -1793,6 +1877,85 @@
         },
         {
           "type": "lambda",
+          "named": true
+        },
+        {
+          "type": "list",
+          "named": true
+        },
+        {
+          "type": "match",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "product",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "true",
+          "named": true
+        },
+        {
+          "type": "unary_expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "apply",
+          "named": true
+        },
+        {
+          "type": "binary_expression",
+          "named": true
+        },
+        {
+          "type": "comparison",
+          "named": true
+        },
+        {
+          "type": "conditional",
+          "named": true
+        },
+        {
+          "type": "do",
+          "named": true
+        },
+        {
+          "type": "element_of",
+          "named": true
+        },
+        {
+          "type": "false",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "lambda",
+          "named": true
+        },
+        {
+          "type": "list",
           "named": true
         },
         {
@@ -1890,6 +2053,10 @@
         },
         {
           "type": "lambda",
+          "named": true
+        },
+        {
+          "type": "list",
           "named": true
         },
         {
@@ -2072,6 +2239,10 @@
           "named": true
         },
         {
+          "type": "list",
+          "named": true
+        },
+        {
           "type": "match",
           "named": true
         },
@@ -2140,6 +2311,10 @@
         },
         {
           "type": "lambda",
+          "named": true
+        },
+        {
+          "type": "list",
           "named": true
         },
         {
@@ -2219,6 +2394,10 @@
           },
           {
             "type": "lambda",
+            "named": true
+          },
+          {
+            "type": "list",
             "named": true
           },
           {
@@ -2478,6 +2657,10 @@
           "named": true
         },
         {
+          "type": "list",
+          "named": true
+        },
+        {
           "type": "match",
           "named": true
         },
@@ -2570,6 +2753,10 @@
           "named": true
         },
         {
+          "type": "list",
+          "named": true
+        },
+        {
           "type": "match",
           "named": true
         },
@@ -2638,6 +2825,10 @@
         },
         {
           "type": "lambda",
+          "named": true
+        },
+        {
+          "type": "list",
           "named": true
         },
         {
@@ -2724,6 +2915,10 @@
           "named": true
         },
         {
+          "type": "list",
+          "named": true
+        },
+        {
           "type": "match",
           "named": true
         },
@@ -2804,6 +2999,10 @@
         },
         {
           "type": "lambda",
+          "named": true
+        },
+        {
+          "type": "list",
           "named": true
         },
         {
@@ -2915,6 +3114,14 @@
   },
   {
     "type": ">",
+    "named": false
+  },
+  {
+    "type": "[",
+    "named": false
+  },
+  {
+    "type": "]",
     "named": false
   },
   {

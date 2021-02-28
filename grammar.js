@@ -177,6 +177,7 @@ module.exports = grammar({
       $.binary_expression,
       $.number,
       $.string,
+      $.list,
       $.true,
       $.false,
     ),
@@ -315,6 +316,13 @@ module.exports = grammar({
       ),
       $._expression,
     )),
+
+    list: $ => seq(
+      '[',
+      optional($._expression),
+      repeat(seq(',', $._expression)),
+      ']',
+    ),
 
     string: $ => seq(
       '"',
