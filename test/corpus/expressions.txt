@@ -19,6 +19,26 @@ String
 (source_file (hash_command (string)))
 
 ====
+Char
+====
+
+#eval 'f'
+
+---
+
+(source_file (hash_command (char)))
+
+========
+Non-Char
+========
+
+#eval 'fa'
+
+---
+
+(source_file (hash_command (char (ERROR (identifier)))))
+
+====
 List
 ====
 

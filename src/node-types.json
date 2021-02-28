@@ -16,6 +16,10 @@
           "named": true
         },
         {
+          "type": "char",
+          "named": true
+        },
+        {
           "type": "comparison",
           "named": true
         },
@@ -111,6 +115,10 @@
             "named": true
           },
           {
+            "type": "char",
+            "named": true
+          },
+          {
             "type": "comparison",
             "named": true
           },
@@ -194,6 +202,10 @@
           },
           {
             "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "char",
             "named": true
           },
           {
@@ -287,6 +299,10 @@
             "named": true
           },
           {
+            "type": "char",
+            "named": true
+          },
+          {
             "type": "comparison",
             "named": true
           },
@@ -368,6 +384,10 @@
         },
         {
           "type": "binary_expression",
+          "named": true
+        },
+        {
+          "type": "char",
           "named": true
         },
         {
@@ -454,6 +474,10 @@
           "named": true
         },
         {
+          "type": "char",
+          "named": true
+        },
+        {
           "type": "comparison",
           "named": true
         },
@@ -537,6 +561,11 @@
     }
   },
   {
+    "type": "char",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "comparison",
     "named": true,
     "fields": {},
@@ -550,6 +579,10 @@
         },
         {
           "type": "binary_expression",
+          "named": true
+        },
+        {
+          "type": "char",
           "named": true
         },
         {
@@ -633,6 +666,10 @@
         },
         {
           "type": "binary_expression",
+          "named": true
+        },
+        {
+          "type": "char",
           "named": true
         },
         {
@@ -743,6 +780,10 @@
           },
           {
             "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "char",
             "named": true
           },
           {
@@ -866,6 +907,10 @@
             "named": true
           },
           {
+            "type": "char",
+            "named": true
+          },
+          {
             "type": "comparison",
             "named": true
           },
@@ -951,6 +996,10 @@
         },
         {
           "type": "binary_expression",
+          "named": true
+        },
+        {
+          "type": "char",
           "named": true
         },
         {
@@ -1086,6 +1135,10 @@
             "named": true
           },
           {
+            "type": "char",
+            "named": true
+          },
+          {
             "type": "comparison",
             "named": true
           },
@@ -1170,6 +1223,10 @@
           "named": true
         },
         {
+          "type": "char",
+          "named": true
+        },
+        {
           "type": "comparison",
           "named": true
         },
@@ -1250,6 +1307,10 @@
         },
         {
           "type": "binary_expression",
+          "named": true
+        },
+        {
+          "type": "char",
           "named": true
         },
         {
@@ -1352,6 +1413,10 @@
           "named": true
         },
         {
+          "type": "char",
+          "named": true
+        },
+        {
           "type": "comparison",
           "named": true
         },
@@ -1432,6 +1497,10 @@
         },
         {
           "type": "binary_expression",
+          "named": true
+        },
+        {
+          "type": "char",
           "named": true
         },
         {
@@ -1531,6 +1600,10 @@
         },
         {
           "type": "binary_expression",
+          "named": true
+        },
+        {
+          "type": "char",
           "named": true
         },
         {
@@ -1669,6 +1742,10 @@
             "named": true
           },
           {
+            "type": "char",
+            "named": true
+          },
+          {
             "type": "comparison",
             "named": true
           },
@@ -1781,6 +1858,10 @@
             "named": true
           },
           {
+            "type": "char",
+            "named": true
+          },
+          {
             "type": "comparison",
             "named": true
           },
@@ -1887,6 +1968,10 @@
             "named": true
           },
           {
+            "type": "char",
+            "named": true
+          },
+          {
             "type": "comparison",
             "named": true
           },
@@ -1986,6 +2071,10 @@
           "named": true
         },
         {
+          "type": "char",
+          "named": true
+        },
+        {
           "type": "comparison",
           "named": true
         },
@@ -2066,6 +2155,10 @@
         },
         {
           "type": "binary_expression",
+          "named": true
+        },
+        {
+          "type": "char",
           "named": true
         },
         {
@@ -2156,6 +2249,10 @@
           "named": true
         },
         {
+          "type": "char",
+          "named": true
+        },
+        {
           "type": "comparison",
           "named": true
         },
@@ -2239,6 +2336,10 @@
           "named": true
         },
         {
+          "type": "char",
+          "named": true
+        },
+        {
           "type": "comparison",
           "named": true
         },
@@ -2319,6 +2420,10 @@
         },
         {
           "type": "binary_expression",
+          "named": true
+        },
+        {
+          "type": "char",
           "named": true
         },
         {
@@ -2423,6 +2528,10 @@
             "named": true
           },
           {
+            "type": "char",
+            "named": true
+          },
+          {
             "type": "comparison",
             "named": true
           },
@@ -2504,6 +2613,10 @@
         },
         {
           "type": "binary_expression",
+          "named": true
+        },
+        {
+          "type": "char",
           "named": true
         },
         {
@@ -2698,6 +2811,10 @@
           "named": true
         },
         {
+          "type": "char",
+          "named": true
+        },
+        {
           "type": "comparison",
           "named": true
         },
@@ -2782,6 +2899,10 @@
         },
         {
           "type": "binary_expression",
+          "named": true
+        },
+        {
+          "type": "char",
           "named": true
         },
         {
@@ -2873,6 +2994,10 @@
           },
           {
             "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "char",
             "named": true
           },
           {
@@ -3152,6 +3277,10 @@
             "named": true
           },
           {
+            "type": "char",
+            "named": true
+          },
+          {
             "type": "comparison",
             "named": true
           },
@@ -3257,6 +3386,10 @@
           "named": true
         },
         {
+          "type": "char",
+          "named": true
+        },
+        {
           "type": "comparison",
           "named": true
         },
@@ -3337,6 +3470,10 @@
         },
         {
           "type": "binary_expression",
+          "named": true
+        },
+        {
+          "type": "char",
           "named": true
         },
         {
@@ -3424,6 +3561,10 @@
         },
         {
           "type": "catch",
+          "named": true
+        },
+        {
+          "type": "char",
           "named": true
         },
         {
@@ -3530,6 +3671,10 @@
           "named": true
         },
         {
+          "type": "char",
+          "named": true
+        },
+        {
           "type": "comparison",
           "named": true
         },
@@ -3618,6 +3763,10 @@
   },
   {
     "type": "$",
+    "named": false
+  },
+  {
+    "type": "'",
     "named": false
   },
   {
