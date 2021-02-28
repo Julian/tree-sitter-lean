@@ -112,12 +112,20 @@ instance : ToString Foo where
 ---
 
 (source_file
-  (instance (apply (identifier) (identifier))
-    (instance_field
-      (identifier)
-      (parameters (annotated (identifier) (identifier)))
-      (identifier)
-      (string))))
+  (instance
+    class:
+      (apply
+        name: (identifier)
+        arguments: (identifier))
+    fields:
+      (instance_field
+        name: (identifier)
+        parameters:
+          (parameters
+            name: (identifier)
+            type: (identifier))
+        return_type: (identifier)
+        body: (string))))
 
 ==============
 Named Instance
@@ -129,12 +137,21 @@ instance toStringFoo : ToString Foo where
 ---
 
 (source_file
-  (instance (identifier) (apply (identifier) (identifier))
-    (instance_field
-      (identifier)
-      (parameters (annotated (identifier) (identifier)))
-      (identifier)
-      (string))))
+  (instance
+    name: (identifier)
+    class:
+      (apply
+        name: (identifier)
+        arguments: (identifier))
+    fields:
+      (instance_field
+        name: (identifier)
+        parameters:
+          (parameters
+            name: (identifier)
+            type: (identifier))
+        return_type: (identifier)
+        body: (string))))
 
 ===================================
 Instance With Inductive Constructor

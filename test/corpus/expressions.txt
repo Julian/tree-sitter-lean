@@ -298,7 +298,10 @@ def foo (d : Bar) : Baz :=
 (source_file
   (def
     name: (identifier)
-    parameters: (parameters (annotated (identifier) (identifier)))
+    parameters:
+      (parameters
+        name: (identifier)
+        type: (identifier))
     return_type: (identifier)
     body:
       (match

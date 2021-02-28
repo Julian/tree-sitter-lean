@@ -27,15 +27,20 @@ def sampleFunction2 (x : Nat) := 2*x*x - x + 3
 ---
 
 (source_file
-  (def (identifier)
-    (parameters (annotated (identifier) (identifier)))
-    (binary_expression
+  (def
+    name: (identifier)
+    parameters:
+      (parameters
+        name: (identifier)
+        type: (identifier))
+    body:
       (binary_expression
         (binary_expression
+          (binary_expression
           (binary_expression (number) (identifier))
-          (identifier))
-        (identifier))
-      (number))))
+            (identifier))
+            (identifier))
+        (number))))
 
 ==================
 Multiple Annotated
@@ -46,9 +51,53 @@ def sampleFunction2 (x y : Nat) := x + y
 ---
 
 (source_file
-  (def (identifier)
-    (parameters (annotated (identifier) (identifier) (identifier)))
-    (binary_expression (identifier) (identifier))))
+  (def
+    name: (identifier)
+    parameters:
+      (parameters
+        name: (identifier)
+        name: (identifier)
+        type: (identifier))
+    body:
+      (binary_expression (identifier) (identifier))))
+
+==================
+Implicit Arguments
+==================
+
+def foo {a} {b c : Nat} v w (x y) (z : Nat) := a + b + v + w + x + y
+
+---
+
+(source_file
+  (def
+    name: (identifier)
+    parameters:
+      (parameters
+        (implicit_parameter
+          name: (identifier))
+        (implicit_parameter
+          name: (identifier)
+          name: (identifier)
+          type: (identifier))
+        name: (identifier)
+        name: (identifier)
+        name: (identifier)
+        name: (identifier)
+        name: (identifier)
+        type: (identifier))
+    body:
+      (binary_expression
+        (binary_expression
+          (binary_expression
+            (binary_expression
+              (binary_expression
+                (identifier)
+                (identifier))
+              (identifier))
+            (identifier))
+          (identifier))
+        (identifier))))
 
 ====================
 First Class Function
@@ -60,12 +109,21 @@ def twice (f : Nat → Nat) (a : Nat) :=
 ---
 
 (source_file
-  (def (identifier)
-    (parameters
-      (annotated (identifier) (function_annotation (identifier) (identifier)))
-      (annotated (identifier) (identifier)))
-    (apply (identifier)
-      (apply (identifier) (identifier)))))
+  (def
+    name: (identifier)
+    parameters:
+      (parameters
+        name: (identifier)
+        type: (function_annotation (identifier) (identifier))
+        name: (identifier)
+        type: (identifier))
+    body:
+      (apply
+        name: (identifier)
+        arguments:
+          (apply
+            name: (identifier)
+            arguments: (identifier)))))
 
 ====================
 Function Return Type
@@ -109,23 +167,28 @@ else
 ---
 
 (source_file
-(def (identifier)
-  (parameters (annotated (identifier) (identifier)))
-  (conditional (comparison (identifier) (number))
-      (binary_expression
+(def
+  name: (identifier)
+  parameters:
+    (parameters
+      name: (identifier)
+      type: (identifier))
+  body:
+    (conditional (comparison (identifier) (number))
         (binary_expression
           (binary_expression
-            (binary_expression (number) (identifier))
+            (binary_expression
+              (binary_expression (number) (identifier))
+              (identifier))
             (identifier))
-          (identifier))
-        (number))
-      (binary_expression
+          (number))
         (binary_expression
           (binary_expression
-            (binary_expression (number) (identifier))
+            (binary_expression
+              (binary_expression (number) (identifier))
+              (identifier))
             (identifier))
-          (identifier))
-        (number)))))
+          (number)))))
 
 
 =======
@@ -140,15 +203,26 @@ theorem twiceAdd2 (a : Nat) : twice (fun x => x + 2) a = a + 4 :=
 ---
 
 (source_file
-(theorem (identifier)
-  (parameters (annotated (identifier) (identifier)))
-  (binary_expression
-    (apply (identifier)
-      (lambda
-        (parameters (identifier))
-        (binary_expression (identifier) (number))) (identifier))
-    (binary_expression (identifier) (number)))
-    (comment) (comment) (identifier)))
+(theorem
+  name: (identifier)
+  parameters:
+    (parameters
+      name: (identifier)
+      type: (identifier))
+    (binary_expression
+      (apply
+        name: (identifier)
+        arguments:
+          (lambda
+            (parameters
+              name: (identifier))
+            (binary_expression (identifier) (number)))
+        arguments:
+          (identifier))
+      (binary_expression (identifier) (number)))
+    (comment) (comment)
+  body:
+    (identifier)))
 
 ================
 Partial Function
@@ -179,10 +253,11 @@ structure Point (α : Type u) where
     name: (identifier)
     parameters:
       (parameters
-        (annotated (identifier)
+        name: (identifier)
+        type:
           (apply
             name: (identifier)
-            arguments: (identifier))))
+            arguments: (identifier)))
     fields:
       (structure_field
         name: (identifier)

@@ -76,7 +76,7 @@ module.exports = grammar({
       ':',
       field('return_type', $._expression),
       ':=',
-      field('implementation', $._expression),
+      field('body', $._expression),
     ),
 
     constructor: $ => seq(
@@ -101,16 +101,26 @@ module.exports = grammar({
 
     parameters: $ => seq(
       repeat1(
-        choice($.identifier, $.annotated)
+        choice(
+          field('name', $.identifier),
+          $._explicit_parameter,
+          $.implicit_parameter,
+        )
       ),
     ),
 
-    annotated: $ => seq(
+    _explicit_parameter: $ => seq(
       '(',
-      repeat1($.identifier),
-      ':',
-      $._type_annotation,
+      field('name', repeat1($.identifier)),
+      field('type', optional(seq(':', $._type_annotation))),
       ')',
+    ),
+
+    implicit_parameter: $ => seq(
+      '{',
+      field('name', repeat1($.identifier)),
+      field('type', optional(seq(':', $._type_annotation))),
+      '}',
     ),
 
     _type_annotation: $ => choice(
@@ -155,7 +165,7 @@ module.exports = grammar({
       ':',
       $._expression,
       ':=',
-      $.identifier,
+      field('body', $.identifier),
     ),
 
     example: $ => seq(
