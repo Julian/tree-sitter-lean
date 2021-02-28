@@ -109,6 +109,7 @@ Binary Expressions
 #eval 2 ≠ 3
 #eval "foo" ++ "bar"
 #eval [] :: [["foo"]]
+#eval foo <|> bar
 
 ---
 
@@ -118,7 +119,8 @@ Binary Expressions
   (hash_command (binary_expression (number) (number)))
   (hash_command (binary_expression (number) (number)))
   (hash_command (binary_expression (string) (string)))
-  (hash_command (binary_expression (list) (list (list (string))))))
+  (hash_command (binary_expression (list) (list (list (string)))))
+  (hash_command (binary_expression (identifier) (identifier))))
 
 ==========
 Comparison
