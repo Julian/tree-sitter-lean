@@ -48,6 +48,10 @@
           "named": true
         },
         {
+          "type": "interpolated_string",
+          "named": true
+        },
+        {
           "type": "lambda",
           "named": true
         },
@@ -135,6 +139,10 @@
             "named": true
           },
           {
+            "type": "interpolated_string",
+            "named": true
+          },
+          {
             "type": "lambda",
             "named": true
           },
@@ -214,6 +222,10 @@
           },
           {
             "type": "inductive_constructor",
+            "named": true
+          },
+          {
+            "type": "interpolated_string",
             "named": true
           },
           {
@@ -303,6 +315,10 @@
             "named": true
           },
           {
+            "type": "interpolated_string",
+            "named": true
+          },
+          {
             "type": "lambda",
             "named": true
           },
@@ -383,6 +399,10 @@
           "named": true
         },
         {
+          "type": "interpolated_string",
+          "named": true
+        },
+        {
           "type": "lambda",
           "named": true
         },
@@ -459,6 +479,10 @@
         },
         {
           "type": "inductive_constructor",
+          "named": true
+        },
+        {
+          "type": "interpolated_string",
           "named": true
         },
         {
@@ -557,6 +581,10 @@
           "named": true
         },
         {
+          "type": "interpolated_string",
+          "named": true
+        },
+        {
           "type": "lambda",
           "named": true
         },
@@ -633,6 +661,10 @@
         },
         {
           "type": "inductive_constructor",
+          "named": true
+        },
+        {
+          "type": "interpolated_string",
           "named": true
         },
         {
@@ -739,6 +771,10 @@
           },
           {
             "type": "inductive_constructor",
+            "named": true
+          },
+          {
+            "type": "interpolated_string",
             "named": true
           },
           {
@@ -862,6 +898,10 @@
             "named": true
           },
           {
+            "type": "interpolated_string",
+            "named": true
+          },
+          {
             "type": "lambda",
             "named": true
           },
@@ -939,6 +979,10 @@
         },
         {
           "type": "inductive_constructor",
+          "named": true
+        },
+        {
+          "type": "interpolated_string",
           "named": true
         },
         {
@@ -1070,6 +1114,10 @@
             "named": true
           },
           {
+            "type": "interpolated_string",
+            "named": true
+          },
+          {
             "type": "lambda",
             "named": true
           },
@@ -1150,6 +1198,10 @@
           "named": true
         },
         {
+          "type": "interpolated_string",
+          "named": true
+        },
+        {
           "type": "lambda",
           "named": true
         },
@@ -1226,6 +1278,10 @@
         },
         {
           "type": "inductive_constructor",
+          "named": true
+        },
+        {
+          "type": "interpolated_string",
           "named": true
         },
         {
@@ -1324,6 +1380,10 @@
           "named": true
         },
         {
+          "type": "interpolated_string",
+          "named": true
+        },
+        {
           "type": "lambda",
           "named": true
         },
@@ -1400,6 +1460,10 @@
         },
         {
           "type": "inductive_constructor",
+          "named": true
+        },
+        {
+          "type": "interpolated_string",
           "named": true
         },
         {
@@ -1495,6 +1559,10 @@
         },
         {
           "type": "inductive_constructor",
+          "named": true
+        },
+        {
+          "type": "interpolated_string",
           "named": true
         },
         {
@@ -1629,6 +1697,10 @@
             "named": true
           },
           {
+            "type": "interpolated_string",
+            "named": true
+          },
+          {
             "type": "lambda",
             "named": true
           },
@@ -1737,6 +1809,10 @@
             "named": true
           },
           {
+            "type": "interpolated_string",
+            "named": true
+          },
+          {
             "type": "lambda",
             "named": true
           },
@@ -1839,6 +1915,10 @@
             "named": true
           },
           {
+            "type": "interpolated_string",
+            "named": true
+          },
+          {
             "type": "lambda",
             "named": true
           },
@@ -1872,6 +1952,21 @@
           }
         ]
       }
+    }
+  },
+  {
+    "type": "interpolated_string",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "interpolation",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -1916,6 +2011,10 @@
         },
         {
           "type": "inductive_constructor",
+          "named": true
+        },
+        {
+          "type": "interpolated_string",
           "named": true
         },
         {
@@ -1995,6 +2094,10 @@
         },
         {
           "type": "inductive_constructor",
+          "named": true
+        },
+        {
+          "type": "interpolated_string",
           "named": true
         },
         {
@@ -2081,6 +2184,10 @@
           "named": true
         },
         {
+          "type": "interpolated_string",
+          "named": true
+        },
+        {
           "type": "lambda",
           "named": true
         },
@@ -2160,6 +2267,10 @@
           "named": true
         },
         {
+          "type": "interpolated_string",
+          "named": true
+        },
+        {
           "type": "lambda",
           "named": true
         },
@@ -2236,6 +2347,10 @@
         },
         {
           "type": "inductive_constructor",
+          "named": true
+        },
+        {
+          "type": "interpolated_string",
           "named": true
         },
         {
@@ -2336,6 +2451,10 @@
             "named": true
           },
           {
+            "type": "interpolated_string",
+            "named": true
+          },
+          {
             "type": "lambda",
             "named": true
           },
@@ -2413,6 +2532,10 @@
         },
         {
           "type": "inductive_constructor",
+          "named": true
+        },
+        {
+          "type": "interpolated_string",
           "named": true
         },
         {
@@ -2603,6 +2726,10 @@
           "named": true
         },
         {
+          "type": "interpolated_string",
+          "named": true
+        },
+        {
           "type": "lambda",
           "named": true
         },
@@ -2683,6 +2810,10 @@
         },
         {
           "type": "inductive_constructor",
+          "named": true
+        },
+        {
+          "type": "interpolated_string",
           "named": true
         },
         {
@@ -2770,6 +2901,10 @@
           },
           {
             "type": "inductive_constructor",
+            "named": true
+          },
+          {
+            "type": "interpolated_string",
             "named": true
           },
           {
@@ -2944,17 +3079,7 @@
   {
     "type": "string",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "interpolation",
-          "named": true
-        }
-      ]
-    }
+    "fields": {}
   },
   {
     "type": "structure_definition",
@@ -3052,6 +3177,10 @@
           },
           {
             "type": "inductive_constructor",
+            "named": true
+          },
+          {
+            "type": "interpolated_string",
             "named": true
           },
           {
@@ -3156,6 +3285,10 @@
           "named": true
         },
         {
+          "type": "interpolated_string",
+          "named": true
+        },
+        {
           "type": "lambda",
           "named": true
         },
@@ -3232,6 +3365,10 @@
         },
         {
           "type": "inductive_constructor",
+          "named": true
+        },
+        {
+          "type": "interpolated_string",
           "named": true
         },
         {
@@ -3319,6 +3456,10 @@
         },
         {
           "type": "inductive_constructor",
+          "named": true
+        },
+        {
+          "type": "interpolated_string",
           "named": true
         },
         {
@@ -3414,6 +3555,10 @@
         },
         {
           "type": "inductive_constructor",
+          "named": true
+        },
+        {
+          "type": "interpolated_string",
           "named": true
         },
         {
@@ -3645,6 +3790,10 @@
   },
   {
     "type": "return",
+    "named": false
+  },
+  {
+    "type": "s!\"",
     "named": false
   },
   {

@@ -181,6 +181,7 @@ module.exports = grammar({
       $.binary_expression,
       $.number,
       $.string,
+      $.interpolated_string,
       $.inductive_constructor,
       $.list,
       $.true,
@@ -341,8 +342,10 @@ module.exports = grammar({
       ']',
     ),
 
-    string: $ => seq(
-      '"',
+    string: $ => seq('"', repeat($._string_content), '"'),
+
+    interpolated_string: $ => seq(
+      's!"',
       repeat(choice($._string_content, $.interpolation)),
       '"',
     ),

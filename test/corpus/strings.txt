@@ -1,26 +1,36 @@
-=============
-Interpolation
-=============
+==================================
+Non-Interpolation in Normal String
+==================================
 
 #eval println! "The result of squaring the integer 4573 and adding 3 is {result1}"
 
 ---
 
-(source_file
-  (hash_command
-    (apply (identifier)
-      (string (interpolation (identifier))))))
+(source_file (hash_command (apply (identifier) (string))))
 
-=======================================
-Interpolation With Function Application
-=======================================
+=============
+Interpolation
+=============
 
-#eval println! "The result of applying sampleFunction3 to 2 is {sampleFunction3 2}"
+#eval println! s!"The result of squaring the integer 4573 and adding 3 is {result1}"
 
 ---
 
 (source_file
   (hash_command
     (apply (identifier)
-      (string (interpolation
+      (interpolated_string (interpolation (identifier))))))
+
+=======================================
+Interpolation With Function Application
+=======================================
+
+#eval println! s!"The result of applying sampleFunction3 to 2 is {sampleFunction3 2}"
+
+---
+
+(source_file
+  (hash_command
+    (apply (identifier)
+      (interpolated_string (interpolation
         (apply (identifier) (number)))))))
