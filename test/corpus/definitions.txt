@@ -199,13 +199,25 @@ Structure
 =========
 
 structure Point (α : Type u) where
-  x : α
+  w x : α
   y : α
 
 ---
 
 (source_file
-  (structure_definition (identifier)
-    (parameter_list (annotated (identifier) (apply (identifier) (identifier))))
-    (structure_field (identifier) (identifier))
-    (structure_field (identifier) (identifier))))
+  (structure_definition
+    name: (identifier)
+    parameters: (parameter_list
+        (annotated (identifier)
+            (apply
+                name: (identifier)
+                arguments: (identifier))))
+    fields:
+        (structure_field
+            name: (identifier)
+            name: (identifier)
+            type: (identifier))
+    fields:
+        (structure_field
+            name: (identifier)
+            type: (identifier))))
