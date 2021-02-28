@@ -81,7 +81,7 @@ example : (fun x => x * 2) 4 < 3 = false := rfl
     (binary_expression
       (comparison
         (apply
-          (lambda (parameter_list (identifier))
+          (lambda (parameters (identifier))
             (binary_expression (identifier) (number))) (number))
         (number))
       (false))
@@ -115,7 +115,7 @@ instance : ToString Foo where
   (instance (apply (identifier) (identifier))
     (instance_field
       (identifier)
-      (parameter_list (annotated (identifier) (identifier)))
+      (parameters (annotated (identifier) (identifier)))
       (identifier)
       (string))))
 
@@ -132,7 +132,7 @@ instance toStringFoo : ToString Foo where
   (instance (identifier) (apply (identifier) (identifier))
     (instance_field
       (identifier)
-      (parameter_list (annotated (identifier) (identifier)))
+      (parameters (annotated (identifier) (identifier)))
       (identifier)
       (string))))
 

@@ -277,7 +277,7 @@ def foo (d : Bar) : Baz :=
 (source_file
   (def
     name: (identifier)
-    parameters: (parameter_list (annotated (identifier) (identifier)))
+    parameters: (parameters (annotated (identifier) (identifier)))
     return_type: (identifier)
     body:
       (match
@@ -375,7 +375,7 @@ Anonymous Function
 (source_file
   (hash_command
     (lambda
-      (parameter_list (identifier))
+      (parameters (identifier))
       (binary_expression (identifier) (number)))))
 
 ==================
@@ -388,7 +388,7 @@ Anonymous Function
 
 (source_file
   (hash_command
-    (lambda (parameter_list (identifier)) (identifier))))
+    (lambda (parameters (identifier)) (identifier))))
 
 ==============================
 Anonymous Function Application
@@ -402,6 +402,6 @@ Anonymous Function Application
   (hash_command
     (apply
       (lambda
-        (parameter_list (identifier))
+        (parameters (identifier))
         (binary_expression (identifier) (number)))
       (number))))

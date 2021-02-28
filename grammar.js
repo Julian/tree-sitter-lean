@@ -72,7 +72,7 @@ module.exports = grammar({
 
     instance_field: $ => seq(
       field('name', $.identifier),
-      field('parameters', $.parameter_list),
+      field('parameters', $.parameters),
       ':',
       field('return_type', $._expression),
       ':=',
@@ -99,7 +99,7 @@ module.exports = grammar({
       $.identifier,
     ),
 
-    parameter_list: $ => seq(
+    parameters: $ => seq(
       repeat1(
         choice($.identifier, $.annotated)
       ),
@@ -126,7 +126,7 @@ module.exports = grammar({
       field('partial', optional('partial')),
       'def',
       field('name', $.identifier),
-      field('parameters', optional($.parameter_list)),
+      field('parameters', optional($.parameters)),
       optional(seq(':', field('return_type', $._type_annotation))),
       field('body', choice(
         seq(':=', $._expression),
@@ -143,7 +143,7 @@ module.exports = grammar({
     structure_definition: $ => seq(
       'structure',
       field('name', $.identifier),
-      field('parameters', optional($.parameter_list)),
+      field('parameters', optional($.parameters)),
       'where',
       field('fields', repeat1($.structure_field)),
     ),
@@ -151,7 +151,7 @@ module.exports = grammar({
     theorem: $ => seq(
       'theorem',
       field('name', $.identifier),
-      field('parameters', optional($.parameter_list)),
+      field('parameters', optional($.parameters)),
       ':',
       $._expression,
       ':=',
@@ -274,7 +274,7 @@ module.exports = grammar({
     lhs: $ => seq($._expression, repeat1(seq(',', $._expression))),
 
     lambda: $ => seq(
-      choice('fun', 'λ'), $.parameter_list, '=>', $._expression,
+      choice('fun', 'λ'), $.parameters, '=>', $._expression,
     ),
 
     _argument: $ => choice($._expression, $.named_argument),

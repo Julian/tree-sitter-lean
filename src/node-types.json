@@ -871,7 +871,7 @@
         "required": false,
         "types": [
           {
-            "type": "parameter_list",
+            "type": "parameters",
             "named": true
           }
         ]
@@ -1942,7 +1942,7 @@
         "required": true,
         "types": [
           {
-            "type": "parameter_list",
+            "type": "parameters",
             "named": true
           }
         ]
@@ -2210,7 +2210,7 @@
           "named": true
         },
         {
-          "type": "parameter_list",
+          "type": "parameters",
           "named": true
         },
         {
@@ -2776,7 +2776,7 @@
     }
   },
   {
-    "type": "parameter_list",
+    "type": "parameters",
     "named": true,
     "fields": {},
     "children": {
@@ -3235,7 +3235,7 @@
         "required": false,
         "types": [
           {
-            "type": "parameter_list",
+            "type": "parameters",
             "named": true
           }
         ]
@@ -3367,7 +3367,7 @@
         "required": false,
         "types": [
           {
-            "type": "parameter_list",
+            "type": "parameters",
             "named": true
           }
         ]

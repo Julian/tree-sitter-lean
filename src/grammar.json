@@ -249,7 +249,7 @@
           "name": "parameters",
           "content": {
             "type": "SYMBOL",
-            "name": "parameter_list"
+            "name": "parameters"
           }
         },
         {
@@ -363,7 +363,7 @@
         }
       ]
     },
-    "parameter_list": {
+    "parameters": {
       "type": "SEQ",
       "members": [
         {
@@ -489,7 +489,7 @@
             "members": [
               {
                 "type": "SYMBOL",
-                "name": "parameter_list"
+                "name": "parameters"
               },
               {
                 "type": "BLANK"
@@ -601,7 +601,7 @@
             "members": [
               {
                 "type": "SYMBOL",
-                "name": "parameter_list"
+                "name": "parameters"
               },
               {
                 "type": "BLANK"
@@ -649,7 +649,7 @@
             "members": [
               {
                 "type": "SYMBOL",
-                "name": "parameter_list"
+                "name": "parameters"
               },
               {
                 "type": "BLANK"
@@ -1214,7 +1214,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "parameter_list"
+          "name": "parameters"
         },
         {
           "type": "STRING",

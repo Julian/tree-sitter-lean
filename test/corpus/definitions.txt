@@ -12,7 +12,7 @@ theorem foo : p := sorry
 
 (source_file
   (def (identifier)
-    (parameter_list (identifier))
+    (parameters (identifier))
     (binary_expression (binary_expression (identifier) (identifier)) (number)))
   (def (identifier)
     (apply (identifier) (number)))
@@ -28,7 +28,7 @@ def sampleFunction2 (x : Nat) := 2*x*x - x + 3
 
 (source_file
   (def (identifier)
-    (parameter_list (annotated (identifier) (identifier)))
+    (parameters (annotated (identifier) (identifier)))
     (binary_expression
       (binary_expression
         (binary_expression
@@ -47,7 +47,7 @@ def sampleFunction2 (x y : Nat) := x + y
 
 (source_file
   (def (identifier)
-    (parameter_list (annotated (identifier) (identifier) (identifier)))
+    (parameters (annotated (identifier) (identifier) (identifier)))
     (binary_expression (identifier) (identifier))))
 
 ====================
@@ -61,7 +61,7 @@ def twice (f : Nat → Nat) (a : Nat) :=
 
 (source_file
   (def (identifier)
-    (parameter_list
+    (parameters
       (annotated (identifier) (function_annotation (identifier) (identifier)))
       (annotated (identifier) (identifier)))
     (apply (identifier)
@@ -110,7 +110,7 @@ else
 
 (source_file
 (def (identifier)
-  (parameter_list (annotated (identifier) (identifier)))
+  (parameters (annotated (identifier) (identifier)))
   (conditional (comparison (identifier) (number))
       (binary_expression
         (binary_expression
@@ -141,11 +141,11 @@ theorem twiceAdd2 (a : Nat) : twice (fun x => x + 2) a = a + 4 :=
 
 (source_file
 (theorem (identifier)
-  (parameter_list (annotated (identifier) (identifier)))
+  (parameters (annotated (identifier) (identifier)))
   (binary_expression
     (apply (identifier)
       (lambda
-        (parameter_list (identifier))
+        (parameters (identifier))
         (binary_expression (identifier) (number))) (identifier))
     (binary_expression (identifier) (number)))
     (comment) (comment) (identifier)))
@@ -160,7 +160,7 @@ partial def g x : Nat := g (x + 1)
 
 (source_file
   (def (identifier)
-    (parameter_list (identifier))
+    (parameters (identifier))
     (identifier)
     (apply (identifier) (binary_expression (identifier) (number)))))
 
@@ -177,16 +177,17 @@ structure Point (α : Type u) where
 (source_file
   (structure_definition
     name: (identifier)
-    parameters: (parameter_list
+    parameters:
+      (parameters
         (annotated (identifier)
-            (apply
-                name: (identifier)
-                arguments: (identifier))))
-    fields:
-        (structure_field
+          (apply
             name: (identifier)
-            type: (identifier))
+            arguments: (identifier))))
     fields:
-        (structure_field
-            name: (identifier)
-            type: (identifier))))
+      (structure_field
+        name: (identifier)
+        type: (identifier))
+    fields:
+      (structure_field
+        name: (identifier)
+        type: (identifier))))
