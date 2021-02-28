@@ -177,6 +177,8 @@ module.exports = grammar({
       $.binary_expression,
       $.number,
       $.string,
+      $.true,
+      $.false,
     ),
 
     _parenthesized_expression: $ => prec(PREC.parenthesized_expression, seq(
@@ -341,7 +343,10 @@ module.exports = grammar({
     // FIXME: see name.cpp for the real definition...
     identifier: $ => /[_a-zA-ZͰ-ϿĀ-ſ∇][_a-zA-Z0-9Ͱ-ϿĀ-ſ∇!]*/,
 
-    number: $ => /\d+/
+    number: $ => /\d+/,
+
+    true: $ => 'true',
+    false: $ => 'false',
   }
 });
 

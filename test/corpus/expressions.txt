@@ -36,7 +36,7 @@ If/Then
 
 ---
 
-(source_file (hash_command (conditional (identifier) (string))))
+(source_file (hash_command (conditional (true) (string))))
 
 ============
 If/Then/Else
@@ -46,7 +46,7 @@ If/Then/Else
 
 ---
 
-(source_file (hash_command (conditional (identifier) (string) (string))))
+(source_file (hash_command (conditional (true) (string) (string))))
 
 ===================
 Nested If/Then/Else
@@ -58,8 +58,8 @@ Nested If/Then/Else
 
 (source_file
   (hash_command
-    (conditional (identifier)
-      (conditional (identifier) (string) (string))
+    (conditional (true)
+      (conditional (false) (string) (string))
       (string))))
 
 ========
@@ -72,9 +72,9 @@ Negation
 ---
 
 (source_file
-  (hash_command (unary_expression (identifier)))
+  (hash_command (unary_expression (true)))
   (hash_command
-    (unary_expression (unary_expression (unary_expression (identifier))))))
+    (unary_expression (unary_expression (unary_expression (true))))))
 
 ==================
 Binary Expressions

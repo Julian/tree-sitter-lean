@@ -84,7 +84,7 @@ example : (fun x => x * 2) 4 < 3 = false := rfl
           (lambda (parameter_list (identifier))
             (binary_expression (identifier) (number))) (number))
         (number))
-      (identifier))
+      (false))
     (identifier)))
 
 ==============
