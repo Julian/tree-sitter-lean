@@ -51,6 +51,19 @@ List
   (hash_command (list (number) (number) (number)))
   (hash_command (list)))
 
+=====
+Array
+=====
+
+#check #[1, 2, 3]
+#check #[]
+
+---
+
+(source_file
+  (hash_command (array (number) (number) (number)))
+  (hash_command (array)))
+
 =====================
 Inductive Constructor
 =====================

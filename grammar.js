@@ -185,6 +185,7 @@ module.exports = grammar({
       $.interpolated_string,
       $.inductive_constructor,
       $.list,
+      $.array,
       $.true,
       $.false,
     ),
@@ -340,6 +341,13 @@ module.exports = grammar({
 
     list: $ => seq(
       '[',
+      optional($._expression),
+      repeat(seq(',', $._expression)),
+      ']',
+    ),
+
+    array: $ => seq(
+      '#[',
       optional($._expression),
       repeat(seq(',', $._expression)),
       ']',
