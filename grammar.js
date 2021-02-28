@@ -274,7 +274,7 @@ module.exports = grammar({
     lhs: $ => seq($._expression, repeat1(seq(',', $._expression))),
 
     lambda: $ => seq(
-      'fun', $.parameter_list, '=>', $._expression,
+      choice('fun', 'λ'), $.parameter_list, '=>', $._expression,
     ),
 
     _argument: $ => choice($._expression, $.named_argument),

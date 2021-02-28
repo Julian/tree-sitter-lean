@@ -363,3 +363,45 @@ $ Application
   (hash_command
     (apply (apply (identifier) (identifier))
       (apply (identifier) (binary_expression (number) (number))))))
+
+==================
+Anonymous Function
+==================
+
+#check fun x => x + 2
+
+---
+
+(source_file
+  (hash_command
+    (lambda
+      (parameter_list (identifier))
+      (binary_expression (identifier) (number)))))
+
+==================
+Anonymous Function
+==================
+
+#check λ x => x
+
+---
+
+(source_file
+  (hash_command
+    (lambda (parameter_list (identifier)) (identifier))))
+
+==============================
+Anonymous Function Application
+==============================
+
+#eval (fun x => x + 2) 10
+
+---
+
+(source_file
+  (hash_command
+    (apply
+      (lambda
+        (parameter_list (identifier))
+        (binary_expression (identifier) (number)))
+      (number))))
