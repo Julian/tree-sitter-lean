@@ -12,13 +12,15 @@
     "nan": "^2.14.2"
   },
   "devDependencies": {
-    "tree-sitter-cli": "^0.18.0"
+    "tree-sitter-cli": "^0.18.3"
   },
   "repository": "https://github.com/Julian/tree-sitter-lean",
   "tree-sitter": [
     {
       "scope": "source.lean",
-      "file-types": ["lean"]
+      "file-types": [
+        "lean"
+      ]
     }
   ]
 }
