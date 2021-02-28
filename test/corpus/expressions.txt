@@ -31,6 +31,21 @@ List
   (hash_command (list (number) (number) (number)))
   (hash_command (list)))
 
+=====================
+Inductive Constructor
+=====================
+
+example : Foo := ⟨1, 2, 3⟩
+example : Foo := ⟨1⟩
+example : Foo := ⟨⟩
+
+---
+
+(source_file
+  (example (identifier) (inductive_constructor (number) (number) (number)))
+  (example (identifier) (inductive_constructor (number)))
+  (example (identifier) (inductive_constructor)))
+
 ===================
 Unicode Identifiers
 ===================

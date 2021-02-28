@@ -179,6 +179,7 @@ module.exports = grammar({
       $.binary_expression,
       $.number,
       $.string,
+      $.inductive_constructor,
       $.list,
       $.true,
       $.false,
@@ -323,6 +324,13 @@ module.exports = grammar({
       ),
       $._expression,
     )),
+
+    inductive_constructor: $ => seq(
+      '⟨',
+      optional($._expression),
+      repeat(seq(',', $._expression)),
+      '⟩',
+    ),
 
     list: $ => seq(
       '[',
