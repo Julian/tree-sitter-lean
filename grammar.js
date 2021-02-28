@@ -64,8 +64,10 @@ module.exports = grammar({
       optional(field('name', $.identifier)),
       ':',
       field('class', $._expression),
-      'where',
-      field('fields', repeat1($.instance_field)),
+      field('body', choice(
+        seq('where', field('fields', repeat1($.instance_field))),
+        seq(':=', $.inductive_constructor),
+      )),
     ),
 
     instance_field: $ => seq(

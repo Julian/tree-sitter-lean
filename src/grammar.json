@@ -190,18 +190,45 @@
           }
         },
         {
-          "type": "STRING",
-          "value": "where"
-        },
-        {
           "type": "FIELD",
-          "name": "fields",
+          "name": "body",
           "content": {
-            "type": "REPEAT1",
-            "content": {
-              "type": "SYMBOL",
-              "name": "instance_field"
-            }
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": "where"
+                  },
+                  {
+                    "type": "FIELD",
+                    "name": "fields",
+                    "content": {
+                      "type": "REPEAT1",
+                      "content": {
+                        "type": "SYMBOL",
+                        "name": "instance_field"
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": ":="
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "inductive_constructor"
+                  }
+                ]
+              }
+            ]
           }
         }
       ]

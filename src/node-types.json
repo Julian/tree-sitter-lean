@@ -1562,6 +1562,24 @@
     "type": "instance",
     "named": true,
     "fields": {
+      "body": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": ":=",
+            "named": false
+          },
+          {
+            "type": "inductive_constructor",
+            "named": true
+          },
+          {
+            "type": "where",
+            "named": false
+          }
+        ]
+      },
       "class": {
         "multiple": true,
         "required": true,
@@ -1646,7 +1664,7 @@
       },
       "fields": {
         "multiple": true,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": "instance_field",

@@ -135,3 +135,19 @@ instance toStringFoo : ToString Foo where
       (parameter_list (annotated (identifier) (identifier)))
       (identifier)
       (string))))
+
+===================================
+Instance With Inductive Constructor
+===================================
+
+instance : Inhabited Nat := ⟨0⟩
+
+---
+
+(source_file
+  (instance
+    class:
+      (apply
+        name: (identifier)
+        arguments: (identifier))
+    body: (inductive_constructor (number))))
