@@ -2,7 +2,8 @@
 tree-sitter-lean
 ================
 
-Lean 4 grammar for `tree-sitter <https://github.com/tree-sitter/tree-sitter>`_.
+`Lean 4 <https://leanprover.github.io/lean4/doc/>`_ grammar for
+`tree-sitter <https://github.com/tree-sitter/tree-sitter>`_.
 
 |CI|
 
