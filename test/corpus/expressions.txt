@@ -260,8 +260,30 @@ def foo (d : Bar) : Baz :=
     parameters: (parameter_list (annotated (identifier) (identifier)))
     return_type: (identifier)
     body:
-      (match (identifier)
+      (match
+        value: (identifier)
         patterns: (pattern (identifier) (number)))))
+
+================
+Match Expression
+================
+
+#eval match Nat.succ 3 with
+  | _ => true
+
+---
+
+(source_file
+  (hash_command
+    (match
+      value:
+        (apply
+          name:
+            (element_of
+              type: (identifier)
+              field: (identifier))
+          arguments: (number))
+      patterns: (pattern (identifier) (true)))))
 
 ==================
 Match Syntax Sugar
