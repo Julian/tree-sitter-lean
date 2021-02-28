@@ -307,6 +307,7 @@ module.exports = grammar({
       prec.left(1, seq($._expression, '-', $._expression)),
 
       prec.left(1, seq($._expression, '++', $._expression)),
+      prec.left(1, seq($._expression, '::', $._expression)),
 
       prec.left(PREC.equal, seq($._expression, '=', $._expression)),
       prec.left(PREC.equal, seq($._expression, '≠', $._expression)),
