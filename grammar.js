@@ -313,6 +313,8 @@ module.exports = grammar({
 
       prec.left(1, seq($._expression, '++', $._expression)),
       prec.left(1, seq($._expression, '::', $._expression)),
+      prec.left(1, seq($._expression, '||', $._expression)),
+      prec.left(2, seq($._expression, '==', $._expression)),
 
       prec.left(1, seq($._expression, '<|>', $._expression)),
 
