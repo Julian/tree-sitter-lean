@@ -822,6 +822,10 @@
             {
               "type": "SYMBOL",
               "name": "throw"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "return"
             }
           ]
         },
@@ -988,6 +992,31 @@
           "content": {
             "type": "SYMBOL",
             "name": "_do_expression"
+          }
+        }
+      ]
+    },
+    "return": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "return"
+        },
+        {
+          "type": "FIELD",
+          "name": "value",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_expression"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
           }
         }
       ]

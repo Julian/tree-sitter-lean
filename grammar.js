@@ -213,6 +213,7 @@ module.exports = grammar({
         $.let,
         $.try,
         $.throw,
+        $.return,
       ),
       $._newline,
     ),
@@ -245,6 +246,8 @@ module.exports = grammar({
       'finally',
       repeat1($._do_expression),
     ),
+
+    return: $ => seq('return', field('value', optional($._expression))),
 
     match: $ => prec.left(seq(
       'match',

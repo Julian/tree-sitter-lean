@@ -141,3 +141,27 @@ def f : IO Unit := do
 (source_file
   (def (identifier) (apply (identifier) (identifier))
     (do)) (ERROR (apply (identifier) (string))))
+
+======
+Return
+======
+
+def f : Nat := do
+  return 3
+
+---
+
+(source_file
+  (def (identifier) (identifier) (do (return (number)))))
+
+==============
+Return Nothing
+==============
+
+def f : Unit := do
+  return
+
+---
+
+(source_file
+  (def (identifier) (identifier) (do (return))))
