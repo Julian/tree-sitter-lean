@@ -86,7 +86,7 @@ module.exports = grammar({
     namespace: $ => seq(
       'namespace',
       field('name', $.identifier),
-      repeat($._command),
+      field('body', repeat($._command)),
       'end',
       $.identifier,
     ),
@@ -94,7 +94,7 @@ module.exports = grammar({
     section: $ => seq(
       'section',
       field('name', $.identifier),
-      repeat($._command),
+      field('body', repeat($._command)),
       'end',
       $.identifier,
     ),
@@ -165,7 +165,7 @@ module.exports = grammar({
       ':',
       $._expression,
       ':=',
-      field('body', $.identifier),
+      field('body', $.identifier),  // FIXME
     ),
 
     example: $ => seq(
@@ -173,7 +173,7 @@ module.exports = grammar({
       ':',
       $._expression,
       ':=',
-      $._expression,
+      field('body', $._expression),
     ),
 
     _expression: $ => choice(

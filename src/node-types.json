@@ -2912,6 +2912,60 @@
     "type": "namespace",
     "named": true,
     "fields": {
+      "body": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "def",
+            "named": true
+          },
+          {
+            "type": "example",
+            "named": true
+          },
+          {
+            "type": "hash_command",
+            "named": true
+          },
+          {
+            "type": "import",
+            "named": true
+          },
+          {
+            "type": "inductive_type",
+            "named": true
+          },
+          {
+            "type": "instance",
+            "named": true
+          },
+          {
+            "type": "namespace",
+            "named": true
+          },
+          {
+            "type": "open",
+            "named": true
+          },
+          {
+            "type": "prelude",
+            "named": true
+          },
+          {
+            "type": "section",
+            "named": true
+          },
+          {
+            "type": "structure_definition",
+            "named": true
+          },
+          {
+            "type": "theorem",
+            "named": true
+          }
+        ]
+      },
       "name": {
         "multiple": false,
         "required": true,
@@ -2924,59 +2978,11 @@
       }
     },
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
-          "type": "def",
-          "named": true
-        },
-        {
-          "type": "example",
-          "named": true
-        },
-        {
-          "type": "hash_command",
-          "named": true
-        },
-        {
           "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "import",
-          "named": true
-        },
-        {
-          "type": "inductive_type",
-          "named": true
-        },
-        {
-          "type": "instance",
-          "named": true
-        },
-        {
-          "type": "namespace",
-          "named": true
-        },
-        {
-          "type": "open",
-          "named": true
-        },
-        {
-          "type": "prelude",
-          "named": true
-        },
-        {
-          "type": "section",
-          "named": true
-        },
-        {
-          "type": "structure_definition",
-          "named": true
-        },
-        {
-          "type": "theorem",
           "named": true
         }
       ]
@@ -3415,6 +3421,60 @@
     "type": "section",
     "named": true,
     "fields": {
+      "body": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "def",
+            "named": true
+          },
+          {
+            "type": "example",
+            "named": true
+          },
+          {
+            "type": "hash_command",
+            "named": true
+          },
+          {
+            "type": "import",
+            "named": true
+          },
+          {
+            "type": "inductive_type",
+            "named": true
+          },
+          {
+            "type": "instance",
+            "named": true
+          },
+          {
+            "type": "namespace",
+            "named": true
+          },
+          {
+            "type": "open",
+            "named": true
+          },
+          {
+            "type": "prelude",
+            "named": true
+          },
+          {
+            "type": "section",
+            "named": true
+          },
+          {
+            "type": "structure_definition",
+            "named": true
+          },
+          {
+            "type": "theorem",
+            "named": true
+          }
+        ]
+      },
       "name": {
         "multiple": false,
         "required": true,
@@ -3427,59 +3487,11 @@
       }
     },
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
-          "type": "def",
-          "named": true
-        },
-        {
-          "type": "example",
-          "named": true
-        },
-        {
-          "type": "hash_command",
-          "named": true
-        },
-        {
           "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "import",
-          "named": true
-        },
-        {
-          "type": "inductive_type",
-          "named": true
-        },
-        {
-          "type": "instance",
-          "named": true
-        },
-        {
-          "type": "namespace",
-          "named": true
-        },
-        {
-          "type": "open",
-          "named": true
-        },
-        {
-          "type": "prelude",
-          "named": true
-        },
-        {
-          "type": "section",
-          "named": true
-        },
-        {
-          "type": "structure_definition",
-          "named": true
-        },
-        {
-          "type": "theorem",
           "named": true
         }
       ]
