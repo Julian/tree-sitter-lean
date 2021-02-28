@@ -533,11 +533,8 @@
           "type": "FIELD",
           "name": "name",
           "content": {
-            "type": "REPEAT",
-            "content": {
-              "type": "SYMBOL",
-              "name": "identifier"
-            }
+            "type": "SYMBOL",
+            "name": "identifier"
           }
         },
         {

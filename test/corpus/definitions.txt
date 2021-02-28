@@ -199,7 +199,7 @@ Structure
 =========
 
 structure Point (α : Type u) where
-  w x : α
+  x : α
   y : α
 
 ---
@@ -214,7 +214,6 @@ structure Point (α : Type u) where
                 arguments: (identifier))))
     fields:
         (structure_field
-            name: (identifier)
             name: (identifier)
             type: (identifier))
     fields:

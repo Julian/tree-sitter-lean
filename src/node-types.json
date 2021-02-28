@@ -2716,8 +2716,8 @@
     "named": true,
     "fields": {
       "name": {
-        "multiple": true,
-        "required": false,
+        "multiple": false,
+        "required": true,
         "types": [
           {
             "type": "identifier",

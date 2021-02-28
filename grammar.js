@@ -133,7 +133,7 @@ module.exports = grammar({
     ),
 
     structure_field: $ => seq(
-      field('name', repeat($.identifier)),
+      field('name', $.identifier),
       ':',
       field('type', $._expression),
     ),
