@@ -150,13 +150,15 @@ Negation
 
 #eval !true
 #eval !!!true
+#eval !foo
 
 ---
 
 (source_file
   (hash_command (unary_expression (true)))
   (hash_command
-    (unary_expression (unary_expression (unary_expression (true))))))
+    (unary_expression (unary_expression (unary_expression (true)))))
+  (hash_command (unary_expression (identifier))))
 
 ==================
 Binary Expressions
