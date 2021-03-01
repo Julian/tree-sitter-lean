@@ -1466,12 +1466,12 @@
       }
     },
     "unary_expression": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "PREC_LEFT",
-          "value": 1,
-          "content": {
+      "type": "PREC",
+      "value": 5,
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
             "type": "SEQ",
             "members": [
               {
@@ -1484,15 +1484,15 @@
               }
             ]
           }
-        }
-      ]
+        ]
+      }
     },
     "binary_expression": {
       "type": "CHOICE",
       "members": [
         {
           "type": "PREC_LEFT",
-          "value": 2,
+          "value": 4,
           "content": {
             "type": "SEQ",
             "members": [
@@ -1513,7 +1513,7 @@
         },
         {
           "type": "PREC_LEFT",
-          "value": 2,
+          "value": 4,
           "content": {
             "type": "SEQ",
             "members": [
@@ -1534,7 +1534,28 @@
         },
         {
           "type": "PREC_LEFT",
-          "value": 1,
+          "value": 4,
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_expression"
+              },
+              {
+                "type": "STRING",
+                "value": "%"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_expression"
+              }
+            ]
+          }
+        },
+        {
+          "type": "PREC_LEFT",
+          "value": 2,
           "content": {
             "type": "SEQ",
             "members": [
@@ -1555,7 +1576,7 @@
         },
         {
           "type": "PREC_LEFT",
-          "value": 1,
+          "value": 2,
           "content": {
             "type": "SEQ",
             "members": [
@@ -1566,27 +1587,6 @@
               {
                 "type": "STRING",
                 "value": "-"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "_expression"
-              }
-            ]
-          }
-        },
-        {
-          "type": "PREC_LEFT",
-          "value": 1,
-          "content": {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "_expression"
-              },
-              {
-                "type": "STRING",
-                "value": "%"
               },
               {
                 "type": "SYMBOL",

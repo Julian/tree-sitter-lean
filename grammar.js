@@ -6,7 +6,11 @@ const PREC = {
   field_of: 1,
 
   equal: -1,
-  negation: 1,
+  opop: 1,
+  eqeq: 2,
+  plus: 2,
+  times: 4,
+  unary: 5,
 }
 
 module.exports = grammar({
@@ -314,23 +318,23 @@ module.exports = grammar({
       field('name', $.identifier),
     )),
 
-    unary_expression: $ => choice(
-      prec.left(PREC.negation, seq('!', $._expression)),
-    ),
+    unary_expression: $ => prec(PREC.unary, choice(
+      seq('!', $._expression),
+    )),
 
     binary_expression: $ => choice(
-      prec.left(2, seq($._expression, '*', $._expression)),
-      prec.left(2, seq($._expression, '/', $._expression)),
-      prec.left(1, seq($._expression, '+', $._expression)),
-      prec.left(1, seq($._expression, '-', $._expression)),
-      prec.left(1, seq($._expression, '%', $._expression)),
+      prec.left(PREC.times, seq($._expression, '*', $._expression)),
+      prec.left(PREC.times, seq($._expression, '/', $._expression)),
+      prec.left(PREC.times, seq($._expression, '%', $._expression)),
+      prec.left(PREC.plus, seq($._expression, '+', $._expression)),
+      prec.left(PREC.plus, seq($._expression, '-', $._expression)),
 
-      prec.left(1, seq($._expression, '++', $._expression)),
-      prec.left(1, seq($._expression, '::', $._expression)),
-      prec.left(1, seq($._expression, '||', $._expression)),
-      prec.left(2, seq($._expression, '==', $._expression)),
+      prec.left(PREC.opop, seq($._expression, '++', $._expression)),
+      prec.left(PREC.opop, seq($._expression, '::', $._expression)),
+      prec.left(PREC.opop, seq($._expression, '||', $._expression)),
+      prec.left(PREC.eqeq, seq($._expression, '==', $._expression)),
 
-      prec.left(1, seq($._expression, '<|>', $._expression)),
+      prec.left(PREC.opop, seq($._expression, '<|>', $._expression)),
 
       prec.left(PREC.equal, seq($._expression, '=', $._expression)),
       prec.left(PREC.equal, seq($._expression, '≠', $._expression)),
