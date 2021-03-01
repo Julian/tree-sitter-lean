@@ -236,6 +236,8 @@ module.exports = grammar({
     _do_expression: $ => seq(
       choice(
         $._expression,
+        $.for_in,
+        $.assign,
         $.let,
         $.try,
         $.throw,
@@ -246,8 +248,28 @@ module.exports = grammar({
 
     do: $ => prec.right(seq('do', repeat($._do_expression))),
 
+    mutable_specifier: $ => 'mut',
+
+    for_in: $ => seq(
+      'for',
+      field('name', $.identifier),
+      'in',
+      field('iterable', $._expression),
+      field('body', $.do),
+    ),
+
+    assign: $ => seq(
+      field('name', $.identifier),
+      ':=',
+      field('value', $._expression),
+    ),
+
     let: $ => seq(
-      'let', $.identifier, choice('<-', '←', ':='), $._expression,
+      'let',
+      optional($.mutable_specifier),
+      field('name', $.identifier),
+      choice('<-', '←', ':='),
+      field('body', $._expression),
     ),
 
     // FIXME: nesting (which depends on the indent processing)

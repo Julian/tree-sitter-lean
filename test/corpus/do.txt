@@ -48,6 +48,63 @@ def f : Unit := do
       (let (identifier) (number))
       (let (identifier) (number)))))
 
+===========
+Let Mutable
+===========
+
+def bar : Unit := do
+  let mut s := 0
+
+---
+
+(source_file
+  (def
+    name: (identifier)
+    return_type: (identifier)
+    body:
+      (do
+        (let
+          (mutable_specifier)
+          name: (identifier)
+          body: (number)))))
+
+========
+For Loop
+========
+
+def foo (xs : Array Nat) : Unit := do
+  let mut s := 0
+  for x in xs do
+    s := s + x
+
+---
+
+(source_file
+  (def
+    name: (identifier)
+    parameters:
+      (parameters
+        name: (identifier)
+        type:
+          (apply
+            name: (identifier)
+            arguments: (identifier)))
+    return_type: (identifier)
+    body:
+      (do
+        (let
+          (mutable_specifier)
+          name: (identifier)
+          body: (number))
+        (for_in
+          name: (identifier)
+          iterable: (identifier)
+          body:
+            (do))
+              (assign
+                name: (identifier)
+                value: (binary_expression (identifier) (identifier))))))
+
 =========
 Try/Catch
 =========
