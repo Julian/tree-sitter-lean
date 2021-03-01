@@ -8,6 +8,17 @@ Number
 
 (source_file (hash_command (number)))
 
+=====
+Float
+=====
+
+#eval 23.279
+#eval 2.
+
+---
+
+(source_file (hash_command (float)) (hash_command (float)))
+
 ======
 String
 ======

@@ -190,6 +190,7 @@ module.exports = grammar({
       $.unary_expression,
       $.binary_expression,
       $.number,
+      $.float,
       $.char,
       $.string,
       $.interpolated_string,
@@ -403,6 +404,7 @@ module.exports = grammar({
     identifier: $ => /[_a-zA-ZͰ-ϿĀ-ſ∇][_a-zA-Z0-9Ͱ-ϿĀ-ſ∇!\u2070-\u209F]*/,
 
     number: $ => /\d+/,
+    float: $ => /\d+\.\d*/,
 
     true: $ => 'true',
     false: $ => 'false',
