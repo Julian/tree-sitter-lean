@@ -208,6 +208,8 @@ example : 4 = 3 + 1 := rfl
 example : 4 = 4 * 1 := rfl
 example : 4 = 4 / 1 := rfl
 example : 4 = 4 % 5 := rfl
+#eval false && false || true
+#eval true || false && false
 
 ---
 
@@ -241,7 +243,11 @@ example : 4 = 4 % 5 := rfl
   (example
     (binary_expression (number) (binary_expression (number) (number)))
     body:
-      (identifier)))
+      (identifier))
+  (hash_command
+    (binary_expression (binary_expression (false) (false)) (true)))
+  (hash_command
+    (binary_expression (true) (binary_expression (false) (false)))))
 
 ==========
 Comparison

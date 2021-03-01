@@ -7,6 +7,8 @@ const PREC = {
 
   equal: -1,
   opop: 1,
+  or: 1,
+  and: 2,
   eqeq: 2,
   plus: 3,
   times: 4,
@@ -331,7 +333,8 @@ module.exports = grammar({
 
       prec.left(PREC.opop, seq($._expression, '++', $._expression)),
       prec.left(PREC.opop, seq($._expression, '::', $._expression)),
-      prec.left(PREC.opop, seq($._expression, '||', $._expression)),
+      prec.left(PREC.or, seq($._expression, '||', $._expression)),
+      prec.left(PREC.and, seq($._expression, '&&', $._expression)),
       prec.left(PREC.eqeq, seq($._expression, '==', $._expression)),
 
       prec.left(PREC.opop, seq($._expression, '<|>', $._expression)),
