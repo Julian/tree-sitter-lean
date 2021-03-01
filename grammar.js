@@ -8,7 +8,7 @@ const PREC = {
   equal: -1,
   opop: 1,
   eqeq: 2,
-  plus: 2,
+  plus: 3,
   times: 4,
   unary: 5,
 }

@@ -195,6 +195,55 @@ Binary Expressions
       (binary_expression (char) (char)))))
 
 ==========
+Precedence
+==========
+
+#eval 4 == 4 - 0
+#eval 4 == 3 + 1
+#eval 4 == 4 * 1
+#eval 4 == 4 / 1
+#eval 4 == 4 % 5
+example : 4 = 4 - 0 := rfl
+example : 4 = 3 + 1 := rfl
+example : 4 = 4 * 1 := rfl
+example : 4 = 4 / 1 := rfl
+example : 4 = 4 % 5 := rfl
+
+---
+
+(source_file
+  (hash_command
+    (binary_expression (number) (binary_expression (number) (number))))
+  (hash_command
+    (binary_expression (number) (binary_expression (number) (number))))
+  (hash_command
+    (binary_expression (number) (binary_expression (number) (number))))
+  (hash_command
+    (binary_expression (number) (binary_expression (number) (number))))
+  (hash_command
+    (binary_expression (number) (binary_expression (number) (number))))
+  (example
+    (binary_expression (number) (binary_expression (number) (number)))
+    body:
+      (identifier))
+  (example
+    (binary_expression (number) (binary_expression (number) (number)))
+    body:
+      (identifier))
+  (example
+    (binary_expression (number) (binary_expression (number) (number)))
+    body:
+      (identifier))
+  (example
+    (binary_expression (number) (binary_expression (number) (number)))
+    body:
+      (identifier))
+  (example
+    (binary_expression (number) (binary_expression (number) (number)))
+    body:
+      (identifier)))
+
+==========
 Comparison
 ==========
 

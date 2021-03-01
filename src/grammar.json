@@ -1555,7 +1555,7 @@
         },
         {
           "type": "PREC_LEFT",
-          "value": 2,
+          "value": 3,
           "content": {
             "type": "SEQ",
             "members": [
@@ -1576,7 +1576,7 @@
         },
         {
           "type": "PREC_LEFT",
-          "value": 2,
+          "value": 3,
           "content": {
             "type": "SEQ",
             "members": [
