@@ -422,6 +422,26 @@ def foo : Nat → Nat
     body: (pattern (number) (number))
     body: (pattern (identifier) (number))))
 
+==========================================
+Match Syntax Sugar With Anonymous Function
+==========================================
+
+def foo : Nat -> Bool :=
+  fun
+    | 0 => true
+    | _ => false
+
+---
+
+(source_file
+  (def
+    name: (identifier)
+    return_type: (function_annotation (identifier) (identifier))
+    body:
+      (lambda
+        (pattern (number) (true))
+        (pattern (identifier) (false)))))
+
 ==================
 Multimatch Syntax Sugar
 ==================

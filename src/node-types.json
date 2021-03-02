@@ -2794,7 +2794,7 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "apply",
@@ -2866,6 +2866,10 @@
         },
         {
           "type": "parameters",
+          "named": true
+        },
+        {
+          "type": "pattern",
           "named": true
         },
         {
