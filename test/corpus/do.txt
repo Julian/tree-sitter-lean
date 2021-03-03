@@ -48,6 +48,26 @@ def f : Unit := do
       (let (identifier) (number))
       (let (identifier) (number)))))
 
+=============
+Let Annotated
+=============
+
+def f : Unit := do
+  let e : Nat := 2
+
+---
+
+(source_file
+  (def
+    name: (identifier)
+    return_type: (identifier)
+    body:
+      (do
+        (let
+          name: (identifier)
+          type: (identifier)
+          body: (number)))))
+
 ===========
 Let Mutable
 ===========

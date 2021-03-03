@@ -65,11 +65,7 @@ module.exports = grammar({
       field('constructors', repeat1($.constructor)),
     ),
 
-    constructor: $ => seq(
-      '|',
-      field('name', $.identifier),
-      optional(seq(':', field('type', $.identifier))),
-    ),
+    constructor: $ => seq('|', $._maybe_annotated),
 
     instance: $ => seq(
       'instance',
@@ -155,11 +151,7 @@ module.exports = grammar({
       )),
     ),
 
-    structure_field: $ => seq(
-      field('name', $.identifier),
-      ':',
-      field('type', $._expression),
-    ),
+    structure_field: $ => $._maybe_annotated,
 
     structure_definition: $ => seq(
       'structure',
@@ -272,7 +264,7 @@ module.exports = grammar({
     let: $ => seq(
       'let',
       optional($.mutable_specifier),
-      field('name', $.identifier),
+      field('name', $._maybe_annotated),
       choice('<-', '←', ':='),
       field('body', $._expression),
     ),
@@ -444,6 +436,11 @@ module.exports = grammar({
 
     // FIXME: see name.cpp for the real definition...
     identifier: $ => /[_a-zA-ZͰ-ϿĀ-ſ∇][_a-zA-Z0-9Ͱ-ϿĀ-ſ∇!\u2070-\u209F]*/,
+
+    _maybe_annotated: $ => seq(
+      field('name', $.identifier),
+      field('type', optional(seq(':', $._expression))),
+    ),
 
     number: $ => /\d+/,
     float: $ => /\d+\.\d*/,
