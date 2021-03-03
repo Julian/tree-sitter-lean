@@ -141,6 +141,9 @@ module.exports = grammar({
     ),
 
     def: $ => seq(
+      field('attributes', optional(seq(
+        '@[', $.identifier, optional(repeat(seq(',', $.identifier))), ']',
+      ))),
       field('partial', optional('partial')),
       'def',
       field('name', $.identifier),

@@ -154,6 +154,59 @@ def foo : Nat -> Nat -> Nat -> Nat := id
                     (identifier) (identifier) (identifier) (identifier))
     body: (identifier)))
 
+==========
+Attributes
+==========
+
+@[reducible] def f := 12
+
+---
+
+(source_file
+  (def
+    attributes: (identifier)
+    name: (identifier)
+    body: (number)))
+
+===================
+Multiple Attributes
+===================
+
+@[reducible, inline] def f := 12
+
+---
+
+(source_file
+  (def
+    attributes: (identifier)
+    attributes: (identifier)
+    name: (identifier)
+    body: (number)))
+
+=================
+Missing Attribute
+=================
+
+@[] def f := 12
+
+---
+
+(source_file (ERROR) (def name: (identifier) body: (number)))
+
+======================
+Partial With Attribute
+======================
+
+@[reducible] partial def f := 12
+
+---
+
+(source_file
+  (def
+    attributes: (identifier)
+    name: (identifier)
+    body: (number)))
+
 ============
 Conditionals
 ============
