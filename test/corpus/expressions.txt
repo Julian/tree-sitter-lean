@@ -49,6 +49,51 @@ Non-Char
 
 (source_file (hash_command (char (ERROR (identifier)))))
 
+=====
+Range
+=====
+
+#check [0:foo 3:1]
+
+---
+
+(source_file
+  (hash_command
+    (range
+      start: (number)
+      stop:
+        (apply
+          name: (identifier)
+          arguments: (number))
+      step: (number))))
+
+=============
+Range No Step
+=============
+
+#check [0:10]
+
+---
+
+(source_file
+  (hash_command
+    (range
+      start: (number)
+      stop: (number))))
+
+=============
+Range No Start
+=============
+
+#check [:3]
+
+---
+
+(source_file
+  (hash_command
+    (range
+      stop: (number))))
+
 ====
 List
 ====
@@ -61,6 +106,112 @@ List
 (source_file
   (hash_command (list (number) (number) (number)))
   (hash_command (list)))
+
+=====
+Index
+=====
+
+#check foo[0:bar 3]
+
+---
+
+(source_file
+  (hash_command
+    (index
+      container: (identifier)
+      start: (number)
+      stop:
+        (apply
+          name: (identifier)
+          arguments: (number)))))
+
+=============
+Index No Stop
+=============
+
+#check foo[0:]
+
+---
+
+(source_file
+  (hash_command
+    (index
+      container: (identifier)
+      start: (number))))
+
+=============
+Index No Start
+=============
+
+#check foo[:3]
+
+---
+
+(source_file
+  (hash_command
+    (index
+      container: (identifier)
+      stop: (number))))
+
+==================
+Indexed Expression
+==================
+
+#check (foo 37)[:3]
+
+---
+
+(source_file
+  (hash_command
+    (index
+      container:
+        (apply
+          name: (identifier)
+          arguments: (number))
+      stop: (number))))
+
+========================
+Index Does Not Have Step
+========================
+
+#check foo[1:2:3]
+
+---
+
+(source_file
+  (hash_command
+    (index
+      (identifier) (number) (apply (number) (ERROR) (number)))))
+
+========================
+Index Does Not Have Copy
+========================
+
+#check foo[:]
+
+---
+
+(source_file
+  (hash_command
+    (index
+      (identifier) (do (MISSING "do")))))
+
+===============
+Index vs. Range
+===============
+
+#check foo [1:2]
+
+---
+
+(source_file
+  (hash_command
+    (apply
+      name: (identifier)
+      arguments:
+        (range
+          start: (number)
+          stop: (number)))))
 
 =====
 Array

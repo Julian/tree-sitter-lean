@@ -1,6 +1,7 @@
 const PREC = {
   dollar: -2,
   apply: -1,
+  index: -1,
   parenthesized_expression: 1,
   compare: -1,
   field_of: 1,
@@ -183,6 +184,7 @@ module.exports = grammar({
       $.identifier,
       $._parenthesized_expression,
       $.product,
+      $.index,
       $.comparison,
       $.conditional,
       $.field_of,
@@ -199,6 +201,7 @@ module.exports = grammar({
       $.interpolated_string,
       $.inductive_constructor,
       $.list,
+      $.range,
       $.array,
       $.true,
       $.false,
@@ -228,6 +231,24 @@ module.exports = grammar({
           $._expression,
         ),
       ),
+    )),
+
+    index: $ => prec(PREC.index, seq(
+      field('container', $._expression),
+      token.immediate('['),
+      choice(
+        seq(
+          optional(field('start', $._expression)),
+          ':',
+          field('stop', $._expression),
+        ),
+        seq(
+          field('start', $._expression),
+          ':',
+          optional(field('stop', $._expression)),
+        ),
+      ),
+      ']',
     )),
 
     _do_expression: $ => seq(
@@ -390,6 +411,18 @@ module.exports = grammar({
       '[',
       optional($._expression),
       repeat(seq(',', $._expression)),
+      ']',
+    ),
+
+    range: $ => seq(
+      '[',
+      optional(field('start', $._expression)),
+      ':',
+      field('stop', $._expression),
+      optional(seq(
+        ':',
+        field('step', $._expression),
+      )),
       ']',
     ),
 
