@@ -98,9 +98,52 @@ inductive FooBar where
 ---
 
 (source_file
-  (inductive_type (identifier)
-    (constructor (identifier) (identifier))
-    (constructor (identifier) (identifier))))
+  (inductive_type
+    name: (identifier)
+    constructors:
+      (constructor
+        name: (identifier)
+        type: (identifier))
+    constructors:
+      (constructor
+        name: (identifier)
+        type: (identifier))))
+
+=======================
+Inductive Type One Line
+=======================
+
+inductive Bit | bit0 | bit1
+
+---
+
+(source_file
+  (inductive_type
+    name: (identifier)
+    constructors:
+      (constructor
+        name: (identifier))
+    constructors:
+      (constructor
+        name: (identifier))))
+
+================================
+Inductive Type Superfluous Where
+================================
+
+inductive Bit where | bit0 | bit1
+
+---
+
+(source_file
+  (inductive_type
+    name: (identifier)
+    constructors:
+      (constructor
+        name: (identifier))
+    constructors:
+      (constructor
+        name: (identifier))))
 
 ========
 Instance

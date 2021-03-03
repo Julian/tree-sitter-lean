@@ -61,8 +61,14 @@ module.exports = grammar({
     inductive_type: $ => seq(
       'inductive',
       field('name', $.identifier),
-      'where',
+      optional('where'),
       field('constructors', repeat1($.constructor)),
+    ),
+
+    constructor: $ => seq(
+      '|',
+      field('name', $.identifier),
+      optional(seq(':', field('type', $.identifier))),
     ),
 
     instance: $ => seq(
@@ -83,10 +89,6 @@ module.exports = grammar({
       field('return_type', $._expression),
       ':=',
       field('body', $._expression),
-    ),
-
-    constructor: $ => seq(
-      '|', $.identifier, ':', $.identifier,
     ),
 
     namespace: $ => seq(

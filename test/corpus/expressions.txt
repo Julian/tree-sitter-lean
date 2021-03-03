@@ -496,9 +496,9 @@ Anonymous Function
       (parameters (identifier))
       (binary_expression (identifier) (number)))))
 
-==================
-Anonymous Function
-==================
+=============================
+Anonymous Function via Lambda
+=============================
 
 #check λ x => x
 
@@ -523,3 +523,26 @@ Anonymous Function Application
         (parameters (identifier))
         (binary_expression (identifier) (number)))
       (number))))
+
+=================================================
+Anonymous Function Match With Additional Argument
+=================================================
+
+#eval foo 0 fun
+  | 0 => 0
+  | n => 1
+  37
+
+---
+
+(source_file
+  (hash_command
+    (apply
+      name: (identifier)
+      arguments: (number)
+      arguments:
+        (lambda
+          (pattern (number) (number))
+          (pattern (identifier) (number)))
+      arguments:
+        (number))))
