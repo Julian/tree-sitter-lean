@@ -3317,7 +3317,7 @@
       },
       "parameters": {
         "multiple": false,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": "parameters",
@@ -3327,7 +3327,7 @@
       },
       "return_type": {
         "multiple": true,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": "(",
@@ -3375,6 +3375,10 @@
           },
           {
             "type": "float",
+            "named": true
+          },
+          {
+            "type": "function_annotation",
             "named": true
           },
           {

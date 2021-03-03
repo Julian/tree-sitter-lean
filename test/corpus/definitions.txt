@@ -243,7 +243,6 @@ else
             (identifier))
           (number)))))
 
-
 =======
 Theorem
 =======
@@ -319,3 +318,194 @@ structure Point (α : Type u) where
       (structure_field
         name: (identifier)
         type: (identifier))))
+
+========
+Instance
+========
+
+instance : ToString Foo where
+  toString (d : Foo) : String := "Foo"
+
+---
+
+(source_file
+  (instance
+    class:
+      (apply
+        name: (identifier)
+        arguments: (identifier))
+    fields:
+      (instance_field
+        name: (identifier)
+        parameters:
+          (parameters
+            name: (identifier)
+            type: (identifier))
+        return_type: (identifier)
+        body: (string))))
+
+==============
+Named Instance
+==============
+
+instance toStringFoo : ToString Foo where
+  toString (d : Foo) : String := "Foo"
+
+---
+
+(source_file
+  (instance
+    name: (identifier)
+    class:
+      (apply
+        name: (identifier)
+        arguments: (identifier))
+    fields:
+      (instance_field
+        name: (identifier)
+        parameters:
+          (parameters
+            name: (identifier)
+            type: (identifier))
+        return_type: (identifier)
+        body: (string))))
+
+===================================
+Instance With Inductive Constructor
+===================================
+
+instance : Inhabited Nat := ⟨0⟩
+
+---
+
+(source_file
+  (instance
+    class:
+      (apply
+        name: (identifier)
+        arguments: (identifier))
+    body: (inductive_constructor (number))))
+
+========================================
+Instance Field With Function Return Type
+========================================
+
+instance : ToString Foo where
+  toString : Foo → String := λ f => s!"Foo"
+
+---
+
+(source_file
+  (instance
+    class:
+      (apply
+        name: (identifier)
+        arguments: (identifier))
+    fields:
+      (instance_field
+        name: (identifier)
+        return_type:
+          (function_annotation (identifier) (identifier))
+        body:
+          (lambda
+            (parameters name: (identifier))
+            (interpolated_string)))))
+
+==================================
+Instance Field Without Return Type
+==================================
+
+instance : ToString Foo where
+  toString d := "Foo"
+
+---
+
+(source_file
+  (instance
+    class:
+      (apply
+        name: (identifier)
+        arguments: (identifier))
+    fields:
+      (instance_field
+        name: (identifier)
+        parameters:
+          (parameters name: (identifier))
+        body: (string))))
+
+=======
+Example
+=======
+
+example : (fun x => x * 2) 4 < 3 = false := rfl
+
+---
+
+(source_file
+  (example
+    (binary_expression
+      (comparison
+        (apply
+          (lambda (parameters (identifier))
+            (binary_expression (identifier) (number))) (number))
+        (number))
+      (false))
+    (identifier)))
+
+==============
+Inductive Type
+==============
+
+inductive FooBar where
+  | foo    : Foo
+  | bar    : Bar
+
+---
+
+(source_file
+  (inductive_type
+    name: (identifier)
+    constructors:
+      (constructor
+        name: (identifier)
+        type: (identifier))
+    constructors:
+      (constructor
+        name: (identifier)
+        type: (identifier))))
+
+=======================
+Inductive Type One Line
+=======================
+
+inductive Bit | bit0 | bit1
+
+---
+
+(source_file
+  (inductive_type
+    name: (identifier)
+    constructors:
+      (constructor
+        name: (identifier))
+    constructors:
+      (constructor
+        name: (identifier))))
+
+================================
+Inductive Type Superfluous Where
+================================
+
+inductive Bit where | bit0 | bit1
+
+---
+
+(source_file
+  (inductive_type
+    name: (identifier)
+    constructors:
+      (constructor
+        name: (identifier))
+    constructors:
+      (constructor
+        name: (identifier))))

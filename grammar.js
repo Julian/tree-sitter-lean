@@ -81,9 +81,8 @@ module.exports = grammar({
 
     instance_field: $ => seq(
       field('name', $.identifier),
-      field('parameters', $.parameters),
-      ':',
-      field('return_type', $._expression),
+      optional(field('parameters', $.parameters)),
+      optional(seq(':', field('return_type', $._type_annotation))),
       ':=',
       field('body', $._expression),
     ),
@@ -144,7 +143,7 @@ module.exports = grammar({
       field('partial', optional('partial')),
       'def',
       field('name', $.identifier),
-      field('parameters', optional($.parameters)),
+      optional(field('parameters', $.parameters)),
       optional(seq(':', field('return_type', $._type_annotation))),
       field('body', choice(
         seq(':=', $._expression),
@@ -157,7 +156,7 @@ module.exports = grammar({
     structure_definition: $ => seq(
       'structure',
       field('name', $.identifier),
-      field('parameters', optional($.parameters)),
+      optional(field('parameters', $.parameters)),
       'where',
       field('fields', repeat1($.structure_field)),
     ),
@@ -165,7 +164,7 @@ module.exports = grammar({
     theorem: $ => seq(
       'theorem',
       field('name', $.identifier),
-      field('parameters', optional($.parameters)),
+      optional(field('parameters', $.parameters)),
       ':',
       $._expression,
       ':=',
