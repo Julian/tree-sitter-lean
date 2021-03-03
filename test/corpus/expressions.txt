@@ -337,6 +337,7 @@ Binary Expressions
 #eval 2 * 3
 #eval 2 / 3
 #eval 2 % 3
+#eval 2 ^ 3
 #eval 2 = 3
 #eval 2 ≠ 3
 #eval "foo" ++ "bar"
@@ -347,6 +348,7 @@ Binary Expressions
 ---
 
 (source_file
+  (hash_command (binary_expression (number) (number)))
   (hash_command (binary_expression (number) (number)))
   (hash_command (binary_expression (number) (number)))
   (hash_command (binary_expression (number) (number)))
@@ -378,6 +380,7 @@ example : 4 = 4 / 1 := rfl
 example : 4 = 4 % 5 := rfl
 #eval false && false || true
 #eval true || false && false
+#eval 2 ^ 3 * 7 + 2
 
 ---
 
@@ -415,7 +418,13 @@ example : 4 = 4 % 5 := rfl
   (hash_command
     (binary_expression (binary_expression (false) (false)) (true)))
   (hash_command
-    (binary_expression (true) (binary_expression (false) (false)))))
+    (binary_expression (true) (binary_expression (false) (false))))
+  (hash_command
+    (binary_expression
+      (binary_expression
+        (binary_expression (number) (number))
+        (number))
+      (number))))
 
 ==========
 Comparison

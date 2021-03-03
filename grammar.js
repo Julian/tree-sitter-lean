@@ -14,6 +14,7 @@ const PREC = {
   plus: 3,
   times: 4,
   unary: 5,
+  power: 6,
 }
 
 module.exports = grammar({
@@ -373,6 +374,7 @@ module.exports = grammar({
     )),
 
     binary_expression: $ => choice(
+      prec.right(PREC.power, seq($._expression, '^', $._expression)),
       prec.left(PREC.times, seq($._expression, '*', $._expression)),
       prec.left(PREC.times, seq($._expression, '/', $._expression)),
       prec.left(PREC.times, seq($._expression, '%', $._expression)),
