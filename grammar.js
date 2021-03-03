@@ -237,6 +237,7 @@ module.exports = grammar({
       field('container', $._expression),
       token.immediate('['),
       choice(
+        field('value', $._expression),
         seq(
           optional(field('start', $._expression)),
           ':',

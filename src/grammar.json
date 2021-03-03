@@ -1052,6 +1052,14 @@
             "type": "CHOICE",
             "members": [
               {
+                "type": "FIELD",
+                "name": "value",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_expression"
+                }
+              },
+              {
                 "type": "SEQ",
                 "members": [
                   {

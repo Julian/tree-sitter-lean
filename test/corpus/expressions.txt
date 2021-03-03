@@ -111,6 +111,23 @@ List
 Index
 =====
 
+#check foo[bar 3]
+
+---
+
+(source_file
+  (hash_command
+    (index
+      container: (identifier)
+      value:
+        (apply
+          name: (identifier)
+          arguments: (number)))))
+
+=====
+Slice
+=====
+
 #check foo[0:bar 3]
 
 ---
@@ -126,7 +143,7 @@ Index
           arguments: (number)))))
 
 =============
-Index No Stop
+Slice No Stop
 =============
 
 #check foo[0:]
@@ -140,7 +157,7 @@ Index No Stop
       start: (number))))
 
 =============
-Index No Start
+Slice No Start
 =============
 
 #check foo[:3]
@@ -154,7 +171,7 @@ Index No Start
       stop: (number))))
 
 ==================
-Indexed Expression
+Sliced Expression
 ==================
 
 #check (foo 37)[:3]
@@ -171,7 +188,7 @@ Indexed Expression
       stop: (number))))
 
 ========================
-Index Does Not Have Step
+Slice Does Not Have Step
 ========================
 
 #check foo[1:2:3]
@@ -184,7 +201,7 @@ Index Does Not Have Step
       (identifier) (number) (apply (number) (ERROR) (number)))))
 
 ========================
-Index Does Not Have Copy
+Slice Does Not Have Copy
 ========================
 
 #check foo[:]
@@ -197,7 +214,7 @@ Index Does Not Have Copy
       (identifier) (do (MISSING "do")))))
 
 ===============
-Index vs. Range
+Slice vs. Range
 ===============
 
 #check foo [1:2]
