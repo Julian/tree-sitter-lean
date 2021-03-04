@@ -8,7 +8,7 @@ def main : IO UInt32 := do
 
 ---
 
-(source_file
+(module
   (def (identifier) (apply (identifier) (identifier))
     (do
       (apply (field_of (identifier) (identifier)) (string))
@@ -24,7 +24,7 @@ def main : IO UInt32 := do do
 
 ---
 
-(source_file
+(module
   (def (identifier) (apply (identifier) (identifier))
     (do (do)
       (apply (field_of (identifier) (identifier)) (string))
@@ -41,7 +41,7 @@ def f : Unit := do
 
 ---
 
-(source_file
+(module
   (def (identifier) (identifier)
     (do
       (let (identifier) (number))
@@ -57,7 +57,7 @@ def f : Unit := do
 
 ---
 
-(source_file
+(module
   (def
     name: (identifier)
     return_type: (identifier)
@@ -77,7 +77,7 @@ def bar : Unit := do
 
 ---
 
-(source_file
+(module
   (def
     name: (identifier)
     return_type: (identifier)
@@ -99,7 +99,7 @@ def foo (xs : Array Nat) : Unit := do
 
 ---
 
-(source_file
+(module
   (def
     name: (identifier)
     parameters:
@@ -137,7 +137,7 @@ def f : IO Unit := do
 
 ---
 
-(source_file
+(module
   (def (identifier) (apply (identifier) (identifier))
     (do
       (try
@@ -156,7 +156,7 @@ def f : IO Unit := do
 
 ---
 
-(source_file
+(module
   (def (identifier) (apply (identifier) (identifier))
     (do))
       (ERROR
@@ -175,7 +175,7 @@ def f : IO Unit := do
 
 ---
 
-(source_file
+(module
   (def (identifier) (apply (identifier) (identifier))
     (do
       (try
@@ -197,7 +197,7 @@ def f : IO Unit := do
 
 ---
 
-(source_file
+(module
   (def (identifier) (apply (identifier) (identifier))
     (do
       (try
@@ -215,7 +215,7 @@ def f : IO Unit := do
 
 ---
 
-(source_file
+(module
   (def (identifier) (apply (identifier) (identifier))
     (do)) (ERROR (apply (identifier) (string))))
 
@@ -228,7 +228,7 @@ def f : Nat := do
 
 ---
 
-(source_file
+(module
   (def (identifier) (identifier) (do (return (number)))))
 
 ==============
@@ -240,5 +240,5 @@ def f : Unit := do
 
 ---
 
-(source_file
+(module
   (def (identifier) (identifier) (do (return))))

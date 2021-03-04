@@ -2,7 +2,7 @@
   "name": "lean",
   "word": "identifier",
   "rules": {
-    "source_file": {
+    "module": {
       "type": "REPEAT",
       "content": {
         "type": "SYMBOL",

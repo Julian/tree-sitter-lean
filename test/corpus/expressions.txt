@@ -6,7 +6,7 @@ Number
 
 ---
 
-(source_file (hash_command (number)))
+(module (hash_command (number)))
 
 =====
 Float
@@ -17,7 +17,7 @@ Float
 
 ---
 
-(source_file (hash_command (float)) (hash_command (float)))
+(module (hash_command (float)) (hash_command (float)))
 
 ======
 String
@@ -27,7 +27,7 @@ String
 
 ---
 
-(source_file (hash_command (string)))
+(module (hash_command (string)))
 
 ====
 Char
@@ -37,7 +37,7 @@ Char
 
 ---
 
-(source_file (hash_command (char)))
+(module (hash_command (char)))
 
 ========
 Non-Char
@@ -47,7 +47,7 @@ Non-Char
 
 ---
 
-(source_file (hash_command (char (ERROR (identifier)))))
+(module (hash_command (char (ERROR (identifier)))))
 
 =====
 Range
@@ -57,7 +57,7 @@ Range
 
 ---
 
-(source_file
+(module
   (hash_command
     (range
       start: (number)
@@ -75,7 +75,7 @@ Range No Step
 
 ---
 
-(source_file
+(module
   (hash_command
     (range
       start: (number)
@@ -89,7 +89,7 @@ Range No Start
 
 ---
 
-(source_file
+(module
   (hash_command
     (range
       stop: (number))))
@@ -103,7 +103,7 @@ List
 
 ---
 
-(source_file
+(module
   (hash_command (list (number) (number) (number)))
   (hash_command (list)))
 
@@ -115,7 +115,7 @@ Index
 
 ---
 
-(source_file
+(module
   (hash_command
     (index
       container: (identifier)
@@ -132,7 +132,7 @@ Slice
 
 ---
 
-(source_file
+(module
   (hash_command
     (index
       container: (identifier)
@@ -150,7 +150,7 @@ Slice No Stop
 
 ---
 
-(source_file
+(module
   (hash_command
     (index
       container: (identifier)
@@ -164,7 +164,7 @@ Slice No Start
 
 ---
 
-(source_file
+(module
   (hash_command
     (index
       container: (identifier)
@@ -178,7 +178,7 @@ Sliced Expression
 
 ---
 
-(source_file
+(module
   (hash_command
     (index
       container:
@@ -195,7 +195,7 @@ Slice Does Not Have Step
 
 ---
 
-(source_file
+(module
   (hash_command
     (index
       (identifier) (number) (apply (number) (ERROR) (number)))))
@@ -208,7 +208,7 @@ Slice Does Not Have Copy
 
 ---
 
-(source_file
+(module
   (hash_command
     (index
       (identifier) (do (MISSING "do")))))
@@ -221,7 +221,7 @@ Slice vs. Range
 
 ---
 
-(source_file
+(module
   (hash_command
     (apply
       name: (identifier)
@@ -239,7 +239,7 @@ Array
 
 ---
 
-(source_file
+(module
   (hash_command (array (number) (number) (number)))
   (hash_command (array)))
 
@@ -253,7 +253,7 @@ example : Foo := ⟨⟩
 
 ---
 
-(source_file
+(module
   (example (identifier) (inductive_constructor (number) (number) (number)))
   (example (identifier) (inductive_constructor (number)))
   (example (identifier) (inductive_constructor)))
@@ -266,7 +266,7 @@ Unicode Identifiers
 
 ---
 
-(source_file (hash_command (identifier)))
+(module (hash_command (identifier)))
 
 =======
 Product
@@ -276,7 +276,7 @@ Product
 
 ---
 
-(source_file (hash_command (product (number) (string) (number) (number))))
+(module (hash_command (product (number) (string) (number) (number))))
 
 =======
 If/Then
@@ -286,7 +286,7 @@ If/Then
 
 ---
 
-(source_file (hash_command (conditional (true) (string))))
+(module (hash_command (conditional (true) (string))))
 
 ============
 If/Then/Else
@@ -296,7 +296,7 @@ If/Then/Else
 
 ---
 
-(source_file (hash_command (conditional (true) (string) (string))))
+(module (hash_command (conditional (true) (string) (string))))
 
 ===================
 Nested If/Then/Else
@@ -306,7 +306,7 @@ Nested If/Then/Else
 
 ---
 
-(source_file
+(module
   (hash_command
     (conditional (true)
       (conditional (false) (string) (string))
@@ -322,7 +322,7 @@ Negation
 
 ---
 
-(source_file
+(module
   (hash_command (unary_expression (true)))
   (hash_command
     (unary_expression (unary_expression (unary_expression (true)))))
@@ -347,7 +347,7 @@ Binary Expressions
 
 ---
 
-(source_file
+(module
   (hash_command (binary_expression (number) (number)))
   (hash_command (binary_expression (number) (number)))
   (hash_command (binary_expression (number) (number)))
@@ -384,7 +384,7 @@ example : 4 = 4 % 5 := rfl
 
 ---
 
-(source_file
+(module
   (hash_command
     (binary_expression (number) (binary_expression (number) (number))))
   (hash_command
@@ -435,7 +435,7 @@ Comparison
 
 ---
 
-(source_file
+(module
   (hash_command (comparison (number) (number)))
   (hash_command (comparison (number) (number))))
 
@@ -447,7 +447,7 @@ Comparison Precedence
 
 ---
 
-(source_file (hash_command
+(module (hash_command
   (comparison
     (apply (identifier) (number))
     (number))))
@@ -460,7 +460,7 @@ Multiple Function Arguments
 
 ---
 
-(source_file
+(module
   (hash_command
     (apply (identifier) (number) (number) (number))))
 
@@ -472,7 +472,7 @@ Named Arguments
 
 ---
 
-(source_file
+(module
   (hash_command
     (apply (identifier) (named_argument (identifier) (number)))))
 
@@ -484,7 +484,7 @@ Mixed Named Arguments
 
 ---
 
-(source_file
+(module
   (hash_command
     (apply (identifier)
         (number)
@@ -500,7 +500,7 @@ Field Access
 
 ---
 
-(source_file
+(module
   (hash_command
     (field_of
       term: (identifier)
@@ -514,7 +514,7 @@ Nested Field Access
 
 ---
 
-(source_file
+(module
   (hash_command
     (field_of
       (field_of
@@ -530,7 +530,7 @@ Expression Field Access
 
 ---
 
-(source_file
+(module
   (hash_command
     (field_of
       (apply (field_of (identifier) (identifier)) (identifier))
@@ -546,7 +546,7 @@ def foo (d : Bar) : Baz :=
 
 ---
 
-(source_file
+(module
   (def
     name: (identifier)
     parameters:
@@ -568,7 +568,7 @@ Match Expression
 
 ---
 
-(source_file
+(module
   (hash_command
     (match
       value:
@@ -591,7 +591,7 @@ def foo : Nat → Nat
 
 ---
 
-(source_file
+(module
   (def
     name: (identifier)
     return_type: (function_annotation (identifier) (identifier))
@@ -610,7 +610,7 @@ def foo : Nat -> Bool :=
 
 ---
 
-(source_file
+(module
   (def
     name: (identifier)
     return_type: (function_annotation (identifier) (identifier))
@@ -630,7 +630,7 @@ def foo : Nat → Nat -> Nat
 
 ---
 
-(source_file
+(module
   (def
     name: (identifier)
     return_type: (function_annotation (identifier) (identifier) (identifier))
@@ -648,7 +648,7 @@ $ Application
 
 ---
 
-(source_file
+(module
   (hash_command
     (apply (identifier) (identifier)
       (apply (identifier) (binary_expression (number) (number)))))
@@ -667,7 +667,7 @@ Anonymous Function
 
 ---
 
-(source_file
+(module
   (hash_command
     (lambda
       (parameters (identifier))
@@ -681,7 +681,7 @@ Anonymous Function via Lambda
 
 ---
 
-(source_file
+(module
   (hash_command
     (lambda (parameters (identifier)) (identifier))))
 
@@ -693,7 +693,7 @@ Anonymous Function Application
 
 ---
 
-(source_file
+(module
   (hash_command
     (apply
       (lambda
@@ -712,7 +712,7 @@ Anonymous Function Match With Additional Argument
 
 ---
 
-(source_file
+(module
   (hash_command
     (apply
       name: (identifier)

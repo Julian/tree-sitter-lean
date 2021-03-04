@@ -8,7 +8,7 @@
 
 ---
 
-(source_file
+(module
   (hash_command (binary_expression (number) (number)))
   (hash_command (binary_expression (number) (number)))
   (hash_command (binary_expression (number) (number))))
@@ -21,7 +21,7 @@ Same Line #commands
 
 ---
 
-(source_file
+(module
   (hash_command (apply (identifier) (number)))
   (hash_command (number)))
 
@@ -34,7 +34,7 @@ import Foo
 
 ---
 
-(source_file
+(module
   (prelude)
   (import (dotted_name (identifier))))
 
@@ -46,7 +46,7 @@ open Foo
 
 ---
 
-(source_file (open (identifier)))
+(module (open (identifier)))
 
 ======
 Import
@@ -56,7 +56,7 @@ import Foo
 
 ---
 
-(source_file (import (dotted_name (identifier))))
+(module (import (dotted_name (identifier))))
 
 =============
 Import Nested
@@ -66,4 +66,4 @@ import Foo.Bar.Baz
 
 ---
 
-(source_file (import (dotted_name (identifier) (identifier) (identifier))))
+(module (import (dotted_name (identifier) (identifier) (identifier))))

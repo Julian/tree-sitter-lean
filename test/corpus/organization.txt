@@ -7,7 +7,7 @@ end Foo
 
 ---
 
-(source_file (namespace (identifier) (identifier)))
+(module (namespace (identifier) (identifier)))
 
 =============
 Empty Section
@@ -18,7 +18,7 @@ end Foo
 
 ---
 
-(source_file (section (identifier) (identifier)))
+(module (section (identifier) (identifier)))
 
 ======================
 Nested Empty Namespace
@@ -31,7 +31,7 @@ end Foo
 
 ---
 
-(source_file
+(module
   (namespace (identifier)
     (namespace (identifier) (identifier)) (identifier)))
 
@@ -46,7 +46,7 @@ end Foo
 
 ---
 
-(source_file
+(module
   (section (identifier)
     (section (identifier) (identifier)) (identifier)))
 
@@ -63,7 +63,7 @@ end Foo
 
 ---
 
-(source_file
+(module
   (namespace (identifier)
     (theorem (identifier) (identifier) (identifier))
     (theorem (identifier) (identifier) (identifier)) (identifier)))
@@ -81,7 +81,7 @@ end Foo
 
 ---
 
-(source_file
+(module
   (section (identifier)
     (theorem (identifier) (identifier) (identifier))
     (theorem (identifier) (identifier) (identifier)) (identifier)))
@@ -108,7 +108,7 @@ end Foo
 
 ---
 
-(source_file
+(module
   (namespace (identifier)
     (section (identifier)
       (theorem (identifier) (identifier) (identifier)) (identifier))

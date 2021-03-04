@@ -32,7 +32,7 @@ module.exports = grammar({
   word: $ => $.identifier,
 
   rules: {
-    source_file: $ => repeat($._command),
+    module: $ => repeat($._command),
 
     _command: $ => choice(
       $.prelude,

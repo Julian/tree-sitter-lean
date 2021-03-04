@@ -13,7 +13,7 @@ Negative
 
 ---
 
-(source_file
+(module
   (hash_command (unary_expression (number)))
   (hash_command (unary_expression (float)))
   (hash_command (unary_expression (identifier)))
@@ -27,7 +27,7 @@ Lambda Syntax Sugar
 
 ---
 
-(source_file
+(module
   (eval_command
     (apply (identifier)
       (number)
@@ -48,4 +48,4 @@ def else := 3
 
 ---
 
-(source_file (def (ERROR)))
+(module (def (ERROR)))

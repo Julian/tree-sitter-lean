@@ -6,7 +6,7 @@ Non-Interpolation in Normal String
 
 ---
 
-(source_file (hash_command (apply (identifier) (string))))
+(module (hash_command (apply (identifier) (string))))
 
 =============
 Interpolation
@@ -16,7 +16,7 @@ Interpolation
 
 ---
 
-(source_file
+(module
   (hash_command
     (apply (identifier)
       (interpolated_string (interpolation (identifier))))))
@@ -29,7 +29,7 @@ Interpolation With Function Application
 
 ---
 
-(source_file
+(module
   (hash_command
     (apply (identifier)
       (interpolated_string (interpolation

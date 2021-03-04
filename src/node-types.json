@@ -4337,6 +4337,65 @@
     }
   },
   {
+    "type": "module",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "def",
+          "named": true
+        },
+        {
+          "type": "example",
+          "named": true
+        },
+        {
+          "type": "hash_command",
+          "named": true
+        },
+        {
+          "type": "import",
+          "named": true
+        },
+        {
+          "type": "inductive_type",
+          "named": true
+        },
+        {
+          "type": "instance",
+          "named": true
+        },
+        {
+          "type": "namespace",
+          "named": true
+        },
+        {
+          "type": "open",
+          "named": true
+        },
+        {
+          "type": "prelude",
+          "named": true
+        },
+        {
+          "type": "section",
+          "named": true
+        },
+        {
+          "type": "structure_definition",
+          "named": true
+        },
+        {
+          "type": "theorem",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "named_argument",
     "named": true,
     "fields": {},
@@ -5395,65 +5454,6 @@
       "types": [
         {
           "type": "identifier",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "source_file",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "def",
-          "named": true
-        },
-        {
-          "type": "example",
-          "named": true
-        },
-        {
-          "type": "hash_command",
-          "named": true
-        },
-        {
-          "type": "import",
-          "named": true
-        },
-        {
-          "type": "inductive_type",
-          "named": true
-        },
-        {
-          "type": "instance",
-          "named": true
-        },
-        {
-          "type": "namespace",
-          "named": true
-        },
-        {
-          "type": "open",
-          "named": true
-        },
-        {
-          "type": "prelude",
-          "named": true
-        },
-        {
-          "type": "section",
-          "named": true
-        },
-        {
-          "type": "structure_definition",
-          "named": true
-        },
-        {
-          "type": "theorem",
           "named": true
         }
       ]

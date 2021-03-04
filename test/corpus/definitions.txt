@@ -10,7 +10,7 @@ theorem foo : p := sorry
 
 ---
 
-(source_file
+(module
   (def (identifier)
     (parameters (identifier))
     (binary_expression (binary_expression (identifier) (identifier)) (number)))
@@ -26,7 +26,7 @@ def sampleFunction2 (x : Nat) := 2*x*x - x + 3
 
 ---
 
-(source_file
+(module
   (def
     name: (identifier)
     parameters:
@@ -50,7 +50,7 @@ def sampleFunction2 (x y : Nat) := x + y
 
 ---
 
-(source_file
+(module
   (def
     name: (identifier)
     parameters:
@@ -69,7 +69,7 @@ def foo {a} {b c : Nat} v w (x y) (z : Nat) := a + b + v + w + x + y
 
 ---
 
-(source_file
+(module
   (def
     name: (identifier)
     parameters:
@@ -108,7 +108,7 @@ def twice (f : Nat → Nat) (a : Nat) :=
 
 ---
 
-(source_file
+(module
   (def
     name: (identifier)
     parameters:
@@ -133,7 +133,7 @@ def foo : Nat -> Nat := id
 
 ---
 
-(source_file
+(module
   (def
     name: (identifier)
     return_type: (function_annotation (identifier) (identifier))
@@ -147,7 +147,7 @@ def foo : Nat -> Nat -> Nat -> Nat := id
 
 ---
 
-(source_file
+(module
   (def
     name: (identifier)
     return_type: (function_annotation
@@ -162,7 +162,7 @@ Attributes
 
 ---
 
-(source_file
+(module
   (def
     attributes: (identifier)
     name: (identifier)
@@ -176,7 +176,7 @@ Multiple Attributes
 
 ---
 
-(source_file
+(module
   (def
     attributes: (identifier)
     attributes: (identifier)
@@ -191,7 +191,7 @@ Missing Attribute
 
 ---
 
-(source_file (ERROR) (def name: (identifier) body: (number)))
+(module (ERROR) (def name: (identifier) body: (number)))
 
 ======================
 Partial With Attribute
@@ -201,7 +201,7 @@ Partial With Attribute
 
 ---
 
-(source_file
+(module
   (def
     attributes: (identifier)
     name: (identifier)
@@ -219,7 +219,7 @@ else
 
 ---
 
-(source_file
+(module
 (def
   name: (identifier)
   parameters:
@@ -254,7 +254,7 @@ theorem twiceAdd2 (a : Nat) : twice (fun x => x + 2) a = a + 4 :=
 
 ---
 
-(source_file
+(module
 (theorem
   name: (identifier)
   parameters:
@@ -284,7 +284,7 @@ partial def g x : Nat := g (x + 1)
 
 ---
 
-(source_file
+(module
   (def (identifier)
     (parameters (identifier))
     (identifier)
@@ -300,7 +300,7 @@ structure Point (α : Type u) where
 
 ---
 
-(source_file
+(module
   (structure_definition
     name: (identifier)
     parameters:
@@ -328,7 +328,7 @@ instance : ToString Foo where
 
 ---
 
-(source_file
+(module
   (instance
     class:
       (apply
@@ -353,7 +353,7 @@ instance toStringFoo : ToString Foo where
 
 ---
 
-(source_file
+(module
   (instance
     name: (identifier)
     class:
@@ -378,7 +378,7 @@ instance : Inhabited Nat := ⟨0⟩
 
 ---
 
-(source_file
+(module
   (instance
     class:
       (apply
@@ -395,7 +395,7 @@ instance : ToString Foo where
 
 ---
 
-(source_file
+(module
   (instance
     class:
       (apply
@@ -420,7 +420,7 @@ instance : ToString Foo where
 
 ---
 
-(source_file
+(module
   (instance
     class:
       (apply
@@ -441,7 +441,7 @@ example : (fun x => x * 2) 4 < 3 = false := rfl
 
 ---
 
-(source_file
+(module
   (example
     (binary_expression
       (comparison
@@ -462,7 +462,7 @@ inductive FooBar where
 
 ---
 
-(source_file
+(module
   (inductive_type
     name: (identifier)
     constructors:
@@ -482,7 +482,7 @@ inductive Bit | bit0 | bit1
 
 ---
 
-(source_file
+(module
   (inductive_type
     name: (identifier)
     constructors:
@@ -500,7 +500,7 @@ inductive Bit where | bit0 | bit1
 
 ---
 
-(source_file
+(module
   (inductive_type
     name: (identifier)
     constructors:
