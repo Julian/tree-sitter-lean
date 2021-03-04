@@ -112,10 +112,10 @@ module.exports = grammar({
 
     section: $ => seq(
       'section',
-      field('name', $.identifier),
+      optional(field('name', $.identifier)),
       field('body', repeat($._command)),
       'end',
-      $.identifier,
+      optional($.identifier), // FIXME: needs to match start
     ),
 
     variable_declaration: $ => seq(

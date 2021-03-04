@@ -116,6 +116,28 @@ end Foo
       (theorem (identifier) (identifier) (identifier)) (identifier))
     (identifier)))
 
+=================
+Anonymous Section
+=================
+
+section
+end
+
+---
+
+(module (section))
+
+=======================
+No Anonymous Namespaces
+=======================
+
+namespace
+end
+
+---
+
+(module (ERROR (identifier)))
+
 =========
 Variables
 =========
