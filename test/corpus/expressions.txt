@@ -278,6 +278,32 @@ Product
 
 (module (hash_command (product (number) (string) (number) (number))))
 
+=============
+Function Type
+=============
+
+#check foo → bar
+#check foo → bar → baz
+
+---
+
+(module
+  (hash_command (function_type (identifier) (identifier)))
+  (hash_command (function_type (identifier) (identifier) (identifier))))
+
+============
+Product Type
+============
+
+#check a × b
+#check a × b × c
+
+---
+
+(module
+  (hash_command (product_type (identifier) (identifier)))
+  (hash_command (product_type (identifier) (identifier) (identifier))))
+
 =======
 If/Then
 =======
@@ -619,9 +645,9 @@ def foo : Nat -> Bool :=
         (pattern (number) (true))
         (pattern (identifier) (false)))))
 
-==================
+=======================
 Multimatch Syntax Sugar
-==================
+=======================
 
 def foo : Nat → Nat -> Nat
   | 0, foo => 2

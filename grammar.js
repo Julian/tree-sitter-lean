@@ -165,6 +165,10 @@ module.exports = grammar({
       $._expression, repeat1(seq($._right_arrow, $._expression)),
     )),
 
+    product_type: $ => prec(-1, seq(
+      $._expression, repeat1(seq('×', $._expression)),
+    )),
+
     def: $ => seq(
       field('attributes', optional(seq(
         '@[', $.identifier, optional(repeat(seq(',', $.identifier))), ']',
@@ -212,6 +216,7 @@ module.exports = grammar({
       $.identifier,
       $._parenthesized_expression,
       $.function_type,
+      $.product_type,
       $.product,
       $.index,
       $.comparison,
