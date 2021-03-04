@@ -99,6 +99,30 @@ def foo {a} {b c : Nat} v w (x y) (z : Nat) := a + b + v + w + x + y
           (identifier))
         (identifier))))
 
+============================
+Typeclass Resolved Arguments
+============================
+
+def foo [Bar x] [y : Baz] : x := 1
+
+---
+
+(module
+  (def
+    name: (identifier)
+    parameters:
+      (parameters
+        (typeclass_resolved_parameter
+          type:
+            (apply
+              name: (identifier)
+              arguments: (identifier)))
+        (typeclass_resolved_parameter
+          name: (identifier)
+          type: (identifier)))
+    return_type: (identifier)
+    body: (number)))
+
 ====================
 First Class Function
 ====================
@@ -114,7 +138,7 @@ def twice (f : Nat → Nat) (a : Nat) :=
     parameters:
       (parameters
         name: (identifier)
-        type: (function_annotation (identifier) (identifier))
+        type: (function_type (identifier) (identifier))
         name: (identifier)
         type: (identifier))
     body:
@@ -136,7 +160,7 @@ def foo : Nat -> Nat := id
 (module
   (def
     name: (identifier)
-    return_type: (function_annotation (identifier) (identifier))
+    return_type: (function_type (identifier) (identifier))
     body: (identifier)))
 
 ==================================
@@ -150,8 +174,9 @@ def foo : Nat -> Nat -> Nat -> Nat := id
 (module
   (def
     name: (identifier)
-    return_type: (function_annotation
-                    (identifier) (identifier) (identifier) (identifier))
+    return_type:
+      (function_type
+        (identifier) (identifier) (identifier) (identifier))
     body: (identifier)))
 
 ==========
@@ -370,6 +395,62 @@ instance toStringFoo : ToString Foo where
         return_type: (identifier)
         body: (string))))
 
+========================
+Instance With Parameters
+========================
+
+instance {f : Foo} (g : Bar 3) : Quux where
+  foo := f
+
+---
+
+(module
+  (instance
+    parameters:
+      (implicit_parameter
+        name: (identifier)
+        type: (identifier))
+      name: (identifier)
+      type:
+        (apply
+          name: (identifier)
+          arguments: (number))
+    class: (identifier)
+    fields:
+      (instance_field
+        name: (identifier)
+        body: (identifier))))
+
+================
+Chained Instance
+================
+
+instance [Inhabited b] : Inhabited (a -> b) where
+  default := fun _ => arbitrary
+
+---
+
+(module
+  (instance
+    parameters:
+      (typeclass_resolved_parameter
+        type:
+          (apply
+            name: (identifier)
+            arguments: (identifier)))
+    class:
+      (apply
+        name: (identifier)
+        arguments: (function_type (identifier) (identifier)))
+    fields:
+      (instance_field
+        name: (identifier)
+        body:
+          (lambda
+            (parameters
+              name: (identifier))
+            (identifier)))))
+
 ===================================
 Instance With Inductive Constructor
 ===================================
@@ -404,8 +485,7 @@ instance : ToString Foo where
     fields:
       (instance_field
         name: (identifier)
-        return_type:
-          (function_annotation (identifier) (identifier))
+        return_type: (function_type (identifier) (identifier))
         body:
           (lambda
             (parameters name: (identifier))

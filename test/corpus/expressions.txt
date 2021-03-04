@@ -594,7 +594,7 @@ def foo : Nat → Nat
 (module
   (def
     name: (identifier)
-    return_type: (function_annotation (identifier) (identifier))
+    return_type: (function_type (identifier) (identifier))
     body: (pattern (number) (number))
     body: (pattern (number) (number))
     body: (pattern (identifier) (number))))
@@ -613,7 +613,7 @@ def foo : Nat -> Bool :=
 (module
   (def
     name: (identifier)
-    return_type: (function_annotation (identifier) (identifier))
+    return_type: (function_type (identifier) (identifier))
     body:
       (lambda
         (pattern (number) (true))
@@ -633,7 +633,7 @@ def foo : Nat → Nat -> Nat
 (module
   (def
     name: (identifier)
-    return_type: (function_annotation (identifier) (identifier) (identifier))
+    return_type: (function_type (identifier) (identifier) (identifier))
     body: (pattern (lhs (number) (identifier)) (number))
     body: (pattern (lhs (number) (identifier)) (number))
     body: (pattern (lhs (identifier) (identifier)) (number))))

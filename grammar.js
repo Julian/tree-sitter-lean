@@ -29,6 +29,10 @@ module.exports = grammar({
     $._newline,
   ],
 
+  conflicts: $ => [
+    [$.typeclass_resolved_parameter, $._expression],
+  ],
+
   word: $ => $.identifier,
 
   rules: {
@@ -47,6 +51,7 @@ module.exports = grammar({
       $.inductive_type,
       $.instance,
       $.theorem,
+      $.variable_declaration,
     ),
 
     prelude: $ => 'prelude',
@@ -72,6 +77,15 @@ module.exports = grammar({
     instance: $ => seq(
       'instance',
       optional(field('name', $.identifier)),
+      optional(field('parameters', seq(
+        repeat1(
+          choice(
+            $._explicit_parameter,
+            $.implicit_parameter,
+            $.typeclass_resolved_parameter,
+          ),
+        ),
+      ))),
       ':',
       field('class', $._expression),
       field('body', choice(
@@ -83,7 +97,7 @@ module.exports = grammar({
     instance_field: $ => seq(
       field('name', $.identifier),
       optional(field('parameters', $.parameters)),
-      optional(seq(':', field('return_type', $._type_annotation))),
+      optional(seq(':', field('return_type', $._expression))),
       ':=',
       field('body', $._expression),
     ),
@@ -104,12 +118,24 @@ module.exports = grammar({
       $.identifier,
     ),
 
+    variable_declaration: $ => seq(
+      'variable',
+      repeat1(
+        choice(
+          $._explicit_parameter,
+          $.implicit_parameter,
+          $.typeclass_resolved_parameter,
+        ),
+      ),
+    ),
+
     parameters: $ => seq(
       repeat1(
         choice(
           field('name', $.identifier),
           $._explicit_parameter,
           $.implicit_parameter,
+          $.typeclass_resolved_parameter,
         )
       ),
     ),
@@ -117,25 +143,27 @@ module.exports = grammar({
     _explicit_parameter: $ => seq(
       '(',
       field('name', repeat1($.identifier)),
-      field('type', optional(seq(':', $._type_annotation))),
+      field('type', optional(seq(':', $._expression))),
       ')',
     ),
 
     implicit_parameter: $ => seq(
       '{',
       field('name', repeat1($.identifier)),
-      field('type', optional(seq(':', $._type_annotation))),
+      field('type', optional(seq(':', $._expression))),
       '}',
     ),
 
-    _type_annotation: $ => choice(
-      $._expression,
-      $.function_annotation,
+    typeclass_resolved_parameter: $ => seq(
+      '[',
+      field('name', optional(seq(repeat1($.identifier), ':'))),
+      field('type', $._expression),
+      ']',
     ),
 
-    function_annotation: $ => seq(
-      $._expression, repeat1(seq($._arrow, $._expression)),
-    ),
+    function_type: $ => prec(-1, seq(
+      $._expression, repeat1(seq($._right_arrow, $._expression)),
+    )),
 
     def: $ => seq(
       field('attributes', optional(seq(
@@ -145,7 +173,7 @@ module.exports = grammar({
       'def',
       field('name', $.identifier),
       optional(field('parameters', $.parameters)),
-      optional(seq(':', field('return_type', $._type_annotation))),
+      optional(seq(':', field('return_type', $._expression))),
       field('body', choice(
         seq(':=', $._expression),
         repeat($.pattern),
@@ -183,6 +211,7 @@ module.exports = grammar({
     _expression: $ => choice(
       $.identifier,
       $._parenthesized_expression,
+      $.function_type,
       $.product,
       $.index,
       $.comparison,
@@ -287,7 +316,7 @@ module.exports = grammar({
       'let',
       optional($.mutable_specifier),
       field('name', $._maybe_annotated),
-      choice('<-', '←', ':='),
+      choice($._left_arrow, ':='),
       field('body', $._expression),
     ),
 
@@ -451,7 +480,8 @@ module.exports = grammar({
 
     dotted_name: $ => sep1($.identifier, '.'),
 
-    _arrow: $ => choice('->', '→'),
+    _left_arrow: $ => choice('<-', '←'),
+    _right_arrow: $ => choice('->', '→'),
 
 
     // TODO: actual right string content, escape sequences, etc.

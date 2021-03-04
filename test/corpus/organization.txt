@@ -115,3 +115,58 @@ end Foo
     (section (identifier)
       (theorem (identifier) (identifier) (identifier)) (identifier))
     (identifier)))
+
+=========
+Variables
+=========
+
+variable (α β γ : Type)
+variable (g : β → γ) (f : α → β) (h : α → α)
+variable {x : α} [y : α]
+
+---
+
+(module
+  (variable_declaration
+    name: (identifier)
+    name: (identifier)
+    name: (identifier)
+    type: (identifier))
+  (variable_declaration
+    name: (identifier)
+    type: (function_type (identifier) (identifier))
+    name: (identifier)
+    type: (function_type (identifier) (identifier))
+    name: (identifier)
+    type: (function_type (identifier) (identifier)))
+  (variable_declaration
+    (implicit_parameter
+      name: (identifier)
+      type: (identifier))
+    (typeclass_resolved_parameter
+      name: (identifier)
+      type: (identifier))))
+
+===============
+Empty Variables
+===============
+
+variable
+
+#check 2
+
+---
+
+(module (ERROR) (hash_command (number)))
+
+=================================
+Non-Implicit-or-Explicit Variable
+=================================
+
+variable y
+
+#check 2
+
+---
+
+(module (ERROR (identifier)) (hash_command (number)))
