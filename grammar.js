@@ -60,9 +60,9 @@ module.exports = grammar({
 
     prelude: $ => 'prelude',
 
-    import: $ => seq('import', field('name', $.dotted_name)),
+    import: $ => seq('import', field('module', $._dotted_name)),
 
-    open: $ => seq('open', $.identifier),
+    open: $ => seq('open', field('namespace', $.identifier)),
 
     hash_command: $ => seq(
       choice('#check', '#eval', '#reduce'),
@@ -71,7 +71,7 @@ module.exports = grammar({
 
     inductive_type: $ => seq(
       'inductive',
-      field('name', $.identifier),
+      field('name', $._dotted_name),
       optional('where'),
       field('constructors', repeat1($.constructor)),
     ),
@@ -80,7 +80,7 @@ module.exports = grammar({
 
     instance: $ => seq(
       'instance',
-      optional(field('name', $.identifier)),
+      optional(field('name', $._dotted_name)),
       optional(field('parameters', seq(
         repeat1(
           choice(
@@ -199,7 +199,7 @@ module.exports = grammar({
       ))),
       field('partial', optional('partial')),
       'def',
-      field('name', $.identifier),
+      field('name', $._dotted_name),
       optional(field('parameters', $.parameters)),
       optional(seq(':', field('return_type', $._expression))),
       field('body', choice(
@@ -212,7 +212,7 @@ module.exports = grammar({
 
     structure_definition: $ => seq(
       'structure',
-      field('name', $.identifier),
+      field('name', $._dotted_name),
       optional(field('parameters', $.parameters)),
       'where',
       field('fields', repeat1($.field)),
@@ -220,7 +220,7 @@ module.exports = grammar({
 
     class: $ => seq(
       'class',
-      field('name', $.identifier),
+      field('name', $._dotted_name),
       optional(field('parameters', $.parameters)),
       'where',
       field('fields', repeat1($.field)),
@@ -228,10 +228,10 @@ module.exports = grammar({
 
     theorem: $ => seq(
       'theorem',
-      field('name', $.identifier),
+      field('name', $._dotted_name),
       optional(field('parameters', $.parameters)),
       ':',
-      $._expression,
+      field('type', $._expression),
       ':=',
       field('body', $.identifier),  // FIXME
     ),
@@ -515,7 +515,10 @@ module.exports = grammar({
       '{', $._expression, '}'
     ),
 
-    dotted_name: $ => sep1($.identifier, '.'),
+    _dotted_name: $ => choice(
+      $.identifier,
+      sep1($.identifier, '.'),
+    ),
 
     _left_arrow: $ => choice('<-', '←'),
     _right_arrow: $ => choice('->', '→'),

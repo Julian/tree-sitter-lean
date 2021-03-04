@@ -286,6 +286,7 @@ theorem twiceAdd2 (a : Nat) : twice (fun x => x + 2) a = a + 4 :=
     (parameters
       name: (identifier)
       type: (identifier))
+  type:
     (binary_expression
       (apply
         name: (identifier)
@@ -607,6 +608,82 @@ inductive Bit where | bit0 | bit1
     constructors:
       (constructor
         name: (identifier))
+    constructors:
+      (constructor
+        name: (identifier))))
+
+=================
+Inline Namespaced
+=================
+
+def foo.bar.baz := 12
+
+structure Foo.Bar.Baz where
+  x : Nat
+
+class Foo.Bar.Baz.Quux where
+  x : Nat
+
+instance Spam.Eggs : Foo.Bar.Baz.Quux where
+  x := 3
+
+theorem Foo.Bar.Baz.Quux.Cheese : 2 = 2 := rfl
+
+inductive A.B | C
+
+---
+
+(module
+  (def
+    name: (identifier)
+    name: (identifier)
+    name: (identifier)
+    body: (number))
+  (structure_definition
+    name: (identifier)
+    name: (identifier)
+    name: (identifier)
+    fields:
+      (field
+        name: (identifier)
+        type: (identifier)))
+  (class
+    name: (identifier)
+    name: (identifier)
+    name: (identifier)
+    name: (identifier)
+    fields:
+      (field
+        name: (identifier)
+        type: (identifier)))
+  (instance
+    name: (identifier)
+    name: (identifier)
+    class:
+      (field_of
+        term:
+          (field_of
+            term:
+              (field_of
+                term: (identifier)
+                name: (identifier))
+            name: (identifier))
+        name: (identifier))
+    fields:
+      (instance_field
+        name: (identifier)
+        body: (number)))
+  (theorem
+    name: (identifier)
+    name: (identifier)
+    name: (identifier)
+    name: (identifier)
+    name: (identifier)
+    type: (binary_expression (number) (number))
+    body: (identifier))
+  (inductive_type
+    name: (identifier)
+    name: (identifier)
     constructors:
       (constructor
         name: (identifier))))

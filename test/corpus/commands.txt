@@ -36,7 +36,8 @@ import Foo
 
 (module
   (prelude)
-  (import (dotted_name (identifier))))
+  (import
+    module: (identifier)))
 
 ====
 Open
@@ -46,7 +47,9 @@ open Foo
 
 ---
 
-(module (open (identifier)))
+(module
+  (open
+    namespace: (identifier)))
 
 ======
 Import
@@ -56,7 +59,9 @@ import Foo
 
 ---
 
-(module (import (dotted_name (identifier))))
+(module
+  (import
+    module: (identifier)))
 
 =============
 Import Nested
@@ -66,7 +71,11 @@ import Foo.Bar.Baz
 
 ---
 
-(module (import (dotted_name (identifier) (identifier) (identifier))))
+(module
+  (import
+    module: (identifier)
+    module: (identifier)
+    module: (identifier)))
 
 ======
 Export
