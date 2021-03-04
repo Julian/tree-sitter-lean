@@ -50,8 +50,11 @@ module.exports = grammar({
       $.structure_definition,
       $.inductive_type,
       $.instance,
+      $.export,
       $.theorem,
       $.variable_declaration,
+      $.constant,
+      $.universe,
     ),
 
     prelude: $ => 'prelude',
@@ -102,6 +105,14 @@ module.exports = grammar({
       field('body', $._expression),
     ),
 
+    export: $ => seq(
+      'export',
+      field('class', $.identifier),
+      '(',
+      repeat1($.identifier),
+      ')',
+    ),
+
     namespace: $ => seq(
       'namespace',
       field('name', $.identifier),
@@ -127,6 +138,18 @@ module.exports = grammar({
           $.typeclass_resolved_parameter,
         ),
       ),
+    ),
+
+    constant: $ => seq(
+      'constant',
+      field('name', $.identifier),
+      ':',
+      field('type', $._expression),
+    ),
+
+    universe: $ => seq(
+      'universe',
+      repeat1($.identifier),
     ),
 
     parameters: $ => seq(

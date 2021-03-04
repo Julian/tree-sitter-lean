@@ -67,3 +67,87 @@ import Foo.Bar.Baz
 ---
 
 (module (import (dotted_name (identifier) (identifier) (identifier))))
+
+======
+Export
+======
+
+export Foo (bar baz)
+
+---
+
+(module
+  (export
+    class: (identifier)
+    (identifier)
+    (identifier)))
+
+============
+Empty Export
+============
+
+export Foo ()
+
+---
+
+(module (ERROR (identifier)))
+
+========
+Constant
+========
+
+constant A : Type
+constant A : Type -> Type
+
+---
+
+(module
+  (constant
+    name: (identifier)
+    type: (identifier))
+  (constant
+    name: (identifier)
+    type: (function_type (identifier) (identifier))))
+
+==========================
+Constant With Missing Type
+==========================
+
+constant B
+
+---
+
+(module (ERROR (identifier)))
+
+==========================
+Constant With Missing Name
+==========================
+
+constant
+
+---
+
+(module (ERROR))
+
+========
+Universe
+========
+
+universe t
+universe u v w
+
+---
+
+(module
+  (universe (identifier))
+  (universe (identifier) (identifier) (identifier)))
+
+==========================
+Universe With Missing Name
+==========================
+
+universe
+
+---
+
+(module (universe (MISSING identifier)))

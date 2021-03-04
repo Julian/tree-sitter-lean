@@ -1066,6 +1066,136 @@
     }
   },
   {
+    "type": "constant",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "apply",
+            "named": true
+          },
+          {
+            "type": "array",
+            "named": true
+          },
+          {
+            "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "char",
+            "named": true
+          },
+          {
+            "type": "comparison",
+            "named": true
+          },
+          {
+            "type": "conditional",
+            "named": true
+          },
+          {
+            "type": "do",
+            "named": true
+          },
+          {
+            "type": "false",
+            "named": true
+          },
+          {
+            "type": "field_of",
+            "named": true
+          },
+          {
+            "type": "float",
+            "named": true
+          },
+          {
+            "type": "function_type",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "index",
+            "named": true
+          },
+          {
+            "type": "inductive_constructor",
+            "named": true
+          },
+          {
+            "type": "interpolated_string",
+            "named": true
+          },
+          {
+            "type": "lambda",
+            "named": true
+          },
+          {
+            "type": "list",
+            "named": true
+          },
+          {
+            "type": "match",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "product",
+            "named": true
+          },
+          {
+            "type": "product_type",
+            "named": true
+          },
+          {
+            "type": "range",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "true",
+            "named": true
+          },
+          {
+            "type": "unary_expression",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "constructor",
     "named": true,
     "fields": {
@@ -1864,6 +1994,32 @@
         },
         {
           "type": "unary_expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "export",
+    "named": true,
+    "fields": {
+      "class": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
           "named": true
         }
       ]
@@ -4873,11 +5029,19 @@
       "required": false,
       "types": [
         {
+          "type": "constant",
+          "named": true
+        },
+        {
           "type": "def",
           "named": true
         },
         {
           "type": "example",
+          "named": true
+        },
+        {
+          "type": "export",
           "named": true
         },
         {
@@ -4918,6 +5082,10 @@
         },
         {
           "type": "theorem",
+          "named": true
+        },
+        {
+          "type": "universe",
           "named": true
         },
         {
@@ -5047,11 +5215,19 @@
         "required": false,
         "types": [
           {
+            "type": "constant",
+            "named": true
+          },
+          {
             "type": "def",
             "named": true
           },
           {
             "type": "example",
+            "named": true
+          },
+          {
+            "type": "export",
             "named": true
           },
           {
@@ -5092,6 +5268,10 @@
           },
           {
             "type": "theorem",
+            "named": true
+          },
+          {
+            "type": "universe",
             "named": true
           },
           {
@@ -6099,11 +6279,19 @@
         "required": false,
         "types": [
           {
+            "type": "constant",
+            "named": true
+          },
+          {
             "type": "def",
             "named": true
           },
           {
             "type": "example",
+            "named": true
+          },
+          {
+            "type": "export",
             "named": true
           },
           {
@@ -6144,6 +6332,10 @@
           },
           {
             "type": "theorem",
+            "named": true
+          },
+          {
+            "type": "universe",
             "named": true
           },
           {
@@ -6991,6 +7183,21 @@
     }
   },
   {
+    "type": "universe",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "variable_declaration",
     "named": true,
     "fields": {
@@ -7283,6 +7490,10 @@
     "named": true
   },
   {
+    "type": "constant",
+    "named": false
+  },
+  {
     "type": "def",
     "named": false
   },
@@ -7300,6 +7511,10 @@
   },
   {
     "type": "example",
+    "named": false
+  },
+  {
+    "type": "export",
     "named": false
   },
   {
@@ -7412,6 +7627,10 @@
   },
   {
     "type": "try",
+    "named": false
+  },
+  {
+    "type": "universe",
     "named": false
   },
   {
