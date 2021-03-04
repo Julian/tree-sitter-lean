@@ -336,13 +336,34 @@ structure Point (α : Type u) where
             name: (identifier)
             arguments: (identifier)))
     fields:
-      (structure_field
+      (field
         name: (identifier)
         type: (identifier))
     fields:
-      (structure_field
+      (field
         name: (identifier)
         type: (identifier))))
+
+=====
+Class
+=====
+
+class Add (a : Type) where
+  add : a -> a -> a
+
+---
+
+(module
+  (class
+    name: (identifier)
+    parameters:
+      (parameters
+        name: (identifier)
+        type: (identifier))
+    fields:
+      (field
+        name: (identifier)
+        type: (function_type (identifier) (identifier) (identifier)))))
 
 ========
 Instance

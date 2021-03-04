@@ -48,6 +48,7 @@ module.exports = grammar({
       $.example,
       $.def,
       $.structure_definition,
+      $.class,
       $.inductive_type,
       $.instance,
       $.export,
@@ -207,14 +208,22 @@ module.exports = grammar({
       )),
     ),
 
-    structure_field: $ => $._maybe_annotated,
+    field: $ => $._maybe_annotated,
 
     structure_definition: $ => seq(
       'structure',
       field('name', $.identifier),
       optional(field('parameters', $.parameters)),
       'where',
-      field('fields', repeat1($.structure_field)),
+      field('fields', repeat1($.field)),
+    ),
+
+    class: $ => seq(
+      'class',
+      field('name', $.identifier),
+      optional(field('parameters', $.parameters)),
+      'where',
+      field('fields', repeat1($.field)),
     ),
 
     theorem: $ => seq(

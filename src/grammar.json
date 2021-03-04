@@ -50,6 +50,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "class"
+        },
+        {
+          "type": "SYMBOL",
           "name": "inductive_type"
         },
         {
@@ -961,7 +965,7 @@
         }
       ]
     },
-    "structure_field": {
+    "field": {
       "type": "SYMBOL",
       "name": "_maybe_annotated"
     },
@@ -1007,7 +1011,55 @@
             "type": "REPEAT1",
             "content": {
               "type": "SYMBOL",
-              "name": "structure_field"
+              "name": "field"
+            }
+          }
+        }
+      ]
+    },
+    "class": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "class"
+        },
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "parameters",
+              "content": {
+                "type": "SYMBOL",
+                "name": "parameters"
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "where"
+        },
+        {
+          "type": "FIELD",
+          "name": "fields",
+          "content": {
+            "type": "REPEAT1",
+            "content": {
+              "type": "SYMBOL",
+              "name": "field"
             }
           }
         }
