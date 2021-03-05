@@ -66,7 +66,7 @@ module.exports = grammar({
     open: $ => seq('open', field('namespace', $.identifier)),
 
     hash_command: $ => seq(
-      choice('#check', '#eval', '#reduce'),
+      choice('#check', '#check_failure', '#eval', '#print', '#reduce'),
       $._expression,
     ),
 

@@ -132,7 +132,15 @@
             },
             {
               "type": "STRING",
+              "value": "#check_failure"
+            },
+            {
+              "type": "STRING",
               "value": "#eval"
+            },
+            {
+              "type": "STRING",
+              "value": "#print"
             },
             {
               "type": "STRING",

@@ -5,13 +5,15 @@
 #check 2+2
 #eval 2+2
 #reduce 2+2
+#print inferInstance
 
 ---
 
 (module
   (hash_command (binary_expression (number) (number)))
   (hash_command (binary_expression (number) (number)))
-  (hash_command (binary_expression (number) (number))))
+  (hash_command (binary_expression (number) (number)))
+  (hash_command (identifier)))
 
 ===================
 Same Line #commands
@@ -24,6 +26,23 @@ Same Line #commands
 (module
   (hash_command (apply (identifier) (number)))
   (hash_command (number)))
+
+==============
+#check_failure
+==============
+
+#check_failure (inferInstance : Inhabited (Nat × _))
+
+---
+
+(module
+  (hash_command
+    (coe
+      term: (identifier)
+      type:
+        (apply
+          name: (identifier)
+          arguments: (product_type (identifier) (identifier))))))
 
 =======
 Prelude

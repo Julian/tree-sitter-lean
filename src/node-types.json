@@ -9293,7 +9293,15 @@
     "named": false
   },
   {
+    "type": "#check_failure",
+    "named": false
+  },
+  {
     "type": "#eval",
+    "named": false
+  },
+  {
+    "type": "#print",
     "named": false
   },
   {
