@@ -456,8 +456,13 @@ module.exports = grammar({
       prec.left(PREC.plus, seq($._expression, '+', $._expression)),
       prec.left(PREC.plus, seq($._expression, '-', $._expression)),
 
+      prec.left(PREC.opop, seq($._expression, '∧', $._expression)),
+      prec.left(PREC.opop, seq($._expression, '∨', $._expression)),
+      prec.left(PREC.opop, seq($._expression, '↔', $._expression)),
+
       prec.left(PREC.opop, seq($._expression, '++', $._expression)),
       prec.left(PREC.opop, seq($._expression, '::', $._expression)),
+
       prec.left(PREC.or, seq($._expression, '||', $._expression)),
       prec.left(PREC.and, seq($._expression, '&&', $._expression)),
       prec.left(PREC.eqeq, seq($._expression, '==', $._expression)),
