@@ -321,8 +321,10 @@ Structure
 =========
 
 structure Point (α : Type u) where
+  w : String := "foo"
   x : α
   y : α
+  z := 0
 
 ---
 
@@ -339,18 +341,29 @@ structure Point (α : Type u) where
     fields:
       (field
         name: (identifier)
+        type: (identifier)
+        default: (string))
+    fields:
+      (field
+        name: (identifier)
         type: (identifier))
     fields:
       (field
         name: (identifier)
-        type: (identifier))))
+        type: (identifier))
+    fields:
+      (field
+        name: (identifier)
+        default: (number))))
 
 =====
 Class
 =====
 
 class Add (a : Type) where
+  foo : String := "foo"
   add : a -> a -> a
+  bar := 0
 
 ---
 
@@ -364,7 +377,16 @@ class Add (a : Type) where
     fields:
       (field
         name: (identifier)
-        type: (function_type (identifier) (identifier) (identifier)))))
+        type: (identifier)
+        default: (string))
+    fields:
+      (field
+        name: (identifier)
+        type: (function_type (identifier) (identifier) (identifier)))
+    fields:
+      (field
+        name: (identifier)
+        default: (number))))
 
 ========
 Instance

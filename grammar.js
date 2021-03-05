@@ -208,7 +208,15 @@ module.exports = grammar({
       )),
     ),
 
-    field: $ => $._maybe_annotated,
+    field: $ => seq(
+      $._maybe_annotated,
+      optional(
+        seq(
+          ':=',
+          field('default', $._expression),
+        ),
+      ),
+    ),
 
     structure_definition: $ => seq(
       'structure',
