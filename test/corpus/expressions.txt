@@ -749,3 +749,20 @@ Anonymous Function Match With Additional Argument
           (pattern (identifier) (number)))
       arguments:
         (number))))
+
+=================
+Explicit Function
+=================
+
+#check @ident
+#check @ident α
+#check @ident Bool true
+#check @foo.bar
+
+---
+
+(module
+  (hash_command (explicit (identifier)))
+  (hash_command (apply (explicit (identifier)) (identifier)))
+  (hash_command (apply (explicit (identifier)) (identifier) (true)))
+  (hash_command (explicit (identifier) (identifier))))

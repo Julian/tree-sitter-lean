@@ -247,6 +247,7 @@ module.exports = grammar({
     _expression: $ => choice(
       $.identifier,
       $._parenthesized_expression,
+      $.explicit,
       $.function_type,
       $.product_type,
       $.product,
@@ -515,10 +516,10 @@ module.exports = grammar({
       '{', $._expression, '}'
     ),
 
-    _dotted_name: $ => choice(
+    _dotted_name: $ => prec.right(choice(
       $.identifier,
       sep1($.identifier, '.'),
-    ),
+    )),
 
     _left_arrow: $ => choice('<-', '←'),
     _right_arrow: $ => choice('->', '→'),
@@ -538,6 +539,8 @@ module.exports = grammar({
         '-/',
       ),
     )),
+
+    explicit: $ => seq('@', $._dotted_name),
 
     // FIXME: see name.cpp for the real definition...
     identifier: $ => /[_a-zA-ZͰ-ϿĀ-ſ∇][_a-zA-Z0-9Ͱ-ϿĀ-ſ∇!\u2070-\u209F]*/,
