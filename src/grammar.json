@@ -1242,6 +1242,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "let"
+        },
+        {
+          "type": "SYMBOL",
           "name": "do"
         },
         {
@@ -1505,6 +1509,39 @@
         ]
       }
     },
+    "let": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "let"
+        },
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_maybe_annotated"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ":="
+        },
+        {
+          "type": "FIELD",
+          "name": "body",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_expression"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_newline"
+        }
+      ]
+    },
     "_do_expression": {
       "type": "SEQ",
       "members": [
@@ -1525,7 +1562,11 @@
             },
             {
               "type": "SYMBOL",
-              "name": "let"
+              "name": "let_bind"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "let_mut"
             },
             {
               "type": "SYMBOL",
@@ -1633,24 +1674,12 @@
         }
       ]
     },
-    "let": {
+    "let_mut": {
       "type": "SEQ",
       "members": [
         {
           "type": "STRING",
-          "value": "let"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "mutable_specifier"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
+          "value": "let mut"
         },
         {
           "type": "FIELD",
@@ -1672,6 +1701,35 @@
               "value": ":="
             }
           ]
+        },
+        {
+          "type": "FIELD",
+          "name": "body",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_expression"
+          }
+        }
+      ]
+    },
+    "let_bind": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "let"
+        },
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_maybe_annotated"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_left_arrow"
         },
         {
           "type": "FIELD",
@@ -2984,6 +3042,10 @@
     [
       "typeclass_resolved_parameter",
       "_expression"
+    ],
+    [
+      "_apply",
+      "let"
     ]
   ],
   "precedences": [],

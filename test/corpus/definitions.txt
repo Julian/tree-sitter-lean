@@ -709,3 +709,84 @@ inductive A.B | C
     constructors:
       (constructor
         name: (identifier))))
+
+===
+Let
+===
+
+def foo :=
+  let foo := 12
+  foo
+
+---
+
+(module
+  (def
+    name: (identifier)
+    body:
+      (apply
+        name:
+          (let
+            name: (identifier)
+            body: (number))
+        arguments: (identifier))))
+
+=============
+Let Annotated
+=============
+
+def foo :=
+  let foo : Nat := 12
+  foo
+
+---
+
+(module
+  (def
+    name: (identifier)
+    body:
+      (apply
+        name:
+          (let
+            name: (identifier)
+            type: (identifier)
+            body: (number))
+        arguments: (identifier))))
+
+==========
+No Let Mut
+==========
+
+def foo :=
+  let mut foo := 12
+  foo
+
+---
+
+(module
+  (def
+    name: (identifier)
+    body:
+      (apply
+        name:
+          (let
+            name: (identifier)
+            (ERROR (identifier))
+            body: (number)) arguments: (identifier))))
+
+============
+No Let Arrow
+============
+
+def foo :=
+  let foo <- 12
+  foo
+
+---
+
+(module
+  (def
+    name: (identifier)
+    (ERROR (identifier))
+    body:
+      (apply name: (number) arguments: (identifier))))

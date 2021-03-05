@@ -31,6 +31,7 @@ module.exports = grammar({
 
   conflicts: $ => [
     [$.typeclass_resolved_parameter, $._expression],
+    [$._apply, $.let],
   ],
 
   word: $ => $.identifier,
@@ -266,6 +267,7 @@ module.exports = grammar({
       $.match,
       $.apply,
       $.lambda,
+      $.let,
       $.do,
       $.unary_expression,
       $.binary_expression,
@@ -327,12 +329,21 @@ module.exports = grammar({
       ']',
     )),
 
+    let: $ => seq(
+      'let',
+      field('name', $._maybe_annotated),
+      ':=',
+      field('body', $._expression),
+      $._newline,
+    ),
+
     _do_expression: $ => seq(
       choice(
         $._expression,
         $.for_in,
         $.assign,
-        $.let,
+        $.let_bind,
+        $.let_mut,
         $.try,
         $.throw,
         $.return,
@@ -358,11 +369,18 @@ module.exports = grammar({
       field('value', $._expression),
     ),
 
-    let: $ => seq(
-      'let',
-      optional($.mutable_specifier),
+    let_mut: $ => seq(
+      'let mut',
       field('name', $._maybe_annotated),
       choice($._left_arrow, ':='),
+      field('body', $._expression),
+    ),
+
+
+    let_bind: $ => seq(
+      'let',
+      field('name', $._maybe_annotated),
+      $._left_arrow,
       field('body', $._expression),
     ),
 

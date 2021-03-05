@@ -84,6 +84,10 @@
             "named": true
           },
           {
+            "type": "let",
+            "named": true
+          },
+          {
             "type": "list",
             "named": true
           },
@@ -199,6 +203,10 @@
           },
           {
             "type": "lambda",
+            "named": true
+          },
+          {
+            "type": "let",
             "named": true
           },
           {
@@ -324,6 +332,10 @@
             "named": true
           },
           {
+            "type": "let",
+            "named": true
+          },
+          {
             "type": "list",
             "named": true
           },
@@ -437,6 +449,10 @@
         },
         {
           "type": "lambda",
+          "named": true
+        },
+        {
+          "type": "let",
           "named": true
         },
         {
@@ -573,6 +589,10 @@
             "named": true
           },
           {
+            "type": "let",
+            "named": true
+          },
+          {
             "type": "list",
             "named": true
           },
@@ -686,6 +706,10 @@
         },
         {
           "type": "lambda",
+          "named": true
+        },
+        {
+          "type": "let",
           "named": true
         },
         {
@@ -813,6 +837,14 @@
         },
         {
           "type": "let",
+          "named": true
+        },
+        {
+          "type": "let_bind",
+          "named": true
+        },
+        {
+          "type": "let_mut",
           "named": true
         },
         {
@@ -988,6 +1020,10 @@
           "named": true
         },
         {
+          "type": "let",
+          "named": true
+        },
+        {
           "type": "list",
           "named": true
         },
@@ -1100,6 +1136,10 @@
         },
         {
           "type": "lambda",
+          "named": true
+        },
+        {
+          "type": "let",
           "named": true
         },
         {
@@ -1233,6 +1273,10 @@
           },
           {
             "type": "lambda",
+            "named": true
+          },
+          {
+            "type": "let",
             "named": true
           },
           {
@@ -1371,6 +1415,10 @@
           },
           {
             "type": "lambda",
+            "named": true
+          },
+          {
+            "type": "let",
             "named": true
           },
           {
@@ -1521,6 +1569,10 @@
           },
           {
             "type": "lambda",
+            "named": true
+          },
+          {
+            "type": "let",
             "named": true
           },
           {
@@ -1680,6 +1732,10 @@
             "named": true
           },
           {
+            "type": "let",
+            "named": true
+          },
+          {
             "type": "list",
             "named": true
           },
@@ -1805,6 +1861,14 @@
         },
         {
           "type": "let",
+          "named": true
+        },
+        {
+          "type": "let_bind",
+          "named": true
+        },
+        {
+          "type": "let_mut",
           "named": true
         },
         {
@@ -1943,6 +2007,10 @@
             "named": true
           },
           {
+            "type": "let",
+            "named": true
+          },
+          {
             "type": "list",
             "named": true
           },
@@ -2051,6 +2119,10 @@
         },
         {
           "type": "lambda",
+          "named": true
+        },
+        {
+          "type": "let",
           "named": true
         },
         {
@@ -2218,6 +2290,10 @@
             "named": true
           },
           {
+            "type": "let",
+            "named": true
+          },
+          {
             "type": "list",
             "named": true
           },
@@ -2347,6 +2423,10 @@
           },
           {
             "type": "lambda",
+            "named": true
+          },
+          {
+            "type": "let",
             "named": true
           },
           {
@@ -2484,6 +2564,10 @@
             "named": true
           },
           {
+            "type": "let",
+            "named": true
+          },
+          {
             "type": "list",
             "named": true
           },
@@ -2609,6 +2693,14 @@
         },
         {
           "type": "let",
+          "named": true
+        },
+        {
+          "type": "let_bind",
+          "named": true
+        },
+        {
+          "type": "let_mut",
           "named": true
         },
         {
@@ -2757,6 +2849,10 @@
             "named": true
           },
           {
+            "type": "let",
+            "named": true
+          },
+          {
             "type": "list",
             "named": true
           },
@@ -2883,6 +2979,10 @@
           "named": true
         },
         {
+          "type": "let",
+          "named": true
+        },
+        {
           "type": "list",
           "named": true
         },
@@ -2995,6 +3095,10 @@
         },
         {
           "type": "lambda",
+          "named": true
+        },
+        {
+          "type": "let",
           "named": true
         },
         {
@@ -3132,6 +3236,10 @@
           },
           {
             "type": "lambda",
+            "named": true
+          },
+          {
+            "type": "let",
             "named": true
           },
           {
@@ -3279,6 +3387,10 @@
             "named": true
           },
           {
+            "type": "let",
+            "named": true
+          },
+          {
             "type": "list",
             "named": true
           },
@@ -3394,6 +3506,10 @@
           },
           {
             "type": "lambda",
+            "named": true
+          },
+          {
+            "type": "let",
             "named": true
           },
           {
@@ -3515,6 +3631,10 @@
             "named": true
           },
           {
+            "type": "let",
+            "named": true
+          },
+          {
             "type": "list",
             "named": true
           },
@@ -3633,6 +3753,10 @@
             "named": true
           },
           {
+            "type": "let",
+            "named": true
+          },
+          {
             "type": "list",
             "named": true
           },
@@ -3746,6 +3870,10 @@
         },
         {
           "type": "lambda",
+          "named": true
+        },
+        {
+          "type": "let",
           "named": true
         },
         {
@@ -3920,6 +4048,10 @@
             "named": true
           },
           {
+            "type": "let",
+            "named": true
+          },
+          {
             "type": "list",
             "named": true
           },
@@ -4070,6 +4202,10 @@
             "named": true
           },
           {
+            "type": "let",
+            "named": true
+          },
+          {
             "type": "list",
             "named": true
           },
@@ -4196,6 +4332,10 @@
             "named": true
           },
           {
+            "type": "let",
+            "named": true
+          },
+          {
             "type": "list",
             "named": true
           },
@@ -4317,6 +4457,10 @@
           },
           {
             "type": "lambda",
+            "named": true
+          },
+          {
+            "type": "let",
             "named": true
           },
           {
@@ -4458,6 +4602,10 @@
             "named": true
           },
           {
+            "type": "let",
+            "named": true
+          },
+          {
             "type": "list",
             "named": true
           },
@@ -4589,6 +4737,10 @@
           "named": true
         },
         {
+          "type": "let",
+          "named": true
+        },
+        {
           "type": "list",
           "named": true
         },
@@ -4701,6 +4853,10 @@
         },
         {
           "type": "lambda",
+          "named": true
+        },
+        {
+          "type": "let",
           "named": true
         },
         {
@@ -4835,6 +4991,10 @@
             "named": true
           },
           {
+            "type": "let",
+            "named": true
+          },
+          {
             "type": "list",
             "named": true
           },
@@ -4954,6 +5114,10 @@
           },
           {
             "type": "lambda",
+            "named": true
+          },
+          {
+            "type": "let",
             "named": true
           },
           {
@@ -5079,6 +5243,10 @@
             "named": true
           },
           {
+            "type": "let",
+            "named": true
+          },
+          {
             "type": "list",
             "named": true
           },
@@ -5116,16 +5284,766 @@
           }
         ]
       }
-    },
-    "children": {
-      "multiple": false,
-      "required": false,
-      "types": [
-        {
-          "type": "mutable_specifier",
-          "named": true
-        }
-      ]
+    }
+  },
+  {
+    "type": "let_bind",
+    "named": true,
+    "fields": {
+      "body": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "apply",
+            "named": true
+          },
+          {
+            "type": "array",
+            "named": true
+          },
+          {
+            "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "char",
+            "named": true
+          },
+          {
+            "type": "comparison",
+            "named": true
+          },
+          {
+            "type": "conditional",
+            "named": true
+          },
+          {
+            "type": "do",
+            "named": true
+          },
+          {
+            "type": "explicit",
+            "named": true
+          },
+          {
+            "type": "false",
+            "named": true
+          },
+          {
+            "type": "field_of",
+            "named": true
+          },
+          {
+            "type": "float",
+            "named": true
+          },
+          {
+            "type": "function_type",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "index",
+            "named": true
+          },
+          {
+            "type": "inductive_constructor",
+            "named": true
+          },
+          {
+            "type": "interpolated_string",
+            "named": true
+          },
+          {
+            "type": "lambda",
+            "named": true
+          },
+          {
+            "type": "let",
+            "named": true
+          },
+          {
+            "type": "list",
+            "named": true
+          },
+          {
+            "type": "match",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "product",
+            "named": true
+          },
+          {
+            "type": "product_type",
+            "named": true
+          },
+          {
+            "type": "range",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "true",
+            "named": true
+          },
+          {
+            "type": "unary_expression",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": ":",
+            "named": false
+          },
+          {
+            "type": "apply",
+            "named": true
+          },
+          {
+            "type": "array",
+            "named": true
+          },
+          {
+            "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "char",
+            "named": true
+          },
+          {
+            "type": "comparison",
+            "named": true
+          },
+          {
+            "type": "conditional",
+            "named": true
+          },
+          {
+            "type": "do",
+            "named": true
+          },
+          {
+            "type": "explicit",
+            "named": true
+          },
+          {
+            "type": "false",
+            "named": true
+          },
+          {
+            "type": "field_of",
+            "named": true
+          },
+          {
+            "type": "float",
+            "named": true
+          },
+          {
+            "type": "function_type",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "index",
+            "named": true
+          },
+          {
+            "type": "inductive_constructor",
+            "named": true
+          },
+          {
+            "type": "interpolated_string",
+            "named": true
+          },
+          {
+            "type": "lambda",
+            "named": true
+          },
+          {
+            "type": "let",
+            "named": true
+          },
+          {
+            "type": "list",
+            "named": true
+          },
+          {
+            "type": "match",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "product",
+            "named": true
+          },
+          {
+            "type": "product_type",
+            "named": true
+          },
+          {
+            "type": "range",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "true",
+            "named": true
+          },
+          {
+            "type": "unary_expression",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": ":",
+            "named": false
+          },
+          {
+            "type": "apply",
+            "named": true
+          },
+          {
+            "type": "array",
+            "named": true
+          },
+          {
+            "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "char",
+            "named": true
+          },
+          {
+            "type": "comparison",
+            "named": true
+          },
+          {
+            "type": "conditional",
+            "named": true
+          },
+          {
+            "type": "do",
+            "named": true
+          },
+          {
+            "type": "explicit",
+            "named": true
+          },
+          {
+            "type": "false",
+            "named": true
+          },
+          {
+            "type": "field_of",
+            "named": true
+          },
+          {
+            "type": "float",
+            "named": true
+          },
+          {
+            "type": "function_type",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "index",
+            "named": true
+          },
+          {
+            "type": "inductive_constructor",
+            "named": true
+          },
+          {
+            "type": "interpolated_string",
+            "named": true
+          },
+          {
+            "type": "lambda",
+            "named": true
+          },
+          {
+            "type": "let",
+            "named": true
+          },
+          {
+            "type": "list",
+            "named": true
+          },
+          {
+            "type": "match",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "product",
+            "named": true
+          },
+          {
+            "type": "product_type",
+            "named": true
+          },
+          {
+            "type": "range",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "true",
+            "named": true
+          },
+          {
+            "type": "unary_expression",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "let_mut",
+    "named": true,
+    "fields": {
+      "body": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "apply",
+            "named": true
+          },
+          {
+            "type": "array",
+            "named": true
+          },
+          {
+            "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "char",
+            "named": true
+          },
+          {
+            "type": "comparison",
+            "named": true
+          },
+          {
+            "type": "conditional",
+            "named": true
+          },
+          {
+            "type": "do",
+            "named": true
+          },
+          {
+            "type": "explicit",
+            "named": true
+          },
+          {
+            "type": "false",
+            "named": true
+          },
+          {
+            "type": "field_of",
+            "named": true
+          },
+          {
+            "type": "float",
+            "named": true
+          },
+          {
+            "type": "function_type",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "index",
+            "named": true
+          },
+          {
+            "type": "inductive_constructor",
+            "named": true
+          },
+          {
+            "type": "interpolated_string",
+            "named": true
+          },
+          {
+            "type": "lambda",
+            "named": true
+          },
+          {
+            "type": "let",
+            "named": true
+          },
+          {
+            "type": "list",
+            "named": true
+          },
+          {
+            "type": "match",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "product",
+            "named": true
+          },
+          {
+            "type": "product_type",
+            "named": true
+          },
+          {
+            "type": "range",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "true",
+            "named": true
+          },
+          {
+            "type": "unary_expression",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": ":",
+            "named": false
+          },
+          {
+            "type": "apply",
+            "named": true
+          },
+          {
+            "type": "array",
+            "named": true
+          },
+          {
+            "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "char",
+            "named": true
+          },
+          {
+            "type": "comparison",
+            "named": true
+          },
+          {
+            "type": "conditional",
+            "named": true
+          },
+          {
+            "type": "do",
+            "named": true
+          },
+          {
+            "type": "explicit",
+            "named": true
+          },
+          {
+            "type": "false",
+            "named": true
+          },
+          {
+            "type": "field_of",
+            "named": true
+          },
+          {
+            "type": "float",
+            "named": true
+          },
+          {
+            "type": "function_type",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "index",
+            "named": true
+          },
+          {
+            "type": "inductive_constructor",
+            "named": true
+          },
+          {
+            "type": "interpolated_string",
+            "named": true
+          },
+          {
+            "type": "lambda",
+            "named": true
+          },
+          {
+            "type": "let",
+            "named": true
+          },
+          {
+            "type": "list",
+            "named": true
+          },
+          {
+            "type": "match",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "product",
+            "named": true
+          },
+          {
+            "type": "product_type",
+            "named": true
+          },
+          {
+            "type": "range",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "true",
+            "named": true
+          },
+          {
+            "type": "unary_expression",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": ":",
+            "named": false
+          },
+          {
+            "type": "apply",
+            "named": true
+          },
+          {
+            "type": "array",
+            "named": true
+          },
+          {
+            "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "char",
+            "named": true
+          },
+          {
+            "type": "comparison",
+            "named": true
+          },
+          {
+            "type": "conditional",
+            "named": true
+          },
+          {
+            "type": "do",
+            "named": true
+          },
+          {
+            "type": "explicit",
+            "named": true
+          },
+          {
+            "type": "false",
+            "named": true
+          },
+          {
+            "type": "field_of",
+            "named": true
+          },
+          {
+            "type": "float",
+            "named": true
+          },
+          {
+            "type": "function_type",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "index",
+            "named": true
+          },
+          {
+            "type": "inductive_constructor",
+            "named": true
+          },
+          {
+            "type": "interpolated_string",
+            "named": true
+          },
+          {
+            "type": "lambda",
+            "named": true
+          },
+          {
+            "type": "let",
+            "named": true
+          },
+          {
+            "type": "list",
+            "named": true
+          },
+          {
+            "type": "match",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "product",
+            "named": true
+          },
+          {
+            "type": "product_type",
+            "named": true
+          },
+          {
+            "type": "range",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "true",
+            "named": true
+          },
+          {
+            "type": "unary_expression",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -5202,6 +6120,10 @@
         },
         {
           "type": "lambda",
+          "named": true
+        },
+        {
+          "type": "let",
           "named": true
         },
         {
@@ -5317,6 +6239,10 @@
         },
         {
           "type": "lambda",
+          "named": true
+        },
+        {
+          "type": "let",
           "named": true
         },
         {
@@ -5450,6 +6376,10 @@
           },
           {
             "type": "lambda",
+            "named": true
+          },
+          {
+            "type": "let",
             "named": true
           },
           {
@@ -5645,6 +6575,10 @@
         },
         {
           "type": "lambda",
+          "named": true
+        },
+        {
+          "type": "let",
           "named": true
         },
         {
@@ -5901,6 +6835,10 @@
             "named": true
           },
           {
+            "type": "let",
+            "named": true
+          },
+          {
             "type": "list",
             "named": true
           },
@@ -6031,6 +6969,10 @@
           "named": true
         },
         {
+          "type": "let",
+          "named": true
+        },
+        {
           "type": "lhs",
           "named": true
         },
@@ -6150,6 +7092,10 @@
           "named": true
         },
         {
+          "type": "let",
+          "named": true
+        },
+        {
           "type": "list",
           "named": true
         },
@@ -6262,6 +7208,10 @@
         },
         {
           "type": "lambda",
+          "named": true
+        },
+        {
+          "type": "let",
           "named": true
         },
         {
@@ -6388,6 +7338,10 @@
             "named": true
           },
           {
+            "type": "let",
+            "named": true
+          },
+          {
             "type": "list",
             "named": true
           },
@@ -6506,6 +7460,10 @@
             "named": true
           },
           {
+            "type": "let",
+            "named": true
+          },
+          {
             "type": "list",
             "named": true
           },
@@ -6621,6 +7579,10 @@
           },
           {
             "type": "lambda",
+            "named": true
+          },
+          {
+            "type": "let",
             "named": true
           },
           {
@@ -6745,6 +7707,10 @@
           },
           {
             "type": "lambda",
+            "named": true
+          },
+          {
+            "type": "let",
             "named": true
           },
           {
@@ -7051,6 +8017,10 @@
             "named": true
           },
           {
+            "type": "let",
+            "named": true
+          },
+          {
             "type": "list",
             "named": true
           },
@@ -7164,6 +8134,10 @@
         },
         {
           "type": "lambda",
+          "named": true
+        },
+        {
+          "type": "let",
           "named": true
         },
         {
@@ -7299,6 +8273,14 @@
         },
         {
           "type": "let",
+          "named": true
+        },
+        {
+          "type": "let_bind",
+          "named": true
+        },
+        {
+          "type": "let_mut",
           "named": true
         },
         {
@@ -7451,6 +8433,10 @@
             "named": true
           },
           {
+            "type": "let",
+            "named": true
+          },
+          {
             "type": "list",
             "named": true
           },
@@ -7564,6 +8550,10 @@
         },
         {
           "type": "lambda",
+          "named": true
+        },
+        {
+          "type": "let",
           "named": true
         },
         {
@@ -7716,6 +8706,10 @@
           },
           {
             "type": "lambda",
+            "named": true
+          },
+          {
+            "type": "let",
             "named": true
           },
           {
@@ -8001,12 +8995,12 @@
     "named": false
   },
   {
-    "type": "match",
+    "type": "let mut",
     "named": false
   },
   {
-    "type": "mutable_specifier",
-    "named": true
+    "type": "match",
+    "named": false
   },
   {
     "type": "namespace",
