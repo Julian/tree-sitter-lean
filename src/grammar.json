@@ -1194,6 +1194,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "coe"
+        },
+        {
+          "type": "SYMBOL",
           "name": "_parenthesized_expression"
         },
         {
@@ -2835,6 +2839,39 @@
         {
           "type": "STRING",
           "value": "}"
+        }
+      ]
+    },
+    "coe": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "FIELD",
+          "name": "term",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_expression"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ":"
+        },
+        {
+          "type": "FIELD",
+          "name": "type",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_expression"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ")"
         }
       ]
     },

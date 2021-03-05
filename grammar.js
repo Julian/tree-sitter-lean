@@ -255,6 +255,7 @@ module.exports = grammar({
 
     _expression: $ => choice(
       $.identifier,
+      $.coe,
       $._parenthesized_expression,
       $.explicit,
       $.function_type,
@@ -545,6 +546,14 @@ module.exports = grammar({
 
     interpolation: $ => seq(
       '{', $._expression, '}'
+    ),
+
+    coe: $ => seq(
+      '(',
+      field('term', $._expression),
+      ':',
+      field('type', $._expression),
+      ')',
     ),
 
     _dotted_name: $ => prec.right(choice(

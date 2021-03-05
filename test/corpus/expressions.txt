@@ -786,3 +786,36 @@ Explicit Function
   (hash_command (apply (explicit (identifier)) (identifier)))
   (hash_command (apply (explicit (identifier)) (identifier) (true)))
   (hash_command (explicit (identifier) (identifier))))
+
+========
+Coersion
+========
+
+#check (2 : Nat)
+#check (foo bar : Nat)
+#check (foo bar : baz quux)
+
+---
+
+(module
+  (hash_command
+    (coe
+      term: (number)
+      type: (identifier)))
+  (hash_command
+    (coe
+      term:
+        (apply
+          name: (identifier)
+          arguments: (identifier))
+      type: (identifier)))
+  (hash_command
+    (coe
+      term:
+        (apply
+          name: (identifier)
+          arguments: (identifier))
+      type:
+        (apply
+          name: (identifier)
+          arguments: (identifier)))))
