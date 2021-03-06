@@ -31,7 +31,6 @@ module.exports = grammar({
 
   conflicts: $ => [
     [$.typeclass_resolved_parameter, $._expression],
-    [$._apply, $.let],
   ],
 
   word: $ => $.identifier,

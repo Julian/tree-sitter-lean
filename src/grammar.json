@@ -3441,10 +3441,6 @@
     [
       "typeclass_resolved_parameter",
       "_expression"
-    ],
-    [
-      "_apply",
-      "let"
     ]
   ],
   "precedences": [],
