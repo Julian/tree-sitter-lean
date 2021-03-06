@@ -63,11 +63,15 @@ Open
 ====
 
 open Foo
+open Foo.Bar
 
 ---
 
 (module
   (open
+    namespace: (identifier))
+  (open
+    namespace: (identifier)
     namespace: (identifier)))
 
 ======
