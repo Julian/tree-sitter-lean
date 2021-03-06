@@ -595,7 +595,7 @@ module.exports = grammar({
     explicit: $ => seq('@', $._dotted_name),
 
     // FIXME: see name.cpp for the real definition...
-    identifier: $ => /[_a-zA-ZͰ-ϿĀ-ſ∇][_a-zA-Z0-9Ͱ-ϿĀ-ſ∇!\u2070-\u209F]*/,
+    identifier: $ => /[_a-zA-ZͰ-ϿĀ-ſ∇][_`'`a-zA-Z0-9Ͱ-ϿĀ-ſ∇!\u2070-\u209F]*/,
 
     _maybe_annotated: $ => seq(
       field('name', $.identifier),

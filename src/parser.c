@@ -2364,12 +2364,12 @@ static uint16_t ts_non_terminal_alias_map[] = {
 };
 
 static inline bool sym_identifier_character_set_1(int32_t c) {
-  return (c < 'a'
-    ? (c < 'A'
-      ? (c < '0'
+  return (c < '_'
+    ? (c < '0'
+      ? (c < '\''
         ? c == '!'
-        : c <= '9')
-      : (c <= 'Z' || c == '_'))
+        : c <= '\'')
+      : (c <= '9' || (c >= 'A' && c <= 'Z')))
     : (c <= 'z' || (c < 8304
       ? (c < 880
         ? (c >= 256 && c <= 383)
@@ -3006,10 +3006,10 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
     case 108:
       ACCEPT_TOKEN(sym_identifier);
       if (lookahead == '!') ADVANCE(109);
-      if (('0' <= lookahead && lookahead <= '9') ||
+      if (lookahead == '\'' ||
+          ('0' <= lookahead && lookahead <= '9') ||
           ('A' <= lookahead && lookahead <= 'Z') ||
-          lookahead == '_' ||
-          ('a' <= lookahead && lookahead <= 'z') ||
+          ('_' <= lookahead && lookahead <= 'z') ||
           (256 <= lookahead && lookahead <= 383) ||
           (880 <= lookahead && lookahead <= 1023) ||
           (8304 <= lookahead && lookahead <= 8351) ||

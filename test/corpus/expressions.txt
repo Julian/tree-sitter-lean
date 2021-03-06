@@ -47,7 +47,7 @@ Non-Char
 
 ---
 
-(module (hash_command (char (ERROR (identifier)))))
+(module (hash_command (ERROR) (identifier)))
 
 =====
 Range
@@ -263,10 +263,13 @@ Unicode Identifiers
 ===================
 
 #eval foo₁
+#eval x'
 
 ---
 
-(module (hash_command (identifier)))
+(module
+  (hash_command (identifier))
+  (hash_command (identifier)))
 
 ===============
 Non-Identifiers
