@@ -77,20 +77,17 @@ module.exports = grammar({
       field('constructors', repeat1($.constructor)),
     ),
 
-    constructor: $ => seq('|', $._maybe_annotated),
+    constructor: $ => seq(
+      '|',
+      optional(field('name', $._dotted_name)),
+      optional(field('parameters', seq(repeat1($._parameter)))),
+      optional(seq(':', field('type', $._expression))),
+    ),
 
     instance: $ => seq(
       'instance',
       optional(field('name', $._dotted_name)),
-      optional(field('parameters', seq(
-        repeat1(
-          choice(
-            $._explicit_parameter,
-            $.implicit_parameter,
-            $.typeclass_resolved_parameter,
-          ),
-        ),
-      ))),
+      optional(field('parameters', seq(repeat1($._parameter)))),
       ':',
       field('class', $._expression),
       field('body', choice(
@@ -131,16 +128,7 @@ module.exports = grammar({
       optional($.identifier), // FIXME: needs to match start
     ),
 
-    variable_declaration: $ => seq(
-      'variable',
-      repeat1(
-        choice(
-          $._explicit_parameter,
-          $.implicit_parameter,
-          $.typeclass_resolved_parameter,
-        ),
-      ),
-    ),
+    variable_declaration: $ => seq('variable', repeat1($._parameter)),
 
     constant: $ => seq(
       'constant',
@@ -158,11 +146,15 @@ module.exports = grammar({
       repeat1(
         choice(
           field('name', $.identifier),
-          $._explicit_parameter,
-          $.implicit_parameter,
-          $.typeclass_resolved_parameter,
+          $._parameter,
         )
       ),
+    ),
+
+    _parameter: $ => choice(
+      $._explicit_parameter,
+      $.implicit_parameter,
+      $.typeclass_resolved_parameter,
     ),
 
     _explicit_parameter: $ => seq(
@@ -332,10 +324,11 @@ module.exports = grammar({
 
     let: $ => seq(
       'let',
-      field('name', $._maybe_annotated),
+      optional(field('name', $._dotted_name)),
+      optional(field('parameters', seq(repeat1($._parameter)))),
+      optional(seq(':', field('type', $._expression))),
       ':=',
       field('body', $._expression),
-      $._newline,
     ),
 
     _do_expression: $ => seq(
@@ -371,16 +364,15 @@ module.exports = grammar({
     ),
 
     let_mut: $ => seq(
-      'let mut',
+      'let', 'mut',
       field('name', $._maybe_annotated),
       choice($._left_arrow, ':='),
       field('body', $._expression),
     ),
 
-
     let_bind: $ => seq(
       'let',
-      field('name', $._maybe_annotated),
+      field('name', $.identifier),
       $._left_arrow,
       field('body', $._expression),
     ),

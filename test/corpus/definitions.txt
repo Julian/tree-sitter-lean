@@ -581,8 +581,10 @@ Inductive Type
 ==============
 
 inductive FooBar where
-  | foo    : Foo
-  | bar    : Bar
+  | foo : FooBar
+  | bar.baz : FooBar
+  | spam : Nat → FooBar
+  | quux {T: Type} [Add T] (x y : Nat) : Nat → FooBar
 
 ---
 
@@ -596,7 +598,31 @@ inductive FooBar where
     constructors:
       (constructor
         name: (identifier)
-        type: (identifier))))
+        name: (identifier)
+        type: (identifier))
+    constructors:
+      (constructor
+        name: (identifier)
+        type:
+          (function_type (identifier) (identifier)))
+    constructors:
+      (constructor
+        name: (identifier)
+        parameters:
+          (implicit_parameter
+            name: (identifier)
+            type: (identifier))
+        parameters:
+          (typeclass_resolved_parameter
+            type:
+              (apply
+                name: (identifier)
+                arguments: (identifier)))
+          name: (identifier)
+          name: (identifier)
+          type: (identifier)
+        type:
+          (function_type (identifier) (identifier)))))
 
 =======================
 Inductive Type One Line
@@ -752,6 +778,38 @@ def foo :=
             type: (identifier)
             body: (number))
         arguments: (identifier))))
+
+============
+Let Function
+============
+
+def foo : Nat :=
+  let val (x y : Nat) := x + y
+  return val 2 3
+
+---
+
+(module
+  (def
+    name: (identifier)
+    return_type: (identifier)
+    body:
+      (apply
+        name:
+          (let
+            name: (identifier)
+            name: (identifier)
+            name: (identifier)
+            type: (identifier)
+            body: (binary_expression (identifier) (identifier)))
+        arguments:
+          (identifier)
+        arguments:
+          (identifier)
+        arguments:
+          (number)
+        arguments:
+          (number))))
 
 ==========
 No Let Mut

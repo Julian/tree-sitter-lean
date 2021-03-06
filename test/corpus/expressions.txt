@@ -819,3 +819,23 @@ Coersion
         (apply
           name: (identifier)
           arguments: (identifier)))))
+
+=================================
+Application Across Multiple Lines
+=================================
+
+#eval f
+2
+3
+
+  4
+
+---
+
+(module
+  (hash_command
+    (apply
+      name: (identifier)
+      arguments: (number)
+      arguments: (number)
+      arguments: (number))))

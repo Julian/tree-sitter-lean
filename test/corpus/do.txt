@@ -25,14 +25,30 @@ def main : IO UInt32 := do do
 ---
 
 (module
-  (def (identifier) (apply (identifier) (identifier))
-    (do (do)
-      (apply (field_of (identifier) (identifier)) (string))
-      (apply (field_of (identifier) (identifier)) (string)))))
+  (def
+    name: (identifier)
+    return_type:
+      (apply
+        name: (identifier)
+        arguments: (identifier))
+    body:
+      (do (do)
+        (apply
+          name:
+            (field_of
+              term: (identifier)
+              name: (identifier))
+          arguments: (string))
+        (apply
+          name:
+            (field_of
+              term: (identifier)
+              name: (identifier))
+          arguments: (string)))))
 
-===
-Let
-===
+==========
+Let (Bind)
+==========
 
 def f : Unit := do
   let c <- 2
