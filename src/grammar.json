@@ -1203,7 +1203,7 @@
           "name": "body",
           "content": {
             "type": "SYMBOL",
-            "name": "identifier"
+            "name": "_expression"
           }
         }
       ]
@@ -1323,6 +1323,10 @@
         {
           "type": "SYMBOL",
           "name": "do"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tactics"
         },
         {
           "type": "SYMBOL",
@@ -1675,7 +1679,103 @@
         }
       ]
     },
-    "_do_expression": {
+    "tactics": {
+      "type": "PREC_LEFT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "by"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_newline"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_tactics_command"
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "REPEAT",
+                "content": {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "_newline"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "_tactics_command"
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_newline"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "rewrite": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "rewrite"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_expression"
+        }
+      ]
+    },
+    "term": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "exact"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_expression"
+        }
+      ]
+    },
+    "_tactics_command": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "rewrite"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "term"
+        }
+      ]
+    },
+    "_do_command": {
       "type": "SEQ",
       "members": [
         {
@@ -1735,7 +1835,7 @@
             "type": "REPEAT",
             "content": {
               "type": "SYMBOL",
-              "name": "_do_expression"
+              "name": "_do_command"
             }
           }
         ]
@@ -1892,7 +1992,7 @@
             "type": "REPEAT1",
             "content": {
               "type": "SYMBOL",
-              "name": "_do_expression"
+              "name": "_do_command"
             }
           },
           {
@@ -1963,7 +2063,7 @@
             "type": "REPEAT1",
             "content": {
               "type": "SYMBOL",
-              "name": "_do_expression"
+              "name": "_do_command"
             }
           }
         ]
@@ -1980,7 +2080,7 @@
           "type": "REPEAT1",
           "content": {
             "type": "SYMBOL",
-            "name": "_do_expression"
+            "name": "_do_command"
           }
         }
       ]

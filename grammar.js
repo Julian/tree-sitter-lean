@@ -234,7 +234,7 @@ module.exports = grammar({
       ':',
       field('type', $._expression),
       ':=',
-      field('body', $.identifier),  // FIXME
+      field('body', $._expression),
     ),
 
     example: $ => seq(
@@ -263,6 +263,7 @@ module.exports = grammar({
       $.lambda,
       $.let,
       $.do,
+      $.tactics,
       $.unary_expression,
       $.binary_expression,
       $.number,
@@ -333,7 +334,22 @@ module.exports = grammar({
       field('body', $._expression),
     ),
 
-    _do_expression: $ => seq(
+    tactics: $ => prec.left(seq(
+      'by',
+      $._newline, $._tactics_command,
+      optional(repeat(seq($._newline, $._tactics_command))),
+      optional($._newline),
+    )),
+
+    rewrite: $ => seq('rewrite', $._expression),
+    term: $ => seq('exact', $._expression),
+
+    _tactics_command: $ => choice(
+      $.rewrite,
+      $.term,
+    ),
+
+    _do_command: $ => seq(
       choice(
         $._expression,
         $.for_in,
@@ -347,7 +363,7 @@ module.exports = grammar({
       $._newline,
     ),
 
-    do: $ => prec.right(seq('do', repeat($._do_expression))),
+    do: $ => prec.right(seq('do', repeat($._do_command))),
 
     mutable_specifier: $ => 'mut',
 
@@ -382,7 +398,7 @@ module.exports = grammar({
     // FIXME: nesting (which depends on the indent processing)
     try: $ => prec.left(seq(
       'try',
-      repeat1($._do_expression),
+      repeat1($._do_command),
       choice(
         seq($.catch, optional($.finally)),
         $.finally,
@@ -394,12 +410,12 @@ module.exports = grammar({
       'catch',
       $._expression,
       '=>',
-      repeat1($._do_expression),
+      repeat1($._do_command),
     )),
 
     finally: $ => seq(
       'finally',
-      repeat1($._do_expression),
+      repeat1($._do_command),
     ),
 
     return: $ => seq('return', field('value', optional($._expression))),
