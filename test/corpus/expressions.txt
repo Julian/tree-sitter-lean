@@ -839,3 +839,62 @@ Application Across Multiple Lines
       arguments: (number)
       arguments: (number)
       arguments: (number))))
+
+=================
+Structure Literal
+=================
+
+#check {x := 12}
+#check {x := 12, y := (fun z => z)}
+
+---
+
+(module
+  (hash_command
+    (structure_literal
+      name: (identifier)
+      value: (number)))
+  (hash_command
+    (structure_literal
+      name: (identifier)
+      value: (number)
+      name: (identifier)
+      value:
+        (lambda
+          (parameters
+            name: (identifier))
+          (identifier)))))
+
+=======================
+Typed Structure Literal
+=======================
+
+#check {x := 12 : Foo}
+#check {x := 12, y := (fun z => z) : Foo Bar}
+#check {: Foo}
+
+---
+
+(module
+  (hash_command
+    (structure_literal
+      name: (identifier)
+      value: (number)
+      type: (identifier)))
+  (hash_command
+    (structure_literal
+      name: (identifier)
+      value: (number)
+      name: (identifier)
+      value:
+        (lambda
+          (parameters
+            name: (identifier))
+          (identifier))
+      type:
+        (apply
+          name: (identifier)
+          arguments: (identifier))))
+  (hash_command
+    (structure_literal
+      type: (identifier))))

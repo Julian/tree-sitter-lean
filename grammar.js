@@ -270,6 +270,7 @@ module.exports = grammar({
       $.string,
       $.interpolated_string,
       $.inductive_constructor,
+      $.structure_literal,
       $.list,
       $.range,
       $.array,
@@ -492,6 +493,24 @@ module.exports = grammar({
       ),
       $._expression,
     )),
+
+    structure_literal: $ => seq(
+      '{',
+      optional(
+        seq(
+          $._structure_literal_field,
+          optional(repeat(seq(',', $._structure_literal_field))),
+        ),
+      ),
+      field('type', optional(seq(':', $._expression))),
+      '}',
+    ),
+
+    _structure_literal_field: $ => seq(
+      field('name', $.identifier),
+      ':=',
+      field('value', $._expression),
+    ),
 
     inductive_constructor: $ => seq(
       '⟨',
