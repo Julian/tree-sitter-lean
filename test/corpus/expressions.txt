@@ -898,3 +898,43 @@ Typed Structure Literal
   (hash_command
     (structure_literal
       type: (identifier))))
+
+====================
+Structure Overriding
+====================
+
+#check {foo with x := 12}
+#check {foo with x := 12, y := (fun z => z)}
+#check {foo with}
+#check {bar 37 with x := 12}
+
+---
+
+(module
+  (hash_command
+    (structure_literal
+      extends: (identifier)
+      name: (identifier)
+      value: (number)))
+  (hash_command
+    (structure_literal
+      extends: (identifier)
+      name: (identifier)
+      value: (number)
+      name: (identifier)
+      value:
+        (lambda
+          (parameters
+            name: (identifier))
+          (identifier))))
+  (hash_command
+    (structure_literal
+      extends: (identifier)))
+  (hash_command
+    (structure_literal
+      extends:
+        (apply
+          name: (identifier)
+          arguments: (number))
+      name: (identifier)
+      value: (number))))

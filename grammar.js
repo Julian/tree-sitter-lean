@@ -496,6 +496,7 @@ module.exports = grammar({
 
     structure_literal: $ => seq(
       '{',
+      optional(field('extends', seq($._expression, 'with'))),
       optional(
         seq(
           $._structure_literal_field,
