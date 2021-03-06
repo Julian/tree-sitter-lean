@@ -445,23 +445,28 @@ example : 4 = 4 % 5 := rfl
   (hash_command
     (binary_expression (number) (binary_expression (number) (number))))
   (example
-    (binary_expression (number) (binary_expression (number) (number)))
+    type:
+      (binary_expression (number) (binary_expression (number) (number)))
     body:
       (identifier))
   (example
-    (binary_expression (number) (binary_expression (number) (number)))
+    type:
+      (binary_expression (number) (binary_expression (number) (number)))
     body:
       (identifier))
   (example
-    (binary_expression (number) (binary_expression (number) (number)))
+    type:
+      (binary_expression (number) (binary_expression (number) (number)))
     body:
       (identifier))
   (example
-    (binary_expression (number) (binary_expression (number) (number)))
+    type:
+      (binary_expression (number) (binary_expression (number) (number)))
     body:
       (identifier))
   (example
-    (binary_expression (number) (binary_expression (number) (number)))
+    type:
+      (binary_expression (number) (binary_expression (number) (number)))
     body:
       (identifier))
   (hash_command

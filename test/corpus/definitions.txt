@@ -576,6 +576,35 @@ example : (fun x => x * 2) 4 < 3 = false := rfl
       (false))
     (identifier)))
 
+=======================
+Example With Parameters
+=======================
+
+example {G : Type} [Add G] (g : G) : g + g = g + g := rfl
+
+---
+
+(module
+  (example
+    parameters:
+      (parameters
+        (implicit_parameter
+          name: (identifier)
+          type: (identifier))
+        (typeclass_resolved_parameter
+          type:
+            (apply
+              name: (identifier)
+              arguments: (identifier)))
+        name: (identifier)
+        type: (identifier))
+    type:
+      (binary_expression
+        (binary_expression (identifier) (identifier))
+        (binary_expression (identifier) (identifier)))
+    body:
+      (identifier)))
+
 ==============
 Inductive Type
 ==============

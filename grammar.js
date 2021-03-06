@@ -239,8 +239,9 @@ module.exports = grammar({
 
     example: $ => seq(
       'example',
+      optional(field('parameters', $.parameters)),
       ':',
-      $._expression,
+      field('type', $._expression),
       ':=',
       field('body', $._expression),
     ),
