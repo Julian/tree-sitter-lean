@@ -522,6 +522,10 @@ module.exports = grammar({
       choice(
         '<',
         '>',
+        '≤',
+        '≥',
+        '<=',
+        '>=',
       ),
       $._expression,
     )),

@@ -501,12 +501,20 @@ example : 4 = 4 % 5 := rfl
 Comparison
 ==========
 
-#eval 2 < 3
-#eval 2 > 3
+#check 2 < 3
+#check 2 ≤ 3
+#check 2 <= 3
+#check 2 > 3
+#check 2 ≥ 3
+#check 2 >= 3
 
 ---
 
 (module
+  (hash_command (comparison (number) (number)))
+  (hash_command (comparison (number) (number)))
+  (hash_command (comparison (number) (number)))
+  (hash_command (comparison (number) (number)))
   (hash_command (comparison (number) (number)))
   (hash_command (comparison (number) (number))))
 
