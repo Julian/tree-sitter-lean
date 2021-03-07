@@ -297,12 +297,8 @@ module.exports = grammar({
       $._expression,
       'then',
       $._expression,
-      optional(
-        seq(
-          'else',
-          $._expression,
-        ),
-      ),
+      'else',
+      $._expression,
     )),
 
     index: $ => prec(PREC.index, seq(

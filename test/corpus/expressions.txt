@@ -317,16 +317,6 @@ Product Type
   (hash_command (product_type (identifier) (identifier)))
   (hash_command (product_type (identifier) (identifier) (identifier))))
 
-=======
-If/Then
-=======
-
-#eval if true then "foo"
-
----
-
-(module (hash_command (conditional (true) (string))))
-
 ============
 If/Then/Else
 ============
@@ -336,6 +326,16 @@ If/Then/Else
 ---
 
 (module (hash_command (conditional (true) (string) (string))))
+
+=============
+If Needs Else
+=============
+
+#eval if true then "foo"
+
+---
+
+(module (ERROR (true) (string)))
 
 ===================
 Nested If/Then/Else
