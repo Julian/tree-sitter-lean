@@ -535,6 +535,25 @@ instance : Inhabited Nat := ⟨0⟩
         arguments: (identifier))
     body: (inductive_constructor (number))))
 
+==============================
+Instance With Field Definition
+==============================
+
+instance : Add Foo := Foo.add
+
+---
+
+(module
+  (instance
+    class:
+      (apply
+        name: (identifier)
+        arguments: (identifier))
+    body:
+      (field_of
+        term: (identifier)
+        name: (identifier))))
+
 ========================================
 Instance Field With Function Return Type
 ========================================

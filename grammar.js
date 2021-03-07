@@ -95,7 +95,7 @@ module.exports = grammar({
       field('class', $._expression),
       field('body', choice(
         seq('where', field('fields', repeat1($.instance_field))),
-        seq(':=', $.inductive_constructor),
+        seq(':=', $._expression),
       )),
     ),
 

@@ -397,7 +397,7 @@
                   },
                   {
                     "type": "SYMBOL",
-                    "name": "inductive_constructor"
+                    "name": "_expression"
                   }
                 ]
               }
