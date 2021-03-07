@@ -89,3 +89,31 @@ variable {m n : Nat}
             (binary_expression
               (number)
               (binary_expression (identifier) (identifier)))))))
+
+====
+Simp
+====
+
+example : 2 = 2 := by simp
+
+---
+
+(module
+  (example (binary_expression (number) (number))
+    (tactics (simp))))
+
+========================
+Simp With Extra Theorems
+========================
+
+example : 2 = 2 := by simp [foo, bar]
+
+---
+
+(module
+  (example
+    type: (binary_expression (number) (number))
+    body:
+      (tactics
+        (simp
+          extra: (list (identifier) (identifier))))))

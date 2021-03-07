@@ -342,16 +342,21 @@ module.exports = grammar({
 
     tactics: $ => prec.left(seq(
       'by',
-      $._newline, $._tactics_command,
+      $._tactics_command,
       optional(repeat(seq($._newline, $._tactics_command))),
       optional($._newline),
     )),
 
     rewrite: $ => seq('rewrite', $._expression),
     term: $ => seq('exact', $._expression),
+    simp: $ => prec.right(seq(
+      'simp',
+      optional(field('extra', $.list)),
+    )),
 
     _tactics_command: $ => choice(
       $.rewrite,
+      $.simp,
       $.term,
     ),
 

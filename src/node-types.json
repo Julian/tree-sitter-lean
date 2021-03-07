@@ -9097,6 +9097,22 @@
     }
   },
   {
+    "type": "simp",
+    "named": true,
+    "fields": {
+      "extra": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "list",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "string",
     "named": true,
     "fields": {}
@@ -9589,6 +9605,10 @@
       "types": [
         {
           "type": "rewrite",
+          "named": true
+        },
+        {
+          "type": "simp",
           "named": true
         },
         {
@@ -11123,6 +11143,10 @@
   },
   {
     "type": "section",
+    "named": false
+  },
+  {
+    "type": "simp",
     "named": false
   },
   {

@@ -1865,10 +1865,6 @@
           },
           {
             "type": "SYMBOL",
-            "name": "_newline"
-          },
-          {
-            "type": "SYMBOL",
             "name": "_tactics_command"
           },
           {
@@ -1936,12 +1932,45 @@
         }
       ]
     },
+    "simp": {
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "simp"
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "FIELD",
+                "name": "extra",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "list"
+                }
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
+        ]
+      }
+    },
     "_tactics_command": {
       "type": "CHOICE",
       "members": [
         {
           "type": "SYMBOL",
           "name": "rewrite"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "simp"
         },
         {
           "type": "SYMBOL",
