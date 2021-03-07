@@ -386,6 +386,9 @@ Binary Expressions
 #eval true || true
 #eval "foo" ++ "bar"
 #eval [] :: [["foo"]]
+#eval 100 |> add1 |> times2
+#eval foo |>.map bar |>.baz.quux 7
+#eval times2 <| add1 <| 100
 #eval foo <|> bar
 #eval 'B' == 'B' || 'B' == 'C'
 
@@ -407,6 +410,21 @@ Binary Expressions
   (hash_command (binary_expression (true) (true)))
   (hash_command (binary_expression (string) (string)))
   (hash_command (binary_expression (list) (list (list (string)))))
+  (hash_command
+    (binary_expression
+      (binary_expression (number) (identifier))
+      (identifier)))
+  (hash_command
+    (apply
+      (binary_expression (identifier) (identifier))
+      (field_of
+        (binary_expression (identifier) (identifier))
+        (identifier))
+        (number)))
+  (hash_command
+    (binary_expression
+      (identifier)
+      (binary_expression (identifier) (number))))
   (hash_command (binary_expression (identifier) (identifier)))
   (hash_command
     (binary_expression

@@ -494,6 +494,10 @@ module.exports = grammar({
       prec.left(PREC.and, seq($._expression, '&&', $._expression)),
       prec.left(PREC.eqeq, seq($._expression, '==', $._expression)),
 
+      prec.left(PREC.opop, seq($._expression, '|>', $._expression)),
+      prec.left(PREC.opop, seq($._expression, '|>.', $._expression)),
+      prec.right(PREC.dollar, seq($._expression, '<|', $._expression)),
+
       prec.left(PREC.opop, seq($._expression, '<|>', $._expression)),
 
       prec.left(PREC.equal, seq($._expression, '=', $._expression)),
