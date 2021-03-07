@@ -517,6 +517,8 @@ module.exports = grammar({
         seq(
           $._structure_literal_field,
           optional(repeat(seq(',', $._structure_literal_field))),
+          // Unlike everywhere else, records seem OK with trailing commas.
+          optional(','),
         ),
       ),
       field('type', optional(seq(':', $._expression))),

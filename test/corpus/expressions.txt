@@ -946,3 +946,42 @@ Structure Overriding
           arguments: (number))
       name: (identifier)
       value: (number))))
+
+===================
+Trailing Commas Yay
+===================
+
+example : Foo := {x := 12, y := 13,}
+
+---
+
+(module
+  (example (identifier)
+    (structure_literal (identifier) (number) (identifier) (number))))
+
+=====================
+No Trailing Commas Aw
+=====================
+
+#check (1, 2, 3,)
+#check [1, 2, 3,]
+#check #[1, 2, 3,]
+example : Foo := ⟨1, 2,⟩
+@[foo, bar,] def foo := 12
+def foo | 0, => 2 | _, => 3
+
+---
+
+(module
+  (hash_command
+    (product (number) (number) (number) (MISSING identifier)))
+  (hash_command
+    (list (number) (number) (number) (MISSING identifier)))
+  (hash_command
+    (array (number) (number) (number) (MISSING identifier)))
+  (example (identifier)
+    (inductive_constructor (number) (number) (MISSING identifier)))
+  (def (identifier) (identifier) (MISSING identifier) (identifier) (number))
+  (def (identifier)
+    (pattern (number) (ERROR) (number))
+    (pattern (identifier) (ERROR) (number))))
