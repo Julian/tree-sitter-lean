@@ -87,6 +87,7 @@ module.exports = grammar({
     ),
 
     instance: $ => seq(
+      optional(repeat(choice('partial', 'private', 'protected', 'unsafe'))),
       'instance',
       optional(field('name', $._dotted_name)),
       optional(field('parameters', seq(repeat1($._parameter)))),
@@ -192,7 +193,7 @@ module.exports = grammar({
       field('attributes', optional(seq(
         '@[', $.identifier, optional(repeat(seq(',', $.identifier))), ']',
       ))),
-      field('partial', optional('partial')),
+      optional(repeat(choice('partial', 'private', 'protected', 'unsafe'))),
       'def',
       field('name', $._dotted_name),
       optional(field('parameters', $.parameters)),
@@ -214,6 +215,7 @@ module.exports = grammar({
     ),
 
     structure_definition: $ => seq(
+      optional(repeat(choice('partial', 'private', 'protected', 'unsafe'))),
       'structure',
       field('name', $._dotted_name),
       optional(field('parameters', $.parameters)),
@@ -222,6 +224,7 @@ module.exports = grammar({
     ),
 
     class: $ => seq(
+      optional(repeat(choice('partial', 'private', 'protected', 'unsafe'))),
       'class',
       field('name', $._dotted_name),
       optional(field('parameters', $.parameters)),
@@ -230,6 +233,7 @@ module.exports = grammar({
     ),
 
     theorem: $ => seq(
+      optional(repeat(choice('partial', 'private', 'protected', 'unsafe'))),
       'theorem',
       field('name', $._dotted_name),
       optional(field('parameters', $.parameters)),
@@ -240,6 +244,7 @@ module.exports = grammar({
     ),
 
     example: $ => seq(
+      optional(repeat(choice('partial', 'private', 'protected', 'unsafe'))),
       'example',
       optional(field('parameters', $.parameters)),
       ':',

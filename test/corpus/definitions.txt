@@ -721,6 +721,32 @@ example {G : Type} [Add G] (g : G) : g + g = g + g := rfl
     body:
       (identifier)))
 
+============================
+Protected / Private / Unsafe
+============================
+
+protected unsafe def foo := 12
+
+private structure Foo where x : Nat
+
+protected class Bar where x : Nat
+
+protected instance : Quux where x := 2
+
+private theorem bar : 2 = 2 := rfl
+
+protected example : 2 = 2 := rfl
+
+---
+
+(module
+  (def (identifier) (number))
+  (structure_definition (identifier) (field (identifier) (identifier)))
+  (class (identifier) (field (identifier) (identifier)))
+  (instance (identifier) (instance_field (identifier) (number)))
+  (theorem (identifier) (binary_expression (number) (number)) (identifier))
+  (example (binary_expression (number) (number)) (identifier)))
+
 ==============
 Inductive Type
 ==============

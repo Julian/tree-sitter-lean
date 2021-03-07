@@ -275,6 +275,38 @@
       "type": "SEQ",
       "members": [
         {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": "partial"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "private"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "protected"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "unsafe"
+                  }
+                ]
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
           "type": "STRING",
           "value": "instance"
         },
@@ -925,20 +957,36 @@
           }
         },
         {
-          "type": "FIELD",
-          "name": "partial",
-          "content": {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "STRING",
-                "value": "partial"
-              },
-              {
-                "type": "BLANK"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": "partial"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "private"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "protected"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "unsafe"
+                  }
+                ]
               }
-            ]
-          }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         },
         {
           "type": "STRING",
@@ -1062,6 +1110,38 @@
       "type": "SEQ",
       "members": [
         {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": "partial"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "private"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "protected"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "unsafe"
+                  }
+                ]
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
           "type": "STRING",
           "value": "structure"
         },
@@ -1110,6 +1190,38 @@
       "type": "SEQ",
       "members": [
         {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": "partial"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "private"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "protected"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "unsafe"
+                  }
+                ]
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
           "type": "STRING",
           "value": "class"
         },
@@ -1157,6 +1269,38 @@
     "theorem": {
       "type": "SEQ",
       "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": "partial"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "private"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "protected"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "unsafe"
+                  }
+                ]
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
         {
           "type": "STRING",
           "value": "theorem"
@@ -1214,6 +1358,38 @@
     "example": {
       "type": "SEQ",
       "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": "partial"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "private"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "protected"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "unsafe"
+                  }
+                ]
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
         {
           "type": "STRING",
           "value": "example"

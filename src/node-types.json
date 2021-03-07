@@ -2209,16 +2209,6 @@
           }
         ]
       },
-      "partial": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "partial",
-            "named": false
-          }
-        ]
-      },
       "return_type": {
         "multiple": true,
         "required": false,
@@ -10832,6 +10822,14 @@
     "named": true
   },
   {
+    "type": "private",
+    "named": false
+  },
+  {
+    "type": "protected",
+    "named": false
+  },
+  {
     "type": "return",
     "named": false
   },
@@ -10873,6 +10871,10 @@
   },
   {
     "type": "universe",
+    "named": false
+  },
+  {
+    "type": "unsafe",
     "named": false
   },
   {
