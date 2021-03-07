@@ -16,7 +16,7 @@ theorem foo : p := sorry
     (binary_expression (binary_expression (identifier) (identifier)) (number)))
   (def (identifier)
     (apply (identifier) (number)))
-  (theorem (identifier) (identifier) (identifier)))
+  (theorem (identifier) (identifier) (sorry)))
 
 =========
 Annotated

@@ -393,7 +393,6 @@ Binary Expressions
 #eval 'B' == 'B' || 'B' == 'C'
 
 ---
-
 (module
   (hash_command (binary_expression (number) (number)))
   (hash_command (binary_expression (number) (number)))
@@ -1003,3 +1002,13 @@ def foo | 0, => 2 | _, => 3
   (def (identifier)
     (pattern (number) (ERROR) (number))
     (pattern (identifier) (ERROR) (number))))
+
+=====
+Sorry
+=====
+
+#check sorry
+
+---
+
+(module (hash_command (sorry)))

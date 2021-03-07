@@ -1441,6 +1441,10 @@
       "members": [
         {
           "type": "SYMBOL",
+          "name": "sorry"
+        },
+        {
+          "type": "SYMBOL",
           "name": "identifier"
         },
         {
@@ -1844,6 +1848,10 @@
           }
         }
       ]
+    },
+    "sorry": {
+      "type": "STRING",
+      "value": "sorry"
     },
     "tactics": {
       "type": "PREC_LEFT",

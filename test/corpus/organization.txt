@@ -65,8 +65,8 @@ end Foo
 
 (module
   (namespace (identifier)
-    (theorem (identifier) (identifier) (identifier))
-    (theorem (identifier) (identifier) (identifier)) (identifier)))
+    (theorem (identifier) (identifier) (sorry))
+    (theorem (identifier) (identifier) (sorry)) (identifier)))
 
 ========================
 Section With Definitions
@@ -83,8 +83,8 @@ end Foo
 
 (module
   (section (identifier)
-    (theorem (identifier) (identifier) (identifier))
-    (theorem (identifier) (identifier) (identifier)) (identifier)))
+    (theorem (identifier) (identifier) (sorry))
+    (theorem (identifier) (identifier) (sorry)) (identifier)))
 
 =======================
 Namespace With Sections
@@ -111,9 +111,9 @@ end Foo
 (module
   (namespace (identifier)
     (section (identifier)
-      (theorem (identifier) (identifier) (identifier)) (identifier))
+      (theorem (identifier) (identifier) (sorry)) (identifier))
     (section (identifier)
-      (theorem (identifier) (identifier) (identifier)) (identifier))
+      (theorem (identifier) (identifier) (sorry)) (identifier))
     (identifier)))
 
 =================

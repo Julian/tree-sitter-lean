@@ -254,6 +254,7 @@ module.exports = grammar({
     ),
 
     _expression: $ => choice(
+      $.sorry,
       $.identifier,
       $.coe,
       $._parenthesized_expression,
@@ -336,6 +337,8 @@ module.exports = grammar({
       ':=',
       field('body', $._expression),
     ),
+
+    sorry: $ => 'sorry',
 
     tactics: $ => prec.left(seq(
       'by',
