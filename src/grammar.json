@@ -111,11 +111,14 @@
           "value": "open"
         },
         {
-          "type": "FIELD",
-          "name": "namespace",
+          "type": "REPEAT1",
           "content": {
-            "type": "SYMBOL",
-            "name": "_dotted_name"
+            "type": "FIELD",
+            "name": "namespace",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_dotted_name"
+            }
           }
         }
       ]

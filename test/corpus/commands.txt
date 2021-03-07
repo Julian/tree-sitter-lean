@@ -64,6 +64,7 @@ Open
 
 open Foo
 open Foo.Bar
+open Foo Bar Baz.Quux
 
 ---
 
@@ -72,7 +73,22 @@ open Foo.Bar
     namespace: (identifier))
   (open
     namespace: (identifier)
+    namespace: (identifier))
+  (open
+    namespace: (identifier)
+    namespace: (identifier)
+    namespace: (identifier)
     namespace: (identifier)))
+
+======================
+Open With Missing Name
+======================
+
+open
+
+---
+
+(module (open (MISSING identifier)))
 
 ======
 Import
@@ -100,6 +116,16 @@ import Foo.Bar.Baz
     module: (identifier)
     module: (identifier)))
 
+========================
+Import With Missing Name
+========================
+
+import
+
+---
+
+(module (import (MISSING identifier)))
+
 ======
 Export
 ======
@@ -123,6 +149,16 @@ export Foo ()
 ---
 
 (module (ERROR (identifier)))
+
+========================
+Export With Missing Name
+========================
+
+export
+
+---
+
+(module (ERROR))
 
 ========
 Constant

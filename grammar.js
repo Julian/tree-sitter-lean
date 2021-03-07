@@ -62,7 +62,10 @@ module.exports = grammar({
 
     import: $ => seq('import', field('module', $._dotted_name)),
 
-    open: $ => seq('open', field('namespace', $._dotted_name)),
+    open: $ => seq(
+      'open',
+      repeat1(field('namespace', $._dotted_name)),
+    ),
 
     hash_command: $ => seq(
       choice('#check', '#check_failure', '#eval', '#print', '#reduce'),
