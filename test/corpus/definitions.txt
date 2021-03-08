@@ -651,9 +651,8 @@ private inductive T1 : Type
   (inductive_type (identifier) (ERROR) (parameters (identifier))) (comment)
   (inductive_type (identifier) (ERROR) (parameters (identifier))) (comment)
   (ERROR (identifier)
-    (ERROR (identifier) (identifier) (comment))
-    (ERROR (identifier) (identifier))
-    (identifier) (identifier) (comment)))
+    (ERROR (comment))
+      (ERROR) (comment)))
 
 ==========
 Attributes
@@ -711,7 +710,11 @@ Missing Attribute
 
 ---
 
-(module (ERROR) (def name: (identifier) body: (number)))
+(module
+  (def
+    attributes: (identifier (MISSING _identifier))
+    name: (identifier)
+    body: (number)))
 
 ======================
 Partial With Attribute
@@ -1013,7 +1016,7 @@ def foo :=
         name:
           (let
             name: (identifier)
-            (ERROR (identifier))
+            (ERROR)
             body: (number)) arguments: (identifier))))
 
 ============

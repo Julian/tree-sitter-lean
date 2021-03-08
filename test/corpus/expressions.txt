@@ -180,8 +180,7 @@ Slice Does Not Have Copy
 
 (module
   (hash_command
-    (index
-      (identifier) (do (MISSING "do")))))
+    (index (identifier) (identifier (MISSING _identifier)))))
 
 ===============
 Slice vs. Range
@@ -983,14 +982,16 @@ def foo | 0, => 2 | _, => 3
 
 (module
   (hash_command
-    (product (number) (number) (number) (MISSING identifier)))
+    (product (number) (number) (number) (identifier (MISSING _identifier))))
   (hash_command
-    (list (number) (number) (number) (MISSING identifier)))
+    (list (number) (number) (number) (identifier (MISSING _identifier))))
   (hash_command
-    (array (number) (number) (number) (MISSING identifier)))
+    (array (number) (number) (number) (identifier (MISSING _identifier))))
   (example (identifier)
-    (inductive_constructor (number) (number) (MISSING identifier)))
-  (def (identifier) (identifier) (MISSING identifier) (identifier) (number))
+    (inductive_constructor
+      (number) (number) (identifier (MISSING _identifier))))
+  (def (identifier) (identifier)
+    (identifier (MISSING _identifier)) (identifier) (number))
   (def (identifier)
     (pattern (number) (ERROR) (number))
     (pattern (identifier) (ERROR) (number))))
@@ -1004,3 +1005,21 @@ Sorry
 ---
 
 (module (hash_command (sorry)))
+
+==================
+Escaped Identifier
+==================
+
+def «foo
+
+bar
+
+
+theorem baz : (afweio)» := 12
+
+---
+
+(module
+  (def
+    name: (identifier)
+    body: (number)))

@@ -88,7 +88,7 @@ open
 
 ---
 
-(module (open (MISSING identifier)))
+(module (open (identifier (MISSING _identifier))))
 
 ======
 Import
@@ -124,7 +124,7 @@ import
 
 ---
 
-(module (import (MISSING identifier)))
+(module (import (identifier (MISSING _identifier))))
 
 ======
 Export
@@ -148,7 +148,7 @@ export Foo ()
 
 ---
 
-(module (ERROR (identifier)))
+(module (export (identifier) (identifier (MISSING _identifier))))
 
 ========================
 Export With Missing Name
@@ -218,4 +218,4 @@ universe
 
 ---
 
-(module (universe (MISSING identifier)))
+(module (universe (identifier (MISSING _identifier))))

@@ -3985,6 +3985,11 @@
     }
   },
   {
+    "type": "identifier",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "implicit_parameter",
     "named": true,
     "fields": {
@@ -11304,10 +11309,6 @@
   {
     "type": "fun",
     "named": false
-  },
-  {
-    "type": "identifier",
-    "named": true
   },
   {
     "type": "if",

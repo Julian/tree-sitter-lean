@@ -1,6 +1,6 @@
 {
   "name": "lean",
-  "word": "identifier",
+  "word": "_identifier",
   "rules": {
     "module": {
       "type": "REPEAT",
@@ -3881,8 +3881,25 @@
       ]
     },
     "identifier": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_identifier"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_escaped_identifier"
+        }
+      ]
+    },
+    "_identifier": {
       "type": "PATTERN",
       "value": "[_a-zA-ZͰ-ϿĀ-ſ∇][_`'`a-zA-Z0-9Ͱ-ϿĀ-ſ∇!\\u2070-\\u209F]*"
+    },
+    "_escaped_identifier": {
+      "type": "PATTERN",
+      "value": "«[^»]*»"
     },
     "_maybe_annotated": {
       "type": "SEQ",
