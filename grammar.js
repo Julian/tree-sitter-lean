@@ -122,7 +122,7 @@ module.exports = grammar({
       $._expression, repeat1(seq($._right_arrow, $._expression)),
     )),
 
-    product_type: $ => prec(-1, seq(
+    product_type: $ => prec.right(-1, seq(
       $._expression, repeat1(seq('×', $._expression)),
     )),
 

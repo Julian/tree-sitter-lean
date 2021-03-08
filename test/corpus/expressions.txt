@@ -278,14 +278,17 @@ Function Type
 Product Type
 ============
 
-#check a × b
-#check a × b × c
+#check A × B
+#check A × B × C
+#check (A × B) × C
 
 ---
 
 (module
   (hash_command (product_type (identifier) (identifier)))
-  (hash_command (product_type (identifier) (identifier) (identifier))))
+  (hash_command (product_type (identifier) (identifier) (identifier)))
+  (hash_command
+    (product_type (product_type (identifier) (identifier)) (identifier))))
 
 ============
 If/Then/Else

@@ -479,7 +479,7 @@
       }
     },
     "product_type": {
-      "type": "PREC",
+      "type": "PREC_RIGHT",
       "value": -1,
       "content": {
         "type": "SEQ",
