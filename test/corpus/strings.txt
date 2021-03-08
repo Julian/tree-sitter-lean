@@ -100,5 +100,24 @@ Interpolation With Function Application
 (module
   (hash_command
     (apply (identifier)
-      (interpolated_string (interpolation
-        (apply (identifier) (number)))))))
+      (interpolated_string
+        (interpolation (apply (identifier) (number)))))))
+
+===================================
+Interpolation With Escape Sequences
+===================================
+
+#eval s!"f\'o\"\ro\nb\ta\\r {baz}"
+
+---
+
+(module
+  (hash_command
+    (interpolated_string
+      (escape_sequence)
+      (escape_sequence)
+      (escape_sequence)
+      (escape_sequence)
+      (escape_sequence)
+      (escape_sequence)
+      (interpolation (identifier)))))

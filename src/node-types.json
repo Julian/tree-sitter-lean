@@ -5834,6 +5834,10 @@
       "required": false,
       "types": [
         {
+          "type": "escape_sequence",
+          "named": true
+        },
+        {
           "type": "interpolation",
           "named": true
         }

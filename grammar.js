@@ -617,7 +617,7 @@ module.exports = grammar({
 
     interpolated_string: $ => seq(
       's!"',
-      repeat(choice($._string_content, $.interpolation)),
+      repeat(choice($._string_content, $.escape_sequence, $.interpolation)),
       '"',
     ),
 
