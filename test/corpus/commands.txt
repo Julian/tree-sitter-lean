@@ -203,11 +203,13 @@ Universe
 
 universe t
 universe u v w
+universes u2 v2 w2
 
 ---
 
 (module
   (universe (identifier))
+  (universe (identifier) (identifier) (identifier))
   (universe (identifier) (identifier) (identifier)))
 
 ==========================
