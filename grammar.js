@@ -606,10 +606,7 @@ module.exports = grammar({
       ')',
     ),
 
-    _dotted_name: $ => prec.right(choice(
-      $.identifier,
-      sep1($.identifier, '.'),
-    )),
+    _dotted_name: $ => prec.right(sep1($.identifier, '.')),
 
     _left_arrow: $ => choice('<-', '←'),
     _right_arrow: $ => choice('->', '→'),
