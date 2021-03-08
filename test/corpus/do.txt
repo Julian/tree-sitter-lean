@@ -256,3 +256,27 @@ def f : Unit := do
 
 (module
   (def (identifier) (identifier) (do (return))))
+
+======
+Unless
+======
+
+def check : IO Unit := do
+  unless true do
+    println! "Bla"
+
+---
+
+(module
+  (def
+    name: (identifier)
+    return_type:
+      (apply
+        name: (identifier)
+        arguments: (identifier))
+      body:
+        (do
+          (unless (true) (do))
+          (apply
+            name: (identifier)
+            arguments: (string)))))

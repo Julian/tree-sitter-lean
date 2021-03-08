@@ -393,6 +393,7 @@ module.exports = grammar({
         $.let_mut,
         $.try,
         $.throw,
+        $.unless,
         $.return,
       ),
       $._newline,
@@ -430,6 +431,10 @@ module.exports = grammar({
       field('body', $._expression),
     ),
 
+    throw: $ => seq('throw', $._expression),
+
+    unless: $ => seq('unless', $._expression, $._expression),
+
     // FIXME: nesting (which depends on the indent processing)
     try: $ => prec.left(seq(
       'try',
@@ -438,8 +443,6 @@ module.exports = grammar({
         seq($.catch, optional($.finally)),
         $.finally,
     ))),
-
-    throw: $ => seq('throw', $._expression),
 
     catch: $ => prec.left(seq(
       'catch',
