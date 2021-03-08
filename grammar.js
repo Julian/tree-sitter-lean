@@ -640,7 +640,15 @@ module.exports = grammar({
 
 
     _string_content: $ => /[^"]/,
-    escape_sequence: $ => token(prec(1, seq('\\', /['"rnt\\]/))),
+    escape_sequence: $ => token(prec(1,
+      seq(
+        '\\', choice(
+          /u[a-fA-F\d]{4}/,
+          /x[a-fA-F\d]{2}/,
+          /['"rnt\\]/,
+        ),
+      ),
+    )),
 
     comment: $ => token(choice(
       seq('--', /.*/),

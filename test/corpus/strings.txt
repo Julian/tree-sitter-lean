@@ -36,6 +36,20 @@ Escape Sequences
       (escape_sequence)
       (escape_sequence))))
 
+=========
+\x and \u
+=========
+
+#eval "\x12\u1234"
+
+---
+
+(module
+  (hash_command
+    (string
+      (escape_sequence)
+      (escape_sequence))))
+
 ====
 Char
 ====
