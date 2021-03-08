@@ -114,7 +114,7 @@ module.exports = grammar({
     variable_declaration: $ => seq('variable', repeat1($._parameter)),
 
     universe: $ => seq(
-      'universe',
+      choice('universe', 'universes'),
       repeat1($.identifier),
     ),
 

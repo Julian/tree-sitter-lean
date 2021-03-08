@@ -437,8 +437,17 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "universe"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "universe"
+            },
+            {
+              "type": "STRING",
+              "value": "universes"
+            }
+          ]
         },
         {
           "type": "REPEAT1",
