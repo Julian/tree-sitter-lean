@@ -290,6 +290,17 @@ Product Type
   (hash_command
     (product_type (product_type (identifier) (identifier)) (identifier))))
 
+=======================
+Product Type Precedence
+=======================
+
+#check f 3 × C
+
+---
+
+(module
+  (hash_command (product_type (apply (identifier) (number)) (identifier))))
+
 ============
 If/Then/Else
 ============
