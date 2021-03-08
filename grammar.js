@@ -608,9 +608,12 @@ module.exports = grammar({
       ']',
     ),
 
-    char: $ => seq("'", $._string_content, "'"),
-
-    string: $ => seq('"', repeat($._string_content), '"'),
+    char: $ => seq("'", choice($.escape_sequence, $._string_content), "'"),
+    string: $ => seq(
+      '"',
+      repeat(choice($.escape_sequence, $._string_content)),
+      '"',
+    ),
 
     interpolated_string: $ => seq(
       's!"',
@@ -636,8 +639,8 @@ module.exports = grammar({
     _right_arrow: $ => choice('->', '→'),
 
 
-    // TODO: actual right string content, escape sequences, etc.
     _string_content: $ => /[^"]/,
+    escape_sequence: $ => token(prec(1, seq('\\', /['"rnt\\]/))),
 
     comment: $ => token(choice(
       seq('--', /.*/),

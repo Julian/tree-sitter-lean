@@ -1,3 +1,71 @@
+======
+String
+======
+
+#eval "foo"
+
+---
+
+(module (hash_command (string)))
+
+============
+Empty String
+============
+
+#eval ""
+
+---
+
+(module (hash_command (string)))
+
+================
+Escape Sequences
+================
+
+#eval "f\'o\"\ro\nb\ta\\r"
+
+---
+
+(module
+  (hash_command
+    (string
+      (escape_sequence)
+      (escape_sequence)
+      (escape_sequence)
+      (escape_sequence)
+      (escape_sequence)
+      (escape_sequence))))
+
+====
+Char
+====
+
+#eval 'f'
+
+---
+
+(module (hash_command (char)))
+
+====================
+Char Escape Sequence
+====================
+
+#eval '\''
+
+---
+
+(module (hash_command (char (escape_sequence))))
+
+========
+Non-Char
+========
+
+#eval 'fa'
+
+---
+
+(module (hash_command (ERROR) (identifier)))
+
 ==================================
 Non-Interpolation in Normal String
 ==================================
