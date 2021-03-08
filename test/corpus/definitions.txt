@@ -998,6 +998,64 @@ def foo : Nat :=
         arguments:
           (number))))
 
+==============
+Let Semicolons
+==============
+
+def foo :=
+let foo := 12
+let bar := 13
+let baz := 14
+foo + bar + baz
+
+def bar :=
+let foo := 12;
+let bar := 13;
+let baz := 14;
+foo + bar + baz
+
+def baz :=
+let foo := 12; let bar := 13; let baz := 14;
+foo + bar + baz
+
+def quux :=
+  let foo := 12
+  let bar := 13
+  let baz := 14
+  foo + bar + baz
+
+---
+
+(module
+  (def (identifier)
+    (apply
+      (let (identifier) (number))
+      (let (identifier) (number))
+      (let (identifier) (number))
+      (binary_expression (binary_expression (identifier) (identifier))
+      (identifier))))
+  (def (identifier)
+    (apply
+      (let (identifier) (number))
+      (let (identifier) (number))
+      (let (identifier) (number))
+      (binary_expression (binary_expression (identifier) (identifier))
+      (identifier))))
+  (def (identifier)
+    (apply
+      (let (identifier) (number))
+      (let (identifier) (number))
+      (let (identifier) (number))
+      (binary_expression (binary_expression (identifier) (identifier))
+      (identifier))))
+  (def (identifier)
+    (apply
+      (let (identifier) (number))
+      (let (identifier) (number))
+      (let (identifier) (number))
+      (binary_expression (binary_expression (identifier) (identifier))
+      (identifier)))))
+
 ==========
 No Let Mut
 ==========

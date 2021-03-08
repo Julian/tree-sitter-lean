@@ -353,14 +353,15 @@ module.exports = grammar({
       ']',
     )),
 
-    let: $ => seq(
+    let: $ => prec.left(seq(
       'let',
       optional(field('name', $._dotted_name)),
       optional(field('parameters', seq(repeat1($._parameter)))),
       optional(seq(':', field('type', $._expression))),
       ':=',
       field('body', $._expression),
-    ),
+      optional(';'),
+    )),
 
     sorry: $ => 'sorry',
 
