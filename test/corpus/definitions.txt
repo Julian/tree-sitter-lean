@@ -179,59 +179,6 @@ def foo : Nat -> Nat -> Nat -> Nat := id
         (identifier) (identifier) (identifier) (identifier))
     body: (identifier)))
 
-==========
-Attributes
-==========
-
-@[reducible] def f := 12
-
----
-
-(module
-  (def
-    attributes: (identifier)
-    name: (identifier)
-    body: (number)))
-
-===================
-Multiple Attributes
-===================
-
-@[reducible, inline] def f := 12
-
----
-
-(module
-  (def
-    attributes: (identifier)
-    attributes: (identifier)
-    name: (identifier)
-    body: (number)))
-
-=================
-Missing Attribute
-=================
-
-@[] def f := 12
-
----
-
-(module (ERROR) (def name: (identifier) body: (number)))
-
-======================
-Partial With Attribute
-======================
-
-@[reducible] partial def f := 12
-
----
-
-(module
-  (def
-    attributes: (identifier)
-    name: (identifier)
-    body: (number)))
-
 ============
 Conditionals
 ============
@@ -325,20 +272,6 @@ theorem bar : 2 * 3 = 3 * 2 := Nat.mul_comm 2 3
             name: (identifier))
         arguments: (number)
         arguments: (number))))
-
-================
-Partial Function
-================
-
-partial def g x : Nat := g (x + 1)
-
----
-
-(module
-  (def (identifier)
-    (parameters (identifier))
-    (identifier)
-    (apply (identifier) (binary_expression (identifier) (number)))))
 
 =========
 Structure
@@ -648,11 +581,19 @@ example {G : Type} [Add G] (g : G) : g + g = g + g := rfl
     body:
       (identifier)))
 
-============================
-Protected / Private / Unsafe
-============================
+======================================================
+Noncomputable / Partial / Protected / Private / Unsafe
+======================================================
+
+partial def foo := 12
+
+partial def g x : Nat := g (x + 1)
+
+noncomputable def foo := 12
 
 protected unsafe def foo := 12
+
+unsafe inductive Foo | foo
 
 private structure Foo where x : Nat
 
@@ -660,19 +601,131 @@ protected class Bar where x : Nat
 
 protected instance : Quux where x := 2
 
+noncomputable instance : Foo where x := 2
+
 private theorem bar : 2 = 2 := rfl
 
 protected example : 2 = 2 := rfl
+
+noncomputable example : 2 = 2 := rfl
+
+protected constant FooBar : Nat
+
+noncomputable constant FooBar : Nat
 
 ---
 
 (module
   (def (identifier) (number))
+  (def (identifier)
+    (parameters (identifier))
+    (identifier)
+    (apply (identifier) (binary_expression (identifier) (number))))
+  (def (identifier) (number))
+  (def (identifier) (number))
+  (inductive_type (identifier) (constructor (identifier)))
   (structure_definition (identifier) (field (identifier) (identifier)))
   (class (identifier) (field (identifier) (identifier)))
   (instance (identifier) (instance_field (identifier) (number)))
+  (instance (identifier) (instance_field (identifier) (number)))
   (theorem (identifier) (binary_expression (number) (number)) (identifier))
-  (example (binary_expression (number) (number)) (identifier)))
+  (example (binary_expression (number) (number)) (identifier))
+  (example (binary_expression (number) (number)) (identifier))
+  (constant (identifier) (identifier))
+  (constant (identifier) (identifier)))
+
+===============================================================
+No Partial / Noncomputable / Attributes / Private for Inductive
+===============================================================
+
+partial inductive T1 : Type -- invalid use of partial
+noncomputable inductive T1 : Type -- invalid use of noncomputable
+@[inline] inductive T1 : Type -- invalid use of attributes
+
+private inductive T1 : Type
+| private mk : T1 -- invalid private constructor in private inductive type
+
+---
+
+(module
+  (inductive_type (identifier) (ERROR) (parameters (identifier))) (comment)
+  (inductive_type (identifier) (ERROR) (parameters (identifier))) (comment)
+  (ERROR (identifier)
+    (ERROR (identifier) (identifier) (comment))
+    (ERROR (identifier) (identifier))
+    (identifier) (identifier) (comment)))
+
+==========
+Attributes
+==========
+
+@[reducible] def f := 12
+
+@[inline] instance : Foo := ⟨7⟩
+
+@[simp] theorem twotwo : 2 = 2 := rfl
+
+@[inline] constant FooBar : Nat
+
+---
+
+(module
+  (def
+    attributes: (identifier)
+    name: (identifier)
+    body: (number))
+  (instance
+    attributes: (identifier)
+    class: (identifier)
+    body: (inductive_constructor (number)))
+  (theorem
+    attributes: (identifier)
+    name: (identifier)
+    type: (binary_expression (number) (number))
+    body: (identifier))
+  (constant
+    attributes: (identifier)
+    name: (identifier)
+    type: (identifier)))
+
+===================
+Multiple Attributes
+===================
+
+@[reducible, inline] def f := 12
+
+---
+
+(module
+  (def
+    attributes: (identifier)
+    attributes: (identifier)
+    name: (identifier)
+    body: (number)))
+
+=================
+Missing Attribute
+=================
+
+@[] def f := 12
+
+---
+
+(module (ERROR) (def name: (identifier) body: (number)))
+
+======================
+Partial With Attribute
+======================
+
+@[reducible] partial def f := 12
+
+---
+
+(module
+  (def
+    attributes: (identifier)
+    name: (identifier)
+    body: (number)))
 
 ==============
 Inductive Type
@@ -721,6 +774,39 @@ inductive FooBar where
           type: (identifier)
         type:
           (function_type (identifier) (identifier)))))
+
+==============================
+Inductive Type No Constructors
+==============================
+
+inductive Foo
+
+---
+
+(module
+  (inductive_type
+    name: (identifier)))
+
+==============================
+Inductive Type With Parameters
+==============================
+
+inductive Foo (F : Type) | x (foo : F)
+
+---
+
+(module
+  (inductive_type
+    name: (identifier)
+    parameters:
+      (parameters
+        name: (identifier)
+        type: (identifier))
+    constructors:
+      (constructor
+        name: (identifier)
+        name: (identifier)
+        type: (identifier))))
 
 =======================
 Inductive Type One Line

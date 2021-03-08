@@ -1611,6 +1611,28 @@
     "type": "constant",
     "named": true,
     "fields": {
+      "attributes": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "@[",
+            "named": false
+          },
+          {
+            "type": "]",
+            "named": false
+          },
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
       "name": {
         "multiple": false,
         "required": true,
@@ -4829,7 +4851,7 @@
     "fields": {
       "constructors": {
         "multiple": true,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": "constructor",
@@ -4850,6 +4872,16 @@
             "named": true
           }
         ]
+      },
+      "parameters": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "parameters",
+            "named": true
+          }
+        ]
       }
     }
   },
@@ -4857,6 +4889,28 @@
     "type": "instance",
     "named": true,
     "fields": {
+      "attributes": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "@[",
+            "named": false
+          },
+          {
+            "type": "]",
+            "named": false
+          },
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
       "body": {
         "multiple": true,
         "required": true,
@@ -9885,6 +9939,28 @@
     "type": "theorem",
     "named": true,
     "fields": {
+      "attributes": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "@[",
+            "named": false
+          },
+          {
+            "type": "]",
+            "named": false
+          },
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
       "body": {
         "multiple": true,
         "required": true,
@@ -11239,6 +11315,10 @@
   },
   {
     "type": "namespace",
+    "named": false
+  },
+  {
+    "type": "noncomputable",
     "named": false
   },
   {

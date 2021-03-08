@@ -72,31 +72,11 @@ module.exports = grammar({
       $._expression,
     ),
 
-    inductive_type: $ => seq(
-      'inductive',
-      field('name', $._dotted_name),
-      optional('where'),
-      field('constructors', repeat1($.constructor)),
-    ),
-
     constructor: $ => seq(
       '|',
       optional(field('name', $._dotted_name)),
       optional(field('parameters', seq(repeat1($._parameter)))),
       optional(seq(':', field('type', $._expression))),
-    ),
-
-    instance: $ => seq(
-      optional(repeat(choice('partial', 'private', 'protected', 'unsafe'))),
-      'instance',
-      optional(field('name', $._dotted_name)),
-      optional(field('parameters', seq(repeat1($._parameter)))),
-      ':',
-      field('class', $._expression),
-      field('body', choice(
-        seq('where', field('fields', repeat1($.instance_field))),
-        seq(':=', $._expression),
-      )),
     ),
 
     instance_field: $ => seq(
@@ -128,21 +108,127 @@ module.exports = grammar({
       optional(field('name', $.identifier)),
       field('body', repeat($._command)),
       'end',
-      optional($.identifier), // FIXME: needs to match start
+      optional($.identifier),
     ),
 
     variable_declaration: $ => seq('variable', repeat1($._parameter)),
 
+    universe: $ => seq(
+      'universe',
+      repeat1($.identifier),
+    ),
+
+    function_type: $ => prec(-1, seq(
+      $._expression, repeat1(seq($._right_arrow, $._expression)),
+    )),
+
+    product_type: $ => prec(-1, seq(
+      $._expression, repeat1(seq('×', $._expression)),
+    )),
+
+    inductive_type: $ => seq(
+      optional(repeat(
+        choice('noncomputable', 'partial', 'private', 'protected', 'unsafe'),
+      )),
+      'inductive',
+      field('name', $._dotted_name),
+      optional(field('parameters', $.parameters)),
+      optional('where'),
+      optional(field('constructors', repeat1($.constructor))),
+    ),
+
+    def: $ => seq(
+      optional(field('attributes', $._attributes)),
+      optional(repeat(
+        choice('noncomputable', 'partial', 'private', 'protected', 'unsafe'),
+      )),
+      'def',
+      field('name', $._dotted_name),
+      optional(field('parameters', $.parameters)),
+      optional(seq(':', field('return_type', $._expression))),
+      field('body', choice(
+        seq(':=', $._expression),
+        repeat($.pattern),
+      )),
+    ),
+
+    structure_definition: $ => seq(
+      optional(repeat(
+        choice('noncomputable', 'partial', 'private', 'protected', 'unsafe'),
+      )),
+      'structure',
+      field('name', $._dotted_name),
+      optional(field('parameters', $.parameters)),
+      'where',
+      field('fields', repeat1($.field)),
+    ),
+
+    class: $ => seq(
+      optional(repeat(
+        choice('noncomputable', 'partial', 'private', 'protected', 'unsafe'),
+      )),
+      'class',
+      field('name', $._dotted_name),
+      optional(field('parameters', $.parameters)),
+      'where',
+      field('fields', repeat1($.field)),
+    ),
+
+    instance: $ => seq(
+      optional(field('attributes', $._attributes)),
+      optional(repeat(
+        choice('noncomputable', 'partial', 'private', 'protected', 'unsafe'),
+      )),
+      'instance',
+      optional(field('name', $._dotted_name)),
+      optional(field('parameters', seq(repeat1($._parameter)))),
+      ':',
+      field('class', $._expression),
+      field('body', choice(
+        seq('where', field('fields', repeat1($.instance_field))),
+        seq(':=', $._expression),
+      )),
+    ),
+
+    theorem: $ => seq(
+      optional(field('attributes', $._attributes)),
+      optional(repeat(
+        choice('noncomputable', 'partial', 'private', 'protected', 'unsafe'),
+      )),
+      'theorem',
+      field('name', $._dotted_name),
+      optional(field('parameters', $.parameters)),
+      ':',
+      field('type', $._expression),
+      ':=',
+      field('body', $._expression),
+    ),
+
+    example: $ => seq(
+      optional(repeat(
+        choice('noncomputable', 'partial', 'private', 'protected', 'unsafe'),
+      )),
+      'example',
+      optional(field('parameters', $.parameters)),
+      ':',
+      field('type', $._expression),
+      ':=',
+      field('body', $._expression),
+    ),
+
     constant: $ => seq(
+      optional(field('attributes', $._attributes)),
+      optional(repeat(
+        choice('noncomputable', 'partial', 'private', 'protected', 'unsafe'),
+      )),
       'constant',
       field('name', $.identifier),
       ':',
       field('type', $._expression),
     ),
 
-    universe: $ => seq(
-      'universe',
-      repeat1($.identifier),
+    _attributes: $ => seq(
+      '@[', $.identifier, optional(repeat(seq(',', $.identifier))), ']',
     ),
 
     parameters: $ => seq(
@@ -181,29 +267,6 @@ module.exports = grammar({
       ']',
     ),
 
-    function_type: $ => prec(-1, seq(
-      $._expression, repeat1(seq($._right_arrow, $._expression)),
-    )),
-
-    product_type: $ => prec(-1, seq(
-      $._expression, repeat1(seq('×', $._expression)),
-    )),
-
-    def: $ => seq(
-      field('attributes', optional(seq(
-        '@[', $.identifier, optional(repeat(seq(',', $.identifier))), ']',
-      ))),
-      optional(repeat(choice('partial', 'private', 'protected', 'unsafe'))),
-      'def',
-      field('name', $._dotted_name),
-      optional(field('parameters', $.parameters)),
-      optional(seq(':', field('return_type', $._expression))),
-      field('body', choice(
-        seq(':=', $._expression),
-        repeat($.pattern),
-      )),
-    ),
-
     field: $ => seq(
       $._maybe_annotated,
       optional(
@@ -212,45 +275,6 @@ module.exports = grammar({
           field('default', $._expression),
         ),
       ),
-    ),
-
-    structure_definition: $ => seq(
-      optional(repeat(choice('partial', 'private', 'protected', 'unsafe'))),
-      'structure',
-      field('name', $._dotted_name),
-      optional(field('parameters', $.parameters)),
-      'where',
-      field('fields', repeat1($.field)),
-    ),
-
-    class: $ => seq(
-      optional(repeat(choice('partial', 'private', 'protected', 'unsafe'))),
-      'class',
-      field('name', $._dotted_name),
-      optional(field('parameters', $.parameters)),
-      'where',
-      field('fields', repeat1($.field)),
-    ),
-
-    theorem: $ => seq(
-      optional(repeat(choice('partial', 'private', 'protected', 'unsafe'))),
-      'theorem',
-      field('name', $._dotted_name),
-      optional(field('parameters', $.parameters)),
-      ':',
-      field('type', $._expression),
-      ':=',
-      field('body', $._expression),
-    ),
-
-    example: $ => seq(
-      optional(repeat(choice('partial', 'private', 'protected', 'unsafe'))),
-      'example',
-      optional(field('parameters', $.parameters)),
-      ':',
-      field('type', $._expression),
-      ':=',
-      field('body', $._expression),
     ),
 
     _expression: $ => choice(
