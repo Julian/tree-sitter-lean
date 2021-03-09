@@ -1752,7 +1752,7 @@
     },
     "_parenthesized_expression": {
       "type": "PREC",
-      "value": 1,
+      "value": 12,
       "content": {
         "type": "SEQ",
         "members": [
@@ -1839,7 +1839,7 @@
     },
     "index": {
       "type": "PREC",
-      "value": -1,
+      "value": 10,
       "content": {
         "type": "SEQ",
         "members": [
@@ -2784,7 +2784,7 @@
     },
     "field_of": {
       "type": "PREC",
-      "value": 1,
+      "value": 11,
       "content": {
         "type": "SEQ",
         "members": [
@@ -2813,7 +2813,7 @@
     },
     "unary_expression": {
       "type": "PREC",
-      "value": 5,
+      "value": 19,
       "content": {
         "type": "CHOICE",
         "members": [
@@ -2838,7 +2838,7 @@
       "members": [
         {
           "type": "PREC_RIGHT",
-          "value": 6,
+          "value": 20,
           "content": {
             "type": "SEQ",
             "members": [
@@ -2859,7 +2859,7 @@
         },
         {
           "type": "PREC_LEFT",
-          "value": 4,
+          "value": 18,
           "content": {
             "type": "SEQ",
             "members": [
@@ -2880,7 +2880,7 @@
         },
         {
           "type": "PREC_LEFT",
-          "value": 4,
+          "value": 18,
           "content": {
             "type": "SEQ",
             "members": [
@@ -2901,7 +2901,7 @@
         },
         {
           "type": "PREC_LEFT",
-          "value": 4,
+          "value": 18,
           "content": {
             "type": "SEQ",
             "members": [
@@ -2922,7 +2922,7 @@
         },
         {
           "type": "PREC_LEFT",
-          "value": 3,
+          "value": 17,
           "content": {
             "type": "SEQ",
             "members": [
@@ -2943,7 +2943,7 @@
         },
         {
           "type": "PREC_LEFT",
-          "value": 3,
+          "value": 17,
           "content": {
             "type": "SEQ",
             "members": [
@@ -2964,7 +2964,7 @@
         },
         {
           "type": "PREC_LEFT",
-          "value": 1,
+          "value": 13,
           "content": {
             "type": "SEQ",
             "members": [
@@ -2985,7 +2985,7 @@
         },
         {
           "type": "PREC_LEFT",
-          "value": 1,
+          "value": 13,
           "content": {
             "type": "SEQ",
             "members": [
@@ -3006,7 +3006,7 @@
         },
         {
           "type": "PREC_LEFT",
-          "value": 1,
+          "value": 13,
           "content": {
             "type": "SEQ",
             "members": [
@@ -3027,7 +3027,7 @@
         },
         {
           "type": "PREC_LEFT",
-          "value": 1,
+          "value": 13,
           "content": {
             "type": "SEQ",
             "members": [
@@ -3048,7 +3048,7 @@
         },
         {
           "type": "PREC_LEFT",
-          "value": 1,
+          "value": 13,
           "content": {
             "type": "SEQ",
             "members": [
@@ -3069,7 +3069,7 @@
         },
         {
           "type": "PREC_LEFT",
-          "value": 1,
+          "value": 14,
           "content": {
             "type": "SEQ",
             "members": [
@@ -3090,7 +3090,7 @@
         },
         {
           "type": "PREC_LEFT",
-          "value": 2,
+          "value": 15,
           "content": {
             "type": "SEQ",
             "members": [
@@ -3111,7 +3111,7 @@
         },
         {
           "type": "PREC_LEFT",
-          "value": 2,
+          "value": 16,
           "content": {
             "type": "SEQ",
             "members": [
@@ -3132,7 +3132,7 @@
         },
         {
           "type": "PREC_LEFT",
-          "value": 1,
+          "value": 13,
           "content": {
             "type": "SEQ",
             "members": [
@@ -3153,7 +3153,7 @@
         },
         {
           "type": "PREC_LEFT",
-          "value": 1,
+          "value": 13,
           "content": {
             "type": "SEQ",
             "members": [
@@ -3195,7 +3195,7 @@
         },
         {
           "type": "PREC_LEFT",
-          "value": 1,
+          "value": 13,
           "content": {
             "type": "SEQ",
             "members": [
@@ -4025,3 +4025,4 @@
   "inline": [],
   "supertypes": []
 }
+

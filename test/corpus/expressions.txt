@@ -506,13 +506,24 @@ Comparison Precedence
 =====================
 
 #check id 2 < 3
+#check 2 < 3 = true
+#check 2 > 3 = false
 
 ---
 
-(module (hash_command
-  (comparison
-    (apply (identifier) (number))
-    (number))))
+(module
+  (hash_command
+    (comparison
+      (apply (identifier) (number))
+      (number)))
+  (hash_command
+    (binary_expression
+      (comparison (number) (number))
+      (true)))
+  (hash_command
+    (binary_expression
+      (comparison (number) (number))
+      (false))))
 
 ===========================
 Multiple Function Arguments

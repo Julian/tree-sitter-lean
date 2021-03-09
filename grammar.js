@@ -1,20 +1,43 @@
+/*
+const PREC = [
+  'dollar',
+  'apply',
+  'index',
+  'parenthesized_expression',
+  'compare',
+  'equal',
+  'field_of',
+  'opop',
+  'or',
+  'and',
+  'eqeq',
+  'plus',
+  'times',
+  'unary',
+  'power',
+].reduce((result, name, index) => {
+  result[name] = index + 10;
+  return result;
+}, {});
+*/
+
 const PREC = {
   dollar: -2,
-  apply: -1,
-  index: -1,
-  parenthesized_expression: 1,
   compare: -1,
-  field_of: 1,
-
+  apply: -1,
   equal: -1,
-  opop: 1,
-  or: 1,
-  and: 2,
-  eqeq: 2,
-  plus: 3,
-  times: 4,
-  unary: 5,
-  power: 6,
+
+  index: 10,
+  field_of: 11,
+  parenthesized_expression: 12,
+  opop: 13,
+  or: 14,
+  and: 15,
+  eqeq: 16,
+  plus: 17,
+  times: 18,
+  unary: 19,
+  power: 20,
 }
 
 module.exports = grammar({
