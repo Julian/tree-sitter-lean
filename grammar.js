@@ -360,7 +360,7 @@ module.exports = grammar({
       optional(seq(':', field('type', $._expression))),
       ':=',
       field('body', $._expression),
-      optional(';'),
+      choice($._newline, ';'),
     )),
 
     sorry: $ => 'sorry',
@@ -612,16 +612,16 @@ module.exports = grammar({
       ']',
     ),
 
-    char: $ => seq("'", choice($.escape_sequence, $._string_content), "'"),
+    char: $ => seq("'", choice($.escape_sequence, /[^']/), "'"),
     string: $ => seq(
       '"',
-      repeat(choice($.escape_sequence, $._string_content)),
+      repeat(choice($.escape_sequence, /[^"]/)),
       '"',
     ),
 
     interpolated_string: $ => seq(
       's!"',
-      repeat(choice($._string_content, $.escape_sequence, $.interpolation)),
+      repeat(choice(/[^"]/, $.escape_sequence, $.interpolation)),
       '"',
     ),
 
@@ -642,8 +642,6 @@ module.exports = grammar({
     _left_arrow: $ => choice('<-', '←'),
     _right_arrow: $ => choice('->', '→'),
 
-
-    _string_content: $ => /[^"]/,
     escape_sequence: $ => token(prec(1,
       seq(
         '\\', choice(

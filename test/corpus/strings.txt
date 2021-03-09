@@ -3,10 +3,11 @@ String
 ======
 
 #eval "foo"
+#eval "'"
 
 ---
 
-(module (hash_command (string)))
+(module (hash_command (string)) (hash_command (string)))
 
 ============
 Empty String
@@ -55,10 +56,11 @@ Char
 ====
 
 #eval 'f'
+#eval '"'
 
 ---
 
-(module (hash_command (char)))
+(module (hash_command (char)) (hash_command (char)))
 
 ====================
 Char Escape Sequence
