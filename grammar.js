@@ -3,6 +3,7 @@ const PREC = {
   equal: -3,
   compare: -2,
   apply: -1,
+  multitype: -1,
 
   index: 10,
   field_of: 11,
@@ -118,11 +119,11 @@ module.exports = grammar({
       repeat1($.identifier),
     ),
 
-    function_type: $ => prec(-1, seq(
+    function_type: $ => prec(PREC.multitype, seq(
       $._expression, repeat1(seq($._right_arrow, $._expression)),
     )),
 
-    product_type: $ => prec.right(-1, seq(
+    product_type: $ => prec.right(PREC.multitype, seq(
       $._expression, repeat1(seq('×', $._expression)),
     )),
 
@@ -642,7 +643,7 @@ module.exports = grammar({
     _left_arrow: $ => choice('<-', '←'),
     _right_arrow: $ => choice('->', '→'),
 
-    escape_sequence: $ => token(prec(1,
+    escape_sequence: $ => token(
       seq(
         '\\', choice(
           /u[a-fA-F\d]{4}/,
@@ -650,7 +651,7 @@ module.exports = grammar({
           /['"rnt\\]/,
         ),
       ),
-    )),
+    ),
 
     comment: $ => token(choice(
       seq('--', /.*/),

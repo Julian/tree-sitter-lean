@@ -3830,34 +3830,30 @@
     "escape_sequence": {
       "type": "TOKEN",
       "content": {
-        "type": "PREC",
-        "value": 1,
-        "content": {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "\\"
-            },
-            {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "PATTERN",
-                  "value": "u[a-fA-F\\d]{4}"
-                },
-                {
-                  "type": "PATTERN",
-                  "value": "x[a-fA-F\\d]{2}"
-                },
-                {
-                  "type": "PATTERN",
-                  "value": "['\"rnt\\\\]"
-                }
-              ]
-            }
-          ]
-        }
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "\\"
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "PATTERN",
+                "value": "u[a-fA-F\\d]{4}"
+              },
+              {
+                "type": "PATTERN",
+                "value": "x[a-fA-F\\d]{2}"
+              },
+              {
+                "type": "PATTERN",
+                "value": "['\"rnt\\\\]"
+              }
+            ]
+          }
+        ]
       }
     },
     "comment": {
