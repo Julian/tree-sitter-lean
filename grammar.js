@@ -1,31 +1,8 @@
-/*
-const PREC = [
-  'dollar',
-  'apply',
-  'index',
-  'parenthesized_expression',
-  'compare',
-  'equal',
-  'field_of',
-  'opop',
-  'or',
-  'and',
-  'eqeq',
-  'plus',
-  'times',
-  'unary',
-  'power',
-].reduce((result, name, index) => {
-  result[name] = index + 10;
-  return result;
-}, {});
-*/
-
 const PREC = {
-  dollar: -2,
-  compare: -1,
+  dollar: -5,
+  equal: -3,
+  compare: -2,
   apply: -1,
-  equal: -1,
 
   index: 10,
   field_of: 11,

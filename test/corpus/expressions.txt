@@ -505,25 +505,42 @@ Comparison
 Comparison Precedence
 =====================
 
-#check id 2 < 3
-#check 2 < 3 = true
-#check 2 > 3 = false
+example : id 2 < 3 = true := rfl
+example : 2 > id 3 = false := rfl
+example : id 2 ≤ 3 = true := rfl
+example : 2 ≥ id 3 = false := rfl
 
 ---
 
 (module
-  (hash_command
-    (comparison
-      (apply (identifier) (number))
-      (number)))
-  (hash_command
+  (example
     (binary_expression
-      (comparison (number) (number))
-      (true)))
-  (hash_command
+      (comparison
+        (apply (identifier) (number))
+        (number))
+      (true))
+    (identifier))
+  (example
     (binary_expression
-      (comparison (number) (number))
-      (false))))
+      (comparison
+        (number)
+        (apply (identifier) (number)))
+      (false))
+    (identifier))
+  (example
+    (binary_expression
+      (comparison
+        (apply (identifier) (number))
+        (number))
+      (true))
+    (identifier))
+  (example
+    (binary_expression
+      (comparison
+        (number)
+        (apply (identifier) (number)))
+      (false))
+    (identifier)))
 
 ===========================
 Multiple Function Arguments
