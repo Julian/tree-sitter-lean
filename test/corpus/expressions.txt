@@ -647,7 +647,10 @@ def foo (d : Bar) : Baz :=
     body:
       (match
         value: (identifier)
-        patterns: (pattern (identifier) (number)))))
+        patterns:
+          (pattern
+            lhs: (identifier)
+            (number)))))
 
 ================
 Match Expression
@@ -668,7 +671,10 @@ Match Expression
               term: (identifier)
               name: (identifier))
           arguments: (number))
-      patterns: (pattern (identifier) (true)))))
+      patterns:
+        (pattern
+          lhs: (identifier)
+          (true)))))
 
 ==================
 Match Syntax Sugar
@@ -685,9 +691,18 @@ def foo : Nat → Nat
   (def
     name: (identifier)
     return_type: (function_type (identifier) (identifier))
-    body: (pattern (number) (number))
-    body: (pattern (number) (number))
-    body: (pattern (identifier) (number))))
+    body:
+      (pattern
+        lhs: (number)
+        (number))
+    body:
+      (pattern
+        lhs: (number)
+        (number))
+    body:
+      (pattern
+        lhs: (identifier)
+        (number))))
 
 ==========================================
 Match Syntax Sugar With Anonymous Function
@@ -706,8 +721,12 @@ def foo : Nat -> Bool :=
     return_type: (function_type (identifier) (identifier))
     body:
       (lambda
-        (pattern (number) (true))
-        (pattern (identifier) (false)))))
+        (pattern
+          lhs: (number)
+          (true))
+        (pattern
+          lhs: (identifier)
+          (false)))))
 
 =======================
 Multimatch Syntax Sugar
@@ -724,9 +743,21 @@ def foo : Nat → Nat -> Nat
   (def
     name: (identifier)
     return_type: (function_type (identifier) (identifier) (identifier))
-    body: (pattern (lhs (number) (identifier)) (number))
-    body: (pattern (lhs (number) (identifier)) (number))
-    body: (pattern (lhs (identifier) (identifier)) (number))))
+    body:
+      (pattern
+        lhs: (number)
+        lhs: (identifier)
+        (number))
+    body:
+      (pattern
+        lhs: (number)
+        lhs: (identifier)
+        (number))
+    body:
+      (pattern
+        lhs: (identifier)
+        lhs: (identifier)
+        (number))))
 
 =============
 $ Application
@@ -809,8 +840,12 @@ Anonymous Function Match With Additional Argument
       arguments: (number)
       arguments:
         (lambda
-          (pattern (number) (number))
-          (pattern (identifier) (number)))
+          (pattern
+            lhs: (number)
+            (number))
+          (pattern
+            lhs: (identifier)
+            (number)))
       arguments:
         (number))))
 
