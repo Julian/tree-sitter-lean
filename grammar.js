@@ -682,7 +682,7 @@ module.exports = grammar({
 
     // FIXME: see name.cpp for the real definition...
     identifier: $ => choice($._identifier, $._escaped_identifier),
-    _identifier: $ => /[_a-zA-ZͰ-ϿĀ-ſ∇][_`'`a-zA-Z0-9Ͱ-ϿĀ-ſ∇!\u2070-\u209F]*/,
+    _identifier: $ => /[_a-zA-ZͰ-ϿĀ-ſ∇][_`'`a-zA-Z0-9Ͱ-ϿĀ-ſ∇!?\u2070-\u209F]*/,
     _escaped_identifier: $ =>  /«[^»]*»/,
 
     _maybe_annotated: $ => seq(

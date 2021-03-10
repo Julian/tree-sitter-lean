@@ -227,16 +227,20 @@ example : Foo := ⟨⟩
   (example (identifier) (inductive_constructor (number)))
   (example (identifier) (inductive_constructor)))
 
-===================
-Unicode Identifiers
-===================
+===========
+Identifiers
+===========
 
 #eval foo₁
 #eval x'
+#eval foo!
+#eval foo?
 
 ---
 
 (module
+  (hash_command (identifier))
+  (hash_command (identifier))
   (hash_command (identifier))
   (hash_command (identifier)))
 
@@ -244,11 +248,18 @@ Unicode Identifiers
 Non-Identifiers
 ===============
 
+#eval ₁foo
 #eval 'x
+#eval !foo
+#eval ?foo
 
 ---
 
-(module (hash_command (char (MISSING "'"))))
+(module
+  (hash_command (ERROR (UNEXPECTED 8321)) (identifier))
+  (hash_command (char (MISSING "'")))
+  (hash_command (unary_expression (identifier)))
+  (hash_command (ERROR (UNEXPECTED '?')) (identifier)))
 
 =======
 Product
