@@ -277,6 +277,7 @@ module.exports = grammar({
           field('default', $._expression),
         ),
       ),
+      $._newline,
     ),
 
     _expression: $ => choice(

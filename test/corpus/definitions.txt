@@ -280,7 +280,7 @@ Structure
 structure Point (α : Type u) where
   w : String := "foo"
   x : α
-  y : α
+  y : Foo Bar Baz Quux
   z := 0
 
 ---
@@ -307,7 +307,12 @@ structure Point (α : Type u) where
     fields:
       (field
         name: (identifier)
-        type: (identifier))
+        type:
+          (apply
+            name: (identifier)
+            arguments: (identifier)
+            arguments: (identifier)
+            arguments: (identifier)))
     fields:
       (field
         name: (identifier)
