@@ -1345,6 +1345,10 @@
               {
                 "type": "SYMBOL",
                 "name": "_parameter"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "inductive_constructor"
               }
             ]
           }

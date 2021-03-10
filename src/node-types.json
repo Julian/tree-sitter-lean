@@ -8396,6 +8396,10 @@
           "named": true
         },
         {
+          "type": "inductive_constructor",
+          "named": true
+        },
+        {
           "type": "typeclass_resolved_parameter",
           "named": true
         }

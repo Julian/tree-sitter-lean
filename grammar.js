@@ -238,6 +238,7 @@ module.exports = grammar({
         choice(
           field('name', $.identifier),
           $._parameter,
+          $.inductive_constructor,
         )
       ),
     ),

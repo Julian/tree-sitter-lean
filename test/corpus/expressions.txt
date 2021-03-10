@@ -817,6 +817,24 @@ Anonymous Function via Lambda
   (hash_command
     (lambda (parameters (identifier)) (identifier))))
 
+==========================================
+Anonymous Function With Destructuring Bind
+==========================================
+
+#check λ ⟨a⟩ v ⟨w, x, y⟩ z => a
+
+---
+
+(module
+  (hash_command
+    (lambda
+      (parameters
+        (inductive_constructor (identifier))
+        name: (identifier)
+        (inductive_constructor (identifier) (identifier) (identifier))
+        name: (identifier))
+      (identifier))))
+
 ==============================
 Anonymous Function Application
 ==============================
