@@ -598,6 +598,7 @@ Field Access
 ============
 
 #check FooBar.foo
+#check foo.12
 
 ---
 
@@ -605,7 +606,11 @@ Field Access
   (hash_command
     (field_of
       term: (identifier)
-      name: (identifier))))
+      name: (identifier)))
+  (hash_command
+    (field_of
+      term: (identifier)
+      name: (number))))
 
 ===================
 Nested Field Access

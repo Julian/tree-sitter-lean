@@ -524,7 +524,7 @@ module.exports = grammar({
     field_of: $ => prec(PREC.field_of, seq(
       field('term', $._expression),
       '.',
-      field('name', $.identifier),
+      field('name', choice($.identifier, $.number)),
     )),
 
     unary_expression: $ => prec(PREC.unary, choice(
