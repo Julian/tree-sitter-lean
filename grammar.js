@@ -48,6 +48,7 @@ module.exports = grammar({
       $.section,
       $.example,
       $.def,
+      $.attribute,
       $.structure_definition,
       $.class,
       $.inductive_type,
@@ -128,9 +129,9 @@ module.exports = grammar({
     )),
 
     inductive_type: $ => seq(
-      optional(repeat(
+      repeat(
         choice('noncomputable', 'partial', 'private', 'protected', 'unsafe'),
-      )),
+      ),
       'inductive',
       field('name', $._dotted_name),
       optional(field('parameters', $.parameters)),
@@ -140,9 +141,9 @@ module.exports = grammar({
 
     def: $ => seq(
       optional(field('attributes', $._attributes)),
-      optional(repeat(
+      repeat(
         choice('noncomputable', 'partial', 'private', 'protected', 'unsafe'),
-      )),
+      ),
       'def',
       field('name', $._dotted_name),
       optional(field('parameters', $.parameters)),
@@ -154,9 +155,9 @@ module.exports = grammar({
     ),
 
     structure_definition: $ => seq(
-      optional(repeat(
+      repeat(
         choice('noncomputable', 'partial', 'private', 'protected', 'unsafe'),
-      )),
+      ),
       'structure',
       field('name', $._dotted_name),
       optional(field('parameters', $.parameters)),
@@ -165,9 +166,9 @@ module.exports = grammar({
     ),
 
     class: $ => seq(
-      optional(repeat(
+      repeat(
         choice('noncomputable', 'partial', 'private', 'protected', 'unsafe'),
-      )),
+      ),
       'class',
       field('name', $._dotted_name),
       optional(field('parameters', $.parameters)),
@@ -177,9 +178,9 @@ module.exports = grammar({
 
     instance: $ => seq(
       optional(field('attributes', $._attributes)),
-      optional(repeat(
+      repeat(
         choice('noncomputable', 'partial', 'private', 'protected', 'unsafe'),
-      )),
+      ),
       'instance',
       optional(field('name', $._dotted_name)),
       optional(field('parameters', seq(repeat1($._parameter)))),
@@ -193,9 +194,9 @@ module.exports = grammar({
 
     theorem: $ => seq(
       optional(field('attributes', $._attributes)),
-      optional(repeat(
+      repeat(
         choice('noncomputable', 'partial', 'private', 'protected', 'unsafe'),
-      )),
+      ),
       'theorem',
       field('name', $._dotted_name),
       optional(field('parameters', $.parameters)),
@@ -206,9 +207,9 @@ module.exports = grammar({
     ),
 
     example: $ => seq(
-      optional(repeat(
+      repeat(
         choice('noncomputable', 'partial', 'private', 'protected', 'unsafe'),
-      )),
+      ),
       'example',
       optional(field('parameters', $.parameters)),
       ':',
@@ -219,9 +220,9 @@ module.exports = grammar({
 
     constant: $ => seq(
       optional(field('attributes', $._attributes)),
-      optional(repeat(
+      repeat(
         choice('noncomputable', 'partial', 'private', 'protected', 'unsafe'),
-      )),
+      ),
       'constant',
       field('name', $.identifier),
       ':',
@@ -229,7 +230,7 @@ module.exports = grammar({
     ),
 
     _attributes: $ => seq(
-      '@[', $.identifier, optional(repeat(seq(',', $.identifier))), ']',
+      '@[', $.identifier, repeat(seq(',', $.identifier)), ']',
     ),
 
     parameters: $ => seq(
@@ -369,7 +370,7 @@ module.exports = grammar({
     tactics: $ => prec.left(seq(
       'by',
       $._tactics_command,
-      optional(repeat(seq($._newline, $._tactics_command))),
+      repeat(seq($._newline, $._tactics_command)),
       optional($._newline),
     )),
 
@@ -488,6 +489,14 @@ module.exports = grammar({
       ),
     )),
 
+    attribute: $ => seq(
+      'attribute',
+      '[',
+      field('added', sep1($._expression, ',')),
+      ']',
+      field('term', $._expression),
+    ),
+
     _argument: $ => choice($._expression, $.named_argument),
     named_argument: $ => seq(
       '(', $.identifier, ':=', $._expression, ')',
@@ -565,7 +574,7 @@ module.exports = grammar({
       optional(
         seq(
           $._structure_literal_field,
-          optional(repeat(seq(',', $._structure_literal_field))),
+          repeat(seq(',', $._structure_literal_field)),
           // Unlike everywhere else, records seem OK with trailing commas.
           optional(','),
         ),

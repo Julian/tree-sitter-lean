@@ -716,6 +716,34 @@ Missing Attribute
     name: (identifier)
     body: (number)))
 
+==============================
+Explicit Attribute Declaration
+==============================
+
+attribute [reducible] f
+attribute [simp, inline] Foo
+
+---
+
+(module
+  (attribute
+    added: (identifier)
+    term: (identifier))
+  (attribute
+    added: (identifier)
+    added: (identifier)
+    term: (identifier)))
+
+====================================
+Empty Explicit Attribute Declaration
+====================================
+
+attribute [] f
+
+---
+
+(module (attribute (identifier (MISSING _identifier)) (identifier)))
+
 ======================
 Partial With Attribute
 ======================
