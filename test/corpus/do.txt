@@ -131,13 +131,45 @@ def foo (xs : Array Nat) : Unit := do
           name: (identifier)
           body: (number))
         (for_in
-          name: (identifier)
+          (identifier)
           iterable: (identifier)
           body:
             (do))
               (assign
                 name: (identifier)
                 value: (binary_expression (identifier) (identifier))))))
+
+================================
+For Loop With Destructuring Bind
+================================
+
+def foo (xs : Array (Nat × Nat)) : Unit := do
+  for ⟨x, y⟩ in xs do
+    panic! "foo"
+
+---
+
+(module
+  (def
+    name: (identifier)
+    parameters:
+      (parameters
+        name: (identifier)
+        type:
+          (apply
+            name: (identifier)
+            arguments: (product_type (identifier) (identifier))))
+    return_type: (identifier)
+    body:
+      (do
+        (for_in
+          (inductive_constructor (identifier) (identifier))
+          iterable: (identifier)
+          body:
+            (do))
+              (apply
+                name: (identifier)
+                arguments: (string)))))
 
 =========
 Try/Catch

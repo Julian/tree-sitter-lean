@@ -409,7 +409,7 @@ module.exports = grammar({
 
     for_in: $ => seq(
       'for',
-      field('name', $.identifier),
+      choice($.identifier, $.inductive_constructor),
       'in',
       field('iterable', $._expression),
       field('body', $.do),
