@@ -734,6 +734,25 @@ attribute [simp, inline] Foo
     added: (identifier)
     term: (identifier)))
 
+==========================
+Explicit Attribute Removal
+==========================
+
+attribute [-reducible] f
+attribute [simp, -inline, -reducible] Foo
+
+---
+
+(module
+  (attribute
+    removed: (identifier)
+    term: (identifier))
+  (attribute
+    added: (identifier)
+    removed: (identifier)
+    removed: (identifier)
+    term: (identifier)))
+
 ====================================
 Empty Explicit Attribute Declaration
 ====================================

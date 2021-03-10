@@ -492,7 +492,12 @@ module.exports = grammar({
     attribute: $ => seq(
       'attribute',
       '[',
-      field('added', sep1($._expression, ',')),
+      sep1(
+        choice(
+          field('added', $._expression),
+          field('removed', seq('-', $._expression)),
+        ), ',',
+      ),
       ']',
       field('term', $._expression),
     ),
