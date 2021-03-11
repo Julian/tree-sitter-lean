@@ -120,13 +120,11 @@ module.exports = grammar({
       repeat1($.identifier),
     ),
 
-    function_type: $ => prec(PREC.multitype, seq(
-      $._expression, repeat1(seq($._right_arrow, $._expression)),
-    )),
+    function_type: $ => prec(PREC.multitype,
+      sep2($._expression, $._right_arrow),
+    ),
 
-    product_type: $ => prec.right(PREC.multitype, seq(
-      $._expression, repeat1(seq('×', $._expression)),
-    )),
+    product_type: $ => prec.right(PREC.multitype, sep2($._expression, '×')),
 
     inductive_type: $ => seq(
       repeat(
@@ -229,9 +227,7 @@ module.exports = grammar({
       field('type', $._expression),
     ),
 
-    _attributes: $ => seq(
-      '@[', $.identifier, repeat(seq(',', $.identifier)), ']',
-    ),
+    _attributes: $ => seq('@[', sep1($.identifier, ','), ']'),
 
     parameters: $ => seq(
       repeat1(
@@ -322,12 +318,7 @@ module.exports = grammar({
       ')'
     )),
 
-    product: $ => seq(
-      '(',
-        $._expression,
-        repeat1(seq(',', $._expression)),
-      ')'
-    ),
+    product: $ => seq('(', sep2($._expression, ','), ')'),
 
     conditional: $ => prec.right(seq(
       'if',
@@ -369,12 +360,7 @@ module.exports = grammar({
 
     sorry: $ => 'sorry',
 
-    tactics: $ => prec.left(seq(
-      'by',
-      $._tactics_command,
-      repeat(seq($._newline, $._tactics_command)),
-      optional($._newline),
-    )),
+    tactics: $ => prec.left(seq('by', sep1_($._tactics_command, $._newline))),
 
     rewrite: $ => seq('rewrite', $._expression),
     term: $ => seq('exact', $._expression),
@@ -576,14 +562,8 @@ module.exports = grammar({
     structure_literal: $ => seq(
       '{',
       optional(field('extends', seq($._expression, 'with'))),
-      optional(
-        seq(
-          $._structure_literal_field,
-          repeat(seq(',', $._structure_literal_field)),
-          // Unlike everywhere else, records seem OK with trailing commas.
-          optional(','),
-        ),
-      ),
+      // Unlike everywhere else, records seem OK with trailing commas.
+      optional(sep1_($._structure_literal_field, ',')),
       field('type', optional(seq(':', $._expression))),
       '}',
     ),
@@ -594,19 +574,9 @@ module.exports = grammar({
       field('value', $._expression),
     ),
 
-    inductive_constructor: $ => seq(
-      '⟨',
-      optional($._expression),
-      repeat(seq(',', $._expression)),
-      '⟩',
-    ),
+    inductive_constructor: $ => seq('⟨', sep0($._expression, ','), '⟩'),
 
-    list: $ => seq(
-      '[',
-      optional($._expression),
-      repeat(seq(',', $._expression)),
-      ']',
-    ),
+    list: $ => seq('[', sep0($._expression, ','), ']'),
 
     range: $ => seq(
       '[',
@@ -620,12 +590,7 @@ module.exports = grammar({
       ']',
     ),
 
-    array: $ => seq(
-      '#[',
-      optional($._expression),
-      repeat(seq(',', $._expression)),
-      ']',
-    ),
+    array: $ => seq('#[', sep0($._expression, ','), ']'),
 
     char: $ => seq("'", choice($.escape_sequence, /[^']/), "'"),
     string: $ => seq(
@@ -699,6 +664,18 @@ module.exports = grammar({
   }
 });
 
+function sep0 (rule, separator) {
+  return seq(optional(rule), repeat(seq(separator, rule)))
+}
+
 function sep1 (rule, separator) {
   return seq(rule, repeat(seq(separator, rule)))
+}
+
+function sep2 (rule, separator) {
+  return seq(rule, repeat1(seq(separator, rule)))
+}
+
+function sep1_ (rule, separator) {
+  return seq(sep1(rule, separator), optional(separator))
 }
