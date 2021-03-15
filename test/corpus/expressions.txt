@@ -227,6 +227,21 @@ example : Foo := ⟨⟩
   (example (identifier) (inductive_constructor (number)))
   (example (identifier) (inductive_constructor)))
 
+=============================
+Invalid Inductive Constructor
+=============================
+
+example : Foo := ⟨,⟩
+example : Foo := ⟨, 1⟩
+example : Foo := ⟨, 2,⟩
+
+---
+
+(module
+  (example (identifier) (inductive_constructor (ERROR)))
+  (example (identifier) (inductive_constructor (ERROR) (number)))
+  (example (identifier) (inductive_constructor (ERROR) (number) (ERROR))))
+
 ===========
 Identifiers
 ===========

@@ -682,7 +682,7 @@ module.exports = grammar({
 });
 
 function sep0 (rule, separator) {
-  return seq(optional(rule), repeat(seq(separator, rule)))
+  return optional(sep1(rule, separator))
 }
 
 function sep1 (rule, separator) {
