@@ -168,7 +168,7 @@ Slice Does Not Have Step
 (module
   (hash_command
     (index
-      (identifier) (number) (apply (number) (ERROR) (number)))))
+      (identifier) (number) (ERROR (number)) (number))))
 
 ========================
 Slice Does Not Have Copy
@@ -790,11 +790,13 @@ $ Application
     (apply (identifier) (identifier)
       (apply (identifier) (binary_expression (number) (number)))))
   (hash_command
-    (apply (apply (identifier) (identifier))
-      (apply (identifier) (binary_expression (number) (number)))))
+    (apply
+      (apply (identifier) (identifier))
+        (apply (identifier) (binary_expression (number) (number)))))
   (hash_command
-    (apply (apply (identifier) (identifier))
-      (apply (identifier) (binary_expression (number) (number))))))
+    (apply
+      (apply (identifier) (identifier))
+        (apply (identifier) (binary_expression (number) (number))))))
 
 ==================
 Anonymous Function
@@ -1120,3 +1122,22 @@ theorem baz : (afweio)» := 12
   (def
     name: (identifier)
     body: (number)))
+
+======
+Unless
+======
+
+#check (unless true do PUnit.unit : PUnit)
+
+---
+
+(module
+  (hash_command
+    (coe
+      term:
+        (unless (true)
+          (do
+            (field_of
+              term: (identifier)
+              name: (identifier))))
+      type: (identifier))))

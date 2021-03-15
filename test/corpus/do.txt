@@ -32,19 +32,20 @@ def main : IO UInt32 := do do
         name: (identifier)
         arguments: (identifier))
     body:
-      (do (do)
-        (apply
-          name:
-            (field_of
-              term: (identifier)
-              name: (identifier))
-          arguments: (string))
-        (apply
-          name:
-            (field_of
-              term: (identifier)
-              name: (identifier))
-          arguments: (string)))))
+      (do
+        (do
+          (apply
+            name:
+              (field_of
+                term: (identifier)
+                name: (identifier))
+            arguments: (string))
+          (apply
+            name:
+              (field_of
+                term: (identifier)
+                name: (identifier))
+            arguments: (string))))))
 
 ==========
 Let (Bind)
@@ -134,10 +135,10 @@ def foo (xs : Array Nat) : Unit := do
           (identifier)
           iterable: (identifier)
           body:
-            (do))
+            (do
               (assign
                 name: (identifier)
-                value: (binary_expression (identifier) (identifier))))))
+                value: (binary_expression (identifier) (identifier))))))))
 
 ================================
 For Loop With Destructuring Bind
@@ -166,10 +167,10 @@ def foo (xs : Array (Nat × Nat)) : Unit := do
           (inductive_constructor (identifier) (identifier))
           iterable: (identifier)
           body:
-            (do))
+            (do
               (apply
                 name: (identifier)
-                arguments: (string)))))
+                arguments: (string)))))))
 
 =========
 Try/Catch
@@ -203,11 +204,10 @@ def f : IO Unit := do
 ---
 
 (module
-  (def (identifier) (apply (identifier) (identifier))
-    (do))
-      (ERROR
-        (apply (identifier) (identifier))
-        (ERROR) (throw (identifier))))
+  (def (identifier) (apply (identifier) (identifier)))
+    (ERROR
+      (apply (identifier) (identifier))
+      (ERROR) (throw (identifier))))
 
 ===========
 Try/Finally
@@ -248,8 +248,8 @@ def f : IO Unit := do
     (do
       (try
         (apply (identifier) (string))
-        (catch (identifier) (throw (identifier)))
-        (finally (apply (identifier) (string)))))))
+        (catch (identifier) (throw (identifier))))
+        (finally (apply (identifier) (string))))))
 
 ===================
 No Catch or Finally
@@ -262,8 +262,45 @@ def f : IO Unit := do
 ---
 
 (module
+  (def (identifier) (apply (identifier) (identifier)))
+    (ERROR (apply (identifier) (string))))
+
+===============
+Return One Line
+===============
+
+#check (do return PUnit.unit : PUnit)
+
+---
+
+(module
+  (hash_command
+    (coe
+      term:
+        (do
+          (return
+            value:
+              (field_of
+                term: (identifier)
+                name: (identifier))))
+      type: (identifier))))
+
+============
+Try One Line
+============
+
+def f : IO Unit := do try println! "foo" catch ex => throw ex finally println! "bar"
+
+---
+
+(module
   (def (identifier) (apply (identifier) (identifier))
-    (do)) (ERROR (apply (identifier) (string))))
+    (do
+      (try
+        (apply (identifier) (string))
+        (catch (identifier)
+          (throw (identifier)))
+        (finally (apply (identifier) (string)))))))
 
 ======
 Return
@@ -308,7 +345,96 @@ def check : IO Unit := do
         arguments: (identifier))
       body:
         (do
-          (unless (true) (do))
-          (apply
+          (unless
+            (true)
+            (do
+              (apply
+                name: (identifier)
+                arguments: (string)))))))
+
+================
+Do In Definition
+================
+
+instance : do return ToString Nat where
+  toString (d : Nat) : String := "Foo"
+
+---
+
+(module
+  (instance
+    class:
+      (do
+        (return
+          value:
+            (apply
+              name: (identifier)
+              arguments: (identifier))))
+    fields:
+      (instance_field
+        name: (identifier)
+        parameters:
+          (parameters
             name: (identifier)
-            arguments: (string)))))
+            type: (identifier))
+        return_type: (identifier)
+        body: (string))))
+
+=======
+If/Then
+=======
+
+#check (do if true then return PUnit.unit : PUnit)
+
+---
+
+(module
+  (hash_command
+    (coe
+      (do
+        (conditional_when
+          (true)
+          (return (field_of (identifier) (identifier)))))
+      (identifier))))
+
+===================
+Nested If/Then/Else
+===================
+
+#check if true then do if false then false else false else true
+
+---
+
+(module
+  (hash_command
+    (conditional
+      (true)
+      (do (conditional (false) (false) (false)))
+      (true))))
+
+===============
+Bare Identifier
+===============
+
+#check (do true : Bool)
+
+---
+
+(module (hash_command (coe (do (true)) (identifier))))
+
+=================================
+If Condition Function Application
+=================================
+
+#check (if foo 2 then do PUnit.unit else PUnit.unit : PUnit)
+
+---
+
+(module
+  (hash_command
+    (coe
+      (conditional
+        (apply (identifier) (number))
+        (do (field_of (identifier) (identifier)))
+        (field_of (identifier) (identifier)))
+      (identifier))))

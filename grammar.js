@@ -31,7 +31,8 @@ module.exports = grammar({
   ],
 
   conflicts: $ => [
-    [$.typeclass_resolved_parameter, $._expression],
+    [$.typeclass_resolved_parameter, $._primary_expression],
+    [$.assign, $._primary_expression],
   ],
 
   word: $ => $._identifier,
@@ -278,6 +279,14 @@ module.exports = grammar({
     ),
 
     _expression: $ => choice(
+      $._primary_expression,
+      $.apply,
+      $.comparison,
+      $.do,
+      $.unless,
+    ),
+
+    _primary_expression: $ => choice(
       $.sorry,
       $.identifier,
       $.coe,
@@ -287,14 +296,11 @@ module.exports = grammar({
       $.product_type,
       $.product,
       $.index,
-      $.comparison,
       $.conditional,
       $.field_of,
       $.match,
-      $.apply,
       $.lambda,
       $.let,
-      $.do,
       $.tactics,
       $.unary_expression,
       $.binary_expression,
@@ -320,7 +326,7 @@ module.exports = grammar({
 
     product: $ => seq('(', sep2($._expression, ','), ')'),
 
-    conditional: $ => prec.right(seq(
+    conditional: $ => prec.right(1, seq(
       'if',
       $._expression,
       'then',
@@ -383,16 +389,23 @@ module.exports = grammar({
         $.let_bind,
         $.let_mut,
         $.try,
+        $.finally,
         $.throw,
-        $.unless,
+        $.conditional_when,
         $.return,
       ),
-      $._newline,
     ),
 
-    do: $ => prec.right(seq('do', repeat($._do_command))),
+    do: $ => prec.right(seq('do', sep1_($._do_command, $._newline))),
 
     mutable_specifier: $ => 'mut',
+
+    conditional_when: $ => prec.right(seq(
+      'if',
+      $._expression,
+      'then',
+      $._do_command,
+    )),
 
     for_in: $ => seq(
       'for',
@@ -424,12 +437,12 @@ module.exports = grammar({
 
     throw: $ => seq('throw', $._expression),
 
-    unless: $ => seq('unless', $._expression, $._expression),
+    unless: $ => seq('unless', $._expression, $.do),
 
     // FIXME: nesting (which depends on the indent processing)
-    try: $ => prec.left(seq(
+    try: $ => prec.left(1, seq(
       'try',
-      repeat1($._do_command),
+      sep1_($._do_command, $._newline),
       choice(
         seq($.catch, optional($.finally)),
         $.finally,
@@ -439,15 +452,17 @@ module.exports = grammar({
       'catch',
       $._expression,
       '=>',
-      repeat1($._do_command),
+      sep1_($._do_command, $._newline),
     )),
 
-    finally: $ => seq(
+    finally: $ => prec.left(seq(
       'finally',
-      repeat1($._do_command),
-    ),
+      sep1_($._do_command, $._newline),
+    )),
 
-    return: $ => seq('return', field('value', optional($._expression))),
+    return: $ => prec.right(
+      seq('return', field('value', optional($._expression))),
+    ),
 
     match: $ => prec.left(seq(
       'match',
@@ -496,7 +511,7 @@ module.exports = grammar({
     apply: $ => choice($._apply, $._dollar),
 
     _apply: $ => prec(PREC.apply, seq(
-      field('name', $._expression),
+      field('name', $._primary_expression),
       field('arguments', repeat1($._argument)),
     )),
 
