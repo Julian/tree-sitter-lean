@@ -318,6 +318,53 @@ structure Point (α : Type u) where
         name: (identifier)
         default: (number))))
 
+=================
+Structure Extends
+=================
+
+structure Bar extends Foo where
+  bit : Bool
+
+class Baz extends Quux where
+  bit : Bool
+
+---
+
+(module
+  (structure_definition
+    name: (identifier)
+    extends: (identifier)
+    fields:
+      (field
+        name: (identifier)
+        type: (identifier)))
+  (class
+    name: (identifier)
+    extends: (identifier)
+    fields: (field name: (identifier) type: (identifier))))
+
+==========================
+Structure Multiple Extends
+==========================
+
+structure Bar extends Foo, Bar α where
+  bit : Bool
+
+---
+
+(module
+  (structure_definition
+    name: (identifier)
+    extends: (identifier)
+    extends:
+      (apply
+        name: (identifier)
+        arguments: (identifier))
+    fields:
+      (field
+        name: (identifier)
+        type: (identifier))))
+
 =====
 Class
 =====
