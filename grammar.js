@@ -31,8 +31,8 @@ module.exports = grammar({
   ],
 
   conflicts: $ => [
-    [$.typeclass_resolved_parameter, $._primary_expression],
-    [$.assign, $._primary_expression],
+    [$.typeclass_resolved_parameter, $._atom],
+    [$.assign, $._atom],
   ],
 
   word: $ => $._identifier,
@@ -289,11 +289,17 @@ module.exports = grammar({
       $.unless,
     ),
 
+    _atom: $ => choice(
+      $._parenthesized_expression,
+      $.identifier,
+      $.number,
+      $.unary_expression,
+    ),
+
     _primary_expression: $ => choice(
       $.sorry,
-      $.identifier,
       $.coe,
-      $._parenthesized_expression,
+      $._atom,
       $.explicit,
       $.function_type,
       $.product_type,
@@ -305,9 +311,7 @@ module.exports = grammar({
       $.lambda,
       $.let,
       $.tactics,
-      $.unary_expression,
       $.binary_expression,
-      $.number,
       $.float,
       $.char,
       $.string,
@@ -496,12 +500,7 @@ module.exports = grammar({
     attribute: $ => seq(
       'attribute',
       '[',
-      sep1(
-        choice(
-          field('added', $._expression),
-          field('removed', seq('-', $._expression)),
-        ), ',',
-      ),
+      sep1(field('name', $._atom), ','),
       ']',
       field('term', $._expression),
     ),
@@ -532,6 +531,7 @@ module.exports = grammar({
     )),
 
     unary_expression: $ => prec(PREC.unary, choice(
+      seq('-', $._atom),
       seq('!', $._expression),
     )),
 

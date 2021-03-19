@@ -779,11 +779,11 @@ attribute [simp, inline] Foo
 
 (module
   (attribute
-    added: (identifier)
+    name: (identifier)
     term: (identifier))
   (attribute
-    added: (identifier)
-    added: (identifier)
+    name: (identifier)
+    name: (identifier)
     term: (identifier)))
 
 ==========================
@@ -797,12 +797,12 @@ attribute [simp, -inline, -reducible] Foo
 
 (module
   (attribute
-    removed: (identifier)
+    name: (unary_expression (identifier))
     term: (identifier))
   (attribute
-    added: (identifier)
-    removed: (identifier)
-    removed: (identifier)
+    name: (identifier)
+    name: (unary_expression (identifier))
+    name: (unary_expression (identifier))
     term: (identifier)))
 
 ====================================
