@@ -8160,6 +8160,10 @@
             "named": false
           },
           {
+            "type": ",",
+            "named": false
+          },
+          {
             "type": "apply",
             "named": true
           },

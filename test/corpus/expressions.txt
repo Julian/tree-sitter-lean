@@ -724,6 +724,37 @@ def foo (d : Bar) : Baz :=
             lhs: (identifier)
             (number)))))
 
+==============
+Match Multiple
+==============
+
+def foo (a b c : Nat) :=
+  match a, b, c with
+  | _, _, _ => true
+
+---
+
+(module
+  (def
+    name: (identifier)
+    parameters:
+      (parameters
+        name: (identifier)
+        name: (identifier)
+        name: (identifier)
+        type: (identifier))
+    body:
+      (match
+        value: (identifier)
+        value: (identifier)
+        value: (identifier)
+        patterns:
+          (pattern
+            lhs: (identifier)
+            lhs: (identifier)
+            lhs: (identifier)
+            (true)))))
+
 ================
 Match Expression
 ================

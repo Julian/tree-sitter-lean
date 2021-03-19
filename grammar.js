@@ -473,7 +473,7 @@ module.exports = grammar({
 
     match: $ => prec.left(seq(
       'match',
-      field('value', $._expression),
+      field('value', sep1($._expression, ',')),
       'with',
       field('patterns', repeat1($.pattern)),
     )),
