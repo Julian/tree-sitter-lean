@@ -80,6 +80,20 @@ open Foo Bar Baz.Quux
     namespace: (identifier)
     namespace: (identifier)))
 
+=======
+Open In
+=======
+
+open Foo in
+  def baz := bar
+
+---
+
+(module
+  (open
+    namespace: (identifier)
+      (def name: (identifier) body: (identifier))))
+
 ======================
 Open With Missing Name
 ======================
