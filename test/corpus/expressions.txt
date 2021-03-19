@@ -365,6 +365,7 @@ Negatives
 =========
 
 #eval -2
+#eval -2.0
 #eval -foo
 #eval - -2
 #eval - -foo
@@ -375,6 +376,7 @@ Negatives
 
 (module
   (hash_command (unary_expression (number)))
+  (hash_command (unary_expression (float)))
   (hash_command (unary_expression (identifier)))
   (hash_command (unary_expression (unary_expression (number))))
   (hash_command (unary_expression (unary_expression (identifier))))
@@ -490,6 +492,7 @@ example : 4 = 4 % 5 := rfl
 #eval false && false || true
 #eval true || false && false
 #eval 2 ^ 3 * 7 + 2
+#eval -2.0 ^ 3 * 7
 
 ---
 
@@ -538,6 +541,10 @@ example : 4 = 4 % 5 := rfl
       (binary_expression
         (binary_expression (number) (number))
         (number))
+      (number)))
+  (hash_command
+    (binary_expression
+      (binary_expression (unary_expression (float)) (number))
       (number))))
 
 ==========

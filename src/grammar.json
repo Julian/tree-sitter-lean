@@ -1713,6 +1713,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "float"
+        },
+        {
+          "type": "SYMBOL",
           "name": "number"
         },
         {
@@ -1783,10 +1787,6 @@
         {
           "type": "SYMBOL",
           "name": "binary_expression"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "float"
         },
         {
           "type": "SYMBOL",

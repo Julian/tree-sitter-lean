@@ -292,6 +292,7 @@ module.exports = grammar({
     _atom: $ => choice(
       $._parenthesized_expression,
       $.identifier,
+      $.float,
       $.number,
       $.unary_expression,
     ),
@@ -312,7 +313,6 @@ module.exports = grammar({
       $.let,
       $.tactics,
       $.binary_expression,
-      $.float,
       $.char,
       $.string,
       $.interpolated_string,
