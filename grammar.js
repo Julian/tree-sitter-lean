@@ -33,6 +33,8 @@ module.exports = grammar({
   conflicts: $ => [
     [$.typeclass_resolved_parameter, $._atom],
     [$.assign, $._atom],
+    [$.inductive_type, $.def, $.structure_definition,
+     $.class, $.instance, $.theorem, $.example, $.constant],
   ],
 
   word: $ => $._identifier,
@@ -129,12 +131,11 @@ module.exports = grammar({
     product_type: $ => prec.right(PREC.multitype, sep2($._expression, '×')),
 
     inductive_type: $ => seq(
-      repeat(
-        choice('noncomputable', 'partial', 'private', 'protected', 'unsafe'),
-      ),
+      repeat(choice('private', 'protected', 'unsafe')),
       'inductive',
       field('name', $._dotted_name),
       optional(field('parameters', $.parameters)),
+      optional(seq(':', field('type', $._atom))),
       optional('where'),
       optional(field('constructors', repeat1($.constructor))),
     ),

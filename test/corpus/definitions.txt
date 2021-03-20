@@ -700,11 +700,12 @@ private inductive T1 : Type
 ---
 
 (module
-  (inductive_type (identifier) (ERROR) (parameters (identifier))) (comment)
-  (inductive_type (identifier) (ERROR) (parameters (identifier))) (comment)
-  (ERROR (identifier)
-    (ERROR (comment))
-      (ERROR) (comment)))
+  (ERROR) (inductive_type (identifier) (identifier)) (comment)
+  (ERROR) (inductive_type (identifier) (identifier)) (comment)
+  (ERROR (identifier))
+  (inductive_type (identifier) (identifier)) (comment)
+  (inductive_type (identifier) (identifier) (constructor))
+    (ERROR (comment)))
 
 ==========
 Attributes
@@ -945,6 +946,19 @@ inductive Bit where | bit0 | bit1
     constructors:
       (constructor
         name: (identifier))))
+
+========================
+Inductive Type With Type
+========================
+
+inductive Foo : Bar
+
+---
+
+(module
+  (inductive_type
+    name: (identifier)
+    type: (identifier)))
 
 =================
 Inline Namespaced
