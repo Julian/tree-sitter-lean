@@ -1036,12 +1036,10 @@ def foo :=
   (def
     name: (identifier)
     body:
-      (apply
-        name:
-          (let
-            name: (identifier)
-            body: (number))
-        arguments: (identifier))))
+      (let
+        name: (identifier)
+        value: (number)
+        body: (identifier))))
 
 =============
 Let Annotated
@@ -1057,13 +1055,11 @@ def foo :=
   (def
     name: (identifier)
     body:
-      (apply
-        name:
-          (let
-            name: (identifier)
-            type: (identifier)
-            body: (number))
-        arguments: (identifier))))
+      (let
+        name: (identifier)
+        type: (identifier)
+        value: (number)
+        body: (identifier))))
 
 ============
 Let Function
@@ -1080,22 +1076,47 @@ def foo : Nat :=
     name: (identifier)
     return_type: (identifier)
     body:
-      (apply
-        name:
-          (let
+      (let
+        name: (identifier)
+        parameters:
+          (parameters
             name: (identifier)
             name: (identifier)
+            type: (identifier))
+        value: (binary_expression (identifier) (identifier))
+        body:
+          (apply
             name: (identifier)
-            type: (identifier)
-            body: (binary_expression (identifier) (identifier)))
-        arguments:
-          (identifier)
-        arguments:
-          (identifier)
-        arguments:
-          (number)
-        arguments:
-          (number))))
+            arguments: (identifier)
+            arguments: (number)
+            arguments: (number)))))
+
+============================
+Let Function Bare Parameters
+============================
+
+def foo :=
+let f a b := 2
+f true false
+
+---
+
+(module
+  (def
+    name: (identifier)
+    body:
+      (let
+        name: (identifier)
+        parameters:
+          (parameters
+            name: (identifier)
+            name: (identifier))
+        value: (number)
+        body:
+          (apply
+            name: (identifier)
+            arguments: (true)
+            arguments: (false)))))
 
 ==============
 Let Semicolons
@@ -1127,33 +1148,57 @@ def quux :=
 
 (module
   (def (identifier)
-    (apply
-      (let (identifier) (number))
-      (let (identifier) (number))
-      (let (identifier) (number))
-      (binary_expression (binary_expression (identifier) (identifier))
-      (identifier))))
+    (let
+      (identifier)
+      (number)
+      (let
+        (identifier)
+        (number)
+        (let
+          (identifier)
+          (number)
+          (binary_expression
+            (binary_expression (identifier) (identifier))
+            (identifier))))))
   (def (identifier)
-    (apply
-      (let (identifier) (number))
-      (let (identifier) (number))
-      (let (identifier) (number))
-      (binary_expression (binary_expression (identifier) (identifier))
-      (identifier))))
+    (let
+      (identifier)
+      (number)
+      (let
+        (identifier)
+        (number)
+        (let
+          (identifier)
+          (number)
+          (binary_expression
+            (binary_expression (identifier) (identifier))
+            (identifier))))))
   (def (identifier)
-    (apply
-      (let (identifier) (number))
-      (let (identifier) (number))
-      (let (identifier) (number))
-      (binary_expression (binary_expression (identifier) (identifier))
-      (identifier))))
+    (let
+      (identifier)
+      (number)
+      (let
+        (identifier)
+        (number)
+        (let
+          (identifier)
+          (number)
+          (binary_expression
+            (binary_expression (identifier) (identifier))
+            (identifier))))))
   (def (identifier)
-    (apply
-      (let (identifier) (number))
-      (let (identifier) (number))
-      (let (identifier) (number))
-      (binary_expression (binary_expression (identifier) (identifier))
-      (identifier)))))
+    (let
+      (identifier)
+      (number)
+      (let
+        (identifier)
+        (number)
+        (let
+          (identifier)
+          (number)
+          (binary_expression
+            (binary_expression (identifier) (identifier))
+            (identifier)))))))
 
 ==========
 No Let Mut
@@ -1169,12 +1214,13 @@ def foo :=
   (def
     name: (identifier)
     body:
-      (apply
-        name:
-          (let
-            name: (identifier)
-            (ERROR)
-            body: (number)) arguments: (identifier))))
+      (let
+        name: (identifier)
+        parameters:
+          (parameters
+            name: (identifier))
+        value: (number)
+        body: (identifier))))
 
 ============
 No Let Arrow

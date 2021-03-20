@@ -286,6 +286,7 @@ module.exports = grammar({
       $.apply,
       $.comparison,
       $.do,
+      $.let,
       $.unless,
     ),
 
@@ -310,7 +311,6 @@ module.exports = grammar({
       $.field_of,
       $.match,
       $.lambda,
-      $.let,
       $.tactics,
       $.binary_expression,
       $.char,
@@ -363,12 +363,13 @@ module.exports = grammar({
 
     let: $ => prec.left(seq(
       'let',
-      optional(field('name', $._dotted_name)),
-      optional(field('parameters', seq(repeat1($._parameter)))),
+      field('name', $._dotted_name),
+      optional(field('parameters', $.parameters)),
       optional(seq(':', field('type', $._expression))),
       ':=',
-      field('body', $._expression),
+      field('value', $._expression),
       choice($._newline, ';'),
+      optional(field('body', $._expression)),
     )),
 
     sorry: $ => 'sorry',
@@ -439,7 +440,7 @@ module.exports = grammar({
       'let',
       field('name', $.identifier),
       $._left_arrow,
-      field('body', $._expression),
+      field('value', $._expression),
     ),
 
     throw: $ => seq('throw', $._expression),

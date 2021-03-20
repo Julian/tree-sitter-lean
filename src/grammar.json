@@ -1696,6 +1696,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "let"
+        },
+        {
+          "type": "SYMBOL",
           "name": "unless"
         }
       ]
@@ -1775,10 +1779,6 @@
         {
           "type": "SYMBOL",
           "name": "lambda"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "let"
         },
         {
           "type": "SYMBOL",
@@ -2040,20 +2040,12 @@
             "value": "let"
           },
           {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "FIELD",
-                "name": "name",
-                "content": {
-                  "type": "SYMBOL",
-                  "name": "_dotted_name"
-                }
-              },
-              {
-                "type": "BLANK"
-              }
-            ]
+            "type": "FIELD",
+            "name": "name",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_dotted_name"
+            }
           },
           {
             "type": "CHOICE",
@@ -2062,16 +2054,8 @@
                 "type": "FIELD",
                 "name": "parameters",
                 "content": {
-                  "type": "SEQ",
-                  "members": [
-                    {
-                      "type": "REPEAT1",
-                      "content": {
-                        "type": "SYMBOL",
-                        "name": "_parameter"
-                      }
-                    }
-                  ]
+                  "type": "SYMBOL",
+                  "name": "parameters"
                 }
               },
               {
@@ -2110,7 +2094,7 @@
           },
           {
             "type": "FIELD",
-            "name": "body",
+            "name": "value",
             "content": {
               "type": "SYMBOL",
               "name": "_expression"
@@ -2126,6 +2110,22 @@
               {
                 "type": "STRING",
                 "value": ";"
+              }
+            ]
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "FIELD",
+                "name": "body",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_expression"
+                }
+              },
+              {
+                "type": "BLANK"
               }
             ]
           }
@@ -2527,7 +2527,7 @@
         },
         {
           "type": "FIELD",
-          "name": "body",
+          "name": "value",
           "content": {
             "type": "SYMBOL",
             "name": "_expression"

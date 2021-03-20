@@ -83,7 +83,7 @@ def f : Unit := do
         (let
           name: (identifier)
           type: (identifier)
-          body: (number)))))
+          value: (number)))))
 
 ===========
 Let Mutable

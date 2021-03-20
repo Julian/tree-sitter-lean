@@ -6940,7 +6940,7 @@
     "fields": {
       "body": {
         "multiple": true,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": "(",
@@ -7082,7 +7082,7 @@
       },
       "name": {
         "multiple": true,
-        "required": false,
+        "required": true,
         "types": [
           {
             "type": ".",
@@ -7095,6 +7095,16 @@
         ]
       },
       "parameters": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "parameters",
+            "named": true
+          }
+        ]
+      },
+      "type": {
         "multiple": true,
         "required": false,
         "types": [
@@ -7104,10 +7114,6 @@
           },
           {
             "type": ")",
-            "named": false
-          },
-          {
-            "type": ":",
             "named": false
           },
           {
@@ -7164,10 +7170,6 @@
           },
           {
             "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "implicit_parameter",
             "named": true
           },
           {
@@ -7235,10 +7237,6 @@
             "named": true
           },
           {
-            "type": "typeclass_resolved_parameter",
-            "named": true
-          },
-          {
             "type": "unary_expression",
             "named": true
           },
@@ -7248,9 +7246,9 @@
           }
         ]
       },
-      "type": {
+      "value": {
         "multiple": true,
-        "required": false,
+        "required": true,
         "types": [
           {
             "type": "(",
@@ -7258,10 +7256,6 @@
           },
           {
             "type": ")",
-            "named": false
-          },
-          {
-            "type": ":",
             "named": false
           },
           {
@@ -7400,7 +7394,17 @@
     "type": "let_bind",
     "named": true,
     "fields": {
-      "body": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "value": {
         "multiple": true,
         "required": true,
         "types": [
@@ -7538,16 +7542,6 @@
           },
           {
             "type": "unless",
-            "named": true
-          }
-        ]
-      },
-      "name": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "identifier",
             "named": true
           }
         ]
