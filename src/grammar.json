@@ -2515,7 +2515,7 @@
         },
         {
           "type": "FIELD",
-          "name": "body",
+          "name": "value",
           "content": {
             "type": "SYMBOL",
             "name": "_expression"
@@ -4399,6 +4399,16 @@
     [
       "assign",
       "_atom"
+    ],
+    [
+      "inductive_type",
+      "def",
+      "structure_definition",
+      "class",
+      "instance",
+      "theorem",
+      "example",
+      "constant"
     ]
   ],
   "precedences": [],

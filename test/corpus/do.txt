@@ -102,7 +102,7 @@ def bar : Unit := do
       (do
         (let_mut
           name: (identifier)
-          body: (number)))))
+          value: (number)))))
 
 ========
 For Loop
@@ -130,7 +130,7 @@ def foo (xs : Array Nat) : Unit := do
       (do
         (let_mut
           name: (identifier)
-          body: (number))
+          value: (number))
         (for_in
           (identifier)
           iterable: (identifier)
