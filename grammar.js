@@ -1,5 +1,6 @@
 const PREC = {
   dollar: -5,
+  quantified: -4,
   equal: -3,
   compare: -2,
   apply: -1,
@@ -316,6 +317,7 @@ module.exports = grammar({
       $.conditional,
       $.field_of,
       $.match,
+      $.quantified,
       $.lambda,
       $.tactics,
       $.binary_expression,
@@ -601,6 +603,13 @@ module.exports = grammar({
     ),
 
     inductive_constructor: $ => seq('⟨', sep0($._expression, ','), '⟩'),
+
+    quantified: $ => prec(PREC.quantified, seq(
+      choice('∀', '∃'),
+      field('binders', $.parameters),
+      ',',
+      field('body', $._expression),
+    )),
 
     list: $ => seq('[', sep0($._expression, ','), ']'),
 

@@ -1259,3 +1259,48 @@ Unless
               term: (identifier)
               name: (identifier))))
       type: (identifier))))
+
+===========
+Quantifiers
+===========
+
+#check ∀ x, ∃ y, x + y = x
+#check ∃ (x y : Nat), ∀ w, w + x + y + z = x
+
+---
+
+(module
+  (hash_command
+    (quantified
+      binders:
+        (parameters
+          name: (identifier))
+      body:
+        (quantified
+          binders:
+            (parameters
+              name: (identifier))
+          body:
+            (binary_expression
+              (binary_expression (identifier) (identifier))
+              (identifier)))))
+  (hash_command
+    (quantified
+      binders:
+        (parameters
+          name: (identifier)
+          name: (identifier)
+          type: (identifier))
+      body:
+        (quantified
+          binders:
+            (parameters
+              name: (identifier))
+          body:
+            (binary_expression
+              (binary_expression
+                (binary_expression
+                  (binary_expression (identifier) (identifier))
+                  (identifier))
+                (identifier))
+              (identifier))))))
