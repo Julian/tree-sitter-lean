@@ -538,6 +538,7 @@ module.exports = grammar({
     )),
 
     unary_expression: $ => prec(PREC.unary, choice(
+      seq('¬', $._expression),
       seq('-', $._atom),
       seq('!', $._expression),
     )),

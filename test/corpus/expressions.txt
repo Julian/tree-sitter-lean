@@ -360,9 +360,9 @@ Nested If/Then/Else
       (conditional (false) (string) (string))
       (string))))
 
-=========
-Negatives
-=========
+==========
+- Negation
+==========
 
 #eval -2
 #eval -2.0
@@ -385,9 +385,9 @@ Negatives
     (unary_expression
       (unary_expression (binary_expression (number) (number))))))
 
-======================
-Negatives But Comments
-======================
+=======================
+- Negation But Comments
+=======================
 
 #eval --2
 #eval --foo
@@ -396,13 +396,29 @@ Negatives But Comments
 
 (module (ERROR (comment) (comment)))
 
-========
-Negation
-========
+==========
+! Negation
+==========
 
 #eval !true
 #eval !!!true
 #eval !foo
+
+---
+
+(module
+  (hash_command (unary_expression (true)))
+  (hash_command
+    (unary_expression (unary_expression (unary_expression (true)))))
+  (hash_command (unary_expression (identifier))))
+
+==========
+¬ Negation
+==========
+
+#eval ¬true
+#eval ¬¬¬true
+#eval ¬foo
 
 ---
 
