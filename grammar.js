@@ -48,6 +48,7 @@ module.exports = grammar({
       $.import,
       $.open,
       $.namespace,
+      $.notation,
       $.section,
       $.example,
       $.def,
@@ -76,6 +77,10 @@ module.exports = grammar({
     hash_command: $ => seq(
       choice('#check', '#check_failure', '#eval', '#print', '#reduce'),
       $._expression,
+    ),
+
+    notation: $ => seq(
+      'notation', $._expression, '=>', $._expression,
     ),
 
     constructor: $ => seq(
