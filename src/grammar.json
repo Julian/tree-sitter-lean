@@ -4348,6 +4348,10 @@
       "members": [
         {
           "type": "SYMBOL",
+          "name": "_lambda_magic_identifier"
+        },
+        {
+          "type": "SYMBOL",
           "name": "_identifier"
         },
         {
@@ -4363,6 +4367,19 @@
     "_escaped_identifier": {
       "type": "PATTERN",
       "value": "«[^»]*»"
+    },
+    "_lambda_magic_identifier": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "."
+        },
+        {
+          "type": "STRING",
+          "value": "·"
+        }
+      ]
     },
     "_maybe_annotated": {
       "type": "SEQ",

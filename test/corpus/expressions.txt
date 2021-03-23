@@ -988,6 +988,21 @@ Anonymous Function Match With Additional Argument
       arguments:
         (number))))
 
+==========================
+Sugared Anonymous Function
+==========================
+
+#check (· + 2)
+#check (. + 2)
+
+---
+
+(module
+  (hash_command
+    (binary_expression (identifier) (number)))
+  (hash_command
+    (binary_expression (identifier) (number))))
+
 =================
 Explicit Function
 =================
