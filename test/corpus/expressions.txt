@@ -452,6 +452,7 @@ Binary Expressions
 #eval times2 <| add1 <| 100
 #eval foo <|> bar
 #eval 'B' == 'B' || 'B' == 'C'
+#check f ∘ g ∘ h
 
 ---
 (module
@@ -489,7 +490,11 @@ Binary Expressions
   (hash_command
     (binary_expression
       (binary_expression (char) (char))
-      (binary_expression (char) (char)))))
+      (binary_expression (char) (char))))
+  (hash_command
+    (binary_expression
+      (identifier)
+      (binary_expression (identifier) (identifier)))))
 
 ==========
 Precedence
