@@ -95,8 +95,10 @@ module.exports = grammar({
       field('name', $.identifier),
       optional(field('parameters', $.parameters)),
       optional(seq(':', field('return_type', $._expression))),
-      ':=',
-      field('body', $._expression),
+      field('body', choice(
+        seq(':=', $._expression),
+        repeat1($.pattern),
+      )),
     ),
 
     export: $ => seq(

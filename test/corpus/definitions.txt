@@ -585,6 +585,30 @@ instance : ToString Foo where
           (parameters name: (identifier))
         body: (string))))
 
+================================
+Instance With Match Syntax Sugar
+================================
+
+instance : ToString Foo where
+  toString
+  | _ => "foo"
+
+---
+
+(module
+  (instance
+    class:
+      (apply
+        name: (identifier)
+        arguments: (identifier))
+    fields:
+      (instance_field
+        name: (identifier)
+        body:
+          (pattern
+            lhs: (identifier)
+            (string)))))
+
 =======
 Example
 =======

@@ -6642,6 +6642,10 @@
             "named": false
           },
           {
+            "type": ":=",
+            "named": false
+          },
+          {
             "type": "apply",
             "named": true
           },
@@ -6727,6 +6731,10 @@
           },
           {
             "type": "number",
+            "named": true
+          },
+          {
+            "type": "pattern",
             "named": true
           },
           {
