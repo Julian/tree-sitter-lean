@@ -999,6 +999,7 @@ Sugared Anonymous Function
 
 #check (· + 2)
 #check (. + 2)
+#eval twice (. + 2) 10
 
 ---
 
@@ -1006,7 +1007,11 @@ Sugared Anonymous Function
   (hash_command
     (binary_expression (identifier) (number)))
   (hash_command
-    (binary_expression (identifier) (number))))
+    (binary_expression (identifier) (number)))
+  (hash_command
+    (apply
+      (identifier)
+      (binary_expression (identifier) (number)) (number))))
 
 =================
 Explicit Function

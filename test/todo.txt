@@ -19,21 +19,6 @@ Negative
   (hash_command (unary_expression (identifier)))
   (hash_command (apply (identifier) (unary_expression (number)))))
 
-===================
-Lambda Syntax Sugar
-===================
-
-#eval twice (. + 2) 10
-
----
-
-(module
-  (eval_command
-    (apply (identifier)
-      (number)
-      (lambda (identifier) (binary_expression (identifier) (number)) (number))
-      (number))))
-
 ==============
 String With --
 ==============
