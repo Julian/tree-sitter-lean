@@ -2,23 +2,6 @@ This file contains some tests that are written but fail for now.
 
 (So they won't execute at all...)
 
-========
-Negative
-========
-
-#check -3
-#check -3.4
-#check -foo
-#check id -3
-
----
-
-(module
-  (hash_command (unary_expression (number)))
-  (hash_command (unary_expression (float)))
-  (hash_command (unary_expression (identifier)))
-  (hash_command (apply (identifier) (unary_expression (number)))))
-
 ==============
 String With --
 ==============
