@@ -7,13 +7,3 @@ String With --
 ==============
 
 #eval "--"
-
-====
-Else
-====
-
-def else := 3
-
----
-
-(module (def (ERROR)))
