@@ -699,7 +699,7 @@ module.exports = grammar({
       $._identifier,
       $._escaped_identifier,
     ),
-    _identifier: $ => /[_a-zA-ZͰ-ϿĀ-ſ∇][_`'`a-zA-Z0-9Ͱ-ϿĀ-ſ∇!?\u2070-\u209F]*/,
+    _identifier: $ => /[_a-zA-ZͰ-ϿĀ-ſ\U0001D400-\U0001D7FF][_`'`a-zA-Z0-9Ͱ-ϿĀ-ſ∇!?\u2070-\u209F\U0001D400-\U0001D7FF]*/,
     _escaped_identifier: $ =>  /«[^»]*»/,
     _lambda_magic_identifier: $ => choice('.', '·'),
 

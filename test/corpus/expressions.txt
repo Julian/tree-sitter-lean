@@ -250,10 +250,12 @@ Identifiers
 #eval x'
 #eval foo!
 #eval foo?
+#eval 𝒞
 
 ---
 
 (module
+  (hash_command (identifier))
   (hash_command (identifier))
   (hash_command (identifier))
   (hash_command (identifier))
