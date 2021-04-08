@@ -441,7 +441,7 @@ module.exports = grammar({
 
     let_mut: $ => seq(
       'let', 'mut',
-      field('name', $._maybe_annotated),
+      $.parameters,
       choice($._left_arrow, ':='),
       field('value', $._expression),
     ),

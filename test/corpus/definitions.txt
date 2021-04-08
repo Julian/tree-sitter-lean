@@ -369,7 +369,7 @@ structure Bar extends Foo, Bar α where
 Class
 =====
 
-class Add (a : Type) where
+class Quux (a : Type) where
   foo : String := "foo"
   add : a -> a -> a
   bar := 0
@@ -1275,4 +1275,4 @@ def foo :=
     name: (identifier)
     (ERROR (identifier))
     body:
-      (apply name: (number) arguments: (identifier))))
+      (apply name: (unary_expression (number)) arguments: (identifier))))

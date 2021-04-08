@@ -101,7 +101,8 @@ def bar : Unit := do
     body:
       (do
         (let_mut
-          name: (identifier)
+          (parameters
+            name: (identifier))
           value: (number)))))
 
 ========
@@ -129,7 +130,8 @@ def foo (xs : Array Nat) : Unit := do
     body:
       (do
         (let_mut
-          name: (identifier)
+          (parameters
+            name: (identifier))
           value: (number))
         (for_in
           (identifier)

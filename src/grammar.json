@@ -2539,12 +2539,8 @@
           "value": "mut"
         },
         {
-          "type": "FIELD",
-          "name": "name",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_maybe_annotated"
-          }
+          "type": "SYMBOL",
+          "name": "parameters"
         },
         {
           "type": "CHOICE",
