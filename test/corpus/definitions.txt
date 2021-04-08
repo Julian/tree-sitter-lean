@@ -373,6 +373,7 @@ class Quux (a : Type) where
   foo : String := "foo"
   add : a -> a -> a
   bar := 0
+  baz {x : String} : String
 
 ---
 
@@ -395,7 +396,16 @@ class Quux (a : Type) where
     fields:
       (field
         name: (identifier)
-        default: (number))))
+        default: (number))
+    fields:
+      (field
+        name: (identifier)
+        parameters:
+          (parameters
+            (implicit_parameter
+              name: (identifier)
+              type: (identifier)))
+        type: (identifier))))
 
 ========
 Instance

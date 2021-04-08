@@ -280,7 +280,9 @@ module.exports = grammar({
     ),
 
     field: $ => seq(
-      $._maybe_annotated,
+      field('name', $.identifier),
+      optional(field('parameters', $.parameters)),
+      optional(field('type', seq(':', $._expression))),
       optional(
         seq(
           ':=',
@@ -702,11 +704,6 @@ module.exports = grammar({
     _identifier: $ => /[_a-zA-ZͰ-ϿĀ-ſ\U0001D400-\U0001D7FF][_`'`a-zA-Z0-9Ͱ-ϿĀ-ſ∇!?\u2070-\u209F\U0001D400-\U0001D7FF]*/,
     _escaped_identifier: $ =>  /«[^»]*»/,
     _lambda_magic_identifier: $ => choice('.', '·'),
-
-    _maybe_annotated: $ => seq(
-      field('name', $.identifier),
-      field('type', optional(seq(':', $._expression))),
-    ),
 
     number: $ => /\d+/,
     float: $ => /\d+\.\d*/,

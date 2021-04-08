@@ -3896,6 +3896,16 @@
           }
         ]
       },
+      "parameters": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "parameters",
+            "named": true
+          }
+        ]
+      },
       "type": {
         "multiple": true,
         "required": false,
