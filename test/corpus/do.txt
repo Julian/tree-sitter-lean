@@ -440,3 +440,20 @@ If Condition Function Application
         (do (field_of (identifier) (identifier)))
         (field_of (identifier) (identifier)))
       (identifier))))
+
+==========
+Left Arrow
+==========
+
+#check (do if ← foo then return PUnit.unit : PUnit)
+
+---
+
+(module
+  (hash_command
+    (coe
+      (do
+        (conditional_when
+            (unary_expression (identifier))
+            (return (field_of (identifier) (identifier)))))
+        (identifier))))
