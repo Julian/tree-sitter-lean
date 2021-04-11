@@ -1,0 +1,9 @@
+======
+Syntax
+======
+
+syntax "foo" : tactic
+
+---
+
+(module (syntax (string) (identifier)))

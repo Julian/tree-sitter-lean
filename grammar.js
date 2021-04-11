@@ -63,6 +63,7 @@ module.exports = grammar({
       $.variable_declaration,
       $.constant,
       $.universe,
+      $.syntax,
     ),
 
     prelude: $ => 'prelude',
@@ -542,6 +543,8 @@ module.exports = grammar({
       '.',
       field('name', choice($.identifier, $.number)),
     )),
+
+    syntax: $ => seq('syntax', $.string, ':', $.identifier),
 
     unary_expression: $ => prec(PREC.unary, choice(
       seq('←', $._expression),

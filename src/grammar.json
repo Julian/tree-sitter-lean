@@ -87,6 +87,10 @@
         {
           "type": "SYMBOL",
           "name": "universe"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "syntax"
         }
       ]
     },
@@ -3258,6 +3262,27 @@
           }
         ]
       }
+    },
+    "syntax": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "syntax"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "string"
+        },
+        {
+          "type": "STRING",
+          "value": ":"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        }
+      ]
     },
     "unary_expression": {
       "type": "PREC",

@@ -8448,6 +8448,10 @@
           "named": true
         },
         {
+          "type": "syntax",
+          "named": true
+        },
+        {
           "type": "theorem",
           "named": true
         },
@@ -8675,6 +8679,10 @@
           },
           {
             "type": "structure_definition",
+            "named": true
+          },
+          {
+            "type": "syntax",
             "named": true
           },
           {
@@ -8941,6 +8949,10 @@
         },
         {
           "type": "structure_definition",
+          "named": true
+        },
+        {
+          "type": "syntax",
           "named": true
         },
         {
@@ -10696,6 +10708,10 @@
             "named": true
           },
           {
+            "type": "syntax",
+            "named": true
+          },
+          {
             "type": "theorem",
             "named": true
           },
@@ -11416,6 +11432,25 @@
           }
         ]
       }
+    }
+  },
+  {
+    "type": "syntax",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -13271,6 +13306,10 @@
   },
   {
     "type": "structure",
+    "named": false
+  },
+  {
+    "type": "syntax",
     "named": false
   },
   {
