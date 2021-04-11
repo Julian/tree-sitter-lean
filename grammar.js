@@ -49,7 +49,6 @@ module.exports = grammar({
       $.import,
       $.open,
       $.namespace,
-      $.notation,
       $.section,
       $.example,
       $.def,
@@ -63,6 +62,8 @@ module.exports = grammar({
       $.variable_declaration,
       $.constant,
       $.universe,
+
+      $.notation,
       $.syntax,
     ),
 
@@ -79,10 +80,6 @@ module.exports = grammar({
     hash_command: $ => seq(
       choice('#check', '#check_failure', '#eval', '#print', '#reduce'),
       $._expression,
-    ),
-
-    notation: $ => seq(
-      'notation', $._expression, '=>', $._expression,
     ),
 
     constructor: $ => seq(
@@ -544,6 +541,8 @@ module.exports = grammar({
       field('name', choice($.identifier, $.number)),
     )),
 
+    // src/Lean/Parser/Syntax.lean
+    notation: $ => seq('notation', $._expression, '=>', $._expression),
     syntax: $ => seq('syntax', $._primary_expression, ':', $.identifier),
 
     unary_expression: $ => prec(PREC.unary, choice(

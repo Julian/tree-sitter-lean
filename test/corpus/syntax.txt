@@ -1,3 +1,16 @@
+========
+Notation
+========
+
+notation " ♔ " => Foo.bar
+
+---
+
+(module
+  (notation
+    (string)
+    (field_of (identifier) (identifier))))
+
 ======
 Syntax
 ======
