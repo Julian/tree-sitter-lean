@@ -2307,8 +2307,17 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "rewrite"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "rewrite"
+            },
+            {
+              "type": "STRING",
+              "value": "rw"
+            }
+          ]
         },
         {
           "type": "SYMBOL",

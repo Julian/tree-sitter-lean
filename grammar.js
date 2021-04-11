@@ -390,7 +390,7 @@ module.exports = grammar({
     tactics: $ => prec.left(seq('by', sep1_($._tactic, $._newline))),
 
     apply_tactic: $ => seq('apply', $._expression),
-    rewrite: $ => seq('rewrite', $._expression),
+    rewrite: $ => seq(choice('rewrite', 'rw'), $._expression),
     term: $ => seq('exact', $._expression),
     simp: $ => prec.right(seq(
       'simp',
