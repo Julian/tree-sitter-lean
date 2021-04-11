@@ -116,6 +116,10 @@
             "named": true
           },
           {
+            "type": "quoted_tactic",
+            "named": true
+          },
+          {
             "type": "range",
             "named": true
           },
@@ -266,6 +270,10 @@
             "named": true
           },
           {
+            "type": "quoted_tactic",
+            "named": true
+          },
+          {
             "type": "range",
             "named": true
           },
@@ -412,6 +420,10 @@
             "named": true
           },
           {
+            "type": "quoted_tactic",
+            "named": true
+          },
+          {
             "type": "range",
             "named": true
           },
@@ -553,6 +565,10 @@
         },
         {
           "type": "quantified",
+          "named": true
+        },
+        {
+          "type": "quoted_tactic",
           "named": true
         },
         {
@@ -717,6 +733,10 @@
             "named": true
           },
           {
+            "type": "quoted_tactic",
+            "named": true
+          },
+          {
             "type": "range",
             "named": true
           },
@@ -869,6 +889,10 @@
             "named": true
           },
           {
+            "type": "quoted_tactic",
+            "named": true
+          },
+          {
             "type": "range",
             "named": true
           },
@@ -1015,6 +1039,10 @@
             "named": true
           },
           {
+            "type": "quoted_tactic",
+            "named": true
+          },
+          {
             "type": "range",
             "named": true
           },
@@ -1156,6 +1184,10 @@
         },
         {
           "type": "quantified",
+          "named": true
+        },
+        {
+          "type": "quoted_tactic",
           "named": true
         },
         {
@@ -1323,6 +1355,10 @@
         },
         {
           "type": "quantified",
+          "named": true
+        },
+        {
+          "type": "quoted_tactic",
           "named": true
         },
         {
@@ -1512,6 +1548,10 @@
             "named": true
           },
           {
+            "type": "quoted_tactic",
+            "named": true
+          },
+          {
             "type": "range",
             "named": true
           },
@@ -1698,6 +1738,10 @@
             "named": true
           },
           {
+            "type": "quoted_tactic",
+            "named": true
+          },
+          {
             "type": "range",
             "named": true
           },
@@ -1841,6 +1885,10 @@
           },
           {
             "type": "quantified",
+            "named": true
+          },
+          {
+            "type": "quoted_tactic",
             "named": true
           },
           {
@@ -1988,6 +2036,10 @@
           "named": true
         },
         {
+          "type": "quoted_tactic",
+          "named": true
+        },
+        {
           "type": "range",
           "named": true
         },
@@ -2128,6 +2180,10 @@
         },
         {
           "type": "quantified",
+          "named": true
+        },
+        {
+          "type": "quoted_tactic",
           "named": true
         },
         {
@@ -2295,6 +2351,10 @@
         },
         {
           "type": "quantified",
+          "named": true
+        },
+        {
+          "type": "quoted_tactic",
           "named": true
         },
         {
@@ -2493,6 +2553,10 @@
             "named": true
           },
           {
+            "type": "quoted_tactic",
+            "named": true
+          },
+          {
             "type": "range",
             "named": true
           },
@@ -2667,6 +2731,10 @@
             "named": true
           },
           {
+            "type": "quoted_tactic",
+            "named": true
+          },
+          {
             "type": "range",
             "named": true
           },
@@ -2818,6 +2886,10 @@
           },
           {
             "type": "quantified",
+            "named": true
+          },
+          {
+            "type": "quoted_tactic",
             "named": true
           },
           {
@@ -3003,6 +3075,10 @@
             "named": true
           },
           {
+            "type": "quoted_tactic",
+            "named": true
+          },
+          {
             "type": "range",
             "named": true
           },
@@ -3170,6 +3246,10 @@
           },
           {
             "type": "quantified",
+            "named": true
+          },
+          {
+            "type": "quoted_tactic",
             "named": true
           },
           {
@@ -3341,6 +3421,10 @@
           "named": true
         },
         {
+          "type": "quoted_tactic",
+          "named": true
+        },
+        {
           "type": "range",
           "named": true
         },
@@ -3504,6 +3588,10 @@
             "named": true
           },
           {
+            "type": "quoted_tactic",
+            "named": true
+          },
+          {
             "type": "range",
             "named": true
           },
@@ -3657,6 +3745,10 @@
           },
           {
             "type": "quantified",
+            "named": true
+          },
+          {
+            "type": "quoted_tactic",
             "named": true
           },
           {
@@ -3853,6 +3945,10 @@
             "named": true
           },
           {
+            "type": "quoted_tactic",
+            "named": true
+          },
+          {
             "type": "range",
             "named": true
           },
@@ -4023,6 +4119,10 @@
             "named": true
           },
           {
+            "type": "quoted_tactic",
+            "named": true
+          },
+          {
             "type": "range",
             "named": true
           },
@@ -4186,6 +4286,10 @@
           },
           {
             "type": "quantified",
+            "named": true
+          },
+          {
+            "type": "quoted_tactic",
             "named": true
           },
           {
@@ -4354,6 +4458,10 @@
         },
         {
           "type": "quantified",
+          "named": true
+        },
+        {
+          "type": "quoted_tactic",
           "named": true
         },
         {
@@ -4530,6 +4638,10 @@
             "named": true
           },
           {
+            "type": "quoted_tactic",
+            "named": true
+          },
+          {
             "type": "range",
             "named": true
           },
@@ -4688,6 +4800,10 @@
           "named": true
         },
         {
+          "type": "quoted_tactic",
+          "named": true
+        },
+        {
           "type": "range",
           "named": true
         },
@@ -4828,6 +4944,10 @@
         },
         {
           "type": "quantified",
+          "named": true
+        },
+        {
+          "type": "quoted_tactic",
           "named": true
         },
         {
@@ -4998,6 +5118,10 @@
           },
           {
             "type": "quantified",
+            "named": true
+          },
+          {
+            "type": "quoted_tactic",
             "named": true
           },
           {
@@ -5173,6 +5297,10 @@
             "named": true
           },
           {
+            "type": "quoted_tactic",
+            "named": true
+          },
+          {
             "type": "range",
             "named": true
           },
@@ -5316,6 +5444,10 @@
           },
           {
             "type": "quantified",
+            "named": true
+          },
+          {
+            "type": "quoted_tactic",
             "named": true
           },
           {
@@ -5465,6 +5597,10 @@
             "named": true
           },
           {
+            "type": "quoted_tactic",
+            "named": true
+          },
+          {
             "type": "range",
             "named": true
           },
@@ -5611,6 +5747,10 @@
             "named": true
           },
           {
+            "type": "quoted_tactic",
+            "named": true
+          },
+          {
             "type": "range",
             "named": true
           },
@@ -5752,6 +5892,10 @@
         },
         {
           "type": "quantified",
+          "named": true
+        },
+        {
+          "type": "quoted_tactic",
           "named": true
         },
         {
@@ -5940,6 +6084,10 @@
             "named": true
           },
           {
+            "type": "quoted_tactic",
+            "named": true
+          },
+          {
             "type": "range",
             "named": true
           },
@@ -6118,6 +6266,10 @@
             "named": true
           },
           {
+            "type": "quoted_tactic",
+            "named": true
+          },
+          {
             "type": "range",
             "named": true
           },
@@ -6265,6 +6417,10 @@
           },
           {
             "type": "quantified",
+            "named": true
+          },
+          {
+            "type": "quoted_tactic",
             "named": true
           },
           {
@@ -6446,6 +6602,10 @@
             "named": true
           },
           {
+            "type": "quoted_tactic",
+            "named": true
+          },
+          {
             "type": "range",
             "named": true
           },
@@ -6597,6 +6757,10 @@
           },
           {
             "type": "quantified",
+            "named": true
+          },
+          {
+            "type": "quoted_tactic",
             "named": true
           },
           {
@@ -6757,6 +6921,10 @@
           },
           {
             "type": "quantified",
+            "named": true
+          },
+          {
+            "type": "quoted_tactic",
             "named": true
           },
           {
@@ -6926,6 +7094,10 @@
             "named": true
           },
           {
+            "type": "quoted_tactic",
+            "named": true
+          },
+          {
             "type": "range",
             "named": true
           },
@@ -7089,6 +7261,10 @@
           "named": true
         },
         {
+          "type": "quoted_tactic",
+          "named": true
+        },
+        {
           "type": "range",
           "named": true
         },
@@ -7240,6 +7416,10 @@
           "named": true
         },
         {
+          "type": "quoted_tactic",
+          "named": true
+        },
+        {
           "type": "range",
           "named": true
         },
@@ -7388,6 +7568,10 @@
           },
           {
             "type": "quantified",
+            "named": true
+          },
+          {
+            "type": "quoted_tactic",
             "named": true
           },
           {
@@ -7561,6 +7745,10 @@
             "named": true
           },
           {
+            "type": "quoted_tactic",
+            "named": true
+          },
+          {
             "type": "range",
             "named": true
           },
@@ -7704,6 +7892,10 @@
           },
           {
             "type": "quantified",
+            "named": true
+          },
+          {
+            "type": "quoted_tactic",
             "named": true
           },
           {
@@ -7869,6 +8061,10 @@
             "named": true
           },
           {
+            "type": "quoted_tactic",
+            "named": true
+          },
+          {
             "type": "range",
             "named": true
           },
@@ -8018,6 +8214,10 @@
           },
           {
             "type": "quantified",
+            "named": true
+          },
+          {
+            "type": "quoted_tactic",
             "named": true
           },
           {
@@ -8175,6 +8375,10 @@
           "named": true
         },
         {
+          "type": "quoted_tactic",
+          "named": true
+        },
+        {
           "type": "range",
           "named": true
         },
@@ -8204,6 +8408,21 @@
         },
         {
           "type": "unless",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "macro_rules",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "pattern",
           "named": true
         }
       ]
@@ -8340,6 +8559,10 @@
             "named": true
           },
           {
+            "type": "quoted_tactic",
+            "named": true
+          },
+          {
             "type": "range",
             "named": true
           },
@@ -8421,6 +8644,10 @@
         },
         {
           "type": "instance",
+          "named": true
+        },
+        {
+          "type": "macro_rules",
           "named": true
         },
         {
@@ -8575,6 +8802,10 @@
           "named": true
         },
         {
+          "type": "quoted_tactic",
+          "named": true
+        },
+        {
           "type": "range",
           "named": true
         },
@@ -8655,6 +8886,10 @@
           },
           {
             "type": "instance",
+            "named": true
+          },
+          {
+            "type": "macro_rules",
             "named": true
           },
           {
@@ -8830,6 +9065,10 @@
           "named": true
         },
         {
+          "type": "quoted_tactic",
+          "named": true
+        },
+        {
           "type": "range",
           "named": true
         },
@@ -8925,6 +9164,10 @@
         },
         {
           "type": "instance",
+          "named": true
+        },
+        {
+          "type": "macro_rules",
           "named": true
         },
         {
@@ -9098,6 +9341,10 @@
           },
           {
             "type": "quantified",
+            "named": true
+          },
+          {
+            "type": "quoted_tactic",
             "named": true
           },
           {
@@ -9275,6 +9522,10 @@
             "named": true
           },
           {
+            "type": "quoted_tactic",
+            "named": true
+          },
+          {
             "type": "range",
             "named": true
           },
@@ -9411,6 +9662,10 @@
         },
         {
           "type": "quantified",
+          "named": true
+        },
+        {
+          "type": "quoted_tactic",
           "named": true
         },
         {
@@ -9557,6 +9812,10 @@
           "named": true
         },
         {
+          "type": "quoted_tactic",
+          "named": true
+        },
+        {
           "type": "range",
           "named": true
         },
@@ -9697,6 +9956,10 @@
         },
         {
           "type": "quantified",
+          "named": true
+        },
+        {
+          "type": "quoted_tactic",
           "named": true
         },
         {
@@ -9861,6 +10124,10 @@
             "named": true
           },
           {
+            "type": "quoted_tactic",
+            "named": true
+          },
+          {
             "type": "range",
             "named": true
           },
@@ -9894,6 +10161,21 @@
           }
         ]
       }
+    }
+  },
+  {
+    "type": "quoted_tactic",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -10010,6 +10292,10 @@
           },
           {
             "type": "quantified",
+            "named": true
+          },
+          {
+            "type": "quoted_tactic",
             "named": true
           },
           {
@@ -10159,6 +10445,10 @@
             "named": true
           },
           {
+            "type": "quoted_tactic",
+            "named": true
+          },
+          {
             "type": "range",
             "named": true
           },
@@ -10302,6 +10592,10 @@
           },
           {
             "type": "quantified",
+            "named": true
+          },
+          {
+            "type": "quoted_tactic",
             "named": true
           },
           {
@@ -10457,6 +10751,10 @@
             "named": true
           },
           {
+            "type": "quoted_tactic",
+            "named": true
+          },
+          {
             "type": "range",
             "named": true
           },
@@ -10601,6 +10899,10 @@
           "named": true
         },
         {
+          "type": "quoted_tactic",
+          "named": true
+        },
+        {
           "type": "range",
           "named": true
         },
@@ -10681,6 +10983,10 @@
           },
           {
             "type": "instance",
+            "named": true
+          },
+          {
+            "type": "macro_rules",
             "named": true
           },
           {
@@ -10903,6 +11209,10 @@
             "named": true
           },
           {
+            "type": "quoted_tactic",
+            "named": true
+          },
+          {
             "type": "range",
             "named": true
           },
@@ -11089,6 +11399,10 @@
             "named": true
           },
           {
+            "type": "quoted_tactic",
+            "named": true
+          },
+          {
             "type": "range",
             "named": true
           },
@@ -11253,6 +11567,10 @@
             "named": true
           },
           {
+            "type": "quoted_tactic",
+            "named": true
+          },
+          {
             "type": "range",
             "named": true
           },
@@ -11399,6 +11717,10 @@
             "named": true
           },
           {
+            "type": "quoted_tactic",
+            "named": true
+          },
+          {
             "type": "range",
             "named": true
           },
@@ -11540,6 +11862,10 @@
         },
         {
           "type": "quantified",
+          "named": true
+        },
+        {
+          "type": "quoted_tactic",
           "named": true
         },
         {
@@ -11706,6 +12032,10 @@
         },
         {
           "type": "quantified",
+          "named": true
+        },
+        {
+          "type": "quoted_tactic",
           "named": true
         },
         {
@@ -11882,6 +12212,10 @@
             "named": true
           },
           {
+            "type": "quoted_tactic",
+            "named": true
+          },
+          {
             "type": "range",
             "named": true
           },
@@ -12052,6 +12386,10 @@
             "named": true
           },
           {
+            "type": "quoted_tactic",
+            "named": true
+          },
+          {
             "type": "range",
             "named": true
           },
@@ -12193,6 +12531,10 @@
         },
         {
           "type": "quantified",
+          "named": true
+        },
+        {
+          "type": "quoted_tactic",
           "named": true
         },
         {
@@ -12364,6 +12706,10 @@
         },
         {
           "type": "quantified",
+          "named": true
+        },
+        {
+          "type": "quoted_tactic",
           "named": true
         },
         {
@@ -12544,6 +12890,10 @@
             "named": true
           },
           {
+            "type": "quoted_tactic",
+            "named": true
+          },
+          {
             "type": "range",
             "named": true
           },
@@ -12685,6 +13035,10 @@
         },
         {
           "type": "quantified",
+          "named": true
+        },
+        {
+          "type": "quoted_tactic",
           "named": true
         },
         {
@@ -12843,6 +13197,10 @@
         },
         {
           "type": "quantified",
+          "named": true
+        },
+        {
+          "type": "quoted_tactic",
           "named": true
         },
         {
@@ -13008,6 +13366,10 @@
           },
           {
             "type": "quantified",
+            "named": true
+          },
+          {
+            "type": "quoted_tactic",
             "named": true
           },
           {
@@ -13257,6 +13619,10 @@
     "named": false
   },
   {
+    "type": "`(tactic|",
+    "named": false
+  },
+  {
     "type": "attribute",
     "named": false
   },
@@ -13358,6 +13724,10 @@
   },
   {
     "type": "let",
+    "named": false
+  },
+  {
+    "type": "macro_rules",
     "named": false
   },
   {

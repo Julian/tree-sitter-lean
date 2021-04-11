@@ -11,6 +11,25 @@ notation " ♔ " => Foo.bar
     (string)
     (field_of (identifier) (identifier))))
 
+===========
+Macro Rules
+===========
+
+macro_rules
+  | `(tactic| foo) => `(tactic|trivial)
+  | `(tactic| bar) => `(tactic|rfl)
+
+---
+
+(module
+  (macro_rules
+    (pattern
+      (quoted_tactic (identifier))
+      (quoted_tactic (identifier)))
+    (pattern
+      (quoted_tactic (identifier))
+      (quoted_tactic (identifier)))))
+
 ======
 Syntax
 ======

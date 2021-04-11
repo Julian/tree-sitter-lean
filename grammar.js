@@ -64,6 +64,7 @@ module.exports = grammar({
       $.universe,
 
       $.notation,
+      $.macro_rules,
       $.syntax,
     ),
 
@@ -305,6 +306,8 @@ module.exports = grammar({
       $.float,
       $.number,
       $.unary_expression,
+
+      $.quoted_tactic,
     ),
 
     _primary_expression: $ => choice(
@@ -542,7 +545,10 @@ module.exports = grammar({
     )),
 
     // src/Lean/Parser/Syntax.lean
+    quoted_tactic: $ => seq('`(tactic|', $.identifier, ')'),
+
     notation: $ => seq('notation', $._expression, '=>', $._expression),
+    macro_rules: $ => seq('macro_rules', repeat($.pattern)),
     syntax: $ => seq('syntax', $._primary_expression, ':', $.identifier),
 
     unary_expression: $ => prec(PREC.unary, choice(
