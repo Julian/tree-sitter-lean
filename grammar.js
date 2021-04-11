@@ -544,7 +544,7 @@ module.exports = grammar({
       field('name', choice($.identifier, $.number)),
     )),
 
-    syntax: $ => seq('syntax', $.string, ':', $.identifier),
+    syntax: $ => seq('syntax', $._primary_expression, ':', $.identifier),
 
     unary_expression: $ => prec(PREC.unary, choice(
       seq('←', $._expression),

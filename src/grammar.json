@@ -3272,7 +3272,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "string"
+          "name": "_primary_expression"
         },
         {
           "type": "STRING",

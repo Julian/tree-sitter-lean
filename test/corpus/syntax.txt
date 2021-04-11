@@ -3,7 +3,10 @@ Syntax
 ======
 
 syntax "foo" : tactic
+syntax str : tactic
 
 ---
 
-(module (syntax (string) (identifier)))
+(module
+  (syntax (string) (identifier))
+  (syntax (identifier) (identifier)))
