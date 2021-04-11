@@ -212,8 +212,10 @@ module.exports = grammar({
       optional(field('parameters', $.parameters)),
       ':',
       field('type', $._expression),
-      ':=',
-      field('body', $._expression),
+      field('body', choice(
+        seq(':=', $._expression),
+        repeat($.pattern),
+      )),
     ),
 
     example: $ => seq(

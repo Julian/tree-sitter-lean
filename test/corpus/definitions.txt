@@ -273,6 +273,36 @@ theorem bar : 2 * 3 = 3 * 2 := Nat.mul_comm 2 3
         arguments: (number)
         arguments: (number))))
 
+=======================
+Theorem With Match Body
+=======================
+
+theorem foo {p : α × β} :
+  p = p ↔ p = p
+  | (p1, p2), (q1, q2) => sorry
+
+---
+
+(module
+  (theorem
+    name: (identifier)
+    parameters:
+      (parameters
+        (implicit_parameter
+          name: (identifier)
+          type: (product_type (identifier) (identifier))))
+    type:
+      (binary_expression
+        (binary_expression
+          (identifier)
+          (binary_expression (identifier) (identifier)))
+        (identifier))
+    body:
+      (pattern
+        lhs: (product (identifier) (identifier))
+        lhs: (product (identifier) (identifier))
+        (sorry))))
+
 =========
 Structure
 =========
