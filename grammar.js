@@ -387,19 +387,23 @@ module.exports = grammar({
 
     sorry: $ => 'sorry',
 
-    tactics: $ => prec.left(seq('by', sep1_($._tactics_command, $._newline))),
+    tactics: $ => prec.left(seq('by', sep1_($._tactic, $._newline))),
 
+    apply_tactic: $ => seq('apply', $._expression),
     rewrite: $ => seq('rewrite', $._expression),
     term: $ => seq('exact', $._expression),
     simp: $ => prec.right(seq(
       'simp',
       optional(field('extra', $.list)),
     )),
+    trivial: $ => 'trivial',
 
-    _tactics_command: $ => choice(
+    _tactic: $ => choice(
+      $.apply_tactic,
       $.rewrite,
       $.simp,
       $.term,
+      $.trivial,
     ),
 
     _do_command: $ => seq(
@@ -545,7 +549,9 @@ module.exports = grammar({
     )),
 
     // src/Lean/Parser/Syntax.lean
-    quoted_tactic: $ => seq('`(tactic|', $.identifier, ')'),
+    quoted_tactic: $ => seq(
+      '`(tactic|', choice($._tactic, $._expression), ')',
+    ),
 
     notation: $ => seq('notation', $._expression, '=>', $._expression),
     macro_rules: $ => seq('macro_rules', repeat($.pattern)),

@@ -17,7 +17,7 @@ Macro Rules
 
 macro_rules
   | `(tactic| foo) => `(tactic|trivial)
-  | `(tactic| bar) => `(tactic|rfl)
+  | `(tactic| bar) => `(tactic|apply foo bar)
 
 ---
 
@@ -25,10 +25,10 @@ macro_rules
   (macro_rules
     (pattern
       (quoted_tactic (identifier))
-      (quoted_tactic (identifier)))
+      (quoted_tactic (trivial)))
     (pattern
       (quoted_tactic (identifier))
-      (quoted_tactic (identifier)))))
+      (quoted_tactic (apply_tactic (apply (identifier) (identifier)))))))
 
 ======
 Syntax

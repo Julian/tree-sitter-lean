@@ -2253,7 +2253,7 @@
                 "members": [
                   {
                     "type": "SYMBOL",
-                    "name": "_tactics_command"
+                    "name": "_tactic"
                   },
                   {
                     "type": "REPEAT",
@@ -2266,7 +2266,7 @@
                         },
                         {
                           "type": "SYMBOL",
-                          "name": "_tactics_command"
+                          "name": "_tactic"
                         }
                       ]
                     }
@@ -2289,6 +2289,19 @@
           }
         ]
       }
+    },
+    "apply_tactic": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "apply"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_expression"
+        }
+      ]
     },
     "rewrite": {
       "type": "SEQ",
@@ -2345,9 +2358,17 @@
         ]
       }
     },
-    "_tactics_command": {
+    "trivial": {
+      "type": "STRING",
+      "value": "trivial"
+    },
+    "_tactic": {
       "type": "CHOICE",
       "members": [
+        {
+          "type": "SYMBOL",
+          "name": "apply_tactic"
+        },
         {
           "type": "SYMBOL",
           "name": "rewrite"
@@ -2359,6 +2380,10 @@
         {
           "type": "SYMBOL",
           "name": "term"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "trivial"
         }
       ]
     },
@@ -3258,8 +3283,17 @@
           "value": "`(tactic|"
         },
         {
-          "type": "SYMBOL",
-          "name": "identifier"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_tactic"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_expression"
+            }
+          ]
         },
         {
           "type": "STRING",

@@ -117,3 +117,15 @@ example : 2 = 2 := by simp [foo, bar]
       (tactics
         (simp
           extra: (list (identifier) (identifier))))))
+
+=====
+Apply
+=====
+
+example : true ↔ true := by apply Iff.intro
+
+---
+
+(module
+  (example (binary_expression (true) (true))
+    (tactics (apply_tactic (field_of (identifier) (identifier))))))
