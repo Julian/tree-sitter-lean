@@ -1809,6 +1809,10 @@
         {
           "type": "SYMBOL",
           "name": "unless"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tactics"
         }
       ]
     },
@@ -1895,10 +1899,6 @@
         {
           "type": "SYMBOL",
           "name": "lambda"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "tactics"
         },
         {
           "type": "SYMBOL",
@@ -2388,6 +2388,10 @@
       "type": "STRING",
       "value": "trivial"
     },
+    "user_tactic": {
+      "type": "SYMBOL",
+      "name": "_expression"
+    },
     "_tactic": {
       "type": "CHOICE",
       "members": [
@@ -2410,6 +2414,10 @@
         {
           "type": "SYMBOL",
           "name": "trivial"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "user_tactic"
         }
       ]
     },
@@ -4848,6 +4856,14 @@
     [
       "assign",
       "_atom"
+    ],
+    [
+      "user_tactic",
+      "_expression"
+    ],
+    [
+      "user_tactic",
+      "quoted_tactic"
     ],
     [
       "inductive_type",

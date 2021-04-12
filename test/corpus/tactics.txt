@@ -129,3 +129,21 @@ example : true ↔ true := by apply Iff.intro
 (module
   (example (binary_expression (true) (true))
     (tactics (apply_tactic (field_of (identifier) (identifier))))))
+
+========================
+Some Unknown User Tactic
+========================
+
+example : true ↔ true := by
+  foo
+  bar baz
+  baz
+
+---
+
+(module
+  (example (binary_expression (true) (true))
+    (tactics
+      (user_tactic (identifier))
+      (user_tactic (apply (identifier) (identifier)))
+      (user_tactic (identifier)))))

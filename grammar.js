@@ -34,6 +34,8 @@ module.exports = grammar({
   conflicts: $ => [
     [$.typeclass_resolved_parameter, $._atom],
     [$.assign, $._atom],
+    [$.user_tactic, $._expression],
+    [$.user_tactic, $.quoted_tactic],
     [$.inductive_type, $.def, $.structure_definition,
      $.class, $.instance, $.theorem, $.example, $.constant],
   ],
@@ -300,6 +302,7 @@ module.exports = grammar({
       $.do,
       $.let,
       $.unless,
+      $.tactics,
     ),
 
     _atom: $ => choice(
@@ -326,7 +329,6 @@ module.exports = grammar({
       $.match,
       $.quantified,
       $.lambda,
-      $.tactics,
       $.binary_expression,
       $.char,
       $.string,
@@ -400,12 +402,15 @@ module.exports = grammar({
     )),
     trivial: $ => 'trivial',
 
+    user_tactic: $ => $._expression,
+
     _tactic: $ => choice(
       $.apply_tactic,
       $.rewrite,
       $.simp,
       $.term,
       $.trivial,
+      $.user_tactic,
     ),
 
     _do_command: $ => seq(
