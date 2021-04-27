@@ -27,7 +27,7 @@ def main : IO UInt32 := do do
 (module
   (def
     name: (identifier)
-    return_type:
+    type:
       (apply
         name: (identifier)
         arguments: (identifier))
@@ -77,7 +77,7 @@ def f : Unit := do
 (module
   (def
     name: (identifier)
-    return_type: (identifier)
+    type: (identifier)
     body:
       (do
         (let
@@ -97,7 +97,7 @@ def bar : Unit := do
 (module
   (def
     name: (identifier)
-    return_type: (identifier)
+    type: (identifier)
     body:
       (do
         (let_mut
@@ -126,7 +126,7 @@ def foo (xs : Array Nat) : Unit := do
           (apply
             name: (identifier)
             arguments: (identifier)))
-    return_type: (identifier)
+    type: (identifier)
     body:
       (do
         (let_mut
@@ -162,7 +162,7 @@ def foo (xs : Array (Nat × Nat)) : Unit := do
           (apply
             name: (identifier)
             arguments: (product_type (identifier) (identifier))))
-    return_type: (identifier)
+    type: (identifier)
     body:
       (do
         (for_in
@@ -206,10 +206,8 @@ def f : IO Unit := do
 ---
 
 (module
-  (def (identifier) (apply (identifier) (identifier)))
-    (ERROR
-      (apply (identifier) (identifier))
-      (ERROR) (throw (identifier))))
+  (ERROR (identifier) (apply (identifier) (identifier))
+    (apply (identifier) (identifier)) (ERROR) (throw (identifier))))
 
 ===========
 Try/Finally
@@ -264,8 +262,8 @@ def f : IO Unit := do
 ---
 
 (module
-  (def (identifier) (apply (identifier) (identifier)))
-    (ERROR (apply (identifier) (string))))
+  (ERROR (identifier) (apply (identifier) (identifier))
+    (apply (identifier) (string))))
 
 ===============
 Return One Line
@@ -341,7 +339,7 @@ def check : IO Unit := do
 (module
   (def
     name: (identifier)
-    return_type:
+    type:
       (apply
         name: (identifier)
         arguments: (identifier))

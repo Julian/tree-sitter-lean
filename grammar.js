@@ -36,8 +36,8 @@ module.exports = grammar({
     [$.assign, $._atom],
     [$.user_tactic, $._expression],
     [$.user_tactic, $.quoted_tactic],
-    [$.inductive_type, $.def, $.structure_definition,
-     $.class, $.instance, $.theorem, $.example, $.constant],
+    [$.inductive_type, $.structure_definition,
+     $.class, $.instance, $.example, $._decl_mods],
   ],
 
   word: $ => $._identifier,
@@ -46,23 +46,25 @@ module.exports = grammar({
     module: $ => repeat($._command),
 
     _command: $ => choice(
+      $.abbrev,
+      $.constant,
+      $.def,
+      $.theorem,
+      $.instance,
+      $.example,
+      $.inductive_type,
+      $.class,
+      $.structure_definition,
+
       $.prelude,
       $.hash_command,
       $.import,
       $.open,
       $.namespace,
       $.section,
-      $.example,
-      $.def,
       $.attribute,
-      $.structure_definition,
-      $.class,
-      $.inductive_type,
-      $.instance,
       $.export,
-      $.theorem,
       $.variable_declaration,
-      $.constant,
       $.universe,
 
       $.notation,
@@ -149,21 +151,6 @@ module.exports = grammar({
       optional(field('constructors', repeat1($.constructor))),
     ),
 
-    def: $ => seq(
-      optional(field('attributes', $._attributes)),
-      repeat(
-        choice('noncomputable', 'partial', 'private', 'protected', 'unsafe'),
-      ),
-      'def',
-      field('name', $._dotted_name),
-      optional(field('parameters', $.parameters)),
-      optional(seq(':', field('return_type', $._expression))),
-      field('body', choice(
-        seq(':=', $._expression),
-        repeat($.pattern),
-      )),
-    ),
-
     structure_definition: $ => seq(
       repeat(
         choice('noncomputable', 'partial', 'private', 'protected', 'unsafe'),
@@ -204,22 +191,6 @@ module.exports = grammar({
       )),
     ),
 
-    theorem: $ => seq(
-      optional(field('attributes', $._attributes)),
-      repeat(
-        choice('noncomputable', 'partial', 'private', 'protected', 'unsafe'),
-      ),
-      'theorem',
-      field('name', $._dotted_name),
-      optional(field('parameters', $.parameters)),
-      ':',
-      field('type', $._expression),
-      field('body', choice(
-        seq(':=', $._expression),
-        repeat($.pattern),
-      )),
-    ),
-
     example: $ => seq(
       repeat(
         choice('noncomputable', 'partial', 'private', 'protected', 'unsafe'),
@@ -230,17 +201,6 @@ module.exports = grammar({
       field('type', $._expression),
       ':=',
       field('body', $._expression),
-    ),
-
-    constant: $ => seq(
-      optional(field('attributes', $._attributes)),
-      repeat(
-        choice('noncomputable', 'partial', 'private', 'protected', 'unsafe'),
-      ),
-      'constant',
-      field('name', $.identifier),
-      ':',
-      field('type', $._expression),
     ),
 
     _attributes: $ => seq('@[', sep1($.identifier, ','), ']'),
@@ -555,6 +515,35 @@ module.exports = grammar({
       field('name', choice($.identifier, $.number)),
     )),
 
+    // src/Lean/Parser/Command.lean
+    abbrev: $ => seq(
+      optional($._decl_mods), 'abbrev', $._decl_id, optional($._decl_sig), $._decl_val,
+    ),
+    constant: $ => seq(
+      optional($._decl_mods), 'constant', $._decl_id, $._decl_sig, optional($._decl_val),
+    ),
+    def: $ => seq(
+      optional($._decl_mods), 'def', $._decl_id, optional($._decl_sig), $._decl_val,
+    ),
+    theorem: $ => seq(
+      optional($._decl_mods), 'theorem', $._decl_id, optional($._decl_sig), $._decl_val,
+    ),
+    _decl_id: $ => field('name', $._dotted_name),
+    _decl_sig: $ => min1(
+      field('parameters', $.parameters),
+      seq(':', field('type', $._expression)),
+    ),
+    _decl_val: $ => field('body', choice(
+      seq(':=', $._expression),
+      repeat1($.pattern),
+    )),
+    _decl_mods: $ => min1(
+      field('attributes', $._attributes),
+      repeat1(
+        choice('noncomputable', 'partial', 'private', 'protected', 'unsafe'),
+      ),
+    ),
+
     // src/Lean/Parser/Syntax.lean
     quoted_tactic: $ => seq(
       '`(tactic|', choice($._tactic, $._expression), ')',
@@ -734,6 +723,10 @@ module.exports = grammar({
     false: $ => 'false',
   }
 });
+
+function min1 (one, two) {
+  return choice(seq(one, optional(two)), seq(optional(one), two))
+}
 
 function sep0 (rule, separator) {
   return optional(sep1(rule, separator))

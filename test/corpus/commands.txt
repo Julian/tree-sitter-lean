@@ -92,7 +92,9 @@ open Foo in
 (module
   (open
     namespace: (identifier)
-      (def name: (identifier) body: (identifier))))
+      (def
+        name: (identifier)
+        body: (identifier))))
 
 ======================
 Open With Missing Name
@@ -169,43 +171,6 @@ Export With Missing Name
 ========================
 
 export
-
----
-
-(module (ERROR))
-
-========
-Constant
-========
-
-constant A : Type
-constant A : Type -> Type
-
----
-
-(module
-  (constant
-    name: (identifier)
-    type: (identifier))
-  (constant
-    name: (identifier)
-    type: (function_type (identifier) (identifier))))
-
-==========================
-Constant With Missing Type
-==========================
-
-constant B
-
----
-
-(module (ERROR (identifier)))
-
-==========================
-Constant With Missing Name
-==========================
-
-constant
 
 ---
 

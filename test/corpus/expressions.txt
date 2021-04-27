@@ -738,7 +738,7 @@ def foo (d : Bar) : Baz :=
       (parameters
         name: (identifier)
         type: (identifier))
-    return_type: (identifier)
+    type: (identifier)
     body:
       (match
         value: (identifier)
@@ -801,89 +801,6 @@ Match Expression
         (pattern
           lhs: (identifier)
           (true)))))
-
-==================
-Match Syntax Sugar
-==================
-
-def foo : Nat → Nat
-  | 0 => 2
-  | 2 => 3
-  | _ => 5
-
----
-
-(module
-  (def
-    name: (identifier)
-    return_type: (function_type (identifier) (identifier))
-    body:
-      (pattern
-        lhs: (number)
-        (number))
-    body:
-      (pattern
-        lhs: (number)
-        (number))
-    body:
-      (pattern
-        lhs: (identifier)
-        (number))))
-
-==========================================
-Match Syntax Sugar With Anonymous Function
-==========================================
-
-def foo : Nat -> Bool :=
-  fun
-    | 0 => true
-    | _ => false
-
----
-
-(module
-  (def
-    name: (identifier)
-    return_type: (function_type (identifier) (identifier))
-    body:
-      (lambda
-        (pattern
-          lhs: (number)
-          (true))
-        (pattern
-          lhs: (identifier)
-          (false)))))
-
-=======================
-Multimatch Syntax Sugar
-=======================
-
-def foo : Nat → Nat -> Nat
-  | 0, foo => 2
-  | 2, bar => 3
-  | _, _ => 5
-
----
-
-(module
-  (def
-    name: (identifier)
-    return_type: (function_type (identifier) (identifier) (identifier))
-    body:
-      (pattern
-        lhs: (number)
-        lhs: (identifier)
-        (number))
-    body:
-      (pattern
-        lhs: (number)
-        lhs: (identifier)
-        (number))
-    body:
-      (pattern
-        lhs: (identifier)
-        lhs: (identifier)
-        (number))))
 
 =============
 $ Application
