@@ -504,22 +504,46 @@ module.exports = grammar({
 
     // src/Lean/Parser/Command.lean
     abbrev: $ => seq(
-      optional($._decl_mods), 'abbrev', $._decl_id, optional($._decl_sig), $._decl_val,
+      optional($._decl_mods),
+      'abbrev',
+      $._decl_id,
+      optional($._opt_decl_sig),
+      $._decl_val,
     ),
     def: $ => seq(
-      optional($._decl_mods), 'def', $._decl_id, optional($._decl_sig), $._decl_val,
+      optional($._decl_mods),
+      'def',
+      $._decl_id,
+      optional($._opt_decl_sig),
+      $._decl_val,
     ),
     theorem: $ => seq(
-      optional($._decl_mods), 'theorem', $._decl_id, optional($._decl_sig), $._decl_val,
+      optional($._decl_mods),
+      'theorem',
+      $._decl_id,
+      $._decl_sig,
+      $._decl_val,
     ),
     constant: $ => seq(
-      optional($._decl_mods), 'constant', $._decl_id, $._decl_sig, optional($._decl_val),
+      optional($._decl_mods),
+      'constant',
+      $._decl_id,
+      $._decl_sig,
+      optional($._decl_val_simple),
     ),
     instance: $ => seq(
-      optional($._decl_mods), 'instance', optional($._decl_id), $._decl_sig, $._decl_val,
+      optional($._decl_mods),
+      'instance',
+      optional($._decl_id),
+      $._decl_sig,
+      $._decl_val,
     ),
     _decl_id: $ => field('name', $._dotted_name),
-    _decl_sig: $ => min1(
+    _decl_sig: $ => seq(
+      optional(field('parameters', $.parameters)),
+      ':', field('type', $._expression),
+    ),
+    _opt_decl_sig: $ => min1(
       field('parameters', $.parameters),
       seq(':', field('type', $._expression)),
     ),

@@ -404,6 +404,16 @@ theorem foo {p : α × β} :
         lhs: (product (identifier) (identifier))
         (sorry))))
 
+====================
+Theorem Missing Type
+====================
+
+theorem foo := sorry
+
+---
+
+(module (ERROR (identifier) (sorry)))
+
 =========
 Structure
 =========
@@ -1497,7 +1507,7 @@ constant C : Nat := 3
   (constant
     name: (identifier)
     type: (identifier)
-    body: (number)))
+    (number)))
 
 ==========================
 Constant With Missing Type
@@ -1507,7 +1517,7 @@ constant B
 
 ---
 
-(module (constant (identifier) (parameters (identifier (MISSING _identifier)))))
+(module (ERROR (identifier)))
 
 ==========================
 Constant With Missing Name
@@ -1518,3 +1528,17 @@ constant
 ---
 
 (module (ERROR))
+
+=============================
+Constant With Non-Simple Body
+=============================
+
+constant Foo : Nat → Nat
+| _ => 3
+
+---
+
+(module
+  (constant (identifier)
+    (apply (function_type (identifier) (identifier))
+      (ERROR) (identifier) (ERROR) (number))))
