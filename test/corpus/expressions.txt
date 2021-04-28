@@ -269,6 +269,7 @@ Non-Identifiers
 #eval 'x
 #eval !foo
 #eval ?foo
+#eval foo.
 
 ---
 
@@ -276,7 +277,8 @@ Non-Identifiers
   (hash_command (ERROR (UNEXPECTED 8321)) (identifier))
   (hash_command (char (MISSING "'")))
   (hash_command (unary_expression (identifier)))
-  (hash_command (ERROR (UNEXPECTED '?')) (identifier)))
+  (hash_command (ERROR (UNEXPECTED '?')) (identifier))
+  (hash_command (field_of (identifier) (identifier (MISSING _identifier)))))
 
 =======
 Product
