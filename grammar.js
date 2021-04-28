@@ -17,6 +17,8 @@ const PREC = {
   times: 18,
   unary: 19,
   power: 20,
+
+  name: 30,
 }
 
 module.exports = grammar({
@@ -37,7 +39,7 @@ module.exports = grammar({
     [$.user_tactic, $._expression],
     [$.user_tactic, $.quoted_tactic],
     [$.inductive_type, $.structure_definition,
-     $.class, $.instance, $.example, $._decl_mods],
+     $.class, $.example, $._decl_mods],
   ],
 
   word: $ => $._identifier,
@@ -94,7 +96,8 @@ module.exports = grammar({
       optional(seq(':', field('type', $._expression))),
     ),
 
-    instance_field: $ => seq(
+    _where: $ => seq('where', repeat1($.where_decl)),
+    where_decl: $ => seq(
       field('name', $.identifier),
       optional(field('parameters', $.parameters)),
       optional(seq(':', field('return_type', $._expression))),
@@ -173,22 +176,6 @@ module.exports = grammar({
       optional(field('extends', seq('extends', sep1($._expression, ',')))),
       'where',
       field('fields', repeat1($.field)),
-    ),
-
-    instance: $ => seq(
-      optional(field('attributes', $._attributes)),
-      repeat(
-        choice('noncomputable', 'partial', 'private', 'protected', 'unsafe'),
-      ),
-      'instance',
-      optional(field('name', $._dotted_name)),
-      optional(field('parameters', seq(repeat1($._parameter)))),
-      ':',
-      field('class', $._expression),
-      field('body', choice(
-        seq('where', field('fields', repeat1($.instance_field))),
-        seq(':=', $._expression),
-      )),
     ),
 
     example: $ => seq(
@@ -519,14 +506,17 @@ module.exports = grammar({
     abbrev: $ => seq(
       optional($._decl_mods), 'abbrev', $._decl_id, optional($._decl_sig), $._decl_val,
     ),
-    constant: $ => seq(
-      optional($._decl_mods), 'constant', $._decl_id, $._decl_sig, optional($._decl_val),
-    ),
     def: $ => seq(
       optional($._decl_mods), 'def', $._decl_id, optional($._decl_sig), $._decl_val,
     ),
     theorem: $ => seq(
       optional($._decl_mods), 'theorem', $._decl_id, optional($._decl_sig), $._decl_val,
+    ),
+    constant: $ => seq(
+      optional($._decl_mods), 'constant', $._decl_id, $._decl_sig, optional($._decl_val),
+    ),
+    instance: $ => seq(
+      optional($._decl_mods), 'instance', optional($._decl_id), $._decl_sig, $._decl_val,
     ),
     _decl_id: $ => field('name', $._dotted_name),
     _decl_sig: $ => min1(
@@ -534,8 +524,9 @@ module.exports = grammar({
       seq(':', field('type', $._expression)),
     ),
     _decl_val: $ => field('body', choice(
-      seq(':=', $._expression),
-      repeat1($.pattern),
+      $._decl_val_simple,
+      $._decl_val_equations,
+      $._where,
     )),
     _decl_mods: $ => min1(
       field('attributes', $._attributes),
@@ -543,6 +534,9 @@ module.exports = grammar({
         choice('noncomputable', 'partial', 'private', 'protected', 'unsafe'),
       ),
     ),
+
+    _decl_val_simple: $ => seq(':=', $._expression),
+    _decl_val_equations: $ => repeat1($.pattern),
 
     // src/Lean/Parser/Syntax.lean
     quoted_tactic: $ => seq(
@@ -677,7 +671,7 @@ module.exports = grammar({
       ')',
     ),
 
-    _dotted_name: $ => prec.right(sep1($.identifier, '.')),
+    _dotted_name: $ => prec.left(PREC.name, sep1($.identifier, token.immediate('.'))),
 
     _left_arrow: $ => choice('<-', '←'),
     _right_arrow: $ => choice('->', '→'),

@@ -179,6 +179,24 @@ def foo : Nat -> Nat -> Nat -> Nat := id
         (identifier) (identifier) (identifier) (identifier))
     body: (identifier)))
 
+=============
+Def of Struct
+=============
+
+def f : Foo where
+  bar := 3
+
+---
+
+(module
+  (def
+    name: (identifier)
+    type: (identifier)
+    body:
+      (where_decl
+        name: (identifier)
+        body: (number))))
+
 ==================
 Match Syntax Sugar
 ==================
@@ -531,12 +549,12 @@ instance : ToString Foo where
 
 (module
   (instance
-    class:
+    type:
       (apply
         name: (identifier)
         arguments: (identifier))
-    fields:
-      (instance_field
+    body:
+      (where_decl
         name: (identifier)
         parameters:
           (parameters
@@ -557,12 +575,12 @@ instance toStringFoo : ToString Foo where
 (module
   (instance
     name: (identifier)
-    class:
+    type:
       (apply
         name: (identifier)
         arguments: (identifier))
-    fields:
-      (instance_field
+    body:
+      (where_decl
         name: (identifier)
         parameters:
           (parameters
@@ -583,17 +601,18 @@ instance {f : Foo} (g : Bar 3) : Quux where
 (module
   (instance
     parameters:
-      (implicit_parameter
-        name: (identifier)
-        type: (identifier))
-      name: (identifier)
-      type:
-        (apply
+      (parameters
+        (implicit_parameter
           name: (identifier)
-          arguments: (number))
-    class: (identifier)
-    fields:
-      (instance_field
+          type: (identifier))
+        name: (identifier)
+        type:
+          (apply
+            name: (identifier)
+            arguments: (number)))
+    type: (identifier)
+    body:
+      (where_decl
         name: (identifier)
         body: (identifier))))
 
@@ -609,17 +628,18 @@ instance [Inhabited b] : Inhabited (a -> b) where
 (module
   (instance
     parameters:
-      (typeclass_resolved_parameter
-        type:
-          (apply
-            name: (identifier)
-            arguments: (identifier)))
-    class:
+      (parameters
+        (typeclass_resolved_parameter
+          type:
+            (apply
+              name: (identifier)
+              arguments: (identifier))))
+    type:
       (apply
         name: (identifier)
         arguments: (function_type (identifier) (identifier)))
-    fields:
-      (instance_field
+    body:
+      (where_decl
         name: (identifier)
         body:
           (lambda
@@ -637,7 +657,7 @@ instance : Inhabited Nat := ⟨0⟩
 
 (module
   (instance
-    class:
+    type:
       (apply
         name: (identifier)
         arguments: (identifier))
@@ -653,7 +673,7 @@ instance : Add Foo := Foo.add
 
 (module
   (instance
-    class:
+    type:
       (apply
         name: (identifier)
         arguments: (identifier))
@@ -673,12 +693,12 @@ instance : ToString Foo where
 
 (module
   (instance
-    class:
+    type:
       (apply
         name: (identifier)
         arguments: (identifier))
-    fields:
-      (instance_field
+    body:
+      (where_decl
         name: (identifier)
         return_type: (function_type (identifier) (identifier))
         body:
@@ -697,12 +717,12 @@ instance : ToString Foo where
 
 (module
   (instance
-    class:
+    type:
       (apply
         name: (identifier)
         arguments: (identifier))
-    fields:
-      (instance_field
+    body:
+      (where_decl
         name: (identifier)
         parameters:
           (parameters name: (identifier))
@@ -720,12 +740,12 @@ instance : ToString Foo where
 
 (module
   (instance
-    class:
+    type:
       (apply
         name: (identifier)
         arguments: (identifier))
-    fields:
-      (instance_field
+    body:
+      (where_decl
         name: (identifier)
         body:
           (pattern
@@ -825,8 +845,8 @@ noncomputable constant FooBar : Nat
   (inductive_type (identifier) (constructor (identifier)))
   (structure_definition (identifier) (field (identifier) (identifier)))
   (class (identifier) (field (identifier) (identifier)))
-  (instance (identifier) (instance_field (identifier) (number)))
-  (instance (identifier) (instance_field (identifier) (number)))
+  (instance (identifier) (where_decl (identifier) (number)))
+  (instance (identifier) (where_decl (identifier) (number)))
   (theorem (identifier) (binary_expression (number) (number)) (identifier))
   (example (binary_expression (number) (number)) (identifier))
   (example (binary_expression (number) (number)) (identifier))
@@ -875,7 +895,7 @@ Attributes
     body: (number))
   (instance
     attributes: (identifier)
-    class: (identifier)
+    type: (identifier)
     body: (inductive_constructor (number)))
   (theorem
     attributes: (identifier)
@@ -1154,7 +1174,7 @@ inductive A.B | C
   (instance
     name: (identifier)
     name: (identifier)
-    class:
+    type:
       (field_of
         term:
           (field_of
@@ -1164,8 +1184,8 @@ inductive A.B | C
                 name: (identifier))
             name: (identifier))
         name: (identifier))
-    fields:
-      (instance_field
+    body:
+      (where_decl
         name: (identifier)
         body: (number)))
   (theorem

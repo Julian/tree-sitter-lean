@@ -363,15 +363,15 @@ instance : do return ToString Nat where
 
 (module
   (instance
-    class:
+    type:
       (do
         (return
           value:
             (apply
               name: (identifier)
               arguments: (identifier))))
-    fields:
-      (instance_field
+    body:
+      (where_decl
         name: (identifier)
         parameters:
           (parameters
