@@ -1,3 +1,5 @@
+const command = require('./grammar/command.js')
+
 const PREC = {
   dollar: -5,
   quantified: -4,
@@ -731,6 +733,8 @@ module.exports = grammar({
 
     true: $ => 'true',
     false: $ => 'false',
+
+    ...command,
   }
 });
 
