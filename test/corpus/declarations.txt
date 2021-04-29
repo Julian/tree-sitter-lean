@@ -1542,3 +1542,29 @@ constant Foo : Nat → Nat
   (constant (identifier)
     (apply (function_type (identifier) (identifier))
       (ERROR) (identifier) (ERROR) (number))))
+
+=====
+Axiom
+=====
+
+axiom foo : 1 = 2
+
+---
+
+(module
+  (axiom
+    name: (identifier)
+    type: (binary_expression (number) (number))))
+
+=======================
+Axiom With Missing Name
+=======================
+
+axiom : 1 = 2
+
+---
+
+(module
+  (axiom
+    name: (identifier (MISSING _identifier))
+    type: (binary_expression (number) (number))))

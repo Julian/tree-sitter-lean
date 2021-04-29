@@ -53,6 +53,7 @@ module.exports = grammar({
       $.def,
       $.theorem,
       $.instance,
+      $.axiom,
       $.example,
       $.inductive_type,
       $.class,
@@ -534,6 +535,8 @@ module.exports = grammar({
       $._decl_sig,
       $._decl_val,
     ),
+    axiom: $ => seq('axiom', $._decl_id, $._decl_sig),
+
     _decl_id: $ => field('name', $._dotted_name),
     _decl_sig: $ => seq(
       optional(field('parameters', $.parameters)),

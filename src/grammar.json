@@ -34,6 +34,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "axiom"
+        },
+        {
+          "type": "SYMBOL",
           "name": "example"
         },
         {
@@ -3009,6 +3013,23 @@
         {
           "type": "SYMBOL",
           "name": "_decl_val"
+        }
+      ]
+    },
+    "axiom": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "axiom"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_decl_id"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_decl_sig"
         }
       ]
     },
