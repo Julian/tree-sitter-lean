@@ -1,4 +1,5 @@
 const command = require('./grammar/command.js')
+const {sep0, sep1} = require('./grammar/util.js')
 
 const PREC = {
   dollar: -5,
@@ -40,7 +41,6 @@ module.exports = grammar({
     [$.assign, $._atom],
     [$.user_tactic, $._expression],
     [$.user_tactic, $.quoted_tactic],
-    [$.inductive_type, $.structure_definition, $.class, $._decl_mods],
   ],
 
   word: $ => $._identifier,
@@ -49,17 +49,7 @@ module.exports = grammar({
     module: $ => repeat($._command),
 
     _command: $ => choice(
-      $.abbrev,
-      $.constant,
-      $.def,
-      $.theorem,
-      $.instance,
-      $.axiom,
-      $.example,
-      $.inductive_type,
-      $.class,
-      $.structure_definition,
-
+      $.declaration,
       $.prelude,
       $.hash_command,
       $.import,
@@ -141,40 +131,6 @@ module.exports = grammar({
     ),
 
     product_type: $ => prec.right(PREC.multitype, sep2($._expression, '×')),
-
-    inductive_type: $ => seq(
-      repeat(choice('private', 'protected', 'unsafe')),
-      'inductive',
-      field('name', $._dotted_name),
-      optional(field('parameters', $.parameters)),
-      optional(seq(':', field('type', $._atom))),
-      optional('where'),
-      optional(field('constructors', repeat1($.constructor))),
-    ),
-
-    structure_definition: $ => seq(
-      repeat(
-        choice('noncomputable', 'partial', 'private', 'protected', 'unsafe'),
-      ),
-      'structure',
-      field('name', $._dotted_name),
-      optional(field('parameters', $.parameters)),
-      optional(field('extends', seq('extends', sep1($._expression, ',')))),
-      'where',
-      field('fields', repeat1($.field)),
-    ),
-
-    class: $ => seq(
-      repeat(
-        choice('noncomputable', 'partial', 'private', 'protected', 'unsafe'),
-      ),
-      'class',
-      field('name', $._dotted_name),
-      optional(field('parameters', $.parameters)),
-      optional(field('extends', seq('extends', sep1($._expression, ',')))),
-      'where',
-      field('fields', repeat1($.field)),
-    ),
 
     _attributes: $ => seq('@[', sep1($.identifier, ','), ']'),
 
@@ -669,19 +625,3 @@ module.exports = grammar({
     ...command,
   }
 });
-
-function sep0 (rule, separator) {
-  return optional(sep1(rule, separator))
-}
-
-function sep1 (rule, separator) {
-  return seq(rule, repeat(seq(separator, rule)))
-}
-
-function sep2 (rule, separator) {
-  return seq(rule, repeat1(seq(separator, rule)))
-}
-
-function sep1_ (rule, separator) {
-  return seq(sep1(rule, separator), optional(separator))
-}

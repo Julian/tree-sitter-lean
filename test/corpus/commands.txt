@@ -92,9 +92,10 @@ open Foo in
 (module
   (open
     namespace: (identifier)
-      (def
-        name: (identifier)
-        body: (identifier))))
+      (declaration
+        (def
+          name: (identifier)
+          body: (identifier)))))
 
 ======================
 Open With Missing Name

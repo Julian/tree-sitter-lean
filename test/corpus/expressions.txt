@@ -223,9 +223,9 @@ example : Foo := ⟨⟩
 ---
 
 (module
-  (example (identifier) (inductive_constructor (number) (number) (number)))
-  (example (identifier) (inductive_constructor (number)))
-  (example (identifier) (inductive_constructor)))
+  (declaration (example (identifier) (inductive_constructor (number) (number) (number))))
+  (declaration (example (identifier) (inductive_constructor (number))))
+  (declaration (example (identifier) (inductive_constructor))))
 
 =============================
 Invalid Inductive Constructor
@@ -238,9 +238,9 @@ example : Foo := ⟨, 2,⟩
 ---
 
 (module
-  (example (identifier) (inductive_constructor (ERROR)))
-  (example (identifier) (inductive_constructor (ERROR) (number)))
-  (example (identifier) (inductive_constructor (ERROR) (number) (ERROR))))
+  (declaration (example (identifier) (inductive_constructor (ERROR))))
+  (declaration (example (identifier) (inductive_constructor (ERROR) (number))))
+  (declaration (example (identifier) (inductive_constructor (ERROR) (number) (ERROR)))))
 
 ===========
 Identifiers
@@ -532,31 +532,36 @@ example : 4 = 4 % 5 := rfl
     (binary_expression (number) (binary_expression (number) (number))))
   (hash_command
     (binary_expression (number) (binary_expression (number) (number))))
-  (example
-    type:
-      (binary_expression (number) (binary_expression (number) (number)))
-    body:
-      (identifier))
-  (example
-    type:
-      (binary_expression (number) (binary_expression (number) (number)))
-    body:
-      (identifier))
-  (example
-    type:
-      (binary_expression (number) (binary_expression (number) (number)))
-    body:
-      (identifier))
-  (example
-    type:
-      (binary_expression (number) (binary_expression (number) (number)))
-    body:
-      (identifier))
-  (example
-    type:
-      (binary_expression (number) (binary_expression (number) (number)))
-    body:
-      (identifier))
+  (declaration
+    (example
+      type:
+        (binary_expression (number) (binary_expression (number) (number)))
+      body:
+        (identifier)))
+  (declaration
+    (example
+      type:
+        (binary_expression (number) (binary_expression (number) (number)))
+      body:
+        (identifier)))
+  (declaration
+    (example
+      type:
+        (binary_expression (number) (binary_expression (number) (number)))
+      body:
+        (identifier)))
+  (declaration
+    (example
+      type:
+        (binary_expression (number) (binary_expression (number) (number)))
+      body:
+        (identifier)))
+  (declaration
+    (example
+      type:
+        (binary_expression (number) (binary_expression (number) (number)))
+      body:
+        (identifier)))
   (hash_command
     (binary_expression (binary_expression (false) (false)) (true)))
   (hash_command
@@ -605,34 +610,38 @@ example : 2 ≥ id 3 = false := rfl
 ---
 
 (module
-  (example
-    (binary_expression
-      (comparison
-        (apply (identifier) (number))
-        (number))
-      (true))
-    (identifier))
-  (example
-    (binary_expression
-      (comparison
-        (number)
-        (apply (identifier) (number)))
-      (false))
-    (identifier))
-  (example
-    (binary_expression
-      (comparison
-        (apply (identifier) (number))
-        (number))
-      (true))
-    (identifier))
-  (example
-    (binary_expression
-      (comparison
-        (number)
-        (apply (identifier) (number)))
-      (false))
-    (identifier)))
+  (declaration
+    (example
+      (binary_expression
+        (comparison
+          (apply (identifier) (number))
+          (number))
+        (true))
+      (identifier)))
+  (declaration
+    (example
+      (binary_expression
+        (comparison
+          (number)
+          (apply (identifier) (number)))
+        (false))
+      (identifier)))
+  (declaration
+    (example
+      (binary_expression
+        (comparison
+          (apply (identifier) (number))
+          (number))
+        (true))
+      (identifier)))
+  (declaration
+    (example
+      (binary_expression
+        (comparison
+          (number)
+          (apply (identifier) (number)))
+        (false))
+      (identifier))))
 
 ===========================
 Multiple Function Arguments
@@ -734,20 +743,21 @@ def foo (d : Bar) : Baz :=
 ---
 
 (module
-  (def
-    name: (identifier)
-    parameters:
-      (parameters
-        name: (identifier)
-        type: (identifier))
-    type: (identifier)
-    body:
-      (match
-        value: (identifier)
-        patterns:
-          (pattern
-            lhs: (identifier)
-            (number)))))
+  (declaration
+    (def
+      name: (identifier)
+      parameters:
+        (parameters
+          name: (identifier)
+          type: (identifier))
+      type: (identifier)
+      body:
+        (match
+          value: (identifier)
+          patterns:
+            (pattern
+              lhs: (identifier)
+              (number))))))
 
 ==============
 Match Multiple
@@ -760,25 +770,26 @@ def foo (a b c : Nat) :=
 ---
 
 (module
-  (def
-    name: (identifier)
-    parameters:
-      (parameters
-        name: (identifier)
-        name: (identifier)
-        name: (identifier)
-        type: (identifier))
-    body:
-      (match
-        value: (identifier)
-        value: (identifier)
-        value: (identifier)
-        patterns:
-          (pattern
-            lhs: (identifier)
-            lhs: (identifier)
-            lhs: (identifier)
-            (true)))))
+  (declaration
+    (def
+      name: (identifier)
+      parameters:
+        (parameters
+          name: (identifier)
+          name: (identifier)
+          name: (identifier)
+          type: (identifier))
+      body:
+        (match
+          value: (identifier)
+          value: (identifier)
+          value: (identifier)
+          patterns:
+            (pattern
+              lhs: (identifier)
+              lhs: (identifier)
+              lhs: (identifier)
+              (true))))))
 
 ================
 Match Expression
@@ -1112,8 +1123,9 @@ example : Foo := {x := 12, y := 13,}
 ---
 
 (module
-  (example (identifier)
-    (structure_literal (identifier) (number) (identifier) (number))))
+  (declaration
+    (example (identifier)
+      (structure_literal (identifier) (number) (identifier) (number)))))
 
 =====================
 No Trailing Commas Aw
@@ -1135,14 +1147,17 @@ def foo | 0, => 2 | _, => 3
     (list (number) (number) (number) (identifier (MISSING _identifier))))
   (hash_command
     (array (number) (number) (number) (identifier (MISSING _identifier))))
-  (example (identifier)
-    (inductive_constructor
-      (number) (number) (identifier (MISSING _identifier))))
-  (def (identifier) (identifier)
-    (identifier (MISSING _identifier)) (identifier) (number))
-  (def (identifier)
-    (pattern (number) (ERROR) (number))
-    (pattern (identifier) (ERROR) (number))))
+  (declaration
+    (example (identifier)
+      (inductive_constructor
+        (number) (number) (identifier (MISSING _identifier)))))
+  (declaration
+    (identifier) (identifier)
+      (identifier (MISSING _identifier)) (def (identifier) (number)))
+  (declaration
+    (def (identifier)
+      (pattern (number) (ERROR) (number))
+      (pattern (identifier) (ERROR) (number)))))
 
 =====
 Sorry
@@ -1168,9 +1183,10 @@ theorem baz : (afweio)» := 12
 ---
 
 (module
-  (def
-    name: (identifier)
-    body: (number)))
+  (declaration
+    (def
+      name: (identifier)
+      body: (number))))
 
 ======
 Unless

@@ -9,10 +9,11 @@ def main : IO UInt32 := do
 ---
 
 (module
-  (def (identifier) (apply (identifier) (identifier))
-    (do
-      (apply (field_of (identifier) (identifier)) (string))
-      (apply (field_of (identifier) (identifier)) (string)))))
+  (declaration
+    (def (identifier) (apply (identifier) (identifier))
+      (do
+        (apply (field_of (identifier) (identifier)) (string))
+        (apply (field_of (identifier) (identifier)) (string))))))
 
 ========
 Repeated
@@ -25,27 +26,28 @@ def main : IO UInt32 := do do
 ---
 
 (module
-  (def
-    name: (identifier)
-    type:
-      (apply
-        name: (identifier)
-        arguments: (identifier))
-    body:
-      (do
+  (declaration
+    (def
+      name: (identifier)
+      type:
+        (apply
+          name: (identifier)
+          arguments: (identifier))
+      body:
         (do
-          (apply
-            name:
-              (field_of
-                term: (identifier)
-                name: (identifier))
-            arguments: (string))
-          (apply
-            name:
-              (field_of
-                term: (identifier)
-                name: (identifier))
-            arguments: (string))))))
+          (do
+            (apply
+              name:
+                (field_of
+                  term: (identifier)
+                  name: (identifier))
+              arguments: (string))
+            (apply
+              name:
+                (field_of
+                  term: (identifier)
+                  name: (identifier))
+              arguments: (string)))))))
 
 ==========
 Let (Bind)
@@ -59,11 +61,12 @@ def f : Unit := do
 ---
 
 (module
-  (def (identifier) (identifier)
+  (declaration
+    (def (identifier) (identifier)
     (do
       (let_bind (identifier) (number))
       (let_bind (identifier) (number))
-      (let (identifier) (number)))))
+      (let (identifier) (number))))))
 
 =============
 Let Annotated
@@ -75,15 +78,16 @@ def f : Unit := do
 ---
 
 (module
-  (def
-    name: (identifier)
-    type: (identifier)
-    body:
-      (do
-        (let
-          name: (identifier)
-          type: (identifier)
-          value: (number)))))
+  (declaration
+    (def
+      name: (identifier)
+      type: (identifier)
+      body:
+        (do
+          (let
+            name: (identifier)
+            type: (identifier)
+            value: (number))))))
 
 ===========
 Let Mutable
@@ -95,15 +99,16 @@ def bar : Unit := do
 ---
 
 (module
-  (def
-    name: (identifier)
-    type: (identifier)
-    body:
-      (do
-        (let_mut
-          (parameters
-            name: (identifier))
-          value: (number)))))
+  (declaration
+    (def
+      name: (identifier)
+      type: (identifier)
+      body:
+        (do
+          (let_mut
+            (parameters
+              name: (identifier))
+            value: (number))))))
 
 ========
 For Loop
@@ -117,30 +122,31 @@ def foo (xs : Array Nat) : Unit := do
 ---
 
 (module
-  (def
-    name: (identifier)
-    parameters:
-      (parameters
-        name: (identifier)
-        type:
-          (apply
-            name: (identifier)
-            arguments: (identifier)))
-    type: (identifier)
-    body:
-      (do
-        (let_mut
-          (parameters
-            name: (identifier))
-          value: (number))
-        (for_in
-          (identifier)
-          iterable: (identifier)
-          body:
-            (do
-              (assign
-                name: (identifier)
-                value: (binary_expression (identifier) (identifier))))))))
+  (declaration
+    (def
+      name: (identifier)
+      parameters:
+        (parameters
+          name: (identifier)
+          type:
+            (apply
+              name: (identifier)
+              arguments: (identifier)))
+      type: (identifier)
+      body:
+        (do
+          (let_mut
+            (parameters
+              name: (identifier))
+            value: (number))
+          (for_in
+            (identifier)
+            iterable: (identifier)
+            body:
+              (do
+                (assign
+                  name: (identifier)
+                  value: (binary_expression (identifier) (identifier)))))))))
 
 ================================
 For Loop With Destructuring Bind
@@ -153,26 +159,27 @@ def foo (xs : Array (Nat × Nat)) : Unit := do
 ---
 
 (module
-  (def
-    name: (identifier)
-    parameters:
-      (parameters
-        name: (identifier)
-        type:
-          (apply
-            name: (identifier)
-            arguments: (product_type (identifier) (identifier))))
-    type: (identifier)
-    body:
-      (do
-        (for_in
-          (inductive_constructor (identifier) (identifier))
-          iterable: (identifier)
-          body:
-            (do
-              (apply
-                name: (identifier)
-                arguments: (string)))))))
+  (declaration
+    (def
+      name: (identifier)
+      parameters:
+        (parameters
+          name: (identifier)
+          type:
+            (apply
+              name: (identifier)
+              arguments: (product_type (identifier) (identifier))))
+      type: (identifier)
+      body:
+        (do
+          (for_in
+            (inductive_constructor (identifier) (identifier))
+            iterable: (identifier)
+            body:
+              (do
+                (apply
+                  name: (identifier)
+                  arguments: (string))))))))
 
 =========
 Try/Catch
@@ -187,12 +194,13 @@ def f : IO Unit := do
 ---
 
 (module
-  (def (identifier) (apply (identifier) (identifier))
+  (declaration
+    (def (identifier) (apply (identifier) (identifier))
     (do
       (try
         (apply (identifier) (string))
         (catch (identifier)
-          (throw (identifier)))))))
+          (throw (identifier))))))))
 
 =========
 Empty Try
@@ -222,12 +230,13 @@ def f : IO Unit := do
 ---
 
 (module
-  (def (identifier) (apply (identifier) (identifier))
+  (declaration
+    (def (identifier) (apply (identifier) (identifier))
     (do
       (try
         (apply (identifier) (string))
         (finally
-          (apply (identifier) (string)))))))
+          (apply (identifier) (string))))))))
 
 =================
 Try/Catch/Finally
@@ -244,12 +253,13 @@ def f : IO Unit := do
 ---
 
 (module
-  (def (identifier) (apply (identifier) (identifier))
+  (declaration
+    (def (identifier) (apply (identifier) (identifier))
     (do
       (try
         (apply (identifier) (string))
         (catch (identifier) (throw (identifier))))
-        (finally (apply (identifier) (string))))))
+        (finally (apply (identifier) (string)))))))
 
 ===================
 No Catch or Finally
@@ -294,13 +304,14 @@ def f : IO Unit := do try println! "foo" catch ex => throw ex finally println! "
 ---
 
 (module
-  (def (identifier) (apply (identifier) (identifier))
+  (declaration
+    (def (identifier) (apply (identifier) (identifier))
     (do
       (try
         (apply (identifier) (string))
         (catch (identifier)
           (throw (identifier)))
-        (finally (apply (identifier) (string)))))))
+        (finally (apply (identifier) (string))))))))
 
 ======
 Return
@@ -312,7 +323,8 @@ def f : Nat := do
 ---
 
 (module
-  (def (identifier) (identifier) (do (return (number)))))
+  (declaration
+    (def (identifier) (identifier) (do (return (number))))))
 
 ==============
 Return Nothing
@@ -324,7 +336,8 @@ def f : Unit := do
 ---
 
 (module
-  (def (identifier) (identifier) (do (return))))
+  (declaration
+    (def (identifier) (identifier) (do (return)))))
 
 ======
 Unless
@@ -337,20 +350,21 @@ def check : IO Unit := do
 ---
 
 (module
-  (def
-    name: (identifier)
-    type:
-      (apply
-        name: (identifier)
-        arguments: (identifier))
-      body:
-        (do
-          (unless
-            (true)
-            (do
-              (apply
-                name: (identifier)
-                arguments: (string)))))))
+  (declaration
+    (def
+      name: (identifier)
+      type:
+        (apply
+          name: (identifier)
+          arguments: (identifier))
+        body:
+          (do
+            (unless
+              (true)
+              (do
+                (apply
+                  name: (identifier)
+                  arguments: (string))))))))
 
 ================
 Do In Definition
@@ -362,23 +376,24 @@ instance : do return ToString Nat where
 ---
 
 (module
-  (instance
-    type:
-      (do
-        (return
-          value:
-            (apply
+  (declaration
+    (instance
+      type:
+        (do
+          (return
+            value:
+              (apply
+                name: (identifier)
+                arguments: (identifier))))
+      body:
+        (where_decl
+          name: (identifier)
+          parameters:
+            (parameters
               name: (identifier)
-              arguments: (identifier))))
-    body:
-      (where_decl
-        name: (identifier)
-        parameters:
-          (parameters
-            name: (identifier)
-            type: (identifier))
-        type: (identifier)
-        body: (string))))
+              type: (identifier))
+          type: (identifier)
+          body: (string)))))
 
 =======
 If/Then

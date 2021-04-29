@@ -9,40 +9,41 @@ theorem foo {m n : Nat} : 2 * m + 2 * n = 2 * (n + m) := by
 ---
 
 (module
-  (theorem
-    name: (identifier)
-    parameters:
-      (parameters
-        (implicit_parameter
-          name: (identifier)
-          name: (identifier)
-          type: (identifier)))
-    type:
-      (binary_expression
+  (declaration
+    (theorem
+      name: (identifier)
+      parameters:
+        (parameters
+          (implicit_parameter
+            name: (identifier)
+            name: (identifier)
+            type: (identifier)))
+      type:
         (binary_expression
-          (binary_expression (number) (identifier))
-          (binary_expression (number) (identifier)))
-        (binary_expression
-          (number)
-          (binary_expression (identifier) (identifier))))
-    body:
-      (tactics
-        (rewrite
-          (field_of
-            term: (identifier)
-            name: (identifier)))
-        (term
-          (field_of
-            term:
-              (apply
-                name:
-                  (field_of
-                    term: (identifier)
-                    name: (identifier))
-                arguments: (number)
-                arguments: (identifier)
-                arguments: (identifier))
-            name: (identifier))))))
+          (binary_expression
+            (binary_expression (number) (identifier))
+            (binary_expression (number) (identifier)))
+          (binary_expression
+            (number)
+            (binary_expression (identifier) (identifier))))
+      body:
+        (tactics
+          (rewrite
+            (field_of
+              term: (identifier)
+              name: (identifier)))
+          (term
+            (field_of
+              term:
+                (apply
+                  name:
+                    (field_of
+                      term: (identifier)
+                      name: (identifier))
+                  arguments: (number)
+                  arguments: (identifier)
+                  arguments: (identifier))
+              name: (identifier)))))))
 
 =================
 Tactic Expression
@@ -99,8 +100,9 @@ example : 2 = 2 := by simp
 ---
 
 (module
-  (example (binary_expression (number) (number))
-    (tactics (simp))))
+  (declaration
+    (example (binary_expression (number) (number))
+      (tactics (simp)))))
 
 ========================
 Simp With Extra Theorems
@@ -111,12 +113,13 @@ example : 2 = 2 := by simp [foo, bar]
 ---
 
 (module
-  (example
-    type: (binary_expression (number) (number))
-    body:
-      (tactics
-        (simp
-          extra: (list (identifier) (identifier))))))
+  (declaration
+    (example
+      type: (binary_expression (number) (number))
+      body:
+        (tactics
+          (simp
+            extra: (list (identifier) (identifier)))))))
 
 =====
 Apply
@@ -127,8 +130,9 @@ example : true ↔ true := by apply Iff.intro
 ---
 
 (module
-  (example (binary_expression (true) (true))
-    (tactics (apply_tactic (field_of (identifier) (identifier))))))
+  (declaration
+    (example (binary_expression (true) (true))
+      (tactics (apply_tactic (field_of (identifier) (identifier)))))))
 
 ========================
 Some Unknown User Tactic
@@ -142,8 +146,9 @@ example : true ↔ true := by
 ---
 
 (module
-  (example (binary_expression (true) (true))
-    (tactics
-      (user_tactic (identifier))
-      (user_tactic (apply (identifier) (identifier)))
-      (user_tactic (identifier)))))
+  (declaration
+    (example (binary_expression (true) (true))
+      (tactics
+        (user_tactic (identifier))
+        (user_tactic (apply (identifier) (identifier)))
+        (user_tactic (identifier))))))

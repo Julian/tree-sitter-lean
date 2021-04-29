@@ -11,12 +11,16 @@ theorem foo : p := sorry
 ---
 
 (module
-  (def (identifier)
+  (declaration
+    (def (identifier)
     (parameters (identifier))
-    (binary_expression (binary_expression (identifier) (identifier)) (number)))
-  (def (identifier)
-    (apply (identifier) (number)))
-  (theorem (identifier) (identifier) (sorry)))
+    (binary_expression (binary_expression (identifier) (identifier))
+    (number))))
+  (declaration
+    (def (identifier)
+    (apply (identifier) (number))))
+  (declaration
+    (theorem (identifier) (identifier) (sorry))))
 
 =========
 Annotated
@@ -27,20 +31,21 @@ def sampleFunction2 (x : Nat) := 2*x*x - x + 3
 ---
 
 (module
-  (def
-    name: (identifier)
-    parameters:
-      (parameters
-        name: (identifier)
-        type: (identifier))
-    body:
-      (binary_expression
+  (declaration
+    (def
+      name: (identifier)
+      parameters:
+        (parameters
+          name: (identifier)
+          type: (identifier))
+      body:
         (binary_expression
           (binary_expression
-          (binary_expression (number) (identifier))
-            (identifier))
-            (identifier))
-        (number))))
+            (binary_expression
+            (binary_expression (number) (identifier))
+              (identifier))
+              (identifier))
+          (number)))))
 
 ==================
 Multiple Annotated
@@ -51,15 +56,16 @@ def sampleFunction2 (x y : Nat) := x + y
 ---
 
 (module
-  (def
-    name: (identifier)
-    parameters:
-      (parameters
-        name: (identifier)
-        name: (identifier)
-        type: (identifier))
-    body:
-      (binary_expression (identifier) (identifier))))
+  (declaration
+    (def
+      name: (identifier)
+      parameters:
+        (parameters
+          name: (identifier)
+          name: (identifier)
+          type: (identifier))
+      body:
+        (binary_expression (identifier) (identifier)))))
 
 ==================
 Implicit Arguments
@@ -70,34 +76,35 @@ def foo {a} {b c : Nat} v w (x y) (z : Nat) := a + b + v + w + x + y
 ---
 
 (module
-  (def
-    name: (identifier)
-    parameters:
-      (parameters
-        (implicit_parameter
-          name: (identifier))
-        (implicit_parameter
+  (declaration
+    (def
+      name: (identifier)
+      parameters:
+        (parameters
+          (implicit_parameter
+            name: (identifier))
+          (implicit_parameter
+            name: (identifier)
+            name: (identifier)
+            type: (identifier))
+          name: (identifier)
+          name: (identifier)
+          name: (identifier)
           name: (identifier)
           name: (identifier)
           type: (identifier))
-        name: (identifier)
-        name: (identifier)
-        name: (identifier)
-        name: (identifier)
-        name: (identifier)
-        type: (identifier))
-    body:
-      (binary_expression
+      body:
         (binary_expression
           (binary_expression
             (binary_expression
               (binary_expression
-                (identifier)
+                (binary_expression
+                  (identifier)
+                  (identifier))
                 (identifier))
               (identifier))
             (identifier))
-          (identifier))
-        (identifier))))
+          (identifier)))))
 
 ============================
 Typeclass Resolved Arguments
@@ -108,20 +115,21 @@ def foo [Bar x] [y : Baz] : x := 1
 ---
 
 (module
-  (def
-    name: (identifier)
-    parameters:
-      (parameters
-        (typeclass_resolved_parameter
-          type:
-            (apply
-              name: (identifier)
-              arguments: (identifier)))
-        (typeclass_resolved_parameter
-          name: (identifier)
-          type: (identifier)))
-    type: (identifier)
-    body: (number)))
+  (declaration
+    (def
+      name: (identifier)
+      parameters:
+        (parameters
+          (typeclass_resolved_parameter
+            type:
+              (apply
+                name: (identifier)
+                arguments: (identifier)))
+          (typeclass_resolved_parameter
+            name: (identifier)
+            type: (identifier)))
+      type: (identifier)
+      body: (number))))
 
 ====================
 First Class Function
@@ -133,21 +141,22 @@ def twice (f : Nat → Nat) (a : Nat) :=
 ---
 
 (module
-  (def
-    name: (identifier)
-    parameters:
-      (parameters
-        name: (identifier)
-        type: (function_type (identifier) (identifier))
-        name: (identifier)
-        type: (identifier))
-    body:
-      (apply
-        name: (identifier)
-        arguments:
-          (apply
-            name: (identifier)
-            arguments: (identifier)))))
+  (declaration
+    (def
+      name: (identifier)
+      parameters:
+        (parameters
+          name: (identifier)
+          type: (function_type (identifier) (identifier))
+          name: (identifier)
+          type: (identifier))
+      body:
+        (apply
+          name: (identifier)
+          arguments:
+            (apply
+              name: (identifier)
+              arguments: (identifier))))))
 
 ====================
 Function Return Type
@@ -158,10 +167,11 @@ def foo : Nat -> Nat := id
 ---
 
 (module
-  (def
-    name: (identifier)
-    type: (function_type (identifier) (identifier))
-    body: (identifier)))
+  (declaration
+    (def
+      name: (identifier)
+      type: (function_type (identifier) (identifier))
+      body: (identifier))))
 
 ==================================
 Multiargument Function Return Type
@@ -172,12 +182,13 @@ def foo : Nat -> Nat -> Nat -> Nat := id
 ---
 
 (module
-  (def
-    name: (identifier)
-    type:
-      (function_type
-        (identifier) (identifier) (identifier) (identifier))
-    body: (identifier)))
+  (declaration
+    (def
+      name: (identifier)
+      type:
+        (function_type
+          (identifier) (identifier) (identifier) (identifier))
+      body: (identifier))))
 
 =============
 Def of Struct
@@ -189,13 +200,14 @@ def f : Foo where
 ---
 
 (module
-  (def
-    name: (identifier)
-    type: (identifier)
-    body:
-      (where_decl
-        name: (identifier)
-        body: (number))))
+  (declaration
+    (def
+      name: (identifier)
+      type: (identifier)
+      body:
+        (where_decl
+          name: (identifier)
+          body: (number)))))
 
 ==================
 Match Syntax Sugar
@@ -209,21 +221,22 @@ def foo : Nat → Nat
 ---
 
 (module
-  (def
-    name: (identifier)
-    type: (function_type (identifier) (identifier))
-    body:
-      (pattern
-        lhs: (number)
-        (number))
-    body:
-      (pattern
-        lhs: (number)
-        (number))
-    body:
-      (pattern
-        lhs: (identifier)
-        (number))))
+  (declaration
+    (def
+      name: (identifier)
+      type: (function_type (identifier) (identifier))
+      body:
+        (pattern
+          lhs: (number)
+          (number))
+      body:
+        (pattern
+          lhs: (number)
+          (number))
+      body:
+        (pattern
+          lhs: (identifier)
+          (number)))))
 
 ==========================================
 Match Syntax Sugar With Anonymous Function
@@ -237,17 +250,18 @@ def foo : Nat -> Bool :=
 ---
 
 (module
-  (def
-    name: (identifier)
-    type: (function_type (identifier) (identifier))
-    body:
-      (lambda
-        (pattern
-          lhs: (number)
-          (true))
-        (pattern
-          lhs: (identifier)
-          (false)))))
+  (declaration
+    (def
+      name: (identifier)
+      type: (function_type (identifier) (identifier))
+      body:
+        (lambda
+          (pattern
+            lhs: (number)
+            (true))
+          (pattern
+            lhs: (identifier)
+            (false))))))
 
 =======================
 Multimatch Syntax Sugar
@@ -261,24 +275,25 @@ def foo : Nat → Nat -> Nat
 ---
 
 (module
-  (def
-    name: (identifier)
-    type: (function_type (identifier) (identifier) (identifier))
-    body:
-      (pattern
-        lhs: (number)
-        lhs: (identifier)
-        (number))
-    body:
-      (pattern
-        lhs: (number)
-        lhs: (identifier)
-        (number))
-    body:
-      (pattern
-        lhs: (identifier)
-        lhs: (identifier)
-        (number))))
+  (declaration
+    (def
+      name: (identifier)
+      type: (function_type (identifier) (identifier) (identifier))
+      body:
+        (pattern
+          lhs: (number)
+          lhs: (identifier)
+          (number))
+      body:
+        (pattern
+          lhs: (number)
+          lhs: (identifier)
+          (number))
+      body:
+        (pattern
+          lhs: (identifier)
+          lhs: (identifier)
+          (number)))))
 
 ============
 Conditionals
@@ -293,28 +308,29 @@ else
 ---
 
 (module
-  (def
-    name: (identifier)
-    parameters:
-      (parameters
-        name: (identifier)
-        type: (identifier))
-    body:
-      (conditional (comparison (identifier) (number))
-          (binary_expression
+  (declaration
+    (def
+      name: (identifier)
+      parameters:
+        (parameters
+          name: (identifier)
+          type: (identifier))
+      body:
+        (conditional (comparison (identifier) (number))
             (binary_expression
               (binary_expression
-                (binary_expression (number) (identifier))
+                (binary_expression
+                  (binary_expression (number) (identifier))
+                  (identifier))
                 (identifier))
-              (identifier))
-            (number))
-          (binary_expression
+              (number))
             (binary_expression
               (binary_expression
-                (binary_expression (number) (identifier))
+                (binary_expression
+                  (binary_expression (number) (identifier))
+                  (identifier))
                 (identifier))
-              (identifier))
-            (number)))))
+              (number))))))
 
 =======
 Theorem
@@ -328,27 +344,28 @@ theorem twiceAdd2 (a : Nat) : twice (fun x => x + 2) a = a + 4 :=
 ---
 
 (module
-  (theorem
-    name: (identifier)
-    parameters:
-      (parameters
-        name: (identifier)
-        type: (identifier))
-    type:
-      (binary_expression
-        (apply
+  (declaration
+    (theorem
+      name: (identifier)
+      parameters:
+        (parameters
           name: (identifier)
-          arguments:
-            (lambda
-              (parameters
-                name: (identifier))
-              (binary_expression (identifier) (number)))
-          arguments:
-            (identifier))
-        (binary_expression (identifier) (number)))
-      (comment) (comment)
-    body:
-      (identifier)))
+          type: (identifier))
+      type:
+        (binary_expression
+          (apply
+            name: (identifier)
+            arguments:
+              (lambda
+                (parameters
+                  name: (identifier))
+                (binary_expression (identifier) (number)))
+            arguments:
+              (identifier))
+          (binary_expression (identifier) (number)))
+        (comment) (comment)
+      body:
+        (identifier))))
 
 ============================
 Theorem With Expression Body
@@ -359,20 +376,21 @@ theorem bar : 2 * 3 = 3 * 2 := Nat.mul_comm 2 3
 ---
 
 (module
-  (theorem
-    name: (identifier)
-    type:
-      (binary_expression
-        (binary_expression (number) (number))
-        (binary_expression (number) (number)))
-    body:
-      (apply
-        name:
-          (field_of
-            term: (identifier)
-            name: (identifier))
-        arguments: (number)
-        arguments: (number))))
+  (declaration
+    (theorem
+      name: (identifier)
+      type:
+        (binary_expression
+          (binary_expression (number) (number))
+          (binary_expression (number) (number)))
+      body:
+        (apply
+          name:
+            (field_of
+              term: (identifier)
+              name: (identifier))
+          arguments: (number)
+          arguments: (number)))))
 
 =======================
 Theorem With Match Body
@@ -385,24 +403,25 @@ theorem foo {p : α × β} :
 ---
 
 (module
-  (theorem
-    name: (identifier)
-    parameters:
-      (parameters
-        (implicit_parameter
-          name: (identifier)
-          type: (product_type (identifier) (identifier))))
-    type:
-      (binary_expression
+  (declaration
+    (theorem
+      name: (identifier)
+      parameters:
+        (parameters
+          (implicit_parameter
+            name: (identifier)
+            type: (product_type (identifier) (identifier))))
+      type:
         (binary_expression
-          (identifier)
-          (binary_expression (identifier) (identifier)))
-        (identifier))
-    body:
-      (pattern
-        lhs: (product (identifier) (identifier))
-        lhs: (product (identifier) (identifier))
-        (sorry))))
+          (binary_expression
+            (identifier)
+            (binary_expression (identifier) (identifier)))
+          (identifier))
+      body:
+        (pattern
+          lhs: (product (identifier) (identifier))
+          lhs: (product (identifier) (identifier))
+          (sorry)))))
 
 ====================
 Theorem Missing Type
@@ -427,37 +446,38 @@ structure Point (α : Type u) where
 ---
 
 (module
-  (structure_definition
-    name: (identifier)
-    parameters:
-      (parameters
-        name: (identifier)
-        type:
-          (apply
-            name: (identifier)
-            arguments: (identifier)))
-    fields:
-      (field
-        name: (identifier)
-        type: (identifier)
-        default: (string))
-    fields:
-      (field
-        name: (identifier)
-        type: (identifier))
-    fields:
-      (field
-        name: (identifier)
-        type:
-          (apply
-            name: (identifier)
-            arguments: (identifier)
-            arguments: (identifier)
-            arguments: (identifier)))
-    fields:
-      (field
-        name: (identifier)
-        default: (number))))
+  (declaration
+    (structure_definition
+      name: (identifier)
+      parameters:
+        (parameters
+          name: (identifier)
+          type:
+            (apply
+              name: (identifier)
+              arguments: (identifier)))
+      fields:
+        (field
+          name: (identifier)
+          type: (identifier)
+          default: (string))
+      fields:
+        (field
+          name: (identifier)
+          type: (identifier))
+      fields:
+        (field
+          name: (identifier)
+          type:
+            (apply
+              name: (identifier)
+              arguments: (identifier)
+              arguments: (identifier)
+              arguments: (identifier)))
+      fields:
+        (field
+          name: (identifier)
+          default: (number)))))
 
 =================
 Structure Extends
@@ -472,17 +492,19 @@ class Baz extends Quux where
 ---
 
 (module
-  (structure_definition
-    name: (identifier)
-    extends: (identifier)
-    fields:
-      (field
-        name: (identifier)
-        type: (identifier)))
-  (class
-    name: (identifier)
-    extends: (identifier)
-    fields: (field name: (identifier) type: (identifier))))
+  (declaration
+    (structure_definition
+      name: (identifier)
+      extends: (identifier)
+      fields:
+        (field
+          name: (identifier)
+          type: (identifier))))
+  (declaration
+    (class
+      name: (identifier)
+      extends: (identifier)
+      fields: (field name: (identifier) type: (identifier)))))
 
 ==========================
 Structure Multiple Extends
@@ -494,17 +516,18 @@ structure Bar extends Foo, Bar α where
 ---
 
 (module
-  (structure_definition
-    name: (identifier)
-    extends: (identifier)
-    extends:
-      (apply
-        name: (identifier)
-        arguments: (identifier))
-    fields:
-      (field
-        name: (identifier)
-        type: (identifier))))
+  (declaration
+    (structure_definition
+      name: (identifier)
+      extends: (identifier)
+      extends:
+        (apply
+          name: (identifier)
+          arguments: (identifier))
+      fields:
+        (field
+          name: (identifier)
+          type: (identifier)))))
 
 =====
 Class
@@ -519,34 +542,35 @@ class Quux (a : Type) where
 ---
 
 (module
-  (class
-    name: (identifier)
-    parameters:
-      (parameters
-        name: (identifier)
-        type: (identifier))
-    fields:
-      (field
-        name: (identifier)
-        type: (identifier)
-        default: (string))
-    fields:
-      (field
-        name: (identifier)
-        type: (function_type (identifier) (identifier) (identifier)))
-    fields:
-      (field
-        name: (identifier)
-        default: (number))
-    fields:
-      (field
-        name: (identifier)
-        parameters:
-          (parameters
-            (implicit_parameter
-              name: (identifier)
-              type: (identifier)))
-        type: (identifier))))
+  (declaration
+    (class
+      name: (identifier)
+      parameters:
+        (parameters
+          name: (identifier)
+          type: (identifier))
+      fields:
+        (field
+          name: (identifier)
+          type: (identifier)
+          default: (string))
+      fields:
+        (field
+          name: (identifier)
+          type: (function_type (identifier) (identifier) (identifier)))
+      fields:
+        (field
+          name: (identifier)
+          default: (number))
+      fields:
+        (field
+          name: (identifier)
+          parameters:
+            (parameters
+              (implicit_parameter
+                name: (identifier)
+                type: (identifier)))
+          type: (identifier)))))
 
 ========
 Instance
@@ -558,20 +582,21 @@ instance : ToString Foo where
 ---
 
 (module
-  (instance
-    type:
-      (apply
-        name: (identifier)
-        arguments: (identifier))
-    body:
-      (where_decl
-        name: (identifier)
-        parameters:
-          (parameters
-            name: (identifier)
-            type: (identifier))
-        type: (identifier)
-        body: (string))))
+  (declaration
+    (instance
+      type:
+        (apply
+          name: (identifier)
+          arguments: (identifier))
+      body:
+        (where_decl
+          name: (identifier)
+          parameters:
+            (parameters
+              name: (identifier)
+              type: (identifier))
+          type: (identifier)
+          body: (string)))))
 
 ==============
 Named Instance
@@ -583,21 +608,22 @@ instance toStringFoo : ToString Foo where
 ---
 
 (module
-  (instance
-    name: (identifier)
-    type:
-      (apply
-        name: (identifier)
-        arguments: (identifier))
-    body:
-      (where_decl
-        name: (identifier)
-        parameters:
-          (parameters
-            name: (identifier)
-            type: (identifier))
-        type: (identifier)
-        body: (string))))
+  (declaration
+    (instance
+      name: (identifier)
+      type:
+        (apply
+          name: (identifier)
+          arguments: (identifier))
+      body:
+        (where_decl
+          name: (identifier)
+          parameters:
+            (parameters
+              name: (identifier)
+              type: (identifier))
+          type: (identifier)
+          body: (string)))))
 
 ========================
 Instance With Parameters
@@ -609,22 +635,23 @@ instance {f : Foo} (g : Bar 3) : Quux where
 ---
 
 (module
-  (instance
-    parameters:
-      (parameters
-        (implicit_parameter
-          name: (identifier)
-          type: (identifier))
-        name: (identifier)
-        type:
-          (apply
+  (declaration
+    (instance
+      parameters:
+        (parameters
+          (implicit_parameter
             name: (identifier)
-            arguments: (number)))
-    type: (identifier)
-    body:
-      (where_decl
-        name: (identifier)
-        body: (identifier))))
+            type: (identifier))
+          name: (identifier)
+          type:
+            (apply
+              name: (identifier)
+              arguments: (number)))
+      type: (identifier)
+      body:
+        (where_decl
+          name: (identifier)
+          body: (identifier)))))
 
 ================
 Chained Instance
@@ -636,26 +663,27 @@ instance [Inhabited b] : Inhabited (a -> b) where
 ---
 
 (module
-  (instance
-    parameters:
-      (parameters
-        (typeclass_resolved_parameter
-          type:
-            (apply
-              name: (identifier)
-              arguments: (identifier))))
-    type:
-      (apply
-        name: (identifier)
-        arguments: (function_type (identifier) (identifier)))
-    body:
-      (where_decl
-        name: (identifier)
-        body:
-          (lambda
-            (parameters
-              name: (identifier))
-            (identifier)))))
+  (declaration
+    (instance
+      parameters:
+        (parameters
+          (typeclass_resolved_parameter
+            type:
+              (apply
+                name: (identifier)
+                arguments: (identifier))))
+      type:
+        (apply
+          name: (identifier)
+          arguments: (function_type (identifier) (identifier)))
+      body:
+        (where_decl
+          name: (identifier)
+          body:
+            (lambda
+              (parameters
+                name: (identifier))
+              (identifier))))))
 
 ===================================
 Instance With Inductive Constructor
@@ -666,12 +694,13 @@ instance : Inhabited Nat := ⟨0⟩
 ---
 
 (module
-  (instance
-    type:
-      (apply
-        name: (identifier)
-        arguments: (identifier))
-    body: (inductive_constructor (number))))
+  (declaration
+    (instance
+      type:
+        (apply
+          name: (identifier)
+          arguments: (identifier))
+      body: (inductive_constructor (number)))))
 
 ==============================
 Instance With Field Definition
@@ -682,15 +711,16 @@ instance : Add Foo := Foo.add
 ---
 
 (module
-  (instance
-    type:
-      (apply
-        name: (identifier)
-        arguments: (identifier))
-    body:
-      (field_of
-        term: (identifier)
-        name: (identifier))))
+  (declaration
+    (instance
+      type:
+        (apply
+          name: (identifier)
+          arguments: (identifier))
+      body:
+        (field_of
+          term: (identifier)
+          name: (identifier)))))
 
 ========================================
 Instance Field With Function Return Type
@@ -702,19 +732,20 @@ instance : ToString Foo where
 ---
 
 (module
-  (instance
-    type:
-      (apply
-        name: (identifier)
-        arguments: (identifier))
-    body:
-      (where_decl
-        name: (identifier)
-        type: (function_type (identifier) (identifier))
-        body:
-          (lambda
-            (parameters name: (identifier))
-            (interpolated_string)))))
+  (declaration
+    (instance
+      type:
+        (apply
+          name: (identifier)
+          arguments: (identifier))
+      body:
+        (where_decl
+          name: (identifier)
+          type: (function_type (identifier) (identifier))
+          body:
+            (lambda
+              (parameters name: (identifier))
+              (interpolated_string))))))
 
 ==================================
 Instance Field Without Return Type
@@ -726,17 +757,18 @@ instance : ToString Foo where
 ---
 
 (module
-  (instance
-    type:
-      (apply
-        name: (identifier)
-        arguments: (identifier))
-    body:
-      (where_decl
-        name: (identifier)
-        parameters:
-          (parameters name: (identifier))
-        body: (string))))
+  (declaration
+    (instance
+      type:
+        (apply
+          name: (identifier)
+          arguments: (identifier))
+      body:
+        (where_decl
+          name: (identifier)
+          parameters:
+            (parameters name: (identifier))
+          body: (string)))))
 
 ================================
 Instance With Match Syntax Sugar
@@ -749,18 +781,19 @@ instance : ToString Foo where
 ---
 
 (module
-  (instance
-    type:
-      (apply
-        name: (identifier)
-        arguments: (identifier))
-    body:
-      (where_decl
-        name: (identifier)
-        body:
-          (pattern
-            lhs: (identifier)
-            (string)))))
+  (declaration
+    (instance
+      type:
+        (apply
+          name: (identifier)
+          arguments: (identifier))
+      body:
+        (where_decl
+          name: (identifier)
+          body:
+            (pattern
+              lhs: (identifier)
+              (string))))))
 
 =======
 Example
@@ -771,15 +804,16 @@ example : (fun x => x * 2) 4 < 3 = false := rfl
 ---
 
 (module
-  (example
-    (binary_expression
-      (comparison
-        (apply
-          (lambda (parameters (identifier))
-            (binary_expression (identifier) (number))) (number))
-        (number))
-      (false))
-    (identifier)))
+  (declaration
+    (example
+      (binary_expression
+        (comparison
+          (apply
+            (lambda (parameters (identifier))
+              (binary_expression (identifier) (number))) (number))
+          (number))
+        (false))
+      (identifier))))
 
 =======================
 Example With Parameters
@@ -790,25 +824,26 @@ example {G : Type} [Add G] (g : G) : g + g = g + g := rfl
 ---
 
 (module
-  (example
-    parameters:
-      (parameters
-        (implicit_parameter
+  (declaration
+    (example
+      parameters:
+        (parameters
+          (implicit_parameter
+            name: (identifier)
+            type: (identifier))
+          (typeclass_resolved_parameter
+            type:
+              (apply
+                name: (identifier)
+                arguments: (identifier)))
           name: (identifier)
           type: (identifier))
-        (typeclass_resolved_parameter
-          type:
-            (apply
-              name: (identifier)
-              arguments: (identifier)))
-        name: (identifier)
-        type: (identifier))
-    type:
-      (binary_expression
-        (binary_expression (identifier) (identifier))
-        (binary_expression (identifier) (identifier)))
-    body:
-      (identifier)))
+      type:
+        (binary_expression
+          (binary_expression (identifier) (identifier))
+          (binary_expression (identifier) (identifier)))
+      body:
+        (identifier))))
 
 ======================================================
 Noncomputable / Partial / Protected / Private / Unsafe
@@ -845,44 +880,25 @@ noncomputable constant FooBar : Nat
 ---
 
 (module
-  (def (identifier) (number))
-  (def (identifier)
-    (parameters (identifier))
-    (identifier)
-    (apply (identifier) (binary_expression (identifier) (number))))
-  (def (identifier) (number))
-  (def (identifier) (number))
-  (inductive_type (identifier) (constructor (identifier)))
-  (structure_definition (identifier) (field (identifier) (identifier)))
-  (class (identifier) (field (identifier) (identifier)))
-  (instance (identifier) (where_decl (identifier) (number)))
-  (instance (identifier) (where_decl (identifier) (number)))
-  (theorem (identifier) (binary_expression (number) (number)) (identifier))
-  (example (binary_expression (number) (number)) (identifier))
-  (example (binary_expression (number) (number)) (identifier))
-  (constant (identifier) (identifier))
-  (constant (identifier) (identifier)))
-
-===============================================================
-No Partial / Noncomputable / Attributes / Private for Inductive
-===============================================================
-
-partial inductive T1 : Type -- invalid use of partial
-noncomputable inductive T1 : Type -- invalid use of noncomputable
-@[inline] inductive T1 : Type -- invalid use of attributes
-
-private inductive T1 : Type
-| private mk : T1 -- invalid private constructor in private inductive type
-
----
-
-(module
-  (ERROR) (inductive_type (identifier) (identifier)) (comment)
-  (ERROR) (inductive_type (identifier) (identifier)) (comment)
-  (ERROR (identifier))
-  (inductive_type (identifier) (identifier)) (comment)
-  (inductive_type (identifier) (identifier) (constructor))
-    (ERROR (comment)))
+  (declaration
+    (def (identifier) (number)))
+  (declaration
+    (def (identifier)
+      (parameters (identifier))
+      (identifier)
+      (apply (identifier) (binary_expression (identifier) (number)))))
+  (declaration (def (identifier) (number)))
+  (declaration (def (identifier) (number)))
+  (declaration (inductive_type (identifier) (constructor (identifier))))
+  (declaration (structure_definition (identifier) (field (identifier) (identifier))))
+  (declaration (class (identifier) (field (identifier) (identifier))))
+  (declaration (instance (identifier) (where_decl (identifier) (number))))
+  (declaration (instance (identifier) (where_decl (identifier) (number))))
+  (declaration (theorem (identifier) (binary_expression (number) (number)) (identifier)))
+  (declaration (example (binary_expression (number) (number)) (identifier)))
+  (declaration (example (binary_expression (number) (number)) (identifier)))
+  (declaration (constant (identifier) (identifier)))
+  (declaration (constant (identifier) (identifier))))
 
 ==========
 Attributes
@@ -899,23 +915,27 @@ Attributes
 ---
 
 (module
-  (def
+  (declaration
     attributes: (identifier)
-    name: (identifier)
-    body: (number))
-  (instance
+    (def
+      name: (identifier)
+      body: (number)))
+  (declaration
     attributes: (identifier)
-    type: (identifier)
-    body: (inductive_constructor (number)))
-  (theorem
+    (instance
+      type: (identifier)
+      body: (inductive_constructor (number))))
+  (declaration
     attributes: (identifier)
-    name: (identifier)
-    type: (binary_expression (number) (number))
-    body: (identifier))
-  (constant
+    (theorem
+      name: (identifier)
+      type: (binary_expression (number) (number))
+      body: (identifier)))
+  (declaration
     attributes: (identifier)
-    name: (identifier)
-    type: (identifier)))
+    (constant
+      name: (identifier)
+      type: (identifier))))
 
 ===================
 Multiple Attributes
@@ -926,11 +946,12 @@ Multiple Attributes
 ---
 
 (module
-  (def
+  (declaration
     attributes: (identifier)
     attributes: (identifier)
-    name: (identifier)
-    body: (number)))
+    (def
+      name: (identifier)
+      body: (number))))
 
 =================
 Missing Attribute
@@ -941,10 +962,11 @@ Missing Attribute
 ---
 
 (module
-  (def
+  (declaration
     attributes: (identifier (MISSING _identifier))
-    name: (identifier)
-    body: (number)))
+    (def
+      name: (identifier)
+      body: (number))))
 
 ==============================
 Explicit Attribute Declaration
@@ -1002,10 +1024,11 @@ Partial With Attribute
 ---
 
 (module
-  (def
+  (declaration
     attributes: (identifier)
-    name: (identifier)
-    body: (number)))
+    (def
+      name: (identifier)
+      body: (number))))
 
 ==============
 Inductive Type
@@ -1020,40 +1043,41 @@ inductive FooBar where
 ---
 
 (module
-  (inductive_type
-    name: (identifier)
-    constructors:
-      (constructor
-        name: (identifier)
-        type: (identifier))
-    constructors:
-      (constructor
-        name: (identifier)
-        name: (identifier)
-        type: (identifier))
-    constructors:
-      (constructor
-        name: (identifier)
-        type:
-          (function_type (identifier) (identifier)))
-    constructors:
-      (constructor
-        name: (identifier)
-        parameters:
-          (implicit_parameter
+  (declaration
+    (inductive_type
+      name: (identifier)
+      constructors:
+        (constructor
+          name: (identifier)
+          type: (identifier))
+      constructors:
+        (constructor
+          name: (identifier)
+          name: (identifier)
+          type: (identifier))
+      constructors:
+        (constructor
+          name: (identifier)
+          type:
+            (function_type (identifier) (identifier)))
+      constructors:
+        (constructor
+          name: (identifier)
+          parameters:
+            (implicit_parameter
+              name: (identifier)
+              type: (identifier))
+          parameters:
+            (typeclass_resolved_parameter
+              type:
+                (apply
+                  name: (identifier)
+                  arguments: (identifier)))
             name: (identifier)
-            type: (identifier))
-        parameters:
-          (typeclass_resolved_parameter
-            type:
-              (apply
-                name: (identifier)
-                arguments: (identifier)))
-          name: (identifier)
-          name: (identifier)
-          type: (identifier)
-        type:
-          (function_type (identifier) (identifier)))))
+            name: (identifier)
+            type: (identifier)
+          type:
+            (function_type (identifier) (identifier))))))
 
 ==============================
 Inductive Type No Constructors
@@ -1064,8 +1088,9 @@ inductive Foo
 ---
 
 (module
-  (inductive_type
-    name: (identifier)))
+  (declaration
+    (inductive_type
+      name: (identifier))))
 
 ==============================
 Inductive Type With Parameters
@@ -1076,17 +1101,18 @@ inductive Foo (F : Type) | x (foo : F)
 ---
 
 (module
-  (inductive_type
-    name: (identifier)
-    parameters:
-      (parameters
-        name: (identifier)
-        type: (identifier))
-    constructors:
-      (constructor
-        name: (identifier)
-        name: (identifier)
-        type: (identifier))))
+  (declaration
+    (inductive_type
+      name: (identifier)
+      parameters:
+        (parameters
+          name: (identifier)
+          type: (identifier))
+      constructors:
+        (constructor
+          name: (identifier)
+          name: (identifier)
+          type: (identifier)))))
 
 =======================
 Inductive Type One Line
@@ -1097,14 +1123,15 @@ inductive Bit | bit0 | bit1
 ---
 
 (module
-  (inductive_type
-    name: (identifier)
-    constructors:
-      (constructor
-        name: (identifier))
-    constructors:
-      (constructor
-        name: (identifier))))
+  (declaration
+    (inductive_type
+      name: (identifier)
+      constructors:
+        (constructor
+          name: (identifier))
+      constructors:
+        (constructor
+          name: (identifier)))))
 
 ================================
 Inductive Type Superfluous Where
@@ -1115,14 +1142,15 @@ inductive Bit where | bit0 | bit1
 ---
 
 (module
-  (inductive_type
-    name: (identifier)
-    constructors:
-      (constructor
-        name: (identifier))
-    constructors:
-      (constructor
-        name: (identifier))))
+  (declaration
+    (inductive_type
+      name: (identifier)
+      constructors:
+        (constructor
+          name: (identifier))
+      constructors:
+        (constructor
+          name: (identifier)))))
 
 ========================
 Inductive Type With Type
@@ -1133,9 +1161,76 @@ inductive Foo : Bar
 ---
 
 (module
-  (inductive_type
-    name: (identifier)
-    type: (identifier)))
+  (declaration
+    (inductive_type
+      name: (identifier)
+      type: (identifier))))
+
+==========================
+Inductive Type Colon Equal
+==========================
+
+inductive Foo :=
+| Bar
+
+---
+
+(module
+  (declaration
+    (inductive_type
+      name: (identifier)
+      constructors:
+        (constructor
+          name: (identifier)))))
+
+====================
+Class Inductive Type
+====================
+
+class inductive FooBar where
+  | foo : FooBar
+  | bar.baz : FooBar
+  | spam : Nat → FooBar
+  | quux {T: Type} [Add T] (x y : Nat) : Nat → FooBar
+
+---
+
+(module
+  (declaration
+    (class_inductive_type
+      name: (identifier)
+      constructors:
+        (constructor
+          name: (identifier)
+          type: (identifier))
+      constructors:
+        (constructor
+          name: (identifier)
+          name: (identifier)
+          type: (identifier))
+      constructors:
+        (constructor
+          name: (identifier)
+          type:
+            (function_type (identifier) (identifier)))
+      constructors:
+        (constructor
+          name: (identifier)
+          parameters:
+            (implicit_parameter
+              name: (identifier)
+              type: (identifier))
+          parameters:
+            (typeclass_resolved_parameter
+              type:
+                (apply
+                  name: (identifier)
+                  arguments: (identifier)))
+            name: (identifier)
+            name: (identifier)
+            type: (identifier)
+          type:
+            (function_type (identifier) (identifier))))))
 
 =================
 Inline Namespaced
@@ -1159,59 +1254,65 @@ inductive A.B | C
 ---
 
 (module
-  (def
-    name: (identifier)
-    name: (identifier)
-    name: (identifier)
-    body: (number))
-  (structure_definition
-    name: (identifier)
-    name: (identifier)
-    name: (identifier)
-    fields:
-      (field
-        name: (identifier)
-        type: (identifier)))
-  (class
-    name: (identifier)
-    name: (identifier)
-    name: (identifier)
-    name: (identifier)
-    fields:
-      (field
-        name: (identifier)
-        type: (identifier)))
-  (instance
-    name: (identifier)
-    name: (identifier)
-    type:
-      (field_of
-        term:
-          (field_of
-            term:
-              (field_of
-                term: (identifier)
-                name: (identifier))
-            name: (identifier))
-        name: (identifier))
-    body:
-      (where_decl
-        name: (identifier)
-        body: (number)))
-  (theorem
-    name: (identifier)
-    name: (identifier)
-    name: (identifier)
-    name: (identifier)
-    name: (identifier)
-    type: (binary_expression (number) (number))
-    body: (identifier))
-  (inductive_type
-    name: (identifier)
-    name: (identifier)
-    constructors:
-      (constructor
-        name: (identifier))))
+  (declaration
+    (def
+      name: (identifier)
+      name: (identifier)
+      name: (identifier)
+      body: (number)))
+  (declaration
+    (structure_definition
+      name: (identifier)
+      name: (identifier)
+      name: (identifier)
+      fields:
+        (field
+          name: (identifier)
+          type: (identifier))))
+  (declaration
+    (class
+      name: (identifier)
+      name: (identifier)
+      name: (identifier)
+      name: (identifier)
+      fields:
+        (field
+          name: (identifier)
+          type: (identifier))))
+  (declaration
+    (instance
+      name: (identifier)
+      name: (identifier)
+      type:
+        (field_of
+          term:
+            (field_of
+              term:
+                (field_of
+                  term: (identifier)
+                  name: (identifier))
+              name: (identifier))
+          name: (identifier))
+      body:
+        (where_decl
+          name: (identifier)
+          body: (number))))
+  (declaration
+    (theorem
+      name: (identifier)
+      name: (identifier)
+      name: (identifier)
+      name: (identifier)
+      name: (identifier)
+      type: (binary_expression (number) (number))
+      body: (identifier)))
+  (declaration
+    (inductive_type
+      name: (identifier)
+      name: (identifier)
+      constructors:
+        (constructor
+          name: (identifier)))))
 
 ===
 Let
@@ -1224,13 +1325,14 @@ def foo :=
 ---
 
 (module
-  (def
-    name: (identifier)
-    body:
-      (let
-        name: (identifier)
-        value: (number)
-        body: (identifier))))
+  (declaration
+    (def
+      name: (identifier)
+      body:
+        (let
+          name: (identifier)
+          value: (number)
+          body: (identifier)))))
 
 =============
 Let Annotated
@@ -1243,14 +1345,15 @@ def foo :=
 ---
 
 (module
-  (def
-    name: (identifier)
-    body:
-      (let
-        name: (identifier)
-        type: (identifier)
-        value: (number)
-        body: (identifier))))
+  (declaration
+    (def
+      name: (identifier)
+      body:
+        (let
+          name: (identifier)
+          type: (identifier)
+          value: (number)
+          body: (identifier)))))
 
 ============
 Let Function
@@ -1263,24 +1366,25 @@ def foo : Nat :=
 ---
 
 (module
-  (def
-    name: (identifier)
-    type: (identifier)
-    body:
-      (let
-        name: (identifier)
-        parameters:
-          (parameters
-            name: (identifier)
-            name: (identifier)
-            type: (identifier))
-        value: (binary_expression (identifier) (identifier))
-        body:
-          (apply
-            name: (identifier)
-            arguments: (identifier)
-            arguments: (number)
-            arguments: (number)))))
+  (declaration
+    (def
+      name: (identifier)
+      type: (identifier)
+      body:
+        (let
+          name: (identifier)
+          parameters:
+            (parameters
+              name: (identifier)
+              name: (identifier)
+              type: (identifier))
+          value: (binary_expression (identifier) (identifier))
+          body:
+            (apply
+              name: (identifier)
+              arguments: (identifier)
+              arguments: (number)
+              arguments: (number))))))
 
 ============================
 Let Function Bare Parameters
@@ -1293,21 +1397,22 @@ f true false
 ---
 
 (module
-  (def
-    name: (identifier)
-    body:
-      (let
-        name: (identifier)
-        parameters:
-          (parameters
-            name: (identifier)
-            name: (identifier))
-        value: (number)
-        body:
-          (apply
-            name: (identifier)
-            arguments: (true)
-            arguments: (false)))))
+  (declaration
+    (def
+      name: (identifier)
+      body:
+        (let
+          name: (identifier)
+          parameters:
+            (parameters
+              name: (identifier)
+              name: (identifier))
+          value: (number)
+          body:
+            (apply
+              name: (identifier)
+              arguments: (true)
+              arguments: (false))))))
 
 ==============
 Let Semicolons
@@ -1338,58 +1443,62 @@ def quux :=
 ---
 
 (module
-  (def (identifier)
-    (let
-      (identifier)
-      (number)
+  (declaration
+    (def (identifier)
       (let
         (identifier)
         (number)
         (let
           (identifier)
           (number)
-          (binary_expression
-            (binary_expression (identifier) (identifier))
-            (identifier))))))
-  (def (identifier)
-    (let
-      (identifier)
-      (number)
+          (let
+            (identifier)
+            (number)
+            (binary_expression
+              (binary_expression (identifier) (identifier))
+              (identifier)))))))
+  (declaration
+    (def (identifier)
       (let
         (identifier)
         (number)
         (let
           (identifier)
           (number)
-          (binary_expression
-            (binary_expression (identifier) (identifier))
-            (identifier))))))
-  (def (identifier)
-    (let
-      (identifier)
-      (number)
+          (let
+            (identifier)
+            (number)
+            (binary_expression
+              (binary_expression (identifier) (identifier))
+              (identifier)))))))
+  (declaration
+    (def (identifier)
       (let
         (identifier)
         (number)
         (let
           (identifier)
           (number)
-          (binary_expression
-            (binary_expression (identifier) (identifier))
-            (identifier))))))
-  (def (identifier)
-    (let
-      (identifier)
-      (number)
+          (let
+            (identifier)
+            (number)
+            (binary_expression
+              (binary_expression (identifier) (identifier))
+              (identifier)))))))
+  (declaration
+    (def (identifier)
       (let
         (identifier)
         (number)
         (let
           (identifier)
           (number)
-          (binary_expression
-            (binary_expression (identifier) (identifier))
-            (identifier)))))))
+          (let
+            (identifier)
+            (number)
+            (binary_expression
+              (binary_expression (identifier) (identifier))
+              (identifier))))))))
 
 ==========
 No Let Mut
@@ -1402,16 +1511,17 @@ def foo :=
 ---
 
 (module
-  (def
-    name: (identifier)
-    body:
-      (let
-        name: (identifier)
-        parameters:
-          (parameters
-            name: (identifier))
-        value: (number)
-        body: (identifier))))
+  (declaration
+    (def
+      name: (identifier)
+      body:
+        (let
+          name: (identifier)
+          parameters:
+            (parameters
+              name: (identifier))
+          value: (number)
+          body: (identifier)))))
 
 ============
 No Let Arrow
@@ -1424,11 +1534,12 @@ def foo :=
 ---
 
 (module
-  (def
-    name: (identifier)
-    (ERROR (identifier))
-    body:
-      (apply name: (unary_expression (number)) arguments: (identifier))))
+  (declaration
+    (def
+      name: (identifier)
+      (ERROR (identifier))
+      body:
+        (apply name: (unary_expression (number)) arguments: (identifier)))))
 
 ======
 Abbrev
@@ -1449,43 +1560,48 @@ abbrev Baz
 ---
 
 (module
-  (abbrev
-    name: (identifier)
-    body: (identifier))
-  (abbrev
-    name: (identifier)
-    type: (function_type (identifier) (identifier))
-    body: (identifier))
-  (abbrev
-    name: (identifier)
-    parameters:
-      (parameters
-        (implicit_parameter
-          name: (identifier))
-        (typeclass_resolved_parameter
-          type:
-            (apply
-              name: (identifier)
-              arguments: (identifier)))
-        name: (identifier)
-        type: (identifier))
-    type: (function_type (identifier) (identifier))
-    body: (identifier))
-  (abbrev
-    name: (identifier)
-    body:
-      (pattern
-        lhs: (number)
-        (number))
-    body:
-      (pattern
-        lhs: (identifier)
-        (number)))
-  (abbrev
+  (declaration
+    (abbrev
+      name: (identifier)
+      body: (identifier)))
+  (declaration
+    (abbrev
+      name: (identifier)
+      type: (function_type (identifier) (identifier))
+      body: (identifier)))
+  (declaration
+    (abbrev
+      name: (identifier)
+      parameters:
+        (parameters
+          (implicit_parameter
+            name: (identifier))
+          (typeclass_resolved_parameter
+            type:
+              (apply
+                name: (identifier)
+                arguments: (identifier)))
+          name: (identifier)
+          type: (identifier))
+      type: (function_type (identifier) (identifier))
+      body: (identifier)))
+  (declaration
+    (abbrev
+      name: (identifier)
+      body:
+        (pattern
+          lhs: (number)
+          (number))
+      body:
+        (pattern
+          lhs: (identifier)
+          (number))))
+  (declaration
     attributes: (identifier)
-    name: (identifier)
-    name: (identifier)
-    body: (identifier)))
+    (abbrev
+      name: (identifier)
+      name: (identifier)
+      body: (identifier))))
 
 ========
 Constant
@@ -1498,16 +1614,19 @@ constant C : Nat := 3
 ---
 
 (module
-  (constant
-    name: (identifier)
-    type: (identifier))
-  (constant
-    name: (identifier)
-    type: (function_type (identifier) (identifier)))
-  (constant
-    name: (identifier)
-    type: (identifier)
-    (number)))
+  (declaration
+    (constant
+      name: (identifier)
+      type: (identifier)))
+  (declaration
+    (constant
+      name: (identifier)
+      type: (function_type (identifier) (identifier))))
+  (declaration
+    (constant
+      name: (identifier)
+      type: (identifier)
+      (number))))
 
 ==========================
 Constant With Missing Type
@@ -1539,9 +1658,10 @@ constant Foo : Nat → Nat
 ---
 
 (module
-  (constant (identifier)
-    (apply (function_type (identifier) (identifier))
-      (ERROR) (identifier) (ERROR) (number))))
+  (declaration
+    (constant (identifier)
+      (apply (function_type (identifier) (identifier))
+        (ERROR) (identifier) (ERROR) (number)))))
 
 =====
 Axiom
@@ -1552,9 +1672,10 @@ axiom foo : 1 = 2
 ---
 
 (module
-  (axiom
-    name: (identifier)
-    type: (binary_expression (number) (number))))
+  (declaration
+    (axiom
+      name: (identifier)
+      type: (binary_expression (number) (number)))))
 
 =======================
 Axiom With Missing Name
@@ -1565,6 +1686,7 @@ axiom : 1 = 2
 ---
 
 (module
-  (axiom
-    name: (identifier (MISSING _identifier))
-    type: (binary_expression (number) (number))))
+  (declaration
+    (axiom
+      name: (identifier (MISSING _identifier))
+      type: (binary_expression (number) (number)))))
