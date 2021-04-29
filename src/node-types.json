@@ -4334,6 +4334,28 @@
     "type": "example",
     "named": true,
     "fields": {
+      "attributes": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "@[",
+            "named": false
+          },
+          {
+            "type": "]",
+            "named": false
+          },
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
       "body": {
         "multiple": true,
         "required": true,
@@ -4344,6 +4366,10 @@
           },
           {
             "type": ")",
+            "named": false
+          },
+          {
+            "type": ":=",
             "named": false
           },
           {
@@ -4435,6 +4461,10 @@
             "named": true
           },
           {
+            "type": "pattern",
+            "named": true
+          },
+          {
             "type": "product",
             "named": true
           },
@@ -4480,6 +4510,14 @@
           },
           {
             "type": "unless",
+            "named": true
+          },
+          {
+            "type": "where",
+            "named": false
+          },
+          {
+            "type": "where_decl",
             "named": true
           }
         ]

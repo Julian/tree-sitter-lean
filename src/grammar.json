@@ -902,83 +902,6 @@
         }
       ]
     },
-    "example": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "REPEAT",
-          "content": {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "STRING",
-                "value": "noncomputable"
-              },
-              {
-                "type": "STRING",
-                "value": "partial"
-              },
-              {
-                "type": "STRING",
-                "value": "private"
-              },
-              {
-                "type": "STRING",
-                "value": "protected"
-              },
-              {
-                "type": "STRING",
-                "value": "unsafe"
-              }
-            ]
-          }
-        },
-        {
-          "type": "STRING",
-          "value": "example"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "FIELD",
-              "name": "parameters",
-              "content": {
-                "type": "SYMBOL",
-                "name": "parameters"
-              }
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "STRING",
-          "value": ":"
-        },
-        {
-          "type": "FIELD",
-          "name": "type",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_expression"
-          }
-        },
-        {
-          "type": "STRING",
-          "value": ":="
-        },
-        {
-          "type": "FIELD",
-          "name": "body",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_expression"
-          }
-        }
-      ]
-    },
     "_attributes": {
       "type": "SEQ",
       "members": [
@@ -3033,6 +2956,35 @@
         }
       ]
     },
+    "example": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_decl_mods"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "example"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_decl_sig"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_decl_val"
+        }
+      ]
+    },
     "_decl_id": {
       "type": "FIELD",
       "name": "name",
@@ -4862,7 +4814,6 @@
       "inductive_type",
       "structure_definition",
       "class",
-      "example",
       "_decl_mods"
     ]
   ],

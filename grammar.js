@@ -38,8 +38,7 @@ module.exports = grammar({
     [$.assign, $._atom],
     [$.user_tactic, $._expression],
     [$.user_tactic, $.quoted_tactic],
-    [$.inductive_type, $.structure_definition,
-     $.class, $.example, $._decl_mods],
+    [$.inductive_type, $.structure_definition, $.class, $._decl_mods],
   ],
 
   word: $ => $._identifier,
@@ -173,18 +172,6 @@ module.exports = grammar({
       optional(field('extends', seq('extends', sep1($._expression, ',')))),
       'where',
       field('fields', repeat1($.field)),
-    ),
-
-    example: $ => seq(
-      repeat(
-        choice('noncomputable', 'partial', 'private', 'protected', 'unsafe'),
-      ),
-      'example',
-      optional(field('parameters', $.parameters)),
-      ':',
-      field('type', $._expression),
-      ':=',
-      field('body', $._expression),
     ),
 
     _attributes: $ => seq('@[', sep1($.identifier, ','), ']'),
@@ -536,6 +523,12 @@ module.exports = grammar({
       $._decl_val,
     ),
     axiom: $ => seq('axiom', $._decl_id, $._decl_sig),
+    example: $ => seq(
+      optional($._decl_mods),
+      'example',
+      $._decl_sig,
+      $._decl_val,
+    ),
 
     _decl_id: $ => field('name', $._dotted_name),
     _decl_sig: $ => seq(
