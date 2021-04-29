@@ -38,12 +38,14 @@ module.exports = {
     $._decl_sig,
     $._decl_val,
   ),
+  _deriving: $ => field('deriving', seq('deriving', sep1($.identifier, ','))),
   inductive_type: $ => seq(
     'inductive',
     $._decl_id,
     optional($._opt_decl_sig),
     optional(choice(':=', 'where')),
     optional(field('constructors', repeat1($.constructor))),
+    optional($._deriving),
   ),
   class_inductive_type: $ => seq(
     'class', 'inductive',
@@ -51,6 +53,7 @@ module.exports = {
     optional($._opt_decl_sig),
     optional(choice(':=', 'where')),
     optional(field('constructors', repeat1($.constructor))),
+    optional($._deriving),
   ),
   structure_definition: $ => seq(
     'structure',
@@ -58,7 +61,8 @@ module.exports = {
     optional($._opt_decl_sig),
     optional(field('extends', seq('extends', sep1($._expression, ',')))),
     'where',
-    field('fields', repeat1($.field)),
+    optional(field('fields', repeat1($.field))),
+    optional($._deriving),
   ),
   class: $ => seq(
     'class',
@@ -66,7 +70,8 @@ module.exports = {
     optional($._opt_decl_sig),
     optional(field('extends', seq('extends', sep1($._expression, ',')))),
     'where',
-    field('fields', repeat1($.field)),
+    optional(field('fields', repeat1($.field))),
+    optional($._deriving),
   ),
 
   _decl_id: $ => field('name', $._dotted_name),

@@ -529,6 +529,19 @@ structure Bar extends Foo, Bar α where
           name: (identifier)
           type: (identifier)))))
 
+===================
+Structure No Fields
+===================
+
+structure Foo where
+
+---
+
+(module
+  (declaration
+    (structure_definition
+      name: (identifier))))
+
 =====
 Class
 =====
@@ -571,6 +584,19 @@ class Quux (a : Type) where
                 name: (identifier)
                 type: (identifier)))
           type: (identifier)))))
+
+===============
+Class No Fields
+===============
+
+class Foo where
+
+---
+
+(module
+  (declaration
+    (class
+      name: (identifier))))
 
 ========
 Instance
@@ -1690,3 +1716,86 @@ axiom : 1 = 2
     (axiom
       name: (identifier (MISSING _identifier))
       type: (binary_expression (number) (number)))))
+
+========
+Deriving
+========
+
+inductive Foo
+| bar
+deriving Inhabited
+
+class inductive Foo
+| bar
+deriving Inhabited
+
+structure Foo where
+deriving Inhabited
+
+class Foo where
+deriving Inhabited
+
+---
+
+(module
+  (declaration
+    (inductive_type
+      name: (identifier)
+      constructors:
+        (constructor
+          name: (identifier))
+      deriving: (identifier)))
+  (declaration
+    (class_inductive_type
+      name: (identifier)
+      constructors:
+        (constructor
+          name: (identifier))
+      deriving: (identifier)))
+  (declaration
+    (structure_definition
+      name: (identifier)
+      deriving: (identifier)))
+  (declaration
+    (class
+      name: (identifier)
+      deriving: (identifier))))
+
+=================
+Multiple Deriving
+=================
+
+inductive Foo
+| bar
+deriving Baz, Quux
+
+---
+
+(module
+  (declaration
+    (inductive_type
+      name: (identifier)
+      constructors:
+        (constructor
+          name: (identifier))
+      deriving: (identifier)
+      deriving: (identifier))))
+
+================
+Deriving Nothing
+================
+
+inductive Foo
+| bar
+deriving
+
+---
+
+(module
+  (declaration
+    (inductive_type
+      name: (identifier)
+      constructors:
+        (constructor
+          name: (identifier))
+      deriving: (identifier (MISSING _identifier)))))

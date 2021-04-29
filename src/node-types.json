@@ -2100,6 +2100,24 @@
     "type": "class",
     "named": true,
     "fields": {
+      "deriving": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "deriving",
+            "named": false
+          },
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
       "extends": {
         "multiple": true,
         "required": false,
@@ -2260,7 +2278,7 @@
       },
       "fields": {
         "multiple": true,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": "field",
@@ -2454,6 +2472,24 @@
         "types": [
           {
             "type": "constructor",
+            "named": true
+          }
+        ]
+      },
+      "deriving": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "deriving",
+            "named": false
+          },
+          {
+            "type": "identifier",
             "named": true
           }
         ]
@@ -7174,6 +7210,24 @@
           }
         ]
       },
+      "deriving": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "deriving",
+            "named": false
+          },
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
       "name": {
         "multiple": true,
         "required": true,
@@ -11695,6 +11749,24 @@
     "type": "structure_definition",
     "named": true,
     "fields": {
+      "deriving": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "deriving",
+            "named": false
+          },
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
       "extends": {
         "multiple": true,
         "required": false,
@@ -11855,7 +11927,7 @@
       },
       "fields": {
         "multiple": true,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": "field",
@@ -14908,6 +14980,10 @@
   },
   {
     "type": "def",
+    "named": false
+  },
+  {
+    "type": "deriving",
     "named": false
   },
   {
