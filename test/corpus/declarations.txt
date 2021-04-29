@@ -570,7 +570,7 @@ instance : ToString Foo where
           (parameters
             name: (identifier)
             type: (identifier))
-        return_type: (identifier)
+        type: (identifier)
         body: (string))))
 
 ==============
@@ -596,7 +596,7 @@ instance toStringFoo : ToString Foo where
           (parameters
             name: (identifier)
             type: (identifier))
-        return_type: (identifier)
+        type: (identifier)
         body: (string))))
 
 ========================
@@ -710,7 +710,7 @@ instance : ToString Foo where
     body:
       (where_decl
         name: (identifier)
-        return_type: (function_type (identifier) (identifier))
+        type: (function_type (identifier) (identifier))
         body:
           (lambda
             (parameters name: (identifier))

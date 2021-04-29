@@ -377,7 +377,7 @@ instance : do return ToString Nat where
           (parameters
             name: (identifier)
             type: (identifier))
-        return_type: (identifier)
+        type: (identifier)
         body: (string))))
 
 =======

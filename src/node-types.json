@@ -13969,9 +13969,13 @@
         ]
       },
       "name": {
-        "multiple": false,
+        "multiple": true,
         "required": true,
         "types": [
+          {
+            "type": ".",
+            "named": false
+          },
           {
             "type": "identifier",
             "named": true
@@ -13988,7 +13992,7 @@
           }
         ]
       },
-      "return_type": {
+      "type": {
         "multiple": true,
         "required": false,
         "types": [

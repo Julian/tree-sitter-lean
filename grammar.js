@@ -98,13 +98,9 @@ module.exports = grammar({
 
     _where: $ => seq('where', repeat1($.where_decl)),
     where_decl: $ => seq(
-      field('name', $.identifier),
-      optional(field('parameters', $.parameters)),
-      optional(seq(':', field('return_type', $._expression))),
-      field('body', choice(
-        seq(':=', $._expression),
-        repeat1($.pattern),
-      )),
+      $._decl_id,
+      optional($._opt_decl_sig),
+      field('body', choice($._decl_val_simple, $._decl_val_equations)),
     ),
 
     export: $ => seq(
