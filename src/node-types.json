@@ -7917,6 +7917,21 @@
     }
   },
   {
+    "type": "intro",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "lambda",
     "named": true,
     "fields": {},
@@ -10777,6 +10792,10 @@
           "named": true
         },
         {
+          "type": "intro",
+          "named": true
+        },
+        {
           "type": "lambda",
           "named": true
         },
@@ -12742,6 +12761,10 @@
       "types": [
         {
           "type": "apply_tactic",
+          "named": true
+        },
+        {
+          "type": "intro",
           "named": true
         },
         {
@@ -15056,6 +15079,10 @@
   },
   {
     "type": "instance",
+    "named": false
+  },
+  {
+    "type": "intro",
     "named": false
   },
   {

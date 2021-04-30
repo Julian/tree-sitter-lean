@@ -152,3 +152,29 @@ example : true ↔ true := by
         (user_tactic (identifier))
         (user_tactic (apply (identifier) (identifier)))
         (user_tactic (identifier))))))
+
+==========
+Semicolons
+==========
+
+example : (true ↔ true) ↔ (true ↔ true) := by
+  apply Iff.intro;
+  intro h;
+  exact h;
+  intro h;
+  exact h;
+
+---
+
+(module
+  (declaration
+    (example
+      (binary_expression
+        (binary_expression (true) (true))
+        (binary_expression (true) (true)))
+      (tactics
+        (apply_tactic (field_of (identifier) (identifier)))
+        (intro (identifier))
+        (term (identifier))
+        (intro (identifier))
+        (term (identifier))))))
