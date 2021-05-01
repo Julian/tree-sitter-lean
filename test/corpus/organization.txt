@@ -141,6 +141,34 @@ end
 
 (module (ERROR (identifier)))
 
+=====================
+Dotted Name Namespace
+=====================
+
+namespace Foo.Bar.Baz
+end Foo.Bar.Baz
+
+---
+
+(module
+  (namespace
+    (identifier) (identifier) (identifier)
+    (identifier) (identifier) (identifier)))
+
+===================
+Dotted Name Section
+===================
+
+section Foo.Bar.Baz
+end Foo.Bar.Baz
+
+---
+
+(module
+  (section
+    (identifier) (identifier) (identifier)
+    (identifier) (identifier) (identifier)))
+
 =========
 Variables
 =========

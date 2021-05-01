@@ -4400,7 +4400,7 @@
               "name": "name",
               "content": {
                 "type": "SYMBOL",
-                "name": "identifier"
+                "name": "_dotted_name"
               }
             },
             {
@@ -4428,7 +4428,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "identifier"
+              "name": "_dotted_name"
             },
             {
               "type": "BLANK"
@@ -4449,7 +4449,7 @@
           "name": "name",
           "content": {
             "type": "SYMBOL",
-            "name": "identifier"
+            "name": "_dotted_name"
           }
         },
         {
@@ -4469,7 +4469,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "identifier"
+          "name": "_dotted_name"
         }
       ]
     },

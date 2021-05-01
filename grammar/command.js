@@ -110,16 +110,16 @@ module.exports = {
   ),
   section: $ => seq(
     'section',
-    optional(field('name', $.identifier)),
+    optional(field('name', $._dotted_name)),
     field('body', repeat($._command)),
     'end',
-    optional($.identifier),
+    optional($._dotted_name),
   ),
   namespace: $ => seq(
     'namespace',
-    field('name', $.identifier),
+    field('name', $._dotted_name),
     field('body', repeat($._command)),
     'end',
-    $.identifier,
+    $._dotted_name,
   ),
 }
