@@ -4,4 +4,10 @@ module.exports = {
 
   true: $ => 'true',
   false: $ => 'false',
+
+  _term: $ => choice(
+    $.sorry,
+    $.true,
+    $.false,
+  ),
 }

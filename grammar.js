@@ -205,9 +205,7 @@ module.exports = grammar({
       $.list,
       $.range,
       $.array,
-      $.sorry,
-      $.true,
-      $.false,
+      $._term,
     ),
 
     _parenthesized_expression: $ => prec(PREC.parenthesized_expression, seq(
@@ -365,14 +363,6 @@ module.exports = grammar({
         repeat($.pattern),
       ),
     )),
-
-    attribute: $ => seq(
-      'attribute',
-      '[',
-      sep1(field('name', $._atom), ','),
-      ']',
-      field('term', $._expression),
-    ),
 
     _argument: $ => choice($._expression, $.named_argument),
     named_argument: $ => seq(

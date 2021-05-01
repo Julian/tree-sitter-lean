@@ -122,4 +122,11 @@ module.exports = {
     'end',
     $._dotted_name,
   ),
+  attribute: $ => seq(
+    'attribute',
+    '[',
+    sep1(field('name', $._atom), ','),
+    ']',
+    field('term', $._expression),
+  ),
 }
