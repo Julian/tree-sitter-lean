@@ -698,9 +698,13 @@
         }
       ]
     },
-    "_atom": {
+    "_primary_expression": {
       "type": "CHOICE",
       "members": [
+        {
+          "type": "SYMBOL",
+          "name": "coe"
+        },
         {
           "type": "SYMBOL",
           "name": "_parenthesized_expression"
@@ -724,19 +728,6 @@
         {
           "type": "SYMBOL",
           "name": "quoted_tactic"
-        }
-      ]
-    },
-    "_primary_expression": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "coe"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_atom"
         },
         {
           "type": "SYMBOL",
@@ -2077,7 +2068,7 @@
               },
               {
                 "type": "SYMBOL",
-                "name": "_atom"
+                "name": "_primary_expression"
               }
             ]
           },
@@ -4426,7 +4417,7 @@
               "name": "name",
               "content": {
                 "type": "SYMBOL",
-                "name": "_atom"
+                "name": "_primary_expression"
               }
             },
             {
@@ -4443,7 +4434,7 @@
                     "name": "name",
                     "content": {
                       "type": "SYMBOL",
-                      "name": "_atom"
+                      "name": "_primary_expression"
                     }
                   }
                 ]
@@ -4728,11 +4719,11 @@
   "conflicts": [
     [
       "typeclass_resolved_parameter",
-      "_atom"
+      "_primary_expression"
     ],
     [
       "assign",
-      "_atom"
+      "_primary_expression"
     ],
     [
       "user_tactic",

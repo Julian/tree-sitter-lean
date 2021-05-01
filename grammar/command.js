@@ -125,7 +125,7 @@ module.exports = {
   attribute: $ => seq(
     'attribute',
     '[',
-    sep1(field('name', $._atom), ','),
+    sep1(field('name', $._primary_expression), ','),
     ']',
     field('term', $._expression),
   ),

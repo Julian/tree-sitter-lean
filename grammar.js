@@ -39,8 +39,8 @@ module.exports = grammar({
   ],
 
   conflicts: $ => [
-    [$.typeclass_resolved_parameter, $._atom],
-    [$.assign, $._atom],
+    [$.typeclass_resolved_parameter, $._primary_expression],
+    [$.assign, $._primary_expression],
     [$.user_tactic, $._expression],
     [$.user_tactic, $.quoted_tactic],
   ],
@@ -173,19 +173,14 @@ module.exports = grammar({
       $.tactics,
     ),
 
-    _atom: $ => choice(
+    _primary_expression: $ => choice(
+      $.coe,
       $._parenthesized_expression,
       $.identifier,
       $.float,
       $.number,
       $.unary_expression,
-
       $.quoted_tactic,
-    ),
-
-    _primary_expression: $ => choice(
-      $.coe,
-      $._atom,
       $.explicit,
       $.function_type,
       $.product_type,
@@ -401,7 +396,7 @@ module.exports = grammar({
     unary_expression: $ => prec(PREC.unary, choice(
       seq('←', $._expression),
       seq('¬', $._expression),
-      seq('-', $._atom),
+      seq('-', $._primary_expression),
       seq('!', $._expression),
     )),
 
