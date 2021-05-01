@@ -1,5 +1,6 @@
 const command = require('./grammar/command.js')
 const tactic = require('./grammar/tactic.js')
+const term = require('./grammar/term.js')
 const {sep0, sep1} = require('./grammar/util.js')
 
 const PREC = {
@@ -97,22 +98,6 @@ module.exports = grammar({
       ')',
     ),
 
-    namespace: $ => seq(
-      'namespace',
-      field('name', $.identifier),
-      field('body', repeat($._command)),
-      'end',
-      $.identifier,
-    ),
-
-    section: $ => seq(
-      'section',
-      optional(field('name', $.identifier)),
-      field('body', repeat($._command)),
-      'end',
-      optional($.identifier),
-    ),
-
     variable_declaration: $ => seq('variable', repeat1($._parameter)),
 
     universe: $ => seq(
@@ -199,7 +184,6 @@ module.exports = grammar({
     ),
 
     _primary_expression: $ => choice(
-      $.sorry,
       $.coe,
       $._atom,
       $.explicit,
@@ -221,6 +205,7 @@ module.exports = grammar({
       $.list,
       $.range,
       $.array,
+      $.sorry,
       $.true,
       $.false,
     ),
@@ -271,8 +256,6 @@ module.exports = grammar({
       choice($._newline, ';'),
       optional(field('body', $._expression)),
     )),
-
-    sorry: $ => 'sorry',
 
     _do_command: $ => seq(
       choice(
@@ -591,10 +574,8 @@ module.exports = grammar({
     number: $ => /\d+/,
     float: $ => /\d+\.\d*/,
 
-    true: $ => 'true',
-    false: $ => 'false',
-
     ...command,
     ...tactic,
+    ...term,
   }
 });
