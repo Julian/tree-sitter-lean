@@ -979,6 +979,24 @@ Multiple Attributes
       name: (identifier)
       body: (number))))
 
+======================
+Dotted Name Attributes
+======================
+
+@[foo.bar baz.quux] def f := 12
+
+---
+
+(module
+  (declaration
+    attributes: (identifier)
+    attributes: (identifier)
+    attributes: (identifier)
+    attributes: (identifier)
+    (def
+      name: (identifier)
+      body: (number))))
+
 =================
 Missing Attribute
 =================

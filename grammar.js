@@ -1,3 +1,4 @@
+const attr = require('./grammar/attr.js')
 const command = require('./grammar/command.js')
 const tactic = require('./grammar/tactic.js')
 const term = require('./grammar/term.js')
@@ -110,8 +111,6 @@ module.exports = grammar({
     ),
 
     product_type: $ => prec.right(PREC.multitype, sep2($._expression, '×')),
-
-    _attributes: $ => seq('@[', sep1($.identifier, ','), ']'),
 
     parameters: $ => seq(
       repeat1(
@@ -559,6 +558,7 @@ module.exports = grammar({
     number: $ => /\d+/,
     float: $ => /\d+\.\d*/,
 
+    ...attr,
     ...command,
     ...tactic,
     ...term,
