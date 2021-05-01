@@ -915,7 +915,7 @@ noncomputable constant FooBar : Nat
       (apply (identifier) (binary_expression (identifier) (number)))))
   (declaration (def (identifier) (number)))
   (declaration (def (identifier) (number)))
-  (declaration (inductive_type (identifier) (constructor (identifier))))
+  (declaration (inductive (identifier) (constructor (identifier))))
   (declaration (structure (identifier) (field (identifier) (identifier))))
   (declaration (structure (identifier) (field (identifier) (identifier))))
   (declaration (instance (identifier) (where_decl (identifier) (number))))
@@ -1070,7 +1070,7 @@ inductive FooBar where
 
 (module
   (declaration
-    (inductive_type
+    (inductive
       name: (identifier)
       constructors:
         (constructor
@@ -1115,7 +1115,7 @@ inductive Foo
 
 (module
   (declaration
-    (inductive_type
+    (inductive
       name: (identifier))))
 
 ==============================
@@ -1128,7 +1128,7 @@ inductive Foo (F : Type) | x (foo : F)
 
 (module
   (declaration
-    (inductive_type
+    (inductive
       name: (identifier)
       parameters:
         (parameters
@@ -1152,7 +1152,7 @@ inductive Bit | bit0 | bit1
 
 (module
   (declaration
-    (inductive_type
+    (inductive
       name: (identifier)
       constructors:
         (constructor
@@ -1171,7 +1171,7 @@ inductive Bit where | bit0 | bit1
 
 (module
   (declaration
-    (inductive_type
+    (inductive
       name: (identifier)
       constructors:
         (constructor
@@ -1190,7 +1190,7 @@ inductive Foo : Bar
 
 (module
   (declaration
-    (inductive_type
+    (inductive
       name: (identifier)
       type: (identifier))))
 
@@ -1205,7 +1205,7 @@ inductive Foo :=
 
 (module
   (declaration
-    (inductive_type
+    (inductive
       name: (identifier)
       constructors:
         (constructor
@@ -1335,7 +1335,7 @@ inductive A.B | C
       type: (binary_expression (number) (number))
       body: (identifier)))
   (declaration
-    (inductive_type
+    (inductive
       name: (identifier)
       name: (identifier)
       constructors:
@@ -1741,7 +1741,7 @@ deriving Inhabited
 
 (module
   (declaration
-    (inductive_type
+    (inductive
       name: (identifier)
       constructors:
         (constructor
@@ -1775,7 +1775,7 @@ deriving Baz, Quux
 
 (module
   (declaration
-    (inductive_type
+    (inductive
       name: (identifier)
       constructors:
         (constructor
@@ -1795,7 +1795,7 @@ deriving
 
 (module
   (declaration
-    (inductive_type
+    (inductive
       name: (identifier)
       constructors:
         (constructor

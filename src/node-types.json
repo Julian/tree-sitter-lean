@@ -3792,7 +3792,7 @@
           "named": true
         },
         {
-          "type": "inductive_type",
+          "type": "inductive",
           "named": true
         },
         {
@@ -6671,7 +6671,7 @@
     }
   },
   {
-    "type": "inductive_type",
+    "type": "inductive",
     "named": true,
     "fields": {
       "constructors": {

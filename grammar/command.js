@@ -44,7 +44,7 @@ module.exports = {
     optional($._opt_decl_sig),
   ),
   _deriving: $ => field('deriving', seq('deriving', sep1($.identifier, ','))),
-  inductive_type: $ => seq(
+  inductive: $ => seq(
     'inductive',
     $._decl_id,
     optional($._opt_decl_sig),
@@ -106,7 +106,7 @@ module.exports = {
       $.instance,
       $.axiom,
       $.example,
-      $.inductive_type,
+      $.inductive,
       $.class_inductive,
       $.structure,
     ),

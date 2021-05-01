@@ -3879,7 +3879,7 @@
         ]
       }
     },
-    "inductive_type": {
+    "inductive": {
       "type": "SEQ",
       "members": [
         {
@@ -4471,7 +4471,7 @@
             },
             {
               "type": "SYMBOL",
-              "name": "inductive_type"
+              "name": "inductive"
             },
             {
               "type": "SYMBOL",
