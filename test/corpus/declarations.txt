@@ -1090,18 +1090,18 @@ inductive FooBar where
         (constructor
           name: (identifier)
           parameters:
-            (implicit_parameter
+            (parameters
+              (implicit_parameter
+                name: (identifier)
+                type: (identifier))
+              (typeclass_resolved_parameter
+                type:
+                  (apply
+                    name: (identifier)
+                    arguments: (identifier)))
+              name: (identifier)
               name: (identifier)
               type: (identifier))
-          parameters:
-            (typeclass_resolved_parameter
-              type:
-                (apply
-                  name: (identifier)
-                  arguments: (identifier)))
-            name: (identifier)
-            name: (identifier)
-            type: (identifier)
           type:
             (function_type (identifier) (identifier))))))
 
@@ -1137,8 +1137,10 @@ inductive Foo (F : Type) | x (foo : F)
       constructors:
         (constructor
           name: (identifier)
-          name: (identifier)
-          type: (identifier)))))
+          parameters:
+            (parameters
+              name: (identifier)
+              type: (identifier))))))
 
 =======================
 Inductive Type One Line
@@ -1243,18 +1245,18 @@ class inductive FooBar where
         (constructor
           name: (identifier)
           parameters:
-            (implicit_parameter
+            (parameters
+              (implicit_parameter
+                name: (identifier)
+                type: (identifier))
+              (typeclass_resolved_parameter
+                type:
+                  (apply
+                    name: (identifier)
+                    arguments: (identifier)))
+              name: (identifier)
               name: (identifier)
               type: (identifier))
-          parameters:
-            (typeclass_resolved_parameter
-              type:
-                (apply
-                  name: (identifier)
-                  arguments: (identifier)))
-            name: (identifier)
-            name: (identifier)
-            type: (identifier)
           type:
             (function_type (identifier) (identifier))))))
 

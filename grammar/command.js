@@ -40,9 +40,8 @@ module.exports = {
   ),
   constructor: $ => seq(
     '|',
-    optional(field('name', $._dotted_name)),
-    optional(field('parameters', seq(repeat1($._parameter)))),
-    optional(seq(':', field('type', $._expression))),
+    field('name', $._dotted_name),
+    optional($._opt_decl_sig),
   ),
   _deriving: $ => field('deriving', seq('deriving', sep1($.identifier, ','))),
   inductive_type: $ => seq(
