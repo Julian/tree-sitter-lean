@@ -2,6 +2,30 @@ const {min1, sep1} = require('./util.js')
 
 // src/Lean/Parser/Command.lean
 module.exports = {
+  _decl_modifiers: $ => seq(
+    min1(
+      field('attributes', $._attributes),
+      repeat1(
+        choice('noncomputable', 'partial', 'private', 'protected', 'unsafe'),
+      ),
+    ),
+  ),
+  _decl_id: $ => field('name', $._dotted_name),
+  _decl_sig: $ => seq(
+    optional(field('parameters', $.parameters)),
+    ':', field('type', $._expression),
+  ),
+  _opt_decl_sig: $ => min1(
+    field('parameters', $.parameters),
+    seq(':', field('type', $._expression)),
+  ),
+  _decl_val_simple: $ => seq(':=', $._expression),
+  _decl_val_equations: $ => repeat1($.pattern),
+  _decl_val: $ => field('body', choice(
+    $._decl_val_simple,
+    $._decl_val_equations,
+    $._where,
+  )),
   abbrev: $ => seq(
     'abbrev',
     $._decl_id,
@@ -69,33 +93,6 @@ module.exports = {
     optional(field('fields', repeat1($.field))),
     optional($._deriving),
   ),
-
-  _decl_id: $ => field('name', $._dotted_name),
-  _decl_sig: $ => seq(
-    optional(field('parameters', $.parameters)),
-    ':', field('type', $._expression),
-  ),
-  _opt_decl_sig: $ => min1(
-    field('parameters', $.parameters),
-    seq(':', field('type', $._expression)),
-  ),
-  _decl_val: $ => field('body', choice(
-    $._decl_val_simple,
-    $._decl_val_equations,
-    $._where,
-  )),
-  _decl_modifiers: $ => seq(
-    min1(
-      field('attributes', $._attributes),
-      repeat1(
-        choice('noncomputable', 'partial', 'private', 'protected', 'unsafe'),
-      ),
-    ),
-  ),
-
-  _decl_val_simple: $ => seq(':=', $._expression),
-  _decl_val_equations: $ => repeat1($.pattern),
-
   declaration: $ => seq(
     optional($._decl_modifiers),
     choice(
@@ -110,5 +107,19 @@ module.exports = {
       $.class_inductive,
       $.structure,
     ),
-  )
+  ),
+  section: $ => seq(
+    'section',
+    optional(field('name', $.identifier)),
+    field('body', repeat($._command)),
+    'end',
+    optional($.identifier),
+  ),
+  namespace: $ => seq(
+    'namespace',
+    field('name', $.identifier),
+    field('body', repeat($._command)),
+    'end',
+    $.identifier,
+  ),
 }
