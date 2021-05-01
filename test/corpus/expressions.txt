@@ -223,9 +223,9 @@ example : Foo := ⟨⟩
 ---
 
 (module
-  (declaration (example (identifier) (inductive_constructor (number) (number) (number))))
-  (declaration (example (identifier) (inductive_constructor (number))))
-  (declaration (example (identifier) (inductive_constructor))))
+  (declaration (example (identifier) (anonymous_constructor (number) (number) (number))))
+  (declaration (example (identifier) (anonymous_constructor (number))))
+  (declaration (example (identifier) (anonymous_constructor))))
 
 =============================
 Invalid Inductive Constructor
@@ -238,9 +238,9 @@ example : Foo := ⟨, 2,⟩
 ---
 
 (module
-  (declaration (example (identifier) (inductive_constructor (ERROR))))
-  (declaration (example (identifier) (inductive_constructor (ERROR) (number))))
-  (declaration (example (identifier) (inductive_constructor (ERROR) (number) (ERROR)))))
+  (declaration (example (identifier) (anonymous_constructor (ERROR))))
+  (declaration (example (identifier) (anonymous_constructor (ERROR) (number))))
+  (declaration (example (identifier) (anonymous_constructor (ERROR) (number) (ERROR)))))
 
 ===========
 Identifiers
@@ -876,9 +876,9 @@ Anonymous Function With Destructuring Bind
   (hash_command
     (lambda
       (parameters
-        (inductive_constructor (identifier))
+        (anonymous_constructor (identifier))
         name: (identifier)
-        (inductive_constructor (identifier) (identifier) (identifier))
+        (anonymous_constructor (identifier) (identifier) (identifier))
         name: (identifier))
       (identifier))))
 
@@ -1026,11 +1026,11 @@ Structure Literal
 
 (module
   (hash_command
-    (structure_literal
+    (structure_instance
       name: (identifier)
       value: (number)))
   (hash_command
-    (structure_literal
+    (structure_instance
       name: (identifier)
       value: (number)
       name: (identifier)
@@ -1052,12 +1052,12 @@ Typed Structure Literal
 
 (module
   (hash_command
-    (structure_literal
+    (structure_instance
       name: (identifier)
       value: (number)
       type: (identifier)))
   (hash_command
-    (structure_literal
+    (structure_instance
       name: (identifier)
       value: (number)
       name: (identifier)
@@ -1071,7 +1071,7 @@ Typed Structure Literal
           name: (identifier)
           arguments: (identifier))))
   (hash_command
-    (structure_literal
+    (structure_instance
       type: (identifier))))
 
 ====================
@@ -1087,12 +1087,12 @@ Structure Overriding
 
 (module
   (hash_command
-    (structure_literal
+    (structure_instance
       extends: (identifier)
       name: (identifier)
       value: (number)))
   (hash_command
-    (structure_literal
+    (structure_instance
       extends: (identifier)
       name: (identifier)
       value: (number)
@@ -1103,10 +1103,10 @@ Structure Overriding
             name: (identifier))
           (identifier))))
   (hash_command
-    (structure_literal
+    (structure_instance
       extends: (identifier)))
   (hash_command
-    (structure_literal
+    (structure_instance
       extends:
         (apply
           name: (identifier)
@@ -1125,7 +1125,7 @@ example : Foo := {x := 12, y := 13,}
 (module
   (declaration
     (example (identifier)
-      (structure_literal (identifier) (number) (identifier) (number)))))
+      (structure_instance (identifier) (number) (identifier) (number)))))
 
 =====================
 No Trailing Commas Aw
@@ -1149,7 +1149,7 @@ def foo | 0, => 2 | _, => 3
     (array (number) (number) (number) (identifier (MISSING _identifier))))
   (declaration
     (example (identifier)
-      (inductive_constructor
+      (anonymous_constructor
         (number) (number) (identifier (MISSING _identifier)))))
   (declaration
     (identifier) (identifier)

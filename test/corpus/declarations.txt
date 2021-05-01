@@ -447,7 +447,7 @@ structure Point (α : Type u) where
 
 (module
   (declaration
-    (structure_definition
+    (structure
       name: (identifier)
       parameters:
         (parameters
@@ -493,7 +493,7 @@ class Baz extends Quux where
 
 (module
   (declaration
-    (structure_definition
+    (structure
       name: (identifier)
       extends: (identifier)
       fields:
@@ -501,7 +501,7 @@ class Baz extends Quux where
           name: (identifier)
           type: (identifier))))
   (declaration
-    (class
+    (structure
       name: (identifier)
       extends: (identifier)
       fields: (field name: (identifier) type: (identifier)))))
@@ -517,7 +517,7 @@ structure Bar extends Foo, Bar α where
 
 (module
   (declaration
-    (structure_definition
+    (structure
       name: (identifier)
       extends: (identifier)
       extends:
@@ -539,7 +539,7 @@ structure Foo where
 
 (module
   (declaration
-    (structure_definition
+    (structure
       name: (identifier))))
 
 =====
@@ -556,7 +556,7 @@ class Quux (a : Type) where
 
 (module
   (declaration
-    (class
+    (structure
       name: (identifier)
       parameters:
         (parameters
@@ -595,7 +595,7 @@ class Foo where
 
 (module
   (declaration
-    (class
+    (structure
       name: (identifier))))
 
 ========
@@ -726,7 +726,7 @@ instance : Inhabited Nat := ⟨0⟩
         (apply
           name: (identifier)
           arguments: (identifier))
-      body: (inductive_constructor (number)))))
+      body: (anonymous_constructor (number)))))
 
 ==============================
 Instance With Field Definition
@@ -916,8 +916,8 @@ noncomputable constant FooBar : Nat
   (declaration (def (identifier) (number)))
   (declaration (def (identifier) (number)))
   (declaration (inductive_type (identifier) (constructor (identifier))))
-  (declaration (structure_definition (identifier) (field (identifier) (identifier))))
-  (declaration (class (identifier) (field (identifier) (identifier))))
+  (declaration (structure (identifier) (field (identifier) (identifier))))
+  (declaration (structure (identifier) (field (identifier) (identifier))))
   (declaration (instance (identifier) (where_decl (identifier) (number))))
   (declaration (instance (identifier) (where_decl (identifier) (number))))
   (declaration (theorem (identifier) (binary_expression (number) (number)) (identifier)))
@@ -950,7 +950,7 @@ Attributes
     attributes: (identifier)
     (instance
       type: (identifier)
-      body: (inductive_constructor (number))))
+      body: (anonymous_constructor (number))))
   (declaration
     attributes: (identifier)
     (theorem
@@ -1223,7 +1223,7 @@ class inductive FooBar where
 
 (module
   (declaration
-    (class_inductive_type
+    (class_inductive
       name: (identifier)
       constructors:
         (constructor
@@ -1287,7 +1287,7 @@ inductive A.B | C
       name: (identifier)
       body: (number)))
   (declaration
-    (structure_definition
+    (structure
       name: (identifier)
       name: (identifier)
       name: (identifier)
@@ -1296,7 +1296,7 @@ inductive A.B | C
           name: (identifier)
           type: (identifier))))
   (declaration
-    (class
+    (structure
       name: (identifier)
       name: (identifier)
       name: (identifier)
@@ -1746,18 +1746,18 @@ deriving Inhabited
           name: (identifier))
       deriving: (identifier)))
   (declaration
-    (class_inductive_type
+    (class_inductive
       name: (identifier)
       constructors:
         (constructor
           name: (identifier))
       deriving: (identifier)))
   (declaration
-    (structure_definition
+    (structure
       name: (identifier)
       deriving: (identifier)))
   (declaration
-    (class
+    (structure
       name: (identifier)
       deriving: (identifier))))
 

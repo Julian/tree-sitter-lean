@@ -82,13 +82,6 @@ module.exports = grammar({
       $._expression,
     ),
 
-    constructor: $ => seq(
-      '|',
-      optional(field('name', $._dotted_name)),
-      optional(field('parameters', seq(repeat1($._parameter)))),
-      optional(seq(':', field('type', $._expression))),
-    ),
-
     _where: $ => seq('where', repeat1($.where_decl)),
     where_decl: $ => seq(
       $._decl_id,
@@ -140,7 +133,7 @@ module.exports = grammar({
         choice(
           field('name', $.identifier),
           $._parameter,
-          $.inductive_constructor,
+          $.anonymous_constructor,
         )
       ),
     ),
@@ -223,8 +216,8 @@ module.exports = grammar({
       $.char,
       $.string,
       $.interpolated_string,
-      $.inductive_constructor,
-      $.structure_literal,
+      $.anonymous_constructor,
+      $.structure_instance,
       $.list,
       $.range,
       $.array,
@@ -309,7 +302,7 @@ module.exports = grammar({
 
     for_in: $ => seq(
       'for',
-      choice($.identifier, $.inductive_constructor),
+      choice($.identifier, $.anonymous_constructor),
       'in',
       field('iterable', $._expression),
       field('body', $.do),
@@ -491,22 +484,22 @@ module.exports = grammar({
       $._expression,
     )),
 
-    structure_literal: $ => seq(
+    structure_instance: $ => seq(
       '{',
       optional(field('extends', seq($._expression, 'with'))),
       // Unlike everywhere else, records seem OK with trailing commas.
-      optional(sep1_($._structure_literal_field, ',')),
+      optional(sep1_($._structure_instance_field, ',')),
       field('type', optional(seq(':', $._expression))),
       '}',
     ),
 
-    _structure_literal_field: $ => seq(
+    _structure_instance_field: $ => seq(
       field('name', $.identifier),
       ':=',
       field('value', $._expression),
     ),
 
-    inductive_constructor: $ => seq('⟨', sep0($._expression, ','), '⟩'),
+    anonymous_constructor: $ => seq('⟨', sep0($._expression, ','), '⟩'),
 
     quantified: $ => prec(PREC.quantified, seq(
       choice('∀', '∃'),

@@ -38,6 +38,12 @@ module.exports = {
     $._decl_sig,
     $._decl_val,
   ),
+  constructor: $ => seq(
+    '|',
+    optional(field('name', $._dotted_name)),
+    optional(field('parameters', seq(repeat1($._parameter)))),
+    optional(seq(':', field('type', $._expression))),
+  ),
   _deriving: $ => field('deriving', seq('deriving', sep1($.identifier, ','))),
   inductive_type: $ => seq(
     'inductive',
@@ -47,7 +53,7 @@ module.exports = {
     optional(field('constructors', repeat1($.constructor))),
     optional($._deriving),
   ),
-  class_inductive_type: $ => seq(
+  class_inductive: $ => seq(
     'class', 'inductive',
     $._decl_id,
     optional($._opt_decl_sig),
@@ -55,17 +61,8 @@ module.exports = {
     optional(field('constructors', repeat1($.constructor))),
     optional($._deriving),
   ),
-  structure_definition: $ => seq(
-    'structure',
-    $._decl_id,
-    optional($._opt_decl_sig),
-    optional(field('extends', seq('extends', sep1($._expression, ',')))),
-    'where',
-    optional(field('fields', repeat1($.field))),
-    optional($._deriving),
-  ),
-  class: $ => seq(
-    'class',
+  structure: $ => seq(
+    choice('structure', 'class'),
     $._decl_id,
     optional($._opt_decl_sig),
     optional(field('extends', seq('extends', sep1($._expression, ',')))),
@@ -111,9 +108,8 @@ module.exports = {
       $.axiom,
       $.example,
       $.inductive_type,
-      $.class_inductive_type,
-      $.class,
-      $.structure_definition,
+      $.class_inductive,
+      $.structure,
     ),
   )
 }

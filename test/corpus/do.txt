@@ -173,7 +173,7 @@ def foo (xs : Array (Nat × Nat)) : Unit := do
       body:
         (do
           (for_in
-            (inductive_constructor (identifier) (identifier))
+            (anonymous_constructor (identifier) (identifier))
             iterable: (identifier)
             body:
               (do
