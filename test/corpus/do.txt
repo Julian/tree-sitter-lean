@@ -12,8 +12,8 @@ def main : IO UInt32 := do
   (declaration
     (def (identifier) (apply (identifier) (identifier))
       (do
-        (apply (field_of (identifier) (identifier)) (string))
-        (apply (field_of (identifier) (identifier)) (string))))))
+        (apply (projection (identifier) (identifier)) (string))
+        (apply (projection (identifier) (identifier)) (string))))))
 
 ========
 Repeated
@@ -38,15 +38,15 @@ def main : IO UInt32 := do do
           (do
             (apply
               name:
-                (field_of
+                (projection
                   term: (identifier)
-                  name: (identifier))
+                  field: (identifier))
               arguments: (string))
             (apply
               name:
-                (field_of
+                (projection
                   term: (identifier)
-                  name: (identifier))
+                  field: (identifier))
               arguments: (string)))))))
 
 ==========
@@ -105,8 +105,8 @@ def bar : Unit := do
       type: (identifier)
       body:
         (do
-          (let_mut
-            (parameters
+          (do_let
+            (binders
               name: (identifier))
             value: (number))))))
 
@@ -125,18 +125,18 @@ def foo (xs : Array Nat) : Unit := do
   (declaration
     (def
       name: (identifier)
-      parameters:
-        (parameters
+      (binders
+        (explicit_binder
           name: (identifier)
           type:
             (apply
               name: (identifier)
-              arguments: (identifier)))
+              arguments: (identifier))))
       type: (identifier)
       body:
         (do
-          (let_mut
-            (parameters
+          (do_let
+            (binders
               name: (identifier))
             value: (number))
           (for_in
@@ -162,13 +162,13 @@ def foo (xs : Array (Nat × Nat)) : Unit := do
   (declaration
     (def
       name: (identifier)
-      parameters:
-        (parameters
+      (binders
+        (explicit_binder
           name: (identifier)
           type:
             (apply
               name: (identifier)
-              arguments: (product_type (identifier) (identifier))))
+              arguments: (product_type (identifier) (identifier)))))
       type: (identifier)
       body:
         (do
@@ -200,7 +200,7 @@ def f : IO Unit := do
       (try
         (apply (identifier) (string))
         (catch (identifier)
-          (throw (identifier))))))))
+          (apply (identifier) (identifier))))))))
 
 =========
 Empty Try
@@ -215,7 +215,7 @@ def f : IO Unit := do
 
 (module
   (ERROR (identifier) (apply (identifier) (identifier))
-    (apply (identifier) (identifier)) (ERROR) (throw (identifier))))
+    (apply (identifier) (identifier)) (ERROR) (apply (identifier) (identifier))))
 
 ===========
 Try/Finally
@@ -258,7 +258,7 @@ def f : IO Unit := do
     (do
       (try
         (apply (identifier) (string))
-        (catch (identifier) (throw (identifier))))
+        (catch (identifier) (apply (identifier) (identifier))))
         (finally (apply (identifier) (string)))))))
 
 ===================
@@ -272,8 +272,9 @@ def f : IO Unit := do
 ---
 
 (module
-  (ERROR (identifier) (apply (identifier) (identifier))
-    (apply (identifier) (string))))
+  (declaration (def
+    (identifier) (apply (identifier) (identifier)) (ERROR)
+    (apply (identifier) (string)))))
 
 ===============
 Return One Line
@@ -290,9 +291,9 @@ Return One Line
         (do
           (return
             value:
-              (field_of
+              (projection
                 term: (identifier)
-                name: (identifier))))
+                field: (identifier))))
       type: (identifier))))
 
 ============
@@ -310,7 +311,7 @@ def f : IO Unit := do try println! "foo" catch ex => throw ex finally println! "
       (try
         (apply (identifier) (string))
         (catch (identifier)
-          (throw (identifier)))
+          (apply (identifier) (identifier)))
         (finally (apply (identifier) (string))))))))
 
 ======
@@ -388,8 +389,8 @@ instance : do return ToString Nat where
       body:
         (where_decl
           name: (identifier)
-          parameters:
-            (parameters
+          binders:
+            (binders
               name: (identifier)
               type: (identifier))
           type: (identifier)
@@ -409,7 +410,7 @@ If/Then
       (do
         (conditional_when
           (true)
-          (return (field_of (identifier) (identifier)))))
+          (return (projection (identifier) (identifier)))))
       (identifier))))
 
 ===================
@@ -422,9 +423,9 @@ Nested If/Then/Else
 
 (module
   (hash_command
-    (conditional
+    (if_then_else
       (true)
-      (do (conditional (false) (false) (false)))
+      (do (if_then_else (false) (false) (false)))
       (true))))
 
 ===============
@@ -448,10 +449,10 @@ If Condition Function Application
 (module
   (hash_command
     (coe
-      (conditional
+      (if_then_else
         (apply (identifier) (number))
-        (do (field_of (identifier) (identifier)))
-        (field_of (identifier) (identifier)))
+        (do (projection (identifier) (identifier)))
+        (projection (identifier) (identifier)))
       (identifier))))
 
 ==========
@@ -468,5 +469,5 @@ Left Arrow
       (do
         (conditional_when
             (unary_expression (identifier))
-            (return (field_of (identifier) (identifier)))))
+            (return (projection (identifier) (identifier)))))
         (identifier))))

@@ -12,12 +12,11 @@ theorem foo {m n : Nat} : 2 * m + 2 * n = 2 * (n + m) := by
   (declaration
     (theorem
       name: (identifier)
-      parameters:
-        (parameters
-          (implicit_parameter
-            name: (identifier)
-            name: (identifier)
-            type: (identifier)))
+      (binders
+        (implicit_binder
+          name: (identifier)
+          name: (identifier)
+          type: (identifier)))
       type:
         (binary_expression
           (binary_expression
@@ -28,22 +27,16 @@ theorem foo {m n : Nat} : 2 * m + 2 * n = 2 * (n + m) := by
             (binary_expression (identifier) (identifier))))
       body:
         (tactics
-          (rewrite
-            (field_of
-              term: (identifier)
-              name: (identifier)))
+          (rewrite (identifier))
           (term
-            (field_of
+            (projection
               term:
                 (apply
-                  name:
-                    (field_of
-                      term: (identifier)
-                      name: (identifier))
+                  name: (identifier)
                   arguments: (number)
                   arguments: (identifier)
                   arguments: (identifier))
-              name: (identifier)))))))
+              field: (identifier)))))))
 
 =================
 Tactic Expression
@@ -57,8 +50,8 @@ variable {m n : Nat}
 ---
 
 (module
-  (variable_declaration
-    (implicit_parameter
+  (variable
+    (implicit_binder
       name: (identifier)
       name: (identifier)
       type: (identifier)))
@@ -66,22 +59,16 @@ variable {m n : Nat}
     (coe
       term:
         (tactics
-          (rewrite
-            (field_of
-              term: (identifier)
-              name: (identifier)))
+          (rewrite (identifier))
           (term
-            (field_of
+            (projection
               term:
                 (apply
-                  name:
-                    (field_of
-                      term: (identifier)
-                      name: (identifier))
+                  name: (identifier)
                   arguments: (number)
                   arguments: (identifier)
                   arguments: (identifier))
-              name: (identifier))))
+              field: (identifier))))
         type:
           (binary_expression
             (binary_expression
@@ -132,7 +119,7 @@ example : true ↔ true := by apply Iff.intro
 (module
   (declaration
     (example (binary_expression (true) (true))
-      (tactics (apply_tactic (field_of (identifier) (identifier)))))))
+      (tactics (apply_tactic (projection (identifier) (identifier)))))))
 
 ========================
 Some Unknown User Tactic
@@ -173,7 +160,7 @@ example : (true ↔ true) ↔ (true ↔ true) := by
         (binary_expression (true) (true))
         (binary_expression (true) (true)))
       (tactics
-        (apply_tactic (field_of (identifier) (identifier)))
+        (apply (identifier))
         (intro (identifier))
         (term (identifier))
         (intro (identifier))

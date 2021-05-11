@@ -9,7 +9,7 @@ notation " ♔ " => Foo.bar
 (module
   (notation
     (string)
-    (field_of (identifier) (identifier))))
+    (projection (identifier) (identifier))))
 
 ===========
 Macro Rules
@@ -23,10 +23,10 @@ macro_rules
 
 (module
   (macro_rules
-    (pattern
+    (match_alt
       (quoted_tactic (identifier))
       (quoted_tactic (trivial)))
-    (pattern
+    (match_alt
       (quoted_tactic (identifier))
       (quoted_tactic (apply_tactic (apply (identifier) (identifier)))))))
 

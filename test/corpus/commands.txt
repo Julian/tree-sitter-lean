@@ -72,10 +72,8 @@ open Foo Bar Baz.Quux
   (open
     namespace: (identifier))
   (open
-    namespace: (identifier)
     namespace: (identifier))
   (open
-    namespace: (identifier)
     namespace: (identifier)
     namespace: (identifier)
     namespace: (identifier)))
@@ -129,8 +127,6 @@ import Foo.Bar.Baz
 
 (module
   (import
-    module: (identifier)
-    module: (identifier)
     module: (identifier)))
 
 ========================
@@ -182,15 +178,13 @@ Universe
 ========
 
 universe t
-universe u v w
 universes u2 v2 w2
 
 ---
 
 (module
   (universe (identifier))
-  (universe (identifier) (identifier) (identifier))
-  (universe (identifier) (identifier) (identifier)))
+  (universes (identifier) (identifier) (identifier)))
 
 ==========================
 Universe With Missing Name

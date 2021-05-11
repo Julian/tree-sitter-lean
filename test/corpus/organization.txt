@@ -150,10 +150,7 @@ end Foo.Bar.Baz
 
 ---
 
-(module
-  (namespace
-    (identifier) (identifier) (identifier)
-    (identifier) (identifier) (identifier)))
+(module (namespace (identifier) (identifier)))
 
 ===================
 Dotted Name Section
@@ -164,10 +161,7 @@ end Foo.Bar.Baz
 
 ---
 
-(module
-  (section
-    (identifier) (identifier) (identifier)
-    (identifier) (identifier) (identifier)))
+(module (section (identifier) (identifier)))
 
 =========
 Variables
@@ -180,23 +174,27 @@ variable {x : α} [y : α]
 ---
 
 (module
-  (variable_declaration
-    name: (identifier)
-    name: (identifier)
-    name: (identifier)
-    type: (identifier))
-  (variable_declaration
-    name: (identifier)
-    type: (function_type (identifier) (identifier))
-    name: (identifier)
-    type: (function_type (identifier) (identifier))
-    name: (identifier)
-    type: (function_type (identifier) (identifier)))
-  (variable_declaration
-    (implicit_parameter
+  (variable
+    (explicit_binder
+      name: (identifier)
+      name: (identifier)
+      name: (identifier)
+      type: (identifier)))
+  (variable
+    (explicit_binder
+      name: (identifier)
+      type: (arrow (identifier) (identifier)))
+    (explicit_binder
+      name: (identifier)
+      type: (arrow (identifier) (identifier)))
+    (explicit_binder
+      name: (identifier)
+      type: (arrow (identifier) (identifier))))
+  (variable
+    (implicit_binder
       name: (identifier)
       type: (identifier))
-    (typeclass_resolved_parameter
+    (instance_binder
       name: (identifier)
       type: (identifier))))
 

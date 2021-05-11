@@ -1,31 +1,10 @@
 const attr = require('./grammar/attr.js')
 const command = require('./grammar/command.js')
+const do_ = require('./grammar/do.js')
+const syntax = require('./grammar/syntax.js')
 const tactic = require('./grammar/tactic.js')
 const term = require('./grammar/term.js')
 const {sep0, sep1} = require('./grammar/util.js')
-
-const PREC = {
-  dollar: -5,
-  quantified: -4,
-  equal: -3,
-  compare: -2,
-  apply: -1,
-  multitype: -1,
-
-  index: 10,
-  field_of: 11,
-  parenthesized_expression: 12,
-  opop: 13,
-  or: 14,
-  and: 15,
-  eqeq: 16,
-  plus: 17,
-  times: 18,
-  unary: 19,
-  power: 20,
-
-  name: 30,
-}
 
 module.exports = grammar({
   name: 'lean',
@@ -37,489 +16,132 @@ module.exports = grammar({
 
   externals: $ => [
     $._newline,
+    $._indent,
+    $._dedent,
   ],
 
   conflicts: $ => [
-    [$.typeclass_resolved_parameter, $._primary_expression],
-    [$.assign, $._primary_expression],
-    [$.user_tactic, $._expression],
-    [$.user_tactic, $.quoted_tactic],
+    [$._argument, $.binary_expression],
+    [$._basic_fun, $.binary_expression],
+    [$._binder_ident, $._decl_id],
+    [$._binder_ident, $._struct_explicit_binder],
+    [$._binder_ident],
+    [$._decl_sig, $.implicit_binder],
+    [$._decl_sig],
+    [$._dollar, $._argument],
+    [$._dollar, $._basic_fun],
+    [$._dollar, $.binary_expression],
+    [$._dollar, $.exists],
+    [$._dollar, $.explicit],
+    [$._dollar, $.if_then_else],
+    [$._dollar, $.match_alt],
+    [$._dollar, $.projection],
+    [$._dollar, $.subarray],
+    [$._dollar, $.unary_expression],
+    [$._dollar],
+    [$._fun_simple_binder],
+    [$._let_equations_decl],
+    [$._let_id_decl, $._dollar],
+    [$._let_id_decl, $.projection],
+    [$._let_id_decl, $.subarray],
+    [$._let_id_lhs],
+    [$._let_id_lhs, $._applyable_term],
+    [$._match_discr, $._applyable_term],
+    [$._binder_ident, $._applyable_term],
+    [$._struct_instance_binder, $._applyable_term],
+    [$.instance_binder, $._applyable_term],
+    [$._let_pattern_decl, $._dollar],
+    [$._let_pattern_decl, $.projection],
+    [$._let_pattern_decl, $.subarray],
+    [$._opt_decl_sig],
+    [$._simple_binder],
+    [$._struct_simple_binder],
+    [$._where_decls],
+    [$.do_try],
+    [$._match_alts],
+    [$.apply, $.binary_expression],
+    [$.apply, $.forall, $.binary_expression],
+    [$.apply, $.forall],
+    [$.apply, $.unary_expression],
+    [$.binary_expression],
+    [$.explicit, $.binary_expression],
+    [$.fun],
+    [$.identifier],
+    [$.if_then_else, $.binary_expression],
+    [$.instance_binder, $._struct_instance_binder],
+    [$.instance_binder, $.list],
+    [$.match_alt, $.binary_expression],
+    [$.pipe_projection],
+    [$.projection, $._argument],
+    [$.projection, $._basic_fun],
+    [$.projection, $.exists],
+    [$.projection, $.explicit],
+    [$.projection, $.if_then_else],
+    [$.projection, $.match_alt],
+    [$.projection, $.unary_expression],
+    [$.projection, $.user_tactic],
+    [$._tactic_seq],
+    [$.quoted_tactic, $.user_tactic],
+    [$._dollar, $.user_tactic],
+    [$.apply_tactic, $.projection],
+    [$.apply_tactic, $._dollar],
+    [$.apply_tactic, $.subarray],
+    [$.subarray, $._argument],
+    [$.term, $.projection],
+    [$.term, $._dollar],
+    [$.term, $.subarray],
+    [$.rewrite, $.projection],
+    [$.rewrite, $._dollar],
+    [$.rewrite, $.subarray],
+    [$.subarray, $._basic_fun],
+    [$.subarray, $.exists],
+    [$.subarray, $.explicit],
+    [$.subarray, $.if_then_else],
+    [$.subarray, $.match_alt],
+    [$.subarray, $.unary_expression],
+    [$.subarray, $.user_tactic],
   ],
 
   word: $ => $._identifier,
 
   rules: {
-    module: $ => repeat($._command),
-
-    _command: $ => choice(
-      $.declaration,
-      $.prelude,
-      $.hash_command,
-      $.import,
-      $.open,
-      $.namespace,
-      $.section,
-      $.attribute,
-      $.export,
-      $.variable_declaration,
-      $.universe,
-
-      $.notation,
-      $.macro_rules,
-      $.syntax,
+    // src/Lean/Parser/Module.lean
+    module: $ => seq(
+      optional($.prelude),
+      repeat($.import),
+      repeat($._command),
     ),
-
     prelude: $ => 'prelude',
-
-    import: $ => seq('import', field('module', $._dotted_name)),
-
-    open: $ => seq(
-      'open',
-      repeat1(field('namespace', $._dotted_name)),
-      optional(seq('in', $._command)),
-    ),
-
-    hash_command: $ => seq(
-      choice('#check', '#check_failure', '#eval', '#print', '#reduce'),
-      $._expression,
-    ),
-
-    _where: $ => seq('where', repeat1($.where_decl)),
-    where_decl: $ => seq(
-      $._decl_id,
-      optional($._opt_decl_sig),
-      field('body', choice($._decl_val_simple, $._decl_val_equations)),
-    ),
-
-    export: $ => seq(
-      'export',
-      field('class', $.identifier),
-      '(',
-      repeat1($.identifier),
-      ')',
-    ),
-
-    variable_declaration: $ => seq('variable', repeat1($._parameter)),
-
-    universe: $ => seq(
-      choice('universe', 'universes'),
-      repeat1($.identifier),
-    ),
-
-    function_type: $ => prec(PREC.multitype,
-      sep2($._expression, $._right_arrow),
-    ),
-
-    product_type: $ => prec.right(PREC.multitype, sep2($._expression, '×')),
-
-    parameters: $ => seq(
-      repeat1(
-        choice(
-          field('name', $.identifier),
-          $._parameter,
-          $.anonymous_constructor,
-        )
-      ),
-    ),
-
-    _parameter: $ => choice(
-      $._explicit_parameter,
-      $.implicit_parameter,
-      $.typeclass_resolved_parameter,
-    ),
-
-    _explicit_parameter: $ => seq(
-      '(',
-      field('name', repeat1($.identifier)),
-      field('type', optional(seq(':', $._expression))),
-      ')',
-    ),
-
-    implicit_parameter: $ => seq(
-      '{',
-      field('name', repeat1($.identifier)),
-      field('type', optional(seq(':', $._expression))),
-      '}',
-    ),
-
-    typeclass_resolved_parameter: $ => seq(
-      '[',
-      field('name', optional(seq(repeat1($.identifier), ':'))),
-      field('type', $._expression),
-      ']',
-    ),
-
-    field: $ => seq(
-      field('name', $.identifier),
-      optional(field('parameters', $.parameters)),
-      optional(field('type', seq(':', $._expression))),
-      optional(
-        seq(
-          ':=',
-          field('default', $._expression),
-        ),
-      ),
-      $._newline,
-    ),
-
-    _expression: $ => choice(
-      $._primary_expression,
-      $.apply,
-      $.comparison,
-      $.do,
-      $.let,
-      $.unless,
-      $.tactics,
-    ),
-
-    _primary_expression: $ => choice(
-      $.coe,
-      $._parenthesized_expression,
-      $.identifier,
-      $.float,
-      $.number,
-      $.unary_expression,
-      $.quoted_tactic,
-      $.explicit,
-      $.function_type,
-      $.product_type,
-      $.product,
-      $.index,
-      $.conditional,
-      $.field_of,
-      $.match,
-      $.quantified,
-      $.lambda,
-      $.binary_expression,
-      $.char,
-      $.string,
-      $.interpolated_string,
-      $.anonymous_constructor,
-      $.structure_instance,
-      $.list,
-      $.range,
-      $.array,
-      $._term,
-    ),
-
-    _parenthesized_expression: $ => prec(PREC.parenthesized_expression, seq(
-      '(',
-      $._expression,
-      ')'
-    )),
-
-    product: $ => seq('(', sep2($._expression, ','), ')'),
-
-    conditional: $ => prec.right(1, seq(
-      'if',
-      $._expression,
-      'then',
-      $._expression,
-      'else',
-      $._expression,
-    )),
-
-    index: $ => prec(PREC.index, seq(
-      field('container', $._expression),
-      token.immediate('['),
-      choice(
-        field('value', $._expression),
-        seq(
-          optional(field('start', $._expression)),
-          ':',
-          field('stop', $._expression),
-        ),
-        seq(
-          field('start', $._expression),
-          ':',
-          optional(field('stop', $._expression)),
-        ),
-      ),
-      ']',
-    )),
-
-    let: $ => prec.left(seq(
-      'let',
-      field('name', $._dotted_name),
-      optional(field('parameters', $.parameters)),
-      optional(seq(':', field('type', $._expression))),
-      ':=',
-      field('value', $._expression),
-      choice($._newline, ';'),
-      optional(field('body', $._expression)),
-    )),
-
-    _do_command: $ => seq(
-      choice(
-        $._expression,
-        $.for_in,
-        $.assign,
-        $.let_bind,
-        $.let_mut,
-        $.try,
-        $.finally,
-        $.throw,
-        $.conditional_when,
-        $.return,
-      ),
-    ),
-
-    do: $ => prec.right(seq('do', sep1_($._do_command, $._newline))),
-
-    mutable_specifier: $ => 'mut',
+    import: $ => seq('import', field('module', $.identifier)),
 
     conditional_when: $ => prec.right(seq(
       'if',
-      $._expression,
+      $._term,
       'then',
-      $._do_command,
+      $._do_seq,
     )),
-
-    for_in: $ => seq(
-      'for',
-      choice($.identifier, $.anonymous_constructor),
-      'in',
-      field('iterable', $._expression),
-      field('body', $.do),
-    ),
 
     assign: $ => seq(
       field('name', $.identifier),
       ':=',
-      field('value', $._expression),
+      field('value', $._term),
     ),
 
     let_mut: $ => seq(
       'let', 'mut',
-      $.parameters,
+      // $.binders,
       choice($._left_arrow, ':='),
-      field('value', $._expression),
+      field('value', $._term),
     ),
 
     let_bind: $ => seq(
       'let',
       field('name', $.identifier),
       $._left_arrow,
-      field('value', $._expression),
+      field('value', $._term),
     ),
-
-    throw: $ => seq('throw', $._expression),
-
-    unless: $ => seq('unless', $._expression, $.do),
-
-    // FIXME: nesting (which depends on the indent processing)
-    try: $ => prec.left(1, seq(
-      'try',
-      sep1_($._do_command, $._newline),
-      choice(
-        seq($.catch, optional($.finally)),
-        $.finally,
-    ))),
-
-    catch: $ => prec.left(seq(
-      'catch',
-      $._expression,
-      '=>',
-      sep1_($._do_command, $._newline),
-    )),
-
-    finally: $ => prec.left(seq(
-      'finally',
-      sep1_($._do_command, $._newline),
-    )),
-
-    return: $ => prec.right(
-      seq('return', field('value', optional($._expression))),
-    ),
-
-    match: $ => prec.left(seq(
-      'match',
-      field('value', sep1($._expression, ',')),
-      'with',
-      field('patterns', repeat1($.pattern)),
-    )),
-
-    pattern: $ => seq(
-      '|',
-      field('lhs', sep1($._expression, ',')),
-      '=>',
-      $._expression,
-    ),
-
-    lambda: $ => prec.right(seq(
-      choice('fun', 'λ'),
-      choice(
-        seq(
-          $.parameters,
-          '=>',
-          $._expression,
-        ),
-        repeat($.pattern),
-      ),
-    )),
-
-    _argument: $ => choice($._expression, $.named_argument),
-    named_argument: $ => seq(
-      '(', $.identifier, ':=', $._expression, ')',
-    ),
-
-    apply: $ => choice($._apply, $._dollar),
-
-    _apply: $ => prec(PREC.apply, seq(
-      field('name', $._primary_expression),
-      field('arguments', repeat1($._argument)),
-    )),
-
-    // FIXME: This is almost certainly wrong
-    _dollar: $ => prec.right(PREC.dollar, seq(
-      field('name', $._expression),
-      '$',
-      field('argument', $._expression),
-    )),
-
-    field_of: $ => prec(PREC.field_of, seq(
-      field('term', $._expression),
-      '.',
-      field('name', choice($.identifier, $.number)),
-    )),
-
-    // src/Lean/Parser/Syntax.lean
-    quoted_tactic: $ => seq(
-      '`(tactic|', choice($._tactic, $._expression), ')',
-    ),
-
-    notation: $ => seq('notation', $._expression, '=>', $._expression),
-    macro_rules: $ => seq('macro_rules', repeat($.pattern)),
-    syntax: $ => seq('syntax', $._primary_expression, ':', $.identifier),
-
-    unary_expression: $ => prec(PREC.unary, choice(
-      seq('←', $._expression),
-      seq('¬', $._expression),
-      seq('-', $._primary_expression),
-      seq('!', $._expression),
-    )),
-
-    binary_expression: $ => choice(
-      prec.right(PREC.power, seq($._expression, '^', $._expression)),
-      prec.left(PREC.times, seq($._expression, '*', $._expression)),
-      prec.left(PREC.times, seq($._expression, '/', $._expression)),
-      prec.left(PREC.times, seq($._expression, '%', $._expression)),
-      prec.left(PREC.plus, seq($._expression, '+', $._expression)),
-      prec.left(PREC.plus, seq($._expression, '-', $._expression)),
-
-      prec.right(PREC.plus, seq($._expression, '∘', $._expression)),
-
-      prec.left(PREC.opop, seq($._expression, '∧', $._expression)),
-      prec.left(PREC.opop, seq($._expression, '∨', $._expression)),
-      prec.left(PREC.opop, seq($._expression, '/\\', $._expression)),
-      prec.left(PREC.opop, seq($._expression, '\\/', $._expression)),
-      prec.left(PREC.opop, seq($._expression, '↔', $._expression)),
-
-      prec.left(PREC.or, seq($._expression, '||', $._expression)),
-      prec.left(PREC.and, seq($._expression, '&&', $._expression)),
-      prec.left(PREC.eqeq, seq($._expression, '==', $._expression)),
-
-      prec.left(PREC.opop, seq($._expression, '++', $._expression)),
-      prec.left(PREC.opop, seq($._expression, '::', $._expression)),
-
-      prec.left(PREC.opop, seq($._expression, '|>', $._expression)),
-      prec.left(PREC.opop, seq($._expression, '|>.', $._expression)),
-      prec.right(PREC.dollar, seq($._expression, '<|', $._expression)),
-
-      prec.left(PREC.opop, seq($._expression, '<|>', $._expression)),
-      prec.left(PREC.opop, seq($._expression, '>>', $._expression)),
-      prec.left(PREC.opop, seq($._expression, '>>=', $._expression)),
-      prec.left(PREC.opop, seq($._expression, '<*>', $._expression)),
-      prec.left(PREC.opop, seq($._expression, '<*', $._expression)),
-      prec.left(PREC.opop, seq($._expression, '*>', $._expression)),
-      prec.left(PREC.opop, seq($._expression, '<$>', $._expression)),
-
-      prec.left(PREC.equal, seq($._expression, '=', $._expression)),
-      prec.left(PREC.equal, seq($._expression, '≠', $._expression)),
-    ),
-
-    comparison: $ => prec.left(PREC.compare, seq(
-      $._expression,
-      choice(
-        '<',
-        '>',
-        '≤',
-        '≥',
-        '<=',
-        '>=',
-      ),
-      $._expression,
-    )),
-
-    structure_instance: $ => seq(
-      '{',
-      optional(field('extends', seq($._expression, 'with'))),
-      // Unlike everywhere else, records seem OK with trailing commas.
-      optional(sep1_($._structure_instance_field, ',')),
-      field('type', optional(seq(':', $._expression))),
-      '}',
-    ),
-
-    _structure_instance_field: $ => seq(
-      field('name', $.identifier),
-      ':=',
-      field('value', $._expression),
-    ),
-
-    anonymous_constructor: $ => seq('⟨', sep0($._expression, ','), '⟩'),
-
-    quantified: $ => prec(PREC.quantified, seq(
-      choice('∀', '∃'),
-      field('binders', $.parameters),
-      ',',
-      field('body', $._expression),
-    )),
-
-    list: $ => seq('[', sep0($._expression, ','), ']'),
-
-    range: $ => seq(
-      '[',
-      optional(field('start', $._expression)),
-      ':',
-      field('stop', $._expression),
-      optional(seq(
-        ':',
-        field('step', $._expression),
-      )),
-      ']',
-    ),
-
-    array: $ => seq('#[', sep0($._expression, ','), ']'),
-
-    char: $ => seq("'", choice($.escape_sequence, /[^']/), "'"),
-    string: $ => seq(
-      '"',
-      repeat(choice($.escape_sequence, /[^"]/)),
-      '"',
-    ),
-
-    interpolated_string: $ => seq(
-      's!"',
-      repeat(choice(/[^"]/, $.escape_sequence, $.interpolation)),
-      '"',
-    ),
-
-    interpolation: $ => seq(
-      '{', $._expression, '}'
-    ),
-
-    coe: $ => seq(
-      '(',
-      field('term', $._expression),
-      ':',
-      field('type', $._expression),
-      ')',
-    ),
-
-    _dotted_name: $ => prec.left(PREC.name, sep1($.identifier, token.immediate('.'))),
 
     _left_arrow: $ => choice('<-', '←'),
-    _right_arrow: $ => choice('->', '→'),
 
     escape_sequence: $ => token(
       seq(
@@ -543,23 +165,13 @@ module.exports = grammar({
       ),
     )),
 
-    explicit: $ => seq('@', $._dotted_name),
-
-    // FIXME: see name.cpp for the real definition...
-    identifier: $ => choice(
-      $._lambda_magic_identifier,
-      $._identifier,
-      $._escaped_identifier,
-    ),
     _identifier: $ => /[_a-zA-ZͰ-ϿĀ-ſ\U0001D400-\U0001D7FF][_`'`a-zA-Z0-9Ͱ-ϿĀ-ſ∇!?\u2070-\u209F\U0001D400-\U0001D7FF]*/,
     _escaped_identifier: $ =>  /«[^»]*»/,
-    _lambda_magic_identifier: $ => choice('.', '·'),
-
-    number: $ => /\d+/,
-    float: $ => /\d+\.\d*/,
 
     ...attr,
     ...command,
+    ...do_,
+    ...syntax,
     ...tactic,
     ...term,
   }

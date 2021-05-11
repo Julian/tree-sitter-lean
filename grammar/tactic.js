@@ -1,22 +1,19 @@
 module.exports = {
-  tactics: $ => prec.left(
-    seq('by', sep1_($._tactic, seq(optional(';'), $._newline))),
-  ),
-
-  apply_tactic: $ => seq('apply', $._expression),
+  // src/Init/Notation.lean
   intro: $ => seq('intro', $.identifier),
-  rewrite: $ => seq(choice('rewrite', 'rw'), $._expression),
-  term: $ => seq('exact', $._expression),
-  simp: $ => prec.right(seq(
+  apply_tactic: $ => seq('apply', $._term),
+  term: $ => seq('exact', $._term),
+  rewrite: $ => seq(choice('rewrite', 'rw'), $._term),
+  simp: $ => prec.left(seq(
     'simp',
     optional(field('extra', $.list)),
   )),
   trivial: $ => 'trivial',
 
-  user_tactic: $ => $._expression,
+  user_tactic: $ => $._term,
 
   _tactic: $ => choice(
-    $.apply_tactic,
+    alias($.apply_tactic, $.apply),
     $.intro,
     $.rewrite,
     $.simp,
