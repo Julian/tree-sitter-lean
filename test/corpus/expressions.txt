@@ -930,13 +930,13 @@ Sugared Anonymous Function
 
 (module
   (hash_command
-    (binary_expression (identifier) (number)))
+    (binary_expression (cdot) (number)))
   (hash_command
-    (binary_expression (identifier) (number)))
+    (binary_expression (cdot) (number)))
   (hash_command
     (apply
       (identifier)
-      (binary_expression (identifier) (number)) (number))))
+      (binary_expression (cdot) (number)) (number))))
 
 =================
 Explicit Function
@@ -1208,30 +1208,31 @@ Quantifiers
 
 (module
   (hash_command
-    (quantified
+    (forall
       binders:
-        (parameters
+        (binders
           name: (identifier))
       body:
-        (quantified
+        (exists
           binders:
-            (parameters
+            (binders
               name: (identifier))
           body:
             (binary_expression
               (binary_expression (identifier) (identifier))
               (identifier)))))
   (hash_command
-    (quantified
+    (exists
       binders:
-        (parameters
-          name: (identifier)
-          name: (identifier)
-          type: (identifier))
+        (binders
+          (explicit_binder
+            name: (identifier)
+            name: (identifier)
+            type: (identifier)))
       body:
-        (quantified
+        (forall
           binders:
-            (parameters
+            (binders
               name: (identifier))
           body:
             (binary_expression

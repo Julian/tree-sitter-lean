@@ -10,10 +10,26 @@ def main : IO UInt32 := do
 
 (module
   (declaration
-    (def (identifier) (apply (identifier) (identifier))
-      (do
-        (apply (identifier) (string))
-        (apply (identifier) (string))))))
+    (def
+      name: (identifier)
+      type:
+        (apply
+          name: (identifier)
+          arguments: (identifier))
+      body:
+        (do
+          (apply
+            name:
+              (field_of
+                term: (identifier)
+                name: (identifier))
+            arguments: (string))
+          (apply
+            name:
+              (field_of
+                term: (identifier)
+                name: (identifier))
+            arguments: (string))))))
 
 ========
 Repeated
@@ -37,11 +53,17 @@ def main : IO UInt32 := do do
         (do
           (do
             (apply
-              name: (identifier)
+              name:
+                (field_of
+                  term: (identifier)
+                  name: (identifier))
               arguments: (string))
             (apply
-              name: (identifier)
-              arguments: (string)))))))
+              name:
+                (field_of
+                  term: (identifier)
+                  name: (identifier))
+              arguments: (string))))))) 
 
 ==========
 Let (Bind)

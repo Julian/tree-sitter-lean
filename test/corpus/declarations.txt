@@ -1691,8 +1691,8 @@ constant Foo : Nat → Nat
 (module
   (declaration
     (constant (identifier)
-      (apply (function_type (identifier) (identifier))
-        (ERROR) (identifier) (ERROR) (number)))))
+      (apply
+        (function_type (identifier) (identifier)) (ERROR (hole)) (number)))))
 
 =====
 Axiom

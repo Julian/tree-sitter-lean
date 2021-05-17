@@ -7,7 +7,6 @@ const {sep0, sep1} = require('./grammar/util.js')
 
 const PREC = {
   dollar: -5,
-  quantified: -4,
   equal: -3,
   compare: -2,
   apply: -1,
@@ -40,11 +39,12 @@ module.exports = grammar({
   ],
 
   conflicts: $ => [
-    [$.typeclass_resolved_parameter, $._primary_expression],
-    [$.assign, $._primary_expression],
+    [$.typeclass_resolved_parameter, $._term],
+    [$.assign, $._term],
     [$.user_tactic, $._expression],
     [$.user_tactic, $.quoted_tactic],
     [$.identifier],
+    [$._simple_binder],
   ],
 
   word: $ => $._identifier,
@@ -162,7 +162,6 @@ module.exports = grammar({
     _primary_expression: $ => choice(
       $.coe,
       $._parenthesized_expression,
-      $.identifier,
       $.unary_expression,
       $.quoted_tactic,
       $.explicit,
@@ -173,7 +172,6 @@ module.exports = grammar({
       $.conditional,
       $.field_of,
       $.match,
-      $.quantified,
       $.lambda,
       $.binary_expression,
       $.interpolated_string,
@@ -446,13 +444,6 @@ module.exports = grammar({
     ),
 
     anonymous_constructor: $ => seq('⟨', sep0($._expression, ','), '⟩'),
-
-    quantified: $ => prec(PREC.quantified, seq(
-      choice('∀', '∃'),
-      field('binders', $.parameters),
-      ',',
-      field('body', $._expression),
-    )),
 
     list: $ => seq('[', sep0($._expression, ','), ']'),
 
