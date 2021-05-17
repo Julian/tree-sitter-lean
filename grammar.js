@@ -177,8 +177,6 @@ module.exports = grammar({
       $.coe,
       $._parenthesized_expression,
       $.identifier,
-      $.float,
-      $.number,
       $.unary_expression,
       $.quoted_tactic,
       $.explicit,
@@ -192,8 +190,6 @@ module.exports = grammar({
       $.quantified,
       $.lambda,
       $.binary_expression,
-      $.char,
-      $.string,
       $.interpolated_string,
       $.anonymous_constructor,
       $.structure_instance,
@@ -488,13 +484,6 @@ module.exports = grammar({
 
     array: $ => seq('#[', sep0($._expression, ','), ']'),
 
-    char: $ => seq("'", choice($.escape_sequence, /[^']/), "'"),
-    string: $ => seq(
-      '"',
-      repeat(choice($.escape_sequence, /[^"]/)),
-      '"',
-    ),
-
     interpolated_string: $ => seq(
       's!"',
       repeat(choice(/[^"]/, $.escape_sequence, $.interpolation)),
@@ -549,9 +538,6 @@ module.exports = grammar({
     _identifier: $ => /[_a-zA-ZͰ-ϿĀ-ſ\U0001D400-\U0001D7FF][_`'`a-zA-Z0-9Ͱ-ϿĀ-ſ∇!?\u2070-\u209F\U0001D400-\U0001D7FF]*/,
     _escaped_identifier: $ =>  /«[^»]*»/,
     _lambda_magic_identifier: $ => choice('.', '·'),
-
-    number: $ => /\d+/,
-    float: $ => /\d+\.\d*/,
 
     ...attr,
     ...command,
