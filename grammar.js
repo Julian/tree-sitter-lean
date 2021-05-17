@@ -1,5 +1,6 @@
 const attr = require('./grammar/attr.js')
 const command = require('./grammar/command.js')
+const syntax = require('./grammar/syntax.js')
 const tactic = require('./grammar/tactic.js')
 const term = require('./grammar/term.js')
 const {sep0, sep1} = require('./grammar/util.js')
@@ -388,10 +389,6 @@ module.exports = grammar({
       '`(tactic|', choice($._tactic, $._expression), ')',
     ),
 
-    notation: $ => seq('notation', $._expression, '=>', $._expression),
-    macro_rules: $ => seq('macro_rules', repeat($.pattern)),
-    syntax: $ => seq('syntax', $._primary_expression, ':', $.identifier),
-
     unary_expression: $ => prec(PREC.unary, choice(
       seq('←', $._expression),
       seq('¬', $._expression),
@@ -558,6 +555,7 @@ module.exports = grammar({
 
     ...attr,
     ...command,
+    ...syntax,
     ...tactic,
     ...term,
   }
