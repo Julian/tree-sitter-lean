@@ -18,19 +18,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "prelude"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "hash_command"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "import"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "open"
+          "name": "section"
         },
         {
           "type": "SYMBOL",
@@ -38,7 +26,19 @@
         },
         {
           "type": "SYMBOL",
-          "name": "section"
+          "name": "variable"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "universe"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "universes"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "hash_command"
         },
         {
           "type": "SYMBOL",
@@ -50,11 +50,15 @@
         },
         {
           "type": "SYMBOL",
-          "name": "variable_declaration"
+          "name": "open"
         },
         {
           "type": "SYMBOL",
-          "name": "universe"
+          "name": "prelude"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "import"
         },
         {
           "type": "SYMBOL",
@@ -88,81 +92,6 @@
             "type": "SYMBOL",
             "name": "identifier"
           }
-        }
-      ]
-    },
-    "open": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "open"
-        },
-        {
-          "type": "REPEAT1",
-          "content": {
-            "type": "FIELD",
-            "name": "namespace",
-            "content": {
-              "type": "SYMBOL",
-              "name": "identifier"
-            }
-          }
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "in"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_command"
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        }
-      ]
-    },
-    "hash_command": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "#check"
-            },
-            {
-              "type": "STRING",
-              "value": "#check_failure"
-            },
-            {
-              "type": "STRING",
-              "value": "#eval"
-            },
-            {
-              "type": "STRING",
-              "value": "#print"
-            },
-            {
-              "type": "STRING",
-              "value": "#reduce"
-            }
-          ]
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_expression"
         }
       ]
     },
@@ -272,24 +201,12 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "universe"
-            },
-            {
-              "type": "STRING",
-              "value": "universes"
-            }
-          ]
+          "type": "STRING",
+          "value": "universe"
         },
         {
-          "type": "REPEAT1",
-          "content": {
-            "type": "SYMBOL",
-            "name": "identifier"
-          }
+          "type": "SYMBOL",
+          "name": "identifier"
         }
       ]
     },
@@ -4248,6 +4165,72 @@
         }
       ]
     },
+    "variable": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "variable"
+        },
+        {
+          "type": "REPEAT1",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_parameter"
+          }
+        }
+      ]
+    },
+    "universes": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "universes"
+        },
+        {
+          "type": "REPEAT1",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        }
+      ]
+    },
+    "hash_command": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "#check"
+            },
+            {
+              "type": "STRING",
+              "value": "#check_failure"
+            },
+            {
+              "type": "STRING",
+              "value": "#eval"
+            },
+            {
+              "type": "STRING",
+              "value": "#print"
+            },
+            {
+              "type": "STRING",
+              "value": "#reduce"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_expression"
+        }
+      ]
+    },
     "attribute": {
       "type": "SEQ",
       "members": [
@@ -4303,6 +4286,47 @@
             "type": "SYMBOL",
             "name": "_expression"
           }
+        }
+      ]
+    },
+    "open": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "open"
+        },
+        {
+          "type": "REPEAT1",
+          "content": {
+            "type": "FIELD",
+            "name": "namespace",
+            "content": {
+              "type": "SYMBOL",
+              "name": "identifier"
+            }
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "in"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_command"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         }
       ]
     },

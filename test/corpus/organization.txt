@@ -174,19 +174,19 @@ variable {x : α} [y : α]
 ---
 
 (module
-  (variable_declaration
+  (variable
     name: (identifier)
     name: (identifier)
     name: (identifier)
     type: (identifier))
-  (variable_declaration
+  (variable
     name: (identifier)
     type: (function_type (identifier) (identifier))
     name: (identifier)
     type: (function_type (identifier) (identifier))
     name: (identifier)
     type: (function_type (identifier) (identifier)))
-  (variable_declaration
+  (variable
     (implicit_parameter
       name: (identifier)
       type: (identifier))

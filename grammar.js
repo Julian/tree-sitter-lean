@@ -54,17 +54,19 @@ module.exports = grammar({
 
     _command: $ => choice(
       $.declaration,
-      $.prelude,
-      $.hash_command,
-      $.import,
-      $.open,
-      $.namespace,
       $.section,
+      $.namespace,
+      $.variable,
+      $.universe,
+      $.universes,
+      $.hash_command,
       $.attribute,
       $.export,
-      $.variable_declaration,
-      $.universe,
+      $.open,
+      $.prelude,
+      $.import,
 
+      // src/Lean/Parser/Syntax.lean
       $.notation,
       $.macro_rules,
       $.syntax,
@@ -73,17 +75,6 @@ module.exports = grammar({
     prelude: $ => 'prelude',
 
     import: $ => seq('import', field('module', $.identifier)),
-
-    open: $ => seq(
-      'open',
-      repeat1(field('namespace', $.identifier)),
-      optional(seq('in', $._command)),
-    ),
-
-    hash_command: $ => seq(
-      choice('#check', '#check_failure', '#eval', '#print', '#reduce'),
-      $._expression,
-    ),
 
     _where: $ => seq('where', repeat1($.where_decl)),
     where_decl: $ => seq(
@@ -101,11 +92,6 @@ module.exports = grammar({
     ),
 
     variable_declaration: $ => seq('variable', repeat1($._parameter)),
-
-    universe: $ => seq(
-      choice('universe', 'universes'),
-      repeat1($.identifier),
-    ),
 
     function_type: $ => prec(PREC.multitype,
       sep2($._expression, $._right_arrow),

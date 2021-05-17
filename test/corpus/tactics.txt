@@ -53,7 +53,7 @@ variable {m n : Nat}
 ---
 
 (module
-  (variable_declaration
+  (variable
     (implicit_parameter
       name: (identifier)
       name: (identifier)

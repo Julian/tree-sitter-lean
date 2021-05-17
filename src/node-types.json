@@ -8722,7 +8722,11 @@
           "named": true
         },
         {
-          "type": "variable_declaration",
+          "type": "universes",
+          "named": true
+        },
+        {
+          "type": "variable",
           "named": true
         }
       ]
@@ -8936,7 +8940,11 @@
             "named": true
           },
           {
-            "type": "variable_declaration",
+            "type": "universes",
+            "named": true
+          },
+          {
+            "type": "variable",
             "named": true
           }
         ]
@@ -9182,7 +9190,11 @@
           "named": true
         },
         {
-          "type": "variable_declaration",
+          "type": "universes",
+          "named": true
+        },
+        {
+          "type": "variable",
           "named": true
         }
       ]
@@ -11133,7 +11145,11 @@
             "named": true
           },
           {
-            "type": "variable_declaration",
+            "type": "universes",
+            "named": true
+          },
+          {
+            "type": "variable",
             "named": true
           }
         ]
@@ -13358,6 +13374,21 @@
     "named": true,
     "fields": {},
     "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "universes",
+    "named": true,
+    "fields": {},
+    "children": {
       "multiple": true,
       "required": true,
       "types": [
@@ -13663,7 +13694,7 @@
     }
   },
   {
-    "type": "variable_declaration",
+    "type": "variable",
     "named": true,
     "fields": {
       "name": {

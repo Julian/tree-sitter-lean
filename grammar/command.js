@@ -122,11 +122,25 @@ module.exports = {
     'end',
     $.identifier,
   ),
+  variable: $ => seq('variable', repeat1($._parameter)),
+  universe: $ => seq('universe', $.identifier),
+  universes: $ => seq('universes', repeat1($.identifier)),
+  hash_command: $ => seq(
+    choice('#check', '#check_failure', '#eval', '#print', '#reduce'),
+    $._expression,
+  ),
+
   attribute: $ => seq(
     'attribute',
     '[',
     sep1(field('name', $._primary_expression), ','),
     ']',
     field('term', $._expression),
+  ),
+
+  open: $ => seq(
+    'open',
+    repeat1(field('namespace', $.identifier)),
+    optional(seq('in', $._command)),
   ),
 }
