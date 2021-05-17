@@ -63,7 +63,7 @@ def main : IO UInt32 := do do
                 (field_of
                   term: (identifier)
                   name: (identifier))
-              arguments: (string))))))) 
+              arguments: (string)))))))
 
 ==========
 Let (Bind)
