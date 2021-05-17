@@ -4,13 +4,13 @@ const {min1, sep1} = require('./util.js')
 module.exports = {
   _decl_modifiers: $ => seq(
     min1(
-      field('attributes', $._attributes),
+      $.attributes,
       repeat1(
         choice('noncomputable', 'partial', 'private', 'protected', 'unsafe'),
       ),
     ),
   ),
-  _decl_id: $ => field('name', $._dotted_name),
+  _decl_id: $ => field('name', prec(2, $.identifier)),
   _decl_sig: $ => seq(
     optional(field('parameters', $.parameters)),
     ':', field('type', $._expression),
@@ -64,7 +64,7 @@ module.exports = {
   ),
   constructor: $ => seq(
     '|',
-    field('name', $._dotted_name),
+    field('name', $.identifier),
     optional($._opt_decl_sig),
   ),
   _deriving: $ => field('deriving', seq('deriving', sep1($.identifier, ','))),
@@ -110,17 +110,17 @@ module.exports = {
   ),
   section: $ => seq(
     'section',
-    optional(field('name', $._dotted_name)),
+    optional(field('name', $.identifier)),
     field('body', repeat($._command)),
     'end',
-    optional($._dotted_name),
+    optional($.identifier),
   ),
   namespace: $ => seq(
     'namespace',
-    field('name', $._dotted_name),
+    field('name', $.identifier),
     field('body', repeat($._command)),
     'end',
-    $._dotted_name,
+    $.identifier,
   ),
   attribute: $ => seq(
     'attribute',

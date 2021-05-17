@@ -150,10 +150,7 @@ end Foo.Bar.Baz
 
 ---
 
-(module
-  (namespace
-    (identifier) (identifier) (identifier)
-    (identifier) (identifier) (identifier)))
+(module (namespace (identifier) (identifier)))
 
 ===================
 Dotted Name Section
@@ -164,10 +161,7 @@ end Foo.Bar.Baz
 
 ---
 
-(module
-  (section
-    (identifier) (identifier) (identifier)
-    (identifier) (identifier) (identifier)))
+(module (section (identifier) (identifier)))
 
 =========
 Variables

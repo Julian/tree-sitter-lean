@@ -13,7 +13,6 @@ const PREC = {
   multitype: -1,
 
   index: 10,
-  field_of: 11,
   parenthesized_expression: 12,
   opop: 13,
   or: 14,
@@ -44,6 +43,7 @@ module.exports = grammar({
     [$.assign, $._primary_expression],
     [$.user_tactic, $._expression],
     [$.user_tactic, $.quoted_tactic],
+    [$.identifier],
   ],
 
   word: $ => $._identifier,
@@ -71,11 +71,11 @@ module.exports = grammar({
 
     prelude: $ => 'prelude',
 
-    import: $ => seq('import', field('module', $._dotted_name)),
+    import: $ => seq('import', field('module', $.identifier)),
 
     open: $ => seq(
       'open',
-      repeat1(field('namespace', $._dotted_name)),
+      repeat1(field('namespace', $.identifier)),
       optional(seq('in', $._command)),
     ),
 
@@ -240,7 +240,7 @@ module.exports = grammar({
 
     let: $ => prec.left(seq(
       'let',
-      field('name', $._dotted_name),
+      field('name', $.identifier),
       optional(field('parameters', $.parameters)),
       optional(seq(':', field('type', $._expression))),
       ':=',
@@ -377,9 +377,9 @@ module.exports = grammar({
       field('argument', $._expression),
     )),
 
-    field_of: $ => prec(PREC.field_of, seq(
+    field_of: $ => prec(1, seq(
       field('term', $._expression),
-      '.',
+      token.immediate('.'),
       field('name', choice($.identifier, $.number)),
     )),
 
@@ -516,8 +516,6 @@ module.exports = grammar({
       ')',
     ),
 
-    _dotted_name: $ => prec.left(PREC.name, sep1($.identifier, token.immediate('.'))),
-
     _left_arrow: $ => choice('<-', '←'),
     _right_arrow: $ => choice('->', '→'),
 
@@ -543,12 +541,12 @@ module.exports = grammar({
       ),
     )),
 
-    explicit: $ => seq('@', $._dotted_name),
+    explicit: $ => seq('@', $.identifier),
 
     // FIXME: see name.cpp for the real definition...
     identifier: $ => choice(
+      sep1($._identifier, token.immediate('.')),
       $._lambda_magic_identifier,
-      $._identifier,
       $._escaped_identifier,
     ),
     _identifier: $ => /[_a-zA-ZͰ-ϿĀ-ſ\U0001D400-\U0001D7FF][_`'`a-zA-Z0-9Ͱ-ϿĀ-ſ∇!?\u2070-\u209F\U0001D400-\U0001D7FF]*/,

@@ -5,7 +5,7 @@ module.exports = {
   true: $ => 'true',
   false: $ => 'false',
 
-  _attributes: $ => seq('@[', sep1($._attribute, ','), ']'),
+  attributes: $ => seq('@[', sep1($._attribute, ','), ']'),
 
   _term: $ => choice(
     $.sorry,

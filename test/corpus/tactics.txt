@@ -27,11 +27,7 @@ theorem foo {m n : Nat} : 2 * m + 2 * n = 2 * (n + m) := by
             (number)
             (binary_expression (identifier) (identifier))))
       body:
-        (tactics
-          (rewrite
-            (field_of
-              term: (identifier)
-              name: (identifier)))
+        (tactics (rewrite (identifier))
           (term
             (field_of
               term:
@@ -65,11 +61,7 @@ variable {m n : Nat}
   (hash_command
     (coe
       term:
-        (tactics
-          (rewrite
-            (field_of
-              term: (identifier)
-              name: (identifier)))
+        (tactics (rewrite (identifier))
           (term
             (field_of
               term:
@@ -132,7 +124,7 @@ example : true ↔ true := by apply Iff.intro
 (module
   (declaration
     (example (binary_expression (true) (true))
-      (tactics (apply_tactic (field_of (identifier) (identifier)))))))
+      (tactics (apply_tactic (identifier))))))
 
 ========================
 Some Unknown User Tactic
@@ -173,7 +165,7 @@ example : (true ↔ true) ↔ (true ↔ true) := by
         (binary_expression (true) (true))
         (binary_expression (true) (true)))
       (tactics
-        (apply_tactic (field_of (identifier) (identifier)))
+        (apply_tactic (identifier))
         (intro (identifier))
         (term (identifier))
         (intro (identifier))

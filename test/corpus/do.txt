@@ -12,8 +12,8 @@ def main : IO UInt32 := do
   (declaration
     (def (identifier) (apply (identifier) (identifier))
       (do
-        (apply (field_of (identifier) (identifier)) (string))
-        (apply (field_of (identifier) (identifier)) (string))))))
+        (apply (identifier) (string))
+        (apply (identifier) (string))))))
 
 ========
 Repeated
@@ -37,16 +37,10 @@ def main : IO UInt32 := do do
         (do
           (do
             (apply
-              name:
-                (field_of
-                  term: (identifier)
-                  name: (identifier))
+              name: (identifier)
               arguments: (string))
             (apply
-              name:
-                (field_of
-                  term: (identifier)
-                  name: (identifier))
+              name: (identifier)
               arguments: (string)))))))
 
 ==========
@@ -289,10 +283,7 @@ Return One Line
       term:
         (do
           (return
-            value:
-              (field_of
-                term: (identifier)
-                name: (identifier))))
+            value: (identifier)))
       type: (identifier))))
 
 ============
@@ -409,7 +400,7 @@ If/Then
       (do
         (conditional_when
           (true)
-          (return (field_of (identifier) (identifier)))))
+          (return (identifier))))
       (identifier))))
 
 ===================
@@ -450,8 +441,8 @@ If Condition Function Application
     (coe
       (conditional
         (apply (identifier) (number))
-        (do (field_of (identifier) (identifier)))
-        (field_of (identifier) (identifier)))
+        (do (identifier))
+        (identifier))
       (identifier))))
 
 ==========
@@ -468,5 +459,5 @@ Left Arrow
       (do
         (conditional_when
             (unary_expression (identifier))
-            (return (field_of (identifier) (identifier)))))
+            (return (identifier))))
         (identifier))))

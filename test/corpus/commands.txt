@@ -72,10 +72,8 @@ open Foo Bar Baz.Quux
   (open
     namespace: (identifier))
   (open
-    namespace: (identifier)
     namespace: (identifier))
   (open
-    namespace: (identifier)
     namespace: (identifier)
     namespace: (identifier)
     namespace: (identifier)))
@@ -129,8 +127,6 @@ import Foo.Bar.Baz
 
 (module
   (import
-    module: (identifier)
-    module: (identifier)
     module: (identifier)))
 
 ========================

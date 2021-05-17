@@ -942,23 +942,27 @@ Attributes
 
 (module
   (declaration
-    attributes: (identifier)
+    (attributes
+      name: (identifier))
     (def
       name: (identifier)
       body: (number)))
   (declaration
-    attributes: (identifier)
+    (attributes
+      name: (identifier))
     (instance
       type: (identifier)
       body: (anonymous_constructor (number))))
   (declaration
-    attributes: (identifier)
+    (attributes
+      name: (identifier))
     (theorem
       name: (identifier)
       type: (binary_expression (number) (number))
       body: (identifier)))
   (declaration
-    attributes: (identifier)
+    (attributes
+      name: (identifier))
     (constant
       name: (identifier)
       type: (identifier))))
@@ -973,8 +977,9 @@ Multiple Attributes
 
 (module
   (declaration
-    attributes: (identifier)
-    attributes: (identifier)
+    (attributes
+      name: (identifier)
+      name: (identifier))
     (def
       name: (identifier)
       body: (number))))
@@ -989,10 +994,9 @@ Dotted Name Attributes
 
 (module
   (declaration
-    attributes: (identifier)
-    attributes: (identifier)
-    attributes: (identifier)
-    attributes: (identifier)
+    (attributes
+      name: (identifier)
+      name: (identifier))
     (def
       name: (identifier)
       body: (number))))
@@ -1007,7 +1011,8 @@ Missing Attribute
 
 (module
   (declaration
-    attributes: (identifier (MISSING _identifier))
+    (attributes
+      name: (identifier (MISSING _identifier)))
     (def
       name: (identifier)
       body: (number))))
@@ -1069,7 +1074,8 @@ Partial With Attribute
 
 (module
   (declaration
-    attributes: (identifier)
+    (attributes
+      name: (identifier))
     (def
       name: (identifier)
       body: (number))))
@@ -1096,7 +1102,6 @@ inductive FooBar where
           type: (identifier))
       constructors:
         (constructor
-          name: (identifier)
           name: (identifier)
           type: (identifier))
       constructors:
@@ -1252,7 +1257,6 @@ class inductive FooBar where
       constructors:
         (constructor
           name: (identifier)
-          name: (identifier)
           type: (identifier))
       constructors:
         (constructor
@@ -1303,13 +1307,9 @@ inductive A.B | C
   (declaration
     (def
       name: (identifier)
-      name: (identifier)
-      name: (identifier)
       body: (number)))
   (declaration
     (structure
-      name: (identifier)
-      name: (identifier)
       name: (identifier)
       fields:
         (field
@@ -1317,9 +1317,6 @@ inductive A.B | C
           type: (identifier))))
   (declaration
     (structure
-      name: (identifier)
-      name: (identifier)
-      name: (identifier)
       name: (identifier)
       fields:
         (field
@@ -1328,16 +1325,9 @@ inductive A.B | C
   (declaration
     (instance
       name: (identifier)
-      name: (identifier)
       type:
         (field_of
-          term:
-            (field_of
-              term:
-                (field_of
-                  term: (identifier)
-                  name: (identifier))
-              name: (identifier))
+          term: (identifier)
           name: (identifier))
       body:
         (where_decl
@@ -1346,15 +1336,10 @@ inductive A.B | C
   (declaration
     (theorem
       name: (identifier)
-      name: (identifier)
-      name: (identifier)
-      name: (identifier)
-      name: (identifier)
       type: (binary_expression (number) (number))
       body: (identifier)))
   (declaration
     (inductive
-      name: (identifier)
       name: (identifier)
       constructors:
         (constructor
@@ -1643,9 +1628,9 @@ abbrev Baz
           lhs: (identifier)
           (number))))
   (declaration
-    attributes: (identifier)
+    (attributes
+      name: (identifier))
     (abbrev
-      name: (identifier)
       name: (identifier)
       body: (identifier))))
 
@@ -1682,7 +1667,7 @@ constant B
 
 ---
 
-(module (ERROR (identifier)))
+(module (ERROR))
 
 ==========================
 Constant With Missing Name
