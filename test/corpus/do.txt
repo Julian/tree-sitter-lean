@@ -141,13 +141,13 @@ def foo (xs : Array Nat) : Unit := do
   (declaration
     (def
       name: (identifier)
-      parameters:
-        (parameters
+      (binders
+        (explicit_binder
           name: (identifier)
           type:
             (apply
               name: (identifier)
-              arguments: (identifier)))
+              arguments: (identifier))))
       type: (identifier)
       body:
         (do
@@ -178,13 +178,13 @@ def foo (xs : Array (Nat × Nat)) : Unit := do
   (declaration
     (def
       name: (identifier)
-      parameters:
-        (parameters
+      (binders
+        (explicit_binder
           name: (identifier)
           type:
             (apply
               name: (identifier)
-              arguments: (product_type (identifier) (identifier))))
+              arguments: (product_type (identifier) (identifier)))))
       type: (identifier)
       body:
         (do
@@ -401,8 +401,8 @@ instance : do return ToString Nat where
       body:
         (where_decl
           name: (identifier)
-          parameters:
-            (parameters
+          binders:
+            (explicit_binder
               name: (identifier)
               type: (identifier))
           type: (identifier)

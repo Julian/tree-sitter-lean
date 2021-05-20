@@ -12,19 +12,25 @@ module.exports = {
   ),
   _decl_id: $ => field('name', prec(2, $.identifier)),
   _decl_sig: $ => seq(
-    optional(field('parameters', $.parameters)),
-    ':', field('type', $._expression),
+    alias(
+      repeat(prec.left(choice($._simple_binder_without_type, $._bracketed_binder))),
+      $.binders,
+    ),
+    $._type_spec,
   ),
-  _opt_decl_sig: $ => min1(
-    field('parameters', $.parameters),
-    seq(':', field('type', $._expression)),
-  ),
+  _opt_decl_sig: $ => prec.left(min1(
+    alias(
+      repeat1(prec.left(choice($._simple_binder_without_type, $._bracketed_binder))),
+      $.binders,
+    ),
+    $._type_spec,
+  )),
   _decl_val_simple: $ => seq(':=', $._expression),
   _decl_val_equations: $ => repeat1($.pattern),
   _decl_val: $ => field('body', choice(
     $._decl_val_simple,
     $._decl_val_equations,
-    $._where,
+    $._where_decls,
   )),
   abbrev: $ => seq(
     'abbrev',
@@ -84,13 +90,53 @@ module.exports = {
     optional(field('constructors', repeat1($.constructor))),
     optional($._deriving),
   ),
+  _struct_explicit_binder: $ => seq(
+    '(',
+    field('name', repeat1($.identifier)),
+    field('type', optional($._opt_decl_sig)),
+    optional($._binder_default),
+    ')',
+  ),
+  _struct_implicit_binder: $ => seq(
+    '{',
+    field('name', repeat1($.identifier)),
+    field('type', $._decl_sig),
+    '}',
+  ),
+  _struct_instance_binder: $ => seq(
+    '[',
+    field('name', repeat1($.identifier)),
+    field('type', $._decl_sig),
+    ']',
+  ),
+  _struct_simple_binder: $ => prec.left(seq(
+    field('name', $.identifier),
+    field('type', optional($._opt_decl_sig)),
+    optional($._binder_default),
+  )),
+  _struct_field: $ => alias(
+    choice(
+      $._struct_explicit_binder,
+      $._struct_implicit_binder,
+      $._struct_instance_binder,
+      prec(-1, $._struct_simple_binder),
+    ), $.field,
+  ),
+  _struct_constructor: $ => seq($.identifier, '::'),
+  _extends: $ => field('extends', seq('extends', sep1($._expression, ','))),
   structure: $ => seq(
     choice('structure', 'class'),
     $._decl_id,
-    optional($._opt_decl_sig),
-    optional(field('extends', seq('extends', sep1($._expression, ',')))),
-    'where',
-    optional(field('fields', repeat1($.field))),
+    alias(repeat($._bracketed_binder), $.binders),
+    optional($._extends),
+    optional($._type_spec),
+    optional(
+      seq(
+        choice(':=', 'where'),
+        optional($._struct_constructor),
+        field('fields', repeat($._struct_field)),
+      ),
+    ),
     optional($._deriving),
   ),
   declaration: $ => seq(
@@ -122,7 +168,7 @@ module.exports = {
     'end',
     $.identifier,
   ),
-  variable: $ => seq('variable', repeat1($._parameter)),
+  variable: $ => seq('variable', repeat1($._bracketed_binder)),
   universe: $ => seq('universe', $.identifier),
   universes: $ => seq('universes', repeat1($.identifier)),
   hash_command: $ => seq(
@@ -133,9 +179,16 @@ module.exports = {
   attribute: $ => seq(
     'attribute',
     '[',
-    sep1(field('name', $._primary_expression), ','),
+    sep1(choice($._attribute, seq("-", $._attribute)), ','),
     ']',
-    field('term', $._expression),
+    field('term', $.identifier),
+  ),
+  export: $ => seq(
+    'export',
+    field('class', $.identifier),
+    '(',
+    repeat1($.identifier),
+    ')',
   ),
 
   open: $ => seq(

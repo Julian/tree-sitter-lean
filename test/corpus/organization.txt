@@ -175,22 +175,26 @@ variable {x : α} [y : α]
 
 (module
   (variable
-    name: (identifier)
-    name: (identifier)
-    name: (identifier)
-    type: (identifier))
+    (explicit_binder
+      name: (identifier)
+      name: (identifier)
+      name: (identifier)
+      type: (identifier)))
   (variable
-    name: (identifier)
-    type: (function_type (identifier) (identifier))
-    name: (identifier)
-    type: (function_type (identifier) (identifier))
-    name: (identifier)
-    type: (function_type (identifier) (identifier)))
+    (explicit_binder
+      name: (identifier)
+      type: (function_type (identifier) (identifier)))
+    (explicit_binder
+      name: (identifier)
+      type: (function_type (identifier) (identifier)))
+    (explicit_binder
+      name: (identifier)
+      type: (function_type (identifier) (identifier))))
   (variable
-    (implicit_parameter
+    (implicit_binder
       name: (identifier)
       type: (identifier))
-    (typeclass_resolved_parameter
+    (instance_binder
       name: (identifier)
       type: (identifier))))
 

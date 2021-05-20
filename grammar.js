@@ -39,12 +39,14 @@ module.exports = grammar({
   ],
 
   conflicts: $ => [
-    [$.typeclass_resolved_parameter, $._term],
+    [$._binder_ident],
+    [$._let_id_lhs, $._term],
+    [$._let_id_lhs],
+    [$._simple_binder],
     [$.assign, $._term],
+    [$.identifier],
     [$.user_tactic, $._expression],
     [$.user_tactic, $.quoted_tactic],
-    [$.identifier],
-    [$._simple_binder],
   ],
 
   word: $ => $._identifier,
@@ -76,23 +78,6 @@ module.exports = grammar({
 
     import: $ => seq('import', field('module', $.identifier)),
 
-    _where: $ => seq('where', repeat1($.where_decl)),
-    where_decl: $ => seq(
-      $._decl_id,
-      optional($._opt_decl_sig),
-      field('body', choice($._decl_val_simple, $._decl_val_equations)),
-    ),
-
-    export: $ => seq(
-      'export',
-      field('class', $.identifier),
-      '(',
-      repeat1($.identifier),
-      ')',
-    ),
-
-    variable_declaration: $ => seq('variable', repeat1($._parameter)),
-
     function_type: $ => prec(PREC.multitype,
       sep2($._expression, $._right_arrow),
     ),
@@ -103,50 +88,10 @@ module.exports = grammar({
       repeat1(
         choice(
           field('name', $.identifier),
-          $._parameter,
+          $._bracketed_binder,
           $.anonymous_constructor,
         )
       ),
-    ),
-
-    _parameter: $ => choice(
-      $._explicit_parameter,
-      $.implicit_parameter,
-      $.typeclass_resolved_parameter,
-    ),
-
-    _explicit_parameter: $ => seq(
-      '(',
-      field('name', repeat1($.identifier)),
-      field('type', optional(seq(':', $._expression))),
-      ')',
-    ),
-
-    implicit_parameter: $ => seq(
-      '{',
-      field('name', repeat1($.identifier)),
-      field('type', optional(seq(':', $._expression))),
-      '}',
-    ),
-
-    typeclass_resolved_parameter: $ => seq(
-      '[',
-      field('name', optional(seq(repeat1($.identifier), ':'))),
-      field('type', $._expression),
-      ']',
-    ),
-
-    field: $ => seq(
-      field('name', $.identifier),
-      optional(field('parameters', $.parameters)),
-      optional(field('type', seq(':', $._expression))),
-      optional(
-        seq(
-          ':=',
-          field('default', $._expression),
-        ),
-      ),
-      $._newline,
     ),
 
     _expression: $ => choice(
@@ -505,13 +450,6 @@ module.exports = grammar({
     )),
 
     explicit: $ => seq('@', $.identifier),
-
-    // FIXME: see name.cpp for the real definition...
-    identifier: $ => choice(
-      sep1($._identifier, token.immediate('.')),
-      $._lambda_magic_identifier,
-      $._escaped_identifier,
-    ),
     _identifier: $ => /[_a-zA-ZͰ-ϿĀ-ſ\U0001D400-\U0001D7FF][_`'`a-zA-Z0-9Ͱ-ϿĀ-ſ∇!?\u2070-\u209F\U0001D400-\U0001D7FF]*/,
     _escaped_identifier: $ =>  /«[^»]*»/,
     _lambda_magic_identifier: $ => choice('.', '·'),

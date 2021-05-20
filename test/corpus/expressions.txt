@@ -739,10 +739,10 @@ def foo (d : Bar) : Baz :=
   (declaration
     (def
       name: (identifier)
-      parameters:
-        (parameters
+      (binders
+        (explicit_binder
           name: (identifier)
-          type: (identifier))
+          type: (identifier)))
       type: (identifier)
       body:
         (match
@@ -766,12 +766,12 @@ def foo (a b c : Nat) :=
   (declaration
     (def
       name: (identifier)
-      parameters:
-        (parameters
+      (binders
+        (explicit_binder
           name: (identifier)
           name: (identifier)
           name: (identifier)
-          type: (identifier))
+          type: (identifier)))
       body:
         (match
           value: (identifier)

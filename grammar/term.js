@@ -18,9 +18,9 @@ module.exports = {
   hole: $ => "_",
   sorry: $ => 'sorry',
   cdot: $ => choice('.', '·'),
-  _type_spec: $ => field('type', seq(':', $._term)),
+  _type_spec: $ => field('type', seq(':', $._expression)),
   _binder_ident: $ => choice($.identifier, $.hole),
-  _binder_default: $ => field('default', seq(':=', $._term)),
+  _binder_default: $ => field('default', seq(':=', $._expression)),
   explicit_binder: $ => seq(
     '(',
     field('name', repeat1($._binder_ident)),
@@ -30,14 +30,14 @@ module.exports = {
   ),
   implicit_binder: $ => seq(
     '{',
-    field('name', repeat1($.identifier)),
+    field('name', repeat1($._binder_ident)),
     field('type', optional($._type_spec)),
     '}',
   ),
   instance_binder: $ => seq(
     '[',
     optional(seq(field('name', $.identifier), ':')),
-    field('type', $._term),
+    field('type', $._expression),
     ']',
   ),
   _bracketed_binder: $ => choice(
@@ -61,10 +61,37 @@ module.exports = {
     optional($._type_spec),
   ),
 
+  match_alt: $ => seq(
+    '|',
+    field('lhs', sep1($._expression, ',')),
+    '=>',
+    $._expression,
+  ),
+
+  _match_alts: $ => repeat1($.match_alt),
   true: $ => 'true',
   false: $ => 'false',
 
+  _simple_binder_without_type: $ => repeat1($._binder_ident),
+  _let_id_lhs: $ => seq(
+    field('name', $.identifier),
+    field('binders', repeat(
+      choice($._simple_binder_without_type, $._bracketed_binder)),
+    ),
+    field('type', optional($._type_spec)),
+  ),
+  _let_id_decl: $ => seq($._let_id_lhs, ":=", field('body', $._expression)),
+  _let_pattern_decl: $ => seq($._expression, optional($._type_spec), ":=", $._expression),
+  _let_equations_decl: $ => seq($._let_id_lhs, field('body', $._match_alts)),
+  _let_decl: $ => choice(
+    $._let_id_decl, $._let_pattern_decl, $._let_equations_decl,
+  ),
   attributes: $ => seq('@[', sep1($._attribute, ','), ']'),
+  _let_rec_decl: $ => seq($._let_decl),
+
+  _where_decls: $ => seq(
+    'where', repeat1(seq(alias($._let_rec_decl, $.where_decl))),
+  ),
 
   _term: $ => choice(
     $.identifier,
