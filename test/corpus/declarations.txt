@@ -256,7 +256,7 @@ def foo : Nat -> Bool :=
       name: (identifier)
       type: (function_type (identifier) (identifier))
       body:
-        (lambda
+        (fun
           (pattern
             lhs: (number)
             (true))
@@ -357,7 +357,7 @@ theorem twiceAdd2 (a : Nat) : twice (fun x => x + 2) a = a + 4 :=
           (apply
             name: (identifier)
             arguments:
-              (lambda
+              (fun
                 (parameters
                   name: (identifier))
                 (binary_expression (identifier) (number)))
@@ -695,7 +695,7 @@ instance [Inhabited b] : Inhabited (a -> b) where
         (where_decl
           name: (identifier)
           body:
-            (lambda
+            (fun
               (parameters
                 name: (identifier))
               (identifier))))))
@@ -758,7 +758,7 @@ instance : ToString Foo where
           name: (identifier)
           type: (function_type (identifier) (identifier))
           body:
-            (lambda
+            (fun
               (parameters name: (identifier))
               (interpolated_string))))))
 
@@ -823,7 +823,7 @@ example : (fun x => x * 2) 4 < 3 = false := rfl
       (binary_expression
         (comparison
           (apply
-            (lambda (parameters (identifier))
+            (fun (parameters (identifier))
               (binary_expression (identifier) (number))) (number))
           (number))
         (false))

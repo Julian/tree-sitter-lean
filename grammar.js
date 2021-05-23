@@ -117,7 +117,7 @@ module.exports = grammar({
       $.conditional,
       $.field_of,
       $.match,
-      $.lambda,
+      $.fun,
       $.binary_expression,
       $.interpolated_string,
       $.anonymous_constructor,
@@ -272,7 +272,7 @@ module.exports = grammar({
       $._expression,
     ),
 
-    lambda: $ => prec.right(seq(
+    fun: $ => prec.right(seq(
       choice('fun', 'λ'),
       choice(
         seq(

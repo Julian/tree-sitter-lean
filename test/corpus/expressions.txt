@@ -841,7 +841,7 @@ Anonymous Function
 
 (module
   (hash_command
-    (lambda
+    (fun
       (parameters (identifier))
       (binary_expression (identifier) (number)))))
 
@@ -855,7 +855,7 @@ Anonymous Function via Lambda
 
 (module
   (hash_command
-    (lambda (parameters (identifier)) (identifier))))
+    (fun (parameters (identifier)) (identifier))))
 
 ==========================================
 Anonymous Function With Destructuring Bind
@@ -867,7 +867,7 @@ Anonymous Function With Destructuring Bind
 
 (module
   (hash_command
-    (lambda
+    (fun
       (parameters
         (anonymous_constructor (identifier))
         name: (identifier)
@@ -886,7 +886,7 @@ Anonymous Function Application
 (module
   (hash_command
     (apply
-      (lambda
+      (fun
         (parameters (identifier))
         (binary_expression (identifier) (number)))
       (number))))
@@ -908,7 +908,7 @@ Anonymous Function Match With Additional Argument
       name: (identifier)
       arguments: (number)
       arguments:
-        (lambda
+        (fun
           (pattern
             lhs: (number)
             (number))
@@ -1028,7 +1028,7 @@ Structure Literal
       value: (number)
       name: (identifier)
       value:
-        (lambda
+        (fun
           (parameters
             name: (identifier))
           (identifier)))))
@@ -1055,7 +1055,7 @@ Typed Structure Literal
       value: (number)
       name: (identifier)
       value:
-        (lambda
+        (fun
           (parameters
             name: (identifier))
           (identifier))
@@ -1091,7 +1091,7 @@ Structure Overriding
       value: (number)
       name: (identifier)
       value:
-        (lambda
+        (fun
           (parameters
             name: (identifier))
           (identifier))))

@@ -268,7 +268,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "lambda"
+          "name": "fun"
         },
         {
           "type": "SYMBOL",
@@ -1239,7 +1239,7 @@
         }
       ]
     },
-    "lambda": {
+    "fun": {
       "type": "PREC_RIGHT",
       "value": 0,
       "content": {
