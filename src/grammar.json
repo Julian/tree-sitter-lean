@@ -95,35 +95,6 @@
         }
       ]
     },
-    "function_type": {
-      "type": "PREC",
-      "value": -1,
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "SYMBOL",
-            "name": "_expression"
-          },
-          {
-            "type": "REPEAT1",
-            "content": {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "_right_arrow"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_expression"
-                }
-              ]
-            }
-          }
-        ]
-      }
-    },
     "product_type": {
       "type": "PREC_RIGHT",
       "value": -1,
@@ -237,10 +208,6 @@
         {
           "type": "SYMBOL",
           "name": "explicit"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "function_type"
         },
         {
           "type": "SYMBOL",
@@ -4538,6 +4505,36 @@
         }
       ]
     },
+    "arrow": {
+      "type": "PREC_RIGHT",
+      "value": 25,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "_term"
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "->"
+              },
+              {
+                "type": "STRING",
+                "value": "→"
+              }
+            ]
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_expression"
+          }
+        ]
+      }
+    },
     "forall": {
       "type": "PREC",
       "value": -4,
@@ -4932,6 +4929,10 @@
         {
           "type": "SYMBOL",
           "name": "false"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "arrow"
         },
         {
           "type": "SYMBOL",
@@ -5330,10 +5331,6 @@
     ],
     [
       "rewrite",
-      "subarray"
-    ],
-    [
-      "function_type",
       "subarray"
     ],
     [

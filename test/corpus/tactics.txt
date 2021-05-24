@@ -32,10 +32,7 @@ theorem foo {m n : Nat} : 2 * m + 2 * n = 2 * (n + m) := by
             (field_of
               term:
                 (apply
-                  name:
-                    (field_of
-                      term: (identifier)
-                      name: (identifier))
+                  name: (identifier)
                   arguments: (number)
                   arguments: (identifier)
                   arguments: (identifier))
@@ -66,10 +63,7 @@ variable {m n : Nat}
             (field_of
               term:
                 (apply
-                  name:
-                    (field_of
-                      term: (identifier)
-                      name: (identifier))
+                  name: (identifier)
                   arguments: (number)
                   arguments: (identifier)
                   arguments: (identifier))

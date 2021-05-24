@@ -300,8 +300,8 @@ Function Type
 ---
 
 (module
-  (hash_command (function_type (identifier) (identifier)))
-  (hash_command (function_type (identifier) (identifier) (identifier))))
+  (hash_command (arrow (identifier) (identifier)))
+  (hash_command (arrow (identifier) (arrow (identifier) (identifier)))))
 
 ============
 Product Type
@@ -705,11 +705,7 @@ Nested Field Access
 
 ---
 
-(module
-  (hash_command
-    (field_of
-      (field_of (identifier) (identifier))
-      (identifier))))
+(module (hash_command (identifier)))
 
 =======================
 Expression Field Access
@@ -722,7 +718,7 @@ Expression Field Access
 (module
   (hash_command
     (field_of
-      (apply (field_of (identifier) (identifier)) (identifier))
+      (apply (identifier) (identifier))
       (identifier))))
 
 =====
@@ -798,10 +794,7 @@ Match Expression
     (match
       value:
         (apply
-          name:
-            (field_of
-              term: (identifier)
-              name: (identifier))
+          name: (identifier)
           arguments: (number))
       patterns:
         (pattern

@@ -45,6 +45,7 @@ module.exports = {
     $.implicit_binder,
     $.instance_binder,
   ),
+  arrow: $ => prec.right(25, seq($._term, choice('->', '→'), $._expression)),
 
   forall: $ => prec(-4, seq(
     '∀',
@@ -104,6 +105,7 @@ module.exports = {
     $.forall,
     $.true,
     $.false,
+    $.arrow,
     $._notation_term,
     $._notation_extra_term,
     $.array,

@@ -147,7 +147,7 @@ def twice (f : Nat → Nat) (a : Nat) :=
       (binders
         (explicit_binder
           name: (identifier)
-          type: (function_type (identifier) (identifier)))
+          type: (arrow (identifier) (identifier)))
         (explicit_binder
           name: (identifier)
           type: (identifier)))
@@ -171,7 +171,7 @@ def foo : Nat -> Nat := id
   (declaration
     (def
       name: (identifier)
-      type: (function_type (identifier) (identifier))
+      type: (arrow (identifier) (identifier))
       body: (identifier))))
 
 ==================================
@@ -187,8 +187,11 @@ def foo : Nat -> Nat -> Nat -> Nat := id
     (def
       name: (identifier)
       type:
-        (function_type
-          (identifier) (identifier) (identifier) (identifier))
+        (arrow
+          (identifier)
+          (arrow
+            (identifier)
+            (arrow (identifier) (identifier))))
       body: (identifier))))
 
 =============
@@ -225,7 +228,7 @@ def foo : Nat → Nat
   (declaration
     (def
       name: (identifier)
-      type: (function_type (identifier) (identifier))
+      type: (arrow (identifier) (identifier))
       body:
         (pattern
           lhs: (number)
@@ -254,7 +257,7 @@ def foo : Nat -> Bool :=
   (declaration
     (def
       name: (identifier)
-      type: (function_type (identifier) (identifier))
+      type: (arrow (identifier) (identifier))
       body:
         (fun
           (pattern
@@ -279,7 +282,7 @@ def foo : Nat → Nat -> Nat
   (declaration
     (def
       name: (identifier)
-      type: (function_type (identifier) (identifier) (identifier))
+      type: (arrow (identifier) (arrow (identifier) (identifier)))
       body:
         (pattern
           lhs: (number)
@@ -386,10 +389,7 @@ theorem bar : 2 * 3 = 3 * 2 := Nat.mul_comm 2 3
           (binary_expression (number) (number)))
       body:
         (apply
-          name:
-            (field_of
-              term: (identifier)
-              name: (identifier))
+          name: (identifier)
           arguments: (number)
           arguments: (number)))))
 
@@ -565,7 +565,7 @@ class Quux (a : Type) where
       fields:
         (field
           name: (identifier)
-          type: (function_type (identifier) (identifier) (identifier)))
+          type: (arrow (identifier) (arrow (identifier) (identifier))))
       fields:
         (field
           name: (identifier)
@@ -690,7 +690,7 @@ instance [Inhabited b] : Inhabited (a -> b) where
       type:
         (apply
           name: (identifier)
-          arguments: (function_type (identifier) (identifier)))
+          arguments: (arrow (identifier) (identifier)))
       body:
         (where_decl
           name: (identifier)
@@ -732,10 +732,7 @@ instance : Add Foo := Foo.add
         (apply
           name: (identifier)
           arguments: (identifier))
-      body:
-        (field_of
-          term: (identifier)
-          name: (identifier)))))
+      body: (identifier))))
 
 ========================================
 Instance Field With Function Return Type
@@ -756,7 +753,7 @@ instance : ToString Foo where
       body:
         (where_decl
           name: (identifier)
-          type: (function_type (identifier) (identifier))
+          type: (arrow (identifier) (identifier))
           body:
             (fun
               (parameters name: (identifier))
@@ -1096,7 +1093,7 @@ inductive FooBar where
         (constructor
           name: (identifier)
           type:
-            (function_type (identifier) (identifier)))
+            (arrow (identifier) (identifier)))
       constructors:
         (constructor
           name: (identifier)
@@ -1114,7 +1111,7 @@ inductive FooBar where
               name: (identifier)
               type: (identifier)))
           type:
-            (function_type (identifier) (identifier))))))
+            (arrow (identifier) (identifier))))))
 
 ==============================
 Inductive Type No Constructors
@@ -1250,7 +1247,7 @@ class inductive FooBar where
         (constructor
           name: (identifier)
           type:
-            (function_type (identifier) (identifier)))
+            (arrow (identifier) (identifier)))
       constructors:
         (constructor
           name: (identifier)
@@ -1268,7 +1265,7 @@ class inductive FooBar where
               name: (identifier)
               type: (identifier)))
           type:
-            (function_type (identifier) (identifier))))))
+            (arrow (identifier) (identifier))))))
 
 =================
 Inline Namespaced
@@ -1587,7 +1584,7 @@ abbrev Baz
   (declaration
     (abbrev
       name: (identifier)
-      type: (function_type (identifier) (identifier))
+      type: (arrow (identifier) (identifier))
       body: (identifier)))
   (declaration
     (abbrev
@@ -1603,7 +1600,7 @@ abbrev Baz
           (explicit_binder
             name: (identifier)
             type: (identifier)))
-      type: (function_type (identifier) (identifier))
+      type: (arrow (identifier) (identifier))
       body: (identifier)))
   (declaration
     (abbrev
@@ -1641,7 +1638,7 @@ constant C : Nat := 3
   (declaration
     (constant
       name: (identifier)
-      type: (function_type (identifier) (identifier))))
+      type: (arrow (identifier) (identifier))))
   (declaration
     (constant
       name: (identifier)
@@ -1681,7 +1678,7 @@ constant Foo : Nat → Nat
   (declaration
     (constant (identifier)
       (apply
-        (function_type (identifier) (identifier)) (ERROR (hole)) (number)))))
+        (arrow (identifier) (identifier)) (ERROR (hole)) (number)))))
 
 =====
 Axiom

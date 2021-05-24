@@ -9,7 +9,7 @@ notation " ♔ " => Foo.bar
 (module
   (notation
     (string)
-    (field_of (identifier) (identifier))))
+    (identifier)))
 
 ===========
 Macro Rules

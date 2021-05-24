@@ -47,7 +47,6 @@ module.exports = grammar({
     [$.throw, $.subarray],
     [$.apply_tactic, $.subarray],
     [$.rewrite, $.subarray],
-    [$.function_type, $.subarray],
     [$.product_type, $.subarray],
     [$.term, $.subarray],
     [$._do_command, $.subarray],
@@ -90,10 +89,6 @@ module.exports = grammar({
 
     import: $ => seq('import', field('module', $.identifier)),
 
-    function_type: $ => prec(PREC.multitype,
-      sep2($._expression, $._right_arrow),
-    ),
-
     product_type: $ => prec.right(PREC.multitype, sep2($._expression, '×')),
 
     parameters: $ => seq(
@@ -122,7 +117,6 @@ module.exports = grammar({
       $.unary_expression,
       $.quoted_tactic,
       $.explicit,
-      $.function_type,
       $.product_type,
       $.product,
       $.conditional,

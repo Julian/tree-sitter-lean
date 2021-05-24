@@ -183,13 +183,13 @@ variable {x : α} [y : α]
   (variable
     (explicit_binder
       name: (identifier)
-      type: (function_type (identifier) (identifier)))
+      type: (arrow (identifier) (identifier)))
     (explicit_binder
       name: (identifier)
-      type: (function_type (identifier) (identifier)))
+      type: (arrow (identifier) (identifier)))
     (explicit_binder
       name: (identifier)
-      type: (function_type (identifier) (identifier))))
+      type: (arrow (identifier) (identifier))))
   (variable
     (implicit_binder
       name: (identifier)

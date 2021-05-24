@@ -19,16 +19,10 @@ def main : IO UInt32 := do
       body:
         (do
           (apply
-            name:
-              (field_of
-                term: (identifier)
-                name: (identifier))
+            name: (identifier)
             arguments: (string))
           (apply
-            name:
-              (field_of
-                term: (identifier)
-                name: (identifier))
+            name: (identifier)
             arguments: (string))))))
 
 ========
@@ -53,16 +47,10 @@ def main : IO UInt32 := do do
         (do
           (do
             (apply
-              name:
-                (field_of
-                  term: (identifier)
-                  name: (identifier))
+              name: (identifier)
               arguments: (string))
             (apply
-              name:
-                (field_of
-                  term: (identifier)
-                  name: (identifier))
+              name: (identifier)
               arguments: (string)))))))
 
 ==========
