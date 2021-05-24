@@ -77,9 +77,9 @@ List
   (hash_command (list (number) (number) (number)))
   (hash_command (list)))
 
-=====
-Index
-=====
+=========
+Array Ref
+=========
 
 #check foo[bar 3]
 
@@ -87,16 +87,16 @@ Index
 
 (module
   (hash_command
-    (index
-      container: (identifier)
+    (subarray
+      term: (identifier)
       value:
         (apply
           name: (identifier)
           arguments: (number)))))
 
-=====
-Slice
-=====
+========
+Subarray
+========
 
 #check foo[0:bar 3]
 
@@ -104,17 +104,17 @@ Slice
 
 (module
   (hash_command
-    (index
-      container: (identifier)
+    (subarray
+      term: (identifier)
       start: (number)
       stop:
         (apply
           name: (identifier)
           arguments: (number)))))
 
-=============
-Slice No Stop
-=============
+================
+Subarray No Stop
+================
 
 #check foo[0:]
 
@@ -122,13 +122,13 @@ Slice No Stop
 
 (module
   (hash_command
-    (index
-      container: (identifier)
+    (subarray
+      term: (identifier)
       start: (number))))
 
-=============
-Slice No Start
-=============
+=================
+Subarray No Start
+=================
 
 #check foo[:3]
 
@@ -136,13 +136,13 @@ Slice No Start
 
 (module
   (hash_command
-    (index
-      container: (identifier)
+    (subarray
+      term: (identifier)
       stop: (number))))
 
-==================
-Sliced Expression
-==================
+======================
+Subarray of Expression
+======================
 
 #check (foo 37)[:3]
 
@@ -150,16 +150,16 @@ Sliced Expression
 
 (module
   (hash_command
-    (index
-      container:
+    (subarray
+      term:
         (apply
           name: (identifier)
           arguments: (number))
       stop: (number))))
 
-========================
-Slice Does Not Have Step
-========================
+===========================
+Subarray Does Not Have Step
+===========================
 
 #check foo[1:2:3]
 
@@ -167,12 +167,12 @@ Slice Does Not Have Step
 
 (module
   (hash_command
-    (index
+    (subarray
       (identifier) (number) (ERROR (number)) (number))))
 
-========================
-Slice Does Not Have Copy
-========================
+===========================
+Subarray Does Not Have Copy
+===========================
 
 #check foo[:]
 
@@ -180,11 +180,11 @@ Slice Does Not Have Copy
 
 (module
   (hash_command
-    (index (identifier) (identifier (MISSING _identifier)))))
+    (subarray (identifier) (identifier (MISSING _identifier)))))
 
-===============
-Slice vs. Range
-===============
+==================
+Subarray vs. Range
+==================
 
 #check foo [1:2]
 

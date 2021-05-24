@@ -12,7 +12,6 @@ const PREC = {
   apply: -1,
   multitype: -1,
 
-  index: 10,
   parenthesized_expression: 12,
   opop: 13,
   or: 14,
@@ -39,6 +38,19 @@ module.exports = grammar({
   ],
 
   conflicts: $ => [
+    [$.assign, $.subarray],
+    [$.let_bind, $.subarray],
+    [$.pattern, $.subarray],
+    [$.let_mut, $.subarray],
+    [$.user_tactic, $.subarray],
+    [$._argument, $.subarray],
+    [$.throw, $.subarray],
+    [$.apply_tactic, $.subarray],
+    [$.rewrite, $.subarray],
+    [$.function_type, $.subarray],
+    [$.product_type, $.subarray],
+    [$.term, $.subarray],
+    [$._do_command, $.subarray],
     [$._binder_ident],
     [$._let_id_lhs, $._term],
     [$._let_id_lhs],
@@ -113,7 +125,6 @@ module.exports = grammar({
       $.function_type,
       $.product_type,
       $.product,
-      $.index,
       $.conditional,
       $.field_of,
       $.match,
@@ -122,9 +133,6 @@ module.exports = grammar({
       $.interpolated_string,
       $.anonymous_constructor,
       $.structure_instance,
-      $.list,
-      $.range,
-      $.array,
       $._term,
     ),
 
@@ -143,25 +151,6 @@ module.exports = grammar({
       $._expression,
       'else',
       $._expression,
-    )),
-
-    index: $ => prec(PREC.index, seq(
-      field('container', $._expression),
-      token.immediate('['),
-      choice(
-        field('value', $._expression),
-        seq(
-          optional(field('start', $._expression)),
-          ':',
-          field('stop', $._expression),
-        ),
-        seq(
-          field('start', $._expression),
-          ':',
-          optional(field('stop', $._expression)),
-        ),
-      ),
-      ']',
     )),
 
     let: $ => prec.left(seq(
@@ -389,22 +378,6 @@ module.exports = grammar({
     ),
 
     anonymous_constructor: $ => seq('⟨', sep0($._expression, ','), '⟩'),
-
-    list: $ => seq('[', sep0($._expression, ','), ']'),
-
-    range: $ => seq(
-      '[',
-      optional(field('start', $._expression)),
-      ':',
-      field('stop', $._expression),
-      optional(seq(
-        ':',
-        field('step', $._expression),
-      )),
-      ']',
-    ),
-
-    array: $ => seq('#[', sep0($._expression, ','), ']'),
 
     interpolated_string: $ => seq(
       's!"',

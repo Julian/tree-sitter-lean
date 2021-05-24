@@ -104,7 +104,17 @@ module.exports = {
     $.forall,
     $.true,
     $.false,
+    $._notation_term,
     $._notation_extra_term,
+    $.array,
+    $.subarray,
+    $.range,
+  ),
+
+  list: $ => seq('[', sep0($._expression, ','), ']'),
+
+  _notation_term: $ => choice(
+    $.list,
   ),
 
   // src/Init/NotationExtra.lean
@@ -120,5 +130,41 @@ module.exports = {
 
   _notation_extra_term: $ => choice(
     $.exists,
+  ),
+
+  // src/Init/Data/Array/Basic.lean
+  array: $ => seq('#[', sep0($._expression, ','), ']'),
+
+  // src/Init/Data/Array/Subarray.lean
+  subarray: $ => seq(
+    field('term', $._expression),
+    token.immediate('['),
+    choice(
+      field('value', $._expression),
+      seq(
+        optional(field('start', $._expression)),
+        ':',
+        field('stop', $._expression),
+      ),
+      seq(
+        field('start', $._expression),
+        ':',
+        optional(field('stop', $._expression)),
+      ),
+    ),
+    ']',
+  ),
+
+  // src/Init/Data/Range.lean
+  range: $ => seq(
+    '[',
+    optional(field('start', $._expression)),
+    ':',
+    field('stop', $._expression),
+    optional(seq(
+      ':',
+      field('step', $._expression),
+    )),
+    ']',
   ),
 }
