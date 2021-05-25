@@ -9823,10 +9823,6 @@
             "named": true
           },
           {
-            "type": "import",
-            "named": true
-          },
-          {
             "type": "macro_rules",
             "named": true
           },
@@ -9840,10 +9836,6 @@
           },
           {
             "type": "open",
-            "named": true
-          },
-          {
-            "type": "prelude",
             "named": true
           },
           {
@@ -10081,10 +10073,6 @@
           "named": true
         },
         {
-          "type": "import",
-          "named": true
-        },
-        {
           "type": "macro_rules",
           "named": true
         },
@@ -10098,10 +10086,6 @@
         },
         {
           "type": "open",
-          "named": true
-        },
-        {
-          "type": "prelude",
           "named": true
         },
         {
@@ -11800,10 +11784,6 @@
             "named": true
           },
           {
-            "type": "import",
-            "named": true
-          },
-          {
             "type": "macro_rules",
             "named": true
           },
@@ -11817,10 +11797,6 @@
           },
           {
             "type": "open",
-            "named": true
-          },
-          {
-            "type": "prelude",
             "named": true
           },
           {

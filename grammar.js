@@ -63,7 +63,14 @@ module.exports = grammar({
   word: $ => $._identifier,
 
   rules: {
-    module: $ => repeat($._command),
+    // src/Lean/Parser/Module.lean
+    module: $ => seq(
+      optional($.prelude),
+      repeat($.import),
+      repeat($._command),
+    ),
+    prelude: $ => 'prelude',
+    import: $ => seq('import', field('module', $.identifier)),
 
     _command: $ => choice(
       $.declaration,
@@ -76,8 +83,6 @@ module.exports = grammar({
       $.attribute,
       $.export,
       $.open,
-      $.prelude,
-      $.import,
 
       // src/Lean/Parser/Syntax.lean
       $.notation,

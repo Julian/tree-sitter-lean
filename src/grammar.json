@@ -3,11 +3,56 @@
   "word": "_identifier",
   "rules": {
     "module": {
-      "type": "REPEAT",
-      "content": {
-        "type": "SYMBOL",
-        "name": "_command"
-      }
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "prelude"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "import"
+          }
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_command"
+          }
+        }
+      ]
+    },
+    "prelude": {
+      "type": "STRING",
+      "value": "prelude"
+    },
+    "import": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "import"
+        },
+        {
+          "type": "FIELD",
+          "name": "module",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        }
+      ]
     },
     "_command": {
       "type": "CHOICE",
@@ -54,14 +99,6 @@
         },
         {
           "type": "SYMBOL",
-          "name": "prelude"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "import"
-        },
-        {
-          "type": "SYMBOL",
           "name": "notation"
         },
         {
@@ -71,27 +108,6 @@
         {
           "type": "SYMBOL",
           "name": "syntax"
-        }
-      ]
-    },
-    "prelude": {
-      "type": "STRING",
-      "value": "prelude"
-    },
-    "import": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "import"
-        },
-        {
-          "type": "FIELD",
-          "name": "module",
-          "content": {
-            "type": "SYMBOL",
-            "name": "identifier"
-          }
         }
       ]
     },
@@ -163,14 +179,6 @@
         {
           "type": "SYMBOL",
           "name": "apply"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "comparison"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "do"
         },
         {
           "type": "SYMBOL",
