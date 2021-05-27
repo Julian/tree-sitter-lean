@@ -182,15 +182,23 @@
         },
         {
           "type": "SYMBOL",
+          "name": "comparison"
+        },
+        {
+          "type": "SYMBOL",
           "name": "let"
         },
         {
           "type": "SYMBOL",
-          "name": "unless"
+          "name": "tactics"
         },
         {
           "type": "SYMBOL",
-          "name": "tactics"
+          "name": "do"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "unless"
         }
       ]
     },
@@ -470,11 +478,11 @@
             },
             {
               "type": "SYMBOL",
-              "name": "for_in"
+              "name": "assign"
             },
             {
               "type": "SYMBOL",
-              "name": "assign"
+              "name": "for_in"
             },
             {
               "type": "SYMBOL",
@@ -486,11 +494,7 @@
             },
             {
               "type": "SYMBOL",
-              "name": "try"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "finally"
+              "name": "return"
             },
             {
               "type": "SYMBOL",
@@ -502,7 +506,11 @@
             },
             {
               "type": "SYMBOL",
-              "name": "return"
+              "name": "try"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "finally"
             }
           ]
         }

@@ -110,10 +110,13 @@ module.exports = grammar({
       $._primary_expression,
       $.apply,
       $.comparison,
-      $.do,
       $.let,
-      $.unless,
       $.tactics,
+
+      // FIXME: These two rules make grammar generation absurdly slow, by 20x.
+      //        Really `do` is the relevant one, `unless` uses it.
+      $.do,
+      $.unless,
     ),
 
     _primary_expression: $ => choice(
@@ -166,15 +169,18 @@ module.exports = grammar({
     _do_command: $ => seq(
       choice(
         $._expression,
-        $.for_in,
         $.assign,
+        $.for_in,
         $.let_bind,
         $.let_mut,
+        $.return,
+        $.throw,
+
+        // FIXME: These rules are what make the above really slow it'd
+        //        appear, each seem to make things ~4x slower
+        $.conditional_when,
         $.try,
         $.finally,
-        $.throw,
-        $.conditional_when,
-        $.return,
       ),
     ),
 
