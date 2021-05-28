@@ -72,28 +72,6 @@ module.exports = grammar({
     prelude: $ => 'prelude',
     import: $ => seq('import', field('module', $.identifier)),
 
-    _command: $ => choice(
-      $.declaration,
-      $.section,
-      $.namespace,
-      $.variable,
-      $.universe,
-      $.universes,
-      $.hash_command,
-      $.attribute,
-      $.export,
-      $.open,
-
-      // src/Lean/Parser/Syntax.lean
-      $.notation,
-      $.macro_rules,
-      $.syntax,
-    ),
-
-    prelude: $ => 'prelude',
-
-    import: $ => seq('import', field('module', $.identifier)),
-
     product_type: $ => prec.right(PREC.multitype, sep2($._expression, '×')),
 
     parameters: $ => seq(

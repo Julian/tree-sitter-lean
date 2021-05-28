@@ -1,6 +1,5 @@
-// src/Lean/Parser/Command.lean
+// src/Lean/Parser/Term.lean
 module.exports = {
-
   // FIXME: see name.cpp for the real definition...
   identifier: $ => choice(
     sep1($._identifier, token.immediate('.')),

@@ -196,4 +196,22 @@ module.exports = {
     repeat1(field('namespace', $.identifier)),
     optional(seq('in', $._command)),
   ),
+
+  _command: $ => choice(
+    $.declaration,
+    $.section,
+    $.namespace,
+    $.variable,
+    $.universe,
+    $.universes,
+    $.hash_command,
+    $.attribute,
+    $.export,
+    $.open,
+
+    // src/Lean/Parser/Syntax.lean
+    $.notation,
+    $.macro_rules,
+    $.syntax,
+  ),
 }

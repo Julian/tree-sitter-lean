@@ -54,63 +54,6 @@
         }
       ]
     },
-    "_command": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "declaration"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "section"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "namespace"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "variable"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "universe"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "universes"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "hash_command"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "attribute"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "export"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "open"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "notation"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "macro_rules"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "syntax"
-        }
-      ]
-    },
     "product_type": {
       "type": "PREC_RIGHT",
       "value": -1,
@@ -3908,6 +3851,63 @@
               "type": "BLANK"
             }
           ]
+        }
+      ]
+    },
+    "_command": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "declaration"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "section"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "namespace"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "variable"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "universe"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "universes"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "hash_command"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "attribute"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "export"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "open"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "notation"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "macro_rules"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "syntax"
         }
       ]
     },
