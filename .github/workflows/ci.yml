@@ -6,7 +6,7 @@ on:
   release:
     types: [published]
   schedule:
-    # Daily at 3:21
+    # Daily at 1:21
     - cron: '21 1 * * *'
 
 jobs:
