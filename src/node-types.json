@@ -36,6 +36,10 @@
             "named": true
           },
           {
+            "type": "assumption_literal",
+            "named": true
+          },
+          {
             "type": "binary_expression",
             "named": true
           },
@@ -220,6 +224,10 @@
             "named": true
           },
           {
+            "type": "assumption_literal",
+            "named": true
+          },
+          {
             "type": "binary_expression",
             "named": true
           },
@@ -386,6 +394,10 @@
           "named": true
         },
         {
+          "type": "assumption_literal",
+          "named": true
+        },
+        {
           "type": "binary_expression",
           "named": true
         },
@@ -549,6 +561,10 @@
             "named": true
           },
           {
+            "type": "assumption_literal",
+            "named": true
+          },
+          {
             "type": "binary_expression",
             "named": true
           },
@@ -704,6 +720,10 @@
           },
           {
             "type": "arrow",
+            "named": true
+          },
+          {
+            "type": "assumption_literal",
             "named": true
           },
           {
@@ -869,6 +889,10 @@
             "named": true
           },
           {
+            "type": "assumption_literal",
+            "named": true
+          },
+          {
             "type": "binary_expression",
             "named": true
           },
@@ -1022,6 +1046,10 @@
         },
         {
           "type": "arrow",
+          "named": true
+        },
+        {
+          "type": "assumption_literal",
           "named": true
         },
         {
@@ -1180,6 +1208,10 @@
           "named": true
         },
         {
+          "type": "assumption_literal",
+          "named": true
+        },
+        {
           "type": "binary_expression",
           "named": true
         },
@@ -1332,6 +1364,10 @@
         },
         {
           "type": "arrow",
+          "named": true
+        },
+        {
+          "type": "assumption_literal",
           "named": true
         },
         {
@@ -1508,6 +1544,10 @@
             "named": true
           },
           {
+            "type": "assumption_literal",
+            "named": true
+          },
+          {
             "type": "binary_expression",
             "named": true
           },
@@ -1640,6 +1680,85 @@
     }
   },
   {
+    "type": "assumption_literal",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "array",
+          "named": true
+        },
+        {
+          "type": "arrow",
+          "named": true
+        },
+        {
+          "type": "assumption_literal",
+          "named": true
+        },
+        {
+          "type": "cdot",
+          "named": true
+        },
+        {
+          "type": "char",
+          "named": true
+        },
+        {
+          "type": "exists",
+          "named": true
+        },
+        {
+          "type": "false",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "forall",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "list",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "range",
+          "named": true
+        },
+        {
+          "type": "sorry",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "subarray",
+          "named": true
+        },
+        {
+          "type": "true",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "attribute",
     "named": true,
     "fields": {
@@ -1725,6 +1844,10 @@
           },
           {
             "type": "arrow",
+            "named": true
+          },
+          {
+            "type": "assumption_literal",
             "named": true
           },
           {
@@ -1891,6 +2014,10 @@
         },
         {
           "type": "arrow",
+          "named": true
+        },
+        {
+          "type": "assumption_literal",
           "named": true
         },
         {
@@ -2072,6 +2199,10 @@
           },
           {
             "type": "arrow",
+            "named": true
+          },
+          {
+            "type": "assumption_literal",
             "named": true
           },
           {
@@ -2258,6 +2389,10 @@
         },
         {
           "type": "assign",
+          "named": true
+        },
+        {
+          "type": "assumption_literal",
           "named": true
         },
         {
@@ -2518,6 +2653,10 @@
             "named": true
           },
           {
+            "type": "assumption_literal",
+            "named": true
+          },
+          {
             "type": "binary_expression",
             "named": true
           },
@@ -2692,6 +2831,10 @@
             "named": true
           },
           {
+            "type": "assumption_literal",
+            "named": true
+          },
+          {
             "type": "binary_expression",
             "named": true
           },
@@ -2847,6 +2990,10 @@
           },
           {
             "type": "arrow",
+            "named": true
+          },
+          {
+            "type": "assumption_literal",
             "named": true
           },
           {
@@ -3006,6 +3153,10 @@
           "named": true
         },
         {
+          "type": "assumption_literal",
+          "named": true
+        },
+        {
           "type": "binary_expression",
           "named": true
         },
@@ -3158,6 +3309,10 @@
         },
         {
           "type": "arrow",
+          "named": true
+        },
+        {
+          "type": "assumption_literal",
           "named": true
         },
         {
@@ -3317,6 +3472,10 @@
         },
         {
           "type": "assign",
+          "named": true
+        },
+        {
+          "type": "assumption_literal",
           "named": true
         },
         {
@@ -3529,6 +3688,10 @@
             "named": true
           },
           {
+            "type": "assumption_literal",
+            "named": true
+          },
+          {
             "type": "binary_expression",
             "named": true
           },
@@ -3677,6 +3840,10 @@
         },
         {
           "type": "arrow",
+          "named": true
+        },
+        {
+          "type": "assumption_literal",
           "named": true
         },
         {
@@ -3858,6 +4025,10 @@
           },
           {
             "type": "arrow",
+            "named": true
+          },
+          {
+            "type": "assumption_literal",
             "named": true
           },
           {
@@ -4094,6 +4265,10 @@
             "named": true
           },
           {
+            "type": "assumption_literal",
+            "named": true
+          },
+          {
             "type": "binary_expression",
             "named": true
           },
@@ -4278,6 +4453,10 @@
             "named": true
           },
           {
+            "type": "assumption_literal",
+            "named": true
+          },
+          {
             "type": "binary_expression",
             "named": true
           },
@@ -4445,6 +4624,10 @@
         },
         {
           "type": "assign",
+          "named": true
+        },
+        {
+          "type": "assumption_literal",
           "named": true
         },
         {
@@ -4647,6 +4830,10 @@
             "named": true
           },
           {
+            "type": "assumption_literal",
+            "named": true
+          },
+          {
             "type": "binary_expression",
             "named": true
           },
@@ -4818,6 +5005,10 @@
           },
           {
             "type": "arrow",
+            "named": true
+          },
+          {
+            "type": "assumption_literal",
             "named": true
           },
           {
@@ -5005,6 +5196,10 @@
             "named": true
           },
           {
+            "type": "assumption_literal",
+            "named": true
+          },
+          {
             "type": "binary_expression",
             "named": true
           },
@@ -5188,6 +5383,10 @@
             "named": true
           },
           {
+            "type": "assumption_literal",
+            "named": true
+          },
+          {
             "type": "binary_expression",
             "named": true
           },
@@ -5361,6 +5560,10 @@
           },
           {
             "type": "arrow",
+            "named": true
+          },
+          {
+            "type": "assumption_literal",
             "named": true
           },
           {
@@ -5558,6 +5761,10 @@
             "named": true
           },
           {
+            "type": "assumption_literal",
+            "named": true
+          },
+          {
             "type": "binary_expression",
             "named": true
           },
@@ -5727,6 +5934,10 @@
           },
           {
             "type": "arrow",
+            "named": true
+          },
+          {
+            "type": "assumption_literal",
             "named": true
           },
           {
@@ -5912,6 +6123,10 @@
             "named": true
           },
           {
+            "type": "assumption_literal",
+            "named": true
+          },
+          {
             "type": "binary_expression",
             "named": true
           },
@@ -6069,6 +6284,10 @@
         },
         {
           "type": "assign",
+          "named": true
+        },
+        {
+          "type": "assumption_literal",
           "named": true
         },
         {
@@ -6277,6 +6496,10 @@
             "named": true
           },
           {
+            "type": "assumption_literal",
+            "named": true
+          },
+          {
             "type": "binary_expression",
             "named": true
           },
@@ -6465,6 +6688,10 @@
             "named": true
           },
           {
+            "type": "assumption_literal",
+            "named": true
+          },
+          {
             "type": "binary_expression",
             "named": true
           },
@@ -6618,6 +6845,10 @@
         },
         {
           "type": "arrow",
+          "named": true
+        },
+        {
+          "type": "assumption_literal",
           "named": true
         },
         {
@@ -6781,6 +7012,10 @@
         },
         {
           "type": "arrow",
+          "named": true
+        },
+        {
+          "type": "assumption_literal",
           "named": true
         },
         {
@@ -6967,6 +7202,10 @@
           },
           {
             "type": "arrow",
+            "named": true
+          },
+          {
+            "type": "assumption_literal",
             "named": true
           },
           {
@@ -7192,6 +7431,10 @@
             "named": true
           },
           {
+            "type": "assumption_literal",
+            "named": true
+          },
+          {
             "type": "binary_expression",
             "named": true
           },
@@ -7367,6 +7610,10 @@
           },
           {
             "type": "arrow",
+            "named": true
+          },
+          {
+            "type": "assumption_literal",
             "named": true
           },
           {
@@ -7554,6 +7801,10 @@
             "named": true
           },
           {
+            "type": "assumption_literal",
+            "named": true
+          },
+          {
             "type": "binary_expression",
             "named": true
           },
@@ -7738,6 +7989,10 @@
             "named": true
           },
           {
+            "type": "assumption_literal",
+            "named": true
+          },
+          {
             "type": "binary_expression",
             "named": true
           },
@@ -7910,6 +8165,10 @@
         },
         {
           "type": "arrow",
+          "named": true
+        },
+        {
+          "type": "assumption_literal",
           "named": true
         },
         {
@@ -8091,6 +8350,10 @@
             "named": true
           },
           {
+            "type": "assumption_literal",
+            "named": true
+          },
+          {
             "type": "binary_expression",
             "named": true
           },
@@ -8269,6 +8532,10 @@
             "named": true
           },
           {
+            "type": "assumption_literal",
+            "named": true
+          },
+          {
             "type": "binary_expression",
             "named": true
           },
@@ -8424,6 +8691,10 @@
           },
           {
             "type": "arrow",
+            "named": true
+          },
+          {
+            "type": "assumption_literal",
             "named": true
           },
           {
@@ -8601,6 +8872,10 @@
             "named": true
           },
           {
+            "type": "assumption_literal",
+            "named": true
+          },
+          {
             "type": "binary_expression",
             "named": true
           },
@@ -8762,6 +9037,10 @@
           },
           {
             "type": "arrow",
+            "named": true
+          },
+          {
+            "type": "assumption_literal",
             "named": true
           },
           {
@@ -8928,6 +9207,10 @@
         },
         {
           "type": "arrow",
+          "named": true
+        },
+        {
+          "type": "assumption_literal",
           "named": true
         },
         {
@@ -9123,6 +9406,10 @@
             "named": true
           },
           {
+            "type": "assumption_literal",
+            "named": true
+          },
+          {
             "type": "binary_expression",
             "named": true
           },
@@ -9291,6 +9578,10 @@
             "named": true
           },
           {
+            "type": "assumption_literal",
+            "named": true
+          },
+          {
             "type": "binary_expression",
             "named": true
           },
@@ -9439,6 +9730,10 @@
         },
         {
           "type": "arrow",
+          "named": true
+        },
+        {
+          "type": "assumption_literal",
           "named": true
         },
         {
@@ -9665,6 +9960,10 @@
         },
         {
           "type": "arrow",
+          "named": true
+        },
+        {
+          "type": "assumption_literal",
           "named": true
         },
         {
@@ -9904,6 +10203,10 @@
         },
         {
           "type": "arrow",
+          "named": true
+        },
+        {
+          "type": "assumption_literal",
           "named": true
         },
         {
@@ -10186,6 +10489,10 @@
             "named": true
           },
           {
+            "type": "assumption_literal",
+            "named": true
+          },
+          {
             "type": "binary_expression",
             "named": true
           },
@@ -10334,6 +10641,10 @@
         },
         {
           "type": "arrow",
+          "named": true
+        },
+        {
+          "type": "assumption_literal",
           "named": true
         },
         {
@@ -10492,6 +10803,10 @@
           "named": true
         },
         {
+          "type": "assumption_literal",
+          "named": true
+        },
+        {
           "type": "binary_expression",
           "named": true
         },
@@ -10644,6 +10959,10 @@
         },
         {
           "type": "arrow",
+          "named": true
+        },
+        {
+          "type": "assumption_literal",
           "named": true
         },
         {
@@ -10803,6 +11122,10 @@
         },
         {
           "type": "arrow",
+          "named": true
+        },
+        {
+          "type": "assumption_literal",
           "named": true
         },
         {
@@ -10993,6 +11316,10 @@
             "named": true
           },
           {
+            "type": "assumption_literal",
+            "named": true
+          },
+          {
             "type": "binary_expression",
             "named": true
           },
@@ -11151,6 +11478,10 @@
             "named": true
           },
           {
+            "type": "assumption_literal",
+            "named": true
+          },
+          {
             "type": "binary_expression",
             "named": true
           },
@@ -11306,6 +11637,10 @@
           },
           {
             "type": "arrow",
+            "named": true
+          },
+          {
+            "type": "assumption_literal",
             "named": true
           },
           {
@@ -11473,6 +11808,10 @@
             "named": true
           },
           {
+            "type": "assumption_literal",
+            "named": true
+          },
+          {
             "type": "binary_expression",
             "named": true
           },
@@ -11626,6 +11965,10 @@
         },
         {
           "type": "arrow",
+          "named": true
+        },
+        {
+          "type": "assumption_literal",
           "named": true
         },
         {
@@ -11929,6 +12272,10 @@
             "named": true
           },
           {
+            "type": "assumption_literal",
+            "named": true
+          },
+          {
             "type": "binary_expression",
             "named": true
           },
@@ -12115,6 +12462,10 @@
             "named": true
           },
           {
+            "type": "assumption_literal",
+            "named": true
+          },
+          {
             "type": "binary_expression",
             "named": true
           },
@@ -12290,6 +12641,10 @@
           },
           {
             "type": "arrow",
+            "named": true
+          },
+          {
+            "type": "assumption_literal",
             "named": true
           },
           {
@@ -12469,6 +12824,10 @@
             "named": true
           },
           {
+            "type": "assumption_literal",
+            "named": true
+          },
+          {
             "type": "binary_expression",
             "named": true
           },
@@ -12624,6 +12983,10 @@
           },
           {
             "type": "arrow",
+            "named": true
+          },
+          {
+            "type": "assumption_literal",
             "named": true
           },
           {
@@ -12791,6 +13154,10 @@
             "named": true
           },
           {
+            "type": "assumption_literal",
+            "named": true
+          },
+          {
             "type": "binary_expression",
             "named": true
           },
@@ -12946,6 +13313,10 @@
           },
           {
             "type": "arrow",
+            "named": true
+          },
+          {
+            "type": "assumption_literal",
             "named": true
           },
           {
@@ -13107,6 +13478,10 @@
             "named": true
           },
           {
+            "type": "assumption_literal",
+            "named": true
+          },
+          {
             "type": "binary_expression",
             "named": true
           },
@@ -13265,6 +13640,10 @@
             "named": true
           },
           {
+            "type": "assumption_literal",
+            "named": true
+          },
+          {
             "type": "binary_expression",
             "named": true
           },
@@ -13418,6 +13797,10 @@
         },
         {
           "type": "arrow",
+          "named": true
+        },
+        {
+          "type": "assumption_literal",
           "named": true
         },
         {
@@ -13615,6 +13998,10 @@
           "named": true
         },
         {
+          "type": "assumption_literal",
+          "named": true
+        },
+        {
           "type": "binary_expression",
           "named": true
         },
@@ -13779,6 +14166,10 @@
           },
           {
             "type": "arrow",
+            "named": true
+          },
+          {
+            "type": "assumption_literal",
             "named": true
           },
           {
@@ -13966,6 +14357,10 @@
             "named": true
           },
           {
+            "type": "assumption_literal",
+            "named": true
+          },
+          {
             "type": "binary_expression",
             "named": true
           },
@@ -14132,6 +14527,10 @@
           "named": true
         },
         {
+          "type": "assumption_literal",
+          "named": true
+        },
+        {
           "type": "binary_expression",
           "named": true
         },
@@ -14288,6 +14687,10 @@
         },
         {
           "type": "assign",
+          "named": true
+        },
+        {
+          "type": "assumption_literal",
           "named": true
         },
         {
@@ -14482,6 +14885,10 @@
           "named": true
         },
         {
+          "type": "assumption_literal",
+          "named": true
+        },
+        {
           "type": "binary_expression",
           "named": true
         },
@@ -14667,6 +15074,10 @@
           "named": true
         },
         {
+          "type": "assumption_literal",
+          "named": true
+        },
+        {
           "type": "binary_expression",
           "named": true
         },
@@ -14819,6 +15230,10 @@
         },
         {
           "type": "arrow",
+          "named": true
+        },
+        {
+          "type": "assumption_literal",
           "named": true
         },
         {
@@ -15034,6 +15449,10 @@
             "named": true
           },
           {
+            "type": "assumption_literal",
+            "named": true
+          },
+          {
             "type": "binary_expression",
             "named": true
           },
@@ -15210,6 +15629,10 @@
             "named": true
           },
           {
+            "type": "assumption_literal",
+            "named": true
+          },
+          {
             "type": "binary_expression",
             "named": true
           },
@@ -15358,6 +15781,10 @@
         },
         {
           "type": "arrow",
+          "named": true
+        },
+        {
+          "type": "assumption_literal",
           "named": true
         },
         {
@@ -15993,6 +16420,14 @@
   },
   {
     "type": "λ",
+    "named": false
+  },
+  {
+    "type": "‹",
+    "named": false
+  },
+  {
+    "type": "›",
     "named": false
   },
   {

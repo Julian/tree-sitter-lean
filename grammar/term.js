@@ -112,10 +112,14 @@ module.exports = {
     $.range,
   ),
 
+  // src/Init/Notation.lean
   list: $ => seq('[', sep0($._expression, ','), ']'),
+
+  assumption_literal: $ => seq('‹', $._term, '›'),
 
   _notation_term: $ => choice(
     $.list,
+    $.assumption_literal,
   ),
 
   // src/Init/NotationExtra.lean

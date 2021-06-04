@@ -5018,12 +5018,33 @@
         }
       ]
     },
+    "assumption_literal": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "‹"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_term"
+        },
+        {
+          "type": "STRING",
+          "value": "›"
+        }
+      ]
+    },
     "_notation_term": {
       "type": "CHOICE",
       "members": [
         {
           "type": "SYMBOL",
           "name": "list"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "assumption_literal"
         }
       ]
     },
