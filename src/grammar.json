@@ -3272,24 +3272,35 @@
         "type": "CHOICE",
         "members": [
           {
-            "type": "SYMBOL",
-            "name": "_struct_explicit_binder"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "_struct_implicit_binder"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "_struct_instance_binder"
-          },
-          {
-            "type": "PREC",
-            "value": -1,
+            "type": "ALIAS",
             "content": {
               "type": "SYMBOL",
-              "name": "_struct_simple_binder"
-            }
+              "name": "_struct_explicit_binder"
+            },
+            "named": true,
+            "value": "explicit_binder"
+          },
+          {
+            "type": "ALIAS",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_struct_implicit_binder"
+            },
+            "named": true,
+            "value": "implicit_binder"
+          },
+          {
+            "type": "ALIAS",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_struct_instance_binder"
+            },
+            "named": true,
+            "value": "instance_binder"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_struct_simple_binder"
           }
         ]
       },

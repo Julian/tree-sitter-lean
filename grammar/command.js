@@ -116,10 +116,10 @@ module.exports = {
   )),
   _struct_field: $ => alias(
     choice(
-      $._struct_explicit_binder,
-      $._struct_implicit_binder,
-      $._struct_instance_binder,
-      prec(-1, $._struct_simple_binder),
+      alias($._struct_explicit_binder, $.explicit_binder),
+      alias($._struct_implicit_binder, $.implicit_binder),
+      alias($._struct_instance_binder, $.instance_binder),
+      $._struct_simple_binder,
     ), $.field,
   ),
   _struct_constructor: $ => seq($.identifier, '::'),

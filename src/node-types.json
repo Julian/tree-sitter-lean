@@ -5571,6 +5571,10 @@
             "named": true
           },
           {
+            "type": "binders",
+            "named": true
+          },
+          {
             "type": "cdot",
             "named": true
           },
@@ -5895,7 +5899,7 @@
         ]
       },
       "name": {
-        "multiple": true,
+        "multiple": false,
         "required": true,
         "types": [
           {
@@ -7213,6 +7217,10 @@
             "named": true
           },
           {
+            "type": "binders",
+            "named": true
+          },
+          {
             "type": "cdot",
             "named": true
           },
@@ -7951,7 +7959,7 @@
     "named": true,
     "fields": {
       "name": {
-        "multiple": false,
+        "multiple": true,
         "required": false,
         "types": [
           {
@@ -7970,6 +7978,10 @@
           },
           {
             "type": ")",
+            "named": false
+          },
+          {
+            "type": ":",
             "named": false
           },
           {
@@ -7994,6 +8006,10 @@
           },
           {
             "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "binders",
             "named": true
           },
           {
@@ -12414,7 +12430,19 @@
         "required": false,
         "types": [
           {
+            "type": "explicit_binder",
+            "named": true
+          },
+          {
             "type": "field",
+            "named": true
+          },
+          {
+            "type": "implicit_binder",
+            "named": true
+          },
+          {
+            "type": "instance_binder",
             "named": true
           }
         ]

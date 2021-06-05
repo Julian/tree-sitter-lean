@@ -572,7 +572,7 @@ class Quux (a : Type) where
           default: (number))
       fields:
         (field
-          name: (identifier)) fields: (field name: (identifier) type: (identifier)) (ERROR) fields: (field name:
+          name: (identifier)) fields: (implicit_binder name: (identifier) type: (identifier)) (ERROR) fields: (field name:
           (identifier)))))
 
 ===============
