@@ -17,7 +17,21 @@ module.exports = {
   hole: $ => "_",
   sorry: $ => 'sorry',
   cdot: $ => choice('.', '·'),
+  _parenthesized_expression: $ => seq('(', optional($._expression), ')'),
   anonymous_constructor: $ => seq('⟨', sep0($._expression, ','), '⟩'),
+  _structure_instance_field: $ => seq(
+    field('name', $.identifier),
+    ':=',
+    field('value', $._expression),
+  ),
+  structure_instance: $ => seq(
+    '{',
+    optional(field('extends', seq($._expression, 'with'))),
+    // Unlike everywhere else, records seem OK with trailing commas.
+    optional(sep1_($._structure_instance_field, ',')),
+    field('type', optional($._type_spec)),
+    '}',
+  ),
   _type_spec: $ => field('type', seq(':', $._expression)),
 
   explicit: $ => seq('@', $._expression),
@@ -97,6 +111,7 @@ module.exports = {
   ),
 
   _term: $ => choice(
+    $._parenthesized_expression,
     $.identifier,
     $.number,
     $.float,
@@ -105,6 +120,7 @@ module.exports = {
     $.sorry,
     $.cdot,
     $.anonymous_constructor,
+    $.structure_instance,
     $.explicit,
     $.forall,
     $.true,

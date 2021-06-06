@@ -12,7 +12,6 @@ const PREC = {
   apply: -1,
   multitype: -1,
 
-  parenthesized_expression: 12,
   opop: 13,
   or: 14,
   and: 15,
@@ -101,7 +100,6 @@ module.exports = grammar({
     ),
 
     _primary_expression: $ => choice(
-      $._parenthesized_expression,
       $.unary_expression,
       $.quoted_tactic,
       $.product_type,
@@ -110,15 +108,8 @@ module.exports = grammar({
       $.match,
       $.fun,
       $.binary_expression,
-      $.structure_instance,
       $._term,
     ),
-
-    _parenthesized_expression: $ => prec(PREC.parenthesized_expression, seq(
-      '(',
-      $._expression,
-      ')'
-    )),
 
     conditional: $ => prec.right(1, seq(
       'if',
@@ -340,21 +331,6 @@ module.exports = grammar({
       ),
       $._expression,
     )),
-
-    structure_instance: $ => seq(
-      '{',
-      optional(field('extends', seq($._expression, 'with'))),
-      // Unlike everywhere else, records seem OK with trailing commas.
-      optional(sep1_($._structure_instance_field, ',')),
-      field('type', optional(seq(':', $._expression))),
-      '}',
-    ),
-
-    _structure_instance_field: $ => seq(
-      field('name', $.identifier),
-      ':=',
-      field('value', $._expression),
-    ),
 
     _left_arrow: $ => choice('<-', '←'),
     _right_arrow: $ => choice('->', '→'),

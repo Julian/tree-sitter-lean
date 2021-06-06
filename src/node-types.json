@@ -1030,7 +1030,7 @@
     "fields": {},
     "children": {
       "multiple": false,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "anonymous_constructor",
@@ -1348,7 +1348,7 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "anonymous_constructor",
@@ -1685,10 +1685,14 @@
     "fields": {},
     "children": {
       "multiple": false,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "anonymous_constructor",
+          "named": true
+        },
+        {
+          "type": "apply",
           "named": true
         },
         {
@@ -1704,6 +1708,10 @@
           "named": true
         },
         {
+          "type": "binary_expression",
+          "named": true
+        },
+        {
           "type": "cdot",
           "named": true
         },
@@ -1713,6 +1721,18 @@
         },
         {
           "type": "coe",
+          "named": true
+        },
+        {
+          "type": "comparison",
+          "named": true
+        },
+        {
+          "type": "conditional",
+          "named": true
+        },
+        {
+          "type": "do",
           "named": true
         },
         {
@@ -1728,11 +1748,19 @@
           "named": true
         },
         {
+          "type": "field_of",
+          "named": true
+        },
+        {
           "type": "float",
           "named": true
         },
         {
           "type": "forall",
+          "named": true
+        },
+        {
+          "type": "fun",
           "named": true
         },
         {
@@ -1744,7 +1772,15 @@
           "named": true
         },
         {
+          "type": "let",
+          "named": true
+        },
+        {
           "type": "list",
+          "named": true
+        },
+        {
+          "type": "match",
           "named": true
         },
         {
@@ -1753,6 +1789,14 @@
         },
         {
           "type": "product",
+          "named": true
+        },
+        {
+          "type": "product_type",
+          "named": true
+        },
+        {
+          "type": "quoted_tactic",
           "named": true
         },
         {
@@ -1768,11 +1812,27 @@
           "named": true
         },
         {
+          "type": "structure_instance",
+          "named": true
+        },
+        {
           "type": "subarray",
           "named": true
         },
         {
+          "type": "tactics",
+          "named": true
+        },
+        {
           "type": "true",
+          "named": true
+        },
+        {
+          "type": "unary_expression",
+          "named": true
+        },
+        {
+          "type": "unless",
           "named": true
         }
       ]
@@ -2018,7 +2078,7 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "anonymous_constructor",
@@ -2389,7 +2449,7 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "anonymous_constructor",
@@ -3154,7 +3214,7 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "anonymous_constructor",
@@ -3313,7 +3373,7 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "anonymous_constructor",
@@ -3472,7 +3532,7 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "anonymous_constructor",
@@ -4624,7 +4684,7 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "anonymous_constructor",
@@ -5357,7 +5417,7 @@
     "fields": {},
     "children": {
       "multiple": false,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "anonymous_constructor",
@@ -6432,7 +6492,7 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "anonymous_constructor",
@@ -7164,7 +7224,7 @@
     "fields": {},
     "children": {
       "multiple": false,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "anonymous_constructor",
@@ -8329,7 +8389,7 @@
     "fields": {},
     "children": {
       "multiple": false,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "anonymous_constructor",
@@ -9894,7 +9954,7 @@
     },
     "children": {
       "multiple": false,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "anonymous_constructor",
@@ -10367,7 +10427,7 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "anonymous_constructor",
@@ -10805,7 +10865,7 @@
     },
     "children": {
       "multiple": false,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "anonymous_constructor",
@@ -10964,7 +11024,7 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "anonymous_constructor",
@@ -11123,7 +11183,7 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "anonymous_constructor",
@@ -11282,7 +11342,7 @@
     "fields": {},
     "children": {
       "multiple": false,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "anonymous_constructor",
@@ -12129,7 +12189,7 @@
     "fields": {},
     "children": {
       "multiple": false,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "anonymous_constructor",
@@ -14171,7 +14231,7 @@
     "fields": {},
     "children": {
       "multiple": false,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "anonymous_constructor",
@@ -14700,7 +14760,7 @@
     "fields": {},
     "children": {
       "multiple": false,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "anonymous_constructor",
@@ -15058,7 +15118,7 @@
     "fields": {},
     "children": {
       "multiple": false,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "anonymous_constructor",
@@ -15406,7 +15466,7 @@
     "fields": {},
     "children": {
       "multiple": false,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "anonymous_constructor",
