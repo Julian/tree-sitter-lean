@@ -946,7 +946,7 @@ Explicit Function
   (hash_command (explicit (identifier)))
   (hash_command (apply (explicit (identifier)) (identifier)))
   (hash_command (apply (explicit (identifier)) (identifier) (true)))
-  (hash_command (field_of (explicit (identifier)) (identifier))))
+  (hash_command (explicit (identifier))))
 
 ========
 Coersion

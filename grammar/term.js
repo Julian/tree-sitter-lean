@@ -17,7 +17,10 @@ module.exports = {
   hole: $ => "_",
   sorry: $ => 'sorry',
   cdot: $ => choice('.', '·'),
+  anonymous_constructor: $ => seq('⟨', sep0($._expression, ','), '⟩'),
   _type_spec: $ => field('type', seq(':', $._expression)),
+
+  explicit: $ => seq('@', $._expression),
   _binder_ident: $ => choice($.identifier, $.hole),
   _binder_default: $ => field('default', seq(':=', $._expression)),
   explicit_binder: $ => seq(
@@ -101,6 +104,8 @@ module.exports = {
     $.char,
     $.sorry,
     $.cdot,
+    $.anonymous_constructor,
+    $.explicit,
     $.forall,
     $.true,
     $.false,
@@ -111,6 +116,7 @@ module.exports = {
     $.subarray,
     $.range,
     $.interpolated_string,
+    $._cant_find_term,
   ),
 
   // src/Init/Notation.lean
@@ -182,5 +188,13 @@ module.exports = {
   ),
   interpolation: $ => seq(
     '{', $._expression, '}'
+  ),
+
+  // FINDME: I can't find where these are defined...
+  coe: $ => seq('(', field('term', $._expression), ':', field('type', $._expression), ')'),
+  product: $ => seq('(', sep2($._expression, ','), ')'),
+  _cant_find_term: $ => choice(
+    $.coe,
+    $.product,
   ),
 }

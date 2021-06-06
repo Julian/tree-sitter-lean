@@ -44,6 +44,7 @@ module.exports = grammar({
     [$.let_mut, $.subarray],
     [$.user_tactic, $.subarray],
     [$._argument, $.subarray],
+    [$.explicit, $.subarray],
     [$.throw, $.subarray],
     [$.apply_tactic, $.subarray],
     [$.rewrite, $.subarray],
@@ -100,19 +101,15 @@ module.exports = grammar({
     ),
 
     _primary_expression: $ => choice(
-      $.coe,
       $._parenthesized_expression,
       $.unary_expression,
       $.quoted_tactic,
-      $.explicit,
       $.product_type,
-      $.product,
       $.conditional,
       $.field_of,
       $.match,
       $.fun,
       $.binary_expression,
-      $.anonymous_constructor,
       $.structure_instance,
       $._term,
     ),
@@ -122,8 +119,6 @@ module.exports = grammar({
       $._expression,
       ')'
     )),
-
-    product: $ => seq('(', sep2($._expression, ','), ')'),
 
     conditional: $ => prec.right(1, seq(
       'if',
@@ -361,16 +356,6 @@ module.exports = grammar({
       field('value', $._expression),
     ),
 
-    anonymous_constructor: $ => seq('⟨', sep0($._expression, ','), '⟩'),
-
-    coe: $ => seq(
-      '(',
-      field('term', $._expression),
-      ':',
-      field('type', $._expression),
-      ')',
-    ),
-
     _left_arrow: $ => choice('<-', '←'),
     _right_arrow: $ => choice('->', '→'),
 
@@ -396,7 +381,6 @@ module.exports = grammar({
       ),
     )),
 
-    explicit: $ => seq('@', $.identifier),
     _identifier: $ => /[_a-zA-ZͰ-ϿĀ-ſ\U0001D400-\U0001D7FF][_`'`a-zA-Z0-9Ͱ-ϿĀ-ſ∇!?\u2070-\u209F\U0001D400-\U0001D7FF]*/,
     _escaped_identifier: $ =>  /«[^»]*»/,
     _lambda_magic_identifier: $ => choice('.', '·'),
