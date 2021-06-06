@@ -110,6 +110,7 @@ module.exports = {
     $.array,
     $.subarray,
     $.range,
+    $.interpolated_string,
   ),
 
   // src/Init/Notation.lean
@@ -171,5 +172,15 @@ module.exports = {
       field('step', $._expression),
     )),
     ']',
+  ),
+
+  // src/Init/Data/ToString/Macro.lean
+  interpolated_string: $ => seq(
+    's!"',
+    repeat(choice(/[^"]/, $.escape_sequence, $.interpolation)),
+    '"',
+  ),
+  interpolation: $ => seq(
+    '{', $._expression, '}'
   ),
 }

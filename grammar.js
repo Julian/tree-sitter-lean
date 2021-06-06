@@ -112,7 +112,6 @@ module.exports = grammar({
       $.match,
       $.fun,
       $.binary_expression,
-      $.interpolated_string,
       $.anonymous_constructor,
       $.structure_instance,
       $._term,
@@ -363,16 +362,6 @@ module.exports = grammar({
     ),
 
     anonymous_constructor: $ => seq('⟨', sep0($._expression, ','), '⟩'),
-
-    interpolated_string: $ => seq(
-      's!"',
-      repeat(choice(/[^"]/, $.escape_sequence, $.interpolation)),
-      '"',
-    ),
-
-    interpolation: $ => seq(
-      '{', $._expression, '}'
-    ),
 
     coe: $ => seq(
       '(',

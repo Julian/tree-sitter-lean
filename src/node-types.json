@@ -1728,6 +1728,10 @@
           "named": true
         },
         {
+          "type": "interpolated_string",
+          "named": true
+        },
+        {
           "type": "list",
           "named": true
         },
