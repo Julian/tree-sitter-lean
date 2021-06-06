@@ -315,7 +315,9 @@ Product Type
 
 (module
   (hash_command (product_type (identifier) (identifier)))
-  (hash_command (product_type (identifier) (identifier) (identifier)))
+  (hash_command
+    (product_type (identifier)
+      (product_type (identifier) (identifier))))
   (hash_command
     (product_type (product_type (identifier) (identifier)) (identifier))))
 
@@ -338,7 +340,7 @@ If/Then/Else
 
 ---
 
-(module (hash_command (conditional (true) (string) (string))))
+(module (hash_command (if_then_else (true) (string) (string))))
 
 =============
 If Needs Else
@@ -360,8 +362,8 @@ Nested If/Then/Else
 
 (module
   (hash_command
-    (conditional (true)
-      (conditional (false) (string) (string))
+    (if_then_else (true)
+      (if_then_else (false) (string) (string))
       (string))))
 
 ==========
@@ -693,7 +695,7 @@ Field Access
 (module
   (hash_command (identifier))
   (hash_command
-    (field_of
+    (projection
       term: (identifier)
       name: (number))))
 
@@ -717,7 +719,7 @@ Expression Field Access
 
 (module
   (hash_command
-    (field_of
+    (projection
       (apply (identifier) (identifier))
       (identifier))))
 

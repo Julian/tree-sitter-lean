@@ -135,6 +135,7 @@ module.exports = {
     $.forall,
     $.true,
     $.false,
+    $.projection,
     $.arrow,
     $._notation_term,
     $._notation_extra_term,
@@ -146,12 +147,34 @@ module.exports = {
   ),
 
   // src/Init/Notation.lean
-  product_type: $ => prec.right(35, seq($._term, '×', $._term)),
+  product_type: $ => prec.right(-1, seq($._expression, '×', $._expression)),  // FIXME: precedence
   list: $ => seq('[', sep0($._expression, ','), ']'),
 
   assumption_literal: $ => seq('‹', $._term, '›'),
+  unary_expression: $ => seq(
+    choice(  // FIXME: precedence and left arrow doesn't belong here
+      prec(19, '-'),
+      prec(19, '¬'),
+      prec(19, '!'),
+      prec(10, '←'),
+    ),
+    $._expression,
+  ),
+  if_then_else: $ => seq(
+    'if',
+    $._expression,
+    'then',
+    $._expression,
+    'else',
+    $._expression,
+  ),
+
+  list: $ => seq('[', sep0($._expression, ','), ']'),
 
   _notation_term: $ => choice(
+    $.product_type,
+    $.unary_expression,
+    $.if_then_else,
     $.list,
     $.assumption_literal,
   ),

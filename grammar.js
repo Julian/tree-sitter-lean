@@ -18,7 +18,6 @@ const PREC = {
   eqeq: 16,
   plus: 17,
   times: 18,
-  unary: 19,
   power: 20,
 
   name: 30,
@@ -37,18 +36,35 @@ module.exports = grammar({
   ],
 
   conflicts: $ => [
-    [$.assign, $.subarray],
-    [$.let_bind, $.subarray],
-    [$.pattern, $.subarray],
-    [$.let_mut, $.subarray],
-    [$.user_tactic, $.subarray],
+    [$._argument, $.projection],
     [$._argument, $.subarray],
-    [$.explicit, $.subarray],
-    [$.throw, $.subarray],
-    [$.apply_tactic, $.subarray],
-    [$.rewrite, $.subarray],
-    [$.term, $.subarray],
+    [$._do_command, $.if_then_else],
+    [$._do_command, $.projection],
     [$._do_command, $.subarray],
+    [$.apply_tactic, $.projection],
+    [$.apply_tactic, $.subarray],
+    [$.assign, $.projection],
+    [$.assign, $.subarray],
+    [$.explicit, $.projection],
+    [$.explicit, $.subarray],
+    [$.if_then_else, $.projection],
+    [$.if_then_else, $.subarray],
+    [$.let_bind, $.projection],
+    [$.let_bind, $.subarray],
+    [$.let_mut, $.projection],
+    [$.let_mut, $.subarray],
+    [$.pattern, $.projection],
+    [$.pattern, $.subarray],
+    [$.rewrite, $.projection],
+    [$.rewrite, $.subarray],
+    [$.term, $.projection],
+    [$.term, $.subarray],
+    [$.throw, $.projection],
+    [$.throw, $.subarray],
+    [$.unary_expression, $.projection],
+    [$.unary_expression, $.subarray],
+    [$.user_tactic, $.projection],
+    [$.user_tactic, $.subarray],
     [$._binder_ident],
     [$._let_id_lhs, $._term],
     [$._let_id_lhs],
@@ -97,23 +113,12 @@ module.exports = grammar({
     ),
 
     _primary_expression: $ => choice(
-      $.unary_expression,
       $.quoted_tactic,
-      $.conditional,
       $.match,
       $.fun,
       $.binary_expression,
       $._term,
     ),
-
-    conditional: $ => prec.right(1, seq(
-      'if',
-      $._expression,
-      'then',
-      $._expression,
-      'else',
-      $._expression,
-    )),
 
     let: $ => prec.left(seq(
       'let',
@@ -256,13 +261,6 @@ module.exports = grammar({
     quoted_tactic: $ => seq(
       '`(tactic|', choice($._tactic, $._expression), ')',
     ),
-
-    unary_expression: $ => prec(PREC.unary, choice(
-      seq('←', $._expression),
-      seq('¬', $._expression),
-      seq('-', $._primary_expression),
-      seq('!', $._expression),
-    )),
 
     binary_expression: $ => choice(
       prec.right(PREC.power, seq($._expression, '^', $._expression)),
