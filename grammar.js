@@ -47,7 +47,6 @@ module.exports = grammar({
     [$.throw, $.subarray],
     [$.apply_tactic, $.subarray],
     [$.rewrite, $.subarray],
-    [$.product_type, $.subarray],
     [$.term, $.subarray],
     [$._do_command, $.subarray],
     [$._binder_ident],
@@ -71,8 +70,6 @@ module.exports = grammar({
     ),
     prelude: $ => 'prelude',
     import: $ => seq('import', field('module', $.identifier)),
-
-    product_type: $ => prec.right(PREC.multitype, sep2($._expression, '×')),
 
     parameters: $ => seq(
       repeat1(
@@ -102,9 +99,7 @@ module.exports = grammar({
     _primary_expression: $ => choice(
       $.unary_expression,
       $.quoted_tactic,
-      $.product_type,
       $.conditional,
-      $.field_of,
       $.match,
       $.fun,
       $.binary_expression,
@@ -243,11 +238,6 @@ module.exports = grammar({
       ),
     )),
 
-    _argument: $ => choice($._expression, $.named_argument),
-    named_argument: $ => seq(
-      '(', $.identifier, ':=', $._expression, ')',
-    ),
-
     apply: $ => choice($._apply, $._dollar),
 
     _apply: $ => prec(PREC.apply, seq(
@@ -260,12 +250,6 @@ module.exports = grammar({
       field('name', $._expression),
       '$',
       field('argument', $._expression),
-    )),
-
-    field_of: $ => prec(1, seq(
-      field('term', $._expression),
-      token.immediate('.'),
-      field('name', choice($.identifier, $.number)),
     )),
 
     // src/Lean/Parser/Syntax.lean

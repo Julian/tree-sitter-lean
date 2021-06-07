@@ -109,6 +109,16 @@ module.exports = {
   _where_decls: $ => seq(
     'where', repeat1(seq(alias($._let_rec_decl, $.where_decl))),
   ),
+  _match_alts_where_decls: $ => seq($._match_alts, optional($._where_decls)),
+
+  named_argument: $ => seq('(', $.identifier, ':=', $._expression, ')'),
+  _argument: $ => choice($.named_argument, $._expression),
+
+  projection: $ => seq(
+    field('term', $._expression),
+    token.immediate('.'),
+    field('field', choice($.identifier, $.number)),
+  ),
 
   _term: $ => choice(
     $._parenthesized_expression,
@@ -136,6 +146,7 @@ module.exports = {
   ),
 
   // src/Init/Notation.lean
+  product_type: $ => prec.right(35, seq($._term, '×', $._term)),
   list: $ => seq('[', sep0($._expression, ','), ']'),
 
   assumption_literal: $ => seq('‹', $._term, '›'),
