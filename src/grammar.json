@@ -1978,19 +1978,6 @@
       "type": "PATTERN",
       "value": "«[^»]*»"
     },
-    "_lambda_magic_identifier": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "."
-        },
-        {
-          "type": "STRING",
-          "value": "·"
-        }
-      ]
-    },
     "_attribute": {
       "type": "CHOICE",
       "members": [
@@ -5354,9 +5341,6 @@
       "if_then_else"
     ],
     [
-      "_binder_ident"
-    ],
-    [
       "_let_id_lhs",
       "_term"
     ],
@@ -5367,11 +5351,14 @@
       "_simple_binder"
     ],
     [
-      "assign",
-      "_term"
+      "_binder_ident"
     ],
     [
       "identifier"
+    ],
+    [
+      "assign",
+      "_term"
     ],
     [
       "user_tactic",
@@ -5392,3 +5379,4 @@
   "inline": [],
   "supertypes": []
 }
+
