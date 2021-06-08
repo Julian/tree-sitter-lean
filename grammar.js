@@ -37,19 +37,7 @@ module.exports = grammar({
   ],
 
   conflicts: $ => [
-    [$.assign, $.subarray],
-    [$.let_bind, $.subarray],
-    [$.pattern, $.subarray],
-    [$.let_mut, $.subarray],
-    [$.user_tactic, $.subarray],
-    [$._argument, $.subarray],
-    [$.explicit, $.subarray],
-    [$.throw, $.subarray],
-    [$.apply_tactic, $.subarray],
-    [$.rewrite, $.subarray],
-    [$.product_type, $.subarray],
-    [$.term, $.subarray],
-    [$._do_command, $.subarray],
+    [$._do_command, $.if_then_else],
     [$._binder_ident],
     [$._let_id_lhs, $._term],
     [$._let_id_lhs],
@@ -103,22 +91,12 @@ module.exports = grammar({
       $.unary_expression,
       $.quoted_tactic,
       $.product_type,
-      $.conditional,
       $.field_of,
       $.match,
       $.fun,
       $.binary_expression,
       $._term,
     ),
-
-    conditional: $ => prec.right(1, seq(
-      'if',
-      $._expression,
-      'then',
-      $._expression,
-      'else',
-      $._expression,
-    )),
 
     let: $ => prec.left(seq(
       'let',

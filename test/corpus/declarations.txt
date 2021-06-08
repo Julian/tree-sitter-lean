@@ -320,7 +320,7 @@ else
           name: (identifier)
           type: (identifier)))
       body:
-        (conditional (comparison (identifier) (number))
+        (if_then_else (comparison (identifier) (number))
             (binary_expression
               (binary_expression
                 (binary_expression

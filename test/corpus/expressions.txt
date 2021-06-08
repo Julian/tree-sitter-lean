@@ -338,7 +338,7 @@ If/Then/Else
 
 ---
 
-(module (hash_command (conditional (true) (string) (string))))
+(module (hash_command (if_then_else (true) (string) (string))))
 
 =============
 If Needs Else
@@ -360,8 +360,8 @@ Nested If/Then/Else
 
 (module
   (hash_command
-    (conditional (true)
-      (conditional (false) (string) (string))
+    (if_then_else (true)
+      (if_then_else (false) (string) (string))
       (string))))
 
 ==========

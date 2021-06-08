@@ -1,3 +1,5 @@
+const {PREC} = require('./basic.js')
+
 // src/Lean/Parser/Term.lean
 module.exports = {
   // FIXME: see name.cpp for the real definition...
@@ -139,8 +141,17 @@ module.exports = {
   list: $ => seq('[', sep0($._expression, ','), ']'),
 
   assumption_literal: $ => seq('‹', $._term, '›'),
+  if_then_else: $ => seq(
+    'if',
+    $._expression,
+    'then',
+    $._expression,
+    'else',
+    $._expression,
+  ),
 
   _notation_term: $ => choice(
+    $.if_then_else,
     $.list,
     $.assumption_literal,
   ),
@@ -164,7 +175,7 @@ module.exports = {
   array: $ => seq('#[', sep0($._expression, ','), ']'),
 
   // src/Init/Data/Array/Subarray.lean
-  subarray: $ => seq(
+  subarray: $ => prec(PREC.max, seq(
     field('term', $._expression),
     token.immediate('['),
     choice(
@@ -181,7 +192,7 @@ module.exports = {
       ),
     ),
     ']',
-  ),
+  )),
 
   // src/Init/Data/Range.lean
   range: $ => seq(

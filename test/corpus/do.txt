@@ -423,9 +423,9 @@ Nested If/Then/Else
 
 (module
   (hash_command
-    (conditional
+    (if_then_else
       (true)
-      (do (conditional (false) (false) (false)))
+      (do (if_then_else (false) (false) (false)))
       (true))))
 
 ===============
@@ -449,7 +449,7 @@ If Condition Function Application
 (module
   (hash_command
     (coe
-      (conditional
+      (if_then_else
         (apply (identifier) (number))
         (do (identifier))
         (identifier))
