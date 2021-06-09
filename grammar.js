@@ -39,12 +39,11 @@ module.exports = grammar({
   conflicts: $ => [
     [$._do_command, $.if_then_else],
     [$._let_id_lhs, $._term],
+    [$.assign, $._term],
     [$._let_id_lhs],
     [$._simple_binder],
     [$._binder_ident],
     [$.identifier],
-    [$.assign, $._term],
-    [$.user_tactic, $._expression],
     [$.user_tactic, $.quoted_tactic],
   ],
 
