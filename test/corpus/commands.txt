@@ -37,12 +37,14 @@ Same Line #commands
 
 (module
   (hash_command
-    (coe
-      term: (identifier)
-      type:
-        (apply
-          name: (identifier)
-          arguments: (product_type (identifier) (identifier))))))
+    (parenthesized
+      (identifier)
+      (type_ascription
+        type:
+          (apply
+            name: (identifier)
+            arguments:
+              (parenthesized (product_type (identifier) (identifier))))))))
 
 =======
 Prelude

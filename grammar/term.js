@@ -19,7 +19,15 @@ module.exports = {
   hole: $ => "_",
   sorry: $ => 'sorry',
   cdot: $ => choice('.', '·'),
-  _parenthesized_expression: $ => seq('(', optional($._expression), ')'),
+  type_ascription: $ => seq(':', field('type', $._expression)),
+  tuple_tail: $ => seq(',', sep1($._expression, ',')),
+  parenthesized: $ => seq(
+    '(',
+    optional(
+      seq($._expression, optional(choice($.tuple_tail, $.type_ascription)))
+    ),
+    ')',
+  ),
   anonymous_constructor: $ => seq('⟨', sep0($._expression, ','), '⟩'),
   _structure_instance_field: $ => seq(
     field('name', $.identifier),
@@ -113,7 +121,6 @@ module.exports = {
   ),
 
   _term: $ => choice(
-    $._parenthesized_expression,
     $.identifier,
     $.number,
     $.float,
@@ -121,6 +128,7 @@ module.exports = {
     $.char,
     $.sorry,
     $.cdot,
+    $.parenthesized,
     $.anonymous_constructor,
     $.structure_instance,
     $.explicit,
@@ -134,7 +142,6 @@ module.exports = {
     $.subarray,
     $.range,
     $.interpolated_string,
-    $._cant_find_term,
   ),
 
   // src/Init/Notation.lean
@@ -215,13 +222,5 @@ module.exports = {
   ),
   interpolation: $ => seq(
     '{', $._expression, '}'
-  ),
-
-  // FINDME: I can't find where these are defined...
-  coe: $ => seq('(', field('term', $._expression), ':', field('type', $._expression), ')'),
-  product: $ => seq('(', sep2($._expression, ','), ')'),
-  _cant_find_term: $ => choice(
-    $.coe,
-    $.product,
   ),
 }

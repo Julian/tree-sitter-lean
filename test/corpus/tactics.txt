@@ -24,18 +24,19 @@ theorem foo {m n : Nat} : 2 * m + 2 * n = 2 * (n + m) := by
             (binary_expression (number) (identifier)))
           (binary_expression
             (number)
-            (binary_expression (identifier) (identifier))))
+            (parenthesized (binary_expression (identifier) (identifier)))))
       body:
         (tactics
           (rewrite (identifier))
           (term
             (field_of
               term:
-                (apply
-                  name: (identifier)
-                  arguments: (number)
-                  arguments: (identifier)
-                  arguments: (identifier))
+                (parenthesized
+                  (apply
+                    name: (identifier)
+                    arguments: (number)
+                    arguments: (identifier)
+                    arguments: (identifier)))
               name: (identifier)))))))
 
 =================
@@ -56,18 +57,19 @@ variable {m n : Nat}
       name: (identifier)
       type: (identifier)))
   (hash_command
-    (coe
-      term:
-        (tactics (rewrite (identifier))
-          (term
-            (field_of
-              term:
+    (parenthesized
+      (tactics (rewrite (identifier))
+        (term
+          (field_of
+            term:
+              (parenthesized
                 (apply
                   name: (identifier)
                   arguments: (number)
                   arguments: (identifier)
-                  arguments: (identifier))
-              name: (identifier))))
+                  arguments: (identifier)))
+            name: (identifier))))
+      (type_ascription
         type:
           (binary_expression
             (binary_expression
@@ -75,7 +77,8 @@ variable {m n : Nat}
               (binary_expression (number) (identifier)))
             (binary_expression
               (number)
-              (binary_expression (identifier) (identifier)))))))
+              (parenthesized
+                (binary_expression (identifier) (identifier)))))))))
 
 ====
 Simp
@@ -156,8 +159,8 @@ example : (true ↔ true) ↔ (true ↔ true) := by
   (declaration
     (example
       (binary_expression
-        (binary_expression (true) (true))
-        (binary_expression (true) (true)))
+        (parenthesized (binary_expression (true) (true)))
+        (parenthesized (binary_expression (true) (true))))
       (tactics
         (apply_tactic (identifier))
         (intro (identifier))

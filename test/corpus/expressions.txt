@@ -152,9 +152,10 @@ Subarray of Expression
   (hash_command
     (subarray
       term:
-        (apply
-          name: (identifier)
-          arguments: (number))
+        (parenthesized
+          (apply
+            name: (identifier)
+            arguments: (number)))
       stop: (number))))
 
 ===========================
@@ -288,7 +289,9 @@ Product
 
 ---
 
-(module (hash_command (product (number) (string) (number) (number))))
+(module
+  (hash_command
+    (parenthesized (number) (tuple_tail (string) (number) (number)))))
 
 =============
 Function Type
@@ -317,7 +320,8 @@ Product Type
   (hash_command (product_type (identifier) (identifier)))
   (hash_command (product_type (identifier) (identifier) (identifier)))
   (hash_command
-    (product_type (product_type (identifier) (identifier)) (identifier))))
+    (product_type
+      (parenthesized (product_type (identifier) (identifier))) (identifier))))
 
 =======================
 Product Type Precedence
@@ -384,10 +388,13 @@ Nested If/Then/Else
   (hash_command (unary_expression (identifier)))
   (hash_command (unary_expression (unary_expression (number))))
   (hash_command (unary_expression (unary_expression (identifier))))
-  (hash_command (unary_expression (binary_expression (number) (number))))
   (hash_command
     (unary_expression
-      (unary_expression (binary_expression (number) (number))))))
+      (parenthesized (binary_expression (number) (number)))))
+  (hash_command
+    (unary_expression
+      (unary_expression
+        (parenthesized (binary_expression (number) (number)))))))
 
 =======================
 - Negation But Comments
@@ -718,7 +725,7 @@ Expression Field Access
 (module
   (hash_command
     (field_of
-      (apply (identifier) (identifier))
+      (parenthesized (apply (identifier) (identifier)))
       (identifier))))
 
 =====
@@ -814,11 +821,14 @@ $ Application
 (module
   (hash_command
     (apply (identifier) (identifier)
-      (apply (identifier) (binary_expression (number) (number)))))
+      (parenthesized
+        (apply (identifier)
+          (parenthesized (binary_expression (number) (number)))))))
   (hash_command
     (apply
       (apply (identifier) (identifier))
-        (apply (identifier) (binary_expression (number) (number)))))
+        (apply (identifier)
+          (parenthesized (binary_expression (number) (number))))))
   (hash_command
     (apply
       (apply (identifier) (identifier))
@@ -879,9 +889,10 @@ Anonymous Function Application
 (module
   (hash_command
     (apply
-      (fun
-        (parameters (identifier))
-        (binary_expression (identifier) (number)))
+      (parenthesized
+        (fun
+          (parameters (identifier))
+          (binary_expression (identifier) (number))))
       (number))))
 
 =================================================
@@ -923,13 +934,13 @@ Sugared Anonymous Function
 
 (module
   (hash_command
-    (binary_expression (cdot) (number)))
+    (parenthesized (binary_expression (cdot) (number))))
   (hash_command
-    (binary_expression (cdot) (number)))
+    (parenthesized (binary_expression (cdot) (number))))
   (hash_command
     (apply
       (identifier)
-      (binary_expression (cdot) (number)) (number))))
+      (parenthesized (binary_expression (cdot) (number))) (number))))
 
 =================
 Explicit Function
@@ -948,9 +959,9 @@ Explicit Function
   (hash_command (apply (explicit (identifier)) (identifier) (true)))
   (hash_command (explicit (identifier))))
 
-========
-Coersion
-========
+===============
+Type Ascription
+===============
 
 #check (2 : Nat)
 #check (foo bar : Nat)
@@ -960,26 +971,27 @@ Coersion
 
 (module
   (hash_command
-    (coe
-      term: (number)
-      type: (identifier)))
+    (parenthesized
+      (number)
+      (type_ascription
+        type: (identifier))))
   (hash_command
-    (coe
-      term:
-        (apply
-          name: (identifier)
-          arguments: (identifier))
-      type: (identifier)))
+    (parenthesized
+      (apply
+        name: (identifier)
+        arguments: (identifier))
+      (type_ascription
+        type: (identifier))))
   (hash_command
-    (coe
-      term:
-        (apply
-          name: (identifier)
-          arguments: (identifier))
-      type:
-        (apply
-          name: (identifier)
-          arguments: (identifier)))))
+    (parenthesized
+      (apply
+        name: (identifier)
+        arguments: (identifier))
+      (type_ascription
+        type:
+          (apply
+            name: (identifier)
+            arguments: (identifier))))))
 
 =================================
 Application Across Multiple Lines
@@ -1021,10 +1033,11 @@ Structure Literal
       value: (number)
       name: (identifier)
       value:
-        (fun
-          (parameters
-            name: (identifier))
-          (identifier)))))
+        (parenthesized
+          (fun
+            (parameters
+              name: (identifier))
+            (identifier))))))
 
 =======================
 Typed Structure Literal
@@ -1048,10 +1061,11 @@ Typed Structure Literal
       value: (number)
       name: (identifier)
       value:
-        (fun
-          (parameters
-            name: (identifier))
-          (identifier))
+        (parenthesized
+          (fun
+            (parameters
+              name: (identifier))
+            (identifier)))
       type:
         (apply
           name: (identifier)
@@ -1084,10 +1098,11 @@ Structure Overriding
       value: (number)
       name: (identifier)
       value:
-        (fun
-          (parameters
-            name: (identifier))
-          (identifier))))
+        (parenthesized
+          (fun
+            (parameters
+              name: (identifier))
+            (identifier)))))
   (hash_command
     (structure_instance
       extends: (identifier)))
@@ -1128,7 +1143,7 @@ def foo | 0, => 2 | _, => 3
 
 (module
   (hash_command
-    (product (number) (number) (number) (identifier (MISSING _identifier))))
+    (parenthesized (number) (tuple_tail (number) (number)) (ERROR)))
   (hash_command
     (list (number) (number) (number) (identifier (MISSING _identifier))))
   (hash_command
@@ -1184,11 +1199,11 @@ Unless
 
 (module
   (hash_command
-    (coe
-      term:
-        (unless (true)
-          (do (identifier)))
-      type: (identifier))))
+    (parenthesized
+      (unless (true)
+        (do (identifier)))
+      (type_ascription
+        type: (identifier)))))
 
 ===========
 Quantifiers

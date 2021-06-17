@@ -172,7 +172,8 @@ def foo (xs : Array (Nat × Nat)) : Unit := do
           type:
             (apply
               name: (identifier)
-              arguments: (product_type (identifier) (identifier)))))
+              arguments:
+                (parenthesized (product_type (identifier) (identifier))))))
       type: (identifier)
       body:
         (do
@@ -289,12 +290,12 @@ Return One Line
 
 (module
   (hash_command
-    (coe
-      term:
-        (do
-          (return
-            value: (identifier)))
-      type: (identifier))))
+    (parenthesized
+      (do
+        (return
+          value: (identifier)))
+      (type_ascription
+        type: (identifier)))))
 
 ============
 Try One Line
@@ -406,12 +407,12 @@ If/Then
 
 (module
   (hash_command
-    (coe
+    (parenthesized
       (do
         (conditional_when
           (true)
           (return (identifier))))
-      (identifier))))
+      (type_ascription (identifier)))))
 
 ===================
 Nested If/Then/Else
@@ -436,7 +437,9 @@ Bare Identifier
 
 ---
 
-(module (hash_command (coe (do (true)) (identifier))))
+(module
+  (hash_command
+    (parenthesized (do (true)) (type_ascription (identifier)))))
 
 =================================
 If Condition Function Application
@@ -448,12 +451,12 @@ If Condition Function Application
 
 (module
   (hash_command
-    (coe
+    (parenthesized
       (if_then_else
         (apply (identifier) (number))
         (do (identifier))
         (identifier))
-      (identifier))))
+      (type_ascription (identifier)))))
 
 ==========
 Left Arrow
@@ -465,9 +468,9 @@ Left Arrow
 
 (module
   (hash_command
-    (coe
+    (parenthesized
       (do
         (conditional_when
             (unary_expression (identifier))
             (return (identifier))))
-        (identifier))))
+        (type_ascription (identifier)))))
