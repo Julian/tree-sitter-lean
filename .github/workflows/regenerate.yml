@@ -10,7 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Install tree-sitter
-      run: brew install tree-sitter
+      run: brew update && brew install tree-sitter
     - name: Regenerate the parser
       run: tree-sitter generate
     - name: Generate a patch
