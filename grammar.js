@@ -3,7 +3,7 @@ const command = require('./grammar/command.js')
 const syntax = require('./grammar/syntax.js')
 const tactic = require('./grammar/tactic.js')
 const term = require('./grammar/term.js')
-const {sep0, sep1} = require('./grammar/util.js')
+const {sep1} = require('./grammar/util.js')
 
 const PREC = {
   dollar: -5,
@@ -127,8 +127,6 @@ module.exports = grammar({
     ),
 
     do: $ => prec.right(seq('do', sep1_($._do_command, $._newline))),
-
-    mutable_specifier: $ => 'mut',
 
     conditional_when: $ => prec.right(seq(
       'if',
