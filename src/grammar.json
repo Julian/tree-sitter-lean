@@ -318,18 +318,6 @@
             {
               "type": "SYMBOL",
               "name": "throw"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "conditional_when"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "try"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "finally"
             }
           ]
         }
@@ -389,10 +377,6 @@
           }
         ]
       }
-    },
-    "mutable_specifier": {
-      "type": "STRING",
-      "value": "mut"
     },
     "conditional_when": {
       "type": "PREC_RIGHT",
@@ -3980,12 +3964,20 @@
                   "type": "CHOICE",
                   "members": [
                     {
-                      "type": "SYMBOL",
-                      "name": "tuple_tail"
+                      "type": "CHOICE",
+                      "members": [
+                        {
+                          "type": "SYMBOL",
+                          "name": "tuple_tail"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "type_ascription"
+                        }
+                      ]
                     },
                     {
-                      "type": "SYMBOL",
-                      "name": "type_ascription"
+                      "type": "BLANK"
                     }
                   ]
                 }
@@ -5326,6 +5318,10 @@
       "_term"
     ],
     [
+      "assign",
+      "_term"
+    ],
+    [
       "_let_id_lhs"
     ],
     [
@@ -5336,14 +5332,6 @@
     ],
     [
       "identifier"
-    ],
-    [
-      "assign",
-      "_term"
-    ],
-    [
-      "user_tactic",
-      "_expression"
     ],
     [
       "user_tactic",

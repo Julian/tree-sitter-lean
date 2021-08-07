@@ -120,9 +120,9 @@ module.exports = grammar({
 
         // FIXME: These rules are what make the above really slow it'd
         //        appear, each seem to make things ~4x slower
-        $.conditional_when,
-        $.try,
-        $.finally,
+        // $.conditional_when,
+        // $.try,
+        // $.finally,
       ),
     ),
 

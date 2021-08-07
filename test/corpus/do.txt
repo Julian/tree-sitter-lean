@@ -186,99 +186,130 @@ def foo (xs : Array (Nat × Nat)) : Unit := do
                   name: (identifier)
                   arguments: (string))))))))
 
-=========
-Try/Catch
-=========
+;=========
+;Try/Catch
+;=========
+;
+;def f : IO Unit := do
+;  try
+;    println! "foo"
+;  catch ex =>
+;    throw ex
+;
+;---
+;
+;(module
+;  (declaration
+;    (def (identifier) (apply (identifier) (identifier))
+;    (do
+;      (try
+;        (apply (identifier) (string))
+;        (catch (identifier)
+;          (throw (identifier))))))))
+;
+;=========
+;Empty Try
+;=========
+;
+;def f : IO Unit := do
+;  try
+;  catch ex =>
+;    throw ex
+;
+;---
+;
+;(module
+;  (ERROR (identifier) (apply (identifier) (identifier))
+;    (apply (identifier) (identifier)) (ERROR) (throw (identifier))))
+;
+;===========
+;Try/Finally
+;===========
+;
+;def f : IO Unit := do
+;  try
+;    println! "foo"
+;  finally
+;    println! "bar"
+;
+;---
+;
+;(module
+;  (declaration
+;    (def (identifier) (apply (identifier) (identifier))
+;    (do
+;      (try
+;        (apply (identifier) (string))
+;        (finally
+;          (apply (identifier) (string))))))))
+;
+;=================
+;Try/Catch/Finally
+;=================
+;
+;def f : IO Unit := do
+;  try
+;    println! "foo"
+;  catch ex =>
+;    throw ex
+;  finally
+;    println! "bar"
+;
+;---
+;
+;(module
+;  (declaration
+;    (def (identifier) (apply (identifier) (identifier))
+;    (do
+;      (try
+;        (apply (identifier) (string))
+;        (catch (identifier) (throw (identifier))))
+;        (finally (apply (identifier) (string)))))))
+;
+;===================
+;No Catch or Finally
+;===================
+;
+;def f : IO Unit := do
+;  try
+;    println! "foo"
+;
+;---
+;
+;(module
+;  (ERROR (identifier) (apply (identifier) (identifier))
+;    (apply (identifier) (string))))
+;
+;============
+;Try One Line
+;============
+;
+;def f : IO Unit := do try println! "foo" catch ex => throw ex finally println! "bar"
+;
+;---
+;
+;(module
+;  (declaration
+;    (def (identifier) (apply (identifier) (identifier))
+;    (do
+;      (try
+;        (apply (identifier) (string))
+;        (catch (identifier)
+;          (throw (identifier)))
+;        (finally (apply (identifier) (string))))))))
 
-def f : IO Unit := do
-  try
-    println! "foo"
-  catch ex =>
-    throw ex
+======
+Return
+======
+
+def f : Nat := do
+  return 3
 
 ---
 
 (module
   (declaration
-    (def (identifier) (apply (identifier) (identifier))
-    (do
-      (try
-        (apply (identifier) (string))
-        (catch (identifier)
-          (throw (identifier))))))))
-
-=========
-Empty Try
-=========
-
-def f : IO Unit := do
-  try
-  catch ex =>
-    throw ex
-
----
-
-(module
-  (ERROR (identifier) (apply (identifier) (identifier))
-    (apply (identifier) (identifier)) (ERROR) (throw (identifier))))
-
-===========
-Try/Finally
-===========
-
-def f : IO Unit := do
-  try
-    println! "foo"
-  finally
-    println! "bar"
-
----
-
-(module
-  (declaration
-    (def (identifier) (apply (identifier) (identifier))
-    (do
-      (try
-        (apply (identifier) (string))
-        (finally
-          (apply (identifier) (string))))))))
-
-=================
-Try/Catch/Finally
-=================
-
-def f : IO Unit := do
-  try
-    println! "foo"
-  catch ex =>
-    throw ex
-  finally
-    println! "bar"
-
----
-
-(module
-  (declaration
-    (def (identifier) (apply (identifier) (identifier))
-    (do
-      (try
-        (apply (identifier) (string))
-        (catch (identifier) (throw (identifier))))
-        (finally (apply (identifier) (string)))))))
-
-===================
-No Catch or Finally
-===================
-
-def f : IO Unit := do
-  try
-    println! "foo"
-
----
-
-(module
-  (ERROR (identifier) (apply (identifier) (identifier))
-    (apply (identifier) (string))))
+    (def (identifier) (identifier) (do (return (number))))))
 
 ===============
 Return One Line
@@ -296,37 +327,6 @@ Return One Line
           value: (identifier)))
       (type_ascription
         type: (identifier)))))
-
-============
-Try One Line
-============
-
-def f : IO Unit := do try println! "foo" catch ex => throw ex finally println! "bar"
-
----
-
-(module
-  (declaration
-    (def (identifier) (apply (identifier) (identifier))
-    (do
-      (try
-        (apply (identifier) (string))
-        (catch (identifier)
-          (throw (identifier)))
-        (finally (apply (identifier) (string))))))))
-
-======
-Return
-======
-
-def f : Nat := do
-  return 3
-
----
-
-(module
-  (declaration
-    (def (identifier) (identifier) (do (return (number))))))
 
 ==============
 Return Nothing
@@ -397,22 +397,22 @@ instance : do return ToString Nat where
           type: (identifier)
           body: (string)))))
 
-=======
-If/Then
-=======
-
-#check (do if true then return PUnit.unit : PUnit)
-
----
-
-(module
-  (hash_command
-    (parenthesized
-      (do
-        (conditional_when
-          (true)
-          (return (identifier))))
-      (type_ascription (identifier)))))
+;=======
+;If/Then
+;=======
+;
+;#check (do if true then return PUnit.unit : PUnit)
+;
+;---
+;
+;(module
+;  (hash_command
+;    (parenthesized
+;      (do
+;        (conditional_when
+;          (true)
+;          (return (identifier))))
+;      (type_ascription (identifier)))))
 
 ===================
 Nested If/Then/Else
@@ -458,19 +458,19 @@ If Condition Function Application
         (identifier))
       (type_ascription (identifier)))))
 
-==========
-Left Arrow
-==========
-
-#check (do if ← foo then return PUnit.unit : PUnit)
-
----
-
-(module
-  (hash_command
-    (parenthesized
-      (do
-        (conditional_when
-            (unary_expression (identifier))
-            (return (identifier))))
-        (type_ascription (identifier)))))
+;==========
+;Left Arrow
+;==========
+;
+;#check (do if ← foo then return PUnit.unit : PUnit)
+;
+;---
+;
+;(module
+;  (hash_command
+;    (parenthesized
+;      (do
+;        (conditional_when
+;            (unary_expression (identifier))
+;            (return (identifier))))
+;        (type_ascription (identifier)))))
