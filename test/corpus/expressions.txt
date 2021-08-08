@@ -169,7 +169,7 @@ Subarray Does Not Have Step
 (module
   (hash_command
     (subarray
-      (identifier) (number) (ERROR (number)) (number))))
+      (identifier) (number) (number) (ERROR (number)))))
 
 ===========================
 Subarray Does Not Have Copy

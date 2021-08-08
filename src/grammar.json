@@ -3486,12 +3486,49 @@
         {
           "type": "SYMBOL",
           "name": "syntax"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "elab"
+        }
+      ]
+    },
+    "_syntax_cat": {
+      "type": "SYMBOL",
+      "name": "identifier"
+    },
+    "_syntax_atom": {
+      "type": "SYMBOL",
+      "name": "string"
+    },
+    "_syntax": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_syntax_cat"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_syntax_atom"
         }
       ]
     },
     "notation": {
       "type": "SEQ",
       "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_attr_kind"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
         {
           "type": "STRING",
           "value": "notation"
@@ -3514,6 +3551,18 @@
       "type": "SEQ",
       "members": [
         {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_attr_kind"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
           "type": "STRING",
           "value": "macro_rules"
         },
@@ -3530,12 +3579,27 @@
       "type": "SEQ",
       "members": [
         {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_attr_kind"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
           "type": "STRING",
           "value": "syntax"
         },
         {
-          "type": "SYMBOL",
-          "name": "_expression"
+          "type": "REPEAT1",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_syntax"
+          }
         },
         {
           "type": "STRING",
@@ -3544,6 +3608,138 @@
         {
           "type": "SYMBOL",
           "name": "identifier"
+        }
+      ]
+    },
+    "_macro_arg_simple": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "IMMEDIATE_TOKEN",
+          "content": {
+            "type": "STRING",
+            "value": ":"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_syntax"
+        }
+      ]
+    },
+    "_macro_arg_symbol": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "string"
+        }
+      ]
+    },
+    "_macro_arg": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_macro_arg_symbol"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_macro_arg_simple"
+        }
+      ]
+    },
+    "_macro_head": {
+      "type": "SYMBOL",
+      "name": "_macro_arg"
+    },
+    "_elab_head": {
+      "type": "SYMBOL",
+      "name": "_macro_head"
+    },
+    "_elab_arg": {
+      "type": "SYMBOL",
+      "name": "_macro_arg"
+    },
+    "_elab_tail": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": ":"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "<="
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "identifier"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "=>"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_expression"
+        }
+      ]
+    },
+    "elab": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_attr_kind"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "elab"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_elab_head"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_elab_arg"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_elab_tail"
         }
       ]
     },
@@ -4695,6 +4891,19 @@
         {
           "type": "SYMBOL",
           "name": "_let_equations_decl"
+        }
+      ]
+    },
+    "_attr_kind": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "scoped"
+        },
+        {
+          "type": "STRING",
+          "value": "local"
         }
       ]
     },

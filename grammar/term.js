@@ -113,6 +113,7 @@ module.exports = {
   _let_decl: $ => choice(
     $._let_id_decl, $._let_pattern_decl, $._let_equations_decl,
   ),
+  _attr_kind: $ => choice('scoped', 'local'),
   attributes: $ => seq('@[', sep1($._attribute, ','), ']'),
   _let_rec_decl: $ => seq($._let_decl),
 

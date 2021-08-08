@@ -42,3 +42,86 @@ syntax str : tactic
 (module
   (syntax (string) (identifier))
   (syntax (identifier) (identifier)))
+
+====
+Elab
+====
+
+elab "foo" x:term : term => Lean.Elab.Term.elabTerm x none
+
+---
+
+(module
+  (elab
+    (string)
+    (identifier)
+    (identifier)
+    (identifier)
+    (apply (identifier) (identifier) (identifier))))
+
+====
+Elab
+====
+
+elab "foo" x:term : term => Lean.Elab.Term.elabTerm x none
+
+---
+
+(module
+  (elab
+    (string)
+    (identifier)
+    (identifier)
+    (identifier)
+    (apply (identifier) (identifier) (identifier))))
+
+========================
+Elab Optional Left Arrow
+========================
+
+elab "foo" x:term : term <= bar => Lean.Elab.Term.elabTerm x none
+
+---
+
+(module
+  (elab
+    (string)
+    (identifier)
+    (identifier)
+    (identifier)
+    (identifier)
+    (apply (identifier) (identifier) (identifier))))
+
+==============
+Scoped / Local
+==============
+
+scoped elab "foo" x:term : term => Lean.Elab.Term.elabTerm x none
+local elab "bar" x:term : term => Lean.Elab.Term.elabTerm x none
+
+scoped syntax "baz" : tactic
+local syntax "baz" : tactic
+
+scoped notation " ♔ " => 12
+local notation " ♔ " => 12
+
+scoped macro_rules
+| `(tactic| foo) => `(tactic|trivial)
+local macro_rules
+| `(tactic| foo) => `(tactic|trivial)
+
+---
+
+(module
+  (elab (string) (identifier) (identifier) (identifier)
+    (apply (identifier) (identifier) (identifier)))
+  (elab (string) (identifier) (identifier) (identifier)
+    (apply (identifier) (identifier) (identifier)))
+  (syntax (string) (identifier))
+  (syntax (string) (identifier))
+  (notation (string) (number))
+  (notation (string) (number))
+  (macro_rules
+    (pattern (quoted_tactic (identifier)) (quoted_tactic (trivial))))
+  (macro_rules
+    (pattern (quoted_tactic (identifier)) (quoted_tactic (trivial)))))
