@@ -96,8 +96,21 @@ module.exports = {
   ),
 
   _match_alts: $ => repeat1($.match_alt),
+  _match_discr: $ => seq(
+    optional(seq($.identifier, token.immediate(':'))),
+    $._expression,
+  ),
+
   true: $ => 'true',
   false: $ => 'false',
+
+  match: $ => prec.left(seq(
+    'match',
+    field('value', sep1($._match_discr, ', ')),
+    field('type', optional($._type_spec)),
+    'with',
+    field('patterns', $._match_alts),
+  )),
 
   _simple_binder_without_type: $ => repeat1($._binder_ident),
   _let_id_lhs: $ => seq(
@@ -136,6 +149,7 @@ module.exports = {
     $.forall,
     $.true,
     $.false,
+    $.match,
     $.arrow,
     $._notation_term,
     $._notation_extra_term,

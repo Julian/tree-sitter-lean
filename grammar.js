@@ -91,7 +91,6 @@ module.exports = grammar({
       $.quoted_tactic,
       $.product_type,
       $.field_of,
-      $.match,
       $.fun,
       $.binary_expression,
       $._term,
@@ -191,13 +190,6 @@ module.exports = grammar({
     return: $ => prec.right(
       seq('return', field('value', optional($._expression))),
     ),
-
-    match: $ => prec.left(seq(
-      'match',
-      field('value', sep1($._expression, ',')),
-      'with',
-      field('patterns', repeat1($.pattern)),
-    )),
 
     pattern: $ => seq(
       '|',
