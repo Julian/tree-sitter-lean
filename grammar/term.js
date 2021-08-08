@@ -140,6 +140,7 @@ module.exports = {
     $.float,
     $.string,
     $.char,
+    $.hole,
     $.sorry,
     $.cdot,
     $.parenthesized,

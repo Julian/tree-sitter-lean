@@ -240,7 +240,7 @@ def foo : Nat → Nat
           (number))
       body:
         (pattern
-          lhs: (identifier)
+          lhs: (hole)
           (number)))))
 
 ==========================================
@@ -265,7 +265,7 @@ def foo : Nat -> Bool :=
             lhs: (number)
             (true))
           (pattern
-            lhs: (identifier)
+            lhs: (hole)
             (false))))))
 
 =======================
@@ -296,8 +296,8 @@ def foo : Nat → Nat -> Nat
           (number))
       body:
         (pattern
-          lhs: (identifier)
-          lhs: (identifier)
+          lhs: (hole)
+          lhs: (hole)
           (number)))))
 
 ============
@@ -698,8 +698,7 @@ instance [Inhabited b] : Inhabited (a -> b) where
           name: (identifier)
           body:
             (fun
-              (parameters
-                name: (identifier))
+              (parameters (hole))
               (identifier))))))
 
 ===================================
@@ -805,7 +804,7 @@ instance : ToString Foo where
           name: (identifier)
           body:
             (match_alt
-              lhs: (identifier)
+              lhs: (hole)
               (string))))))
 
 =======
@@ -1616,7 +1615,7 @@ abbrev Baz
           (number))
       body:
         (pattern
-          lhs: (identifier)
+          lhs: (hole)
           (number))))
   (declaration
     (attributes
@@ -1683,7 +1682,7 @@ constant Foo : Nat → Nat
   (declaration
     (constant (identifier)
       (apply
-        (arrow (identifier) (identifier)) (ERROR (hole)) (number)))))
+        (arrow (identifier) (identifier)) (ERROR) (hole) (ERROR) (number)))))
 
 =====
 Axiom

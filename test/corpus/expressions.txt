@@ -782,9 +782,9 @@ def foo (a b c : Nat) :=
           value: (identifier)
           patterns:
             (match_alt
-              lhs: (identifier)
-              lhs: (identifier)
-              lhs: (identifier)
+              lhs: (hole)
+              lhs: (hole)
+              lhs: (hole)
               (true))))))
 
 ================
@@ -805,7 +805,7 @@ Match Expression
           arguments: (number))
       patterns:
         (match_alt
-          lhs: (identifier)
+          lhs: (hole)
           (true)))))
 
 =============
@@ -1158,7 +1158,7 @@ def foo | 0, => 2 | _, => 3
   (declaration
     (def (identifier)
       (pattern (number) (ERROR) (number))
-      (pattern (identifier) (ERROR) (number)))))
+      (pattern (hole) (ERROR) (number)))))
 
 =====
 Sorry

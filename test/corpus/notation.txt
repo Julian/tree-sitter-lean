@@ -13,7 +13,7 @@ theorem ex3 (p q : Prop) : p → q → p ∧ q :=
       (binders (explicit_binder (identifier) (identifier) (identifier)))
       (binary_expression (arrow (identifier) (arrow (identifier) (identifier))) (identifier))
       (fun
-        (parameters (identifier) (identifier))
+        (parameters (hole) (hole))
         (anonymous_constructor
           (assumption_literal (identifier))
           (assumption_literal (identifier)))))))

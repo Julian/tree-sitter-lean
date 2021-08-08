@@ -80,6 +80,10 @@
             "named": true
           },
           {
+            "type": "hole",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -256,6 +260,10 @@
             "named": true
           },
           {
+            "type": "hole",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -422,6 +430,10 @@
           "named": true
         },
         {
+          "type": "hole",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },
@@ -577,6 +589,10 @@
             "named": true
           },
           {
+            "type": "hole",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -724,6 +740,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "hole",
             "named": true
           },
           {
@@ -878,6 +898,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "hole",
             "named": true
           },
           {
@@ -1037,6 +1061,10 @@
           "named": true
         },
         {
+          "type": "hole",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },
@@ -1192,6 +1220,10 @@
           "named": true
         },
         {
+          "type": "hole",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },
@@ -1344,6 +1376,10 @@
         },
         {
           "type": "fun",
+          "named": true
+        },
+        {
+          "type": "hole",
           "named": true
         },
         {
@@ -1512,6 +1548,10 @@
             "named": true
           },
           {
+            "type": "hole",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -1641,6 +1681,10 @@
         },
         {
           "type": "forall",
+          "named": true
+        },
+        {
+          "type": "hole",
           "named": true
         },
         {
@@ -1831,6 +1875,10 @@
             "named": true
           },
           {
+            "type": "hole",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -1994,6 +2042,10 @@
         },
         {
           "type": "fun",
+          "named": true
+        },
+        {
+          "type": "hole",
           "named": true
         },
         {
@@ -2167,6 +2219,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "hole",
             "named": true
           },
           {
@@ -2357,6 +2413,10 @@
         },
         {
           "type": "fun",
+          "named": true
+        },
+        {
+          "type": "hole",
           "named": true
         },
         {
@@ -2593,6 +2653,10 @@
             "named": true
           },
           {
+            "type": "hole",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -2756,6 +2820,10 @@
         },
         {
           "type": "fun",
+          "named": true
+        },
+        {
+          "type": "hole",
           "named": true
         },
         {
@@ -2928,6 +2996,10 @@
             "named": true
           },
           {
+            "type": "hole",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -3080,6 +3152,10 @@
         },
         {
           "type": "fun",
+          "named": true
+        },
+        {
+          "type": "hole",
           "named": true
         },
         {
@@ -3249,6 +3325,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "hole",
             "named": true
           },
           {
@@ -3477,6 +3557,10 @@
             "named": true
           },
           {
+            "type": "hole",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -3650,6 +3734,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "hole",
             "named": true
           },
           {
@@ -3827,6 +3915,10 @@
           "named": true
         },
         {
+          "type": "hole",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },
@@ -3998,6 +4090,10 @@
           "named": true
         },
         {
+          "type": "hole",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },
@@ -4154,6 +4250,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "hole",
             "named": true
           },
           {
@@ -4320,6 +4420,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "hole",
             "named": true
           },
           {
@@ -4499,6 +4603,10 @@
             "named": true
           },
           {
+            "type": "hole",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -4652,6 +4760,10 @@
         },
         {
           "type": "fun",
+          "named": true
+        },
+        {
+          "type": "hole",
           "named": true
         },
         {
@@ -4811,6 +4923,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "hole",
             "named": true
           },
           {
@@ -4983,6 +5099,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "hole",
             "named": true
           },
           {
@@ -5172,6 +5292,10 @@
             "named": true
           },
           {
+            "type": "hole",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -5337,6 +5461,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "hole",
             "named": true
           },
           {
@@ -5510,6 +5638,10 @@
             "named": true
           },
           {
+            "type": "hole",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -5671,6 +5803,10 @@
         },
         {
           "type": "fun",
+          "named": true
+        },
+        {
+          "type": "hole",
           "named": true
         },
         {
@@ -5855,6 +5991,10 @@
             "named": true
           },
           {
+            "type": "hole",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -6035,6 +6175,10 @@
             "named": true
           },
           {
+            "type": "hole",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -6188,6 +6332,10 @@
         },
         {
           "type": "fun",
+          "named": true
+        },
+        {
+          "type": "hole",
           "named": true
         },
         {
@@ -6354,6 +6502,10 @@
           "named": true
         },
         {
+          "type": "hole",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },
@@ -6511,6 +6663,10 @@
         },
         {
           "type": "fun",
+          "named": true
+        },
+        {
+          "type": "hole",
           "named": true
         },
         {
@@ -6688,6 +6844,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "hole",
             "named": true
           },
           {
@@ -6905,6 +7065,10 @@
             "named": true
           },
           {
+            "type": "hole",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -7072,6 +7236,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "hole",
             "named": true
           },
           {
@@ -7248,6 +7416,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "hole",
             "named": true
           },
           {
@@ -7435,6 +7607,10 @@
             "named": true
           },
           {
+            "type": "hole",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -7610,6 +7786,10 @@
           "named": true
         },
         {
+          "type": "hole",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },
@@ -7777,6 +7957,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "hole",
             "named": true
           },
           {
@@ -7950,6 +8134,10 @@
             "named": true
           },
           {
+            "type": "hole",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -8097,6 +8285,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "hole",
             "named": true
           },
           {
@@ -8266,6 +8458,10 @@
             "named": true
           },
           {
+            "type": "hole",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -8419,6 +8615,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "hole",
             "named": true
           },
           {
@@ -8585,6 +8785,10 @@
         },
         {
           "type": "fun",
+          "named": true
+        },
+        {
+          "type": "hole",
           "named": true
         },
         {
@@ -8772,6 +8976,10 @@
             "named": true
           },
           {
+            "type": "hole",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -8927,6 +9135,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "hole",
             "named": true
           },
           {
@@ -9090,6 +9302,10 @@
             "named": true
           },
           {
+            "type": "hole",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -9238,6 +9454,10 @@
         },
         {
           "type": "fun",
+          "named": true
+        },
+        {
+          "type": "hole",
           "named": true
         },
         {
@@ -9468,6 +9688,10 @@
         },
         {
           "type": "fun",
+          "named": true
+        },
+        {
+          "type": "hole",
           "named": true
         },
         {
@@ -9714,6 +9938,10 @@
           "named": true
         },
         {
+          "type": "hole",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },
@@ -9898,6 +10126,10 @@
           "named": true
         },
         {
+          "type": "hole",
+          "named": true
+        },
+        {
           "type": "implicit_binder",
           "named": true
         },
@@ -9982,6 +10214,10 @@
         },
         {
           "type": "fun",
+          "named": true
+        },
+        {
+          "type": "hole",
           "named": true
         },
         {
@@ -10152,6 +10388,10 @@
             "named": true
           },
           {
+            "type": "hole",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -10300,6 +10540,10 @@
         },
         {
           "type": "fun",
+          "named": true
+        },
+        {
+          "type": "hole",
           "named": true
         },
         {
@@ -10455,6 +10699,10 @@
         },
         {
           "type": "fun",
+          "named": true
+        },
+        {
+          "type": "hole",
           "named": true
         },
         {
@@ -10614,6 +10862,10 @@
         },
         {
           "type": "fun",
+          "named": true
+        },
+        {
+          "type": "hole",
           "named": true
         },
         {
@@ -10796,6 +11048,10 @@
             "named": true
           },
           {
+            "type": "hole",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -10946,6 +11202,10 @@
             "named": true
           },
           {
+            "type": "hole",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -11093,6 +11353,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "hole",
             "named": true
           },
           {
@@ -11252,6 +11516,10 @@
             "named": true
           },
           {
+            "type": "hole",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -11405,6 +11673,10 @@
         },
         {
           "type": "fun",
+          "named": true
+        },
+        {
+          "type": "hole",
           "named": true
         },
         {
@@ -11708,6 +11980,10 @@
             "named": true
           },
           {
+            "type": "hole",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -11894,6 +12170,10 @@
             "named": true
           },
           {
+            "type": "hole",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -12061,6 +12341,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "hole",
             "named": true
           },
           {
@@ -12232,6 +12516,10 @@
             "named": true
           },
           {
+            "type": "hole",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -12379,6 +12667,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "hole",
             "named": true
           },
           {
@@ -12538,6 +12830,10 @@
             "named": true
           },
           {
+            "type": "hole",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -12685,6 +12981,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "hole",
             "named": true
           },
           {
@@ -12838,6 +13138,10 @@
             "named": true
           },
           {
+            "type": "hole",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -12985,6 +13289,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "hole",
             "named": true
           },
           {
@@ -13202,6 +13510,10 @@
           "named": true
         },
         {
+          "type": "hole",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },
@@ -13358,6 +13670,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "hole",
             "named": true
           },
           {
@@ -13537,6 +13853,10 @@
             "named": true
           },
           {
+            "type": "hole",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -13703,6 +14023,10 @@
           "named": true
         },
         {
+          "type": "hole",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },
@@ -13855,6 +14179,10 @@
         },
         {
           "type": "fun",
+          "named": true
+        },
+        {
+          "type": "hole",
           "named": true
         },
         {
@@ -14013,6 +14341,10 @@
             "named": true
           },
           {
+            "type": "hole",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -14166,6 +14498,10 @@
         },
         {
           "type": "fun",
+          "named": true
+        },
+        {
+          "type": "hole",
           "named": true
         },
         {
@@ -14354,6 +14690,10 @@
           "named": true
         },
         {
+          "type": "hole",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },
@@ -14506,6 +14846,10 @@
         },
         {
           "type": "fun",
+          "named": true
+        },
+        {
+          "type": "hole",
           "named": true
         },
         {
@@ -14713,6 +15057,10 @@
             "named": true
           },
           {
+            "type": "hole",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -14881,6 +15229,10 @@
             "named": true
           },
           {
+            "type": "hole",
+            "named": true
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -15029,6 +15381,10 @@
         },
         {
           "type": "fun",
+          "named": true
+        },
+        {
+          "type": "hole",
           "named": true
         },
         {

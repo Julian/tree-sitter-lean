@@ -65,6 +65,7 @@ module.exports = grammar({
       repeat1(
         choice(
           field('name', $.identifier),
+          $.hole,
           $._bracketed_binder,
           $.anonymous_constructor,
         )

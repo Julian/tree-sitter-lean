@@ -101,6 +101,10 @@
               },
               {
                 "type": "SYMBOL",
+                "name": "hole"
+              },
+              {
+                "type": "SYMBOL",
                 "name": "_bracketed_binder"
               },
               {
@@ -5044,6 +5048,10 @@
         {
           "type": "SYMBOL",
           "name": "char"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "hole"
         },
         {
           "type": "SYMBOL",
