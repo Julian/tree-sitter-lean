@@ -332,6 +332,6 @@ module.exports = grammar({
     ...command,
     ...syntax,
     ...tactic,
-    ...term,
+    ...term.rules,
   }
 });
