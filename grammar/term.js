@@ -18,6 +18,7 @@ const term = new Parser($ => [
   $.true,
   $.false,
   $.match,
+  $.proj,
   $.arrow,
   $._notation_term,
   $._notation_extra_term,
@@ -99,6 +100,11 @@ module.exports = {
       $.explicit_binder,
       $.implicit_binder,
       $.instance_binder,
+    ),
+    proj: $ => seq(
+      field('term', prec(PREC.lead, $._term)),
+      token.immediate('.'),
+      field('name', choice($.identifier, $.number)),
     ),
     arrow: $ => prec.right(25, seq($._term, choice('->', '→'), $._expression)),
 

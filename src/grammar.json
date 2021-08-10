@@ -129,10 +129,6 @@
         },
         {
           "type": "SYMBOL",
-          "name": "field_of"
-        },
-        {
-          "type": "SYMBOL",
           "name": "fun"
         },
         {
@@ -1010,6 +1006,10 @@
                 },
                 {
                   "type": "SYMBOL",
+                  "name": "proj"
+                },
+                {
+                  "type": "SYMBOL",
                   "name": "arrow"
                 },
                 {
@@ -1077,47 +1077,6 @@
             "content": {
               "type": "SYMBOL",
               "name": "_expression"
-            }
-          }
-        ]
-      }
-    },
-    "field_of": {
-      "type": "PREC",
-      "value": 1,
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "FIELD",
-            "name": "term",
-            "content": {
-              "type": "SYMBOL",
-              "name": "_expression"
-            }
-          },
-          {
-            "type": "IMMEDIATE_TOKEN",
-            "content": {
-              "type": "STRING",
-              "value": "."
-            }
-          },
-          {
-            "type": "FIELD",
-            "name": "name",
-            "content": {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "identifier"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "number"
-                }
-              ]
             }
           }
         ]
@@ -4554,6 +4513,47 @@
         }
       ]
     },
+    "proj": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "term",
+          "content": {
+            "type": "PREC",
+            "value": 1022,
+            "content": {
+              "type": "SYMBOL",
+              "name": "_term"
+            }
+          }
+        },
+        {
+          "type": "IMMEDIATE_TOKEN",
+          "content": {
+            "type": "STRING",
+            "value": "."
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "identifier"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "number"
+              }
+            ]
+          }
+        }
+      ]
+    },
     "arrow": {
       "type": "PREC_RIGHT",
       "value": 25,
@@ -5138,6 +5138,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "proj"
+        },
+        {
+          "type": "SYMBOL",
           "name": "arrow"
         },
         {
@@ -5646,6 +5650,10 @@
     ],
     [
       "_binder_ident"
+    ],
+    [
+      "proj",
+      "_primary_expression"
     ],
     [
       "instance_binder",

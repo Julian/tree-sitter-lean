@@ -39,8 +39,8 @@ module.exports = grammar({
 
   conflicts: $ => [
     [$.instance_binder, $.list],
-
     [$._binder_ident],
+    [$.proj, $._primary_expression],
     [$.instance_binder, $._term],
     [$._binder_ident, $.named_argument],
     [$._let_id_lhs],
@@ -87,7 +87,6 @@ module.exports = grammar({
       $.binary_expression,
       $.unary_expression,
       $.quoted_tactic,
-      $.field_of,
       $.fun,
       $._term,
 
@@ -226,12 +225,6 @@ module.exports = grammar({
       field('name', $._expression),
       '$',
       field('argument', $._expression),
-    )),
-
-    field_of: $ => prec(1, seq(
-      field('term', $._expression),
-      token.immediate('.'),
-      field('name', choice($.identifier, $.number)),
     )),
 
     unary_expression: $ => prec(PREC.unary, choice(

@@ -701,7 +701,7 @@ Field Access
 (module
   (hash_command (identifier))
   (hash_command
-    (field_of
+    (proj
       term: (identifier)
       name: (number))))
 
@@ -725,7 +725,7 @@ Expression Field Access
 
 (module
   (hash_command
-    (field_of
+    (proj
       (parenthesized (apply (identifier) (identifier)))
       (identifier))))
 

@@ -1314,7 +1314,7 @@ inductive A.B | C
   (declaration
     (instance
       name: (identifier)
-      type: (identifier)
+      type: (proj term: (identifier) name: (identifier))
       body:
         (where_decl
           (identifier)

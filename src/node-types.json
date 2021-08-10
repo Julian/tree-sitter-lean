@@ -64,10 +64,6 @@
             "named": true
           },
           {
-            "type": "field_of",
-            "named": true
-          },
-          {
             "type": "float",
             "named": true
           },
@@ -121,6 +117,10 @@
           },
           {
             "type": "product",
+            "named": true
+          },
+          {
+            "type": "proj",
             "named": true
           },
           {
@@ -244,10 +244,6 @@
             "named": true
           },
           {
-            "type": "field_of",
-            "named": true
-          },
-          {
             "type": "float",
             "named": true
           },
@@ -297,6 +293,10 @@
           },
           {
             "type": "product",
+            "named": true
+          },
+          {
+            "type": "proj",
             "named": true
           },
           {
@@ -414,10 +414,6 @@
           "named": true
         },
         {
-          "type": "field_of",
-          "named": true
-        },
-        {
           "type": "float",
           "named": true
         },
@@ -467,6 +463,10 @@
         },
         {
           "type": "product",
+          "named": true
+        },
+        {
+          "type": "proj",
           "named": true
         },
         {
@@ -573,10 +573,6 @@
             "named": true
           },
           {
-            "type": "field_of",
-            "named": true
-          },
-          {
             "type": "float",
             "named": true
           },
@@ -626,6 +622,10 @@
           },
           {
             "type": "product",
+            "named": true
+          },
+          {
+            "type": "proj",
             "named": true
           },
           {
@@ -727,10 +727,6 @@
             "named": true
           },
           {
-            "type": "field_of",
-            "named": true
-          },
-          {
             "type": "float",
             "named": true
           },
@@ -784,6 +780,10 @@
           },
           {
             "type": "product",
+            "named": true
+          },
+          {
+            "type": "proj",
             "named": true
           },
           {
@@ -885,10 +885,6 @@
             "named": true
           },
           {
-            "type": "field_of",
-            "named": true
-          },
-          {
             "type": "float",
             "named": true
           },
@@ -938,6 +934,10 @@
           },
           {
             "type": "product",
+            "named": true
+          },
+          {
+            "type": "proj",
             "named": true
           },
           {
@@ -1045,10 +1045,6 @@
           "named": true
         },
         {
-          "type": "field_of",
-          "named": true
-        },
-        {
           "type": "float",
           "named": true
         },
@@ -1098,6 +1094,10 @@
         },
         {
           "type": "product",
+          "named": true
+        },
+        {
+          "type": "proj",
           "named": true
         },
         {
@@ -1204,10 +1204,6 @@
           "named": true
         },
         {
-          "type": "field_of",
-          "named": true
-        },
-        {
           "type": "float",
           "named": true
         },
@@ -1257,6 +1253,10 @@
         },
         {
           "type": "product",
+          "named": true
+        },
+        {
+          "type": "proj",
           "named": true
         },
         {
@@ -1363,10 +1363,6 @@
           "named": true
         },
         {
-          "type": "field_of",
-          "named": true
-        },
-        {
           "type": "float",
           "named": true
         },
@@ -1416,6 +1412,10 @@
         },
         {
           "type": "product",
+          "named": true
+        },
+        {
+          "type": "proj",
           "named": true
         },
         {
@@ -1532,10 +1532,6 @@
             "named": true
           },
           {
-            "type": "field_of",
-            "named": true
-          },
-          {
             "type": "float",
             "named": true
           },
@@ -1585,6 +1581,10 @@
           },
           {
             "type": "product",
+            "named": true
+          },
+          {
+            "type": "proj",
             "named": true
           },
           {
@@ -1717,6 +1717,10 @@
         },
         {
           "type": "product",
+          "named": true
+        },
+        {
+          "type": "proj",
           "named": true
         },
         {
@@ -1863,10 +1867,6 @@
             "named": true
           },
           {
-            "type": "field_of",
-            "named": true
-          },
-          {
             "type": "float",
             "named": true
           },
@@ -1916,6 +1916,10 @@
           },
           {
             "type": "product",
+            "named": true
+          },
+          {
+            "type": "proj",
             "named": true
           },
           {
@@ -2033,10 +2037,6 @@
           "named": true
         },
         {
-          "type": "field_of",
-          "named": true
-        },
-        {
           "type": "float",
           "named": true
         },
@@ -2086,6 +2086,10 @@
         },
         {
           "type": "product",
+          "named": true
+        },
+        {
+          "type": "proj",
           "named": true
         },
         {
@@ -2210,10 +2214,6 @@
             "named": true
           },
           {
-            "type": "field_of",
-            "named": true
-          },
-          {
             "type": "float",
             "named": true
           },
@@ -2263,6 +2263,10 @@
           },
           {
             "type": "product",
+            "named": true
+          },
+          {
+            "type": "proj",
             "named": true
           },
           {
@@ -2400,10 +2404,6 @@
           "named": true
         },
         {
-          "type": "field_of",
-          "named": true
-        },
-        {
           "type": "float",
           "named": true
         },
@@ -2465,6 +2465,10 @@
         },
         {
           "type": "product",
+          "named": true
+        },
+        {
+          "type": "proj",
           "named": true
         },
         {
@@ -2641,10 +2645,6 @@
             "named": true
           },
           {
-            "type": "field_of",
-            "named": true
-          },
-          {
             "type": "float",
             "named": true
           },
@@ -2694,6 +2694,10 @@
           },
           {
             "type": "product",
+            "named": true
+          },
+          {
+            "type": "proj",
             "named": true
           },
           {
@@ -2811,10 +2815,6 @@
           "named": true
         },
         {
-          "type": "field_of",
-          "named": true
-        },
-        {
           "type": "float",
           "named": true
         },
@@ -2864,6 +2864,10 @@
         },
         {
           "type": "product",
+          "named": true
+        },
+        {
+          "type": "proj",
           "named": true
         },
         {
@@ -2984,10 +2988,6 @@
             "named": true
           },
           {
-            "type": "field_of",
-            "named": true
-          },
-          {
             "type": "float",
             "named": true
           },
@@ -3037,6 +3037,10 @@
           },
           {
             "type": "product",
+            "named": true
+          },
+          {
+            "type": "proj",
             "named": true
           },
           {
@@ -3143,10 +3147,6 @@
           "named": true
         },
         {
-          "type": "field_of",
-          "named": true
-        },
-        {
           "type": "float",
           "named": true
         },
@@ -3196,6 +3196,10 @@
         },
         {
           "type": "product",
+          "named": true
+        },
+        {
+          "type": "proj",
           "named": true
         },
         {
@@ -3316,10 +3320,6 @@
             "named": true
           },
           {
-            "type": "field_of",
-            "named": true
-          },
-          {
             "type": "float",
             "named": true
           },
@@ -3369,6 +3369,10 @@
           },
           {
             "type": "product",
+            "named": true
+          },
+          {
+            "type": "proj",
             "named": true
           },
           {
@@ -3545,10 +3549,6 @@
             "named": true
           },
           {
-            "type": "field_of",
-            "named": true
-          },
-          {
             "type": "float",
             "named": true
           },
@@ -3602,6 +3602,10 @@
           },
           {
             "type": "product",
+            "named": true
+          },
+          {
+            "type": "proj",
             "named": true
           },
           {
@@ -3725,10 +3729,6 @@
             "named": true
           },
           {
-            "type": "field_of",
-            "named": true
-          },
-          {
             "type": "float",
             "named": true
           },
@@ -3778,6 +3778,10 @@
           },
           {
             "type": "product",
+            "named": true
+          },
+          {
+            "type": "proj",
             "named": true
           },
           {
@@ -3899,10 +3903,6 @@
           "named": true
         },
         {
-          "type": "field_of",
-          "named": true
-        },
-        {
           "type": "float",
           "named": true
         },
@@ -3964,6 +3964,10 @@
         },
         {
           "type": "product",
+          "named": true
+        },
+        {
+          "type": "proj",
           "named": true
         },
         {
@@ -4078,10 +4082,6 @@
           "named": true
         },
         {
-          "type": "field_of",
-          "named": true
-        },
-        {
           "type": "float",
           "named": true
         },
@@ -4131,6 +4131,10 @@
         },
         {
           "type": "product",
+          "named": true
+        },
+        {
+          "type": "proj",
           "named": true
         },
         {
@@ -4241,10 +4245,6 @@
             "named": true
           },
           {
-            "type": "field_of",
-            "named": true
-          },
-          {
             "type": "float",
             "named": true
           },
@@ -4298,6 +4298,10 @@
           },
           {
             "type": "product",
+            "named": true
+          },
+          {
+            "type": "proj",
             "named": true
           },
           {
@@ -4411,10 +4415,6 @@
             "named": true
           },
           {
-            "type": "field_of",
-            "named": true
-          },
-          {
             "type": "float",
             "named": true
           },
@@ -4464,6 +4464,10 @@
           },
           {
             "type": "product",
+            "named": true
+          },
+          {
+            "type": "proj",
             "named": true
           },
           {
@@ -4591,10 +4595,6 @@
             "named": true
           },
           {
-            "type": "field_of",
-            "named": true
-          },
-          {
             "type": "float",
             "named": true
           },
@@ -4644,6 +4644,10 @@
           },
           {
             "type": "product",
+            "named": true
+          },
+          {
+            "type": "proj",
             "named": true
           },
           {
@@ -4751,10 +4755,6 @@
           "named": true
         },
         {
-          "type": "field_of",
-          "named": true
-        },
-        {
           "type": "float",
           "named": true
         },
@@ -4804,6 +4804,10 @@
         },
         {
           "type": "product",
+          "named": true
+        },
+        {
+          "type": "proj",
           "named": true
         },
         {
@@ -4914,10 +4918,6 @@
             "named": true
           },
           {
-            "type": "field_of",
-            "named": true
-          },
-          {
             "type": "float",
             "named": true
           },
@@ -4967,6 +4967,10 @@
           },
           {
             "type": "product",
+            "named": true
+          },
+          {
+            "type": "proj",
             "named": true
           },
           {
@@ -5090,10 +5094,6 @@
             "named": true
           },
           {
-            "type": "field_of",
-            "named": true
-          },
-          {
             "type": "float",
             "named": true
           },
@@ -5143,6 +5143,10 @@
           },
           {
             "type": "product",
+            "named": true
+          },
+          {
+            "type": "proj",
             "named": true
           },
           {
@@ -5280,10 +5284,6 @@
             "named": true
           },
           {
-            "type": "field_of",
-            "named": true
-          },
-          {
             "type": "float",
             "named": true
           },
@@ -5333,6 +5333,10 @@
           },
           {
             "type": "product",
+            "named": true
+          },
+          {
+            "type": "proj",
             "named": true
           },
           {
@@ -5452,10 +5456,6 @@
             "named": true
           },
           {
-            "type": "field_of",
-            "named": true
-          },
-          {
             "type": "float",
             "named": true
           },
@@ -5508,177 +5508,7 @@
             "named": true
           },
           {
-            "type": "quoted_tactic",
-            "named": true
-          },
-          {
-            "type": "range",
-            "named": true
-          },
-          {
-            "type": "sorry",
-            "named": true
-          },
-          {
-            "type": "string",
-            "named": true
-          },
-          {
-            "type": "structure_instance",
-            "named": true
-          },
-          {
-            "type": "subarray",
-            "named": true
-          },
-          {
-            "type": "tactics",
-            "named": true
-          },
-          {
-            "type": "true",
-            "named": true
-          },
-          {
-            "type": "unary_expression",
-            "named": true
-          },
-          {
-            "type": "unless",
-            "named": true
-          }
-        ]
-      }
-    }
-  },
-  {
-    "type": "field_of",
-    "named": true,
-    "fields": {
-      "name": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "number",
-            "named": true
-          }
-        ]
-      },
-      "term": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "anonymous_constructor",
-            "named": true
-          },
-          {
-            "type": "apply",
-            "named": true
-          },
-          {
-            "type": "array",
-            "named": true
-          },
-          {
-            "type": "arrow",
-            "named": true
-          },
-          {
-            "type": "assumption_literal",
-            "named": true
-          },
-          {
-            "type": "binary_expression",
-            "named": true
-          },
-          {
-            "type": "cdot",
-            "named": true
-          },
-          {
-            "type": "char",
-            "named": true
-          },
-          {
-            "type": "comparison",
-            "named": true
-          },
-          {
-            "type": "do",
-            "named": true
-          },
-          {
-            "type": "exists",
-            "named": true
-          },
-          {
-            "type": "explicit",
-            "named": true
-          },
-          {
-            "type": "false",
-            "named": true
-          },
-          {
-            "type": "field_of",
-            "named": true
-          },
-          {
-            "type": "float",
-            "named": true
-          },
-          {
-            "type": "forall",
-            "named": true
-          },
-          {
-            "type": "fun",
-            "named": true
-          },
-          {
-            "type": "hole",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "if_then_else",
-            "named": true
-          },
-          {
-            "type": "interpolated_string",
-            "named": true
-          },
-          {
-            "type": "let",
-            "named": true
-          },
-          {
-            "type": "list",
-            "named": true
-          },
-          {
-            "type": "match",
-            "named": true
-          },
-          {
-            "type": "number",
-            "named": true
-          },
-          {
-            "type": "parenthesized",
-            "named": true
-          },
-          {
-            "type": "product",
+            "type": "proj",
             "named": true
           },
           {
@@ -5790,10 +5620,6 @@
           "named": true
         },
         {
-          "type": "field_of",
-          "named": true
-        },
-        {
           "type": "float",
           "named": true
         },
@@ -5855,6 +5681,10 @@
         },
         {
           "type": "product",
+          "named": true
+        },
+        {
+          "type": "proj",
           "named": true
         },
         {
@@ -5979,10 +5809,6 @@
             "named": true
           },
           {
-            "type": "field_of",
-            "named": true
-          },
-          {
             "type": "float",
             "named": true
           },
@@ -6032,6 +5858,10 @@
           },
           {
             "type": "product",
+            "named": true
+          },
+          {
+            "type": "proj",
             "named": true
           },
           {
@@ -6163,10 +5993,6 @@
             "named": true
           },
           {
-            "type": "field_of",
-            "named": true
-          },
-          {
             "type": "float",
             "named": true
           },
@@ -6216,6 +6042,10 @@
           },
           {
             "type": "product",
+            "named": true
+          },
+          {
+            "type": "proj",
             "named": true
           },
           {
@@ -6323,10 +6153,6 @@
           "named": true
         },
         {
-          "type": "field_of",
-          "named": true
-        },
-        {
           "type": "float",
           "named": true
         },
@@ -6384,6 +6210,10 @@
         },
         {
           "type": "product",
+          "named": true
+        },
+        {
+          "type": "proj",
           "named": true
         },
         {
@@ -6490,10 +6320,6 @@
           "named": true
         },
         {
-          "type": "field_of",
-          "named": true
-        },
-        {
           "type": "float",
           "named": true
         },
@@ -6543,6 +6369,10 @@
         },
         {
           "type": "product",
+          "named": true
+        },
+        {
+          "type": "proj",
           "named": true
         },
         {
@@ -6654,10 +6484,6 @@
           "named": true
         },
         {
-          "type": "field_of",
-          "named": true
-        },
-        {
           "type": "float",
           "named": true
         },
@@ -6707,6 +6533,10 @@
         },
         {
           "type": "product",
+          "named": true
+        },
+        {
+          "type": "proj",
           "named": true
         },
         {
@@ -6835,10 +6665,6 @@
             "named": true
           },
           {
-            "type": "field_of",
-            "named": true
-          },
-          {
             "type": "float",
             "named": true
           },
@@ -6888,6 +6714,10 @@
           },
           {
             "type": "product",
+            "named": true
+          },
+          {
+            "type": "proj",
             "named": true
           },
           {
@@ -7053,10 +6883,6 @@
             "named": true
           },
           {
-            "type": "field_of",
-            "named": true
-          },
-          {
             "type": "float",
             "named": true
           },
@@ -7106,6 +6932,10 @@
           },
           {
             "type": "product",
+            "named": true
+          },
+          {
+            "type": "proj",
             "named": true
           },
           {
@@ -7227,10 +7057,6 @@
             "named": true
           },
           {
-            "type": "field_of",
-            "named": true
-          },
-          {
             "type": "float",
             "named": true
           },
@@ -7284,6 +7110,10 @@
           },
           {
             "type": "product",
+            "named": true
+          },
+          {
+            "type": "proj",
             "named": true
           },
           {
@@ -7407,10 +7237,6 @@
             "named": true
           },
           {
-            "type": "field_of",
-            "named": true
-          },
-          {
             "type": "float",
             "named": true
           },
@@ -7460,6 +7286,10 @@
           },
           {
             "type": "product",
+            "named": true
+          },
+          {
+            "type": "proj",
             "named": true
           },
           {
@@ -7595,10 +7425,6 @@
             "named": true
           },
           {
-            "type": "field_of",
-            "named": true
-          },
-          {
             "type": "float",
             "named": true
           },
@@ -7648,6 +7474,10 @@
           },
           {
             "type": "product",
+            "named": true
+          },
+          {
+            "type": "proj",
             "named": true
           },
           {
@@ -7774,10 +7604,6 @@
           "named": true
         },
         {
-          "type": "field_of",
-          "named": true
-        },
-        {
           "type": "float",
           "named": true
         },
@@ -7827,6 +7653,10 @@
         },
         {
           "type": "product",
+          "named": true
+        },
+        {
+          "type": "proj",
           "named": true
         },
         {
@@ -7948,10 +7778,6 @@
             "named": true
           },
           {
-            "type": "field_of",
-            "named": true
-          },
-          {
             "type": "float",
             "named": true
           },
@@ -8001,6 +7827,10 @@
           },
           {
             "type": "product",
+            "named": true
+          },
+          {
+            "type": "proj",
             "named": true
           },
           {
@@ -8122,10 +7952,6 @@
             "named": true
           },
           {
-            "type": "field_of",
-            "named": true
-          },
-          {
             "type": "float",
             "named": true
           },
@@ -8175,6 +8001,10 @@
           },
           {
             "type": "product",
+            "named": true
+          },
+          {
+            "type": "proj",
             "named": true
           },
           {
@@ -8276,10 +8106,6 @@
             "named": true
           },
           {
-            "type": "field_of",
-            "named": true
-          },
-          {
             "type": "float",
             "named": true
           },
@@ -8329,6 +8155,10 @@
           },
           {
             "type": "product",
+            "named": true
+          },
+          {
+            "type": "proj",
             "named": true
           },
           {
@@ -8446,10 +8276,6 @@
             "named": true
           },
           {
-            "type": "field_of",
-            "named": true
-          },
-          {
             "type": "float",
             "named": true
           },
@@ -8499,6 +8325,10 @@
           },
           {
             "type": "product",
+            "named": true
+          },
+          {
+            "type": "proj",
             "named": true
           },
           {
@@ -8606,10 +8436,6 @@
             "named": true
           },
           {
-            "type": "field_of",
-            "named": true
-          },
-          {
             "type": "float",
             "named": true
           },
@@ -8659,6 +8485,10 @@
           },
           {
             "type": "product",
+            "named": true
+          },
+          {
+            "type": "proj",
             "named": true
           },
           {
@@ -8776,10 +8606,6 @@
           "named": true
         },
         {
-          "type": "field_of",
-          "named": true
-        },
-        {
           "type": "float",
           "named": true
         },
@@ -8829,6 +8655,10 @@
         },
         {
           "type": "product",
+          "named": true
+        },
+        {
+          "type": "proj",
           "named": true
         },
         {
@@ -8964,10 +8794,6 @@
             "named": true
           },
           {
-            "type": "field_of",
-            "named": true
-          },
-          {
             "type": "float",
             "named": true
           },
@@ -9017,6 +8843,10 @@
           },
           {
             "type": "product",
+            "named": true
+          },
+          {
+            "type": "proj",
             "named": true
           },
           {
@@ -9126,10 +8956,6 @@
             "named": true
           },
           {
-            "type": "field_of",
-            "named": true
-          },
-          {
             "type": "float",
             "named": true
           },
@@ -9179,6 +9005,10 @@
           },
           {
             "type": "product",
+            "named": true
+          },
+          {
+            "type": "proj",
             "named": true
           },
           {
@@ -9290,10 +9120,6 @@
             "named": true
           },
           {
-            "type": "field_of",
-            "named": true
-          },
-          {
             "type": "float",
             "named": true
           },
@@ -9343,6 +9169,10 @@
           },
           {
             "type": "product",
+            "named": true
+          },
+          {
+            "type": "proj",
             "named": true
           },
           {
@@ -9445,10 +9275,6 @@
           "named": true
         },
         {
-          "type": "field_of",
-          "named": true
-        },
-        {
           "type": "float",
           "named": true
         },
@@ -9498,6 +9324,10 @@
         },
         {
           "type": "product",
+          "named": true
+        },
+        {
+          "type": "proj",
           "named": true
         },
         {
@@ -9679,10 +9509,6 @@
           "named": true
         },
         {
-          "type": "field_of",
-          "named": true
-        },
-        {
           "type": "float",
           "named": true
         },
@@ -9732,6 +9558,10 @@
         },
         {
           "type": "product",
+          "named": true
+        },
+        {
+          "type": "proj",
           "named": true
         },
         {
@@ -9926,10 +9756,6 @@
           "named": true
         },
         {
-          "type": "field_of",
-          "named": true
-        },
-        {
           "type": "float",
           "named": true
         },
@@ -9979,6 +9805,10 @@
         },
         {
           "type": "product",
+          "named": true
+        },
+        {
+          "type": "proj",
           "named": true
         },
         {
@@ -10205,10 +10035,6 @@
           "named": true
         },
         {
-          "type": "field_of",
-          "named": true
-        },
-        {
           "type": "float",
           "named": true
         },
@@ -10258,6 +10084,10 @@
         },
         {
           "type": "product",
+          "named": true
+        },
+        {
+          "type": "proj",
           "named": true
         },
         {
@@ -10376,10 +10206,6 @@
             "named": true
           },
           {
-            "type": "field_of",
-            "named": true
-          },
-          {
             "type": "float",
             "named": true
           },
@@ -10429,6 +10255,10 @@
           },
           {
             "type": "product",
+            "named": true
+          },
+          {
+            "type": "proj",
             "named": true
           },
           {
@@ -10531,10 +10361,6 @@
           "named": true
         },
         {
-          "type": "field_of",
-          "named": true
-        },
-        {
           "type": "float",
           "named": true
         },
@@ -10584,6 +10410,10 @@
         },
         {
           "type": "product",
+          "named": true
+        },
+        {
+          "type": "proj",
           "named": true
         },
         {
@@ -10718,6 +10548,10 @@
           "named": true
         },
         {
+          "type": "proj",
+          "named": true
+        },
+        {
           "type": "range",
           "named": true
         },
@@ -10742,6 +10576,140 @@
           "named": true
         }
       ]
+    }
+  },
+  {
+    "type": "proj",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          }
+        ]
+      },
+      "term": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "anonymous_constructor",
+            "named": true
+          },
+          {
+            "type": "array",
+            "named": true
+          },
+          {
+            "type": "arrow",
+            "named": true
+          },
+          {
+            "type": "assumption_literal",
+            "named": true
+          },
+          {
+            "type": "cdot",
+            "named": true
+          },
+          {
+            "type": "char",
+            "named": true
+          },
+          {
+            "type": "exists",
+            "named": true
+          },
+          {
+            "type": "explicit",
+            "named": true
+          },
+          {
+            "type": "false",
+            "named": true
+          },
+          {
+            "type": "float",
+            "named": true
+          },
+          {
+            "type": "forall",
+            "named": true
+          },
+          {
+            "type": "hole",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "if_then_else",
+            "named": true
+          },
+          {
+            "type": "interpolated_string",
+            "named": true
+          },
+          {
+            "type": "list",
+            "named": true
+          },
+          {
+            "type": "match",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "parenthesized",
+            "named": true
+          },
+          {
+            "type": "product",
+            "named": true
+          },
+          {
+            "type": "proj",
+            "named": true
+          },
+          {
+            "type": "range",
+            "named": true
+          },
+          {
+            "type": "sorry",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "structure_instance",
+            "named": true
+          },
+          {
+            "type": "subarray",
+            "named": true
+          },
+          {
+            "type": "true",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -10809,10 +10777,6 @@
           "named": true
         },
         {
-          "type": "field_of",
-          "named": true
-        },
-        {
           "type": "float",
           "named": true
         },
@@ -10866,6 +10830,10 @@
         },
         {
           "type": "product",
+          "named": true
+        },
+        {
+          "type": "proj",
           "named": true
         },
         {
@@ -10988,10 +10956,6 @@
             "named": true
           },
           {
-            "type": "field_of",
-            "named": true
-          },
-          {
             "type": "float",
             "named": true
           },
@@ -11041,6 +11005,10 @@
           },
           {
             "type": "product",
+            "named": true
+          },
+          {
+            "type": "proj",
             "named": true
           },
           {
@@ -11142,10 +11110,6 @@
             "named": true
           },
           {
-            "type": "field_of",
-            "named": true
-          },
-          {
             "type": "float",
             "named": true
           },
@@ -11195,6 +11159,10 @@
           },
           {
             "type": "product",
+            "named": true
+          },
+          {
+            "type": "proj",
             "named": true
           },
           {
@@ -11296,10 +11264,6 @@
             "named": true
           },
           {
-            "type": "field_of",
-            "named": true
-          },
-          {
             "type": "float",
             "named": true
           },
@@ -11349,6 +11313,10 @@
           },
           {
             "type": "product",
+            "named": true
+          },
+          {
+            "type": "proj",
             "named": true
           },
           {
@@ -11456,10 +11424,6 @@
             "named": true
           },
           {
-            "type": "field_of",
-            "named": true
-          },
-          {
             "type": "float",
             "named": true
           },
@@ -11509,6 +11473,10 @@
           },
           {
             "type": "product",
+            "named": true
+          },
+          {
+            "type": "proj",
             "named": true
           },
           {
@@ -11616,10 +11584,6 @@
           "named": true
         },
         {
-          "type": "field_of",
-          "named": true
-        },
-        {
           "type": "float",
           "named": true
         },
@@ -11669,6 +11633,10 @@
         },
         {
           "type": "product",
+          "named": true
+        },
+        {
+          "type": "proj",
           "named": true
         },
         {
@@ -11920,10 +11888,6 @@
             "named": true
           },
           {
-            "type": "field_of",
-            "named": true
-          },
-          {
             "type": "float",
             "named": true
           },
@@ -11973,6 +11937,10 @@
           },
           {
             "type": "product",
+            "named": true
+          },
+          {
+            "type": "proj",
             "named": true
           },
           {
@@ -12110,10 +12078,6 @@
             "named": true
           },
           {
-            "type": "field_of",
-            "named": true
-          },
-          {
             "type": "float",
             "named": true
           },
@@ -12163,6 +12127,10 @@
           },
           {
             "type": "product",
+            "named": true
+          },
+          {
+            "type": "proj",
             "named": true
           },
           {
@@ -12284,10 +12252,6 @@
             "named": true
           },
           {
-            "type": "field_of",
-            "named": true
-          },
-          {
             "type": "float",
             "named": true
           },
@@ -12337,6 +12301,10 @@
           },
           {
             "type": "product",
+            "named": true
+          },
+          {
+            "type": "proj",
             "named": true
           },
           {
@@ -12456,10 +12424,6 @@
             "named": true
           },
           {
-            "type": "field_of",
-            "named": true
-          },
-          {
             "type": "float",
             "named": true
           },
@@ -12509,6 +12473,10 @@
           },
           {
             "type": "product",
+            "named": true
+          },
+          {
+            "type": "proj",
             "named": true
           },
           {
@@ -12610,10 +12578,6 @@
             "named": true
           },
           {
-            "type": "field_of",
-            "named": true
-          },
-          {
             "type": "float",
             "named": true
           },
@@ -12663,6 +12627,10 @@
           },
           {
             "type": "product",
+            "named": true
+          },
+          {
+            "type": "proj",
             "named": true
           },
           {
@@ -12770,10 +12738,6 @@
             "named": true
           },
           {
-            "type": "field_of",
-            "named": true
-          },
-          {
             "type": "float",
             "named": true
           },
@@ -12823,6 +12787,10 @@
           },
           {
             "type": "product",
+            "named": true
+          },
+          {
+            "type": "proj",
             "named": true
           },
           {
@@ -12924,10 +12892,6 @@
             "named": true
           },
           {
-            "type": "field_of",
-            "named": true
-          },
-          {
             "type": "float",
             "named": true
           },
@@ -12977,6 +12941,10 @@
           },
           {
             "type": "product",
+            "named": true
+          },
+          {
+            "type": "proj",
             "named": true
           },
           {
@@ -13078,10 +13046,6 @@
             "named": true
           },
           {
-            "type": "field_of",
-            "named": true
-          },
-          {
             "type": "float",
             "named": true
           },
@@ -13131,6 +13095,10 @@
           },
           {
             "type": "product",
+            "named": true
+          },
+          {
+            "type": "proj",
             "named": true
           },
           {
@@ -13232,10 +13200,6 @@
             "named": true
           },
           {
-            "type": "field_of",
-            "named": true
-          },
-          {
             "type": "float",
             "named": true
           },
@@ -13285,6 +13249,10 @@
           },
           {
             "type": "product",
+            "named": true
+          },
+          {
+            "type": "proj",
             "named": true
           },
           {
@@ -13415,10 +13383,6 @@
           "named": true
         },
         {
-          "type": "field_of",
-          "named": true
-        },
-        {
           "type": "float",
           "named": true
         },
@@ -13472,6 +13436,10 @@
         },
         {
           "type": "product",
+          "named": true
+        },
+        {
+          "type": "proj",
           "named": true
         },
         {
@@ -13594,10 +13562,6 @@
           "named": true
         },
         {
-          "type": "field_of",
-          "named": true
-        },
-        {
           "type": "float",
           "named": true
         },
@@ -13647,6 +13611,10 @@
         },
         {
           "type": "product",
+          "named": true
+        },
+        {
+          "type": "proj",
           "named": true
         },
         {
@@ -13757,10 +13725,6 @@
             "named": true
           },
           {
-            "type": "field_of",
-            "named": true
-          },
-          {
             "type": "float",
             "named": true
           },
@@ -13814,6 +13778,10 @@
           },
           {
             "type": "product",
+            "named": true
+          },
+          {
+            "type": "proj",
             "named": true
           },
           {
@@ -13937,10 +13905,6 @@
             "named": true
           },
           {
-            "type": "field_of",
-            "named": true
-          },
-          {
             "type": "float",
             "named": true
           },
@@ -13990,6 +13954,10 @@
           },
           {
             "type": "product",
+            "named": true
+          },
+          {
+            "type": "proj",
             "named": true
           },
           {
@@ -14107,10 +14075,6 @@
           "named": true
         },
         {
-          "type": "field_of",
-          "named": true
-        },
-        {
           "type": "float",
           "named": true
         },
@@ -14160,6 +14124,10 @@
         },
         {
           "type": "product",
+          "named": true
+        },
+        {
+          "type": "proj",
           "named": true
         },
         {
@@ -14266,10 +14234,6 @@
           "named": true
         },
         {
-          "type": "field_of",
-          "named": true
-        },
-        {
           "type": "float",
           "named": true
         },
@@ -14319,6 +14283,10 @@
         },
         {
           "type": "product",
+          "named": true
+        },
+        {
+          "type": "proj",
           "named": true
         },
         {
@@ -14425,10 +14393,6 @@
             "named": true
           },
           {
-            "type": "field_of",
-            "named": true
-          },
-          {
             "type": "float",
             "named": true
           },
@@ -14478,6 +14442,10 @@
           },
           {
             "type": "product",
+            "named": true
+          },
+          {
+            "type": "proj",
             "named": true
           },
           {
@@ -14585,10 +14553,6 @@
           "named": true
         },
         {
-          "type": "field_of",
-          "named": true
-        },
-        {
           "type": "float",
           "named": true
         },
@@ -14638,6 +14602,10 @@
         },
         {
           "type": "product",
+          "named": true
+        },
+        {
+          "type": "proj",
           "named": true
         },
         {
@@ -14774,10 +14742,6 @@
           "named": true
         },
         {
-          "type": "field_of",
-          "named": true
-        },
-        {
           "type": "float",
           "named": true
         },
@@ -14827,6 +14791,10 @@
         },
         {
           "type": "product",
+          "named": true
+        },
+        {
+          "type": "proj",
           "named": true
         },
         {
@@ -14982,10 +14950,6 @@
             "named": true
           },
           {
-            "type": "field_of",
-            "named": true
-          },
-          {
             "type": "float",
             "named": true
           },
@@ -15039,6 +15003,10 @@
           },
           {
             "type": "product",
+            "named": true
+          },
+          {
+            "type": "proj",
             "named": true
           },
           {
@@ -15154,10 +15122,6 @@
             "named": true
           },
           {
-            "type": "field_of",
-            "named": true
-          },
-          {
             "type": "float",
             "named": true
           },
@@ -15207,6 +15171,10 @@
           },
           {
             "type": "product",
+            "named": true
+          },
+          {
+            "type": "proj",
             "named": true
           },
           {
@@ -15309,10 +15277,6 @@
           "named": true
         },
         {
-          "type": "field_of",
-          "named": true
-        },
-        {
           "type": "float",
           "named": true
         },
@@ -15362,6 +15326,10 @@
         },
         {
           "type": "product",
+          "named": true
+        },
+        {
+          "type": "proj",
           "named": true
         },
         {
