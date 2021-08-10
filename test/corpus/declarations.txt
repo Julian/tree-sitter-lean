@@ -1557,7 +1557,7 @@ def foo :=
       name: (identifier)
       (ERROR (identifier))
       body:
-        (apply name: (number) arguments: (identifier)))))
+        (unary_expression (apply name: (number) arguments: (identifier))))))
 
 ======
 Abbrev

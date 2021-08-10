@@ -122,7 +122,12 @@
         {
           "type": "SYMBOL",
           "name": "_primary_expression"
-        },
+        }
+      ]
+    },
+    "_primary_expression": {
+      "type": "CHOICE",
+      "members": [
         {
           "type": "SYMBOL",
           "name": "apply"
@@ -141,17 +146,8 @@
         },
         {
           "type": "SYMBOL",
-          "name": "do"
+          "name": "binary_expression"
         },
-        {
-          "type": "SYMBOL",
-          "name": "unless"
-        }
-      ]
-    },
-    "_primary_expression": {
-      "type": "CHOICE",
-      "members": [
         {
           "type": "SYMBOL",
           "name": "unary_expression"
@@ -174,11 +170,15 @@
         },
         {
           "type": "SYMBOL",
-          "name": "binary_expression"
+          "name": "_term"
         },
         {
           "type": "SYMBOL",
-          "name": "_term"
+          "name": "do"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "unless"
         }
       ]
     },

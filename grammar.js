@@ -78,10 +78,20 @@ module.exports = grammar({
 
     _expression: $ => choice(
       $._primary_expression,
+    ),
+
+    _primary_expression: $ => choice(
       $.apply,
       $.comparison,
       $.let,
       $.tactics,
+      $.binary_expression,
+      $.unary_expression,
+      $.quoted_tactic,
+      $.product_type,
+      $.field_of,
+      $.fun,
+      $._term,
 
       // FIXME: These two rules make grammar generation absurdly slow, by 20x.
       //        Really `do` is the relevant one, `unless` uses it.
@@ -89,16 +99,6 @@ module.exports = grammar({
       //        is a relevant ticket.
       $.do,
       $.unless,
-    ),
-
-    _primary_expression: $ => choice(
-      $.unary_expression,
-      $.quoted_tactic,
-      $.product_type,
-      $.field_of,
-      $.fun,
-      $.binary_expression,
-      $._term,
     ),
 
     let: $ => prec.left(seq(
