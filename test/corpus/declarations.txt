@@ -1314,10 +1314,7 @@ inductive A.B | C
   (declaration
     (instance
       name: (identifier)
-      type:
-        (field_of
-          term: (identifier)
-          name: (identifier))
+      type: (identifier)
       body:
         (where_decl
           (identifier)
@@ -1560,7 +1557,7 @@ def foo :=
       name: (identifier)
       (ERROR (identifier))
       body:
-        (apply name: (unary_expression (number)) arguments: (identifier)))))
+        (apply name: (number) arguments: (identifier)))))
 
 ======
 Abbrev

@@ -37,13 +37,17 @@ module.exports = grammar({
   ],
 
   conflicts: $ => [
-    [$._do_command, $.if_then_else],
-    [$._let_id_lhs, $._term],
-    [$.assign, $._term],
-    [$._let_id_lhs],
-    [$._simple_binder],
+    [$.instance_binder, $.list],
+
     [$._binder_ident],
+    [$.instance_binder, $._term],
+    [$._binder_ident, $.named_argument],
+    [$._let_id_lhs],
+    [$._binder_ident, $._term],
+    [$.assign, $._term],
+    [$._let_id_lhs, $._term],
     [$.identifier],
+    [$._simple_binder],
     [$.user_tactic, $.quoted_tactic],
   ],
 
@@ -219,7 +223,7 @@ module.exports = grammar({
     apply: $ => choice($._apply, $._dollar),
 
     _apply: $ => prec(PREC.apply, seq(
-      field('name', $._primary_expression),
+      field('name', term.term.forbid($, 'do')),
       field('arguments', repeat1($._argument)),
     )),
 

@@ -957,8 +957,101 @@
             "type": "FIELD",
             "name": "name",
             "content": {
-              "type": "SYMBOL",
-              "name": "_primary_expression"
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "identifier"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "number"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "float"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "string"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "char"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "hole"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "sorry"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "cdot"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "parenthesized"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "anonymous_constructor"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "structure_instance"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "explicit"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "forall"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "true"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "false"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "match"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "arrow"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_notation_term"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_notation_extra_term"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "array"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "subarray"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "range"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "interpolated_string"
+                }
+              ]
             }
           },
           {
@@ -5573,11 +5666,25 @@
   ],
   "conflicts": [
     [
-      "_do_command",
-      "if_then_else"
+      "instance_binder",
+      "list"
     ],
     [
-      "_let_id_lhs",
+      "_binder_ident"
+    ],
+    [
+      "instance_binder",
+      "_term"
+    ],
+    [
+      "_binder_ident",
+      "named_argument"
+    ],
+    [
+      "_let_id_lhs"
+    ],
+    [
+      "_binder_ident",
       "_term"
     ],
     [
@@ -5585,16 +5692,14 @@
       "_term"
     ],
     [
-      "_let_id_lhs"
-    ],
-    [
-      "_simple_binder"
-    ],
-    [
-      "_binder_ident"
+      "_let_id_lhs",
+      "_term"
     ],
     [
       "identifier"
+    ],
+    [
+      "_simple_binder"
     ],
     [
       "user_tactic",

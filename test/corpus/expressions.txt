@@ -487,10 +487,9 @@ Binary Expressions
       (binary_expression (number) (identifier))
       (identifier)))
   (hash_command
-    (apply
-      (binary_expression (identifier) (identifier))
-      (binary_expression (identifier) (identifier))
-      (number)))
+    (binary_expression (identifier)
+      (apply (identifier)
+        (binary_expression (identifier) (identifier)) (number))))
   (hash_command
     (binary_expression
       (identifier)
