@@ -64,8 +64,6 @@ module.exports = grammar({
     prelude: $ => 'prelude',
     import: $ => seq('import', field('module', $.identifier)),
 
-    product_type: $ => prec.right(PREC.multitype, sep2($._expression, '×')),
-
     parameters: $ => seq(
       repeat1(
         choice(
@@ -89,15 +87,10 @@ module.exports = grammar({
       $.binary_expression,
       $.unary_expression,
       $.quoted_tactic,
-      $.product_type,
       $.field_of,
       $.fun,
       $._term,
 
-      // FIXME: These two rules make grammar generation absurdly slow, by 20x.
-      //        Really `do` is the relevant one, `unless` uses it.
-      //        Possibly https://github.com/tree-sitter/tree-sitter/issues/693
-      //        is a relevant ticket.
       $.do,
       $.unless,
     ),

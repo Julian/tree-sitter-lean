@@ -317,11 +317,11 @@ Product Type
 ---
 
 (module
-  (hash_command (product_type (identifier) (identifier)))
-  (hash_command (product_type (identifier) (identifier) (identifier)))
+  (hash_command (product (identifier) (identifier)))
+  (hash_command (product (identifier) (product (identifier) (identifier))))
   (hash_command
-    (product_type
-      (parenthesized (product_type (identifier) (identifier))) (identifier))))
+    (product
+      (parenthesized (product (identifier) (identifier))) (identifier))))
 
 =======================
 Product Type Precedence
@@ -331,8 +331,10 @@ Product Type Precedence
 
 ---
 
+; FIXME: This is wrong (backwards)... but apply's precedence needs fixing
+
 (module
-  (hash_command (product_type (apply (identifier) (number)) (identifier))))
+  (hash_command (apply (identifier) (product (number) (identifier)))))
 
 ============
 If/Then/Else

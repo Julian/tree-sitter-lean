@@ -173,7 +173,7 @@ def foo (xs : Array (Nat × Nat)) : Unit := do
             (apply
               name: (identifier)
               arguments:
-                (parenthesized (product_type (identifier) (identifier))))))
+                (parenthesized (product (identifier) (identifier))))))
       type: (identifier)
       body:
         (do

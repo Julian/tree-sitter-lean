@@ -44,7 +44,7 @@ Same Line #commands
           (apply
             name: (identifier)
             arguments:
-              (parenthesized (product_type (identifier) (hole))))))))
+              (parenthesized (product (identifier) (hole))))))))
 
 =======
 Prelude

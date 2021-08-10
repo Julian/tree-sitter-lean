@@ -412,7 +412,7 @@ theorem foo {p : α × β} :
       (binders
         (implicit_binder
           name: (identifier)
-          type: (product_type (identifier) (identifier))))
+          type: (product (identifier) (identifier))))
       type:
         (binary_expression
           (binary_expression
