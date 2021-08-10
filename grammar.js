@@ -1,5 +1,6 @@
 const attr = require('./grammar/attr.js')
 const command = require('./grammar/command.js')
+const do_ = require('./grammar/do.js')
 const syntax = require('./grammar/syntax.js')
 const tactic = require('./grammar/tactic.js')
 const term = require('./grammar/term.js')
@@ -156,14 +157,14 @@ module.exports = grammar({
     let_mut: $ => seq(
       'let', 'mut',
       $.parameters,
-      choice($._left_arrow, ':='),
+      choice(do_._left_arrow($), ':='),
       field('value', $._expression),
     ),
 
     let_bind: $ => seq(
       'let',
       field('name', $.identifier),
-      $._left_arrow,
+      do_._left_arrow($),
       field('value', $._expression),
     ),
 
@@ -299,7 +300,6 @@ module.exports = grammar({
       $._expression,
     )),
 
-    _left_arrow: $ => choice('<-', '←'),
     _right_arrow: $ => choice('->', '→'),
 
     escape_sequence: $ => token(
