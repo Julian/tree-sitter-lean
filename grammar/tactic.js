@@ -13,7 +13,7 @@ module.exports = {
   )),
   trivial: $ => 'trivial',
 
-  user_tactic: $ => $._expression,
+  _user_tactic: $ => $._expression,
 
   _tactic: $ => choice(
     $.apply_tactic,
@@ -22,6 +22,6 @@ module.exports = {
     $.simp,
     $.term,
     $.trivial,
-    $.user_tactic,
+    $._user_tactic,
   ),
 }

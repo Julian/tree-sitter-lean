@@ -1138,32 +1138,6 @@
         ]
       }
     },
-    "quoted_tactic": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "`(tactic|"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "_tactic"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "_expression"
-            }
-          ]
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
     "unary_expression": {
       "type": "PREC",
       "value": 19,
@@ -3962,7 +3936,7 @@
       "type": "STRING",
       "value": "trivial"
     },
-    "user_tactic": {
+    "_user_tactic": {
       "type": "SYMBOL",
       "name": "_expression"
     },
@@ -3995,7 +3969,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "user_tactic"
+          "name": "_user_tactic"
         }
       ]
     },
@@ -5119,6 +5093,23 @@
         }
       ]
     },
+    "quoted_tactic": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "`(tactic|"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_tactic"
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
     "_term": {
       "type": "CHOICE",
       "members": [
@@ -5702,7 +5693,7 @@
       "_simple_binder"
     ],
     [
-      "user_tactic",
+      "_user_tactic",
       "quoted_tactic"
     ]
   ],

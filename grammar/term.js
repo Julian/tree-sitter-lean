@@ -163,6 +163,8 @@ module.exports = {
       'where', repeat1(seq(alias($._let_rec_decl, $.where_decl))),
     ),
 
+    quoted_tactic: $ => seq('`(tactic|', $._tactic, ')'),
+
     _term: $ => term.all($),
 
     // src/Init/Notation.lean

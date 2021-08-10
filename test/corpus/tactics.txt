@@ -138,9 +138,9 @@ example : true ↔ true := by
   (declaration
     (example (binary_expression (true) (true))
       (tactics
-        (user_tactic (identifier))
-        (user_tactic (apply (identifier) (identifier)))
-        (user_tactic (identifier))))))
+        (identifier)
+        (apply (identifier) (identifier))
+        (identifier)))))
 
 ==========
 Semicolons

@@ -48,7 +48,7 @@ module.exports = grammar({
     [$._let_id_lhs, $._term],
     [$.identifier],
     [$._simple_binder],
-    [$.user_tactic, $.quoted_tactic],
+    [$._user_tactic, $.quoted_tactic],
   ],
 
   word: $ => $._identifier,
@@ -239,11 +239,6 @@ module.exports = grammar({
       token.immediate('.'),
       field('name', choice($.identifier, $.number)),
     )),
-
-    // src/Lean/Parser/Syntax.lean
-    quoted_tactic: $ => seq(
-      '`(tactic|', choice($._tactic, $._expression), ')',
-    ),
 
     unary_expression: $ => prec(PREC.unary, choice(
       seq('←', $._expression),
