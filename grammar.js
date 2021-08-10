@@ -300,8 +300,6 @@ module.exports = grammar({
       $._expression,
     )),
 
-    _right_arrow: $ => choice('->', '→'),
-
     escape_sequence: $ => token(
       seq(
         '\\', choice(

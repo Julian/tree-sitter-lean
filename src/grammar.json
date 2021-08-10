@@ -1877,19 +1877,6 @@
         ]
       }
     },
-    "_right_arrow": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "->"
-        },
-        {
-          "type": "STRING",
-          "value": "→"
-        }
-      ]
-    },
     "escape_sequence": {
       "type": "TOKEN",
       "content": {
