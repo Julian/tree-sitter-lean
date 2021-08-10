@@ -16,8 +16,15 @@ class Parser {
   }
 
   forbid($, ...disallow) {
-    disallow = new Set(disallow);
-    return choice(...this.rules_fn($).filter(rule => !disallow.has(rule.name)));
+    var seen = new Set(disallow);
+    var rules = this.rules_fn($)
+    var filtered = rules.filter(rule => !seen.delete(rule.name));
+    if (seen.size > 0) {
+      throw `Disallowed rules that weren't present:\n\
+       ${disallow.toString()}\n\
+       ${rules.map(rule => rule.name).toString()}`;
+    }
+    return choice(...filtered);
   }
 }
 
