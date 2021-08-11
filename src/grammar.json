@@ -277,10 +277,6 @@
             {
               "type": "SYMBOL",
               "name": "return"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "throw"
             }
           ]
         }
@@ -515,19 +511,6 @@
             "type": "SYMBOL",
             "name": "_expression"
           }
-        }
-      ]
-    },
-    "throw": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "throw"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_expression"
         }
       ]
     },

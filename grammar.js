@@ -114,7 +114,6 @@ module.exports = grammar({
         $.let_bind,
         $.let_mut,
         $.return,
-        $.throw,
 
         // FIXME: These rules are what make the above really slow it'd
         //        appear, each seem to make things ~4x slower
@@ -160,8 +159,6 @@ module.exports = grammar({
       do_._left_arrow($),
       field('value', $._expression),
     ),
-
-    throw: $ => seq('throw', $._expression),
 
     unless: $ => seq('unless', $._expression, $.do),
 
