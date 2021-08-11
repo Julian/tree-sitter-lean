@@ -231,15 +231,15 @@ def foo : Nat → Nat
       name: (identifier)
       type: (arrow (identifier) (identifier))
       body:
-        (pattern
+        (match_alt
           lhs: (number)
           (number))
       body:
-        (pattern
+        (match_alt
           lhs: (number)
           (number))
       body:
-        (pattern
+        (match_alt
           lhs: (hole)
           (number)))))
 
@@ -261,12 +261,10 @@ def foo : Nat -> Bool :=
       type: (arrow (identifier) (identifier))
       body:
         (fun
-          (pattern
-            lhs: (number)
-            (true))
-          (pattern
-            lhs: (hole)
-            (false))))))
+          lhs: (number)
+          (true)
+          lhs: (hole)
+          (false)))))
 
 =======================
 Multimatch Syntax Sugar
@@ -285,17 +283,17 @@ def foo : Nat → Nat -> Nat
       name: (identifier)
       type: (arrow (identifier) (arrow (identifier) (identifier)))
       body:
-        (pattern
+        (match_alt
           lhs: (number)
           lhs: (identifier)
           (number))
       body:
-        (pattern
+        (match_alt
           lhs: (number)
           lhs: (identifier)
           (number))
       body:
-        (pattern
+        (match_alt
           lhs: (hole)
           lhs: (hole)
           (number)))))
@@ -420,7 +418,7 @@ theorem foo {p : α × β} :
             (binary_expression (identifier) (identifier)))
           (identifier))
       body:
-        (pattern
+        (match_alt
           lhs: (parenthesized (identifier) (tuple_tail (identifier)))
           lhs: (parenthesized (identifier) (tuple_tail (identifier)))
           (sorry)))))
@@ -1625,11 +1623,11 @@ abbrev Baz
     (abbrev
       name: (identifier)
       body:
-        (pattern
+        (match_alt
           lhs: (number)
           (number))
       body:
-        (pattern
+        (match_alt
           lhs: (hole)
           (number))))
   (declaration

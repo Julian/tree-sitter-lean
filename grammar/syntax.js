@@ -17,7 +17,7 @@ module.exports = {
   macro_rules: $ => seq(
     optional($._attr_kind),
     'macro_rules',
-    repeat($.pattern),
+    $._match_alts,
   ),
   syntax: $ => seq(
     optional($._attr_kind),

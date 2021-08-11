@@ -190,12 +190,6 @@ module.exports = grammar({
       seq('return', field('value', optional($._expression))),
     ),
 
-    pattern: $ => seq(
-      '|',
-      field('lhs', sep1($._expression, ',')),
-      '=>',
-      $._expression,
-    ),
 
     fun: $ => prec.right(seq(
       choice('fun', 'λ'),
@@ -205,7 +199,12 @@ module.exports = grammar({
           '=>',
           $._expression,
         ),
-        repeat($.pattern),
+        repeat(seq(
+          '|',
+          field('lhs', sep1($._expression, ',')),
+          '=>',
+          $._expression,
+        )),
       ),
     )),
 

@@ -178,6 +178,7 @@ module.exports = {
     _where_decls: $ => seq(
       'where', repeat1(seq(alias($._let_rec_decl, $.where_decl))),
     ),
+    _match_alts_where_decls: $ => seq($._match_alts, optional($._where_decls)),
 
     quoted_tactic: $ => seq('`(tactic|', $._tactic, ')'),
 

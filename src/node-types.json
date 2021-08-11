@@ -116,15 +116,15 @@
             "named": true
           },
           {
+            "type": "match_alt",
+            "named": true
+          },
+          {
             "type": "number",
             "named": true
           },
           {
             "type": "parenthesized",
-            "named": true
-          },
-          {
-            "type": "pattern",
             "named": true
           },
           {
@@ -4272,15 +4272,15 @@
             "named": true
           },
           {
+            "type": "match_alt",
+            "named": true
+          },
+          {
             "type": "number",
             "named": true
           },
           {
             "type": "parenthesized",
-            "named": true
-          },
-          {
-            "type": "pattern",
             "named": true
           },
           {
@@ -5079,15 +5079,15 @@
             "named": true
           },
           {
+            "type": "match_alt",
+            "named": true
+          },
+          {
             "type": "number",
             "named": true
           },
           {
             "type": "parenthesized",
-            "named": true
-          },
-          {
-            "type": "pattern",
             "named": true
           },
           {
@@ -7141,7 +7141,190 @@
   {
     "type": "fun",
     "named": true,
-    "fields": {},
+    "fields": {
+      "lhs": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "anonymous_constructor",
+            "named": true
+          },
+          {
+            "type": "apply",
+            "named": true
+          },
+          {
+            "type": "array",
+            "named": true
+          },
+          {
+            "type": "arrow",
+            "named": true
+          },
+          {
+            "type": "assumption_literal",
+            "named": true
+          },
+          {
+            "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "borrowed",
+            "named": true
+          },
+          {
+            "type": "cdot",
+            "named": true
+          },
+          {
+            "type": "char",
+            "named": true
+          },
+          {
+            "type": "comparison",
+            "named": true
+          },
+          {
+            "type": "do",
+            "named": true
+          },
+          {
+            "type": "double_quoted_name",
+            "named": true
+          },
+          {
+            "type": "exists",
+            "named": true
+          },
+          {
+            "type": "explicit",
+            "named": true
+          },
+          {
+            "type": "false",
+            "named": true
+          },
+          {
+            "type": "float",
+            "named": true
+          },
+          {
+            "type": "forall",
+            "named": true
+          },
+          {
+            "type": "fun",
+            "named": true
+          },
+          {
+            "type": "hole",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "if_then_else",
+            "named": true
+          },
+          {
+            "type": "interpolated_string",
+            "named": true
+          },
+          {
+            "type": "let",
+            "named": true
+          },
+          {
+            "type": "lift_method",
+            "named": true
+          },
+          {
+            "type": "list",
+            "named": true
+          },
+          {
+            "type": "match",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "parenthesized",
+            "named": true
+          },
+          {
+            "type": "product",
+            "named": true
+          },
+          {
+            "type": "proj",
+            "named": true
+          },
+          {
+            "type": "quoted",
+            "named": true
+          },
+          {
+            "type": "quoted_name",
+            "named": true
+          },
+          {
+            "type": "quoted_tactic",
+            "named": true
+          },
+          {
+            "type": "range",
+            "named": true
+          },
+          {
+            "type": "sorry",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "structure_instance",
+            "named": true
+          },
+          {
+            "type": "subarray",
+            "named": true
+          },
+          {
+            "type": "subtype",
+            "named": true
+          },
+          {
+            "type": "tactics",
+            "named": true
+          },
+          {
+            "type": "true",
+            "named": true
+          },
+          {
+            "type": "unary_expression",
+            "named": true
+          },
+          {
+            "type": "unless",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": false,
@@ -7260,10 +7443,6 @@
         },
         {
           "type": "parenthesized",
-          "named": true
-        },
-        {
-          "type": "pattern",
           "named": true
         },
         {
@@ -8275,15 +8454,15 @@
             "named": true
           },
           {
+            "type": "match_alt",
+            "named": true
+          },
+          {
             "type": "number",
             "named": true
           },
           {
             "type": "parenthesized",
-            "named": true
-          },
-          {
-            "type": "pattern",
             "named": true
           },
           {
@@ -10259,10 +10438,10 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
-          "type": "pattern",
+          "type": "match_alt",
           "named": true
         }
       ]
@@ -11833,372 +12012,6 @@
         },
         {
           "type": "type_ascription",
-          "named": true
-        },
-        {
-          "type": "unary_expression",
-          "named": true
-        },
-        {
-          "type": "unless",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "pattern",
-    "named": true,
-    "fields": {
-      "lhs": {
-        "multiple": true,
-        "required": true,
-        "types": [
-          {
-            "type": ",",
-            "named": false
-          },
-          {
-            "type": "anonymous_constructor",
-            "named": true
-          },
-          {
-            "type": "apply",
-            "named": true
-          },
-          {
-            "type": "array",
-            "named": true
-          },
-          {
-            "type": "arrow",
-            "named": true
-          },
-          {
-            "type": "assumption_literal",
-            "named": true
-          },
-          {
-            "type": "binary_expression",
-            "named": true
-          },
-          {
-            "type": "borrowed",
-            "named": true
-          },
-          {
-            "type": "cdot",
-            "named": true
-          },
-          {
-            "type": "char",
-            "named": true
-          },
-          {
-            "type": "comparison",
-            "named": true
-          },
-          {
-            "type": "do",
-            "named": true
-          },
-          {
-            "type": "double_quoted_name",
-            "named": true
-          },
-          {
-            "type": "exists",
-            "named": true
-          },
-          {
-            "type": "explicit",
-            "named": true
-          },
-          {
-            "type": "false",
-            "named": true
-          },
-          {
-            "type": "float",
-            "named": true
-          },
-          {
-            "type": "forall",
-            "named": true
-          },
-          {
-            "type": "fun",
-            "named": true
-          },
-          {
-            "type": "hole",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "if_then_else",
-            "named": true
-          },
-          {
-            "type": "interpolated_string",
-            "named": true
-          },
-          {
-            "type": "let",
-            "named": true
-          },
-          {
-            "type": "lift_method",
-            "named": true
-          },
-          {
-            "type": "list",
-            "named": true
-          },
-          {
-            "type": "match",
-            "named": true
-          },
-          {
-            "type": "number",
-            "named": true
-          },
-          {
-            "type": "parenthesized",
-            "named": true
-          },
-          {
-            "type": "product",
-            "named": true
-          },
-          {
-            "type": "proj",
-            "named": true
-          },
-          {
-            "type": "quoted",
-            "named": true
-          },
-          {
-            "type": "quoted_name",
-            "named": true
-          },
-          {
-            "type": "quoted_tactic",
-            "named": true
-          },
-          {
-            "type": "range",
-            "named": true
-          },
-          {
-            "type": "sorry",
-            "named": true
-          },
-          {
-            "type": "string",
-            "named": true
-          },
-          {
-            "type": "structure_instance",
-            "named": true
-          },
-          {
-            "type": "subarray",
-            "named": true
-          },
-          {
-            "type": "subtype",
-            "named": true
-          },
-          {
-            "type": "tactics",
-            "named": true
-          },
-          {
-            "type": "true",
-            "named": true
-          },
-          {
-            "type": "unary_expression",
-            "named": true
-          },
-          {
-            "type": "unless",
-            "named": true
-          }
-        ]
-      }
-    },
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "anonymous_constructor",
-          "named": true
-        },
-        {
-          "type": "apply",
-          "named": true
-        },
-        {
-          "type": "array",
-          "named": true
-        },
-        {
-          "type": "arrow",
-          "named": true
-        },
-        {
-          "type": "assumption_literal",
-          "named": true
-        },
-        {
-          "type": "binary_expression",
-          "named": true
-        },
-        {
-          "type": "borrowed",
-          "named": true
-        },
-        {
-          "type": "cdot",
-          "named": true
-        },
-        {
-          "type": "char",
-          "named": true
-        },
-        {
-          "type": "comparison",
-          "named": true
-        },
-        {
-          "type": "do",
-          "named": true
-        },
-        {
-          "type": "double_quoted_name",
-          "named": true
-        },
-        {
-          "type": "exists",
-          "named": true
-        },
-        {
-          "type": "explicit",
-          "named": true
-        },
-        {
-          "type": "false",
-          "named": true
-        },
-        {
-          "type": "float",
-          "named": true
-        },
-        {
-          "type": "forall",
-          "named": true
-        },
-        {
-          "type": "fun",
-          "named": true
-        },
-        {
-          "type": "hole",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "if_then_else",
-          "named": true
-        },
-        {
-          "type": "interpolated_string",
-          "named": true
-        },
-        {
-          "type": "let",
-          "named": true
-        },
-        {
-          "type": "lift_method",
-          "named": true
-        },
-        {
-          "type": "list",
-          "named": true
-        },
-        {
-          "type": "match",
-          "named": true
-        },
-        {
-          "type": "number",
-          "named": true
-        },
-        {
-          "type": "parenthesized",
-          "named": true
-        },
-        {
-          "type": "product",
-          "named": true
-        },
-        {
-          "type": "proj",
-          "named": true
-        },
-        {
-          "type": "quoted",
-          "named": true
-        },
-        {
-          "type": "quoted_name",
-          "named": true
-        },
-        {
-          "type": "quoted_tactic",
-          "named": true
-        },
-        {
-          "type": "range",
-          "named": true
-        },
-        {
-          "type": "sorry",
-          "named": true
-        },
-        {
-          "type": "string",
-          "named": true
-        },
-        {
-          "type": "structure_instance",
-          "named": true
-        },
-        {
-          "type": "subarray",
-          "named": true
-        },
-        {
-          "type": "subtype",
-          "named": true
-        },
-        {
-          "type": "tactics",
-          "named": true
-        },
-        {
-          "type": "true",
           "named": true
         },
         {
@@ -16375,15 +16188,15 @@
             "named": true
           },
           {
+            "type": "match_alt",
+            "named": true
+          },
+          {
             "type": "number",
             "named": true
           },
           {
             "type": "parenthesized",
-            "named": true
-          },
-          {
-            "type": "pattern",
             "named": true
           },
           {

@@ -26,7 +26,7 @@ module.exports = {
     $._type_spec,
   )),
   _decl_val_simple: $ => seq(':=', $._expression),
-  _decl_val_equations: $ => repeat1($.pattern),
+  _decl_val_equations: $ => $._match_alts_where_decls,
   _decl_val: $ => field('body', choice(
     $._decl_val_simple,
     $._decl_val_equations,

@@ -23,10 +23,10 @@ macro_rules
 
 (module
   (macro_rules
-    (pattern
+    (match_alt
       (quoted_tactic (identifier))
       (quoted_tactic (trivial)))
-    (pattern
+    (match_alt
       (quoted_tactic (identifier))
       (quoted_tactic (apply_tactic (apply (identifier) (identifier)))))))
 
@@ -125,9 +125,9 @@ local macro_rules
   (notation (string) (number))
   (notation (string) (number))
   (macro_rules
-    (pattern (quoted_tactic (identifier)) (quoted_tactic (trivial))))
+    (match_alt (quoted_tactic (identifier)) (quoted_tactic (trivial))))
   (macro_rules
-    (pattern (quoted_tactic (identifier)) (quoted_tactic (trivial))))
+    (match_alt (quoted_tactic (identifier)) (quoted_tactic (trivial))))
   (declaration
     (attributes (identifier))
     (def (identifier) (number)))

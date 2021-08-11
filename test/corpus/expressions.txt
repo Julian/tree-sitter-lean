@@ -930,12 +930,10 @@ Anonymous Function Match With Additional Argument
       arguments: (number)
       arguments:
         (fun
-          (pattern
-            lhs: (number)
-            (number))
-          (pattern
-            lhs: (identifier)
-            (number)))
+          lhs: (number)
+          (number)
+          lhs: (identifier)
+          (number))
       arguments:
         (number))))
 
@@ -1174,8 +1172,8 @@ def foo | 0, => 2 | _, => 3
     (def (identifier) (number)))
   (declaration
     (def (identifier)
-      (pattern (number) (ERROR) (number))
-      (pattern (hole) (ERROR) (number)))))
+      (match_alt (number) (ERROR) (number))
+      (match_alt (hole) (ERROR) (number)))))
 
 =====
 Sorry
