@@ -178,7 +178,6 @@ module.exports = {
     _term: $ => term.all($),
 
     // src/Init/Notation.lean
-    // FIXME: precedence is wrong, it should be 35, but apply needs fixing
     product: $ => prec.right(35, seq($._term, '×', $._term)),
 
     list: $ => seq('[', sep0($._expression, ','), ']'),

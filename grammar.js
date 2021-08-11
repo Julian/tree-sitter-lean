@@ -216,7 +216,7 @@ module.exports = grammar({
     apply: $ => choice($._apply, $._dollar),
 
     _apply: $ => prec(PREC.apply, seq(
-      field('name', term.term.all($)),
+      field('name', term.term.forbid($, 'match')),
       field('arguments', repeat1($._argument)),
     )),
 

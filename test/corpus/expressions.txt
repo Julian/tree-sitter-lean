@@ -788,6 +788,22 @@ def foo (a b c : Nat) :=
               lhs: (hole)
               (true))))))
 
+=========================
+Match Multiple With Apply
+=========================
+
+#eval match 0 with
+| 0 => id 2
+| _ => id 4
+
+---
+
+(module
+  (hash_command
+    (match (number)
+      (match_alt (number) (apply (identifier) (number)))
+      (match_alt (hole) (apply (identifier) (number))))))
+
 ================
 Match Expression
 ================

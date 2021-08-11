@@ -1002,10 +1002,6 @@
                 },
                 {
                   "type": "SYMBOL",
-                  "name": "match"
-                },
-                {
-                  "type": "SYMBOL",
                   "name": "borrowed"
                 },
                 {
