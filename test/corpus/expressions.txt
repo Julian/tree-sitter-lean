@@ -1310,3 +1310,15 @@ Lift Method
 ; but is valid syntax
 
 (module (hash_command (lift_method (identifier))))
+
+=======
+Subtype
+=======
+
+#check {x // x > 2}
+
+---
+
+(module
+  (hash_command
+    (subtype (identifier) (comparison (identifier) (number)))))

@@ -3431,7 +3431,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "_expression"
+              "name": "_term"
             },
             {
               "type": "REPEAT1",
@@ -5410,6 +5410,52 @@
         ]
       }
     },
+    "subtype": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": ":"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_term"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "//"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_expression"
+        },
+        {
+          "type": "STRING",
+          "value": "}"
+        }
+      ]
+    },
     "list": {
       "type": "SEQ",
       "members": [
@@ -5508,6 +5554,10 @@
         {
           "type": "SYMBOL",
           "name": "product"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "subtype"
         },
         {
           "type": "SYMBOL",
@@ -5864,18 +5914,7 @@
   ],
   "conflicts": [
     [
-      "instance_binder",
-      "list"
-    ],
-    [
-      "_binder_ident"
-    ],
-    [
-      "proj",
-      "_primary_expression"
-    ],
-    [
-      "instance_binder",
+      "_binder_ident",
       "_term"
     ],
     [
@@ -5883,22 +5922,18 @@
       "named_argument"
     ],
     [
-      "_let_id_lhs"
-    ],
-    [
       "_binder_ident",
-      "_term"
+      "subtype"
     ],
     [
-      "assign",
-      "_term"
+      "_binder_ident"
     ],
     [
       "_let_id_lhs",
       "_term"
     ],
     [
-      "identifier"
+      "_let_id_lhs"
     ],
     [
       "_simple_binder"
@@ -5906,6 +5941,25 @@
     [
       "_user_tactic",
       "quoted_tactic"
+    ],
+    [
+      "assign",
+      "_term"
+    ],
+    [
+      "identifier"
+    ],
+    [
+      "instance_binder",
+      "_term"
+    ],
+    [
+      "instance_binder",
+      "list"
+    ],
+    [
+      "proj",
+      "_primary_expression"
     ]
   ],
   "precedences": [],

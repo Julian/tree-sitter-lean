@@ -168,6 +168,10 @@
             "named": true
           },
           {
+            "type": "subtype",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -364,6 +368,10 @@
             "named": true
           },
           {
+            "type": "subtype",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -554,6 +562,10 @@
           "named": true
         },
         {
+          "type": "subtype",
+          "named": true
+        },
+        {
           "type": "tactics",
           "named": true
         },
@@ -730,6 +742,10 @@
           },
           {
             "type": "subarray",
+            "named": true
+          },
+          {
+            "type": "subtype",
             "named": true
           },
           {
@@ -911,6 +927,10 @@
             "named": true
           },
           {
+            "type": "subtype",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -1082,6 +1102,10 @@
           },
           {
             "type": "subarray",
+            "named": true
+          },
+          {
+            "type": "subtype",
             "named": true
           },
           {
@@ -1265,6 +1289,10 @@
           "named": true
         },
         {
+          "type": "subtype",
+          "named": true
+        },
+        {
           "type": "tactics",
           "named": true
         },
@@ -1444,6 +1472,10 @@
           "named": true
         },
         {
+          "type": "subtype",
+          "named": true
+        },
+        {
           "type": "tactics",
           "named": true
         },
@@ -1620,6 +1652,10 @@
         },
         {
           "type": "subarray",
+          "named": true
+        },
+        {
+          "type": "subtype",
           "named": true
         },
         {
@@ -1812,6 +1848,10 @@
             "named": true
           },
           {
+            "type": "subtype",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -1961,6 +2001,10 @@
         },
         {
           "type": "subarray",
+          "named": true
+        },
+        {
+          "type": "subtype",
           "named": true
         },
         {
@@ -2235,6 +2279,10 @@
             "named": true
           },
           {
+            "type": "subtype",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -2422,6 +2470,10 @@
         },
         {
           "type": "subarray",
+          "named": true
+        },
+        {
+          "type": "subtype",
           "named": true
         },
         {
@@ -2622,6 +2674,10 @@
             "named": true
           },
           {
+            "type": "subtype",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -2797,6 +2853,10 @@
         },
         {
           "type": "subarray",
+          "named": true
+        },
+        {
+          "type": "subtype",
           "named": true
         },
         {
@@ -2984,6 +3044,10 @@
         },
         {
           "type": "subarray",
+          "named": true
+        },
+        {
+          "type": "subtype",
           "named": true
         },
         {
@@ -3232,6 +3296,10 @@
             "named": true
           },
           {
+            "type": "subtype",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -3419,6 +3487,10 @@
         },
         {
           "type": "subarray",
+          "named": true
+        },
+        {
+          "type": "subtype",
           "named": true
         },
         {
@@ -3615,6 +3687,10 @@
             "named": true
           },
           {
+            "type": "subtype",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -3791,6 +3867,10 @@
         },
         {
           "type": "subarray",
+          "named": true
+        },
+        {
+          "type": "subtype",
           "named": true
         },
         {
@@ -3984,6 +4064,10 @@
           },
           {
             "type": "subarray",
+            "named": true
+          },
+          {
+            "type": "subtype",
             "named": true
           },
           {
@@ -4240,6 +4324,10 @@
             "named": true
           },
           {
+            "type": "subtype",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -4433,6 +4521,10 @@
           },
           {
             "type": "subarray",
+            "named": true
+          },
+          {
+            "type": "subtype",
             "named": true
           },
           {
@@ -4646,6 +4738,10 @@
           "named": true
         },
         {
+          "type": "subtype",
+          "named": true
+        },
+        {
           "type": "tactics",
           "named": true
         },
@@ -4844,6 +4940,10 @@
           "named": true
         },
         {
+          "type": "subtype",
+          "named": true
+        },
+        {
           "type": "tactics",
           "named": true
         },
@@ -5031,6 +5131,10 @@
             "named": true
           },
           {
+            "type": "subtype",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -5214,6 +5318,10 @@
           },
           {
             "type": "subarray",
+            "named": true
+          },
+          {
+            "type": "subtype",
             "named": true
           },
           {
@@ -5417,6 +5525,10 @@
             "named": true
           },
           {
+            "type": "subtype",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -5594,6 +5706,10 @@
         },
         {
           "type": "subarray",
+          "named": true
+        },
+        {
+          "type": "subtype",
           "named": true
         },
         {
@@ -5777,6 +5893,10 @@
           },
           {
             "type": "subarray",
+            "named": true
+          },
+          {
+            "type": "subtype",
             "named": true
           },
           {
@@ -5973,6 +6093,10 @@
           },
           {
             "type": "subarray",
+            "named": true
+          },
+          {
+            "type": "subtype",
             "named": true
           },
           {
@@ -6186,6 +6310,10 @@
             "named": true
           },
           {
+            "type": "subtype",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -6375,6 +6503,10 @@
           },
           {
             "type": "subarray",
+            "named": true
+          },
+          {
+            "type": "subtype",
             "named": true
           },
           {
@@ -6578,6 +6710,10 @@
           "named": true
         },
         {
+          "type": "subtype",
+          "named": true
+        },
+        {
           "type": "tactics",
           "named": true
         },
@@ -6768,6 +6904,10 @@
           },
           {
             "type": "subarray",
+            "named": true
+          },
+          {
+            "type": "subtype",
             "named": true
           },
           {
@@ -6975,6 +7115,10 @@
             "named": true
           },
           {
+            "type": "subtype",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -7163,6 +7307,10 @@
           "named": true
         },
         {
+          "type": "subtype",
+          "named": true
+        },
+        {
           "type": "tactics",
           "named": true
         },
@@ -7339,6 +7487,10 @@
         },
         {
           "type": "subarray",
+          "named": true
+        },
+        {
+          "type": "subtype",
           "named": true
         },
         {
@@ -7523,6 +7675,10 @@
         },
         {
           "type": "subarray",
+          "named": true
+        },
+        {
+          "type": "subtype",
           "named": true
         },
         {
@@ -7724,6 +7880,10 @@
           },
           {
             "type": "subarray",
+            "named": true
+          },
+          {
+            "type": "subtype",
             "named": true
           },
           {
@@ -7965,6 +8125,10 @@
             "named": true
           },
           {
+            "type": "subtype",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -8163,6 +8327,10 @@
             "named": true
           },
           {
+            "type": "subtype",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -8356,6 +8524,10 @@
           },
           {
             "type": "subarray",
+            "named": true
+          },
+          {
+            "type": "subtype",
             "named": true
           },
           {
@@ -8567,6 +8739,10 @@
             "named": true
           },
           {
+            "type": "subtype",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -8766,6 +8942,10 @@
           "named": true
         },
         {
+          "type": "subtype",
+          "named": true
+        },
+        {
           "type": "tactics",
           "named": true
         },
@@ -8957,6 +9137,10 @@
           },
           {
             "type": "subarray",
+            "named": true
+          },
+          {
+            "type": "subtype",
             "named": true
           },
           {
@@ -9154,6 +9338,10 @@
             "named": true
           },
           {
+            "type": "subtype",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -9325,6 +9513,10 @@
           },
           {
             "type": "subarray",
+            "named": true
+          },
+          {
+            "type": "subtype",
             "named": true
           },
           {
@@ -9518,6 +9710,10 @@
             "named": true
           },
           {
+            "type": "subtype",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -9698,6 +9894,10 @@
             "named": true
           },
           {
+            "type": "subtype",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -9857,6 +10057,10 @@
         },
         {
           "type": "subarray",
+          "named": true
+        },
+        {
+          "type": "subtype",
           "named": true
         },
         {
@@ -10024,6 +10228,10 @@
         },
         {
           "type": "subarray",
+          "named": true
+        },
+        {
+          "type": "subtype",
           "named": true
         },
         {
@@ -10235,6 +10443,10 @@
             "named": true
           },
           {
+            "type": "subtype",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -10414,6 +10626,10 @@
           },
           {
             "type": "subarray",
+            "named": true
+          },
+          {
+            "type": "subtype",
             "named": true
           },
           {
@@ -10601,6 +10817,10 @@
             "named": true
           },
           {
+            "type": "subtype",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -10773,6 +10993,10 @@
         },
         {
           "type": "subarray",
+          "named": true
+        },
+        {
+          "type": "subtype",
           "named": true
         },
         {
@@ -11023,6 +11247,10 @@
         },
         {
           "type": "subarray",
+          "named": true
+        },
+        {
+          "type": "subtype",
           "named": true
         },
         {
@@ -11286,6 +11514,10 @@
         },
         {
           "type": "subarray",
+          "named": true
+        },
+        {
+          "type": "subtype",
           "named": true
         },
         {
@@ -11584,6 +11816,10 @@
           "named": true
         },
         {
+          "type": "subtype",
+          "named": true
+        },
+        {
           "type": "tactics",
           "named": true
         },
@@ -11775,6 +12011,10 @@
             "named": true
           },
           {
+            "type": "subtype",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -11950,6 +12190,10 @@
           "named": true
         },
         {
+          "type": "subtype",
+          "named": true
+        },
+        {
           "type": "tactics",
           "named": true
         },
@@ -12098,6 +12342,10 @@
         },
         {
           "type": "subarray",
+          "named": true
+        },
+        {
+          "type": "subtype",
           "named": true
         },
         {
@@ -12254,6 +12502,10 @@
             "named": true
           },
           {
+            "type": "subtype",
+            "named": true
+          },
+          {
             "type": "true",
             "named": true
           }
@@ -12274,10 +12526,6 @@
           "named": true
         },
         {
-          "type": "apply",
-          "named": true
-        },
-        {
           "type": "array",
           "named": true
         },
@@ -12294,10 +12542,6 @@
           "named": true
         },
         {
-          "type": "binary_expression",
-          "named": true
-        },
-        {
           "type": "borrowed",
           "named": true
         },
@@ -12310,15 +12554,7 @@
           "named": true
         },
         {
-          "type": "comparison",
-          "named": true
-        },
-        {
           "type": "declaration",
-          "named": true
-        },
-        {
-          "type": "do",
           "named": true
         },
         {
@@ -12354,10 +12590,6 @@
           "named": true
         },
         {
-          "type": "fun",
-          "named": true
-        },
-        {
           "type": "hash_command",
           "named": true
         },
@@ -12375,10 +12607,6 @@
         },
         {
           "type": "interpolated_string",
-          "named": true
-        },
-        {
-          "type": "let",
           "named": true
         },
         {
@@ -12434,10 +12662,6 @@
           "named": true
         },
         {
-          "type": "quoted_tactic",
-          "named": true
-        },
-        {
           "type": "range",
           "named": true
         },
@@ -12462,11 +12686,11 @@
           "named": true
         },
         {
-          "type": "syntax",
+          "type": "subtype",
           "named": true
         },
         {
-          "type": "tactics",
+          "type": "syntax",
           "named": true
         },
         {
@@ -12474,15 +12698,7 @@
           "named": true
         },
         {
-          "type": "unary_expression",
-          "named": true
-        },
-        {
           "type": "universe",
-          "named": true
-        },
-        {
-          "type": "unless",
           "named": true
         },
         {
@@ -12684,6 +12900,10 @@
           "named": true
         },
         {
+          "type": "subtype",
+          "named": true
+        },
+        {
           "type": "tactics",
           "named": true
         },
@@ -12871,6 +13091,10 @@
             "named": true
           },
           {
+            "type": "subtype",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -13045,6 +13269,10 @@
             "named": true
           },
           {
+            "type": "subtype",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -13216,6 +13444,10 @@
           },
           {
             "type": "subarray",
+            "named": true
+          },
+          {
+            "type": "subtype",
             "named": true
           },
           {
@@ -13399,6 +13631,10 @@
             "named": true
           },
           {
+            "type": "subtype",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -13576,6 +13812,10 @@
         },
         {
           "type": "subarray",
+          "named": true
+        },
+        {
+          "type": "subtype",
           "named": true
         },
         {
@@ -13899,6 +14139,10 @@
             "named": true
           },
           {
+            "type": "subtype",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -14109,6 +14353,10 @@
             "named": true
           },
           {
+            "type": "subtype",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -14300,6 +14548,10 @@
           },
           {
             "type": "subarray",
+            "named": true
+          },
+          {
+            "type": "subtype",
             "named": true
           },
           {
@@ -14495,6 +14747,10 @@
             "named": true
           },
           {
+            "type": "subtype",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -14666,6 +14922,10 @@
           },
           {
             "type": "subarray",
+            "named": true
+          },
+          {
+            "type": "subtype",
             "named": true
           },
           {
@@ -14849,6 +15109,10 @@
             "named": true
           },
           {
+            "type": "subtype",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -15020,6 +15284,10 @@
           },
           {
             "type": "subarray",
+            "named": true
+          },
+          {
+            "type": "subtype",
             "named": true
           },
           {
@@ -15197,6 +15465,10 @@
             "named": true
           },
           {
+            "type": "subtype",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -15371,6 +15643,10 @@
             "named": true
           },
           {
+            "type": "subtype",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -15388,6 +15664,189 @@
           }
         ]
       }
+    }
+  },
+  {
+    "type": "subtype",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "anonymous_constructor",
+          "named": true
+        },
+        {
+          "type": "apply",
+          "named": true
+        },
+        {
+          "type": "array",
+          "named": true
+        },
+        {
+          "type": "arrow",
+          "named": true
+        },
+        {
+          "type": "assumption_literal",
+          "named": true
+        },
+        {
+          "type": "binary_expression",
+          "named": true
+        },
+        {
+          "type": "borrowed",
+          "named": true
+        },
+        {
+          "type": "cdot",
+          "named": true
+        },
+        {
+          "type": "char",
+          "named": true
+        },
+        {
+          "type": "comparison",
+          "named": true
+        },
+        {
+          "type": "do",
+          "named": true
+        },
+        {
+          "type": "double_quoted_name",
+          "named": true
+        },
+        {
+          "type": "exists",
+          "named": true
+        },
+        {
+          "type": "explicit",
+          "named": true
+        },
+        {
+          "type": "false",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "forall",
+          "named": true
+        },
+        {
+          "type": "fun",
+          "named": true
+        },
+        {
+          "type": "hole",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "if_then_else",
+          "named": true
+        },
+        {
+          "type": "interpolated_string",
+          "named": true
+        },
+        {
+          "type": "let",
+          "named": true
+        },
+        {
+          "type": "lift_method",
+          "named": true
+        },
+        {
+          "type": "list",
+          "named": true
+        },
+        {
+          "type": "match",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "parenthesized",
+          "named": true
+        },
+        {
+          "type": "product",
+          "named": true
+        },
+        {
+          "type": "proj",
+          "named": true
+        },
+        {
+          "type": "quoted",
+          "named": true
+        },
+        {
+          "type": "quoted_name",
+          "named": true
+        },
+        {
+          "type": "quoted_tactic",
+          "named": true
+        },
+        {
+          "type": "range",
+          "named": true
+        },
+        {
+          "type": "sorry",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "structure_instance",
+          "named": true
+        },
+        {
+          "type": "subarray",
+          "named": true
+        },
+        {
+          "type": "subtype",
+          "named": true
+        },
+        {
+          "type": "tactics",
+          "named": true
+        },
+        {
+          "type": "true",
+          "named": true
+        },
+        {
+          "type": "unary_expression",
+          "named": true
+        },
+        {
+          "type": "unless",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -15586,6 +16045,10 @@
           "named": true
         },
         {
+          "type": "subtype",
+          "named": true
+        },
+        {
           "type": "tactics",
           "named": true
         },
@@ -15773,6 +16236,10 @@
           "named": true
         },
         {
+          "type": "subtype",
+          "named": true
+        },
+        {
           "type": "tactics",
           "named": true
         },
@@ -15957,6 +16424,10 @@
           },
           {
             "type": "subarray",
+            "named": true
+          },
+          {
+            "type": "subtype",
             "named": true
           },
           {
@@ -16156,6 +16627,10 @@
             "named": true
           },
           {
+            "type": "subtype",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -16346,6 +16821,10 @@
           "named": true
         },
         {
+          "type": "subtype",
+          "named": true
+        },
+        {
           "type": "tactics",
           "named": true
         },
@@ -16522,6 +17001,10 @@
         },
         {
           "type": "subarray",
+          "named": true
+        },
+        {
+          "type": "subtype",
           "named": true
         },
         {
@@ -16704,6 +17187,10 @@
             "named": true
           },
           {
+            "type": "subtype",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -16881,6 +17368,10 @@
         },
         {
           "type": "subarray",
+          "named": true
+        },
+        {
+          "type": "subtype",
           "named": true
         },
         {
@@ -17075,6 +17566,10 @@
         },
         {
           "type": "subarray",
+          "named": true
+        },
+        {
+          "type": "subtype",
           "named": true
         },
         {
@@ -17310,6 +17805,10 @@
             "named": true
           },
           {
+            "type": "subtype",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -17498,6 +17997,10 @@
             "named": true
           },
           {
+            "type": "subtype",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -17673,6 +18176,10 @@
           "named": true
         },
         {
+          "type": "subtype",
+          "named": true
+        },
+        {
           "type": "tactics",
           "named": true
         },
@@ -17785,6 +18292,10 @@
   },
   {
     "type": "/",
+    "named": false
+  },
+  {
+    "type": "//",
     "named": false
   },
   {

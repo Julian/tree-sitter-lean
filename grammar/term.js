@@ -193,6 +193,15 @@ module.exports = {
     // src/Init/Notation.lean
     product: $ => prec.right(35, seq($._term, '×', $._term)),
 
+    subtype: $ => seq(
+      '{',
+      $.identifier,
+      optional(seq(':', $._term)),
+      '//',
+      $._expression,
+      '}',
+    ),
+
     list: $ => seq('[', sep0($._expression, ','), ']'),
 
     assumption_literal: $ => seq('‹', $._term, '›'),
@@ -207,6 +216,7 @@ module.exports = {
 
     _notation_term: $ => choice(
       $.product,
+      $.subtype,
       $.if_then_else,
       $.list,
       $.assumption_literal,
