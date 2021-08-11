@@ -110,6 +110,9 @@ scoped macro_rules
 local macro_rules
 | `(tactic| foo) => `(tactic|trivial)
 
+@[scoped simp] def f := 12
+@[local simp] def g := 12
+
 ---
 
 (module
@@ -124,4 +127,10 @@ local macro_rules
   (macro_rules
     (pattern (quoted_tactic (identifier)) (quoted_tactic (trivial))))
   (macro_rules
-    (pattern (quoted_tactic (identifier)) (quoted_tactic (trivial)))))
+    (pattern (quoted_tactic (identifier)) (quoted_tactic (trivial))))
+  (declaration
+    (attributes (identifier))
+    (def (identifier) (number)))
+  (declaration
+    (attributes (identifier))
+    (def (identifier) (number))))

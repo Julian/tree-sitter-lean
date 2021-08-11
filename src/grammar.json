@@ -4969,6 +4969,27 @@
         }
       ]
     },
+    "_attr_instance": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_attr_kind"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_attribute"
+        }
+      ]
+    },
     "attributes": {
       "type": "SEQ",
       "members": [
@@ -4981,7 +5002,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "_attribute"
+              "name": "_attr_instance"
             },
             {
               "type": "REPEAT",
@@ -4994,7 +5015,7 @@
                   },
                   {
                     "type": "SYMBOL",
-                    "name": "_attribute"
+                    "name": "_attr_instance"
                   }
                 ]
               }
