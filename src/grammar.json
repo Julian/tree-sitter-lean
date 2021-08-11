@@ -1006,6 +1006,10 @@
                 },
                 {
                   "type": "SYMBOL",
+                  "name": "quoted_name"
+                },
+                {
+                  "type": "SYMBOL",
                   "name": "double_quoted_name"
                 },
                 {
@@ -4906,6 +4910,19 @@
         }
       ]
     },
+    "quoted_name": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "`"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        }
+      ]
+    },
     "double_quoted_name": {
       "type": "SEQ",
       "members": [
@@ -5253,6 +5270,10 @@
         {
           "type": "SYMBOL",
           "name": "borrowed"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "quoted_name"
         },
         {
           "type": "SYMBOL",

@@ -1278,6 +1278,16 @@ Borrowed
 
 (module (hash_command (borrowed (identifier))))
 
+===========
+Quoted Name
+===========
+
+#check `String
+
+---
+
+(module (hash_command (quoted_name (identifier))))
+
 ==================
 Double Quoted Name
 ==================

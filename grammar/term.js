@@ -19,6 +19,7 @@ const term = new Parser($ => [
   $.false,
   $.match,
   $.borrowed,
+  $.quoted_name,
   $.double_quoted_name,
   $.proj,
   $.arrow,
@@ -150,6 +151,7 @@ module.exports = {
     )),
 
     borrowed: $ => seq('@&', prec(PREC.lead, $._term)),
+    quoted_name: $ => seq('`', $.identifier),
     double_quoted_name: $ => seq('``', $.identifier),
 
     _simple_binder_without_type: $ => repeat1($._binder_ident),
