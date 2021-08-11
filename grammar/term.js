@@ -42,7 +42,7 @@ module.exports = {
     float: $ => /\d+\.\d*/,
     string: $ => seq(
       '"',
-      repeat(choice($.escape_sequence, /[^"]/)),
+      repeat(choice($.escape_sequence, token.immediate(prec(1, /[^"\n\\]+/)),)),
       '"',
     ),
     char: $ => seq("'", choice($.escape_sequence, /[^']/), "'"),

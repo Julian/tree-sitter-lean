@@ -137,3 +137,16 @@ Interpolation With Escape Sequences
       (escape_sequence)
       (escape_sequence)
       (interpolation (identifier)))))
+
+==============
+String With --
+==============
+
+#eval "--"
+#eval "/--"
+
+---
+
+(module
+  (hash_command (string))
+  (hash_command (string)))
