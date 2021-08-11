@@ -1297,3 +1297,16 @@ Double Quoted Name
 ---
 
 (module (hash_command (double_quoted_name (identifier))))
+
+===========
+Lift Method
+===========
+
+#check ← Nat
+
+---
+
+; This will runtime error (must be nested inside a 'do' expression),
+; but is valid syntax
+
+(module (hash_command (lift_method (identifier))))

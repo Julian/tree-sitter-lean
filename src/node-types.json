@@ -104,6 +104,10 @@
             "named": true
           },
           {
+            "type": "lift_method",
+            "named": true
+          },
+          {
             "type": "list",
             "named": true
           },
@@ -296,6 +300,10 @@
             "named": true
           },
           {
+            "type": "lift_method",
+            "named": true
+          },
+          {
             "type": "list",
             "named": true
           },
@@ -478,6 +486,10 @@
           "named": true
         },
         {
+          "type": "lift_method",
+          "named": true
+        },
+        {
           "type": "list",
           "named": true
         },
@@ -649,6 +661,10 @@
             "named": true
           },
           {
+            "type": "lift_method",
+            "named": true
+          },
+          {
             "type": "list",
             "named": true
           },
@@ -812,6 +828,10 @@
           },
           {
             "type": "let",
+            "named": true
+          },
+          {
+            "type": "lift_method",
             "named": true
           },
           {
@@ -982,6 +1002,10 @@
           },
           {
             "type": "let",
+            "named": true
+          },
+          {
+            "type": "lift_method",
             "named": true
           },
           {
@@ -1157,6 +1181,10 @@
           "named": true
         },
         {
+          "type": "lift_method",
+          "named": true
+        },
+        {
           "type": "list",
           "named": true
         },
@@ -1328,6 +1356,10 @@
           "named": true
         },
         {
+          "type": "lift_method",
+          "named": true
+        },
+        {
           "type": "list",
           "named": true
         },
@@ -1496,6 +1528,10 @@
         },
         {
           "type": "let",
+          "named": true
+        },
+        {
+          "type": "lift_method",
           "named": true
         },
         {
@@ -1680,6 +1716,10 @@
             "named": true
           },
           {
+            "type": "lift_method",
+            "named": true
+          },
+          {
             "type": "list",
             "named": true
           },
@@ -1825,6 +1865,10 @@
         },
         {
           "type": "interpolated_string",
+          "named": true
+        },
+        {
+          "type": "lift_method",
           "named": true
         },
         {
@@ -2087,6 +2131,10 @@
             "named": true
           },
           {
+            "type": "lift_method",
+            "named": true
+          },
+          {
             "type": "list",
             "named": true
           },
@@ -2266,6 +2314,10 @@
         },
         {
           "type": "let",
+          "named": true
+        },
+        {
+          "type": "lift_method",
           "named": true
         },
         {
@@ -2458,6 +2510,10 @@
             "named": true
           },
           {
+            "type": "lift_method",
+            "named": true
+          },
+          {
             "type": "list",
             "named": true
           },
@@ -2632,6 +2688,10 @@
           "named": true
         },
         {
+          "type": "lift_method",
+          "named": true
+        },
+        {
           "type": "list",
           "named": true
         },
@@ -2800,6 +2860,10 @@
         },
         {
           "type": "let_mut",
+          "named": true
+        },
+        {
+          "type": "lift_method",
           "named": true
         },
         {
@@ -3044,6 +3108,10 @@
             "named": true
           },
           {
+            "type": "lift_method",
+            "named": true
+          },
+          {
             "type": "list",
             "named": true
           },
@@ -3223,6 +3291,10 @@
         },
         {
           "type": "let",
+          "named": true
+        },
+        {
+          "type": "lift_method",
           "named": true
         },
         {
@@ -3411,6 +3483,10 @@
             "named": true
           },
           {
+            "type": "lift_method",
+            "named": true
+          },
+          {
             "type": "list",
             "named": true
           },
@@ -3579,6 +3655,10 @@
         },
         {
           "type": "let",
+          "named": true
+        },
+        {
+          "type": "lift_method",
           "named": true
         },
         {
@@ -3764,6 +3844,10 @@
           },
           {
             "type": "let",
+            "named": true
+          },
+          {
+            "type": "lift_method",
             "named": true
           },
           {
@@ -4008,6 +4092,10 @@
             "named": true
           },
           {
+            "type": "lift_method",
+            "named": true
+          },
+          {
             "type": "list",
             "named": true
           },
@@ -4197,6 +4285,10 @@
           },
           {
             "type": "let",
+            "named": true
+          },
+          {
+            "type": "lift_method",
             "named": true
           },
           {
@@ -4398,6 +4490,10 @@
           "named": true
         },
         {
+          "type": "lift_method",
+          "named": true
+        },
+        {
           "type": "list",
           "named": true
         },
@@ -4592,6 +4688,10 @@
           "named": true
         },
         {
+          "type": "lift_method",
+          "named": true
+        },
+        {
           "type": "list",
           "named": true
         },
@@ -4764,6 +4864,10 @@
           },
           {
             "type": "let",
+            "named": true
+          },
+          {
+            "type": "lift_method",
             "named": true
           },
           {
@@ -4946,6 +5050,10 @@
           },
           {
             "type": "let",
+            "named": true
+          },
+          {
+            "type": "lift_method",
             "named": true
           },
           {
@@ -5141,6 +5249,10 @@
             "named": true
           },
           {
+            "type": "lift_method",
+            "named": true
+          },
+          {
             "type": "list",
             "named": true
           },
@@ -5310,6 +5422,10 @@
         },
         {
           "type": "let",
+          "named": true
+        },
+        {
+          "type": "lift_method",
           "named": true
         },
         {
@@ -5485,6 +5601,10 @@
           },
           {
             "type": "let",
+            "named": true
+          },
+          {
+            "type": "lift_method",
             "named": true
           },
           {
@@ -5673,6 +5793,10 @@
           },
           {
             "type": "let",
+            "named": true
+          },
+          {
+            "type": "lift_method",
             "named": true
           },
           {
@@ -5878,6 +6002,10 @@
             "named": true
           },
           {
+            "type": "lift_method",
+            "named": true
+          },
+          {
             "type": "list",
             "named": true
           },
@@ -6059,6 +6187,10 @@
           },
           {
             "type": "let",
+            "named": true
+          },
+          {
+            "type": "lift_method",
             "named": true
           },
           {
@@ -6250,6 +6382,10 @@
           "named": true
         },
         {
+          "type": "lift_method",
+          "named": true
+        },
+        {
           "type": "list",
           "named": true
         },
@@ -6436,6 +6572,10 @@
           },
           {
             "type": "let",
+            "named": true
+          },
+          {
+            "type": "lift_method",
             "named": true
           },
           {
@@ -6635,6 +6775,10 @@
             "named": true
           },
           {
+            "type": "lift_method",
+            "named": true
+          },
+          {
             "type": "list",
             "named": true
           },
@@ -6804,6 +6948,10 @@
         },
         {
           "type": "let",
+          "named": true
+        },
+        {
+          "type": "lift_method",
           "named": true
         },
         {
@@ -6986,6 +7134,10 @@
           "named": true
         },
         {
+          "type": "lift_method",
+          "named": true
+        },
+        {
           "type": "list",
           "named": true
         },
@@ -7159,6 +7311,10 @@
         },
         {
           "type": "let",
+          "named": true
+        },
+        {
+          "type": "lift_method",
           "named": true
         },
         {
@@ -7352,6 +7508,10 @@
           },
           {
             "type": "let",
+            "named": true
+          },
+          {
+            "type": "lift_method",
             "named": true
           },
           {
@@ -7585,6 +7745,10 @@
             "named": true
           },
           {
+            "type": "lift_method",
+            "named": true
+          },
+          {
             "type": "list",
             "named": true
           },
@@ -7768,6 +7932,10 @@
           },
           {
             "type": "let",
+            "named": true
+          },
+          {
+            "type": "lift_method",
             "named": true
           },
           {
@@ -7960,6 +8128,10 @@
           },
           {
             "type": "let",
+            "named": true
+          },
+          {
+            "type": "lift_method",
             "named": true
           },
           {
@@ -8163,6 +8335,10 @@
             "named": true
           },
           {
+            "type": "lift_method",
+            "named": true
+          },
+          {
             "type": "list",
             "named": true
           },
@@ -8354,6 +8530,10 @@
           "named": true
         },
         {
+          "type": "lift_method",
+          "named": true
+        },
+        {
           "type": "list",
           "named": true
         },
@@ -8537,6 +8717,10 @@
           },
           {
             "type": "let",
+            "named": true
+          },
+          {
+            "type": "lift_method",
             "named": true
           },
           {
@@ -8726,6 +8910,10 @@
             "named": true
           },
           {
+            "type": "lift_method",
+            "named": true
+          },
+          {
             "type": "list",
             "named": true
           },
@@ -8889,6 +9077,10 @@
           },
           {
             "type": "let",
+            "named": true
+          },
+          {
+            "type": "lift_method",
             "named": true
           },
           {
@@ -9074,6 +9266,10 @@
             "named": true
           },
           {
+            "type": "lift_method",
+            "named": true
+          },
+          {
             "type": "list",
             "named": true
           },
@@ -9246,6 +9442,10 @@
             "named": true
           },
           {
+            "type": "lift_method",
+            "named": true
+          },
+          {
             "type": "list",
             "named": true
           },
@@ -9322,6 +9522,141 @@
       "types": [
         {
           "type": "parameters",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "lift_method",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "anonymous_constructor",
+          "named": true
+        },
+        {
+          "type": "array",
+          "named": true
+        },
+        {
+          "type": "arrow",
+          "named": true
+        },
+        {
+          "type": "assumption_literal",
+          "named": true
+        },
+        {
+          "type": "borrowed",
+          "named": true
+        },
+        {
+          "type": "cdot",
+          "named": true
+        },
+        {
+          "type": "char",
+          "named": true
+        },
+        {
+          "type": "double_quoted_name",
+          "named": true
+        },
+        {
+          "type": "exists",
+          "named": true
+        },
+        {
+          "type": "explicit",
+          "named": true
+        },
+        {
+          "type": "false",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "forall",
+          "named": true
+        },
+        {
+          "type": "hole",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "if_then_else",
+          "named": true
+        },
+        {
+          "type": "interpolated_string",
+          "named": true
+        },
+        {
+          "type": "lift_method",
+          "named": true
+        },
+        {
+          "type": "list",
+          "named": true
+        },
+        {
+          "type": "match",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "parenthesized",
+          "named": true
+        },
+        {
+          "type": "product",
+          "named": true
+        },
+        {
+          "type": "proj",
+          "named": true
+        },
+        {
+          "type": "quoted_name",
+          "named": true
+        },
+        {
+          "type": "range",
+          "named": true
+        },
+        {
+          "type": "sorry",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "structure_instance",
+          "named": true
+        },
+        {
+          "type": "subarray",
+          "named": true
+        },
+        {
+          "type": "true",
           "named": true
         }
       ]
@@ -9425,6 +9760,10 @@
         },
         {
           "type": "let",
+          "named": true
+        },
+        {
+          "type": "lift_method",
           "named": true
         },
         {
@@ -9628,6 +9967,10 @@
             "named": true
           },
           {
+            "type": "lift_method",
+            "named": true
+          },
+          {
             "type": "list",
             "named": true
           },
@@ -9799,6 +10142,10 @@
           },
           {
             "type": "let",
+            "named": true
+          },
+          {
+            "type": "lift_method",
             "named": true
           },
           {
@@ -9978,6 +10325,10 @@
             "named": true
           },
           {
+            "type": "lift_method",
+            "named": true
+          },
+          {
             "type": "list",
             "named": true
           },
@@ -10142,6 +10493,10 @@
         },
         {
           "type": "let",
+          "named": true
+        },
+        {
+          "type": "lift_method",
           "named": true
         },
         {
@@ -10384,6 +10739,10 @@
         },
         {
           "type": "let",
+          "named": true
+        },
+        {
+          "type": "lift_method",
           "named": true
         },
         {
@@ -10639,6 +10998,10 @@
         },
         {
           "type": "let",
+          "named": true
+        },
+        {
+          "type": "lift_method",
           "named": true
         },
         {
@@ -10929,6 +11292,10 @@
           "named": true
         },
         {
+          "type": "lift_method",
+          "named": true
+        },
+        {
           "type": "list",
           "named": true
         },
@@ -11112,6 +11479,10 @@
             "named": true
           },
           {
+            "type": "lift_method",
+            "named": true
+          },
+          {
             "type": "list",
             "named": true
           },
@@ -11279,6 +11650,10 @@
           "named": true
         },
         {
+          "type": "lift_method",
+          "named": true
+        },
+        {
           "type": "list",
           "named": true
         },
@@ -11426,6 +11801,10 @@
           "named": true
         },
         {
+          "type": "lift_method",
+          "named": true
+        },
+        {
           "type": "list",
           "named": true
         },
@@ -11568,6 +11947,10 @@
           },
           {
             "type": "interpolated_string",
+            "named": true
+          },
+          {
+            "type": "lift_method",
             "named": true
           },
           {
@@ -11747,6 +12130,10 @@
         },
         {
           "type": "let",
+          "named": true
+        },
+        {
+          "type": "lift_method",
           "named": true
         },
         {
@@ -11937,6 +12324,10 @@
             "named": true
           },
           {
+            "type": "lift_method",
+            "named": true
+          },
+          {
             "type": "list",
             "named": true
           },
@@ -12103,6 +12494,10 @@
             "named": true
           },
           {
+            "type": "lift_method",
+            "named": true
+          },
+          {
             "type": "list",
             "named": true
           },
@@ -12266,6 +12661,10 @@
           },
           {
             "type": "let",
+            "named": true
+          },
+          {
+            "type": "lift_method",
             "named": true
           },
           {
@@ -12441,6 +12840,10 @@
             "named": true
           },
           {
+            "type": "lift_method",
+            "named": true
+          },
+          {
             "type": "list",
             "named": true
           },
@@ -12610,6 +13013,10 @@
         },
         {
           "type": "let",
+          "named": true
+        },
+        {
+          "type": "lift_method",
           "named": true
         },
         {
@@ -12925,6 +13332,10 @@
             "named": true
           },
           {
+            "type": "lift_method",
+            "named": true
+          },
+          {
             "type": "list",
             "named": true
           },
@@ -13127,6 +13538,10 @@
             "named": true
           },
           {
+            "type": "lift_method",
+            "named": true
+          },
+          {
             "type": "list",
             "named": true
           },
@@ -13310,6 +13725,10 @@
           },
           {
             "type": "let",
+            "named": true
+          },
+          {
+            "type": "lift_method",
             "named": true
           },
           {
@@ -13497,6 +13916,10 @@
             "named": true
           },
           {
+            "type": "lift_method",
+            "named": true
+          },
+          {
             "type": "list",
             "named": true
           },
@@ -13660,6 +14083,10 @@
           },
           {
             "type": "let",
+            "named": true
+          },
+          {
+            "type": "lift_method",
             "named": true
           },
           {
@@ -13835,6 +14262,10 @@
             "named": true
           },
           {
+            "type": "lift_method",
+            "named": true
+          },
+          {
             "type": "list",
             "named": true
           },
@@ -13998,6 +14429,10 @@
           },
           {
             "type": "let",
+            "named": true
+          },
+          {
+            "type": "lift_method",
             "named": true
           },
           {
@@ -14167,6 +14602,10 @@
             "named": true
           },
           {
+            "type": "lift_method",
+            "named": true
+          },
+          {
             "type": "list",
             "named": true
           },
@@ -14330,6 +14769,10 @@
           },
           {
             "type": "let",
+            "named": true
+          },
+          {
+            "type": "lift_method",
             "named": true
           },
           {
@@ -14532,6 +14975,10 @@
           "named": true
         },
         {
+          "type": "lift_method",
+          "named": true
+        },
+        {
           "type": "list",
           "named": true
         },
@@ -14719,6 +15166,10 @@
           "named": true
         },
         {
+          "type": "lift_method",
+          "named": true
+        },
+        {
           "type": "list",
           "named": true
         },
@@ -14891,6 +15342,10 @@
           },
           {
             "type": "let",
+            "named": true
+          },
+          {
+            "type": "lift_method",
             "named": true
           },
           {
@@ -15086,6 +15541,10 @@
             "named": true
           },
           {
+            "type": "lift_method",
+            "named": true
+          },
+          {
             "type": "list",
             "named": true
           },
@@ -15268,6 +15727,10 @@
           "named": true
         },
         {
+          "type": "lift_method",
+          "named": true
+        },
+        {
           "type": "list",
           "named": true
         },
@@ -15436,6 +15899,10 @@
         },
         {
           "type": "let",
+          "named": true
+        },
+        {
+          "type": "lift_method",
           "named": true
         },
         {
@@ -15610,6 +16077,10 @@
             "named": true
           },
           {
+            "type": "lift_method",
+            "named": true
+          },
+          {
             "type": "list",
             "named": true
           },
@@ -15687,7 +16158,7 @@
     "fields": {},
     "children": {
       "multiple": false,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "anonymous_constructor",
@@ -15779,6 +16250,10 @@
         },
         {
           "type": "let",
+          "named": true
+        },
+        {
+          "type": "lift_method",
           "named": true
         },
         {
@@ -15965,6 +16440,10 @@
         },
         {
           "type": "let",
+          "named": true
+        },
+        {
+          "type": "lift_method",
           "named": true
         },
         {
@@ -16188,6 +16667,10 @@
             "named": true
           },
           {
+            "type": "lift_method",
+            "named": true
+          },
+          {
             "type": "list",
             "named": true
           },
@@ -16372,6 +16855,10 @@
             "named": true
           },
           {
+            "type": "lift_method",
+            "named": true
+          },
+          {
             "type": "list",
             "named": true
           },
@@ -16536,6 +17023,10 @@
         },
         {
           "type": "let",
+          "named": true
+        },
+        {
+          "type": "lift_method",
           "named": true
         },
         {

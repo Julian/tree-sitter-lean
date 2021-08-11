@@ -1573,7 +1573,9 @@ def foo :=
       name: (identifier)
       (ERROR (identifier))
       body:
-        (unary_expression (apply name: (number) arguments: (identifier))))))
+        (apply
+          name: (lift_method (number))
+          arguments: (identifier)))))
 
 ======
 Abbrev
@@ -1694,8 +1696,10 @@ constant Foo : Nat → Nat
 (module
   (declaration
     (constant (identifier)
-      (apply
-        (arrow (identifier) (identifier)) (ERROR) (hole) (ERROR) (number)))))
+      (binary_expression
+        (apply
+          (arrow (identifier) (identifier))
+          (ERROR) (hole)) (ERROR) (number)))))
 
 =====
 Axiom

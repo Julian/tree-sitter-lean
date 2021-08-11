@@ -23,6 +23,7 @@ const term = new Parser($ => [
   $.double_quoted_name,
   $.proj,
   $.arrow,
+  $._do_term,
   $._notation_term,
   $._notation_extra_term,
   $.array,
@@ -180,6 +181,13 @@ module.exports = {
     quoted_tactic: $ => seq('`(tactic|', $._tactic, ')'),
 
     _term: $ => term.all($),
+
+    // src/Lean/Parser/Do.lean
+    lift_method: $ => prec(PREC.min, seq(choice('<-', '←'), $._term)),
+
+    _do_term: $ => choice(
+      $.lift_method,
+    ),
 
     // src/Init/Notation.lean
     product: $ => prec.right(35, seq($._term, '×', $._term)),

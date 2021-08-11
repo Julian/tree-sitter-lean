@@ -1022,6 +1022,10 @@
                 },
                 {
                   "type": "SYMBOL",
+                  "name": "_do_term"
+                },
+                {
+                  "type": "SYMBOL",
                   "name": "_notation_term"
                 },
                 {
@@ -1096,19 +1100,6 @@
       "content": {
         "type": "CHOICE",
         "members": [
-          {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "STRING",
-                "value": "←"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "_expression"
-              }
-            ]
-          },
           {
             "type": "SEQ",
             "members": [
@@ -5289,6 +5280,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "_do_term"
+        },
+        {
+          "type": "SYMBOL",
           "name": "_notation_term"
         },
         {
@@ -5310,6 +5305,41 @@
         {
           "type": "SYMBOL",
           "name": "interpolated_string"
+        }
+      ]
+    },
+    "lift_method": {
+      "type": "PREC",
+      "value": 10,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "<-"
+              },
+              {
+                "type": "STRING",
+                "value": "←"
+              }
+            ]
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_term"
+          }
+        ]
+      }
+    },
+    "_do_term": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "lift_method"
         }
       ]
     },

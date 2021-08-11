@@ -4,7 +4,6 @@ const {term} = require('./term.js')
 // src/Lean/Parser/Do.lean
 module.exports = {
   _left_arrow: $ => choice('<-', '←'),
-
   _do_seq_item: $ => prec.left(seq($._do_element, optional(';'))),
   _do_seq_indent: $ => prec.left(seq(repeat1($._do_seq_item))),
   _do_seq: $ => prec.left(choice($._do_seq_indent)),
