@@ -214,6 +214,7 @@ module.exports = {
     $.open,
 
     // src/Lean/Parser/Syntax.lean
+    $.mixfix,
     $.notation,
     $.macro_rules,
     $.syntax,

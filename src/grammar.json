@@ -3474,6 +3474,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "mixfix"
+        },
+        {
+          "type": "SYMBOL",
           "name": "notation"
         },
         {
@@ -3487,6 +3491,47 @@
         {
           "type": "SYMBOL",
           "name": "elab"
+        }
+      ]
+    },
+    "_precedence": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "IMMEDIATE_TOKEN",
+          "content": {
+            "type": "STRING",
+            "value": ":"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "number"
+            },
+            {
+              "type": "STRING",
+              "value": "max"
+            },
+            {
+              "type": "STRING",
+              "value": "arg"
+            },
+            {
+              "type": "STRING",
+              "value": "lead"
+            },
+            {
+              "type": "STRING",
+              "value": "min"
+            },
+            {
+              "type": "STRING",
+              "value": "min1"
+            }
+          ]
         }
       ]
     },
@@ -3508,6 +3553,64 @@
         {
           "type": "SYMBOL",
           "name": "_syntax_atom"
+        }
+      ]
+    },
+    "mixfix": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_attr_kind"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "prefix"
+            },
+            {
+              "type": "STRING",
+              "value": "infix"
+            },
+            {
+              "type": "STRING",
+              "value": "infixl"
+            },
+            {
+              "type": "STRING",
+              "value": "infixr"
+            },
+            {
+              "type": "STRING",
+              "value": "postfix"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_precedence"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "string"
+        },
+        {
+          "type": "STRING",
+          "value": "=>"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_term"
         }
       ]
     },

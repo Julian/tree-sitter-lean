@@ -90,4 +90,7 @@ module.exports = {
     $.do_return,
     $._do_expression,
   ),
+
+  rules: {
+  },
 }

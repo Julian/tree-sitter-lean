@@ -1694,10 +1694,9 @@ constant Foo : Nat → Nat
 (module
   (declaration
     (constant (identifier)
-      (binary_expression
-        (apply
-          (arrow (identifier) (identifier))
-          (ERROR) (hole)) (ERROR) (number)))))
+      (apply
+        (arrow (identifier) (identifier))
+        (ERROR) (hole) (ERROR) (number)))))
 
 =====
 Axiom

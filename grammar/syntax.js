@@ -1,5 +1,9 @@
 // src/Lean/Parser/Syntax.lean
 module.exports = {
+  _precedence: $ => seq(
+    token.immediate(':'),
+    choice($.number, 'max', 'arg', 'lead', 'min', 'min1'),
+  ),
   _syntax_cat: $ => $.identifier,
   _syntax_atom: $ => $.string,
   _syntax: $ => choice(
@@ -7,6 +11,14 @@ module.exports = {
     $._syntax_atom,
   ),
 
+  mixfix: $ => seq(
+    optional($._attr_kind),
+    choice('prefix', 'infix', 'infixl', 'infixr', 'postfix'),
+    $._precedence,
+    $.string,
+    '=>',
+    $._term,
+  ),
   notation: $ => seq(
     optional($._attr_kind),
     'notation',
