@@ -1754,9 +1754,19 @@
     "type": "attribute",
     "named": true,
     "fields": {
+      "extern": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "string",
+            "named": true
+          }
+        ]
+      },
       "name": {
         "multiple": true,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": "identifier",
@@ -1774,15 +1784,39 @@
           }
         ]
       }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        }
+      ]
     }
   },
   {
     "type": "attributes",
     "named": true,
     "fields": {
+      "extern": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "string",
+            "named": true
+          }
+        ]
+      },
       "name": {
         "multiple": true,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": "identifier",
@@ -1790,6 +1824,20 @@
           }
         ]
       }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -15629,6 +15677,10 @@
     "named": false
   },
   {
+    "type": "extern",
+    "named": false
+  },
+  {
     "type": "false",
     "named": true
   },
@@ -15666,6 +15718,10 @@
   },
   {
     "type": "inductive",
+    "named": false
+  },
+  {
+    "type": "inline",
     "named": false
   },
   {

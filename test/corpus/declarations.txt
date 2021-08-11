@@ -1006,6 +1006,22 @@ Missing Attribute
       name: (identifier)
       body: (number))))
 
+================
+Extern Attribute
+================
+
+@[extern "foo"] def f := 12
+
+---
+
+(module
+  (declaration
+    (attributes
+      extern: (string))
+    (def
+      name: (identifier)
+      body: (number))))
+
 ==============================
 Explicit Attribute Declaration
 ==============================
