@@ -3146,19 +3146,6 @@
           "value": "universe"
         },
         {
-          "type": "SYMBOL",
-          "name": "identifier"
-        }
-      ]
-    },
-    "universes": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "universes"
-        },
-        {
           "type": "REPEAT1",
           "content": {
             "type": "SYMBOL",
@@ -3382,10 +3369,6 @@
         {
           "type": "SYMBOL",
           "name": "universe"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "universes"
         },
         {
           "type": "SYMBOL",

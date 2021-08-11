@@ -169,8 +169,7 @@ module.exports = {
     $.identifier,
   ),
   variable: $ => seq('variable', repeat1($._bracketed_binder)),
-  universe: $ => seq('universe', $.identifier),
-  universes: $ => seq('universes', repeat1($.identifier)),
+  universe: $ => seq('universe', repeat1($.identifier)),
   hash_command: $ => seq(
     choice('#check', '#check_failure', '#eval', '#print', '#reduce'),
     $._expression,
@@ -203,7 +202,6 @@ module.exports = {
     $.namespace,
     $.variable,
     $.universe,
-    $.universes,
     $.hash_command,
     $.attribute,
     $.export,

@@ -9438,10 +9438,6 @@
           "named": true
         },
         {
-          "type": "universes",
-          "named": true
-        },
-        {
           "type": "variable",
           "named": true
         }
@@ -9661,10 +9657,6 @@
           },
           {
             "type": "universe",
-            "named": true
-          },
-          {
-            "type": "universes",
             "named": true
           },
           {
@@ -9919,10 +9911,6 @@
         },
         {
           "type": "universe",
-          "named": true
-        },
-        {
-          "type": "universes",
           "named": true
         },
         {
@@ -11736,10 +11724,6 @@
           },
           {
             "type": "universe",
-            "named": true
-          },
-          {
-            "type": "universes",
             "named": true
           },
           {
@@ -14656,21 +14640,6 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "identifier",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "universes",
-    "named": true,
-    "fields": {},
-    "children": {
       "multiple": true,
       "required": true,
       "types": [
@@ -15829,10 +15798,6 @@
   },
   {
     "type": "universe",
-    "named": false
-  },
-  {
-    "type": "universes",
     "named": false
   },
   {

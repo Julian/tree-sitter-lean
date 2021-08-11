@@ -180,13 +180,13 @@ Universe
 ========
 
 universe t
-universes u2 v2 w2
+universe u2 v2 w2
 
 ---
 
 (module
   (universe (identifier))
-  (universes (identifier) (identifier) (identifier)))
+  (universe (identifier) (identifier) (identifier)))
 
 ==========================
 Universe With Missing Name
@@ -197,3 +197,13 @@ universe
 ---
 
 (module (universe (identifier (MISSING _identifier))))
+
+=========
+Universes
+=========
+
+universes u2 v2 w2
+
+---
+
+(module (ERROR))
