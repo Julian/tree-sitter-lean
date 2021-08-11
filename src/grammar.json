@@ -1006,6 +1006,10 @@
                 },
                 {
                   "type": "SYMBOL",
+                  "name": "borrowed"
+                },
+                {
+                  "type": "SYMBOL",
                   "name": "proj"
                 },
                 {
@@ -4885,6 +4889,23 @@
         ]
       }
     },
+    "borrowed": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "@&"
+        },
+        {
+          "type": "PREC",
+          "value": 1022,
+          "content": {
+            "type": "SYMBOL",
+            "name": "_term"
+          }
+        }
+      ]
+    },
     "_simple_binder_without_type": {
       "type": "REPEAT1",
       "content": {
@@ -5215,6 +5236,10 @@
         {
           "type": "SYMBOL",
           "name": "match"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "borrowed"
         },
         {
           "type": "SYMBOL",

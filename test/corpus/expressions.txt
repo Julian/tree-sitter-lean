@@ -1251,3 +1251,13 @@ Quantifiers
                   (identifier))
                 (identifier))
               (identifier))))))
+
+========
+Borrowed
+========
+
+#check @& String
+
+---
+
+(module (hash_command (borrowed (identifier))))

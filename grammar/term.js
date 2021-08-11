@@ -18,6 +18,7 @@ const term = new Parser($ => [
   $.true,
   $.false,
   $.match,
+  $.borrowed,
   $.proj,
   $.arrow,
   $._notation_term,
@@ -146,6 +147,8 @@ module.exports = {
       'with',
       field('patterns', $._match_alts),
     )),
+
+    borrowed: $ => seq('@&', prec(PREC.lead, $._term)),
 
     _simple_binder_without_type: $ => repeat1($._binder_ident),
     _let_id_lhs: $ => seq(
