@@ -1006,6 +1006,10 @@
                 },
                 {
                   "type": "SYMBOL",
+                  "name": "double_quoted_name"
+                },
+                {
+                  "type": "SYMBOL",
                   "name": "proj"
                 },
                 {
@@ -4902,6 +4906,19 @@
         }
       ]
     },
+    "double_quoted_name": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "``"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        }
+      ]
+    },
     "_simple_binder_without_type": {
       "type": "REPEAT1",
       "content": {
@@ -5236,6 +5253,10 @@
         {
           "type": "SYMBOL",
           "name": "borrowed"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "double_quoted_name"
         },
         {
           "type": "SYMBOL",

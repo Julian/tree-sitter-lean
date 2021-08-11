@@ -1277,3 +1277,13 @@ Borrowed
 ---
 
 (module (hash_command (borrowed (identifier))))
+
+==================
+Double Quoted Name
+==================
+
+#check ``String
+
+---
+
+(module (hash_command (double_quoted_name (identifier))))
