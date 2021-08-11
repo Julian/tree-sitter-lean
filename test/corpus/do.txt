@@ -474,3 +474,21 @@ If Condition Function Application
 ;            (unary_expression (identifier))
 ;            (return (identifier))))
 ;        (type_ascription (identifier)))))
+;
+;=====
+;Match
+;=====
+;
+;#check (do match 0 with
+;  | 0 => 1
+;  | _ => 2 : Nat)
+;
+;---
+;
+;(module
+;  (hash_command
+;    (parenthesized
+;      (do (match (number)
+;        (match_alt (number) (number))
+;        (match_alt (hole) (number))
+;        (type_ascription (identifier)))))))
