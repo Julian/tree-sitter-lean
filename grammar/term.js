@@ -24,6 +24,7 @@ const term = new Parser($ => [
   $.proj,
   $.arrow,
   $._do_term,
+  $._command_term,
   $._notation_term,
   $._notation_extra_term,
   $.array,

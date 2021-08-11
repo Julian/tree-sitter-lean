@@ -1026,6 +1026,10 @@
                 },
                 {
                   "type": "SYMBOL",
+                  "name": "_command_term"
+                },
+                {
+                  "type": "SYMBOL",
                   "name": "_notation_term"
                 },
                 {
@@ -3415,6 +3419,44 @@
         }
       ]
     },
+    "quoted": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "`("
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_expression"
+            },
+            {
+              "type": "REPEAT1",
+              "content": {
+                "type": "SYMBOL",
+                "name": "_command"
+              }
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "_command_term": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "quoted"
+        }
+      ]
+    },
     "_command": {
       "type": "CHOICE",
       "members": [
@@ -5281,6 +5323,10 @@
         {
           "type": "SYMBOL",
           "name": "_do_term"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_command_term"
         },
         {
           "type": "SYMBOL",

@@ -196,6 +196,12 @@ module.exports = {
     optional(seq('in', $._command)),
   ),
 
+  // PERFIXME: quoted causes ~2x performance slowdown :/
+  quoted: $ => seq('`(', choice($._term, repeat1($._command)), ')'),
+  _command_term: $ => choice(
+    $.quoted,
+  ),
+
   _command: $ => choice(
     $.declaration,
     $.section,

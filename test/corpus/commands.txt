@@ -207,3 +207,24 @@ universes u2 v2 w2
 ---
 
 (module (ERROR))
+
+===============
+Quoted Commands
+===============
+
+def f : Lean.Elab.Command.CommandElabM Lean.Syntax :=
+`(
+    namespace bar
+    def bar := 12
+    end bar
+  )
+
+---
+
+(module
+  (declaration
+    (def (identifier) (apply (identifier) (identifier))
+      (quoted
+        (namespace (identifier)
+          (declaration (def (identifier) (number)))
+         (identifier))))))
