@@ -164,3 +164,15 @@ scoped postfix:max "↑" => coe
   (mixfix (string) (identifier))
   (mixfix (string) (identifier))
   (mixfix (string) (identifier)))
+
+==================
+Builtin Initialize
+==================
+
+builtin_initialize foo : bar ←
+  baz
+
+---
+
+(module
+  (builtin_initialize (identifier) (identifier) (identifier)))

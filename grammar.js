@@ -123,7 +123,8 @@ module.exports = grammar({
       ),
     ),
 
-    do: $ => prec.right(seq('do', sep1_($._do_command, $._newline))),
+    _do_seq: $ => prec.right(sep1_($._do_command, $._newline)),
+    do: $ => prec.right(seq('do', $._do_seq)),
 
     conditional_when: $ => prec.right(seq(
       'if',

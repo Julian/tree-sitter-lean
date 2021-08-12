@@ -1,12 +1,14 @@
+const do_ = require('./do.js')
 const {min1, sep1} = require('./util.js')
 
 // src/Lean/Parser/Command.lean
 module.exports = {
+  _visibility: $ => choice('private', 'protected'),
   _decl_modifiers: $ => seq(
     min1(
       $.attributes,
       repeat1(
-        choice('noncomputable', 'partial', 'private', 'protected', 'unsafe'),
+        choice('noncomputable', 'partial', $._visibility, 'unsafe'),
       ),
     ),
   ),
@@ -202,6 +204,13 @@ module.exports = {
     $.quoted,
   ),
 
+  builtin_initialize: $ => seq(
+    optional($._visibility),
+    'builtin_initialize',
+    optional(seq($.identifier, $._type_spec, do_._left_arrow($))),
+    $._do_seq,
+  ),
+
   _command: $ => choice(
     $.declaration,
     $.section,
@@ -212,6 +221,7 @@ module.exports = {
     $.attribute,
     $.export,
     $.open,
+    $.builtin_initialize,
 
     // src/Lean/Parser/Syntax.lean
     $.mixfix,
