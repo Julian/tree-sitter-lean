@@ -1575,6 +1575,20 @@ def foo :=
           name: (lift_method (number))
           arguments: (identifier)))))
 
+====
+Have
+====
+
+example : Nat:=
+  have : Type := Nat;
+  2
+
+---
+
+(module
+  (declaration
+    (example (identifier) (have (identifier) (identifier) (number)))))
+
 ======
 Abbrev
 ======

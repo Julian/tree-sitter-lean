@@ -1,5 +1,5 @@
 const {PREC} = require('./basic.js')
-const {Parser} = require('./util.js')
+const {Parser, min1} = require('./util.js')
 
 const term = new Parser($ => [
   $.identifier,
@@ -21,6 +21,7 @@ const term = new Parser($ => [
   $.borrowed,
   $.quoted_name,
   $.double_quoted_name,
+  $.have,
   $.proj,
   $.arrow,
   $._do_term,
@@ -169,6 +170,26 @@ module.exports = {
     _let_equations_decl: $ => seq($._let_id_lhs, field('body', $._match_alts)),
     _let_decl: $ => choice(
       $._let_id_decl, $._let_pattern_decl, $._let_equations_decl,
+    ),
+
+    _have_id_lhs: $ => min1(
+      seq(
+        field('name', $.identifier),
+        field('binders', repeat(
+          choice($._simple_binder_without_type, $._bracketed_binder)),
+        ),
+      ),
+      field('type', $._type_spec),
+    ),
+    _have_id_decl: $ => seq(optional($._have_id_lhs), ':=', $._term),
+    _have_eqns_decl: $ => seq(optional($._have_id_lhs), $._match_alts),
+    _have_decl: $ => choice(
+      $._have_id_decl,
+      $._let_pattern_decl,
+      $._have_eqns_decl,
+    ),
+    have: $ => prec(PREC.lead,
+      seq('have', $._have_decl, optional(';'), $._term),
     ),
     _attr_kind: $ => choice('scoped', 'local'),
     _attr_instance: $ => seq(optional($._attr_kind), $._attribute),
