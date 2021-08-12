@@ -206,11 +206,6 @@ module.exports = grammar({
       ),
     )),
 
-    _argument: $ => choice($._expression, $.named_argument),
-    named_argument: $ => seq(
-      '(', $.identifier, ':=', $._expression, ')',
-    ),
-
     apply: $ => choice($._apply, $._dollar),
 
     _apply: $ => prec(PREC.apply, seq(

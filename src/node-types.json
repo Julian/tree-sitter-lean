@@ -819,6 +819,10 @@
             "named": true
           },
           {
+            "type": "ellipsis",
+            "named": true
+          },
+          {
             "type": "exists",
             "named": true
           },
@@ -18668,6 +18672,10 @@
   {
     "type": "elab",
     "named": false
+  },
+  {
+    "type": "ellipsis",
+    "named": true
   },
   {
     "type": "else",

@@ -489,9 +489,9 @@ Binary Expressions
       (binary_expression (number) (identifier))
       (identifier)))
   (hash_command
-    (binary_expression (identifier)
-      (apply (identifier)
-        (binary_expression (identifier) (identifier)) (number))))
+    (binary_expression
+      (binary_expression (identifier) (apply (identifier) (identifier)))
+      (apply (identifier) (number))))
   (hash_command
     (binary_expression
       (identifier)
@@ -1320,3 +1320,14 @@ Subtype
 (module
   (hash_command
     (subtype (identifier) (comparison (identifier) (number)))))
+
+=================
+Ellipsis Argument
+=================
+
+#check f ..
+
+---
+
+(module
+  (hash_command (apply (identifier) (ellipsis))))

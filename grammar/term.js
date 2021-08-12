@@ -180,6 +180,16 @@ module.exports = {
     ),
     _match_alts_where_decls: $ => seq($._match_alts, optional($._where_decls)),
 
+    named_argument: $ => seq(
+      '(', $.identifier, ':=', $._expression, ')',
+    ),
+    ellipsis: $ => '..',
+    _argument: $ => choice(
+      $.named_argument,
+      $.ellipsis,
+      prec(PREC.arg, $._expression),
+    ),
+
     quoted_tactic: $ => seq('`(tactic|', $._tactic, ')'),
 
     _term: $ => term.all($),
