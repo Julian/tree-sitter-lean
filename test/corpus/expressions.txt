@@ -385,17 +385,17 @@ Nested If/Then/Else
 ---
 
 (module
-  (hash_command (unary_expression (number)))
-  (hash_command (unary_expression (float)))
-  (hash_command (unary_expression (identifier)))
-  (hash_command (unary_expression (unary_expression (number))))
-  (hash_command (unary_expression (unary_expression (identifier))))
+  (hash_command (neg (number)))
+  (hash_command (neg (float)))
+  (hash_command (neg (identifier)))
+  (hash_command (neg (neg (number))))
+  (hash_command (neg (neg (identifier))))
   (hash_command
-    (unary_expression
+    (neg
       (parenthesized (binary_expression (number) (number)))))
   (hash_command
-    (unary_expression
-      (unary_expression
+    (neg
+      (neg
         (parenthesized (binary_expression (number) (number)))))))
 
 =======================
@@ -580,7 +580,7 @@ example : 4 = 4 % 5 := rfl
       (number)))
   (hash_command
     (binary_expression
-      (binary_expression (unary_expression (float)) (number))
+      (binary_expression (neg (float)) (number))
       (number))))
 
 ==========

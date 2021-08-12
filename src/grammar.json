@@ -121,7 +121,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "unary_expression"
+          "name": "neg"
         },
         {
           "type": "SYMBOL",
@@ -1047,50 +1047,19 @@
         ]
       }
     },
-    "unary_expression": {
+    "neg": {
       "type": "PREC",
       "value": 19,
       "content": {
-        "type": "CHOICE",
+        "type": "SEQ",
         "members": [
           {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "STRING",
-                "value": "¬"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "_expression"
-              }
-            ]
+            "type": "STRING",
+            "value": "-"
           },
           {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "STRING",
-                "value": "-"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "_primary_expression"
-              }
-            ]
-          },
-          {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "STRING",
-                "value": "!"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "_expression"
-              }
-            ]
+            "type": "SYMBOL",
+            "name": "_primary_expression"
           }
         ]
       }
@@ -5595,6 +5564,36 @@
         ]
       }
     },
+    "unary_expression": {
+      "type": "PREC",
+      "value": 1024,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "¬"
+              },
+              {
+                "type": "STRING",
+                "value": "!"
+              }
+            ]
+          },
+          {
+            "type": "PREC",
+            "value": 40,
+            "content": {
+              "type": "SYMBOL",
+              "name": "_term"
+            }
+          }
+        ]
+      }
+    },
     "subtype": {
       "type": "SEQ",
       "members": [
@@ -5739,6 +5738,10 @@
         {
           "type": "SYMBOL",
           "name": "product"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "unary_expression"
         },
         {
           "type": "SYMBOL",

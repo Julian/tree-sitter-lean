@@ -86,7 +86,7 @@ module.exports = grammar({
       $.let,
       $.tactics,
       $.binary_expression,
-      $.unary_expression,
+      $.neg,
       $.quoted_tactic,
       $.fun,
       $._term,
@@ -220,11 +220,7 @@ module.exports = grammar({
       field('argument', $._expression),
     )),
 
-    unary_expression: $ => prec(PREC.unary, choice(
-      seq('¬', $._expression),
-      seq('-', $._primary_expression),
-      seq('!', $._expression),
-    )),
+    neg: $ => prec(PREC.unary, seq('-', $._primary_expression)),
 
     binary_expression: $ => choice(
       prec.right(PREC.power, seq($._expression, '^', $._expression)),

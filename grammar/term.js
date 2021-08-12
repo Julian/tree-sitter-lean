@@ -204,6 +204,11 @@ module.exports = {
     // src/Init/Notation.lean
     product: $ => prec.right(35, seq($._term, '×', $._term)),
 
+    unary_expression: $ => prec(PREC.max, seq(
+      choice('¬', '!'),
+      prec(40, $._term),
+    )),
+
     subtype: $ => seq(
       '{',
       $.identifier,
@@ -227,6 +232,7 @@ module.exports = {
 
     _notation_term: $ => choice(
       $.product,
+      $.unary_expression,
       $.subtype,
       $.if_then_else,
       $.list,
