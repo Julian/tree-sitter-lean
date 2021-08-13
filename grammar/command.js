@@ -207,7 +207,7 @@ module.exports = {
   builtin_initialize: $ => seq(
     optional($._visibility),
     'builtin_initialize',
-    optional(seq($.identifier, $._type_spec, do_._left_arrow($))),
+    optional(seq($.identifier, $._type_spec, $._left_arrow)),
     $._do_seq,
   ),
 

@@ -216,7 +216,7 @@ module.exports = {
     _term: $ => term.all($),
 
     // src/Lean/Parser/Do.lean
-    lift_method: $ => prec(PREC.min, seq(choice('<-', '←'), $._term)),
+    lift_method: $ => prec(PREC.min, seq($._left_arrow, $._term)),
 
     _do_term: $ => choice(
       $.lift_method,

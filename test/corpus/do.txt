@@ -309,7 +309,7 @@ def f : Nat := do
 
 (module
   (declaration
-    (def (identifier) (identifier) (do (return (number))))))
+    (def (identifier) (identifier) (do (do_return (number))))))
 
 ===============
 Return One Line
@@ -323,7 +323,7 @@ Return One Line
   (hash_command
     (parenthesized
       (do
-        (return
+        (do_return
           value: (identifier)))
       (type_ascription
         type: (identifier)))))
@@ -339,7 +339,7 @@ def f : Unit := do
 
 (module
   (declaration
-    (def (identifier) (identifier) (do (return)))))
+    (def (identifier) (identifier) (do (do_return)))))
 
 ======
 Unless
@@ -382,7 +382,7 @@ instance : do return ToString Nat where
     (instance
       type:
         (do
-          (return
+          (do_return
             value:
               (apply
                 name: (identifier)
@@ -411,7 +411,7 @@ instance : do return ToString Nat where
 ;      (do
 ;        (conditional_when
 ;          (true)
-;          (return (identifier))))
+;          (do_return (identifier))))
 ;      (type_ascription (identifier)))))
 
 ===================
@@ -472,7 +472,7 @@ If Condition Function Application
 ;      (do
 ;        (conditional_when
 ;            (unary_expression (identifier))
-;            (return (identifier))))
+;            (do_return (identifier))))
 ;        (type_ascription (identifier)))))
 ;
 ;=====

@@ -109,31 +109,14 @@ module.exports = grammar({
       optional(field('body', $._expression)),
     )),
 
-    _do_command: $ => seq(
-      choice(
-        $._expression,
-        $.assign,
-        $.for_in,
-        $.let_bind,
-        $.let_mut,
-        $.return,
-
-        // FIXME: These rules are what make the above really slow it'd
-        //        appear, each seem to make things ~4x slower
-        // $.conditional_when,
-        // $.try,
-        // $.finally,
-      ),
-    ),
-
-    _do_seq: $ => prec.right(sep1_($._do_command, $._newline)),
+    _do_seq: $ => prec.right(sep1_($._do_element, $._newline)),
     do: $ => prec.right(seq('do', $._do_seq)),
 
     conditional_when: $ => prec.right(seq(
       'if',
       $._expression,
       'then',
-      $._do_command,
+      $._do_element,
     )),
 
     for_in: $ => seq(
@@ -153,14 +136,14 @@ module.exports = grammar({
     let_mut: $ => seq(
       'let', 'mut',
       $.parameters,
-      choice(do_._left_arrow($), ':='),
+      choice($._left_arrow, ':='),
       field('value', $._expression),
     ),
 
     let_bind: $ => seq(
       'let',
       field('name', $.identifier),
-      do_._left_arrow($),
+      $._left_arrow,
       field('value', $._expression),
     ),
 
@@ -169,7 +152,7 @@ module.exports = grammar({
     // FIXME: nesting (which depends on the indent processing)
     try: $ => prec.left(1, seq(
       'try',
-      sep1_($._do_command, $._newline),
+      sep1_($._do_element, $._newline),
       choice(
         seq($.catch, optional($.finally)),
         $.finally,
@@ -179,18 +162,13 @@ module.exports = grammar({
       'catch',
       $._expression,
       '=>',
-      sep1_($._do_command, $._newline),
+      sep1_($._do_element, $._newline),
     )),
 
     finally: $ => prec.left(seq(
       'finally',
-      sep1_($._do_command, $._newline),
+      sep1_($._do_element, $._newline),
     )),
-
-    return: $ => prec.right(
-      seq('return', field('value', optional($._expression))),
-    ),
-
 
     fun: $ => prec.right(seq(
       choice('fun', 'λ'),
