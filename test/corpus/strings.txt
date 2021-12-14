@@ -30,12 +30,12 @@ Escape Sequences
 (module
   (hash_command
     (string
-      (escape_sequence)
-      (escape_sequence)
-      (escape_sequence)
-      (escape_sequence)
-      (escape_sequence)
-      (escape_sequence))))
+      (quoted_char)
+      (quoted_char)
+      (quoted_char)
+      (quoted_char)
+      (quoted_char)
+      (quoted_char))))
 
 =========
 \x and \u
@@ -48,8 +48,8 @@ Escape Sequences
 (module
   (hash_command
     (string
-      (escape_sequence)
-      (escape_sequence))))
+      (quoted_char)
+      (quoted_char))))
 
 ====
 Char
@@ -70,7 +70,7 @@ Char Escape Sequence
 
 ---
 
-(module (hash_command (char (escape_sequence))))
+(module (hash_command (char (quoted_char))))
 
 ========
 Non-Char
@@ -130,12 +130,12 @@ Interpolation With Escape Sequences
 (module
   (hash_command
     (interpolated_string
-      (escape_sequence)
-      (escape_sequence)
-      (escape_sequence)
-      (escape_sequence)
-      (escape_sequence)
-      (escape_sequence)
+      (quoted_char)
+      (quoted_char)
+      (quoted_char)
+      (quoted_char)
+      (quoted_char)
+      (quoted_char)
       (interpolation (identifier)))))
 
 ==============

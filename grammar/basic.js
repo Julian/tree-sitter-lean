@@ -6,4 +6,16 @@ const PREC = {
 }
 module.exports = {
   PREC,
+
+  rules: {
+    quoted_char: $ => token(
+      seq(
+        '\\', choice(
+          /u[a-fA-F\d]{4}/,
+          /x[a-fA-F\d]{2}/,
+          /[\\"'rnt]/,
+        ),
+      ),
+    ),
+  }
 }

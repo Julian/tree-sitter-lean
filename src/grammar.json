@@ -1647,35 +1647,6 @@
         ]
       }
     },
-    "escape_sequence": {
-      "type": "TOKEN",
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "STRING",
-            "value": "\\"
-          },
-          {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "PATTERN",
-                "value": "u[a-fA-F\\d]{4}"
-              },
-              {
-                "type": "PATTERN",
-                "value": "x[a-fA-F\\d]{2}"
-              },
-              {
-                "type": "PATTERN",
-                "value": "['\"rnt\\\\]"
-              }
-            ]
-          }
-        ]
-      }
-    },
     "comment": {
       "type": "TOKEN",
       "content": {
@@ -3981,6 +3952,35 @@
         }
       ]
     },
+    "quoted_char": {
+      "type": "TOKEN",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "\\"
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "PATTERN",
+                "value": "u[a-fA-F\\d]{4}"
+              },
+              {
+                "type": "PATTERN",
+                "value": "x[a-fA-F\\d]{2}"
+              },
+              {
+                "type": "PATTERN",
+                "value": "[\\\\\"'rnt]"
+              }
+            ]
+          }
+        ]
+      }
+    },
     "_left_arrow": {
       "type": "CHOICE",
       "members": [
@@ -4119,7 +4119,7 @@
             "members": [
               {
                 "type": "SYMBOL",
-                "name": "escape_sequence"
+                "name": "quoted_char"
               },
               {
                 "type": "IMMEDIATE_TOKEN",
@@ -4153,7 +4153,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "escape_sequence"
+              "name": "quoted_char"
             },
             {
               "type": "PATTERN",
@@ -6250,7 +6250,7 @@
               },
               {
                 "type": "SYMBOL",
-                "name": "escape_sequence"
+                "name": "quoted_char"
               },
               {
                 "type": "SYMBOL",

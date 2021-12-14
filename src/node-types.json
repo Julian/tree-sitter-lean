@@ -3617,7 +3617,7 @@
       "required": false,
       "types": [
         {
-          "type": "escape_sequence",
+          "type": "quoted_char",
           "named": true
         }
       ]
@@ -10318,11 +10318,11 @@
       "required": false,
       "types": [
         {
-          "type": "escape_sequence",
+          "type": "interpolation",
           "named": true
         },
         {
-          "type": "interpolation",
+          "type": "quoted_char",
           "named": true
         }
       ]
@@ -15509,7 +15509,7 @@
       "required": false,
       "types": [
         {
-          "type": "escape_sequence",
+          "type": "quoted_char",
           "named": true
         }
       ]
@@ -20003,10 +20003,6 @@
     "named": false
   },
   {
-    "type": "escape_sequence",
-    "named": true
-  },
-  {
     "type": "exact",
     "named": false
   },
@@ -20173,6 +20169,10 @@
   {
     "type": "protected",
     "named": false
+  },
+  {
+    "type": "quoted_char",
+    "named": true
   },
   {
     "type": "return",

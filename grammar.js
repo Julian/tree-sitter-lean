@@ -1,4 +1,5 @@
 const attr = require('./grammar/attr.js')
+const basic = require('./grammar/basic.js')
 const command = require('./grammar/command.js')
 const do_ = require('./grammar/do.js')
 const syntax = require('./grammar/syntax.js')
@@ -255,16 +256,6 @@ module.exports = grammar({
       $._expression,
     )),
 
-    escape_sequence: $ => token(
-      seq(
-        '\\', choice(
-          /u[a-fA-F\d]{4}/,
-          /x[a-fA-F\d]{2}/,
-          /['"rnt\\]/,
-        ),
-      ),
-    ),
-
     comment: $ => token(choice(
       seq('--', /.*/),
       seq(
@@ -284,6 +275,7 @@ module.exports = grammar({
     ...command,
     ...syntax,
     ...tactic,
+    ...basic.rules,
     ...do_.rules,
     ...term.rules,
   }

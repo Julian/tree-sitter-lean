@@ -48,10 +48,10 @@ module.exports = {
     float: $ => /\d+\.\d*/,
     string: $ => seq(
       '"',
-      repeat(choice($.escape_sequence, token.immediate(prec(1, /[^"\n\\]+/)),)),
+      repeat(choice($.quoted_char, token.immediate(prec(1, /[^"\n\\]+/)),)),
       '"',
     ),
-    char: $ => seq("'", choice($.escape_sequence, /[^']/), "'"),
+    char: $ => seq("'", choice($.quoted_char, /[^']/), "'"),
     hole: $ => "_",
     sorry: $ => 'sorry',
     cdot: $ => choice('.', '·'),
@@ -314,7 +314,7 @@ module.exports = {
     // src/Init/Data/ToString/Macro.lean
     interpolated_string: $ => seq(
       's!"',
-      repeat(choice(/[^"]/, $.escape_sequence, $.interpolation)),
+      repeat(choice(/[^"]/, $.quoted_char, $.interpolation)),
       '"',
     ),
     interpolation: $ => seq(
