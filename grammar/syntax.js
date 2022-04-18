@@ -1,3 +1,8 @@
+const
+
+macro_rhs = (parser) => seq('`(', repeat1(parser), ')');
+
+
 // src/Lean/Parser/Syntax.lean
 module.exports = {
   _precedence: $ => seq(
@@ -38,15 +43,31 @@ module.exports = {
     ':',
     $.identifier,
   ),
-  _macro_arg_simple: $ => seq(
-    $.identifier,
-    token.immediate(':'),
+  _macro_arg: $ => seq(
+    optional(seq($.identifier, token.immediate(':'))),
     $._syntax,
   ),
-  _macro_arg_symbol: $ => seq($.string),
-  _macro_arg: $ => choice($._macro_arg_symbol, $._macro_arg_simple),
-  _macro_head: $ => $._macro_arg,
-  _elab_head: $ => $._macro_head,
+  _macro_tail_tactic: $ => seq(
+    ' : ', 'tactic', '=>', macro_rhs($._tactic),
+  ),
+  _macro_tail_command: $ => seq(
+    ' : ', 'command', '=>', macro_rhs($._command),
+  ),
+  // Too lazy to implement macro_tail_default with a stack for now...
+  _macro_tail_default: $ => seq(
+    ' : ', $.identifier, '=>', macro_rhs(choice($._tactic, $._command)),
+  ),
+  _macro_tail: $ => choice(
+    $._macro_tail_tactic,
+    $._macro_tail_command,
+  ),
+  macro: $ => seq(
+    optional($._attr_kind),
+    'macro',
+    optional($._precedence),
+    repeat1($._macro_arg),
+    $._macro_tail,
+  ),
   _elab_arg: $ => $._macro_arg,
   _elab_tail: $ => seq(
     ':',
@@ -58,8 +79,8 @@ module.exports = {
   elab: $ => seq(
     optional($._attr_kind),
     'elab',
-    $._elab_head,
-    repeat($._elab_arg),
+    optional($._precedence),
+    repeat1($._elab_arg),
     $._elab_tail,
   ),
 }

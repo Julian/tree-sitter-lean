@@ -43,6 +43,17 @@ syntax str : tactic
   (syntax (string) (identifier))
   (syntax (identifier) (identifier)))
 
+=====
+Macro
+=====
+
+macro "foo" : tactic => `(trivial)
+
+---
+
+(module
+  (macro (string) (trivial)))
+
 ====
 Elab
 ====

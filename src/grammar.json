@@ -3382,6 +3382,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "macro"
+        },
+        {
+          "type": "SYMBOL",
           "name": "elab"
         }
       ]
@@ -3600,19 +3604,32 @@
         }
       ]
     },
-    "_macro_arg_simple": {
+    "_macro_arg": {
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "identifier"
-        },
-        {
-          "type": "IMMEDIATE_TOKEN",
-          "content": {
-            "type": "STRING",
-            "value": ":"
-          }
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "identifier"
+                },
+                {
+                  "type": "IMMEDIATE_TOKEN",
+                  "content": {
+                    "type": "STRING",
+                    "value": ":"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         },
         {
           "type": "SYMBOL",
@@ -3620,35 +3637,182 @@
         }
       ]
     },
-    "_macro_arg_symbol": {
+    "_macro_tail_tactic": {
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "string"
+          "type": "STRING",
+          "value": " : "
+        },
+        {
+          "type": "STRING",
+          "value": "tactic"
+        },
+        {
+          "type": "STRING",
+          "value": "=>"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "`("
+            },
+            {
+              "type": "REPEAT1",
+              "content": {
+                "type": "SYMBOL",
+                "name": "_tactic"
+              }
+            },
+            {
+              "type": "STRING",
+              "value": ")"
+            }
+          ]
         }
       ]
     },
-    "_macro_arg": {
+    "_macro_tail_command": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": " : "
+        },
+        {
+          "type": "STRING",
+          "value": "command"
+        },
+        {
+          "type": "STRING",
+          "value": "=>"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "`("
+            },
+            {
+              "type": "REPEAT1",
+              "content": {
+                "type": "SYMBOL",
+                "name": "_command"
+              }
+            },
+            {
+              "type": "STRING",
+              "value": ")"
+            }
+          ]
+        }
+      ]
+    },
+    "_macro_tail_default": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": " : "
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "STRING",
+          "value": "=>"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "`("
+            },
+            {
+              "type": "REPEAT1",
+              "content": {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "_tactic"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "_command"
+                  }
+                ]
+              }
+            },
+            {
+              "type": "STRING",
+              "value": ")"
+            }
+          ]
+        }
+      ]
+    },
+    "_macro_tail": {
       "type": "CHOICE",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_macro_arg_symbol"
+          "name": "_macro_tail_tactic"
         },
         {
           "type": "SYMBOL",
-          "name": "_macro_arg_simple"
+          "name": "_macro_tail_command"
         }
       ]
     },
-    "_macro_head": {
-      "type": "SYMBOL",
-      "name": "_macro_arg"
-    },
-    "_elab_head": {
-      "type": "SYMBOL",
-      "name": "_macro_head"
+    "macro": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_attr_kind"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "macro"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_precedence"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "REPEAT1",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_macro_arg"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_macro_tail"
+        }
+      ]
     },
     "_elab_arg": {
       "type": "SYMBOL",
@@ -3716,11 +3880,19 @@
           "value": "elab"
         },
         {
-          "type": "SYMBOL",
-          "name": "_elab_head"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_precedence"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         },
         {
-          "type": "REPEAT",
+          "type": "REPEAT1",
           "content": {
             "type": "SYMBOL",
             "name": "_elab_arg"

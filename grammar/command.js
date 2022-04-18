@@ -228,6 +228,7 @@ module.exports = {
     $.notation,
     $.macro_rules,
     $.syntax,
+    $.macro,
     $.elab,
   ),
 }
