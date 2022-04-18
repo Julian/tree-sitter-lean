@@ -1820,5 +1820,5 @@ deriving
       name: (identifier)
       constructors:
         (constructor
-          name: (identifier))
-      deriving: (identifier (MISSING _identifier)))))
+          name: (identifier))))
+      (ERROR))

@@ -105,7 +105,7 @@ open
 
 ---
 
-(module (open (identifier (MISSING _identifier))))
+(module (ERROR))
 
 ======
 Import
@@ -139,7 +139,7 @@ import
 
 ---
 
-(module (import (identifier (MISSING _identifier))))
+(module (ERROR))
 
 ======
 Export
@@ -196,7 +196,7 @@ universe
 
 ---
 
-(module (universe (identifier (MISSING _identifier))))
+(module (ERROR))
 
 =========
 Universes

@@ -169,7 +169,7 @@ Subarray Does Not Have Step
 (module
   (hash_command
     (subarray
-      (identifier) (number) (number) (ERROR (number)))))
+      (identifier) (number) (ERROR (number)) (number))))
 
 ===========================
 Subarray Does Not Have Copy
@@ -279,7 +279,7 @@ Non-Identifiers
   (hash_command (char (MISSING "'")))
   (hash_command (unary_expression (identifier)))
   (hash_command (ERROR (UNEXPECTED '?')) (identifier))
-  (hash_command (identifier (MISSING _identifier))))
+  (hash_command (identifier)) (ERROR))
 
 =======
 Product
