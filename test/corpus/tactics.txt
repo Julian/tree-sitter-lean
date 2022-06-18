@@ -167,3 +167,27 @@ example : (true ↔ true) ↔ (true ↔ true) := by
         (term (identifier))
         (intro (identifier))
         (term (identifier))))))
+
+==============
+Synthetic Hole
+==============
+
+example {x : Nat} : x = x := by refine Eq.refl ?_
+
+---
+
+(module
+  (declaration
+    (example
+      (binders
+        (implicit_binder
+          (identifier)
+          (identifier)))
+      (binary_expression
+        (identifier)
+        (identifier))
+      (tactics
+        (apply
+          (identifier)
+          (identifier)
+          (synthetic_hole (hole)))))))

@@ -180,6 +180,10 @@
             "named": true
           },
           {
+            "type": "synthetic_hole",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -388,6 +392,10 @@
             "named": true
           },
           {
+            "type": "synthetic_hole",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -590,6 +598,10 @@
           "named": true
         },
         {
+          "type": "synthetic_hole",
+          "named": true
+        },
+        {
           "type": "tactics",
           "named": true
         },
@@ -778,6 +790,10 @@
           },
           {
             "type": "subtype",
+            "named": true
+          },
+          {
+            "type": "synthetic_hole",
             "named": true
           },
           {
@@ -975,6 +991,10 @@
             "named": true
           },
           {
+            "type": "synthetic_hole",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -1158,6 +1178,10 @@
           },
           {
             "type": "subtype",
+            "named": true
+          },
+          {
+            "type": "synthetic_hole",
             "named": true
           },
           {
@@ -1353,6 +1377,10 @@
           "named": true
         },
         {
+          "type": "synthetic_hole",
+          "named": true
+        },
+        {
           "type": "tactics",
           "named": true
         },
@@ -1544,6 +1572,10 @@
           "named": true
         },
         {
+          "type": "synthetic_hole",
+          "named": true
+        },
+        {
           "type": "tactics",
           "named": true
         },
@@ -1732,6 +1764,10 @@
         },
         {
           "type": "subtype",
+          "named": true
+        },
+        {
+          "type": "synthetic_hole",
           "named": true
         },
         {
@@ -1936,6 +1972,10 @@
             "named": true
           },
           {
+            "type": "synthetic_hole",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -2093,6 +2133,10 @@
         },
         {
           "type": "subtype",
+          "named": true
+        },
+        {
+          "type": "synthetic_hole",
           "named": true
         },
         {
@@ -2383,6 +2427,10 @@
             "named": true
           },
           {
+            "type": "synthetic_hole",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -2582,6 +2630,10 @@
         },
         {
           "type": "subtype",
+          "named": true
+        },
+        {
+          "type": "synthetic_hole",
           "named": true
         },
         {
@@ -2794,6 +2846,10 @@
             "named": true
           },
           {
+            "type": "synthetic_hole",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -2977,6 +3033,10 @@
         },
         {
           "type": "subtype",
+          "named": true
+        },
+        {
+          "type": "synthetic_hole",
           "named": true
         },
         {
@@ -3164,6 +3224,10 @@
           },
           {
             "type": "subtype",
+            "named": true
+          },
+          {
+            "type": "synthetic_hole",
             "named": true
           },
           {
@@ -3371,6 +3435,10 @@
         },
         {
           "type": "subtype",
+          "named": true
+        },
+        {
+          "type": "synthetic_hole",
           "named": true
         },
         {
@@ -3582,6 +3650,10 @@
         },
         {
           "type": "subtype",
+          "named": true
+        },
+        {
+          "type": "synthetic_hole",
           "named": true
         },
         {
@@ -3838,6 +3910,10 @@
             "named": true
           },
           {
+            "type": "synthetic_hole",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -4037,6 +4113,10 @@
         },
         {
           "type": "subtype",
+          "named": true
+        },
+        {
+          "type": "synthetic_hole",
           "named": true
         },
         {
@@ -4245,6 +4325,10 @@
             "named": true
           },
           {
+            "type": "synthetic_hole",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -4433,6 +4517,10 @@
         },
         {
           "type": "subtype",
+          "named": true
+        },
+        {
+          "type": "synthetic_hole",
           "named": true
         },
         {
@@ -4638,6 +4726,10 @@
           },
           {
             "type": "subtype",
+            "named": true
+          },
+          {
+            "type": "synthetic_hole",
             "named": true
           },
           {
@@ -4906,6 +4998,10 @@
             "named": true
           },
           {
+            "type": "synthetic_hole",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -5111,6 +5207,10 @@
           },
           {
             "type": "subtype",
+            "named": true
+          },
+          {
+            "type": "synthetic_hole",
             "named": true
           },
           {
@@ -5336,6 +5436,10 @@
           "named": true
         },
         {
+          "type": "synthetic_hole",
+          "named": true
+        },
+        {
           "type": "tactics",
           "named": true
         },
@@ -5524,6 +5628,10 @@
           },
           {
             "type": "subtype",
+            "named": true
+          },
+          {
+            "type": "synthetic_hole",
             "named": true
           },
           {
@@ -5734,6 +5842,10 @@
           "named": true
         },
         {
+          "type": "synthetic_hole",
+          "named": true
+        },
+        {
           "type": "tactics",
           "named": true
         },
@@ -5933,6 +6045,10 @@
             "named": true
           },
           {
+            "type": "synthetic_hole",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -6128,6 +6244,10 @@
           },
           {
             "type": "subtype",
+            "named": true
+          },
+          {
+            "type": "synthetic_hole",
             "named": true
           },
           {
@@ -6343,6 +6463,10 @@
             "named": true
           },
           {
+            "type": "synthetic_hole",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -6532,6 +6656,10 @@
         },
         {
           "type": "subtype",
+          "named": true
+        },
+        {
+          "type": "synthetic_hole",
           "named": true
         },
         {
@@ -6727,6 +6855,10 @@
           },
           {
             "type": "subtype",
+            "named": true
+          },
+          {
+            "type": "synthetic_hole",
             "named": true
           },
           {
@@ -6935,6 +7067,10 @@
           },
           {
             "type": "subtype",
+            "named": true
+          },
+          {
+            "type": "synthetic_hole",
             "named": true
           },
           {
@@ -7160,6 +7296,10 @@
             "named": true
           },
           {
+            "type": "synthetic_hole",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -7361,6 +7501,10 @@
           },
           {
             "type": "subtype",
+            "named": true
+          },
+          {
+            "type": "synthetic_hole",
             "named": true
           },
           {
@@ -7576,6 +7720,10 @@
           "named": true
         },
         {
+          "type": "synthetic_hole",
+          "named": true
+        },
+        {
           "type": "tactics",
           "named": true
         },
@@ -7774,6 +7922,10 @@
           },
           {
             "type": "subtype",
+            "named": true
+          },
+          {
+            "type": "synthetic_hole",
             "named": true
           },
           {
@@ -7993,6 +8145,10 @@
             "named": true
           },
           {
+            "type": "synthetic_hole",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -8189,6 +8345,10 @@
             "named": true
           },
           {
+            "type": "synthetic_hole",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -8380,6 +8540,10 @@
           "named": true
         },
         {
+          "type": "synthetic_hole",
+          "named": true
+        },
+        {
           "type": "tactics",
           "named": true
         },
@@ -8568,6 +8732,10 @@
         },
         {
           "type": "subtype",
+          "named": true
+        },
+        {
+          "type": "synthetic_hole",
           "named": true
         },
         {
@@ -8802,6 +8970,10 @@
             "named": true
           },
           {
+            "type": "synthetic_hole",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -8990,6 +9162,10 @@
         },
         {
           "type": "subtype",
+          "named": true
+        },
+        {
+          "type": "synthetic_hole",
           "named": true
         },
         {
@@ -9186,6 +9362,10 @@
         },
         {
           "type": "subtype",
+          "named": true
+        },
+        {
+          "type": "synthetic_hole",
           "named": true
         },
         {
@@ -9399,6 +9579,10 @@
           },
           {
             "type": "subtype",
+            "named": true
+          },
+          {
+            "type": "synthetic_hole",
             "named": true
           },
           {
@@ -9652,6 +9836,10 @@
             "named": true
           },
           {
+            "type": "synthetic_hole",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -9862,6 +10050,10 @@
             "named": true
           },
           {
+            "type": "synthetic_hole",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -10067,6 +10259,10 @@
           },
           {
             "type": "subtype",
+            "named": true
+          },
+          {
+            "type": "synthetic_hole",
             "named": true
           },
           {
@@ -10290,6 +10486,10 @@
             "named": true
           },
           {
+            "type": "synthetic_hole",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -10501,6 +10701,10 @@
           "named": true
         },
         {
+          "type": "synthetic_hole",
+          "named": true
+        },
+        {
           "type": "tactics",
           "named": true
         },
@@ -10704,6 +10908,10 @@
           },
           {
             "type": "subtype",
+            "named": true
+          },
+          {
+            "type": "synthetic_hole",
             "named": true
           },
           {
@@ -10913,6 +11121,10 @@
             "named": true
           },
           {
+            "type": "synthetic_hole",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -11096,6 +11308,10 @@
           },
           {
             "type": "subtype",
+            "named": true
+          },
+          {
+            "type": "synthetic_hole",
             "named": true
           },
           {
@@ -11301,6 +11517,10 @@
             "named": true
           },
           {
+            "type": "synthetic_hole",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -11493,6 +11713,10 @@
             "named": true
           },
           {
+            "type": "synthetic_hole",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -11660,6 +11884,10 @@
         },
         {
           "type": "subtype",
+          "named": true
+        },
+        {
+          "type": "synthetic_hole",
           "named": true
         },
         {
@@ -11843,6 +12071,10 @@
         },
         {
           "type": "subtype",
+          "named": true
+        },
+        {
+          "type": "synthetic_hole",
           "named": true
         },
         {
@@ -12109,6 +12341,10 @@
           "named": true
         },
         {
+          "type": "synthetic_hole",
+          "named": true
+        },
+        {
           "type": "tactics",
           "named": true
         },
@@ -12345,6 +12581,10 @@
             "named": true
           },
           {
+            "type": "synthetic_hole",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -12536,6 +12776,10 @@
           },
           {
             "type": "subtype",
+            "named": true
+          },
+          {
+            "type": "synthetic_hole",
             "named": true
           },
           {
@@ -12735,6 +12979,10 @@
             "named": true
           },
           {
+            "type": "synthetic_hole",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -12922,6 +13170,10 @@
           "named": true
         },
         {
+          "type": "synthetic_hole",
+          "named": true
+        },
+        {
           "type": "tactics",
           "named": true
         },
@@ -13078,6 +13330,10 @@
         },
         {
           "type": "subtype",
+          "named": true
+        },
+        {
+          "type": "synthetic_hole",
           "named": true
         },
         {
@@ -13344,6 +13600,10 @@
         },
         {
           "type": "subtype",
+          "named": true
+        },
+        {
+          "type": "synthetic_hole",
           "named": true
         },
         {
@@ -13634,6 +13894,10 @@
           "named": true
         },
         {
+          "type": "synthetic_hole",
+          "named": true
+        },
+        {
           "type": "tactics",
           "named": true
         },
@@ -13822,6 +14086,10 @@
         },
         {
           "type": "subtype",
+          "named": true
+        },
+        {
+          "type": "synthetic_hole",
           "named": true
         },
         {
@@ -14144,6 +14412,10 @@
           "named": true
         },
         {
+          "type": "synthetic_hole",
+          "named": true
+        },
+        {
           "type": "tactics",
           "named": true
         },
@@ -14311,6 +14583,10 @@
           "named": true
         },
         {
+          "type": "synthetic_hole",
+          "named": true
+        },
+        {
           "type": "true",
           "named": true
         },
@@ -14473,6 +14749,10 @@
           },
           {
             "type": "subtype",
+            "named": true
+          },
+          {
+            "type": "synthetic_hole",
             "named": true
           },
           {
@@ -14681,6 +14961,10 @@
         },
         {
           "type": "syntax",
+          "named": true
+        },
+        {
+          "type": "synthetic_hole",
           "named": true
         },
         {
@@ -14906,6 +15190,10 @@
           "named": true
         },
         {
+          "type": "synthetic_hole",
+          "named": true
+        },
+        {
           "type": "tactics",
           "named": true
         },
@@ -15105,6 +15393,10 @@
             "named": true
           },
           {
+            "type": "synthetic_hole",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -15291,6 +15583,10 @@
             "named": true
           },
           {
+            "type": "synthetic_hole",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -15474,6 +15770,10 @@
           },
           {
             "type": "subtype",
+            "named": true
+          },
+          {
+            "type": "synthetic_hole",
             "named": true
           },
           {
@@ -15666,6 +15966,10 @@
         },
         {
           "type": "subtype",
+          "named": true
+        },
+        {
+          "type": "synthetic_hole",
           "named": true
         },
         {
@@ -16013,6 +16317,10 @@
             "named": true
           },
           {
+            "type": "synthetic_hole",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -16235,6 +16543,10 @@
             "named": true
           },
           {
+            "type": "synthetic_hole",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -16438,6 +16750,10 @@
           },
           {
             "type": "subtype",
+            "named": true
+          },
+          {
+            "type": "synthetic_hole",
             "named": true
           },
           {
@@ -16645,6 +16961,10 @@
             "named": true
           },
           {
+            "type": "synthetic_hole",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -16828,6 +17148,10 @@
           },
           {
             "type": "subtype",
+            "named": true
+          },
+          {
+            "type": "synthetic_hole",
             "named": true
           },
           {
@@ -17023,6 +17347,10 @@
             "named": true
           },
           {
+            "type": "synthetic_hole",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -17206,6 +17534,10 @@
           },
           {
             "type": "subtype",
+            "named": true
+          },
+          {
+            "type": "synthetic_hole",
             "named": true
           },
           {
@@ -17395,6 +17727,10 @@
             "named": true
           },
           {
+            "type": "synthetic_hole",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -17578,6 +17914,10 @@
           },
           {
             "type": "subtype",
+            "named": true
+          },
+          {
+            "type": "synthetic_hole",
             "named": true
           },
           {
@@ -17773,6 +18113,10 @@
           "named": true
         },
         {
+          "type": "synthetic_hole",
+          "named": true
+        },
+        {
           "type": "tactics",
           "named": true
         },
@@ -17805,6 +18149,25 @@
         },
         {
           "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "synthetic_hole",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "hole",
+          "named": true
+        },
+        {
+          "type": "identifier",
           "named": true
         }
       ]
@@ -17996,6 +18359,10 @@
         },
         {
           "type": "subtype",
+          "named": true
+        },
+        {
+          "type": "synthetic_hole",
           "named": true
         },
         {
@@ -18198,6 +18565,10 @@
           "named": true
         },
         {
+          "type": "synthetic_hole",
+          "named": true
+        },
+        {
           "type": "tactics",
           "named": true
         },
@@ -18394,6 +18765,10 @@
           },
           {
             "type": "subtype",
+            "named": true
+          },
+          {
+            "type": "synthetic_hole",
             "named": true
           },
           {
@@ -18605,6 +18980,10 @@
             "named": true
           },
           {
+            "type": "synthetic_hole",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -18807,6 +19186,10 @@
           "named": true
         },
         {
+          "type": "synthetic_hole",
+          "named": true
+        },
+        {
           "type": "tactics",
           "named": true
         },
@@ -18998,6 +19381,10 @@
             "named": true
           },
           {
+            "type": "synthetic_hole",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -19155,6 +19542,10 @@
         },
         {
           "type": "subtype",
+          "named": true
+        },
+        {
+          "type": "synthetic_hole",
           "named": true
         },
         {
@@ -19353,6 +19744,10 @@
         },
         {
           "type": "subtype",
+          "named": true
+        },
+        {
+          "type": "synthetic_hole",
           "named": true
         },
         {
@@ -19600,6 +19995,10 @@
             "named": true
           },
           {
+            "type": "synthetic_hole",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -19800,6 +20199,10 @@
             "named": true
           },
           {
+            "type": "synthetic_hole",
+            "named": true
+          },
+          {
             "type": "tactics",
             "named": true
           },
@@ -19984,6 +20387,10 @@
         },
         {
           "type": "subtype",
+          "named": true
+        },
+        {
+          "type": "synthetic_hole",
           "named": true
         },
         {
@@ -20187,6 +20594,10 @@
   },
   {
     "type": ">>=",
+    "named": false
+  },
+  {
+    "type": "?",
     "named": false
   },
   {

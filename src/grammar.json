@@ -834,6 +834,10 @@
                 },
                 {
                   "type": "SYMBOL",
+                  "name": "synthetic_hole"
+                },
+                {
+                  "type": "SYMBOL",
                   "name": "sorry"
                 },
                 {
@@ -4343,6 +4347,28 @@
       "type": "STRING",
       "value": "_"
     },
+    "synthetic_hole": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "?"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "identifier"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "hole"
+            }
+          ]
+        }
+      ]
+    },
     "sorry": {
       "type": "STRING",
       "value": "sorry"
@@ -5783,6 +5809,10 @@
         {
           "type": "SYMBOL",
           "name": "hole"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "synthetic_hole"
         },
         {
           "type": "SYMBOL",
