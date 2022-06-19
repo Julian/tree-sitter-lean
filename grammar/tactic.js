@@ -3,8 +3,9 @@ module.exports = {
     seq('by', sep1_($._tactic, seq(optional(';'), $._newline))),
   ),
 
-  apply_tactic: $ => seq('apply', $._expression),
   intro: $ => seq('intro', $.identifier),
+
+  apply_tactic: $ => seq('apply', $._expression),
   rewrite: $ => seq(choice('rewrite', 'rw'), $._expression),
   term: $ => seq('exact', $._expression),
   simp: $ => prec.right(seq(

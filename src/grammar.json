@@ -3988,19 +3988,6 @@
         ]
       }
     },
-    "apply_tactic": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "apply"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_expression"
-        }
-      ]
-    },
     "intro": {
       "type": "SEQ",
       "members": [
@@ -4011,6 +3998,19 @@
         {
           "type": "SYMBOL",
           "name": "identifier"
+        }
+      ]
+    },
+    "apply_tactic": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "apply"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_expression"
         }
       ]
     },

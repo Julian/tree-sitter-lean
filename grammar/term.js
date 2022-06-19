@@ -1,6 +1,14 @@
 const {PREC} = require('./basic.js')
 const {Parser, min1} = require('./util.js')
 
+const match_alt = ($, rhs_parser) => seq(
+  '|',
+  field('lhs', sep1($._expression, ',')),
+  '=>',
+  (typeof rhs_parser !== 'undefined') ? rhs_parser : $._expression,
+)
+const match_alts = ($, rhs_parser) => repeat1(match_alt($, rhs_parser))
+
 const term = new Parser($ => [
   $.identifier,
   $.number,
@@ -38,6 +46,7 @@ const term = new Parser($ => [
 // src/Lean/Parser/Term.lean
 module.exports = {
   term,
+  match_alt,
   rules: {
     // FIXME: see name.cpp for the real definition...
     identifier: $ => choice(
@@ -131,13 +140,7 @@ module.exports = {
       optional($._type_spec),
     ),
 
-    match_alt: $ => seq(
-      '|',
-      field('lhs', sep1($._expression, ',')),
-      '=>',
-      $._expression,
-    ),
-
+    match_alt: $ => match_alt($),
     _match_alts: $ => repeat1($.match_alt),
     _match_discr: $ => seq(
       optional(seq($.identifier, token.immediate(':'))),
