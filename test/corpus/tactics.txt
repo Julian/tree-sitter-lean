@@ -111,6 +111,37 @@ example : 2 = 2 := by simp [foo, bar]
             extra: (list (identifier) (identifier)))))))
 
 =====
+Intro
+=====
+
+example : ∀ x y : Nat, x + y = x + y := by
+  intro x y
+  rfl
+
+---
+
+(module
+  (declaration
+    (example
+      (forall
+        (binders
+          (identifier)
+          (identifier)
+          (identifier))
+        (binary_expression
+          (binary_expression
+            (identifier)
+            (identifier))
+          (binary_expression
+            (identifier)
+            (identifier))))
+      (tactics
+        (intro
+          (identifier)
+          (identifier))
+        (rfl)))))
+
+=====
 Apply
 =====
 
