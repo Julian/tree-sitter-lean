@@ -92,15 +92,6 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_primary_expression"
-        }
-      ]
-    },
-    "_primary_expression": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
           "name": "apply"
         },
         {
@@ -976,7 +967,7 @@
     },
     "neg": {
       "type": "PREC",
-      "value": 19,
+      "value": 1000,
       "content": {
         "type": "SEQ",
         "members": [
@@ -986,7 +977,7 @@
           },
           {
             "type": "SYMBOL",
-            "name": "_primary_expression"
+            "name": "_expression"
           }
         ]
       }
@@ -6513,7 +6504,7 @@
     ],
     [
       "_have_id_decl",
-      "_primary_expression"
+      "_expression"
     ],
     [
       "_have_id_lhs",
@@ -6553,7 +6544,7 @@
     ],
     [
       "proj",
-      "_primary_expression"
+      "_expression"
     ]
   ],
   "precedences": [],
@@ -6566,3 +6557,4 @@
   "inline": [],
   "supertypes": []
 }
+

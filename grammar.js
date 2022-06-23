@@ -20,7 +20,7 @@ const PREC = {
   eqeq: 16,
   plus: 17,
   times: 18,
-  unary: 19,
+  unary: 1000,
   power: 20,
 
   name: 30,
@@ -43,7 +43,7 @@ module.exports = grammar({
     [$._binder_ident, $.named_argument],
     [$._binder_ident, $.subtype],
     [$._binder_ident],
-    [$._have_id_decl, $._primary_expression],
+    [$._have_id_decl, $._expression],
     [$._have_id_lhs, $._term],
     [$._have_id_lhs],
     [$._let_id_lhs, $._term],
@@ -54,7 +54,7 @@ module.exports = grammar({
     [$.identifier],
     [$.instance_binder, $._term],
     [$.instance_binder, $.list],
-    [$.proj, $._primary_expression],
+    [$.proj, $._expression],
   ],
 
   word: $ => $._identifier,
@@ -81,10 +81,6 @@ module.exports = grammar({
     ),
 
     _expression: $ => choice(
-      $._primary_expression,
-    ),
-
-    _primary_expression: $ => choice(
       $.apply,
       $.comparison,
       $.let,
@@ -202,7 +198,7 @@ module.exports = grammar({
       field('argument', $._expression),
     )),
 
-    neg: $ => prec(PREC.unary, seq('-', $._primary_expression)),
+    neg: $ => prec(PREC.unary, seq('-', $._expression)),
 
     binary_expression: $ => choice(
       prec.right(PREC.power, seq($._expression, '^', $._expression)),
