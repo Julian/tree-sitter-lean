@@ -4694,8 +4694,12 @@
           "value": "@"
         },
         {
-          "type": "SYMBOL",
-          "name": "_expression"
+          "type": "PREC",
+          "value": 1024,
+          "content": {
+            "type": "SYMBOL",
+            "name": "_term"
+          }
         }
       ]
     },
@@ -5327,7 +5331,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_expression"
+          "name": "_term"
         },
         {
           "type": "CHOICE",
@@ -6572,4 +6576,3 @@
   "inline": [],
   "supertypes": []
 }
-

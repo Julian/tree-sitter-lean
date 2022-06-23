@@ -91,7 +91,7 @@ module.exports = {
     ),
     _type_spec: $ => field('type', seq(':', $._expression)),
 
-    explicit: $ => seq('@', $._expression),
+    explicit: $ => seq('@', prec(PREC.max, $._term)),
     _binder_ident: $ => choice($.identifier, $.hole),
     _binder_default: $ => field('default', seq(':=', $._expression)),
     explicit_binder: $ => seq(
@@ -171,7 +171,7 @@ module.exports = {
       field('type', optional($._type_spec)),
     ),
     _let_id_decl: $ => seq($._let_id_lhs, ":=", field('body', $._expression)),
-    _let_pattern_decl: $ => seq($._expression, optional($._type_spec), ":=", $._expression),
+    _let_pattern_decl: $ => seq($._term, optional($._type_spec), ":=", $._expression),
     _let_equations_decl: $ => seq($._let_id_lhs, field('body', $._match_alts)),
     _let_decl: $ => choice(
       $._let_id_decl, $._let_pattern_decl, $._let_equations_decl,

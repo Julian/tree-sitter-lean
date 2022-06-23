@@ -6499,10 +6499,6 @@
           "named": true
         },
         {
-          "type": "apply",
-          "named": true
-        },
-        {
           "type": "array",
           "named": true
         },
@@ -6515,10 +6511,6 @@
           "named": true
         },
         {
-          "type": "binary_expression",
-          "named": true
-        },
-        {
           "type": "borrowed",
           "named": true
         },
@@ -6528,14 +6520,6 @@
         },
         {
           "type": "char",
-          "named": true
-        },
-        {
-          "type": "comparison",
-          "named": true
-        },
-        {
-          "type": "do",
           "named": true
         },
         {
@@ -6563,10 +6547,6 @@
           "named": true
         },
         {
-          "type": "fun",
-          "named": true
-        },
-        {
           "type": "have",
           "named": true
         },
@@ -6587,10 +6567,6 @@
           "named": true
         },
         {
-          "type": "let",
-          "named": true
-        },
-        {
           "type": "lift_method",
           "named": true
         },
@@ -6600,10 +6576,6 @@
         },
         {
           "type": "match",
-          "named": true
-        },
-        {
-          "type": "neg",
           "named": true
         },
         {
@@ -6628,10 +6600,6 @@
         },
         {
           "type": "quoted_name",
-          "named": true
-        },
-        {
-          "type": "quoted_tactic",
           "named": true
         },
         {
@@ -6663,19 +6631,11 @@
           "named": true
         },
         {
-          "type": "tactics",
-          "named": true
-        },
-        {
           "type": "true",
           "named": true
         },
         {
           "type": "unary_expression",
-          "named": true
-        },
-        {
-          "type": "unless",
           "named": true
         }
       ]
