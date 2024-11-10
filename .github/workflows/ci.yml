@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+    branches-ignore:
+      - "wip*"
+    tags:
+      - "v*"
+  pull_request:
+  schedule:
+    # Daily at 1:21
+    - cron: '21 1 * * *'
+  workflow_dispatch:
+
+jobs:
+
+  ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          package_json_file: package.json
+          run_install: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: package.json
+          cache: 'pnpm'
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Regenerate the grammar
+        run: pnpm exec tree-sitter generate
+
+      - name: Test the grammar
+        run: pnpm exec tree-sitter test

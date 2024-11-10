@@ -1,0 +1,35 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/config.schema.json",
+
+  "grammars": [
+    {
+      "name": "lean",
+      "camelcase": "Lean",
+      "scope": "source.lean",
+      "path": ".",
+      "injection-regex": "^lean$"
+    }
+  ],
+  "metadata": {
+    "version": "0.1.0",
+    "license": "MIT",
+    "description": "Lean Theorem Prover",
+    "authors": [
+      {
+        "name": "Julian Berman",
+        "email": "Julian+tree-sitter-lean@GrayVines.com"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/Julian/tree-sitter-lean"
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": false,
+    "node": true,
+    "python": true,
+    "rust": true,
+    "swift": false
+  }
+}
