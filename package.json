@@ -14,13 +14,5 @@
   "devDependencies": {
     "tree-sitter-cli": "^0.20.6"
   },
-  "repository": "https://github.com/Julian/tree-sitter-lean",
-  "tree-sitter": [
-    {
-      "scope": "source.lean",
-      "file-types": [
-        "lean"
-      ]
-    }
-  ]
+  "repository": "https://github.com/Julian/tree-sitter-lean"
 }
