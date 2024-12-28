@@ -60,6 +60,14 @@
       "members": [
         {
           "type": "SYMBOL",
+          "name": "scoped_in"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "def"
+        },
+        {
+          "type": "SYMBOL",
           "name": "interactive"
         },
         {
@@ -77,6 +85,78 @@
         {
           "type": "SYMBOL",
           "name": "namespace"
+        }
+      ]
+    },
+    "scoped_in": {
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "_command"
+          },
+          {
+            "type": "STRING",
+            "value": "in"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_command"
+          }
+        ]
+      }
+    },
+    "_decl_id": {
+      "type": "FIELD",
+      "name": "name",
+      "content": {
+        "type": "SYMBOL",
+        "name": "identifier"
+      }
+    },
+    "_decl_val_simple": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": ":="
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_term"
+        }
+      ]
+    },
+    "_decl_val": {
+      "type": "FIELD",
+      "name": "body",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "_decl_val_simple"
+          }
+        ]
+      }
+    },
+    "def": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "def"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_decl_id"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_decl_val"
         }
       ]
     },

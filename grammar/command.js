@@ -1,10 +1,28 @@
 export default {
   _command: $ => choice(
+    $.scoped_in,
+
+    $.def,
+
     $.interactive,
+
     $.open,
     $.export,
     $.section,
     $.namespace,
+  ),
+
+  scoped_in: $ => prec.right(seq($._command, 'in', $._command)),
+
+  _decl_id: $ => field('name', $.identifier),
+  _decl_val_simple: $ => seq(':=', $._term),
+  _decl_val: $ => field('body', choice(
+    $._decl_val_simple,
+  )),
+  def: $ => seq(
+    'def',
+    $._decl_id,
+    $._decl_val,
   ),
 
   interactive: $ => seq(

@@ -90,12 +90,12 @@ open Foo in
 ---
 
 (module
-  (open
-    namespace: (identifier)
-      (declaration
-        (def
-          name: (identifier)
-          body: (identifier)))))
+  (scoped_in
+    (open
+      namespace: (identifier))
+    (def
+      name: (identifier)
+      body: (identifier))))
 
 ======================
 Open With Missing Name
@@ -222,9 +222,8 @@ def f : Lean.Elab.Command.CommandElabM Lean.Syntax :=
 ---
 
 (module
-  (declaration
-    (def (identifier) (apply (identifier) (identifier))
-      (quoted
-        (namespace (identifier)
-          (declaration (def (identifier) (number)))
-         (identifier))))))
+  (def (identifier) (apply (identifier) (identifier))
+    (quoted
+      (namespace (identifier)
+        (def (identifier) (number))
+        (identifier))))))

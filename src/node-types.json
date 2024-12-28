@@ -50,6 +50,48 @@
     }
   },
   {
+    "type": "def",
+    "named": true,
+    "fields": {
+      "body": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": ":=",
+            "named": false
+          },
+          {
+            "type": "apply",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "export",
     "named": true,
     "fields": {
@@ -133,6 +175,10 @@
       "required": false,
       "types": [
         {
+          "type": "def",
+          "named": true
+        },
+        {
           "type": "export",
           "named": true
         },
@@ -157,6 +203,10 @@
           "named": true
         },
         {
+          "type": "scoped_in",
+          "named": true
+        },
+        {
           "type": "section",
           "named": true
         }
@@ -172,6 +222,10 @@
         "required": false,
         "types": [
           {
+            "type": "def",
+            "named": true
+          },
+          {
             "type": "export",
             "named": true
           },
@@ -185,6 +239,10 @@
           },
           {
             "type": "open",
+            "named": true
+          },
+          {
+            "type": "scoped_in",
             "named": true
           },
           {
@@ -232,6 +290,45 @@
     }
   },
   {
+    "type": "scoped_in",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "def",
+          "named": true
+        },
+        {
+          "type": "export",
+          "named": true
+        },
+        {
+          "type": "interactive",
+          "named": true
+        },
+        {
+          "type": "namespace",
+          "named": true
+        },
+        {
+          "type": "open",
+          "named": true
+        },
+        {
+          "type": "scoped_in",
+          "named": true
+        },
+        {
+          "type": "section",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "section",
     "named": true,
     "fields": {
@@ -239,6 +336,10 @@
         "multiple": true,
         "required": false,
         "types": [
+          {
+            "type": "def",
+            "named": true
+          },
           {
             "type": "export",
             "named": true
@@ -253,6 +354,10 @@
           },
           {
             "type": "open",
+            "named": true
+          },
+          {
+            "type": "scoped_in",
             "named": true
           },
           {
@@ -335,8 +440,16 @@
     "named": false
   },
   {
+    "type": ":=",
+    "named": false
+  },
+  {
     "type": "comment",
     "named": true
+  },
+  {
+    "type": "def",
+    "named": false
   },
   {
     "type": "end",
@@ -348,6 +461,10 @@
   },
   {
     "type": "import",
+    "named": false
+  },
+  {
+    "type": "in",
     "named": false
   },
   {
