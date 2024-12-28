@@ -1,0 +1,152 @@
+======
+String
+======
+
+#eval "foo"
+#eval "'"
+
+---
+
+(module (interactive (string)) (interactive (string)))
+
+============
+Empty String
+============
+
+#eval ""
+
+---
+
+(module (interactive (string)))
+
+================
+Escape Sequences
+================
+
+#eval "f\'o\"\ro\nb\ta\\r"
+
+---
+
+(module
+  (interactive
+    (string
+      (quoted_char)
+      (quoted_char)
+      (quoted_char)
+      (quoted_char)
+      (quoted_char)
+      (quoted_char))))
+
+=========
+\x and \u
+=========
+
+#eval "\x12\u1234"
+
+---
+
+(module
+  (interactive
+    (string
+      (quoted_char)
+      (quoted_char))))
+
+====
+Char
+====
+
+#eval 'f'
+#eval '"'
+
+---
+
+(module (interactive (char)) (interactive (char)))
+
+====================
+Char Escape Sequence
+====================
+
+#eval '\''
+
+---
+
+(module (interactive (char (quoted_char))))
+
+========
+Non-Char
+========
+
+#eval 'fa'
+
+---
+
+(module (interactive (ERROR) (identifier)))
+
+==================================
+Non-Interpolation in Normal String
+==================================
+
+#eval println! "The result of squaring the integer 4573 and adding 3 is {result1}"
+
+---
+
+(module (interactive (apply (identifier) (string))))
+
+=============
+Interpolation
+=============
+
+#eval println! s!"The result of squaring the integer 4573 and adding 3 is {result1}"
+
+---
+
+(module
+  (interactive
+    (apply (identifier)
+      (interpolated_string (interpolation (identifier))))))
+
+=======================================
+Interpolation With Function Application
+=======================================
+
+#eval println! s!"The result of applying sampleFunction3 to 2 is {sampleFunction3 2}"
+
+---
+
+(module
+  (interactive
+    (apply (identifier)
+      (interpolated_string
+        (interpolation (apply (identifier) (number)))))))
+
+===================================
+Interpolation With Escape Sequences
+===================================
+
+#eval s!"f\'o\"\ro\nb\ta\\r {baz}"
+
+---
+
+(module
+  (interactive
+    (interpolated_string
+      (quoted_char)
+      (quoted_char)
+      (quoted_char)
+      (quoted_char)
+      (quoted_char)
+      (quoted_char)
+      (interpolation (identifier)))))
+
+==============
+String With --
+==============
+
+#eval "--"
+#eval "/--"
+
+---
+
+(module
+  (interactive (string))
+  (interactive (string)))
