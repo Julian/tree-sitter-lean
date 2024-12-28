@@ -3,6 +3,8 @@ export default {
     $.interactive,
     $.open,
     $.export,
+    $.section,
+    $.namespace,
   ),
 
   interactive: $ => seq(
@@ -19,7 +21,6 @@ export default {
   open: $ => seq(
     'open',
     repeat1(field('namespace', $.identifier)),
-    optional(seq('in', $._command)),
   ),
   export: $ => seq(
     'export',
@@ -27,5 +28,20 @@ export default {
     '(',
     repeat1($.identifier),
     ')',
+  ),
+
+  section: $ => seq(
+    'section',
+    optional(field('name', $.identifier)),
+    field('body', repeat($._command)),
+    'end',
+    optional($.identifier),
+  ),
+  namespace: $ => seq(
+    'namespace',
+    field('name', $.identifier),
+    field('body', repeat($._command)),
+    'end',
+    $.identifier,
   ),
 };

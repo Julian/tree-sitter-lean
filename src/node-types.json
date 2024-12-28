@@ -145,11 +145,71 @@
           "named": true
         },
         {
+          "type": "namespace",
+          "named": true
+        },
+        {
           "type": "open",
           "named": true
         },
         {
           "type": "prelude",
+          "named": true
+        },
+        {
+          "type": "section",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "namespace",
+    "named": true,
+    "fields": {
+      "body": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "export",
+            "named": true
+          },
+          {
+            "type": "interactive",
+            "named": true
+          },
+          {
+            "type": "namespace",
+            "named": true
+          },
+          {
+            "type": "open",
+            "named": true
+          },
+          {
+            "type": "section",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
           "named": true
         }
       ]
@@ -169,21 +229,55 @@
           }
         ]
       }
+    }
+  },
+  {
+    "type": "section",
+    "named": true,
+    "fields": {
+      "body": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "export",
+            "named": true
+          },
+          {
+            "type": "interactive",
+            "named": true
+          },
+          {
+            "type": "namespace",
+            "named": true
+          },
+          {
+            "type": "open",
+            "named": true
+          },
+          {
+            "type": "section",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
     },
     "children": {
       "multiple": false,
       "required": false,
       "types": [
         {
-          "type": "export",
-          "named": true
-        },
-        {
-          "type": "interactive",
-          "named": true
-        },
-        {
-          "type": "open",
+          "type": "identifier",
           "named": true
         }
       ]
@@ -245,6 +339,10 @@
     "named": true
   },
   {
+    "type": "end",
+    "named": false
+  },
+  {
     "type": "export",
     "named": false
   },
@@ -253,7 +351,7 @@
     "named": false
   },
   {
-    "type": "in",
+    "type": "namespace",
     "named": false
   },
   {
@@ -271,5 +369,9 @@
   {
     "type": "quoted_char",
     "named": true
+  },
+  {
+    "type": "section",
+    "named": false
   }
 ]
