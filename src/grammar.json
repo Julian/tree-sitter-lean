@@ -65,6 +65,10 @@
         {
           "type": "SYMBOL",
           "name": "open"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "export"
         }
       ]
     },
@@ -140,6 +144,38 @@
               "type": "BLANK"
             }
           ]
+        }
+      ]
+    },
+    "export": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "export"
+        },
+        {
+          "type": "FIELD",
+          "name": "class",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "REPEAT1",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ")"
         }
       ]
     },

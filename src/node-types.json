@@ -50,6 +50,32 @@
     }
   },
   {
+    "type": "export",
+    "named": true,
+    "fields": {
+      "class": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "identifier",
     "named": true,
     "fields": {}
@@ -107,6 +133,10 @@
       "required": false,
       "types": [
         {
+          "type": "export",
+          "named": true
+        },
+        {
           "type": "import",
           "named": true
         },
@@ -144,6 +174,10 @@
       "multiple": false,
       "required": false,
       "types": [
+        {
+          "type": "export",
+          "named": true
+        },
         {
           "type": "interactive",
           "named": true
@@ -195,12 +229,24 @@
     "named": false
   },
   {
+    "type": "(",
+    "named": false
+  },
+  {
+    "type": ")",
+    "named": false
+  },
+  {
     "type": ".",
     "named": false
   },
   {
     "type": "comment",
     "named": true
+  },
+  {
+    "type": "export",
+    "named": false
   },
   {
     "type": "import",
