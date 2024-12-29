@@ -342,7 +342,7 @@ If/Then/Else
 
 ---
 
-(module (interactive (if_then_else (true) (string) (string))))
+(module (interactive (ite (true) (string) (string))))
 
 =============
 If Needs Else
@@ -364,8 +364,8 @@ Nested If/Then/Else
 
 (module
   (interactive
-    (if_then_else (true)
-      (if_then_else (false) (string) (string))
+    (ite (true)
+      (ite (false) (string) (string))
       (string))))
 
 ==========

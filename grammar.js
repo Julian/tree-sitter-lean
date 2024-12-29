@@ -21,7 +21,10 @@ export default grammar({
   word: $ => $._identifier_component,
 
   precedences: $ => [
-    ['apply'],
+    [
+      'ite',
+      'apply',
+    ],
   ],
 
   rules: {

@@ -2,17 +2,25 @@ import { sep1 } from './helpers.js';
 
 export default {
   _term: $ => choice(
+    $.identifier,
+    $.sorry,
     $.number,
     $.string,
-    $.identifier,
+    $.char,
     alias($._apply, $.apply),
+    $.true,
+    $.false,
+    $.ite,
   ),
 
+  // src/Lean/Parser/Term.lean
   identifier: $ => choice(
     sep1($._identifier_component, token.immediate('.')),
   ),
   _identifier_component: $ =>
     /[_a-zA-ZͰ-ϿĀ-ſ\U0001D400-\U0001D7FF][_`'`a-zA-Z0-9Ͱ-ϿĀ-ſ∇!?\u2070-\u209F\U0001D400-\U0001D7FF]*/,
+
+  sorry: $ => 'sorry',
 
   number: $ => /\d+/,
   string: $ => seq(
@@ -20,6 +28,7 @@ export default {
     repeat(choice($.quoted_char, token.immediate(prec(1, /[^"\n\\]+/)),)),
     '"',
   ),
+  char: $ => seq("'", choice($.quoted_char, /[^']/), "'"),
   quoted_char: $ => token(
     seq(
       '\\', choice(
@@ -33,5 +42,18 @@ export default {
   _apply: $ => prec.left('apply', seq(
     field('function', $._term),
     field('argument', $._term),
+  )),
+
+  true: $ => 'true',
+  false: $ => 'false',
+
+  // src/Init/Notation.lean
+  ite: $ => prec('ite', seq(
+    'if',
+    $._term,
+    'then',
+    $._term,
+    'else',
+    $._term,
   )),
 };

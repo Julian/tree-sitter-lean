@@ -339,6 +339,14 @@
       "members": [
         {
           "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "sorry"
+        },
+        {
+          "type": "SYMBOL",
           "name": "number"
         },
         {
@@ -347,7 +355,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "identifier"
+          "name": "char"
         },
         {
           "type": "ALIAS",
@@ -357,6 +365,18 @@
           },
           "named": true,
           "value": "apply"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "true"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "false"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ite"
         }
       ]
     },
@@ -397,6 +417,10 @@
       "type": "PATTERN",
       "value": "[_a-zA-ZͰ-ϿĀ-ſ\\U0001D400-\\U0001D7FF][_`'`a-zA-Z0-9Ͱ-ϿĀ-ſ∇!?\\u2070-\\u209F\\U0001D400-\\U0001D7FF]*"
     },
+    "sorry": {
+      "type": "STRING",
+      "value": "sorry"
+    },
     "number": {
       "type": "PATTERN",
       "value": "\\d+"
@@ -434,6 +458,32 @@
         {
           "type": "STRING",
           "value": "\""
+        }
+      ]
+    },
+    "char": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "'"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "quoted_char"
+            },
+            {
+              "type": "PATTERN",
+              "value": "[^']"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "'"
         }
       ]
     },
@@ -487,6 +537,47 @@
               "type": "SYMBOL",
               "name": "_term"
             }
+          }
+        ]
+      }
+    },
+    "true": {
+      "type": "STRING",
+      "value": "true"
+    },
+    "false": {
+      "type": "STRING",
+      "value": "false"
+    },
+    "ite": {
+      "type": "PREC",
+      "value": "ite",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "if"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_term"
+          },
+          {
+            "type": "STRING",
+            "value": "then"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_term"
+          },
+          {
+            "type": "STRING",
+            "value": "else"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_term"
           }
         ]
       }
@@ -555,6 +646,10 @@
   "conflicts": [],
   "precedences": [
     [
+      {
+        "type": "STRING",
+        "value": "ite"
+      },
       {
         "type": "STRING",
         "value": "apply"

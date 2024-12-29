@@ -12,7 +12,19 @@
             "named": true
           },
           {
+            "type": "char",
+            "named": true
+          },
+          {
+            "type": "false",
+            "named": true
+          },
+          {
             "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "ite",
             "named": true
           },
           {
@@ -20,7 +32,15 @@
             "named": true
           },
           {
+            "type": "sorry",
+            "named": true
+          },
+          {
             "type": "string",
+            "named": true
+          },
+          {
+            "type": "true",
             "named": true
           }
         ]
@@ -34,7 +54,19 @@
             "named": true
           },
           {
+            "type": "char",
+            "named": true
+          },
+          {
+            "type": "false",
+            "named": true
+          },
+          {
             "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "ite",
             "named": true
           },
           {
@@ -42,11 +74,34 @@
             "named": true
           },
           {
+            "type": "sorry",
+            "named": true
+          },
+          {
             "type": "string",
+            "named": true
+          },
+          {
+            "type": "true",
             "named": true
           }
         ]
       }
+    }
+  },
+  {
+    "type": "char",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "quoted_char",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -66,7 +121,19 @@
             "named": true
           },
           {
+            "type": "char",
+            "named": true
+          },
+          {
+            "type": "false",
+            "named": true
+          },
+          {
             "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "ite",
             "named": true
           },
           {
@@ -74,7 +141,15 @@
             "named": true
           },
           {
+            "type": "sorry",
+            "named": true
+          },
+          {
             "type": "string",
+            "named": true
+          },
+          {
+            "type": "true",
             "named": true
           }
         ]
@@ -151,7 +226,19 @@
           "named": true
         },
         {
+          "type": "char",
+          "named": true
+        },
+        {
+          "type": "false",
+          "named": true
+        },
+        {
           "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "ite",
           "named": true
         },
         {
@@ -159,7 +246,62 @@
           "named": true
         },
         {
+          "type": "sorry",
+          "named": true
+        },
+        {
           "type": "string",
+          "named": true
+        },
+        {
+          "type": "true",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "ite",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "apply",
+          "named": true
+        },
+        {
+          "type": "char",
+          "named": true
+        },
+        {
+          "type": "false",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "ite",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "sorry",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "true",
           "named": true
         }
       ]
@@ -428,6 +570,10 @@
     "named": false
   },
   {
+    "type": "'",
+    "named": false
+  },
+  {
     "type": "(",
     "named": false
   },
@@ -452,11 +598,23 @@
     "named": false
   },
   {
+    "type": "else",
+    "named": false
+  },
+  {
     "type": "end",
     "named": false
   },
   {
     "type": "export",
+    "named": false
+  },
+  {
+    "type": "false",
+    "named": true
+  },
+  {
+    "type": "if",
     "named": false
   },
   {
@@ -490,5 +648,17 @@
   {
     "type": "section",
     "named": false
+  },
+  {
+    "type": "sorry",
+    "named": true
+  },
+  {
+    "type": "then",
+    "named": false
+  },
+  {
+    "type": "true",
+    "named": true
   }
 ]

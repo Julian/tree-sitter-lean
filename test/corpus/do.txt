@@ -424,9 +424,9 @@ Nested If/Then/Else
 
 (module
   (interactive
-    (if_then_else
+    (ite
       (true)
-      (do (if_then_else (false) (false) (false)))
+      (do (ite (false) (false) (false)))
       (true))))
 
 ===============
@@ -452,7 +452,7 @@ If Condition Function Application
 (module
   (interactive
     (parenthesized
-      (if_then_else
+      (ite
         (apply (identifier) (number))
         (do (identifier))
         (identifier))
