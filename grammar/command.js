@@ -10,8 +10,10 @@ export default {
     $.export,
     $.section,
     $.namespace,
+    $.variable,
   ),
 
+  // src/Lean/Parser/Command.lean
   scoped_in: $ => prec.right(seq($._command, 'in', $._command)),
 
   _decl_id: $ => field('name', $.identifier),
@@ -62,4 +64,6 @@ export default {
     'end',
     $.identifier,
   ),
+
+  variable: $ => seq('variable', repeat1($._bracketed_binder)),
 };

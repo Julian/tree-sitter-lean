@@ -23,6 +23,7 @@ export default grammar({
   precedences: $ => [
     [
       'ite',
+      'arrow',
       'apply',
     ],
   ],

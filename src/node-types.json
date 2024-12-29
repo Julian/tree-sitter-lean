@@ -12,11 +12,19 @@
             "named": true
           },
           {
+            "type": "arrow",
+            "named": true
+          },
+          {
             "type": "char",
             "named": true
           },
           {
             "type": "false",
+            "named": true
+          },
+          {
+            "type": "hole",
             "named": true
           },
           {
@@ -54,11 +62,19 @@
             "named": true
           },
           {
+            "type": "arrow",
+            "named": true
+          },
+          {
             "type": "char",
             "named": true
           },
           {
             "type": "false",
+            "named": true
+          },
+          {
+            "type": "hole",
             "named": true
           },
           {
@@ -87,6 +103,61 @@
           }
         ]
       }
+    }
+  },
+  {
+    "type": "arrow",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "apply",
+          "named": true
+        },
+        {
+          "type": "arrow",
+          "named": true
+        },
+        {
+          "type": "char",
+          "named": true
+        },
+        {
+          "type": "false",
+          "named": true
+        },
+        {
+          "type": "hole",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "ite",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "sorry",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "true",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -121,11 +192,19 @@
             "named": true
           },
           {
+            "type": "arrow",
+            "named": true
+          },
+          {
             "type": "char",
             "named": true
           },
           {
             "type": "false",
+            "named": true
+          },
+          {
+            "type": "hole",
             "named": true
           },
           {
@@ -167,6 +246,134 @@
     }
   },
   {
+    "type": "explicit_binder",
+    "named": true,
+    "fields": {
+      "default": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ":=",
+            "named": false
+          },
+          {
+            "type": "apply",
+            "named": true
+          },
+          {
+            "type": "arrow",
+            "named": true
+          },
+          {
+            "type": "char",
+            "named": true
+          },
+          {
+            "type": "false",
+            "named": true
+          },
+          {
+            "type": "hole",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "ite",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "sorry",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "true",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "hole",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ":",
+            "named": false
+          },
+          {
+            "type": "apply",
+            "named": true
+          },
+          {
+            "type": "arrow",
+            "named": true
+          },
+          {
+            "type": "char",
+            "named": true
+          },
+          {
+            "type": "false",
+            "named": true
+          },
+          {
+            "type": "hole",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "ite",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "sorry",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "true",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "export",
     "named": true,
     "fields": {
@@ -198,6 +405,80 @@
     "fields": {}
   },
   {
+    "type": "implicit_binder",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "hole",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ":",
+            "named": false
+          },
+          {
+            "type": "apply",
+            "named": true
+          },
+          {
+            "type": "arrow",
+            "named": true
+          },
+          {
+            "type": "char",
+            "named": true
+          },
+          {
+            "type": "false",
+            "named": true
+          },
+          {
+            "type": "hole",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "ite",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "sorry",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "true",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "import",
     "named": true,
     "fields": {
@@ -207,6 +488,72 @@
         "types": [
           {
             "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "instance_binder",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "apply",
+            "named": true
+          },
+          {
+            "type": "arrow",
+            "named": true
+          },
+          {
+            "type": "char",
+            "named": true
+          },
+          {
+            "type": "false",
+            "named": true
+          },
+          {
+            "type": "hole",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "ite",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "sorry",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "true",
             "named": true
           }
         ]
@@ -226,11 +573,19 @@
           "named": true
         },
         {
+          "type": "arrow",
+          "named": true
+        },
+        {
           "type": "char",
           "named": true
         },
         {
           "type": "false",
+          "named": true
+        },
+        {
+          "type": "hole",
           "named": true
         },
         {
@@ -273,11 +628,19 @@
           "named": true
         },
         {
+          "type": "arrow",
+          "named": true
+        },
+        {
           "type": "char",
           "named": true
         },
         {
           "type": "false",
+          "named": true
+        },
+        {
+          "type": "hole",
           "named": true
         },
         {
@@ -351,6 +714,10 @@
         {
           "type": "section",
           "named": true
+        },
+        {
+          "type": "variable",
+          "named": true
         }
       ]
     }
@@ -389,6 +756,10 @@
           },
           {
             "type": "section",
+            "named": true
+          },
+          {
+            "type": "variable",
             "named": true
           }
         ]
@@ -466,6 +837,10 @@
         {
           "type": "section",
           "named": true
+        },
+        {
+          "type": "variable",
+          "named": true
         }
       ]
     }
@@ -505,6 +880,10 @@
           {
             "type": "section",
             "named": true
+          },
+          {
+            "type": "variable",
+            "named": true
           }
         ]
       },
@@ -540,6 +919,29 @@
       "types": [
         {
           "type": "quoted_char",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "variable",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "explicit_binder",
+          "named": true
+        },
+        {
+          "type": "implicit_binder",
+          "named": true
+        },
+        {
+          "type": "instance_binder",
           "named": true
         }
       ]
@@ -586,7 +988,19 @@
     "named": false
   },
   {
+    "type": ":",
+    "named": false
+  },
+  {
     "type": ":=",
+    "named": false
+  },
+  {
+    "type": "[",
+    "named": false
+  },
+  {
+    "type": "]",
     "named": false
   },
   {
@@ -611,6 +1025,10 @@
   },
   {
     "type": "false",
+    "named": true
+  },
+  {
+    "type": "hole",
     "named": true
   },
   {
@@ -660,5 +1078,21 @@
   {
     "type": "true",
     "named": true
+  },
+  {
+    "type": "variable",
+    "named": false
+  },
+  {
+    "type": "{",
+    "named": false
+  },
+  {
+    "type": "}",
+    "named": false
+  },
+  {
+    "type": "→",
+    "named": false
   }
 ]

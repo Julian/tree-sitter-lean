@@ -7,7 +7,9 @@ export default {
     $.number,
     $.string,
     $.char,
+    $.hole,
     alias($._apply, $.apply),
+    $.arrow,
     $.true,
     $.false,
     $.ite,
@@ -29,6 +31,7 @@ export default {
     '"',
   ),
   char: $ => seq("'", choice($.quoted_char, /[^']/), "'"),
+  hole: $ => "_",
   quoted_char: $ => token(
     seq(
       '\\', choice(
@@ -43,6 +46,36 @@ export default {
     field('function', $._term),
     field('argument', $._term),
   )),
+
+  _type_spec: $ => field('type', seq(':', $._term)),
+
+  _binder_ident: $ => choice($.identifier, $.hole),
+  _binder_default: $ => field('default', seq(':=', $._term)),
+  explicit_binder: $ => seq(
+    '(',
+    field('name', repeat1($._binder_ident)),
+    field('type', optional($._type_spec)),
+    optional(choice($._binder_default)),
+    ')',
+  ),
+  implicit_binder: $ => seq(
+    '{',
+    field('name', repeat1($._binder_ident)),
+    field('type', optional($._type_spec)),
+    '}',
+  ),
+  instance_binder: $ => seq(
+    '[',
+    optional(seq(field('name', $.identifier), ':')),
+    field('type', $._term),
+    ']',
+  ),
+  _bracketed_binder: $ => choice(
+    $.explicit_binder,
+    $.implicit_binder,
+    $.instance_binder,
+  ),
+  arrow: $ => prec.right('arrow', seq($._term, '→', $._term)),
 
   true: $ => 'true',
   false: $ => 'false',
