@@ -20,7 +20,7 @@ export default grammar({
     /\s/,
   ],
 
-  word: $ => $._identifier_component,
+  word: $ => $._identifierComponent,
 
   precedences: $ => [
     [

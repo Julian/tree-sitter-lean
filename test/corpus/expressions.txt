@@ -224,9 +224,9 @@ example : Foo := ⟨⟩
 ---
 
 (module
-  (declaration (example (identifier) (anonymous_constructor (number) (number) (number))))
-  (declaration (example (identifier) (anonymous_constructor (number))))
-  (declaration (example (identifier) (anonymous_constructor))))
+  (declaration (example (identifier) (anonymousConstructor (number) (number) (number))))
+  (declaration (example (identifier) (anonymousConstructor (number))))
+  (declaration (example (identifier) (anonymousConstructor))))
 
 =============================
 Invalid Inductive Constructor
@@ -239,9 +239,9 @@ example : Foo := ⟨, 2,⟩
 ---
 
 (module
-  (declaration (example (identifier) (anonymous_constructor (ERROR))))
-  (declaration (example (identifier) (anonymous_constructor (ERROR) (number))))
-  (declaration (example (identifier) (anonymous_constructor (ERROR) (number) (ERROR)))))
+  (declaration (example (identifier) (anonymousConstructor (ERROR))))
+  (declaration (example (identifier) (anonymousConstructor (ERROR) (number))))
+  (declaration (example (identifier) (anonymousConstructor (ERROR) (number) (ERROR)))))
 
 ===========
 Identifiers
@@ -276,7 +276,7 @@ Non-Identifiers
 (module
   (interactive (ERROR (UNEXPECTED 8321)) (identifier))
   (interactive (char (MISSING "'")))
-  (interactive (unary_expression (identifier)))
+  (interactive (unaryExpression (identifier)))
   (interactive (identifier)) (ERROR))
 
 =======
@@ -289,7 +289,7 @@ Product
 
 (module
   (interactive
-    (parenthesized (number) (tuple_tail (string) (number) (number)))))
+    (parenthesized (number) (tupleTail (string) (number) (number)))))
 
 =============
 Function Type
@@ -390,11 +390,11 @@ Nested If/Then/Else
   (interactive (neg (neg (identifier))))
   (interactive
     (neg
-      (parenthesized (binary_expression (number) (number)))))
+      (parenthesized (binaryExpression (number) (number)))))
   (interactive
     (neg
       (neg
-        (parenthesized (binary_expression (number) (number)))))))
+        (parenthesized (binaryExpression (number) (number)))))))
 
 =======================
 - Negation But Comments
@@ -418,10 +418,10 @@ Nested If/Then/Else
 ---
 
 (module
-  (interactive (unary_expression (true)))
+  (interactive (unaryExpression (true)))
   (interactive
-    (unary_expression (unary_expression (unary_expression (true)))))
-  (interactive (unary_expression (identifier))))
+    (unaryExpression (unaryExpression (unaryExpression (true)))))
+  (interactive (unaryExpression (identifier))))
 
 ==========
 ¬ Negation
@@ -434,10 +434,10 @@ Nested If/Then/Else
 ---
 
 (module
-  (interactive (unary_expression (true)))
+  (interactive (unaryExpression (true)))
   (interactive
-    (unary_expression (unary_expression (unary_expression (true)))))
-  (interactive (unary_expression (identifier))))
+    (unaryExpression (unaryExpression (unaryExpression (true)))))
+  (interactive (unaryExpression (identifier))))
 
 ==================
 Binary Expressions
@@ -466,43 +466,43 @@ Binary Expressions
 #check f ∘ g ∘ h
 
 ---
-(module
-  (interactive (binary_expression (number) (number)))
-  (interactive (binary_expression (number) (number)))
-  (interactive (binary_expression (number) (number)))
-  (interactive (binary_expression (number) (number)))
-  (interactive (binary_expression (number) (number)))
-  (interactive (binary_expression (number) (number)))
-  (interactive (binary_expression (number) (number)))
-  (interactive (binary_expression (number) (number)))
-  (interactive (binary_expression (true) (true)))
-  (interactive (binary_expression (true) (true)))
-  (interactive (binary_expression (true) (true)))
-  (interactive (binary_expression (true) (true)))
-  (interactive (binary_expression (true) (true)))
-  (interactive (binary_expression (string) (string)))
-  (interactive (binary_expression (list) (list (list (string)))))
+(moduL
+  (interactive (binaryExpression (number) (number)))
+  (interactive (binaryExpression (number) (number)))
+  (interactive (binaryExpression (number) (number)))
+  (interactive (binaryExpression (number) (number)))
+  (interactive (binaryExpression (number) (number)))
+  (interactive (binaryExpression (number) (number)))
+  (interactive (binaryExpression (number) (number)))
+  (interactive (binaryExpression (number) (number)))
+  (interactive (binaryExpression (true) (true)))
+  (interactive (binaryExpression (true) (true)))
+  (interactive (binaryExpression (true) (true)))
+  (interactive (binaryExpression (true) (true)))
+  (interactive (binaryExpression (true) (true)))
+  (interactive (binaryExpression (string) (string)))
+  (interactive (binaryExpression (list) (list (list (string)))))
   (interactive
-    (binary_expression
-      (binary_expression (number) (identifier))
+    (binaryExpression
+      (binaryExpression (number) (identifier))
       (identifier)))
   (interactive
-    (binary_expression
-      (binary_expression (identifier) (apply (identifier) (identifier)))
+    (binaryExpression
+      (binaryExpression (identifier) (apply (identifier) (identifier)))
       (apply (identifier) (number))))
   (interactive
-    (binary_expression
+    (binaryExpression
       (identifier)
-      (binary_expression (identifier) (number))))
-  (interactive (binary_expression (identifier) (identifier)))
+      (binaryExpression (identifier) (number))))
+  (interactive (binaryExpression (identifier) (identifier)))
   (interactive
-    (binary_expression
-      (binary_expression (char) (char))
-      (binary_expression (char) (char))))
+    (binaryExpression
+      (binaryExpression (char) (char))
+      (binaryExpression (char) (char))))
   (interactive
-    (binary_expression
+    (binaryExpression
       (identifier)
-      (binary_expression (identifier) (identifier)))))
+      (binaryExpression (identifier) (identifier)))))
 
 ==========
 Precedence
@@ -527,58 +527,58 @@ example : 4 = 4 % 5 := rfl
 
 (module
   (interactive
-    (binary_expression (number) (binary_expression (number) (number))))
+    (binaryExpression (number) (binaryExpression (number) (number))))
   (interactive
-    (binary_expression (number) (binary_expression (number) (number))))
+    (binaryExpression (number) (binaryExpression (number) (number))))
   (interactive
-    (binary_expression (number) (binary_expression (number) (number))))
+    (binaryExpression (number) (binaryExpression (number) (number))))
   (interactive
-    (binary_expression (number) (binary_expression (number) (number))))
+    (binaryExpression (number) (binaryExpression (number) (number))))
   (interactive
-    (binary_expression (number) (binary_expression (number) (number))))
+    (binaryExpression (number) (binaryExpression (number) (number))))
   (declaration
     (example
       type:
-        (binary_expression (number) (binary_expression (number) (number)))
+        (binaryExpression (number) (binaryExpression (number) (number)))
       body:
         (identifier)))
   (declaration
     (example
       type:
-        (binary_expression (number) (binary_expression (number) (number)))
+        (binaryExpression (number) (binaryExpression (number) (number)))
       body:
         (identifier)))
   (declaration
     (example
       type:
-        (binary_expression (number) (binary_expression (number) (number)))
+        (binaryExpression (number) (binaryExpression (number) (number)))
       body:
         (identifier)))
   (declaration
     (example
       type:
-        (binary_expression (number) (binary_expression (number) (number)))
+        (binaryExpression (number) (binaryExpression (number) (number)))
       body:
         (identifier)))
   (declaration
     (example
       type:
-        (binary_expression (number) (binary_expression (number) (number)))
+        (binaryExpression (number) (binaryExpression (number) (number)))
       body:
         (identifier)))
   (interactive
-    (binary_expression (binary_expression (false) (false)) (true)))
+    (binaryExpression (binaryExpression (false) (false)) (true)))
   (interactive
-    (binary_expression (true) (binary_expression (false) (false))))
+    (binaryExpression (true) (binaryExpression (false) (false))))
   (interactive
-    (binary_expression
-      (binary_expression
-        (binary_expression (number) (number))
+    (binaryExpression
+      (binaryExpression
+        (binaryExpression (number) (number))
         (number))
       (number)))
   (interactive
-    (binary_expression
-      (binary_expression (neg (float)) (number))
+    (binaryExpression
+      (binaryExpression (neg (float)) (number))
       (number))))
 
 ==========
@@ -616,7 +616,7 @@ example : 2 ≥ id 3 = false := rfl
 (module
   (declaration
     (example
-      (binary_expression
+      (binaryExpression
         (comparison
           (apply (identifier) (number))
           (number))
@@ -624,7 +624,7 @@ example : 2 ≥ id 3 = false := rfl
       (identifier)))
   (declaration
     (example
-      (binary_expression
+      (binaryExpression
         (comparison
           (number)
           (apply (identifier) (number)))
@@ -632,7 +632,7 @@ example : 2 ≥ id 3 = false := rfl
       (identifier)))
   (declaration
     (example
-      (binary_expression
+      (binaryExpression
         (comparison
           (apply (identifier) (number))
           (number))
@@ -640,7 +640,7 @@ example : 2 ≥ id 3 = false := rfl
       (identifier)))
   (declaration
     (example
-      (binary_expression
+      (binaryExpression
         (comparison
           (number)
           (apply (identifier) (number)))
@@ -669,7 +669,7 @@ Named Arguments
 
 (module
   (interactive
-    (apply (identifier) (named_argument (identifier) (number)))))
+    (apply (identifier) (namedArgument (identifier) (number)))))
 
 =====================
 Mixed Named Arguments
@@ -683,9 +683,9 @@ Mixed Named Arguments
   (interactive
     (apply (identifier)
         (number)
-        (named_argument (identifier) (number))
+        (namedArgument (identifier) (number))
         (number)
-        (named_argument (identifier) (number)))))
+        (namedArgument (identifier) (number)))))
 
 ============
 Field Access
@@ -742,7 +742,7 @@ def foo (d : Bar) : Baz :=
     (def
       name: (identifier)
       (binders
-        (explicit_binder
+        (explicitBinder
           name: (identifier)
           type: (identifier)))
       type: (identifier)
@@ -750,7 +750,7 @@ def foo (d : Bar) : Baz :=
         (match
           value: (identifier)
           patterns:
-            (match_alt
+            (matchAlt
               lhs: (identifier)
               (number))))))
 
@@ -769,7 +769,7 @@ def foo (a b c : Nat) :=
     (def
       name: (identifier)
       (binders
-        (explicit_binder
+        (explicitBinder
           name: (identifier)
           name: (identifier)
           name: (identifier)
@@ -780,7 +780,7 @@ def foo (a b c : Nat) :=
           value: (identifier)
           value: (identifier)
           patterns:
-            (match_alt
+            (matchAlt
               lhs: (hole)
               lhs: (hole)
               lhs: (hole)
@@ -799,8 +799,8 @@ Match Multiple With Apply
 (module
   (interactive
     (match (number)
-      (match_alt (number) (apply (identifier) (number)))
-      (match_alt (hole) (apply (identifier) (number))))))
+      (matchAlt (number) (apply (identifier) (number)))
+      (matchAlt (hole) (apply (identifier) (number))))))
 
 ================
 Match Expression
@@ -819,7 +819,7 @@ Match Expression
           name: (identifier)
           arguments: (number))
       patterns:
-        (match_alt
+        (matchAlt
           lhs: (hole)
           (true)))))
 
@@ -838,16 +838,16 @@ $ Application
     (apply (identifier) (identifier)
       (parenthesized
         (apply (identifier)
-          (parenthesized (binary_expression (number) (number)))))))
+          (parenthesized (binaryExpression (number) (number)))))))
   (interactive
     (apply
       (apply (identifier) (identifier))
         (apply (identifier)
-          (parenthesized (binary_expression (number) (number))))))
+          (parenthesized (binaryExpression (number) (number))))))
   (interactive
     (apply
       (apply (identifier) (identifier))
-        (apply (identifier) (binary_expression (number) (number))))))
+        (apply (identifier) (binaryExpression (number) (number))))))
 
 ==================
 Anonymous Function
@@ -861,7 +861,7 @@ Anonymous Function
   (interactive
     (fun
       (parameters (identifier))
-      (binary_expression (identifier) (number)))))
+      (binaryExpression (identifier) (number)))))
 
 =============================
 Anonymous Function via Lambda
@@ -887,9 +887,9 @@ Anonymous Function With Destructuring Bind
   (interactive
     (fun
       (parameters
-        (anonymous_constructor (identifier))
+        (anonymousConstructor (identifier))
         name: (identifier)
-        (anonymous_constructor (identifier) (identifier) (identifier))
+        (anonymousConstructor (identifier) (identifier) (identifier))
         name: (identifier))
       (identifier))))
 
@@ -907,7 +907,7 @@ Anonymous Function Application
       (parenthesized
         (fun
           (parameters (identifier))
-          (binary_expression (identifier) (number))))
+          (binaryExpression (identifier) (number))))
       (number))))
 
 =================================================
@@ -947,13 +947,13 @@ Sugared Anonymous Function
 
 (module
   (interactive
-    (parenthesized (binary_expression (cdot) (number))))
+    (parenthesized (binaryExpression (cdot) (number))))
   (interactive
-    (parenthesized (binary_expression (cdot) (number))))
+    (parenthesized (binaryExpression (cdot) (number))))
   (interactive
     (apply
       (identifier)
-      (parenthesized (binary_expression (cdot) (number))) (number))))
+      (parenthesized (binaryExpression (cdot) (number))) (number))))
 
 =================
 Explicit Function
@@ -986,21 +986,21 @@ Type Ascription
   (interactive
     (parenthesized
       (number)
-      (type_ascription
+      (typeAscription
         type: (identifier))))
   (interactive
     (parenthesized
       (apply
         name: (identifier)
         arguments: (identifier))
-      (type_ascription
+      (typeAscription
         type: (identifier))))
   (interactive
     (parenthesized
       (apply
         name: (identifier)
         arguments: (identifier))
-      (type_ascription
+      (typeAscription
         type:
           (apply
             name: (identifier)
@@ -1037,11 +1037,11 @@ Structure Literal
 
 (module
   (interactive
-    (structure_instance
+    (structureInstance
       name: (identifier)
       value: (number)))
   (interactive
-    (structure_instance
+    (structureInstance
       name: (identifier)
       value: (number)
       name: (identifier)
@@ -1064,12 +1064,12 @@ Typed Structure Literal
 
 (module
   (interactive
-    (structure_instance
+    (structureInstance
       name: (identifier)
       value: (number)
       type: (identifier)))
   (interactive
-    (structure_instance
+    (structureInstance
       name: (identifier)
       value: (number)
       name: (identifier)
@@ -1084,7 +1084,7 @@ Typed Structure Literal
           name: (identifier)
           arguments: (identifier))))
   (interactive
-    (structure_instance
+    (structureInstance
       type: (identifier))))
 
 ====================
@@ -1100,12 +1100,12 @@ Structure Overriding
 
 (module
   (interactive
-    (structure_instance
+    (structureInstance
       extends: (identifier)
       name: (identifier)
       value: (number)))
   (interactive
-    (structure_instance
+    (structureInstance
       extends: (identifier)
       name: (identifier)
       value: (number)
@@ -1117,10 +1117,10 @@ Structure Overriding
               name: (identifier))
             (identifier)))))
   (interactive
-    (structure_instance
+    (structureInstance
       extends: (identifier)))
   (interactive
-    (structure_instance
+    (structureInstance
       extends:
         (apply
           name: (identifier)
@@ -1139,7 +1139,7 @@ example : Foo := {x := 12, y := 13,}
 (module
   (declaration
     (example (identifier)
-      (structure_instance (identifier) (number) (identifier) (number)))))
+      (structureInstance (identifier) (number) (identifier) (number)))))
 
 =====================
 No Trailing Commas Aw
@@ -1156,22 +1156,22 @@ def foo | 0, => 2 | _, => 3
 
 (module
   (interactive
-    (parenthesized (number) (tuple_tail (number) (number)) (ERROR)))
+    (parenthesized (number) (tupleTail (number) (number)) (ERROR)))
   (interactive
     (list (number) (number) (number) (identifier (MISSING _identifier))))
   (interactive
     (array (number) (number) (number) (identifier (MISSING _identifier))))
   (declaration
     (example (identifier)
-      (anonymous_constructor
+      (anonymousConstructor
         (number) (number) (identifier (MISSING _identifier)))))
   (declaration
     (attributes (identifier) (identifier) (identifier (MISSING _identifier)))
     (def (identifier) (number)))
   (declaration
     (def (identifier)
-      (match_alt (number) (ERROR) (number))
-      (match_alt (hole) (ERROR) (number)))))
+      (matchAlt (number) (ERROR) (number))
+      (matchAlt (hole) (ERROR) (number)))))
 
 =====
 Sorry
@@ -1215,7 +1215,7 @@ Unless
     (parenthesized
       (unless (true)
         (do (identifier)))
-      (type_ascription
+      (typeAscription
         type: (identifier)))))
 
 ===========
@@ -1239,14 +1239,14 @@ Quantifiers
             (binders
               name: (identifier))
           body:
-            (binary_expression
-              (binary_expression (identifier) (identifier))
+            (binaryExpression
+              (binaryExpression (identifier) (identifier))
               (identifier)))))
   (interactive
     (exists
       binders:
         (binders
-          (explicit_binder
+          (explicitBinder
             name: (identifier)
             name: (identifier)
             type: (identifier)))
@@ -1256,10 +1256,10 @@ Quantifiers
             (binders
               name: (identifier))
           body:
-            (binary_expression
-              (binary_expression
-                (binary_expression
-                  (binary_expression (identifier) (identifier))
+            (binaryExpression
+              (binaryExpression
+                (binaryExpression
+                  (binaryExpression (identifier) (identifier))
                   (identifier))
                 (identifier))
               (identifier))))))
@@ -1282,7 +1282,7 @@ Quoted Name
 
 ---
 
-(module (interactive (quoted_name (identifier))))
+(module (interactive (quotedName (identifier))))
 
 ==================
 Double Quoted Name
@@ -1292,7 +1292,7 @@ Double Quoted Name
 
 ---
 
-(module (interactive (double_quoted_name (identifier))))
+(module (interactive (doubleQuotedName (identifier))))
 
 ===========
 Lift Method
@@ -1305,7 +1305,7 @@ Lift Method
 ; This will runtime error (must be nested inside a 'do' expression),
 ; but is valid syntax
 
-(module (interactive (lift_method (identifier))))
+(module (interactive (liftMethod (identifier))))
 
 =======
 Subtype

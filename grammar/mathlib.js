@@ -1,7 +1,7 @@
 export const terms = $ => [
-  $.type_star,
+  $.typeStar,
 ]
 
 export default {
-  type_star: $ => 'Type*',
+  typeStar: $ => 'Type*',
 }

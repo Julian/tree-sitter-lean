@@ -39,7 +39,7 @@ Same Line #commands
   (interactive
     (parenthesized
       (identifier)
-      (type_ascription
+      (typeAscription
         type:
           (apply
             name: (identifier)
@@ -120,7 +120,7 @@ open Foo in
 ---
 
 (module
-  (scoped_in
+  (scopedIn
     (open
       namespace: (identifier))
     (def

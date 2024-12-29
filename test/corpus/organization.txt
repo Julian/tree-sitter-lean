@@ -175,26 +175,26 @@ variable {x : α} [y : α]
 
 (module
   (variable
-    (explicit_binder
+    (explicitBinder
       name: (identifier)
       name: (identifier)
       name: (identifier)
       type: (identifier)))
   (variable
-    (explicit_binder
+    (explicitBinder
       name: (identifier)
       type: (arrow (identifier) (identifier)))
-    (explicit_binder
+    (explicitBinder
       name: (identifier)
       type: (arrow (identifier) (identifier)))
-    (explicit_binder
+    (explicitBinder
       name: (identifier)
       type: (arrow (identifier) (identifier))))
   (variable
-    (implicit_binder
+    (implicitBinder
       name: (identifier)
       type: (identifier))
-    (instance_binder
+    (instanceBinder
       name: (identifier)
       type: (identifier))))
 

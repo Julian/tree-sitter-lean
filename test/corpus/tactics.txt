@@ -13,18 +13,18 @@ theorem foo {m n : Nat} : 2 * m + 2 * n = 2 * (n + m) := by
     (theorem
       name: (identifier)
       (binders
-        (implicit_binder
+        (implicitBinder
           name: (identifier)
           name: (identifier)
           type: (identifier)))
       type:
-        (binary_expression
-          (binary_expression
-            (binary_expression (number) (identifier))
-            (binary_expression (number) (identifier)))
-          (binary_expression
+        (binaryExpression
+          (binaryExpression
+            (binaryExpression (number) (identifier))
+            (binaryExpression (number) (identifier)))
+          (binaryExpression
             (number)
-            (parenthesized (binary_expression (identifier) (identifier)))))
+            (parenthesized (binaryExpression (identifier) (identifier)))))
       body:
         (tactics
           (rewrite (identifier))
@@ -52,7 +52,7 @@ variable {m n : Nat}
 
 (module
   (variable
-    (implicit_binder
+    (implicitBinder
       name: (identifier)
       name: (identifier)
       type: (identifier)))
@@ -69,16 +69,16 @@ variable {m n : Nat}
                   arguments: (identifier)
                   arguments: (identifier)))
             name: (identifier))))
-      (type_ascription
+      (typeAscription
         type:
-          (binary_expression
-            (binary_expression
-              (binary_expression (number) (identifier))
-              (binary_expression (number) (identifier)))
-            (binary_expression
+          (binaryExpression
+            (binaryExpression
+              (binaryExpression (number) (identifier))
+              (binaryExpression (number) (identifier)))
+            (binaryExpression
               (number)
               (parenthesized
-                (binary_expression (identifier) (identifier)))))))))
+                (binaryExpression (identifier) (identifier)))))))))
 
 ====
 Simp
@@ -90,7 +90,7 @@ example : 2 = 2 := by simp
 
 (module
   (declaration
-    (example (binary_expression (number) (number))
+    (example (binaryExpression (number) (number))
       (tactics (simp)))))
 
 ========================
@@ -104,7 +104,7 @@ example : 2 = 2 := by simp [foo, bar]
 (module
   (declaration
     (example
-      type: (binary_expression (number) (number))
+      type: (binaryExpression (number) (number))
       body:
         (tactics
           (simp
@@ -128,11 +128,11 @@ example : ∀ x y : Nat, x + y = x + y := by
           (identifier)
           (identifier)
           (identifier))
-        (binary_expression
-          (binary_expression
+        (binaryExpression
+          (binaryExpression
             (identifier)
             (identifier))
-          (binary_expression
+          (binaryExpression
             (identifier)
             (identifier))))
       (tactics
@@ -151,8 +151,8 @@ example : true ↔ true := by apply Iff.intro
 
 (module
   (declaration
-    (example (binary_expression (true) (true))
-      (tactics (apply_tactic (identifier))))))
+    (example (binaryExpression (true) (true))
+      (tactics (applyTactic (identifier))))))
 
 ========================
 Some Unknown User Tactic
@@ -167,7 +167,7 @@ example : true ↔ true := by
 
 (module
   (declaration
-    (example (binary_expression (true) (true))
+    (example (binaryExpression (true) (true))
       (tactics
         (identifier)
         (apply (identifier) (identifier))
@@ -189,11 +189,11 @@ example : (true ↔ true) ↔ (true ↔ true) := by
 (module
   (declaration
     (example
-      (binary_expression
-        (parenthesized (binary_expression (true) (true)))
-        (parenthesized (binary_expression (true) (true))))
+      (binaryExpression
+        (parenthesized (binaryExpression (true) (true)))
+        (parenthesized (binaryExpression (true) (true))))
       (tactics
-        (apply_tactic (identifier))
+        (applyTactic (identifier))
         (intro (identifier))
         (term (identifier))
         (intro (identifier))
@@ -211,14 +211,14 @@ example {x : Nat} : x = x := by refine Eq.refl ?_
   (declaration
     (example
       (binders
-        (implicit_binder
+        (implicitBinder
           (identifier)
           (identifier)))
-      (binary_expression
+      (binaryExpression
         (identifier)
         (identifier))
       (tactics
         (apply
           (identifier)
           (identifier)
-          (synthetic_hole (hole)))))))
+          (syntheticHole (hole)))))))

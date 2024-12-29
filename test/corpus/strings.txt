@@ -30,12 +30,12 @@ Escape Sequences
 (module
   (interactive
     (string
-      (quoted_char)
-      (quoted_char)
-      (quoted_char)
-      (quoted_char)
-      (quoted_char)
-      (quoted_char))))
+      (quotedChar)
+      (quotedChar)
+      (quotedChar)
+      (quotedChar)
+      (quotedChar)
+      (quotedChar))))
 
 =========
 \x and \u
@@ -48,8 +48,8 @@ Escape Sequences
 (module
   (interactive
     (string
-      (quoted_char)
-      (quoted_char))))
+      (quotedChar)
+      (quotedChar))))
 
 ====
 Char
@@ -70,7 +70,7 @@ Char Escape Sequence
 
 ---
 
-(module (interactive (char (quoted_char))))
+(module (interactive (char (quotedChar))))
 
 ========
 Non-Char
@@ -103,7 +103,7 @@ Interpolation
 (module
   (interactive
     (apply (identifier)
-      (interpolated_string (interpolation (identifier))))))
+      (interpolatedString (interpolation (identifier))))))
 
 =======================================
 Interpolation With Function Application
@@ -116,7 +116,7 @@ Interpolation With Function Application
 (module
   (interactive
     (apply (identifier)
-      (interpolated_string
+      (interpolatedString
         (interpolation (apply (identifier) (number)))))))
 
 ===================================
@@ -129,13 +129,13 @@ Interpolation With Escape Sequences
 
 (module
   (interactive
-    (interpolated_string
-      (quoted_char)
-      (quoted_char)
-      (quoted_char)
-      (quoted_char)
-      (quoted_char)
-      (quoted_char)
+    (interpolatedString
+      (quotedChar)
+      (quotedChar)
+      (quotedChar)
+      (quotedChar)
+      (quotedChar)
+      (quotedChar)
       (interpolation (identifier)))))
 
 ==============

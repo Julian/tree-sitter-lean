@@ -36,7 +36,7 @@
             "named": true
           },
           {
-            "type": "interpolated_string",
+            "type": "interpolatedString",
             "named": true
           },
           {
@@ -60,7 +60,7 @@
             "named": true
           },
           {
-            "type": "type_star",
+            "type": "typeStar",
             "named": true
           }
         ]
@@ -108,7 +108,7 @@
             "named": true
           },
           {
-            "type": "interpolated_string",
+            "type": "interpolatedString",
             "named": true
           },
           {
@@ -132,7 +132,7 @@
             "named": true
           },
           {
-            "type": "type_star",
+            "type": "typeStar",
             "named": true
           }
         ]
@@ -182,7 +182,7 @@
             "named": true
           },
           {
-            "type": "interpolated_string",
+            "type": "interpolatedString",
             "named": true
           },
           {
@@ -206,7 +206,7 @@
             "named": true
           },
           {
-            "type": "type_star",
+            "type": "typeStar",
             "named": true
           }
         ]
@@ -240,7 +240,7 @@
             "named": true
           },
           {
-            "type": "interpolated_string",
+            "type": "interpolatedString",
             "named": true
           },
           {
@@ -264,7 +264,7 @@
             "named": true
           },
           {
-            "type": "type_star",
+            "type": "typeStar",
             "named": true
           }
         ]
@@ -304,7 +304,7 @@
           "named": true
         },
         {
-          "type": "interpolated_string",
+          "type": "interpolatedString",
           "named": true
         },
         {
@@ -328,7 +328,7 @@
           "named": true
         },
         {
-          "type": "type_star",
+          "type": "typeStar",
           "named": true
         }
       ]
@@ -421,7 +421,7 @@
             "named": true
           },
           {
-            "type": "interpolated_string",
+            "type": "interpolatedString",
             "named": true
           },
           {
@@ -445,7 +445,7 @@
             "named": true
           },
           {
-            "type": "type_star",
+            "type": "typeStar",
             "named": true
           }
         ]
@@ -471,7 +471,7 @@
       "required": true,
       "types": [
         {
-          "type": "explicit_binder",
+          "type": "explicitBinder",
           "named": true
         },
         {
@@ -483,11 +483,11 @@
           "named": true
         },
         {
-          "type": "implicit_binder",
+          "type": "implicitBinder",
           "named": true
         },
         {
-          "type": "instance_binder",
+          "type": "instanceBinder",
           "named": true
         }
       ]
@@ -502,7 +502,7 @@
       "required": false,
       "types": [
         {
-          "type": "quoted_char",
+          "type": "quotedChar",
           "named": true
         }
       ]
@@ -555,7 +555,7 @@
             "named": true
           },
           {
-            "type": "interpolated_string",
+            "type": "interpolatedString",
             "named": true
           },
           {
@@ -579,7 +579,7 @@
             "named": true
           },
           {
-            "type": "type_star",
+            "type": "typeStar",
             "named": true
           }
         ]
@@ -618,7 +618,7 @@
           "named": true
         },
         {
-          "type": "interpolated_string",
+          "type": "interpolatedString",
           "named": true
         },
         {
@@ -642,7 +642,7 @@
           "named": true
         },
         {
-          "type": "type_star",
+          "type": "typeStar",
           "named": true
         }
       ]
@@ -728,7 +728,7 @@
             "named": true
           },
           {
-            "type": "interpolated_string",
+            "type": "interpolatedString",
             "named": true
           },
           {
@@ -752,7 +752,7 @@
             "named": true
           },
           {
-            "type": "type_star",
+            "type": "typeStar",
             "named": true
           }
         ]
@@ -800,7 +800,7 @@
             "named": true
           },
           {
-            "type": "interpolated_string",
+            "type": "interpolatedString",
             "named": true
           },
           {
@@ -824,7 +824,7 @@
             "named": true
           },
           {
-            "type": "type_star",
+            "type": "typeStar",
             "named": true
           }
         ]
@@ -878,7 +878,7 @@
             "named": true
           },
           {
-            "type": "interpolated_string",
+            "type": "interpolatedString",
             "named": true
           },
           {
@@ -902,7 +902,7 @@
             "named": true
           },
           {
-            "type": "type_star",
+            "type": "typeStar",
             "named": true
           }
         ]
@@ -940,7 +940,7 @@
             "named": true
           },
           {
-            "type": "interpolated_string",
+            "type": "interpolatedString",
             "named": true
           },
           {
@@ -964,7 +964,7 @@
             "named": true
           },
           {
-            "type": "type_star",
+            "type": "typeStar",
             "named": true
           }
         ]
@@ -982,7 +982,7 @@
     }
   },
   {
-    "type": "explicit_binder",
+    "type": "explicitBinder",
     "named": true,
     "fields": {
       "default": {
@@ -1018,7 +1018,7 @@
             "named": true
           },
           {
-            "type": "interpolated_string",
+            "type": "interpolatedString",
             "named": true
           },
           {
@@ -1042,7 +1042,7 @@
             "named": true
           },
           {
-            "type": "type_star",
+            "type": "typeStar",
             "named": true
           }
         ]
@@ -1094,7 +1094,7 @@
             "named": true
           },
           {
-            "type": "interpolated_string",
+            "type": "interpolatedString",
             "named": true
           },
           {
@@ -1118,7 +1118,7 @@
             "named": true
           },
           {
-            "type": "type_star",
+            "type": "typeStar",
             "named": true
           }
         ]
@@ -1157,7 +1157,7 @@
     "fields": {}
   },
   {
-    "type": "implicit_binder",
+    "type": "implicitBinder",
     "named": true,
     "fields": {
       "name": {
@@ -1207,7 +1207,7 @@
             "named": true
           },
           {
-            "type": "interpolated_string",
+            "type": "interpolatedString",
             "named": true
           },
           {
@@ -1231,7 +1231,7 @@
             "named": true
           },
           {
-            "type": "type_star",
+            "type": "typeStar",
             "named": true
           }
         ]
@@ -1291,7 +1291,7 @@
             "named": true
           },
           {
-            "type": "interpolated_string",
+            "type": "interpolatedString",
             "named": true
           },
           {
@@ -1315,7 +1315,7 @@
             "named": true
           },
           {
-            "type": "type_star",
+            "type": "typeStar",
             "named": true
           }
         ]
@@ -1363,7 +1363,7 @@
             "named": true
           },
           {
-            "type": "interpolated_string",
+            "type": "interpolatedString",
             "named": true
           },
           {
@@ -1387,7 +1387,7 @@
             "named": true
           },
           {
-            "type": "type_star",
+            "type": "typeStar",
             "named": true
           }
         ]
@@ -1405,7 +1405,7 @@
     }
   },
   {
-    "type": "instance_binder",
+    "type": "instanceBinder",
     "named": true,
     "fields": {
       "name": {
@@ -1447,7 +1447,7 @@
             "named": true
           },
           {
-            "type": "interpolated_string",
+            "type": "interpolatedString",
             "named": true
           },
           {
@@ -1471,7 +1471,7 @@
             "named": true
           },
           {
-            "type": "type_star",
+            "type": "typeStar",
             "named": true
           }
         ]
@@ -1511,7 +1511,7 @@
           "named": true
         },
         {
-          "type": "interpolated_string",
+          "type": "interpolatedString",
           "named": true
         },
         {
@@ -1535,14 +1535,14 @@
           "named": true
         },
         {
-          "type": "type_star",
+          "type": "typeStar",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "interpolated_string",
+    "type": "interpolatedString",
     "named": true,
     "fields": {},
     "children": {
@@ -1554,7 +1554,7 @@
           "named": true
         },
         {
-          "type": "quoted_char",
+          "type": "quotedChar",
           "named": true
         }
       ]
@@ -1593,7 +1593,7 @@
           "named": true
         },
         {
-          "type": "interpolated_string",
+          "type": "interpolatedString",
           "named": true
         },
         {
@@ -1617,7 +1617,7 @@
           "named": true
         },
         {
-          "type": "type_star",
+          "type": "typeStar",
           "named": true
         }
       ]
@@ -1656,7 +1656,7 @@
           "named": true
         },
         {
-          "type": "interpolated_string",
+          "type": "interpolatedString",
           "named": true
         },
         {
@@ -1680,7 +1680,7 @@
           "named": true
         },
         {
-          "type": "type_star",
+          "type": "typeStar",
           "named": true
         }
       ]
@@ -1724,7 +1724,7 @@
           "named": true
         },
         {
-          "type": "scoped_in",
+          "type": "scopedIn",
           "named": true
         },
         {
@@ -1767,7 +1767,7 @@
             "named": true
           },
           {
-            "type": "scoped_in",
+            "type": "scopedIn",
             "named": true
           },
           {
@@ -1839,7 +1839,7 @@
     }
   },
   {
-    "type": "scoped_in",
+    "type": "scopedIn",
     "named": true,
     "fields": {},
     "children": {
@@ -1867,7 +1867,7 @@
           "named": true
         },
         {
-          "type": "scoped_in",
+          "type": "scopedIn",
           "named": true
         },
         {
@@ -1910,7 +1910,7 @@
             "named": true
           },
           {
-            "type": "scoped_in",
+            "type": "scopedIn",
             "named": true
           },
           {
@@ -1954,7 +1954,7 @@
       "required": false,
       "types": [
         {
-          "type": "quoted_char",
+          "type": "quotedChar",
           "named": true
         }
       ]
@@ -1997,7 +1997,7 @@
             "named": true
           },
           {
-            "type": "interpolated_string",
+            "type": "interpolatedString",
             "named": true
           },
           {
@@ -2021,7 +2021,7 @@
             "named": true
           },
           {
-            "type": "type_star",
+            "type": "typeStar",
             "named": true
           }
         ]
@@ -2069,7 +2069,7 @@
             "named": true
           },
           {
-            "type": "interpolated_string",
+            "type": "interpolatedString",
             "named": true
           },
           {
@@ -2093,7 +2093,7 @@
             "named": true
           },
           {
-            "type": "type_star",
+            "type": "typeStar",
             "named": true
           }
         ]
@@ -2119,15 +2119,15 @@
       "required": true,
       "types": [
         {
-          "type": "explicit_binder",
+          "type": "explicitBinder",
           "named": true
         },
         {
-          "type": "implicit_binder",
+          "type": "implicitBinder",
           "named": true
         },
         {
-          "type": "instance_binder",
+          "type": "instanceBinder",
           "named": true
         }
       ]
@@ -2302,7 +2302,7 @@
     "named": false
   },
   {
-    "type": "quoted_char",
+    "type": "quotedChar",
     "named": true
   },
   {
@@ -2334,7 +2334,7 @@
     "named": true
   },
   {
-    "type": "type_star",
+    "type": "typeStar",
     "named": true
   },
   {

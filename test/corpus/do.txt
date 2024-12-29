@@ -68,8 +68,8 @@ def f : Unit := do
   (declaration
     (def (identifier) (identifier)
     (do
-      (let_bind (identifier) (number))
-      (let_bind (identifier) (number))
+      (letBind (identifier) (number))
+      (letBind (identifier) (number))
       (let (identifier) (number))))))
 
 =============
@@ -109,7 +109,7 @@ def bar : Unit := do
       type: (identifier)
       body:
         (do
-          (let_mut
+          (letMut
             (parameters
               name: (identifier))
             value: (number))))))
@@ -130,7 +130,7 @@ def foo (xs : Array Nat) : Unit := do
     (def
       name: (identifier)
       (binders
-        (explicit_binder
+        (explicitBinder
           name: (identifier)
           type:
             (apply
@@ -139,18 +139,18 @@ def foo (xs : Array Nat) : Unit := do
       type: (identifier)
       body:
         (do
-          (let_mut
+          (letMut
             (parameters
               name: (identifier))
             value: (number))
-          (for_in
+          (forIn
             (identifier)
             iterable: (identifier)
             body:
               (do
                 (assign
                   name: (identifier)
-                  value: (binary_expression (identifier) (identifier)))))))))
+                  value: (binaryExpression (identifier) (identifier)))))))))
 
 ================================
 For Loop With Destructuring Bind
@@ -167,7 +167,7 @@ def foo (xs : Array (Nat × Nat)) : Unit := do
     (def
       name: (identifier)
       (binders
-        (explicit_binder
+        (explicitBinder
           name: (identifier)
           type:
             (apply
@@ -177,8 +177,8 @@ def foo (xs : Array (Nat × Nat)) : Unit := do
       type: (identifier)
       body:
         (do
-          (for_in
-            (anonymous_constructor (identifier) (identifier))
+          (forIn
+            (anonymousConstructor (identifier) (identifier))
             iterable: (identifier)
             body:
               (do
@@ -309,7 +309,7 @@ def f : Nat := do
 
 (module
   (declaration
-    (def (identifier) (identifier) (do (do_return (number))))))
+    (def (identifier) (identifier) (do (doReturn (number))))))
 
 ===============
 Return One Line
@@ -323,9 +323,9 @@ Return One Line
   (interactive
     (parenthesized
       (do
-        (do_return
+        (doReturn
           value: (identifier)))
-      (type_ascription
+      (typeAscription
         type: (identifier)))))
 
 ==============
@@ -339,7 +339,7 @@ def f : Unit := do
 
 (module
   (declaration
-    (def (identifier) (identifier) (do (do_return)))))
+    (def (identifier) (identifier) (do (doReturn)))))
 
 ======
 Unless
@@ -382,16 +382,16 @@ instance : do return ToString Nat where
     (instance
       type:
         (do
-          (do_return
+          (doReturn
             value:
               (apply
                 name: (identifier)
                 arguments: (identifier))))
       body:
-        (where_decl
+        (whereDecl
           name: (identifier)
           binders:
-            (explicit_binder
+            (explicitBinder
               name: (identifier)
               type: (identifier))
           type: (identifier)
@@ -409,10 +409,10 @@ instance : do return ToString Nat where
 ;  (interactive
 ;    (parenthesized
 ;      (do
-;        (conditional_when
+;        (conditionalWhen
 ;          (true)
-;          (do_return (identifier))))
-;      (type_ascription (identifier)))))
+;          (doReturn (identifier))))
+;      (typeAscription (identifier)))))
 
 ===================
 Nested If/Then/Else
@@ -439,7 +439,7 @@ Bare Identifier
 
 (module
   (interactive
-    (parenthesized (do (true)) (type_ascription (identifier)))))
+    (parenthesized (do (true)) (typeAscription (identifier)))))
 
 =================================
 If Condition Function Application
@@ -456,7 +456,7 @@ If Condition Function Application
         (apply (identifier) (number))
         (do (identifier))
         (identifier))
-      (type_ascription (identifier)))))
+      (typeAscription (identifier)))))
 
 ;==========
 ;Left Arrow
@@ -470,10 +470,10 @@ If Condition Function Application
 ;  (interactive
 ;    (parenthesized
 ;      (do
-;        (conditional_when
-;            (unary_expression (identifier))
-;            (do_return (identifier))))
-;        (type_ascription (identifier)))))
+;        (conditionalWhen
+;            (unaryExpression (identifier))
+;            (doReturn (identifier))))
+;        (typeAscription (identifier)))))
 ;
 ;=====
 ;Match
@@ -489,6 +489,6 @@ If Condition Function Application
 ;  (interactive
 ;    (parenthesized
 ;      (do (match (number)
-;        (match_alt (number) (number))
-;        (match_alt (hole) (number))
-;        (type_ascription (identifier)))))))
+;        (matchAlt (number) (number))
+;        (matchAlt (hole) (number))
+;        (typeAscription (identifier)))))))

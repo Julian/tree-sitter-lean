@@ -1,21 +1,21 @@
 export default {
   _attribute: $ => choice(
-    $._simple_attribute,
-    $._extern_attribute,
+    $._simpleAttribute,
+    $._externAttribute,
   ),
 
-  _simple_attribute: $ => field(
+  _simpleAttribute: $ => field(
     'name', seq($.identifier, optional($.identifier)),
   ),
 
-  _extern_entry: $ => seq(
+  _externEntry: $ => seq(
     optional($.identifier),
     optional('inline'),
     field('extern', $.string),
   ),
-  _extern_attribute: $ => seq(
+  _externAttribute: $ => seq(
     'extern',
     optional($.number),
-    repeat($._extern_entry),
+    repeat($._externEntry),
   )
 }

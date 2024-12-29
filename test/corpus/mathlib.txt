@@ -6,4 +6,4 @@ Type*
 
 ---
 
-(module (interactive (type_star)))
+(module (interactive (typeStar)))

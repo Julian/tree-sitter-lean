@@ -1,5 +1,5 @@
 import { sep1 } from './helpers.js';
-import { terms as mathlib_terms } from './mathlib.js';
+import { terms as mathlibTerms } from './mathlib.js';
 
 export default {
   _term: $ => choice(
@@ -14,16 +14,16 @@ export default {
     $.true,
     $.false,
     $.ite,
-    $.interpolated_string,
+    $.interpolatedString,
 
-    ...(mathlib_terms($)),
+    ...(mathlibTerms($)),
   ),
 
   // src/Lean/Parser/Term.lean
   identifier: $ => choice(
-    sep1($._identifier_component, token.immediate('.')),
+    sep1($._identifierComponent, token.immediate('.')),
   ),
-  _identifier_component: $ =>
+  _identifierComponent: $ =>
     /[_a-zA-ZͰ-ϿĀ-ſ\U0001D400-\U0001D7FF][_`'`a-zA-Z0-9Ͱ-ϿĀ-ſ∇!?\u2070-\u209F\U0001D400-\U0001D7FF]*/,
 
   sorry: $ => 'sorry',
@@ -31,12 +31,12 @@ export default {
   number: $ => /\d+/,
   string: $ => seq(
     '"',
-    repeat(choice($.quoted_char, token.immediate(prec(1, /[^"\n\\]+/)),)),
+    repeat(choice($.quotedChar, token.immediate(prec(1, /[^"\n\\]+/)),)),
     '"',
   ),
-  char: $ => seq("'", choice($.quoted_char, /[^']/), "'"),
+  char: $ => seq("'", choice($.quotedChar, /[^']/), "'"),
   hole: $ => "_",
-  quoted_char: $ => token(
+  quotedChar: $ => token(
     seq(
       '\\', choice(
         /u[a-fA-F\d]{4}/,
@@ -51,33 +51,33 @@ export default {
     field('argument', $._term),
   )),
 
-  _type_spec: $ => field('type', seq(':', $._term)),
+  _typeSpec: $ => field('type', seq(':', $._term)),
 
-  _binder_ident: $ => prec('binderIdent', choice($.identifier, $.hole)),
-  _binder_default: $ => field('default', seq(':=', $._term)),
-  explicit_binder: $ => seq(
+  _binderIdent: $ => prec('binderIdent', choice($.identifier, $.hole)),
+  _binderDefault: $ => field('default', seq(':=', $._term)),
+  explicitBinder: $ => seq(
     '(',
-    field('name', repeat1($._binder_ident)),
-    field('type', optional($._type_spec)),
-    optional(choice($._binder_default)),
+    field('name', repeat1($._binderIdent)),
+    field('type', optional($._typeSpec)),
+    optional(choice($._binderDefault)),
     ')',
   ),
-  implicit_binder: $ => seq(
+  implicitBinder: $ => seq(
     '{',
-    field('name', repeat1($._binder_ident)),
-    field('type', optional($._type_spec)),
+    field('name', repeat1($._binderIdent)),
+    field('type', optional($._typeSpec)),
     '}',
   ),
-  instance_binder: $ => seq(
+  instanceBinder: $ => seq(
     '[',
     optional(seq(field('name', $.identifier), ':')),
     field('type', $._term),
     ']',
   ),
-  _bracketed_binder: $ => choice(
-    $.explicit_binder,
-    $.implicit_binder,
-    $.instance_binder,
+  _bracketedBinder: $ => choice(
+    $.explicitBinder,
+    $.implicitBinder,
+    $.instanceBinder,
   ),
   arrow: $ => prec.right('arrow', seq($._term, '→', $._term)),
 
@@ -94,14 +94,14 @@ export default {
     $._term,
   )),
 
-  _attr_kind: $ => choice('scoped', 'local'),
-  _attr_instance: $ => seq(optional($._attr_kind), $._attribute),
-  attributes: $ => seq('@[', sep1($._attr_instance, ','), ']'),
+  _attrKind: $ => choice('scoped', 'local'),
+  _attrInstance: $ => seq(optional($._attrKind), $._attribute),
+  attributes: $ => seq('@[', sep1($._attrInstance, ','), ']'),
 
   // src/Init/Data/ToString/Macro.lean
-  interpolated_string: $ => seq(
+  interpolatedString: $ => seq(
     's!"',
-    repeat(choice(/[^"]/, $.quoted_char, $.interpolation)),
+    repeat(choice(/[^"]/, $.quotedChar, $.interpolation)),
     '"',
   ),
   interpolation: $ => seq(

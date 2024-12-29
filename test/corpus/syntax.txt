@@ -22,13 +22,13 @@ macro_rules
 ---
 
 (module
-  (macro_rules
-    (match_alt
-      (quoted_tactic (identifier))
-      (quoted_tactic (trivial)))
-    (match_alt
-      (quoted_tactic (identifier))
-      (quoted_tactic (apply_tactic (apply (identifier) (identifier)))))))
+  (macroRules
+    (matchAlt
+      (quotedTactic (identifier))
+      (quotedTactic (trivial)))
+    (matchAlt
+      (quotedTactic (identifier))
+      (quotedTactic (applyTactic (apply (identifier) (identifier)))))))
 
 ======
 Syntax
@@ -160,10 +160,10 @@ scoped postfix:max "↑" => coe
   (syntax (string) (identifier))
   (notation (string) (number))
   (notation (string) (number))
-  (macro_rules
-    (match_alt (quoted_tactic (identifier)) (quoted_tactic (trivial))))
-  (macro_rules
-    (match_alt (quoted_tactic (identifier)) (quoted_tactic (trivial))))
+  (macroRules
+    (matchAlt (quotedTactic (identifier)) (quotedTactic (trivial))))
+  (macroRules
+    (matchAlt (quotedTactic (identifier)) (quotedTactic (trivial))))
   (declaration
     (attributes (identifier))
     (def (identifier) (number)))
@@ -186,4 +186,4 @@ builtin_initialize foo : bar ←
 ---
 
 (module
-  (builtin_initialize (identifier) (identifier) (identifier)))
+  (builtinInitialize (identifier) (identifier) (identifier)))

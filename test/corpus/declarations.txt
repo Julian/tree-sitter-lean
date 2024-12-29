@@ -34,14 +34,14 @@ def sampleFunction2 (x : Nat) := 2*x*x - x + 3
     (def
       name: (identifier)
       (binders
-        (explicit_binder
+        (explicitBinder
           name: (identifier)
           type: (identifier)))
       body:
-        (binary_expression
-          (binary_expression
-            (binary_expression
-            (binary_expression (number) (identifier))
+        (binaryExpression
+          (binaryExpression
+            (binaryExpression
+            (binaryExpression (number) (identifier))
               (identifier))
               (identifier))
           (number)))))
@@ -59,12 +59,12 @@ def sampleFunction2 (x y : Nat) := x + y
     (def
       name: (identifier)
       (binders
-        (explicit_binder
+        (explicitBinder
           name: (identifier)
           name: (identifier)
           type: (identifier)))
       body:
-        (binary_expression (identifier) (identifier)))))
+        (binaryExpression (identifier) (identifier)))))
 
 ==================
 Implicit Arguments
@@ -79,26 +79,26 @@ def foo {a} {b c : Nat} v w (x y) (z : Nat) := a + b + v + w + x + y
     (def
       name: (identifier)
         (binders
-          (implicit_binder
+          (implicitBinder
             name: (identifier))
-          (implicit_binder
+          (implicitBinder
             name: (identifier)
             name: (identifier)
             type: (identifier))
           (identifier)
           (identifier)
-          (explicit_binder
+          (explicitBinder
             name: (identifier)
             name: (identifier))
-          (explicit_binder
+          (explicitBinder
             name: (identifier)
             type: (identifier)))
       body:
-        (binary_expression
-          (binary_expression
-            (binary_expression
-              (binary_expression
-                (binary_expression
+        (binaryExpression
+          (binaryExpression
+            (binaryExpression
+              (binaryExpression
+                (binaryExpression
                   (identifier)
                   (identifier))
                 (identifier))
@@ -119,12 +119,12 @@ def foo [Bar x] [y : Baz] : x := 1
     (def
       name: (identifier)
       (binders
-        (instance_binder
+        (instanceBinder
           type:
             (apply
               name: (identifier)
               arguments: (identifier)))
-        (instance_binder
+        (instanceBinder
           name: (identifier)
           type: (identifier)))
       type: (identifier)
@@ -144,10 +144,10 @@ def twice (f : Nat → Nat) (a : Nat) :=
     (def
       name: (identifier)
       (binders
-        (explicit_binder
+        (explicitBinder
           name: (identifier)
           type: (arrow (identifier) (identifier)))
-        (explicit_binder
+        (explicitBinder
           name: (identifier)
           type: (identifier)))
       body:
@@ -209,7 +209,7 @@ def f : Foo where
       name: (identifier)
       type: (identifier)
       body:
-        (where_decl
+        (whereDecl
           name: (identifier)
           body: (number)))))
 
@@ -230,15 +230,15 @@ def foo : Nat → Nat
       name: (identifier)
       type: (arrow (identifier) (identifier))
       body:
-        (match_alt
+        (matchAlt
           lhs: (number)
           (number))
       body:
-        (match_alt
+        (matchAlt
           lhs: (number)
           (number))
       body:
-        (match_alt
+        (matchAlt
           lhs: (hole)
           (number)))))
 
@@ -282,17 +282,17 @@ def foo : Nat → Nat -> Nat
       name: (identifier)
       type: (arrow (identifier) (arrow (identifier) (identifier)))
       body:
-        (match_alt
+        (matchAlt
           lhs: (number)
           lhs: (identifier)
           (number))
       body:
-        (match_alt
+        (matchAlt
           lhs: (number)
           lhs: (identifier)
           (number))
       body:
-        (match_alt
+        (matchAlt
           lhs: (hole)
           lhs: (hole)
           (number)))))
@@ -314,22 +314,22 @@ else
     (def
       name: (identifier)
       (binders
-        (explicit_binder
+        (explicitBinder
           name: (identifier)
           type: (identifier)))
       body:
         (ite (comparison (identifier) (number))
-            (binary_expression
-              (binary_expression
-                (binary_expression
-                  (binary_expression (number) (identifier))
+            (binaryExpression
+              (binaryExpression
+                (binaryExpression
+                  (binaryExpression (number) (identifier))
                   (identifier))
                 (identifier))
               (number))
-            (binary_expression
-              (binary_expression
-                (binary_expression
-                  (binary_expression (number) (identifier))
+            (binaryExpression
+              (binaryExpression
+                (binaryExpression
+                  (binaryExpression (number) (identifier))
                   (identifier))
                 (identifier))
               (number))))))
@@ -350,11 +350,11 @@ theorem twiceAdd2 (a : Nat) : twice (fun x => x + 2) a = a + 4 :=
     (theorem
       name: (identifier)
       (binders
-        (explicit_binder
+        (explicitBinder
           name: (identifier)
           type: (identifier)))
       type:
-        (binary_expression
+        (binaryExpression
           (apply
             name: (identifier)
             arguments:
@@ -362,10 +362,10 @@ theorem twiceAdd2 (a : Nat) : twice (fun x => x + 2) a = a + 4 :=
                 (fun
                   (parameters
                     name: (identifier))
-                  (binary_expression (identifier) (number))))
+                  (binaryExpression (identifier) (number))))
             arguments:
               (identifier))
-          (binary_expression (identifier) (number)))
+          (binaryExpression (identifier) (number)))
         (comment) (comment)
       body:
         (identifier))))
@@ -383,9 +383,9 @@ theorem bar : 2 * 3 = 3 * 2 := Nat.mul_comm 2 3
     (theorem
       name: (identifier)
       type:
-        (binary_expression
-          (binary_expression (number) (number))
-          (binary_expression (number) (number)))
+        (binaryExpression
+          (binaryExpression (number) (number))
+          (binaryExpression (number) (number)))
       body:
         (apply
           name: (identifier)
@@ -407,19 +407,19 @@ theorem foo {p : α × β} :
     (theorem
       name: (identifier)
       (binders
-        (implicit_binder
+        (implicitBinder
           name: (identifier)
           type: (product (identifier) (identifier))))
       type:
-        (binary_expression
-          (binary_expression
+        (binaryExpression
+          (binaryExpression
             (identifier)
-            (binary_expression (identifier) (identifier)))
+            (binaryExpression (identifier) (identifier)))
           (identifier))
       body:
-        (match_alt
-          lhs: (parenthesized (identifier) (tuple_tail (identifier)))
-          lhs: (parenthesized (identifier) (tuple_tail (identifier)))
+        (matchAlt
+          lhs: (parenthesized (identifier) (tupleTail (identifier)))
+          lhs: (parenthesized (identifier) (tupleTail (identifier)))
           (sorry)))))
 
 ====================
@@ -449,7 +449,7 @@ structure Point (α : Type u) where
     (structure
       name: (identifier)
       (binders
-        (explicit_binder
+        (explicitBinder
           name: (identifier)
           type:
             (apply
@@ -553,7 +553,7 @@ class Quux (a : Type) where
     (structure
       name: (identifier)
       (binders
-        (explicit_binder
+        (explicitBinder
           name: (identifier)
           type: (identifier)))
       fields:
@@ -571,7 +571,7 @@ class Quux (a : Type) where
           default: (number))
       fields:
         (field
-          name: (identifier)) fields: (implicit_binder name: (identifier) type: (identifier)) (ERROR) fields: (field name:
+          name: (identifier)) fields: (implicitBinder name: (identifier) type: (identifier)) (ERROR) fields: (field name:
           (identifier)))))
 
 ===============
@@ -604,10 +604,10 @@ instance : ToString Foo where
           name: (identifier)
           arguments: (identifier))
       body:
-        (where_decl
+        (whereDecl
           name: (identifier)
           binders:
-            (explicit_binder
+            (explicitBinder
               name: (identifier)
               type: (identifier))
           type: (identifier)
@@ -631,10 +631,10 @@ instance toStringFoo : ToString Foo where
           name: (identifier)
           arguments: (identifier))
       body:
-        (where_decl
+        (whereDecl
           name: (identifier)
           binders:
-            (explicit_binder
+            (explicitBinder
               name: (identifier)
               type: (identifier))
           type: (identifier)
@@ -653,10 +653,10 @@ instance {f : Foo} (g : Bar 3) : Quux where
   (declaration
     (instance
       (binders
-        (implicit_binder
+        (implicitBinder
           name: (identifier)
           type: (identifier))
-        (explicit_binder
+        (explicitBinder
           name: (identifier)
           type:
             (apply
@@ -664,7 +664,7 @@ instance {f : Foo} (g : Bar 3) : Quux where
               arguments: (number))))
       type: (identifier)
       body:
-        (where_decl
+        (whereDecl
           name: (identifier)
           body: (identifier)))))
 
@@ -681,7 +681,7 @@ instance [Inhabited b] : Inhabited (a -> b) where
   (declaration
     (instance
       (binders
-        (instance_binder
+        (instanceBinder
           type:
             (apply
               name: (identifier)
@@ -691,7 +691,7 @@ instance [Inhabited b] : Inhabited (a -> b) where
           name: (identifier)
           arguments: (parenthesized (arrow (identifier) (identifier))))
       body:
-        (where_decl
+        (whereDecl
           name: (identifier)
           body:
             (fun
@@ -713,7 +713,7 @@ instance : Inhabited Nat := ⟨0⟩
         (apply
           name: (identifier)
           arguments: (identifier))
-      body: (anonymous_constructor (number)))))
+      body: (anonymousConstructor (number)))))
 
 ==============================
 Instance With Field Definition
@@ -749,13 +749,13 @@ instance : ToString Foo where
           name: (identifier)
           arguments: (identifier))
       body:
-        (where_decl
+        (whereDecl
           name: (identifier)
           type: (arrow (identifier) (identifier))
           body:
             (fun
               (parameters name: (identifier))
-              (interpolated_string))))))
+              (interpolatedString))))))
 
 ==================================
 Instance Field Without Return Type
@@ -774,7 +774,7 @@ instance : ToString Foo where
           name: (identifier)
           arguments: (identifier))
       body:
-        (where_decl
+        (whereDecl
           name: (identifier)
           binders: (identifier)
           body: (string)))))
@@ -797,10 +797,10 @@ instance : ToString Foo where
           name: (identifier)
           arguments: (identifier))
       body:
-        (where_decl
+        (whereDecl
           name: (identifier)
           body:
-            (match_alt
+            (matchAlt
               lhs: (hole)
               (string))))))
 
@@ -815,12 +815,12 @@ example : (fun x => x * 2) 4 < 3 = false := rfl
 (module
   (declaration
     (example
-      (binary_expression
+      (binaryExpression
         (comparison
           (apply
             (parenthesized
               (fun (parameters (identifier))
-                (binary_expression (identifier) (number)))) (number))
+                (binaryExpression (identifier) (number)))) (number))
           (number))
         (false))
       (identifier))))
@@ -837,21 +837,21 @@ example {G : Type} [Add G] (g : G) : g + g = g + g := rfl
   (declaration
     (example
       (binders
-        (implicit_binder
+        (implicitBinder
           name: (identifier)
           type: (identifier))
-        (instance_binder
+        (instanceBinder
           type:
             (apply
               name: (identifier)
               arguments: (identifier)))
-        (explicit_binder
+        (explicitBinder
           name: (identifier)
           type: (identifier)))
       type:
-        (binary_expression
-          (binary_expression (identifier) (identifier))
-          (binary_expression (identifier) (identifier)))
+        (binaryExpression
+          (binaryExpression (identifier) (identifier))
+          (binaryExpression (identifier) (identifier)))
       body:
         (identifier))))
 
@@ -898,17 +898,17 @@ noncomputable constant FooBar : Nat
       (identifier)
       (apply
         (identifier)
-        (parenthesized (binary_expression (identifier) (number))))))
+        (parenthesized (binaryExpression (identifier) (number))))))
   (declaration (def (identifier) (number)))
   (declaration (def (identifier) (number)))
   (declaration (inductive (identifier) (constructor (identifier))))
   (declaration (structure (identifier) (field (identifier) (identifier))))
   (declaration (structure (identifier) (field (identifier) (identifier))))
-  (declaration (instance (identifier) (where_decl (identifier) (number))))
-  (declaration (instance (identifier) (where_decl (identifier) (number))))
-  (declaration (theorem (identifier) (binary_expression (number) (number)) (identifier)))
-  (declaration (example (binary_expression (number) (number)) (identifier)))
-  (declaration (example (binary_expression (number) (number)) (identifier)))
+  (declaration (instance (identifier) (whereDecl (identifier) (number))))
+  (declaration (instance (identifier) (whereDecl (identifier) (number))))
+  (declaration (theorem (identifier) (binaryExpression (number) (number)) (identifier)))
+  (declaration (example (binaryExpression (number) (number)) (identifier)))
+  (declaration (example (binaryExpression (number) (number)) (identifier)))
   (declaration (constant (identifier) (identifier)))
   (declaration (constant (identifier) (identifier))))
 
@@ -938,13 +938,13 @@ Attributes
       name: (identifier))
     (instance
       type: (identifier)
-      body: (anonymous_constructor (number))))
+      body: (anonymousConstructor (number))))
   (declaration
     (attributes
       name: (identifier))
     (theorem
       name: (identifier)
-      type: (binary_expression (number) (number))
+      type: (binaryExpression (number) (number))
       body: (identifier)))
   (declaration
     (attributes
@@ -1115,15 +1115,15 @@ inductive FooBar where
         (constructor
           name: (identifier)
           (binders
-            (implicit_binder
+            (implicitBinder
               name: (identifier)
               type: (identifier))
-            (instance_binder
+            (instanceBinder
               type:
                 (apply
                   name: (identifier)
                   arguments: (identifier)))
-            (explicit_binder
+            (explicitBinder
               name: (identifier)
               name: (identifier)
               type: (identifier)))
@@ -1156,14 +1156,14 @@ inductive Foo (F : Type) | x (foo : F)
     (inductive
       name: (identifier)
       (binders
-        (explicit_binder
+        (explicitBinder
           name: (identifier)
           type: (identifier)))
       constructors:
         (constructor
           name: (identifier)
           (binders
-            (explicit_binder
+            (explicitBinder
               name: (identifier)
               type: (identifier)))))))
 
@@ -1250,7 +1250,7 @@ class inductive FooBar where
 
 (module
   (declaration
-    (class_inductive
+    (classInductive
       name: (identifier)
       constructors:
         (constructor
@@ -1269,15 +1269,15 @@ class inductive FooBar where
         (constructor
           name: (identifier)
           (binders
-            (implicit_binder
+            (implicitBinder
               name: (identifier)
               type: (identifier))
-            (instance_binder
+            (instanceBinder
               type:
                 (apply
                   name: (identifier)
                   arguments: (identifier)))
-            (explicit_binder
+            (explicitBinder
               name: (identifier)
               name: (identifier)
               type: (identifier)))
@@ -1329,13 +1329,13 @@ inductive A.B | C
       name: (identifier)
       type: (proj term: (identifier) name: (identifier))
       body:
-        (where_decl
+        (whereDecl
           (identifier)
           (number))))
   (declaration
     (theorem
       name: (identifier)
-      type: (binary_expression (number) (number))
+      type: (binaryExpression (number) (number))
       body: (identifier)))
   (declaration
     (inductive
@@ -1405,11 +1405,11 @@ def foo : Nat :=
           name: (identifier)
           parameters:
             (parameters
-              (explicit_binder
+              (explicitBinder
                 name: (identifier)
                 name: (identifier)
                 type: (identifier)))
-          value: (binary_expression (identifier) (identifier))
+          value: (binaryExpression (identifier) (identifier))
           body:
             (apply
               name: (identifier)
@@ -1485,8 +1485,8 @@ def quux :=
           (let
             (identifier)
             (number)
-            (binary_expression
-              (binary_expression (identifier) (identifier))
+            (binaryExpression
+              (binaryExpression (identifier) (identifier))
               (identifier)))))))
   (declaration
     (def (identifier)
@@ -1499,8 +1499,8 @@ def quux :=
           (let
             (identifier)
             (number)
-            (binary_expression
-              (binary_expression (identifier) (identifier))
+            (binaryExpression
+              (binaryExpression (identifier) (identifier))
               (identifier)))))))
   (declaration
     (def (identifier)
@@ -1513,8 +1513,8 @@ def quux :=
           (let
             (identifier)
             (number)
-            (binary_expression
-              (binary_expression (identifier) (identifier))
+            (binaryExpression
+              (binaryExpression (identifier) (identifier))
               (identifier)))))))
   (declaration
     (def (identifier)
@@ -1527,8 +1527,8 @@ def quux :=
           (let
             (identifier)
             (number)
-            (binary_expression
-              (binary_expression (identifier) (identifier))
+            (binaryExpression
+              (binaryExpression (identifier) (identifier))
               (identifier))))))))
 
 ==========
@@ -1571,7 +1571,7 @@ def foo :=
       (ERROR (identifier))
       body:
         (apply
-          name: (lift_method (number))
+          name: (liftMethod (number))
           arguments: (identifier)))))
 
 ====
@@ -1620,14 +1620,14 @@ abbrev Baz
     (abbrev
       name: (identifier)
       (binders
-        (implicit_binder
+        (implicitBinder
           name: (identifier))
-          (instance_binder
+          (instanceBinder
             type:
               (apply
                 name: (identifier)
                 arguments: (identifier)))
-          (explicit_binder
+          (explicitBinder
             name: (identifier)
             type: (identifier)))
       type: (arrow (identifier) (identifier))
@@ -1636,11 +1636,11 @@ abbrev Baz
     (abbrev
       name: (identifier)
       body:
-        (match_alt
+        (matchAlt
           lhs: (number)
           (number))
       body:
-        (match_alt
+        (matchAlt
           lhs: (hole)
           (number))))
   (declaration
@@ -1723,7 +1723,7 @@ axiom foo : 1 = 2
   (declaration
     (axiom
       name: (identifier)
-      type: (binary_expression (number) (number)))))
+      type: (binaryExpression (number) (number)))))
 
 =======================
 Axiom With Missing Name
@@ -1737,7 +1737,7 @@ axiom : 1 = 2
   (declaration
     (axiom
       name: (identifier (MISSING _identifier))
-      type: (binary_expression (number) (number)))))
+      type: (binaryExpression (number) (number)))))
 
 ========
 Deriving
@@ -1768,7 +1768,7 @@ deriving Inhabited
           name: (identifier))
       deriving: (identifier)))
   (declaration
-    (class_inductive
+    (classInductive
       name: (identifier)
       constructors:
         (constructor
