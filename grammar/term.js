@@ -13,6 +13,7 @@ export default {
     $.true,
     $.false,
     $.ite,
+    $.interpolated_string,
   ),
 
   // src/Lean/Parser/Term.lean
@@ -89,4 +90,14 @@ export default {
     'else',
     $._term,
   )),
+
+  // src/Init/Data/ToString/Macro.lean
+  interpolated_string: $ => seq(
+    's!"',
+    repeat(choice(/[^"]/, $.quoted_char, $.interpolation)),
+    '"',
+  ),
+  interpolation: $ => seq(
+    '{', $._term, '}'
+  ),
 };
