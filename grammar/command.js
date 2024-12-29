@@ -38,9 +38,20 @@ export default {
     $._term,
   ),
 
+  _open_only: $ => seq(
+    field('namespace', $.identifier),
+    '(',
+    repeat1(field('only', $.identifier)),
+    ')',
+  ),
+  _open_simple: $ => repeat1(field('namespace', $.identifier)),
+  _open_decl: $ => choice(
+    $._open_only,
+    $._open_simple,
+  ),
   open: $ => seq(
     'open',
-    repeat1(field('namespace', $.identifier)),
+    $._open_decl,
   ),
   export: $ => seq(
     'export',

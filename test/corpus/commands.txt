@@ -80,6 +80,20 @@ open Foo Bar Baz.Quux
     namespace: (identifier)
     namespace: (identifier)))
 
+=========
+Open Only
+=========
+
+open Foo (bar baz)
+
+---
+
+(module
+  (open
+    namespace: (identifier)
+    only: (identifier)
+    only: (identifier)))
+
 =======
 Open In
 =======

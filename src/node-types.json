@@ -961,6 +961,16 @@
             "named": true
           }
         ]
+      },
+      "only": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
       }
     }
   },
