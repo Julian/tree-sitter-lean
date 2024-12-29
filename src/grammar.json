@@ -963,10 +963,6 @@
         },
         {
           "type": "SYMBOL",
-          "name": "sorry"
-        },
-        {
-          "type": "SYMBOL",
           "name": "number"
         },
         {
@@ -980,6 +976,14 @@
         {
           "type": "SYMBOL",
           "name": "hole"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "sorry"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "anonymousConstructor"
         },
         {
           "type": "ALIAS",
@@ -1155,6 +1159,52 @@
           }
         ]
       }
+    },
+    "anonymousConstructor": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "⟨"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_term"
+                },
+                {
+                  "type": "REPEAT",
+                  "content": {
+                    "type": "SEQ",
+                    "members": [
+                      {
+                        "type": "STRING",
+                        "value": ","
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "_term"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "⟩"
+        }
+      ]
     },
     "_apply": {
       "type": "PREC_LEFT",

@@ -1,14 +1,15 @@
-import { sep1 } from './helpers.js';
+import { sep0, sep1 } from './helpers.js';
 import { terms as mathlibTerms } from './mathlib.js';
 
 export default {
   _term: $ => choice(
     $.identifier,
-    $.sorry,
     $.number,
     $.string,
     $.char,
     $.hole,
+    $.sorry,
+    $.anonymousConstructor,
     alias($._apply, $.apply),
     $.arrow,
     $.true,
@@ -45,6 +46,7 @@ export default {
       ),
     ),
   ),
+  anonymousConstructor: $ => seq('⟨', sep0($._term, ','), '⟩'),
 
   _apply: $ => prec.left('apply', seq(
     field('function', $._term),

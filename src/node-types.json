@@ -12,6 +12,10 @@
             "named": false
           },
           {
+            "type": "anonymousConstructor",
+            "named": true
+          },
+          {
             "type": "apply",
             "named": true
           },
@@ -84,6 +88,10 @@
             "named": false
           },
           {
+            "type": "anonymousConstructor",
+            "named": true
+          },
+          {
             "type": "apply",
             "named": true
           },
@@ -150,6 +158,73 @@
     }
   },
   {
+    "type": "anonymousConstructor",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "anonymousConstructor",
+          "named": true
+        },
+        {
+          "type": "apply",
+          "named": true
+        },
+        {
+          "type": "arrow",
+          "named": true
+        },
+        {
+          "type": "char",
+          "named": true
+        },
+        {
+          "type": "false",
+          "named": true
+        },
+        {
+          "type": "hole",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "interpolatedString",
+          "named": true
+        },
+        {
+          "type": "ite",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "sorry",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "true",
+          "named": true
+        },
+        {
+          "type": "typeStar",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "apply",
     "named": true,
     "fields": {
@@ -157,6 +232,10 @@
         "multiple": false,
         "required": true,
         "types": [
+          {
+            "type": "anonymousConstructor",
+            "named": true
+          },
           {
             "type": "apply",
             "named": true
@@ -215,6 +294,10 @@
         "multiple": false,
         "required": true,
         "types": [
+          {
+            "type": "anonymousConstructor",
+            "named": true
+          },
           {
             "type": "apply",
             "named": true
@@ -279,6 +362,10 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "anonymousConstructor",
+          "named": true
+        },
         {
           "type": "apply",
           "named": true
@@ -395,6 +482,10 @@
           {
             "type": ":",
             "named": false
+          },
+          {
+            "type": "anonymousConstructor",
+            "named": true
           },
           {
             "type": "apply",
@@ -531,6 +622,10 @@
             "named": false
           },
           {
+            "type": "anonymousConstructor",
+            "named": true
+          },
+          {
             "type": "apply",
             "named": true
           },
@@ -589,6 +684,10 @@
       "multiple": true,
       "required": false,
       "types": [
+        {
+          "type": "anonymousConstructor",
+          "named": true
+        },
         {
           "type": "apply",
           "named": true
@@ -704,6 +803,10 @@
             "named": false
           },
           {
+            "type": "anonymousConstructor",
+            "named": true
+          },
+          {
             "type": "apply",
             "named": true
           },
@@ -774,6 +877,10 @@
           {
             "type": ":",
             "named": false
+          },
+          {
+            "type": "anonymousConstructor",
+            "named": true
           },
           {
             "type": "apply",
@@ -854,6 +961,10 @@
             "named": false
           },
           {
+            "type": "anonymousConstructor",
+            "named": true
+          },
+          {
             "type": "apply",
             "named": true
           },
@@ -914,6 +1025,10 @@
           {
             "type": ":",
             "named": false
+          },
+          {
+            "type": "anonymousConstructor",
+            "named": true
           },
           {
             "type": "apply",
@@ -994,6 +1109,10 @@
             "named": false
           },
           {
+            "type": "anonymousConstructor",
+            "named": true
+          },
+          {
             "type": "apply",
             "named": true
           },
@@ -1068,6 +1187,10 @@
           {
             "type": ":",
             "named": false
+          },
+          {
+            "type": "anonymousConstructor",
+            "named": true
           },
           {
             "type": "apply",
@@ -1183,6 +1306,10 @@
             "named": false
           },
           {
+            "type": "anonymousConstructor",
+            "named": true
+          },
+          {
             "type": "apply",
             "named": true
           },
@@ -1267,6 +1394,10 @@
             "named": false
           },
           {
+            "type": "anonymousConstructor",
+            "named": true
+          },
+          {
             "type": "apply",
             "named": true
           },
@@ -1337,6 +1468,10 @@
           {
             "type": ":",
             "named": false
+          },
+          {
+            "type": "anonymousConstructor",
+            "named": true
           },
           {
             "type": "apply",
@@ -1423,6 +1558,10 @@
         "required": true,
         "types": [
           {
+            "type": "anonymousConstructor",
+            "named": true
+          },
+          {
             "type": "apply",
             "named": true
           },
@@ -1486,6 +1625,10 @@
       "multiple": false,
       "required": true,
       "types": [
+        {
+          "type": "anonymousConstructor",
+          "named": true
+        },
         {
           "type": "apply",
           "named": true
@@ -1569,6 +1712,10 @@
       "required": true,
       "types": [
         {
+          "type": "anonymousConstructor",
+          "named": true
+        },
+        {
           "type": "apply",
           "named": true
         },
@@ -1631,6 +1778,10 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "anonymousConstructor",
+          "named": true
+        },
         {
           "type": "apply",
           "named": true
@@ -1973,6 +2124,10 @@
             "named": false
           },
           {
+            "type": "anonymousConstructor",
+            "named": true
+          },
+          {
             "type": "apply",
             "named": true
           },
@@ -2043,6 +2198,10 @@
           {
             "type": ":",
             "named": false
+          },
+          {
+            "type": "anonymousConstructor",
+            "named": true
           },
           {
             "type": "apply",
@@ -2355,6 +2514,14 @@
   },
   {
     "type": "→",
+    "named": false
+  },
+  {
+    "type": "⟨",
+    "named": false
+  },
+  {
+    "type": "⟩",
     "named": false
   }
 ]
