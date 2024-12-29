@@ -1,0 +1,9 @@
+=====
+Type*
+=====
+
+#eval Type*
+
+---
+
+(module (interactive (type_star)))

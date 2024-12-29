@@ -1,4 +1,5 @@
 import { sep1 } from './helpers.js';
+import { terms as mathlib_terms } from './mathlib.js';
 
 export default {
   _term: $ => choice(
@@ -14,6 +15,8 @@ export default {
     $.false,
     $.ite,
     $.interpolated_string,
+
+    ...(mathlib_terms($)),
   ),
 
   // src/Lean/Parser/Term.lean

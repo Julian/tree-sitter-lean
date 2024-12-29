@@ -409,6 +409,10 @@
         {
           "type": "SYMBOL",
           "name": "interpolated_string"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "type_star"
         }
       ]
     },
@@ -895,6 +899,10 @@
           "value": "}"
         }
       ]
+    },
+    "type_star": {
+      "type": "STRING",
+      "value": "Type*"
     },
     "comment": {
       "type": "TOKEN",

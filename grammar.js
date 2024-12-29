@@ -9,6 +9,7 @@
 
 import command from './grammar/command.js';
 import term from './grammar/term.js';
+import mathlib from './grammar/mathlib.js';
 
 export default grammar({
   name: 'lean',
@@ -42,6 +43,7 @@ export default grammar({
 
     ...command,
     ...term,
+    ...mathlib,
 
     comment: $ => token(choice(
       seq('--', /.*/),
