@@ -1,29 +1,84 @@
+import { min1 } from './helpers.js';
+
 export default {
   _command: $ => choice(
     $.scoped_in,
 
-    $.def,
-
     $.interactive,
 
-    $.open,
-    $.export,
+    $.declaration,
     $.section,
     $.namespace,
     $.variable,
+    $.export,
+    $.open,
   ),
 
-  // src/Lean/Parser/Command.lean
   scoped_in: $ => prec.right(seq($._command, 'in', $._command)),
 
-  _decl_id: $ => field('name', $.identifier),
+  // src/Lean/Parser/Command.lean
+  _visibility: $ => choice('private', 'protected'),
+  _decl_modifiers: $ => seq(
+    min1(
+      $.attributes,
+      repeat1(
+        choice('noncomputable', 'partial', $._visibility, 'unsafe'),
+      ),
+    ),
+  ),
+  _decl_id: $ => prec('declId', field('name', $.identifier)),
+  _decl_sig: $ => seq(
+    alias(
+      repeat(choice($._binder_ident, $._bracketed_binder)),
+      $.binders,
+    ),
+    $._type_spec,
+  ),
+  _opt_decl_sig: $ => min1(
+    alias(
+      repeat1(choice($._binder_ident, $._bracketed_binder)),
+      $.binders,
+    ),
+    $._type_spec,
+  ),
   _decl_val_simple: $ => seq(':=', $._term),
   _decl_val: $ => field('body', choice(
     $._decl_val_simple,
   )),
+  abbrev: $ => seq(
+    'abbrev',
+    $._decl_id,
+    optional($._opt_decl_sig),
+    $._decl_val,
+  ),
   def: $ => seq(
     'def',
     $._decl_id,
+    optional($._opt_decl_sig),
+    $._decl_val,
+  ),
+  theorem: $ => seq(
+    'theorem',
+    $._decl_id,
+    $._decl_sig,
+    $._decl_val,
+  ),
+  constant: $ => seq(
+    'constant',
+    $._decl_id,
+    $._decl_sig,
+    optional($._decl_val_simple),
+  ),
+  instance: $ => seq(
+    'instance',
+    optional($._decl_id),
+    $._decl_sig,
+    $._decl_val,
+  ),
+  axiom: $ => seq('axiom', $._decl_id, $._decl_sig),
+  example: $ => seq(
+    'example',
+    $._decl_sig,
     $._decl_val,
   ),
 
@@ -37,6 +92,35 @@ export default {
     ),
     $._term,
   ),
+
+  declaration: $ => seq(
+    optional($._decl_modifiers),
+    choice(
+      $.abbrev,
+      $.def,
+      $.theorem,
+      $.constant,
+      $.instance,
+      $.axiom,
+      $.example,
+    ),
+  ),
+  section: $ => seq(
+    'section',
+    optional(field('name', $.identifier)),
+    field('body', repeat($._command)),
+    'end',
+    optional($.identifier),
+  ),
+  namespace: $ => seq(
+    'namespace',
+    field('name', $.identifier),
+    field('body', repeat($._command)),
+    'end',
+    $.identifier,
+  ),
+
+  variable: $ => seq('variable', repeat1($._bracketed_binder)),
 
   _open_only: $ => seq(
     field('namespace', $.identifier),
@@ -65,21 +149,4 @@ export default {
     repeat1($.identifier),
     ')',
   ),
-
-  section: $ => seq(
-    'section',
-    optional(field('name', $.identifier)),
-    field('body', repeat($._command)),
-    'end',
-    optional($.identifier),
-  ),
-  namespace: $ => seq(
-    'namespace',
-    field('name', $.identifier),
-    field('body', repeat($._command)),
-    'end',
-    $.identifier,
-  ),
-
-  variable: $ => seq('variable', repeat1($._bracketed_binder)),
 };

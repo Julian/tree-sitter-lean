@@ -2,5 +2,15 @@
 export function sep1(
   /** @type {RuleOrLiteral} */ rule,
   /** @type {RuleOrLiteral} */ separator) {
-    return seq(rule, repeat(seq(separator, rule)));
+  return seq(rule, repeat(seq(separator, rule)))
+}
+
+/* At least one of the given choices in sequence.
+
+   Used to work around possible empty rules by wrapping this rule in `optional`
+   afterwards */
+export function min1(
+  /** @type {RuleOrLiteral} */ one,
+  /** @type {RuleOrLiteral} */ two) {
+  return choice(seq(one, optional(two)), seq(optional(one), two))
 }

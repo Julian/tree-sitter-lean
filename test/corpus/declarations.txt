@@ -2,7 +2,7 @@
 Simple
 ======
 
-def sampleFunction1 x := x*x + 3
+def sampleFunction1 x := 37
 
 def result1 := sampleFunction1 4573
 
@@ -14,8 +14,7 @@ theorem foo : p := sorry
   (declaration
     (def (identifier)
     (binders (identifier))
-    (binary_expression (binary_expression (identifier) (identifier))
-    (number))))
+    (number)))
   (declaration
     (def (identifier)
     (apply (identifier) (number))))

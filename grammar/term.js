@@ -53,7 +53,7 @@ export default {
 
   _type_spec: $ => field('type', seq(':', $._term)),
 
-  _binder_ident: $ => choice($.identifier, $.hole),
+  _binder_ident: $ => prec('binderIdent', choice($.identifier, $.hole)),
   _binder_default: $ => field('default', seq(':=', $._term)),
   explicit_binder: $ => seq(
     '(',
@@ -93,6 +93,10 @@ export default {
     'else',
     $._term,
   )),
+
+  _attr_kind: $ => choice('scoped', 'local'),
+  _attr_instance: $ => seq(optional($._attr_kind), $._attribute),
+  attributes: $ => seq('@[', sep1($._attr_instance, ','), ']'),
 
   // src/Init/Data/ToString/Macro.lean
   interpolated_string: $ => seq(
