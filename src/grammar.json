@@ -241,6 +241,26 @@
         }
       }
     },
+    "_open_scoped": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "scoped"
+        },
+        {
+          "type": "REPEAT1",
+          "content": {
+            "type": "FIELD",
+            "name": "scoped",
+            "content": {
+              "type": "SYMBOL",
+              "name": "identifier"
+            }
+          }
+        }
+      ]
+    },
     "_open_decl": {
       "type": "CHOICE",
       "members": [
@@ -251,6 +271,10 @@
         {
           "type": "SYMBOL",
           "name": "_open_simple"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_open_scoped"
         }
       ]
     },

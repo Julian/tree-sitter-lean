@@ -954,7 +954,7 @@
     "fields": {
       "namespace": {
         "multiple": true,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": "identifier",
@@ -963,6 +963,16 @@
         ]
       },
       "only": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "scoped": {
         "multiple": true,
         "required": false,
         "types": [
@@ -1237,6 +1247,10 @@
   },
   {
     "type": "s!\"",
+    "named": false
+  },
+  {
+    "type": "scoped",
     "named": false
   },
   {

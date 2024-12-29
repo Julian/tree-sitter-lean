@@ -94,6 +94,22 @@ open Foo (bar baz)
     only: (identifier)
     only: (identifier)))
 
+===========
+Open Scoped
+===========
+
+open scoped Foo
+open scoped Bar Baz
+
+---
+
+(module
+  (open
+    scoped: (identifier))
+  (open
+    scoped: (identifier)
+    scoped: (identifier)))
+
 =======
 Open In
 =======

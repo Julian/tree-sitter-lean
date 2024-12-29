@@ -45,9 +45,14 @@ export default {
     ')',
   ),
   _open_simple: $ => repeat1(field('namespace', $.identifier)),
+  _open_scoped: $ => seq(
+    'scoped',
+    repeat1(field('scoped', $.identifier)),
+  ),
   _open_decl: $ => choice(
     $._open_only,
     $._open_simple,
+    $._open_scoped,
   ),
   open: $ => seq(
     'open',
