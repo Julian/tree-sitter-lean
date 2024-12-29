@@ -34,9 +34,9 @@ theorem foo {m n : Nat} : 2 * m + 2 * n = 2 * (n + m) := by
                 (parenthesized
                   (apply
                     name: (identifier)
-                    arguments: (number)
-                    arguments: (identifier)
-                    arguments: (identifier)))
+                    argument: (number)
+                    argument: (identifier)
+                    argument: (identifier)))
               name: (identifier)))))))
 
 =================
@@ -65,9 +65,9 @@ variable {m n : Nat}
               (parenthesized
                 (apply
                   name: (identifier)
-                  arguments: (number)
-                  arguments: (identifier)
-                  arguments: (identifier)))
+                  argument: (number)
+                  argument: (identifier)
+                  argument: (identifier)))
             name: (identifier))))
       (typeAscription
         type:

@@ -123,7 +123,7 @@ def foo [Bar x] [y : Baz] : x := 1
           type:
             (apply
               name: (identifier)
-              arguments: (identifier)))
+              argument: (identifier)))
         (instanceBinder
           name: (identifier)
           type: (identifier)))
@@ -153,11 +153,11 @@ def twice (f : Nat → Nat) (a : Nat) :=
       body:
         (apply
           name: (identifier)
-          arguments:
+          argument:
             (parenthesized
               (apply
                 name: (identifier)
-                arguments: (identifier)))))))
+                argument: (identifier)))))))
 
 ====================
 Function Return Type
@@ -357,13 +357,13 @@ theorem twiceAdd2 (a : Nat) : twice (fun x => x + 2) a = a + 4 :=
         (binaryExpression
           (apply
             name: (identifier)
-            arguments:
+            argument:
               (parenthesized
                 (fun
                   (parameters
                     name: (identifier))
                   (binaryExpression (identifier) (number))))
-            arguments:
+            argument:
               (identifier))
           (binaryExpression (identifier) (number)))
         (comment) (comment)
@@ -389,8 +389,8 @@ theorem bar : 2 * 3 = 3 * 2 := Nat.mul_comm 2 3
       body:
         (apply
           name: (identifier)
-          arguments: (number)
-          arguments: (number)))))
+          argument: (number)
+          argument: (number)))))
 
 =======================
 Theorem With Match Body
@@ -454,7 +454,7 @@ structure Point (α : Type u) where
           type:
             (apply
               name: (identifier)
-              arguments: (identifier))))
+              argument: (identifier))))
       fields:
         (field
           name: (identifier)
@@ -517,7 +517,7 @@ structure Bar extends Foo, Bar α where
       extends:
         (apply
           name: (identifier)
-          arguments: (identifier))
+          argument: (identifier))
       fields:
         (field
           name: (identifier)
@@ -602,7 +602,7 @@ instance : ToString Foo where
       type:
         (apply
           name: (identifier)
-          arguments: (identifier))
+          argument: (identifier))
       body:
         (whereDecl
           name: (identifier)
@@ -629,7 +629,7 @@ instance toStringFoo : ToString Foo where
       type:
         (apply
           name: (identifier)
-          arguments: (identifier))
+          argument: (identifier))
       body:
         (whereDecl
           name: (identifier)
@@ -661,7 +661,7 @@ instance {f : Foo} (g : Bar 3) : Quux where
           type:
             (apply
               name: (identifier)
-              arguments: (number))))
+              argument: (number))))
       type: (identifier)
       body:
         (whereDecl
@@ -685,11 +685,11 @@ instance [Inhabited b] : Inhabited (a -> b) where
           type:
             (apply
               name: (identifier)
-              arguments: (identifier))))
+              argument: (identifier))))
       type:
         (apply
           name: (identifier)
-          arguments: (parenthesized (arrow (identifier) (identifier))))
+          argument: (parenthesized (arrow (identifier) (identifier))))
       body:
         (whereDecl
           name: (identifier)
@@ -711,8 +711,8 @@ instance : Inhabited Nat := ⟨0⟩
     (instance
       type:
         (apply
-          name: (identifier)
-          arguments: (identifier))
+          function: (identifier)
+          argument: (identifier))
       body: (anonymousConstructor (number)))))
 
 ==============================
@@ -728,8 +728,8 @@ instance : Add Foo := Foo.add
     (instance
       type:
         (apply
-          name: (identifier)
-          arguments: (identifier))
+          function: (identifier)
+          argument: (identifier))
       body: (identifier))))
 
 ========================================
@@ -746,8 +746,8 @@ instance : ToString Foo where
     (instance
       type:
         (apply
-          name: (identifier)
-          arguments: (identifier))
+          function: (identifier)
+          argument: (identifier))
       body:
         (whereDecl
           name: (identifier)
@@ -771,8 +771,8 @@ instance : ToString Foo where
     (instance
       type:
         (apply
-          name: (identifier)
-          arguments: (identifier))
+          function: (identifier)
+          argument: (identifier))
       body:
         (whereDecl
           name: (identifier)
@@ -794,8 +794,8 @@ instance : ToString Foo where
     (instance
       type:
         (apply
-          name: (identifier)
-          arguments: (identifier))
+          function: (identifier)
+          argument: (identifier))
       body:
         (whereDecl
           name: (identifier)
@@ -843,8 +843,8 @@ example {G : Type} [Add G] (g : G) : g + g = g + g := rfl
         (instanceBinder
           type:
             (apply
-              name: (identifier)
-              arguments: (identifier)))
+              function: (identifier)
+              argument: (identifier)))
         (explicitBinder
           name: (identifier)
           type: (identifier)))
@@ -1122,7 +1122,7 @@ inductive FooBar where
               type:
                 (apply
                   name: (identifier)
-                  arguments: (identifier)))
+                  argument: (identifier)))
             (explicitBinder
               name: (identifier)
               name: (identifier)
@@ -1276,7 +1276,7 @@ class inductive FooBar where
               type:
                 (apply
                   name: (identifier)
-                  arguments: (identifier)))
+                  argument: (identifier)))
             (explicitBinder
               name: (identifier)
               name: (identifier)
@@ -1413,9 +1413,9 @@ def foo : Nat :=
           body:
             (apply
               name: (identifier)
-              arguments: (identifier)
-              arguments: (number)
-              arguments: (number))))))
+              argument: (identifier)
+              argument: (number)
+              argument: (number))))))
 
 ============================
 Let Function Bare Parameters
@@ -1442,8 +1442,8 @@ f true false
           body:
             (apply
               name: (identifier)
-              arguments: (true)
-              arguments: (false))))))
+              argument: (true)
+              argument: (false))))))
 
 ==============
 Let Semicolons
@@ -1572,7 +1572,7 @@ def foo :=
       body:
         (apply
           name: (liftMethod (number))
-          arguments: (identifier)))))
+          argument: (identifier)))))
 
 ====
 Have
@@ -1626,7 +1626,7 @@ abbrev Baz
             type:
               (apply
                 name: (identifier)
-                arguments: (identifier)))
+                argument: (identifier)))
           (explicitBinder
             name: (identifier)
             type: (identifier)))

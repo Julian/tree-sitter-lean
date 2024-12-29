@@ -15,15 +15,15 @@ def main : IO UInt32 := do
       type:
         (apply
           name: (identifier)
-          arguments: (identifier))
+          argument: (identifier))
       body:
         (do
           (apply
             name: (identifier)
-            arguments: (string))
+            argument: (string))
           (apply
             name: (identifier)
-            arguments: (string))))))
+            argument: (string))))))
 
 ========
 Repeated
@@ -42,16 +42,16 @@ def main : IO UInt32 := do do
       type:
         (apply
           name: (identifier)
-          arguments: (identifier))
+          argument: (identifier))
       body:
         (do
           (do
             (apply
               name: (identifier)
-              arguments: (string))
+              argument: (string))
             (apply
               name: (identifier)
-              arguments: (string)))))))
+              argument: (string)))))))
 
 ==========
 Let (Bind)
@@ -135,7 +135,7 @@ def foo (xs : Array Nat) : Unit := do
           type:
             (apply
               name: (identifier)
-              arguments: (identifier))))
+              argument: (identifier))))
       type: (identifier)
       body:
         (do
@@ -172,7 +172,7 @@ def foo (xs : Array (Nat × Nat)) : Unit := do
           type:
             (apply
               name: (identifier)
-              arguments:
+              argument:
                 (parenthesized (product (identifier) (identifier))))))
       type: (identifier)
       body:
@@ -184,7 +184,7 @@ def foo (xs : Array (Nat × Nat)) : Unit := do
               (do
                 (apply
                   name: (identifier)
-                  arguments: (string))))))))
+                  argument: (string))))))))
 
 ;=========
 ;Try/Catch
@@ -358,7 +358,7 @@ def check : IO Unit := do
       type:
         (apply
           name: (identifier)
-          arguments: (identifier))
+          argument: (identifier))
         body:
           (do
             (unless
@@ -366,7 +366,7 @@ def check : IO Unit := do
               (do
                 (apply
                   name: (identifier)
-                  arguments: (string))))))))
+                  argument: (string))))))))
 
 ================
 Do In Definition
@@ -386,7 +386,7 @@ instance : do return ToString Nat where
             value:
               (apply
                 name: (identifier)
-                arguments: (identifier))))
+                argument: (identifier))))
       body:
         (whereDecl
           name: (identifier)

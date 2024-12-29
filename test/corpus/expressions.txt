@@ -33,8 +33,8 @@ Range
       start: (number)
       stop:
         (apply
-          name: (identifier)
-          arguments: (number))
+          function: (identifier)
+          argument: (number))
       step: (number))))
 
 =============
@@ -91,8 +91,8 @@ Array Ref
       term: (identifier)
       value:
         (apply
-          name: (identifier)
-          arguments: (number)))))
+          function: (identifier)
+          argument: (number)))))
 
 ========
 Subarray
@@ -109,8 +109,8 @@ Subarray
       start: (number)
       stop:
         (apply
-          name: (identifier)
-          arguments: (number)))))
+          function: (identifier)
+          argument: (number)))))
 
 ================
 Subarray No Stop
@@ -154,8 +154,8 @@ Subarray of Expression
       term:
         (parenthesized
           (apply
-            name: (identifier)
-            arguments: (number)))
+            function: (identifier)
+            argument: (number)))
       stop: (number))))
 
 ===========================
@@ -194,8 +194,8 @@ Subarray vs. Range
 (module
   (interactive
     (apply
-      name: (identifier)
-      arguments:
+      function: (identifier)
+      argument:
         (range
           start: (number)
           stop: (number)))))
@@ -817,7 +817,7 @@ Match Expression
       value:
         (apply
           name: (identifier)
-          arguments: (number))
+          argument: (number))
       patterns:
         (matchAlt
           lhs: (hole)
@@ -924,15 +924,15 @@ Anonymous Function Match With Additional Argument
 (module
   (interactive
     (apply
-      name: (identifier)
-      arguments: (number)
-      arguments:
+      function: (identifier)
+      argument: (number)
+      argument:
         (fun
           lhs: (number)
           (number)
           lhs: (identifier)
           (number))
-      arguments:
+      argument:
         (number))))
 
 ==========================
@@ -991,20 +991,20 @@ Type Ascription
   (interactive
     (parenthesized
       (apply
-        name: (identifier)
-        arguments: (identifier))
+        function: (identifier)
+        argument: (identifier))
       (typeAscription
         type: (identifier))))
   (interactive
     (parenthesized
       (apply
-        name: (identifier)
-        arguments: (identifier))
+        function: (identifier)
+        argument: (identifier))
       (typeAscription
         type:
           (apply
-            name: (identifier)
-            arguments: (identifier))))))
+            function: (identifier)
+            argument: (identifier))))))
 
 =================================
 Application Across Multiple Lines
@@ -1021,10 +1021,10 @@ Application Across Multiple Lines
 (module
   (interactive
     (apply
-      name: (identifier)
-      arguments: (number)
-      arguments: (number)
-      arguments: (number))))
+      function: (identifier)
+      argument: (number)
+      argument: (number)
+      argument: (number))))
 
 =================
 Structure Literal
@@ -1081,8 +1081,8 @@ Typed Structure Literal
             (identifier)))
       type:
         (apply
-          name: (identifier)
-          arguments: (identifier))))
+          function: (identifier)
+          argument: (identifier))))
   (interactive
     (structureInstance
       type: (identifier))))
@@ -1123,8 +1123,8 @@ Structure Overriding
     (structureInstance
       extends:
         (apply
-          name: (identifier)
-          arguments: (number))
+          function: (identifier)
+          argument: (number))
       name: (identifier)
       value: (number))))
 
