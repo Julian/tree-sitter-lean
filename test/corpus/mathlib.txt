@@ -7,3 +7,13 @@ Type*
 ---
 
 (module (interactive (typeStar)))
+
+====
+R[X]
+====
+
+#eval Foo[X]
+
+---
+
+(module (interactive ([X] R: (identifier))))

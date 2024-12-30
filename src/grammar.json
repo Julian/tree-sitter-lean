@@ -1017,6 +1017,10 @@
         {
           "type": "SYMBOL",
           "name": "typeStar"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "[X]"
         }
       ]
     },
@@ -1629,6 +1633,26 @@
     "typeStar": {
       "type": "STRING",
       "value": "Type*"
+    },
+    "[X]": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "R",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "IMMEDIATE_TOKEN",
+          "content": {
+            "type": "STRING",
+            "value": "[X]"
+          }
+        }
+      ]
     },
     "comment": {
       "type": "TOKEN",

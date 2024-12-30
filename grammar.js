@@ -49,6 +49,7 @@ export default grammar({
     ...attr,
     ...command,
     ...term,
+
     ...mathlib,
 
     comment: $ => token(choice(

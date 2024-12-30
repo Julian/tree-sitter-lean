@@ -1,5 +1,21 @@
 [
   {
+    "type": "[X]",
+    "named": true,
+    "fields": {
+      "R": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "abbrev",
     "named": true,
     "fields": {
@@ -10,6 +26,10 @@
           {
             "type": ":=",
             "named": false
+          },
+          {
+            "type": "[X]",
+            "named": true
           },
           {
             "type": "anonymousConstructor",
@@ -86,6 +106,10 @@
           {
             "type": ":",
             "named": false
+          },
+          {
+            "type": "[X]",
+            "named": true
           },
           {
             "type": "anonymousConstructor",
@@ -166,6 +190,10 @@
       "required": false,
       "types": [
         {
+          "type": "[X]",
+          "named": true
+        },
+        {
           "type": "anonymousConstructor",
           "named": true
         },
@@ -233,6 +261,10 @@
         "required": true,
         "types": [
           {
+            "type": "[X]",
+            "named": true
+          },
+          {
             "type": "anonymousConstructor",
             "named": true
           },
@@ -294,6 +326,10 @@
         "multiple": false,
         "required": true,
         "types": [
+          {
+            "type": "[X]",
+            "named": true
+          },
           {
             "type": "anonymousConstructor",
             "named": true
@@ -362,6 +398,10 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "[X]",
+          "named": true
+        },
         {
           "type": "anonymousConstructor",
           "named": true
@@ -482,6 +522,10 @@
           {
             "type": ":",
             "named": false
+          },
+          {
+            "type": "[X]",
+            "named": true
           },
           {
             "type": "anonymousConstructor",
@@ -622,6 +666,10 @@
             "named": false
           },
           {
+            "type": "[X]",
+            "named": true
+          },
+          {
             "type": "anonymousConstructor",
             "named": true
           },
@@ -684,6 +732,10 @@
       "multiple": true,
       "required": false,
       "types": [
+        {
+          "type": "[X]",
+          "named": true
+        },
         {
           "type": "anonymousConstructor",
           "named": true
@@ -803,6 +855,10 @@
             "named": false
           },
           {
+            "type": "[X]",
+            "named": true
+          },
+          {
             "type": "anonymousConstructor",
             "named": true
           },
@@ -877,6 +933,10 @@
           {
             "type": ":",
             "named": false
+          },
+          {
+            "type": "[X]",
+            "named": true
           },
           {
             "type": "anonymousConstructor",
@@ -961,6 +1021,10 @@
             "named": false
           },
           {
+            "type": "[X]",
+            "named": true
+          },
+          {
             "type": "anonymousConstructor",
             "named": true
           },
@@ -1025,6 +1089,10 @@
           {
             "type": ":",
             "named": false
+          },
+          {
+            "type": "[X]",
+            "named": true
           },
           {
             "type": "anonymousConstructor",
@@ -1109,6 +1177,10 @@
             "named": false
           },
           {
+            "type": "[X]",
+            "named": true
+          },
+          {
             "type": "anonymousConstructor",
             "named": true
           },
@@ -1187,6 +1259,10 @@
           {
             "type": ":",
             "named": false
+          },
+          {
+            "type": "[X]",
+            "named": true
           },
           {
             "type": "anonymousConstructor",
@@ -1306,6 +1382,10 @@
             "named": false
           },
           {
+            "type": "[X]",
+            "named": true
+          },
+          {
             "type": "anonymousConstructor",
             "named": true
           },
@@ -1394,6 +1474,10 @@
             "named": false
           },
           {
+            "type": "[X]",
+            "named": true
+          },
+          {
             "type": "anonymousConstructor",
             "named": true
           },
@@ -1468,6 +1552,10 @@
           {
             "type": ":",
             "named": false
+          },
+          {
+            "type": "[X]",
+            "named": true
           },
           {
             "type": "anonymousConstructor",
@@ -1558,6 +1646,10 @@
         "required": true,
         "types": [
           {
+            "type": "[X]",
+            "named": true
+          },
+          {
             "type": "anonymousConstructor",
             "named": true
           },
@@ -1625,6 +1717,10 @@
       "multiple": false,
       "required": true,
       "types": [
+        {
+          "type": "[X]",
+          "named": true
+        },
         {
           "type": "anonymousConstructor",
           "named": true
@@ -1712,6 +1808,10 @@
       "required": true,
       "types": [
         {
+          "type": "[X]",
+          "named": true
+        },
+        {
           "type": "anonymousConstructor",
           "named": true
         },
@@ -1778,6 +1878,10 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "[X]",
+          "named": true
+        },
         {
           "type": "anonymousConstructor",
           "named": true
@@ -2124,6 +2228,10 @@
             "named": false
           },
           {
+            "type": "[X]",
+            "named": true
+          },
+          {
             "type": "anonymousConstructor",
             "named": true
           },
@@ -2198,6 +2306,10 @@
           {
             "type": ":",
             "named": false
+          },
+          {
+            "type": "[X]",
+            "named": true
           },
           {
             "type": "anonymousConstructor",
@@ -2350,6 +2462,10 @@
   },
   {
     "type": "[",
+    "named": false
+  },
+  {
+    "type": "[X]",
     "named": false
   },
   {
