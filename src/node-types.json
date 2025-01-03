@@ -44,6 +44,10 @@
             "named": true
           },
           {
+            "type": "by",
+            "named": true
+          },
+          {
             "type": "char",
             "named": true
           },
@@ -121,6 +125,10 @@
           },
           {
             "type": "arrow",
+            "named": true
+          },
+          {
+            "type": "by",
             "named": true
           },
           {
@@ -206,6 +214,10 @@
           "named": true
         },
         {
+          "type": "by",
+          "named": true
+        },
+        {
           "type": "char",
           "named": true
         },
@@ -277,6 +289,10 @@
             "named": true
           },
           {
+            "type": "by",
+            "named": true
+          },
+          {
             "type": "char",
             "named": true
           },
@@ -340,6 +356,10 @@
           },
           {
             "type": "arrow",
+            "named": true
+          },
+          {
+            "type": "by",
             "named": true
           },
           {
@@ -412,6 +432,10 @@
         },
         {
           "type": "arrow",
+          "named": true
+        },
+        {
+          "type": "by",
           "named": true
         },
         {
@@ -540,6 +564,10 @@
             "named": true
           },
           {
+            "type": "by",
+            "named": true
+          },
+          {
             "type": "char",
             "named": true
           },
@@ -629,6 +657,44 @@
     }
   },
   {
+    "type": "by",
+    "named": true,
+    "fields": {
+      "term": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "tactic.exact",
+            "named": true
+          },
+          {
+            "type": "tactic.have",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "tactic.exact",
+          "named": true
+        },
+        {
+          "type": "tactic.have",
+          "named": true
+        },
+        {
+          "type": "tactic.rfl",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "char",
     "named": true,
     "fields": {},
@@ -679,6 +745,10 @@
           },
           {
             "type": "arrow",
+            "named": true
+          },
+          {
+            "type": "by",
             "named": true
           },
           {
@@ -750,6 +820,10 @@
         },
         {
           "type": "binders",
+          "named": true
+        },
+        {
+          "type": "by",
           "named": true
         },
         {
@@ -871,6 +945,10 @@
             "named": true
           },
           {
+            "type": "by",
+            "named": true
+          },
+          {
             "type": "char",
             "named": true
           },
@@ -948,6 +1026,10 @@
           },
           {
             "type": "arrow",
+            "named": true
+          },
+          {
+            "type": "by",
             "named": true
           },
           {
@@ -1037,6 +1119,10 @@
             "named": true
           },
           {
+            "type": "by",
+            "named": true
+          },
+          {
             "type": "char",
             "named": true
           },
@@ -1104,6 +1190,10 @@
           },
           {
             "type": "arrow",
+            "named": true
+          },
+          {
+            "type": "by",
             "named": true
           },
           {
@@ -1193,6 +1283,10 @@
             "named": true
           },
           {
+            "type": "by",
+            "named": true
+          },
+          {
             "type": "char",
             "named": true
           },
@@ -1274,6 +1368,10 @@
           },
           {
             "type": "arrow",
+            "named": true
+          },
+          {
+            "type": "by",
             "named": true
           },
           {
@@ -1398,6 +1496,10 @@
             "named": true
           },
           {
+            "type": "by",
+            "named": true
+          },
+          {
             "type": "char",
             "named": true
           },
@@ -1490,6 +1592,10 @@
             "named": true
           },
           {
+            "type": "by",
+            "named": true
+          },
+          {
             "type": "char",
             "named": true
           },
@@ -1567,6 +1673,10 @@
           },
           {
             "type": "arrow",
+            "named": true
+          },
+          {
+            "type": "by",
             "named": true
           },
           {
@@ -1662,6 +1772,10 @@
             "named": true
           },
           {
+            "type": "by",
+            "named": true
+          },
+          {
             "type": "char",
             "named": true
           },
@@ -1731,6 +1845,10 @@
         },
         {
           "type": "arrow",
+          "named": true
+        },
+        {
+          "type": "by",
           "named": true
         },
         {
@@ -1824,6 +1942,10 @@
           "named": true
         },
         {
+          "type": "by",
+          "named": true
+        },
+        {
           "type": "char",
           "named": true
         },
@@ -1892,6 +2014,10 @@
         },
         {
           "type": "arrow",
+          "named": true
+        },
+        {
+          "type": "by",
           "named": true
         },
         {
@@ -2216,6 +2342,235 @@
     }
   },
   {
+    "type": "tactic.exact",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "[X]",
+          "named": true
+        },
+        {
+          "type": "anonymousConstructor",
+          "named": true
+        },
+        {
+          "type": "apply",
+          "named": true
+        },
+        {
+          "type": "arrow",
+          "named": true
+        },
+        {
+          "type": "by",
+          "named": true
+        },
+        {
+          "type": "char",
+          "named": true
+        },
+        {
+          "type": "false",
+          "named": true
+        },
+        {
+          "type": "hole",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "interpolatedString",
+          "named": true
+        },
+        {
+          "type": "ite",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "sorry",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "true",
+          "named": true
+        },
+        {
+          "type": "typeStar",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "tactic.have",
+    "named": true,
+    "fields": {
+      "type": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ":",
+            "named": false
+          },
+          {
+            "type": "[X]",
+            "named": true
+          },
+          {
+            "type": "anonymousConstructor",
+            "named": true
+          },
+          {
+            "type": "apply",
+            "named": true
+          },
+          {
+            "type": "arrow",
+            "named": true
+          },
+          {
+            "type": "by",
+            "named": true
+          },
+          {
+            "type": "char",
+            "named": true
+          },
+          {
+            "type": "false",
+            "named": true
+          },
+          {
+            "type": "hole",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "interpolatedString",
+            "named": true
+          },
+          {
+            "type": "ite",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "sorry",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "true",
+            "named": true
+          },
+          {
+            "type": "typeStar",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "[X]",
+          "named": true
+        },
+        {
+          "type": "anonymousConstructor",
+          "named": true
+        },
+        {
+          "type": "apply",
+          "named": true
+        },
+        {
+          "type": "arrow",
+          "named": true
+        },
+        {
+          "type": "binders",
+          "named": true
+        },
+        {
+          "type": "by",
+          "named": true
+        },
+        {
+          "type": "char",
+          "named": true
+        },
+        {
+          "type": "false",
+          "named": true
+        },
+        {
+          "type": "hole",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "interpolatedString",
+          "named": true
+        },
+        {
+          "type": "ite",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "sorry",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "true",
+          "named": true
+        },
+        {
+          "type": "typeStar",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "theorem",
     "named": true,
     "fields": {
@@ -2241,6 +2596,10 @@
           },
           {
             "type": "arrow",
+            "named": true
+          },
+          {
+            "type": "by",
             "named": true
           },
           {
@@ -2321,6 +2680,10 @@
           },
           {
             "type": "arrow",
+            "named": true
+          },
+          {
+            "type": "by",
             "named": true
           },
           {
@@ -2457,6 +2820,10 @@
     "named": false
   },
   {
+    "type": ";",
+    "named": false
+  },
+  {
     "type": "@[",
     "named": false
   },
@@ -2478,6 +2845,10 @@
   },
   {
     "type": "axiom",
+    "named": false
+  },
+  {
+    "type": "by",
     "named": false
   },
   {
@@ -2594,6 +2965,10 @@
   },
   {
     "type": "sorry",
+    "named": true
+  },
+  {
+    "type": "tactic.rfl",
     "named": true
   },
   {

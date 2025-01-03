@@ -3,6 +3,7 @@ import { terms as mathlibTerms } from './mathlib.js';
 
 export default {
   _term: $ => choice(
+    $.by,
     $.identifier,
     $.number,
     $.string,

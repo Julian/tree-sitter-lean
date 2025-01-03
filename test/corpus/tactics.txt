@@ -1,43 +1,38 @@
-========================
-Theorem With Tactic Body
-========================
+============================
+Indented Single Tactic Block
+============================
 
-theorem foo {m n : Nat} : 2 * m + 2 * n = 2 * (n + m) := by
-  rewrite Nat.add_comm
-  exact (Nat.left_distrib 2 n m).symm
+example : Nat := by
+  rfl
 
 ---
 
 (module
   (declaration
-    (theorem
-      name: (identifier)
-      (binders
-        (implicitBinder
-          name: (identifier)
-          name: (identifier)
-          type: (identifier)))
-      type:
-        (binaryExpression
-          (binaryExpression
-            (binaryExpression (number) (identifier))
-            (binaryExpression (number) (identifier)))
-          (binaryExpression
-            (number)
-            (parenthesized (binaryExpression (identifier) (identifier)))))
-      body:
-        (tactics
-          (rewrite (identifier))
-          (term
-            (proj
-              term:
-                (parenthesized
-                  (apply
-                    name: (identifier)
-                    argument: (number)
-                    argument: (identifier)
-                    argument: (identifier)))
-              name: (identifier)))))))
+    (example
+      type: (identifier)
+      body: (by
+        (tactic.rfl)))))
+
+============================
+Indented Multiple Tactic Block
+============================
+
+example : Nat := by
+  have : Nat := 37
+  exact this
+
+---
+
+(module
+  (declaration
+    (example
+      type: (identifier)
+      body: (by
+        (tactic.have
+          type: (identifier)
+          term: (number))
+        (tactic.exact (identifier))))))
 
 =================
 Tactic Expression

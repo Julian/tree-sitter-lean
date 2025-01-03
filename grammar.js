@@ -10,10 +10,18 @@
 import attr from './grammar/attr.js';
 import command from './grammar/command.js';
 import term from './grammar/term.js';
+import tactic from './grammar/tactic.js';
 import mathlib from './grammar/mathlib.js';
 
 export default grammar({
   name: 'lean',
+
+  externals: $ => [
+    $._indent,
+    $._dedent,
+    $._newline,
+    $.error_sentinel,
+  ],
 
   extras: $ => [
     $.comment,
@@ -26,6 +34,7 @@ export default grammar({
     [
       'ite',
       'arrow',
+      'tactic',
       'apply',
     ],
     [
@@ -49,6 +58,7 @@ export default grammar({
     ...attr,
     ...command,
     ...term,
+    ...tactic,
 
     ...mathlib,
 

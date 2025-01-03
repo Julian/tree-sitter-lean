@@ -959,6 +959,10 @@
       "members": [
         {
           "type": "SYMBOL",
+          "name": "by"
+        },
+        {
+          "type": "SYMBOL",
           "name": "identifier"
         },
         {
@@ -1630,6 +1634,145 @@
         }
       ]
     },
+    "by": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "by"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_tacticSeqIndentGt"
+        }
+      ]
+    },
+    "_tacticSeqIndentGt": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_newline"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_tacticSeq1Indented"
+        }
+      ]
+    },
+    "_tacticSeq1Indented": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_indent"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_tactic"
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "CHOICE",
+                    "members": [
+                      {
+                        "type": "SYMBOL",
+                        "name": "_newline"
+                      },
+                      {
+                        "type": "STRING",
+                        "value": ";"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "_tactic"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_dedent"
+        }
+      ]
+    },
+    "_tactic": {
+      "type": "PREC",
+      "value": "tactic",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "ALIAS",
+            "content": {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "exact"
+                },
+                {
+                  "type": "FIELD",
+                  "name": "term",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "_term"
+                  }
+                }
+              ]
+            },
+            "named": true,
+            "value": "tactic.exact"
+          },
+          {
+            "type": "ALIAS",
+            "content": {
+              "type": "STRING",
+              "value": "rfl"
+            },
+            "named": true,
+            "value": "tactic.rfl"
+          },
+          {
+            "type": "ALIAS",
+            "content": {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "have"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_optDeclSig"
+                },
+                {
+                  "type": "FIELD",
+                  "name": "term",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "_declValSimple"
+                  }
+                }
+              ]
+            },
+            "named": true,
+            "value": "tactic.have"
+          }
+        ]
+      }
+    },
     "typeStar": {
       "type": "STRING",
       "value": "Type*"
@@ -1728,6 +1871,10 @@
       },
       {
         "type": "STRING",
+        "value": "tactic"
+      },
+      {
+        "type": "STRING",
         "value": "apply"
       }
     ],
@@ -1742,7 +1889,24 @@
       }
     ]
   ],
-  "externals": [],
+  "externals": [
+    {
+      "type": "SYMBOL",
+      "name": "_indent"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "_dedent"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "_newline"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "error_sentinel"
+    }
+  ],
   "inline": [],
   "supertypes": []
 }

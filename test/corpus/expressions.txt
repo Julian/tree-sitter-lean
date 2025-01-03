@@ -439,9 +439,30 @@ Nested If/Then/Else
     (unaryExpression (unaryExpression (unaryExpression (true)))))
   (interactive (unaryExpression (identifier))))
 
+==============
+Pipe Operators
+==============
+
+#eval times2 <| add1 <| 100
+#eval 100 |> add1 |> times2
+
+---
+
+(module
+  (interactive
+    (binaryExpression
+      (binaryExpression (number) (identifier))
+      (identifier)))
+  (interactive
+    (binaryExpression
+      (binaryExpression (identifier) (apply (identifier) (identifier)))
+      (apply (identifier) (number))))
+
 ==================
 Binary Expressions
 ==================
+
+---
 
 #eval 2 + 3
 #eval 2 - 3
@@ -458,15 +479,13 @@ Binary Expressions
 #eval true || true
 #eval "foo" ++ "bar"
 #eval [] :: [["foo"]]
-#eval 100 |> add1 |> times2
 #eval foo |>.map bar |>.baz.quux 7
-#eval times2 <| add1 <| 100
 #eval foo <|> bar
 #eval 'B' == 'B' || 'B' == 'C'
 #check f ∘ g ∘ h
 
 ---
-(moduL
+(module
   (interactive (binaryExpression (number) (number)))
   (interactive (binaryExpression (number) (number)))
   (interactive (binaryExpression (number) (number)))
@@ -482,14 +501,6 @@ Binary Expressions
   (interactive (binaryExpression (true) (true)))
   (interactive (binaryExpression (string) (string)))
   (interactive (binaryExpression (list) (list (list (string)))))
-  (interactive
-    (binaryExpression
-      (binaryExpression (number) (identifier))
-      (identifier)))
-  (interactive
-    (binaryExpression
-      (binaryExpression (identifier) (apply (identifier) (identifier)))
-      (apply (identifier) (number))))
   (interactive
     (binaryExpression
       (identifier)
