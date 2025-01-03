@@ -32,10 +32,15 @@ export default grammar({
 
   precedences: $ => [
     [
-      'ite',
+      'min',
       'arrow',
+      'ite',
+      'lead',
+      'arg',
+      'max',
+    ],
+    [
       'tactic',
-      'apply',
     ],
     [
       'declId',

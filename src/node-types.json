@@ -269,7 +269,7 @@
     "named": true,
     "fields": {
       "argument": {
-        "multiple": false,
+        "multiple": true,
         "required": true,
         "types": [
           {
@@ -338,7 +338,7 @@
           }
         ]
       },
-      "function": {
+      "lhs": {
         "multiple": false,
         "required": true,
         "types": [

@@ -711,7 +711,7 @@ instance : Inhabited Nat := ⟨0⟩
     (instance
       type:
         (apply
-          function: (identifier)
+          lhs: (identifier)
           argument: (identifier))
       body: (anonymousConstructor (number)))))
 
@@ -728,7 +728,7 @@ instance : Add Foo := Foo.add
     (instance
       type:
         (apply
-          function: (identifier)
+          lhs: (identifier)
           argument: (identifier))
       body: (identifier))))
 
@@ -746,7 +746,7 @@ instance : ToString Foo where
     (instance
       type:
         (apply
-          function: (identifier)
+          lhs: (identifier)
           argument: (identifier))
       body:
         (whereDecl
@@ -771,7 +771,7 @@ instance : ToString Foo where
     (instance
       type:
         (apply
-          function: (identifier)
+          lhs: (identifier)
           argument: (identifier))
       body:
         (whereDecl
@@ -794,7 +794,7 @@ instance : ToString Foo where
     (instance
       type:
         (apply
-          function: (identifier)
+          lhs: (identifier)
           argument: (identifier))
       body:
         (whereDecl
@@ -843,7 +843,7 @@ example {G : Type} [Add G] (g : G) : g + g = g + g := rfl
         (instanceBinder
           type:
             (apply
-              function: (identifier)
+              lhs: (identifier)
               argument: (identifier)))
         (explicitBinder
           name: (identifier)

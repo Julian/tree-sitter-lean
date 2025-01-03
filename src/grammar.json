@@ -990,13 +990,8 @@
           "name": "anonymousConstructor"
         },
         {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_apply"
-          },
-          "named": true,
-          "value": "apply"
+          "type": "SYMBOL",
+          "name": "apply"
         },
         {
           "type": "SYMBOL",
@@ -1214,31 +1209,6 @@
         }
       ]
     },
-    "_apply": {
-      "type": "PREC_LEFT",
-      "value": "apply",
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "FIELD",
-            "name": "function",
-            "content": {
-              "type": "SYMBOL",
-              "name": "_term"
-            }
-          },
-          {
-            "type": "FIELD",
-            "name": "argument",
-            "content": {
-              "type": "SYMBOL",
-              "name": "_term"
-            }
-          }
-        ]
-      }
-    },
     "_typeSpec": {
       "type": "FIELD",
       "name": "type",
@@ -1449,6 +1419,50 @@
           "name": "instanceBinder"
         }
       ]
+    },
+    "_arguments": {
+      "type": "REPEAT1",
+      "content": {
+        "type": "PREC",
+        "value": "arg",
+        "content": {
+          "type": "FIELD",
+          "name": "argument",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_term"
+          }
+        }
+      }
+    },
+    "apply": {
+      "type": "PREC_RIGHT",
+      "value": "lead",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "PREC",
+            "value": "max",
+            "content": {
+              "type": "FIELD",
+              "name": "lhs",
+              "content": {
+                "type": "SYMBOL",
+                "name": "_term"
+              }
+            }
+          },
+          {
+            "type": "FIELD",
+            "name": "argument",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_arguments"
+            }
+          }
+        ]
+      }
     },
     "arrow": {
       "type": "PREC_RIGHT",
@@ -1863,7 +1877,7 @@
     [
       {
         "type": "STRING",
-        "value": "ite"
+        "value": "min"
       },
       {
         "type": "STRING",
@@ -1871,11 +1885,25 @@
       },
       {
         "type": "STRING",
-        "value": "tactic"
+        "value": "ite"
       },
       {
         "type": "STRING",
-        "value": "apply"
+        "value": "lead"
+      },
+      {
+        "type": "STRING",
+        "value": "arg"
+      },
+      {
+        "type": "STRING",
+        "value": "max"
+      }
+    ],
+    [
+      {
+        "type": "STRING",
+        "value": "tactic"
       }
     ],
     [

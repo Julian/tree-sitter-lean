@@ -11,7 +11,7 @@ export default {
     $.hole,
     $.sorry,
     $.anonymousConstructor,
-    alias($._apply, $.apply),
+    $.apply,
     $.arrow,
     $.true,
     $.false,
@@ -49,11 +49,6 @@ export default {
   ),
   anonymousConstructor: $ => seq('⟨', sep0($._term, ','), '⟩'),
 
-  _apply: $ => prec.left('apply', seq(
-    field('function', $._term),
-    field('argument', $._term),
-  )),
-
   _typeSpec: $ => field('type', seq(':', $._term)),
 
   _binderIdent: $ => prec('binderIdent', choice($.identifier, $.hole)),
@@ -82,6 +77,13 @@ export default {
     $.implicitBinder,
     $.instanceBinder,
   ),
+
+  _arguments: $ => repeat1(prec('arg', field('argument', $._term))),
+  apply: $ => prec.right('lead', seq(
+    prec('max', field('lhs', $._term)),
+    field('argument', $._arguments),
+  )),
+
   arrow: $ => prec.right('arrow', seq($._term, '→', $._term)),
 
   true: $ => 'true',

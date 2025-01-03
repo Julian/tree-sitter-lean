@@ -33,7 +33,7 @@ Range
       start: (number)
       stop:
         (apply
-          function: (identifier)
+          lhs: (identifier)
           argument: (number))
       step: (number))))
 
@@ -91,7 +91,7 @@ Array Ref
       term: (identifier)
       value:
         (apply
-          function: (identifier)
+          lhs: (identifier)
           argument: (number)))))
 
 ========
@@ -109,7 +109,7 @@ Subarray
       start: (number)
       stop:
         (apply
-          function: (identifier)
+          lhs: (identifier)
           argument: (number)))))
 
 ================
@@ -154,7 +154,7 @@ Subarray of Expression
       term:
         (parenthesized
           (apply
-            function: (identifier)
+            lhs: (identifier)
             argument: (number)))
       stop: (number))))
 
@@ -194,7 +194,7 @@ Subarray vs. Range
 (module
   (interactive
     (apply
-      function: (identifier)
+      lhs: (identifier)
       argument:
         (range
           start: (number)
@@ -935,7 +935,7 @@ Anonymous Function Match With Additional Argument
 (module
   (interactive
     (apply
-      function: (identifier)
+      lhs: (identifier)
       argument: (number)
       argument:
         (fun
@@ -1002,19 +1002,19 @@ Type Ascription
   (interactive
     (parenthesized
       (apply
-        function: (identifier)
+        lhs: (identifier)
         argument: (identifier))
       (typeAscription
         type: (identifier))))
   (interactive
     (parenthesized
       (apply
-        function: (identifier)
+        lhs: (identifier)
         argument: (identifier))
       (typeAscription
         type:
           (apply
-            function: (identifier)
+            lhs: (identifier)
             argument: (identifier))))))
 
 =================================
@@ -1032,7 +1032,7 @@ Application Across Multiple Lines
 (module
   (interactive
     (apply
-      function: (identifier)
+      lhs: (identifier)
       argument: (number)
       argument: (number)
       argument: (number))))
@@ -1092,7 +1092,7 @@ Typed Structure Literal
             (identifier)))
       type:
         (apply
-          function: (identifier)
+          lhs: (identifier)
           argument: (identifier))))
   (interactive
     (structureInstance
@@ -1134,7 +1134,7 @@ Structure Overriding
     (structureInstance
       extends:
         (apply
-          function: (identifier)
+          lhs: (identifier)
           argument: (number))
       name: (identifier)
       value: (number))))
