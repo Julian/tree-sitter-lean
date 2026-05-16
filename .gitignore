@@ -33,3 +33,4 @@ dist/
 *.tgz
 *.zip
 Cargo.lock
+.claude/
