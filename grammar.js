@@ -98,8 +98,37 @@ export default grammar({
       $.universe,
       $.open,
       $.export,
+      $.attribute_cmd,
+      $.initialize,
       $.declaration,
     ),
+
+    /* `attribute [foo] bar baz` — bracketed attr list followed by
+       targets. Different syntax from declaration-leading `@[…]`. */
+    attribute_cmd: $ => prec.right(seq(
+      'attribute',
+      '[', sep1($._attr_instance, ','), ']',
+      repeat1(field('target', $.identifier)),
+    )),
+
+    /* `initialize` and `builtin_initialize` introduce a side-effectful
+       module-level binding evaluated at module-load time. */
+    initialize: $ => prec.right(seq(
+      choice('initialize', 'builtin_initialize'),
+      optional(seq(
+        field('name', $._binder_ident),
+        optional($._type_spec),
+        choice(':=', '←', '<-'),
+      )),
+      choice(
+        $._term,
+        seq(
+          $._indent,
+          sep1($._term, choice(';', $._newline)),
+          $._dedent,
+        ),
+      ),
+    )),
 
     /* `public section` is a Lean 4 module-system marker — everything
        below is exported. It has no body and no matching `end`. */
@@ -407,6 +436,7 @@ export default grammar({
       $.hole,
       $.synth_hole,
       $.named_hole,
+      $.dot_ident,
       $.type_const,
       $.sort_const,
       $.prop_const,
@@ -416,7 +446,17 @@ export default grammar({
       $.paren,
       $.anon_ctor,
       $.list_lit,
+      $.array_lit,
+      $.struct_lit,
+      $.rest_pat,
     ),
+
+    /* `.foo` is Lean's anonymous-namespace projection (used for
+       constructors and methods). Distinct from `e.foo` projection. */
+    dot_ident: $ => seq('.', field('name', $.identifier)),
+
+    /* `..` rest-pattern, used inside match arms. */
+    rest_pat: _ => '..',
 
     hole:        _ => '_',
     synth_hole:  _ => '?_',
@@ -456,6 +496,23 @@ export default grammar({
     anon_ctor: $ => seq('⟨', sep0($._term, ','), '⟩'),
 
     list_lit: $ => seq('[', sep0($._term, ','), ']'),
+
+    /* `#[a, b, c]` — array literal. */
+    array_lit: $ => seq('#[', sep0($._term, ','), ']'),
+
+    /* `{ field := value, ... }` (anonymous structure) and the
+       `{ src with field := value, ... }` update form. */
+    struct_lit: $ => seq(
+      '{',
+      optional(seq(field('source', $._term), 'with')),
+      sep1($.struct_field, optional(',')),
+      '}',
+    ),
+    struct_field: $ => seq(
+      field('name', $.identifier),
+      ':=',
+      field('value', $._term),
+    ),
 
     app: $ => prec.left(PREC.app, seq(
       field('fn', $._op_term),
@@ -499,7 +556,7 @@ export default grammar({
       prec.left(PREC.cmp, seq(
         field('lhs', $._op_term),
         field('op', choice(
-          '=', '≠', '!=',
+          '=', '==', '≠', '!=',
           '<', '≤', '<=',
           '>', '≥', '>=',
           '∈', '∉', '⊆', '⊂', '⊇', '⊃',
@@ -718,7 +775,10 @@ export default grammar({
       '}',
     ),
 
-    name_lit: $ => seq('`', field('name', $.identifier)),
+    /* `Foo  — quote a name. ``Foo  — quote and resolve against the
+       current scope (`SyntaxNodeKind.full`). Both forms are common
+       in Lean source. */
+    name_lit: $ => seq(choice('`', '``'), field('name', $.identifier)),
 
     line_comment: _ => token(seq('--', /[^\n]*/)),
 

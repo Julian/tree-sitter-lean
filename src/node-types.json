@@ -20,6 +20,10 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
@@ -33,6 +37,10 @@
           },
           {
             "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -112,6 +120,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -129,6 +141,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -176,6 +192,10 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
@@ -189,6 +209,10 @@
           },
           {
             "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -268,6 +292,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -285,6 +313,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -334,6 +366,10 @@
           "named": true
         },
         {
+          "type": "array_lit",
+          "named": true
+        },
+        {
           "type": "binary_op",
           "named": true
         },
@@ -347,6 +383,10 @@
         },
         {
           "type": "do_block",
+          "named": true
+        },
+        {
+          "type": "dot_ident",
           "named": true
         },
         {
@@ -426,6 +466,10 @@
           "named": true
         },
         {
+          "type": "rest_pat",
+          "named": true
+        },
+        {
           "type": "scientific_lit",
           "named": true
         },
@@ -443,6 +487,10 @@
         },
         {
           "type": "str_lit",
+          "named": true
+        },
+        {
+          "type": "struct_lit",
           "named": true
         },
         {
@@ -477,7 +525,15 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "char_lit",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -525,6 +581,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -538,6 +598,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -567,11 +631,19 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
           {
             "type": "char_lit",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -623,6 +695,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -639,6 +715,10 @@
             "named": true
           },
           {
+            "type": "struct_lit",
+            "named": true
+          },
+          {
             "type": "synth_hole",
             "named": true
           },
@@ -652,6 +732,195 @@
           },
           {
             "type": "unary_op",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "array_lit",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "anon_ctor",
+          "named": true
+        },
+        {
+          "type": "app",
+          "named": true
+        },
+        {
+          "type": "array_lit",
+          "named": true
+        },
+        {
+          "type": "binary_op",
+          "named": true
+        },
+        {
+          "type": "by",
+          "named": true
+        },
+        {
+          "type": "char_lit",
+          "named": true
+        },
+        {
+          "type": "do_block",
+          "named": true
+        },
+        {
+          "type": "dot_ident",
+          "named": true
+        },
+        {
+          "type": "exists",
+          "named": true
+        },
+        {
+          "type": "false_const",
+          "named": true
+        },
+        {
+          "type": "forall",
+          "named": true
+        },
+        {
+          "type": "fun",
+          "named": true
+        },
+        {
+          "type": "have",
+          "named": true
+        },
+        {
+          "type": "hole",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "if_then_else",
+          "named": true
+        },
+        {
+          "type": "interpolated_str",
+          "named": true
+        },
+        {
+          "type": "let",
+          "named": true
+        },
+        {
+          "type": "list_lit",
+          "named": true
+        },
+        {
+          "type": "match",
+          "named": true
+        },
+        {
+          "type": "name_lit",
+          "named": true
+        },
+        {
+          "type": "named_hole",
+          "named": true
+        },
+        {
+          "type": "num_lit",
+          "named": true
+        },
+        {
+          "type": "paren",
+          "named": true
+        },
+        {
+          "type": "proj",
+          "named": true
+        },
+        {
+          "type": "prop_const",
+          "named": true
+        },
+        {
+          "type": "raw_string",
+          "named": true
+        },
+        {
+          "type": "rest_pat",
+          "named": true
+        },
+        {
+          "type": "scientific_lit",
+          "named": true
+        },
+        {
+          "type": "show",
+          "named": true
+        },
+        {
+          "type": "sorry",
+          "named": true
+        },
+        {
+          "type": "sort_const",
+          "named": true
+        },
+        {
+          "type": "str_lit",
+          "named": true
+        },
+        {
+          "type": "struct_lit",
+          "named": true
+        },
+        {
+          "type": "synth_hole",
+          "named": true
+        },
+        {
+          "type": "true_const",
+          "named": true
+        },
+        {
+          "type": "type_const",
+          "named": true
+        },
+        {
+          "type": "unary_op",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "attribute_cmd",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "target": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
             "named": true
           }
         ]
@@ -705,6 +974,10 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
@@ -718,6 +991,10 @@
           },
           {
             "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -797,6 +1074,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -814,6 +1095,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -863,11 +1148,19 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
           {
             "type": "char_lit",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -919,6 +1212,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -932,6 +1229,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -1046,6 +1347,10 @@
           },
           {
             "type": "=<<",
+            "named": false
+          },
+          {
+            "type": "==",
             "named": false
           },
           {
@@ -1191,6 +1496,10 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
@@ -1204,6 +1513,10 @@
           },
           {
             "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -1283,6 +1596,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -1300,6 +1617,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -1374,6 +1695,10 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
@@ -1387,6 +1712,10 @@
           },
           {
             "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -1466,6 +1795,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -1483,6 +1816,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -1516,6 +1853,10 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
@@ -1529,6 +1870,10 @@
           },
           {
             "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -1608,6 +1953,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -1625,6 +1974,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -1679,6 +2032,10 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
@@ -1692,6 +2049,10 @@
           },
           {
             "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -1771,6 +2132,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -1788,6 +2153,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -1831,6 +2200,10 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
@@ -1844,6 +2217,10 @@
           },
           {
             "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -1923,6 +2300,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -1940,6 +2321,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -1987,6 +2372,10 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
@@ -2000,6 +2389,10 @@
           },
           {
             "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -2079,6 +2472,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -2096,6 +2493,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -2175,6 +2576,10 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
@@ -2188,6 +2593,10 @@
           },
           {
             "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -2267,6 +2676,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -2284,6 +2697,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -2401,6 +2818,10 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
@@ -2414,6 +2835,10 @@
           },
           {
             "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -2493,6 +2918,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -2510,6 +2939,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -2557,6 +2990,10 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
@@ -2570,6 +3007,10 @@
           },
           {
             "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -2649,6 +3090,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -2666,6 +3111,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -2715,6 +3164,10 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
@@ -2728,6 +3181,10 @@
           },
           {
             "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -2807,6 +3264,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -2824,6 +3285,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -2857,6 +3322,10 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
@@ -2870,6 +3339,10 @@
           },
           {
             "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -2949,6 +3422,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -2969,6 +3446,10 @@
             "named": true
           },
           {
+            "type": "struct_lit",
+            "named": true
+          },
+          {
             "type": "synth_hole",
             "named": true
           },
@@ -2982,6 +3463,22 @@
           },
           {
             "type": "unary_op",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "dot_ident",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
             "named": true
           }
         ]
@@ -3021,6 +3518,10 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
@@ -3034,6 +3535,10 @@
           },
           {
             "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -3113,6 +3618,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -3130,6 +3639,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -3173,6 +3686,10 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
@@ -3186,6 +3703,10 @@
           },
           {
             "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -3265,6 +3786,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -3282,6 +3807,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -3319,6 +3848,10 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
@@ -3332,6 +3865,10 @@
           },
           {
             "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -3411,6 +3948,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -3428,6 +3969,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -3477,6 +4022,10 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
@@ -3490,6 +4039,10 @@
           },
           {
             "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -3569,6 +4122,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -3586,6 +4143,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -3623,6 +4184,10 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
@@ -3636,6 +4201,10 @@
           },
           {
             "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -3715,6 +4284,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -3732,6 +4305,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -3785,6 +4362,10 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
@@ -3798,6 +4379,10 @@
           },
           {
             "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -3877,6 +4462,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -3894,6 +4483,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -3945,6 +4538,10 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
@@ -3958,6 +4555,10 @@
           },
           {
             "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -4037,6 +4638,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -4054,6 +4659,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -4123,6 +4732,10 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
@@ -4136,6 +4749,10 @@
           },
           {
             "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -4215,6 +4832,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -4232,6 +4853,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -4283,6 +4908,10 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
@@ -4296,6 +4925,10 @@
           },
           {
             "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -4375,6 +5008,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -4392,6 +5029,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -4431,6 +5072,10 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
@@ -4444,6 +5089,10 @@
           },
           {
             "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -4523,6 +5172,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -4540,6 +5193,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -4577,6 +5234,10 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
@@ -4590,6 +5251,10 @@
           },
           {
             "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -4669,6 +5334,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -4686,6 +5355,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -4735,6 +5408,10 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
@@ -4748,6 +5425,10 @@
           },
           {
             "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -4827,6 +5508,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -4844,6 +5529,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -4881,6 +5570,10 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
@@ -4894,6 +5587,10 @@
           },
           {
             "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -4973,6 +5670,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -4990,6 +5691,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -5039,6 +5744,10 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
@@ -5052,6 +5761,10 @@
           },
           {
             "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -5131,6 +5844,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -5148,6 +5865,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -5199,6 +5920,10 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
@@ -5212,6 +5937,10 @@
           },
           {
             "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -5291,6 +6020,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -5308,6 +6041,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -5341,6 +6078,10 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
@@ -5354,6 +6095,10 @@
           },
           {
             "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -5433,6 +6178,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -5450,6 +6199,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -5494,6 +6247,10 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
@@ -5507,6 +6264,10 @@
           },
           {
             "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -5586,6 +6347,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -5603,6 +6368,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -5636,6 +6405,10 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
@@ -5649,6 +6422,10 @@
           },
           {
             "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -5728,6 +6505,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -5745,6 +6526,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -5778,6 +6563,10 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
@@ -5791,6 +6580,10 @@
           },
           {
             "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -5870,6 +6663,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -5887,6 +6684,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -5944,6 +6745,10 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
@@ -5957,6 +6762,10 @@
           },
           {
             "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -6036,6 +6845,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -6053,6 +6866,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -6140,6 +6957,10 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
@@ -6153,6 +6974,10 @@
           },
           {
             "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -6232,6 +7057,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -6249,6 +7078,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -6283,6 +7116,10 @@
           "named": true
         },
         {
+          "type": "array_lit",
+          "named": true
+        },
+        {
           "type": "binary_op",
           "named": true
         },
@@ -6304,6 +7141,10 @@
         },
         {
           "type": "do_block",
+          "named": true
+        },
+        {
+          "type": "dot_ident",
           "named": true
         },
         {
@@ -6383,6 +7224,10 @@
           "named": true
         },
         {
+          "type": "rest_pat",
+          "named": true
+        },
+        {
           "type": "scientific_lit",
           "named": true
         },
@@ -6400,6 +7245,10 @@
         },
         {
           "type": "str_lit",
+          "named": true
+        },
+        {
+          "type": "struct_lit",
           "named": true
         },
         {
@@ -6422,15 +7271,29 @@
     }
   },
   {
-    "type": "instance",
+    "type": "initialize",
     "named": true,
     "fields": {
-      "body": {
-        "multiple": true,
-        "required": true,
+      "name": {
+        "multiple": false,
+        "required": false,
         "types": [
           {
-            "type": ":=",
+            "type": "hole",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ":",
             "named": false
           },
           {
@@ -6439,6 +7302,10 @@
           },
           {
             "type": "app",
+            "named": true
+          },
+          {
+            "type": "array_lit",
             "named": true
           },
           {
@@ -6455,6 +7322,10 @@
           },
           {
             "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -6534,6 +7405,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -6551,6 +7426,336 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
+            "named": true
+          },
+          {
+            "type": "synth_hole",
+            "named": true
+          },
+          {
+            "type": "true_const",
+            "named": true
+          },
+          {
+            "type": "type_const",
+            "named": true
+          },
+          {
+            "type": "unary_op",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "anon_ctor",
+          "named": true
+        },
+        {
+          "type": "app",
+          "named": true
+        },
+        {
+          "type": "array_lit",
+          "named": true
+        },
+        {
+          "type": "binary_op",
+          "named": true
+        },
+        {
+          "type": "by",
+          "named": true
+        },
+        {
+          "type": "char_lit",
+          "named": true
+        },
+        {
+          "type": "do_block",
+          "named": true
+        },
+        {
+          "type": "dot_ident",
+          "named": true
+        },
+        {
+          "type": "exists",
+          "named": true
+        },
+        {
+          "type": "false_const",
+          "named": true
+        },
+        {
+          "type": "forall",
+          "named": true
+        },
+        {
+          "type": "fun",
+          "named": true
+        },
+        {
+          "type": "have",
+          "named": true
+        },
+        {
+          "type": "hole",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "if_then_else",
+          "named": true
+        },
+        {
+          "type": "interpolated_str",
+          "named": true
+        },
+        {
+          "type": "let",
+          "named": true
+        },
+        {
+          "type": "list_lit",
+          "named": true
+        },
+        {
+          "type": "match",
+          "named": true
+        },
+        {
+          "type": "name_lit",
+          "named": true
+        },
+        {
+          "type": "named_hole",
+          "named": true
+        },
+        {
+          "type": "num_lit",
+          "named": true
+        },
+        {
+          "type": "paren",
+          "named": true
+        },
+        {
+          "type": "proj",
+          "named": true
+        },
+        {
+          "type": "prop_const",
+          "named": true
+        },
+        {
+          "type": "raw_string",
+          "named": true
+        },
+        {
+          "type": "rest_pat",
+          "named": true
+        },
+        {
+          "type": "scientific_lit",
+          "named": true
+        },
+        {
+          "type": "show",
+          "named": true
+        },
+        {
+          "type": "sorry",
+          "named": true
+        },
+        {
+          "type": "sort_const",
+          "named": true
+        },
+        {
+          "type": "str_lit",
+          "named": true
+        },
+        {
+          "type": "struct_lit",
+          "named": true
+        },
+        {
+          "type": "synth_hole",
+          "named": true
+        },
+        {
+          "type": "true_const",
+          "named": true
+        },
+        {
+          "type": "type_const",
+          "named": true
+        },
+        {
+          "type": "unary_op",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "instance",
+    "named": true,
+    "fields": {
+      "body": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": ":=",
+            "named": false
+          },
+          {
+            "type": "anon_ctor",
+            "named": true
+          },
+          {
+            "type": "app",
+            "named": true
+          },
+          {
+            "type": "array_lit",
+            "named": true
+          },
+          {
+            "type": "binary_op",
+            "named": true
+          },
+          {
+            "type": "by",
+            "named": true
+          },
+          {
+            "type": "char_lit",
+            "named": true
+          },
+          {
+            "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
+            "named": true
+          },
+          {
+            "type": "exists",
+            "named": true
+          },
+          {
+            "type": "false_const",
+            "named": true
+          },
+          {
+            "type": "forall",
+            "named": true
+          },
+          {
+            "type": "fun",
+            "named": true
+          },
+          {
+            "type": "have",
+            "named": true
+          },
+          {
+            "type": "hole",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "if_then_else",
+            "named": true
+          },
+          {
+            "type": "interpolated_str",
+            "named": true
+          },
+          {
+            "type": "let",
+            "named": true
+          },
+          {
+            "type": "list_lit",
+            "named": true
+          },
+          {
+            "type": "match",
+            "named": true
+          },
+          {
+            "type": "name_lit",
+            "named": true
+          },
+          {
+            "type": "named_hole",
+            "named": true
+          },
+          {
+            "type": "num_lit",
+            "named": true
+          },
+          {
+            "type": "paren",
+            "named": true
+          },
+          {
+            "type": "proj",
+            "named": true
+          },
+          {
+            "type": "prop_const",
+            "named": true
+          },
+          {
+            "type": "raw_string",
+            "named": true
+          },
+          {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
+            "type": "scientific_lit",
+            "named": true
+          },
+          {
+            "type": "show",
+            "named": true
+          },
+          {
+            "type": "sorry",
+            "named": true
+          },
+          {
+            "type": "sort_const",
+            "named": true
+          },
+          {
+            "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -6598,6 +7803,10 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
@@ -6611,6 +7820,10 @@
           },
           {
             "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -6690,6 +7903,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -6707,6 +7924,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -6782,6 +8003,10 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
@@ -6795,6 +8020,10 @@
           },
           {
             "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -6874,6 +8103,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -6891,6 +8124,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -6949,6 +8186,10 @@
           "named": true
         },
         {
+          "type": "array_lit",
+          "named": true
+        },
+        {
           "type": "binary_op",
           "named": true
         },
@@ -6962,6 +8203,10 @@
         },
         {
           "type": "do_block",
+          "named": true
+        },
+        {
+          "type": "dot_ident",
           "named": true
         },
         {
@@ -7041,6 +8286,10 @@
           "named": true
         },
         {
+          "type": "rest_pat",
+          "named": true
+        },
+        {
           "type": "scientific_lit",
           "named": true
         },
@@ -7058,6 +8307,10 @@
         },
         {
           "type": "str_lit",
+          "named": true
+        },
+        {
+          "type": "struct_lit",
           "named": true
         },
         {
@@ -7096,6 +8349,10 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
@@ -7109,6 +8366,10 @@
           },
           {
             "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -7188,6 +8449,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -7205,6 +8470,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -7256,6 +8525,10 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
@@ -7269,6 +8542,10 @@
           },
           {
             "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -7348,6 +8625,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -7365,6 +8646,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -7398,6 +8683,10 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
@@ -7411,6 +8700,10 @@
           },
           {
             "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -7490,6 +8783,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -7507,6 +8804,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -7546,6 +8847,10 @@
           "named": true
         },
         {
+          "type": "array_lit",
+          "named": true
+        },
+        {
           "type": "binary_op",
           "named": true
         },
@@ -7559,6 +8864,10 @@
         },
         {
           "type": "do_block",
+          "named": true
+        },
+        {
+          "type": "dot_ident",
           "named": true
         },
         {
@@ -7638,6 +8947,10 @@
           "named": true
         },
         {
+          "type": "rest_pat",
+          "named": true
+        },
+        {
           "type": "scientific_lit",
           "named": true
         },
@@ -7655,6 +8968,10 @@
         },
         {
           "type": "str_lit",
+          "named": true
+        },
+        {
+          "type": "struct_lit",
           "named": true
         },
         {
@@ -7693,6 +9010,10 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
@@ -7706,6 +9027,10 @@
           },
           {
             "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -7785,6 +9110,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -7802,6 +9131,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -7851,6 +9184,10 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
@@ -7864,6 +9201,10 @@
           },
           {
             "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -7943,6 +9284,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -7960,6 +9305,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -7993,6 +9342,10 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
@@ -8006,6 +9359,10 @@
           },
           {
             "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -8085,6 +9442,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -8102,6 +9463,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -8134,6 +9499,10 @@
       "required": false,
       "types": [
         {
+          "type": "attribute_cmd",
+          "named": true
+        },
+        {
           "type": "check",
           "named": true
         },
@@ -8155,6 +9524,10 @@
         },
         {
           "type": "import",
+          "named": true
+        },
+        {
+          "type": "initialize",
           "named": true
         },
         {
@@ -8272,6 +9645,10 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
@@ -8285,6 +9662,10 @@
           },
           {
             "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -8364,6 +9745,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -8381,6 +9766,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -8428,6 +9817,10 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
@@ -8441,6 +9834,10 @@
           },
           {
             "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -8520,6 +9917,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -8537,6 +9938,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -8632,6 +10037,10 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
@@ -8645,6 +10054,10 @@
           },
           {
             "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -8724,6 +10137,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -8741,6 +10158,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -8778,6 +10199,10 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
@@ -8791,6 +10216,10 @@
           },
           {
             "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -8870,6 +10299,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -8887,6 +10320,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -8921,6 +10358,10 @@
           "named": true
         },
         {
+          "type": "array_lit",
+          "named": true
+        },
+        {
           "type": "binary_op",
           "named": true
         },
@@ -8934,6 +10375,10 @@
         },
         {
           "type": "do_block",
+          "named": true
+        },
+        {
+          "type": "dot_ident",
           "named": true
         },
         {
@@ -9013,6 +10458,10 @@
           "named": true
         },
         {
+          "type": "rest_pat",
+          "named": true
+        },
+        {
           "type": "scientific_lit",
           "named": true
         },
@@ -9030,6 +10479,10 @@
         },
         {
           "type": "str_lit",
+          "named": true
+        },
+        {
+          "type": "struct_lit",
           "named": true
         },
         {
@@ -9068,6 +10521,10 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
@@ -9081,6 +10538,10 @@
           },
           {
             "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -9160,6 +10621,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -9177,6 +10642,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -9230,11 +10699,19 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
           {
             "type": "char_lit",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -9286,6 +10763,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -9299,6 +10780,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -9348,6 +10833,10 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
@@ -9361,6 +10850,10 @@
           },
           {
             "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -9440,6 +10933,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -9457,6 +10954,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -9512,6 +11013,10 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
@@ -9525,6 +11030,10 @@
           },
           {
             "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -9604,6 +11113,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -9621,6 +11134,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -9654,6 +11171,10 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
@@ -9667,6 +11188,10 @@
           },
           {
             "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -9746,6 +11271,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -9763,6 +11292,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -9865,6 +11398,10 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
@@ -9878,6 +11415,10 @@
           },
           {
             "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -9957,6 +11498,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -9977,6 +11522,10 @@
             "named": true
           },
           {
+            "type": "struct_lit",
+            "named": true
+          },
+          {
             "type": "synth_hole",
             "named": true
           },
@@ -9994,6 +11543,354 @@
           }
         ]
       }
+    }
+  },
+  {
+    "type": "struct_field",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "anon_ctor",
+            "named": true
+          },
+          {
+            "type": "app",
+            "named": true
+          },
+          {
+            "type": "array_lit",
+            "named": true
+          },
+          {
+            "type": "binary_op",
+            "named": true
+          },
+          {
+            "type": "by",
+            "named": true
+          },
+          {
+            "type": "char_lit",
+            "named": true
+          },
+          {
+            "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
+            "named": true
+          },
+          {
+            "type": "exists",
+            "named": true
+          },
+          {
+            "type": "false_const",
+            "named": true
+          },
+          {
+            "type": "forall",
+            "named": true
+          },
+          {
+            "type": "fun",
+            "named": true
+          },
+          {
+            "type": "have",
+            "named": true
+          },
+          {
+            "type": "hole",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "if_then_else",
+            "named": true
+          },
+          {
+            "type": "interpolated_str",
+            "named": true
+          },
+          {
+            "type": "let",
+            "named": true
+          },
+          {
+            "type": "list_lit",
+            "named": true
+          },
+          {
+            "type": "match",
+            "named": true
+          },
+          {
+            "type": "name_lit",
+            "named": true
+          },
+          {
+            "type": "named_hole",
+            "named": true
+          },
+          {
+            "type": "num_lit",
+            "named": true
+          },
+          {
+            "type": "paren",
+            "named": true
+          },
+          {
+            "type": "proj",
+            "named": true
+          },
+          {
+            "type": "prop_const",
+            "named": true
+          },
+          {
+            "type": "raw_string",
+            "named": true
+          },
+          {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
+            "type": "scientific_lit",
+            "named": true
+          },
+          {
+            "type": "show",
+            "named": true
+          },
+          {
+            "type": "sorry",
+            "named": true
+          },
+          {
+            "type": "sort_const",
+            "named": true
+          },
+          {
+            "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
+            "named": true
+          },
+          {
+            "type": "synth_hole",
+            "named": true
+          },
+          {
+            "type": "true_const",
+            "named": true
+          },
+          {
+            "type": "type_const",
+            "named": true
+          },
+          {
+            "type": "unary_op",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "struct_lit",
+    "named": true,
+    "fields": {
+      "source": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "anon_ctor",
+            "named": true
+          },
+          {
+            "type": "app",
+            "named": true
+          },
+          {
+            "type": "array_lit",
+            "named": true
+          },
+          {
+            "type": "binary_op",
+            "named": true
+          },
+          {
+            "type": "by",
+            "named": true
+          },
+          {
+            "type": "char_lit",
+            "named": true
+          },
+          {
+            "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
+            "named": true
+          },
+          {
+            "type": "exists",
+            "named": true
+          },
+          {
+            "type": "false_const",
+            "named": true
+          },
+          {
+            "type": "forall",
+            "named": true
+          },
+          {
+            "type": "fun",
+            "named": true
+          },
+          {
+            "type": "have",
+            "named": true
+          },
+          {
+            "type": "hole",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "if_then_else",
+            "named": true
+          },
+          {
+            "type": "interpolated_str",
+            "named": true
+          },
+          {
+            "type": "let",
+            "named": true
+          },
+          {
+            "type": "list_lit",
+            "named": true
+          },
+          {
+            "type": "match",
+            "named": true
+          },
+          {
+            "type": "name_lit",
+            "named": true
+          },
+          {
+            "type": "named_hole",
+            "named": true
+          },
+          {
+            "type": "num_lit",
+            "named": true
+          },
+          {
+            "type": "paren",
+            "named": true
+          },
+          {
+            "type": "proj",
+            "named": true
+          },
+          {
+            "type": "prop_const",
+            "named": true
+          },
+          {
+            "type": "raw_string",
+            "named": true
+          },
+          {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
+            "type": "scientific_lit",
+            "named": true
+          },
+          {
+            "type": "show",
+            "named": true
+          },
+          {
+            "type": "sorry",
+            "named": true
+          },
+          {
+            "type": "sort_const",
+            "named": true
+          },
+          {
+            "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
+            "named": true
+          },
+          {
+            "type": "synth_hole",
+            "named": true
+          },
+          {
+            "type": "true_const",
+            "named": true
+          },
+          {
+            "type": "type_const",
+            "named": true
+          },
+          {
+            "type": "unary_op",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "struct_field",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -10027,6 +11924,10 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
@@ -10040,6 +11941,10 @@
           },
           {
             "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -10119,6 +12024,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -10136,6 +12045,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -10170,6 +12083,10 @@
           "named": true
         },
         {
+          "type": "array_lit",
+          "named": true
+        },
+        {
           "type": "binary_op",
           "named": true
         },
@@ -10191,6 +12108,10 @@
         },
         {
           "type": "do_block",
+          "named": true
+        },
+        {
+          "type": "dot_ident",
           "named": true
         },
         {
@@ -10274,6 +12195,10 @@
           "named": true
         },
         {
+          "type": "rest_pat",
+          "named": true
+        },
+        {
           "type": "scientific_lit",
           "named": true
         },
@@ -10291,6 +12216,10 @@
         },
         {
           "type": "str_lit",
+          "named": true
+        },
+        {
+          "type": "struct_lit",
           "named": true
         },
         {
@@ -10333,6 +12262,10 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
@@ -10346,6 +12279,10 @@
           },
           {
             "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -10425,6 +12362,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -10442,6 +12383,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -10489,6 +12434,10 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
@@ -10502,6 +12451,10 @@
           },
           {
             "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -10581,6 +12534,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -10598,6 +12555,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -10680,11 +12641,19 @@
             "named": true
           },
           {
+            "type": "array_lit",
+            "named": true
+          },
+          {
             "type": "binary_op",
             "named": true
           },
           {
             "type": "char_lit",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
             "named": true
           },
           {
@@ -10736,6 +12705,10 @@
             "named": true
           },
           {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
             "type": "scientific_lit",
             "named": true
           },
@@ -10749,6 +12722,10 @@
           },
           {
             "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
             "named": true
           },
           {
@@ -10824,6 +12801,10 @@
   },
   {
     "type": "\"",
+    "named": false
+  },
+  {
+    "type": "#[",
     "named": false
   },
   {
@@ -10971,6 +12952,10 @@
     "named": false
   },
   {
+    "type": "==",
+    "named": false
+  },
+  {
     "type": "=>",
     "named": false
   },
@@ -11035,6 +13020,10 @@
     "named": false
   },
   {
+    "type": "``",
+    "named": false
+  },
+  {
     "type": "abbrev",
     "named": false
   },
@@ -11047,6 +13036,10 @@
     "named": true
   },
   {
+    "type": "attribute",
+    "named": false
+  },
+  {
     "type": "axiom",
     "named": false
   },
@@ -11054,6 +13047,10 @@
     "type": "block_comment",
     "named": true,
     "extra": true
+  },
+  {
+    "type": "builtin_initialize",
+    "named": false
   },
   {
     "type": "by",
@@ -11149,6 +13146,10 @@
     "named": false
   },
   {
+    "type": "initialize",
+    "named": false
+  },
+  {
     "type": "instance",
     "named": false
   },
@@ -11239,6 +13240,10 @@
   },
   {
     "type": "raw_string",
+    "named": true
+  },
+  {
+    "type": "rest_pat",
     "named": true
   },
   {
