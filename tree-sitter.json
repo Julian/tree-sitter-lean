@@ -7,13 +7,17 @@
       "camelcase": "Lean",
       "scope": "source.lean",
       "path": ".",
-      "injection-regex": "^lean$"
+      "file-types": ["lean"],
+      "injection-regex": "^lean$",
+      "highlights": ["queries/highlights.scm"],
+      "injections": ["queries/injections.scm"],
+      "locals": ["queries/locals.scm"]
     }
   ],
   "metadata": {
-    "version": "0.1.0",
+    "version": "0.2.0",
     "license": "MIT",
-    "description": "Lean Theorem Prover",
+    "description": "Tree-sitter grammar for the Lean 4 theorem prover",
     "authors": [
       {
         "name": "Julian Berman",

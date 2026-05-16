@@ -8,6 +8,9 @@ source = "vcs"
 [tool.hatch.build.targets.wheel]
 packages = ["bindings/python/tree_sitter_lean"]
 
+[tool.hatch.build.targets.wheel.force-include]
+"queries" = "tree_sitter_lean/queries"
+
 [project]
 name = "tree-sitter-lean"
 description = "Python bindings to a tree sitter parser for the Lean theorem prover"
