@@ -351,14 +351,23 @@ export default grammar({
 
     _deriving_clause: $ => seq('deriving', sep1($.identifier, ',')),
 
-    /* A declaration body is either `:= term` or a sequence of
-       match-style equations `| pat => body | …`. The latter form is
-       common for recursive functions defined by pattern matching. */
+    /* A declaration body is either `:= term`, a sequence of match-
+       style equations `| pat => body | …`, or a `where`-style struct
+       body of `field := value` lines (instance/anonymous-structure
+       def form). */
     _decl_val: $ => choice(
       field('body', seq(':=', $._term)),
       repeat1($.match_alt),
+      $.where_struct,
     ),
     _type_spec: $ => field('type', seq(':', $._term)),
+
+    /* `where f := v g := w …` body of a `def name : T where …` —
+       declares a value of a structure/instance type by field. */
+    where_struct: $ => prec.right(seq(
+      'where',
+      repeat1($.struct_field),
+    )),
 
     /* ===== binders ======================================================= */
 

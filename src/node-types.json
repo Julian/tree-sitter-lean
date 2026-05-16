@@ -365,6 +365,10 @@
         {
           "type": "match_alt",
           "named": true
+        },
+        {
+          "type": "where_struct",
+          "named": true
         }
       ]
     }
@@ -3067,6 +3071,10 @@
         {
           "type": "match_alt",
           "named": true
+        },
+        {
+          "type": "where_struct",
+          "named": true
         }
       ]
     }
@@ -3712,6 +3720,10 @@
         },
         {
           "type": "match_alt",
+          "named": true
+        },
+        {
+          "type": "where_struct",
           "named": true
         }
       ]
@@ -4618,6 +4630,10 @@
         },
         {
           "type": "match_alt",
+          "named": true
+        },
+        {
+          "type": "where_struct",
           "named": true
         }
       ]
@@ -8792,6 +8808,10 @@
         {
           "type": "strict_implicit_binder",
           "named": true
+        },
+        {
+          "type": "where_struct",
+          "named": true
         }
       ]
     }
@@ -10885,6 +10905,10 @@
         },
         {
           "type": "match_alt",
+          "named": true
+        },
+        {
+          "type": "where_struct",
           "named": true
         }
       ]
@@ -13783,6 +13807,10 @@
         {
           "type": "match_alt",
           "named": true
+        },
+        {
+          "type": "where_struct",
+          "named": true
         }
       ]
     }
@@ -13998,6 +14026,21 @@
         },
         {
           "type": "strict_implicit_binder",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "where_struct",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "struct_field",
           "named": true
         }
       ]
