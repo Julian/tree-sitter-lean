@@ -157,6 +157,8 @@ export default grammar({
         $.axiom,
         $.opaque,
         $.constant,
+        $.structure,
+        $.inductive,
       ),
     ),
 
@@ -250,6 +252,56 @@ export default grammar({
       $._type_spec,
       optional($._decl_val),
     ),
+
+    structure: $ => seq(
+      choice('structure', 'class'),
+      field('name', $.identifier),
+      optional($._binders),
+      optional($._type_spec),
+      optional($._extends_clause),
+      optional(seq(
+        'where',
+        optional($.ctor),
+        repeat($.field),
+      )),
+      optional($._deriving_clause),
+    ),
+
+    inductive: $ => seq(
+      choice('inductive', seq('class', 'inductive')),
+      field('name', $.identifier),
+      optional($._binders),
+      optional($._type_spec),
+      optional($._extends_clause),
+      optional(seq('where',
+        repeat($.ctor_alt))),
+      optional($._deriving_clause),
+    ),
+
+    _extends_clause: $ => seq('extends', sep1($._term, ',')),
+
+    /* `MkStruct ::` declares a named constructor (followed by fields). */
+    ctor: $ => seq(field('name', $.identifier), '::'),
+
+    /* Fields do not allow inline attributes/doc-comments or multi-name
+       grouping: both create unresolvable ambiguities with the
+       surrounding declaration. Real Lean code overwhelmingly uses one
+       name per line in structure fields. doc_comment is in `extras`
+       so it still attaches to the field as trivia. */
+    field: $ => seq(
+      field('name', $._binder_ident),
+      $._type_spec,
+      optional(field('default', seq(':=', $._term))),
+    ),
+
+    ctor_alt: $ => seq(
+      '|',
+      field('name', $.identifier),
+      optional($._binders),
+      optional($._type_spec),
+    ),
+
+    _deriving_clause: $ => seq('deriving', sep1($.identifier, ',')),
 
     _decl_val: $ => field('body', seq(':=', $._term)),
     _type_spec: $ => field('type', seq(':', $._term)),
