@@ -29,10 +29,10 @@ def __getattr__(name):
 
 
 __all__ = [
-    "language",
+    "FOLDS_QUERY",
     "HIGHLIGHTS_QUERY",
+    "INDENTS_QUERY",
     "INJECTIONS_QUERY",
     "LOCALS_QUERY",
-    "FOLDS_QUERY",
-    "INDENTS_QUERY",
+    "language",
 ]
