@@ -27,10 +27,9 @@
 
 #include <stdbool.h>
 #include <stdint.h>
-#include <string.h>
 
 enum TokenType {
-  IDENTIFIER,
+  SCANNED_IDENT,
   BLOCK_COMMENT,
   DOC_COMMENT,
   MODULE_DOC_COMMENT,
@@ -89,54 +88,14 @@ static inline void skip(TSLexer *lexer)    { lexer->advance(lexer, true); }
 /* ---------- identifier --------------------------------------------------- */
 
 /*
- * Grammar keywords that share the identifier shape. The external scanner
- * defers to tree-sitter's internal lexing for these so that token-string
- * literals win — without this, `import all Foo` would lex `all` as an
- * identifier rather than the `all` keyword.
- *
- * KEEP SORTED — `is_keyword` does a binary search.
- *
- * KEEP IN SYNC with grammar.js literals.
- */
-static const char *const KEYWORDS[] = {
-  "#check",
-  "all",
-  "import",
-  "m!",
-  "meta",
-  "module",
-  "prelude",
-  "public",
-  "s!",
-};
-#define N_KEYWORDS (sizeof(KEYWORDS) / sizeof(KEYWORDS[0]))
-
-static bool is_keyword(const char *s, size_t len) {
-  size_t lo = 0, hi = N_KEYWORDS;
-  while (lo < hi) {
-    size_t mid = (lo + hi) / 2;
-    const char *k = KEYWORDS[mid];
-    size_t klen = strlen(k);
-    int cmp = strncmp(k, s, len < klen ? len : klen);
-    if (cmp == 0) {
-      if (klen == len) return true;
-      cmp = (klen < len) ? -1 : 1;
-    }
-    if (cmp < 0) lo = mid + 1;
-    else hi = mid;
-  }
-  return false;
-}
-
-/*
- * Consume a single identifier *part*. Buffers the first part's ASCII
- * spelling in `buf` so the caller can check it against the keyword
- * table. Non-ASCII bytes set `*is_ascii_only = false` and are not
- * buffered (their identity doesn't matter for the keyword check).
+ * Consume a single identifier part: `«…»` or `isIdFirst isIdRest*`.
+ * Three out-params are vestigial from an earlier keyword-deferral
+ * approach; kept so callers don't need to change shape.
  */
 static bool scan_ident_part(TSLexer *lexer,
                             char *buf, size_t buf_size,
                             size_t *out_len, bool *out_is_ascii) {
+  (void)buf; (void)buf_size;
   *out_len = 0;
   *out_is_ascii = true;
 
@@ -157,11 +116,9 @@ static bool scan_ident_part(TSLexer *lexer,
 
   do {
     if (lexer->lookahead >= 0x80) *out_is_ascii = false;
-    else if (*out_len + 1 < buf_size) buf[(*out_len)++] = (char)lexer->lookahead;
     advance(lexer);
   } while (is_id_rest(lexer->lookahead));
 
-  buf[*out_len] = '\0';
   return true;
 }
 
@@ -171,18 +128,18 @@ static bool scan_ident_part(TSLexer *lexer,
  * character (e.g. `r`, `s`, `m`) was eaten to peek for a non-identifier
  * token but turned out to belong to an identifier after all.
  */
-static bool scan_identifier_continue(TSLexer *lexer,
-                                     char *buf, size_t buf_size,
-                                     size_t len, bool is_ascii) {
+/*
+ * Continue scanning an identifier after the first character has been
+ * consumed. `seen_unusual` tracks whether anything beyond a plain ASCII
+ * single-component identifier has been seen — non-ASCII, an escape, or
+ * a dot-continuation. If nothing unusual appears, the scanner returns
+ * false so tree-sitter's internal lexer (with its keyword-extraction)
+ * handles the token instead.
+ */
+static bool scan_identifier_continue(TSLexer *lexer, bool seen_unusual) {
   while (is_id_rest(lexer->lookahead)) {
-    if (lexer->lookahead >= 0x80) is_ascii = false;
-    else if (len + 1 < buf_size) buf[len++] = (char)lexer->lookahead;
+    if (lexer->lookahead >= 0x80) seen_unusual = true;
     advance(lexer);
-  }
-  buf[len] = '\0';
-
-  if (is_ascii && lexer->lookahead != '.' && is_keyword(buf, len)) {
-    return false;
   }
   lexer->mark_end(lexer);
 
@@ -190,37 +147,44 @@ static bool scan_identifier_continue(TSLexer *lexer,
     advance(lexer);
     int32_t next = lexer->lookahead;
     if (next != ID_BEGIN_ESCAPE && !is_id_first(next)) break;
-    if (!scan_ident_part(lexer, buf, buf_size, &len, &is_ascii)) break;
+    seen_unusual = true;
+    char dummy_buf[2];
+    size_t dummy_len;
+    bool dummy_ascii;
+    if (!scan_ident_part(lexer, dummy_buf, sizeof(dummy_buf),
+                         &dummy_len, &dummy_ascii)) break;
     lexer->mark_end(lexer);
   }
-  lexer->result_symbol = IDENTIFIER;
+
+  if (!seen_unusual) return false;
+  lexer->result_symbol = SCANNED_IDENT;
   return true;
 }
 
 static bool scan_identifier(TSLexer *lexer) {
-  char buf[32];
-  size_t len = 0;
-  bool is_ascii = true;
   int32_t c = lexer->lookahead;
   if (c == ID_BEGIN_ESCAPE) {
-    /* Escaped idents can't be keywords; do the whole part inline. */
-    if (!scan_ident_part(lexer, buf, sizeof(buf), &len, &is_ascii)) return false;
+    char dummy_buf[2];
+    size_t dummy_len;
+    bool dummy_ascii;
+    if (!scan_ident_part(lexer, dummy_buf, sizeof(dummy_buf),
+                         &dummy_len, &dummy_ascii)) return false;
     lexer->mark_end(lexer);
     while (lexer->lookahead == '.') {
       advance(lexer);
       int32_t next = lexer->lookahead;
       if (next != ID_BEGIN_ESCAPE && !is_id_first(next)) break;
-      if (!scan_ident_part(lexer, buf, sizeof(buf), &len, &is_ascii)) break;
+      if (!scan_ident_part(lexer, dummy_buf, sizeof(dummy_buf),
+                           &dummy_len, &dummy_ascii)) break;
       lexer->mark_end(lexer);
     }
-    lexer->result_symbol = IDENTIFIER;
+    lexer->result_symbol = SCANNED_IDENT;
     return true;
   }
   if (!is_id_first(c)) return false;
-  if (c >= 0x80) is_ascii = false;
-  else buf[len++] = (char)c;
+  bool seen_unusual = (c >= 0x80);
   advance(lexer);
-  return scan_identifier_continue(lexer, buf, sizeof(buf), len, is_ascii);
+  return scan_identifier_continue(lexer, seen_unusual);
 }
 
 /* ---------- comments ----------------------------------------------------- */
@@ -347,22 +311,24 @@ static bool scan(struct Scanner *scanner, TSLexer *lexer,
      have to consume the `r` we just ate — fall through as a 1-char
      identifier. */
   if (lexer->lookahead == 'r'
-      && (valid_symbols[RAW_STRING_LITERAL] || valid_symbols[IDENTIFIER])) {
+      && (valid_symbols[RAW_STRING_LITERAL] || valid_symbols[SCANNED_IDENT])) {
     advance(lexer);
     int32_t next = lexer->lookahead;
     if (valid_symbols[RAW_STRING_LITERAL]
         && (next == '"' || next == '#')) {
       return scan_raw_string_after_r(lexer);
     }
-    if (valid_symbols[IDENTIFIER]) {
-      char buf[32];
-      buf[0] = 'r';
-      return scan_identifier_continue(lexer, buf, sizeof(buf), 1, true);
+    if (valid_symbols[SCANNED_IDENT]) {
+      /* Continue an identifier that already has one ASCII char. Plain
+         single-component idents are handled by tree-sitter's internal
+         lexer, so this path only succeeds if a dot continuation or a
+         non-ASCII char shows up. */
+      return scan_identifier_continue(lexer, false);
     }
     return false;
   }
 
-  if (valid_symbols[IDENTIFIER]
+  if (valid_symbols[SCANNED_IDENT]
       && (lexer->lookahead == ID_BEGIN_ESCAPE
        || is_id_first(lexer->lookahead))) {
     if (scan_identifier(lexer)) return true;

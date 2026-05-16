@@ -5,20 +5,39 @@
  * nothing — e.g. `Lean.Parser.Command.import` becomes `import`,
  * `Lean.Parser.Term.app` becomes `app`. Highlight queries should target
  * the same vocabulary the Lean LSP uses for semantic tokens.
- *
- * Stage 1: full lexical layer plus a placeholder `_term` exposed via
- * `#check` so the literals can be exercised. Syntactic layers arrive in
- * Stage 2.
  */
 
 /// <reference types="tree-sitter-cli/dsl" />
 // @ts-check
 
+/* Operator precedence — higher binds tighter. Numbers loosely follow
+   Lean's notation precedences in `Init/Notation.lean`. Each level here
+   becomes one prec annotation on a single `binary_op` choice variant. */
+const PREC = {
+  arrow:  10,
+  iff:    20,
+  or:     30,
+  and:    35,
+  cmp:    50,
+  append: 60,
+  add:    70,
+  mul:    80,
+  pow:    85,
+  comp:   90,
+  pipe:   95,
+  prefix: 100,
+  app:    110,
+  proj:   120,
+};
+
+const sep1 = (rule, sep) => seq(rule, repeat(seq(sep, rule)));
+const sep0 = (rule, sep) => optional(sep1(rule, sep));
+
 export default grammar({
   name: 'lean',
 
   externals: $ => [
-    $.identifier,
+    $._scanned_ident,
     $.block_comment,
     $.doc_comment,
     $.module_doc_comment,
@@ -33,7 +52,7 @@ export default grammar({
     $.doc_comment,
   ],
 
-  word: $ => $._wordToken,
+  word: $ => $._plain_ident,
 
   conflicts: _ => [],
 
@@ -61,13 +80,267 @@ export default grammar({
     meta:   _ => 'meta',
     all:    _ => 'all',
 
-    /* Stage 1 places a single `#check` command so every literal form
-       has a syntactic home to be parsed in. Real command grammar
-       arrives in Stage 2. */
-    _command: $ => $.check,
-    check: $ => seq('#check', field('term', $._term)),
+    /* ===== commands ====================================================== */
 
-    _term: $ => choice(
+    _command: $ => choice(
+      $.check,
+      $.eval,
+      $.print,
+      $.reduce,
+      $.namespace,
+      $.section,
+      $.public_section,
+      $.end,
+      $.variable,
+      $.universe,
+      $.open,
+      $.export,
+      $.declaration,
+    ),
+
+    /* `public section` is a Lean 4 module-system marker — everything
+       below is exported. It has no body and no matching `end`. */
+    public_section: _ => seq('public', 'section'),
+
+    check:  $ => seq('#check',  field('term', $._term)),
+    eval:   $ => seq('#eval',   field('term', $._term)),
+    print:  $ => seq('#print',  field('term', $._term)),
+    reduce: $ => seq('#reduce', field('term', $._term)),
+
+    /* `namespace`, `section`, and `end` are top-level commands rather
+       than nested rules. Files in lean4 + Mathlib routinely leave
+       namespaces unclosed (relying on EOF as `end`), which a nested
+       grammar can't accept. Editor tooling can reconstruct scope by
+       pairing namespace/end siblings via queries. */
+    namespace: $ => seq('namespace', field('name', $.identifier)),
+    section: $ => seq('section', optional(field('name', $.identifier))),
+    end: $ => seq('end', optional(field('name', $.identifier))),
+
+    variable: $ => seq('variable', repeat1($._bracketed_binder)),
+
+    universe: $ => seq(
+      choice('universe', 'universes'),
+      repeat1(field('name', $.identifier)),
+    ),
+
+    open: $ => seq('open', $._open_decl),
+    _open_decl: $ => choice(
+      seq(
+        field('namespace', $.identifier),
+        '(',
+        repeat1(field('only', $.identifier)),
+        ')',
+      ),
+      seq('scoped', repeat1(field('scoped', $.identifier))),
+      repeat1(field('namespace', $.identifier)),
+    ),
+
+    export: $ => seq(
+      'export',
+      field('namespace', $.identifier),
+      '(',
+      repeat1(field('only', $.identifier)),
+      ')',
+    ),
+
+    /* ----- declarations ------------------------------------------------- */
+
+    declaration: $ => seq(
+      optional($.attributes),
+      optional($.decl_modifiers),
+      choice(
+        $.def,
+        $.theorem,
+        $.example,
+        $.abbrev,
+        $.instance,
+        $.axiom,
+        $.opaque,
+        $.constant,
+      ),
+    ),
+
+    attributes: $ => seq('@[', sep1($._attr_instance, ','), ']'),
+    _attr_instance: $ => seq(
+      optional(choice('scoped', 'local')),
+      $._attribute,
+    ),
+    _attribute: $ => field('name', $.identifier),
+
+    decl_modifiers: $ => repeat1(choice(
+      'noncomputable',
+      'partial',
+      'nonrec',
+      'private',
+      'protected',
+      'unsafe',
+    )),
+
+    def: $ => seq(
+      'def',
+      field('name', $.identifier),
+      optional($._binders),
+      optional($._type_spec),
+      $._decl_val,
+    ),
+
+    theorem: $ => seq(
+      'theorem',
+      field('name', $.identifier),
+      optional($._binders),
+      $._type_spec,
+      $._decl_val,
+    ),
+
+    example: $ => seq(
+      'example',
+      optional($._binders),
+      optional($._type_spec),
+      $._decl_val,
+    ),
+
+    abbrev: $ => seq(
+      'abbrev',
+      field('name', $.identifier),
+      optional($._binders),
+      optional($._type_spec),
+      $._decl_val,
+    ),
+
+    /* Two distinct shapes so tree-sitter doesn't have to disambiguate
+       `instance ident (` against `instance (binder)`. With a name, the
+       binder list can be `_binders` (bare-ident or bracketed). Without a
+       name, only bracketed binders are accepted — the name slot doesn't
+       compete with bare-ident binders. */
+    instance: $ => choice(
+      seq(
+        'instance',
+        field('name', $.identifier),
+        optional($._binders),
+        $._type_spec,
+        $._decl_val,
+      ),
+      seq(
+        'instance',
+        repeat($._bracketed_binder),
+        $._type_spec,
+        $._decl_val,
+      ),
+    ),
+
+    axiom: $ => seq(
+      'axiom',
+      field('name', $.identifier),
+      optional($._binders),
+      $._type_spec,
+    ),
+
+    opaque: $ => seq(
+      'opaque',
+      field('name', $.identifier),
+      optional($._binders),
+      $._type_spec,
+      optional($._decl_val),
+    ),
+
+    constant: $ => seq(
+      'constant',
+      field('name', $.identifier),
+      optional($._binders),
+      $._type_spec,
+      optional($._decl_val),
+    ),
+
+    _decl_val: $ => field('body', seq(':=', $._term)),
+    _type_spec: $ => field('type', seq(':', $._term)),
+
+    /* ===== binders ======================================================= */
+
+    _binders: $ => alias(repeat1($._binder), $.binders),
+    _binder: $ => choice($._binder_ident, $._bracketed_binder),
+
+    _binder_ident: $ => choice($.identifier, $.hole),
+
+    _bracketed_binder: $ => choice(
+      $.explicit_binder,
+      $.implicit_binder,
+      $.strict_implicit_binder,
+      $.instance_binder,
+    ),
+
+    explicit_binder: $ => seq(
+      '(',
+      repeat1(field('name', $._binder_ident)),
+      optional($._type_spec),
+      optional(field('default', seq(':=', $._term))),
+      ')',
+    ),
+
+    implicit_binder: $ => seq(
+      '{',
+      repeat1(field('name', $._binder_ident)),
+      optional($._type_spec),
+      '}',
+    ),
+
+    strict_implicit_binder: $ => seq(
+      choice('⦃', '{{'),
+      repeat1(field('name', $._binder_ident)),
+      optional($._type_spec),
+      choice('⦄', '}}'),
+    ),
+
+    instance_binder: $ => seq(
+      '[',
+      optional(seq(field('name', $.identifier), ':')),
+      field('type', $._term),
+      ']',
+    ),
+
+    /* ===== terms =========================================================
+     *
+     * Split into three tiers to keep LR state count under control:
+     *
+     *   `_term`         — any term; the entry point for declarations,
+     *                     fun bodies, paren contents, etc.
+     *   `_lead_term`    — terms that begin with a keyword and consume
+     *                     everything to their right at low precedence
+     *                     (fun/let/have/show/if/match/forall/exists/
+     *                     by/do). Not allowed as binary-op operands.
+     *   `_op_term`      — terms that participate in operator chains:
+     *                     atoms, application, projection, binary ops,
+     *                     unary ops.
+     *
+     * Restricting binary-op operands to `_op_term` rather than `_term`
+     * stops every operator state from forking through every lead-term
+     * alternative. Lead terms can still wrap an op-term (`fun x => x + 1`)
+     * because the `_term` rule under fun's body covers both.
+     */
+
+    _term: $ => choice($._lead_term, $._op_term),
+
+    _lead_term: $ => choice(
+      $.fun,
+      $.let,
+      $.have,
+      $.show,
+      $.if_then_else,
+      $.forall,
+      $.exists,
+      $.by,
+      $.do_block,
+      $.match,
+    ),
+
+    _op_term: $ => choice(
+      $._term_atom,
+      $.app,
+      $.proj,
+      $.binary_op,
+      $.unary_op,
+    ),
+
+    _term_atom: $ => choice(
       $.identifier,
       $.num_lit,
       $.scientific_lit,
@@ -76,9 +349,251 @@ export default grammar({
       $.raw_string,
       $.interpolated_str,
       $.name_lit,
+      $.hole,
+      $.synth_hole,
+      $.named_hole,
+      $.type_const,
+      $.sort_const,
+      $.prop_const,
+      $.true_const,
+      $.false_const,
+      $.sorry,
+      $.paren,
+      $.anon_ctor,
+      $.list_lit,
     ),
 
-    /* ----- numerics ---------------------------------------------------- */
+    hole:        _ => '_',
+    synth_hole:  _ => '?_',
+    named_hole:  $ => seq('?', $.identifier),
+
+    type_const: $ => prec.right(1, seq('Type', optional(choice(
+      $.identifier,
+      '*',
+      seq('.{', sep1($.identifier, ','), '}'),
+    )))),
+    sort_const: $ => prec.right(1, seq('Sort', optional($.identifier))),
+    prop_const: _ => 'Prop',
+    true_const:  _ => 'True',
+    false_const: _ => 'False',
+    sorry:       _ => choice('sorry', 'admit'),
+
+    paren: $ => seq(
+      '(',
+      optional(choice(
+        /* Named-argument form: `(name := value)`. */
+        seq(
+          field('arg_name', $.identifier),
+          ':=',
+          field('arg_value', $._term),
+        ),
+        /* Regular parenthesized term, optionally type-ascribed, with
+           an optional tuple tail. */
+        seq(
+          $._term,
+          optional($._type_spec),
+          repeat(seq(',', $._term)),
+        ),
+      )),
+      ')',
+    ),
+
+    anon_ctor: $ => seq('⟨', sep0($._term, ','), '⟩'),
+
+    list_lit: $ => seq('[', sep0($._term, ','), ']'),
+
+    app: $ => prec.left(PREC.app, seq(
+      field('fn', $._op_term),
+      field('arg', $._term_atom),
+    )),
+
+    proj: $ => prec.left(PREC.proj, seq(
+      field('term', $._op_term),
+      token.immediate('.'),
+      field('field', choice($.identifier, $.num_lit)),
+    )),
+
+    /* ----- operators ---------------------------------------------------- */
+
+    unary_op: $ => prec(PREC.prefix, seq(
+      field('op', choice('-', '¬', '!')),
+      field('rhs', $._op_term),
+    )),
+
+    binary_op: $ => choice(
+      prec.right(PREC.arrow, seq(
+        field('lhs', $._op_term),
+        field('op', choice('→', '->')),
+        field('rhs', $._term),
+      )),
+      prec.right(PREC.iff, seq(
+        field('lhs', $._op_term),
+        field('op', choice('↔', '<->')),
+        field('rhs', $._op_term),
+      )),
+      prec.left(PREC.or, seq(
+        field('lhs', $._op_term),
+        field('op', choice('∨', '||')),
+        field('rhs', $._op_term),
+      )),
+      prec.left(PREC.and, seq(
+        field('lhs', $._op_term),
+        field('op', choice('∧', '&&')),
+        field('rhs', $._op_term),
+      )),
+      prec.left(PREC.cmp, seq(
+        field('lhs', $._op_term),
+        field('op', choice(
+          '=', '≠', '!=',
+          '<', '≤', '<=',
+          '>', '≥', '>=',
+          '∈', '∉', '⊆', '⊂', '⊇', '⊃',
+          '≡', '≢', '~', '≃', '≅',
+        )),
+        field('rhs', $._op_term),
+      )),
+      prec.right(PREC.append, seq(
+        field('lhs', $._op_term),
+        field('op', '::'),
+        field('rhs', $._op_term),
+      )),
+      prec.right(PREC.append, seq(
+        field('lhs', $._op_term),
+        field('op', '++'),
+        field('rhs', $._op_term),
+      )),
+      prec.left(PREC.add, seq(
+        field('lhs', $._op_term),
+        field('op', choice('+', '-', '∪', '\\')),
+        field('rhs', $._op_term),
+      )),
+      prec.left(PREC.mul, seq(
+        field('lhs', $._op_term),
+        field('op', choice('*', '/', '%', '∩')),
+        field('rhs', $._op_term),
+      )),
+      prec.right(PREC.pow, seq(
+        field('lhs', $._op_term),
+        field('op', '^'),
+        field('rhs', $._op_term),
+      )),
+      prec.right(PREC.comp, seq(
+        field('lhs', $._op_term),
+        field('op', '∘'),
+        field('rhs', $._op_term),
+      )),
+      prec.left(PREC.pipe, seq(
+        field('lhs', $._op_term),
+        field('op', choice('|>', '<|')),
+        field('rhs', $._op_term),
+      )),
+      /* Monad/applicative and parser-combinator operators. Grouped
+         together at "append" precedence since their actual notation
+         precedences vary per definition. */
+      prec.left(PREC.append, seq(
+        field('lhs', $._op_term),
+        field('op', choice(
+          '>>', '<<', '>>>', '<<<',
+          '>>=', '=<<',
+          '<$>', '<*>', '<|>', '<&>',
+          '&&&', '|||', '^^^',
+        )),
+        field('rhs', $._op_term),
+      )),
+    ),
+
+    /* ----- binder-using terms ------------------------------------------- */
+
+    fun: $ => prec.right(seq(
+      choice('fun', 'λ'),
+      $._binders,
+      optional($._type_spec),
+      choice('=>', '↦'),
+      field('body', $._term),
+    )),
+
+    forall: $ => prec.right(seq(
+      choice('∀', 'forall'),
+      $._binders,
+      optional($._type_spec),
+      ',',
+      field('body', $._term),
+    )),
+
+    exists: $ => prec.right(seq(
+      choice('∃', 'exists'),
+      $._binders,
+      optional($._type_spec),
+      ',',
+      field('body', $._term),
+    )),
+
+    /* `let` and `have` require an explicit name slot. Use `_` for the
+       anonymous form (`let _ := ...`); this is a slight departure from
+       Lean syntax but eliminates a swarm of LR conflicts that the
+       optional name would otherwise introduce. Inline binders are not
+       modeled — write `let f := fun x => …` instead. */
+    let: $ => prec.right(seq(
+      'let',
+      optional('mut'),
+      field('name', $._binder_ident),
+      optional($._type_spec),
+      ':=',
+      field('value', $._term),
+      optional(';'),
+      field('body', $._term),
+    )),
+
+    have: $ => prec.right(seq(
+      'have',
+      field('name', $._binder_ident),
+      optional($._type_spec),
+      ':=',
+      field('value', $._term),
+      optional(';'),
+      field('body', $._term),
+    )),
+
+    show: $ => prec.right(seq(
+      'show',
+      field('type', $._term),
+      choice(
+        seq('from', field('value', $._term)),
+        $.by,
+      ),
+    )),
+
+    if_then_else: $ => prec.right(seq(
+      'if',
+      field('cond', $._term),
+      'then',
+      field('then', $._term),
+      'else',
+      field('else', $._term),
+    )),
+
+    /* `by tac` — Stage 3 will replace the body with a proper tactic
+       block. For now, accept a single inline term so we can express
+       `by exact e` / `by sorry`. */
+    by: $ => prec.right(seq('by', field('tactic', $._term))),
+
+    /* same placeholder treatment for `do` */
+    do_block: $ => prec.right(seq('do', field('body', $._term))),
+
+    match: $ => prec.right(seq(
+      'match',
+      sep1(field('scrutinee', $._term), ','),
+      'with',
+      repeat1($.match_alt),
+    )),
+    match_alt: $ => seq(
+      '|',
+      sep1(field('pattern', $._term), ','),
+      '=>',
+      field('body', $._term),
+    ),
+
+    /* ===== lexicals (carried from stage 1) =============================== */
 
     num_lit: _ => token(choice(
       /0[xX][0-9a-fA-F](_?[0-9a-fA-F])*/,
@@ -88,12 +603,9 @@ export default grammar({
     )),
 
     scientific_lit: _ => token(choice(
-      // 1.0, 1.0e10, 1e10, .5 (Lean accepts trailing dot too)
       /[0-9](_?[0-9])*\.[0-9]?(_?[0-9])*([eE][+-]?[0-9](_?[0-9])*)?/,
       /[0-9](_?[0-9])*[eE][+-]?[0-9](_?[0-9])*/,
     )),
-
-    /* ----- characters & strings --------------------------------------- */
 
     char_lit: $ => seq(
       '\'',
@@ -117,8 +629,6 @@ export default grammar({
       /u\{[0-9a-fA-F]+\}/,
     ))),
 
-    /* s!"… {expr} …", m!"… {expr} …" — only one level of `{ … }` nesting
-       beyond the string body is permitted by the lexer. */
     interpolated_str: $ => seq(
       $._interp_open,
       repeat(choice(
@@ -135,25 +645,20 @@ export default grammar({
       '}',
     ),
 
-    /* `name literal — a backtick followed by an identifier. */
-    name_lit: $ => seq(
-      '`',
-      field('name', $.identifier),
-    ),
-
-    /* ----- comments --------------------------------------------------- */
+    name_lit: $ => seq('`', field('name', $.identifier)),
 
     line_comment: _ => token(seq('--', /[^\n]*/)),
 
-    /* `block_comment`, `doc_comment`, `module_doc_comment` come from the
-       external scanner; declared in externals above. */
-
-    /* ----- internal word token for keyword recognition ---------------- */
-
-    /* Tree-sitter uses `word` to disambiguate keywords vs. identifiers
-       when an external identifier rule is in play. This must be a regex
-       (not external) and only needs to match the ASCII portion of a
-       keyword's spelling. */
-    _wordToken: _ => /[a-zA-Z_][a-zA-Z_0-9]*/,
+    /* Identifier is split into two paths:
+     *   `_plain_ident` — internal regex for the ASCII single-component
+     *     case. This is the `word` token, so tree-sitter performs
+     *     keyword extraction against grammar literals automatically.
+     *   `_scanned_ident` — external token emitted by the scanner only
+     *     when the identifier needs richer handling: dotted parts,
+     *     `«quoted»` escapes, or non-ASCII characters.
+     * The scanner returns false (rewind to start) for the plain case,
+     * letting internal lexing handle word/keyword arbitration. */
+    identifier: $ => choice($._plain_ident, $._scanned_ident),
+    _plain_ident: _ => /[a-zA-Z_][a-zA-Z_0-9'!?]*/,
   },
 });
