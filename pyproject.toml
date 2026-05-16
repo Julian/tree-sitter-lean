@@ -93,7 +93,6 @@ ignore = [
   "TD",  # These TODO style rules are also silly
   "TRY003",  # It's fine to have messages for some exceptions.
 
-  "ERA001", # we'll remove commented out code soon when we have a real thing
 ]
 
 [tool.ruff.lint.flake8-pytest-style]
@@ -110,4 +109,4 @@ from-first = true
 "bindings/python/tree_sitter_lean/tests/**.py" = ["ANN", "D", "RUF012", "S", "PLR", "TRY"]
 
 [project.optional-dependencies]
-core = ["tree-sitter~=0.22"]
+core = ["tree-sitter~=0.25"]

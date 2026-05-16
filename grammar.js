@@ -1,82 +1,55 @@
 /**
- * @file A tree sitter grammar for the Lean theorem prover.
- * @author Julian Berman <Julian+tree-sitter-lean@GrayVines.com>
- * @license MIT
+ * @file Tree-sitter grammar for the Lean 4 theorem prover.
+ *
+ * Node names mirror Lean's own `SyntaxNodeKind`s where doing so costs
+ * nothing — e.g. `Lean.Parser.Command.import` becomes `import`,
+ * `Lean.Parser.Term.app` becomes `app`. Highlight queries should
+ * target the same vocabulary the Lean LSP uses for semantic tokens.
+ *
+ * Stage 0: only enough grammar to verify the toolchain produces a
+ * working parser. The lexical layer arrives in Stage 1.
  */
 
 /// <reference types="tree-sitter-cli/dsl" />
 // @ts-check
 
-import attr from './grammar/attr.js';
-import command from './grammar/command.js';
-import term from './grammar/term.js';
-import tactic from './grammar/tactic.js';
-import mathlib from './grammar/mathlib.js';
-
 export default grammar({
   name: 'lean',
 
-  externals: $ => [
-    $._indent,
-    $._dedent,
-    $._newline,
-    $.error_sentinel,
-  ],
+  extras: $ => [/\s/],
 
-  extras: $ => [
-    $.comment,
-    /\s/,
-  ],
-
-  word: $ => $._identifierComponent,
-
-  precedences: $ => [
-    [
-      'min',
-      'arrow',
-      'ite',
-      'lead',
-      'arg',
-      'max',
-    ],
-    [
-      'tactic',
-    ],
-    [
-      'declId',
-      'binderIdent',
-    ],
-  ],
+  word: $ => $._identComponent,
 
   rules: {
     module: $ => seq(
-      // header
+      optional($.moduleTk),
       optional($.prelude),
       repeat($.import),
-
-      repeat($._command),
     ),
 
-    prelude: $ => 'prelude',
-    import: $ => seq('import', field('module', $.identifier)),
+    moduleTk: _ => 'module',
+    prelude:  _ => 'prelude',
 
-    ...attr,
-    ...command,
-    ...term,
-    ...tactic,
+    import: $ => seq(
+      optional($.public),
+      optional($.meta),
+      'import',
+      optional($.all),
+      field('name', $.identifier),
+    ),
 
-    ...mathlib,
+    public: _ => 'public',
+    meta:   _ => 'meta',
+    all:    _ => 'all',
 
-    comment: $ => token(choice(
-      seq('--', /.*/),
-      seq(
-        '/-',
-        repeat(choice(
-          /[^-]/,
-          /-[^/]/
-        )),
-        '-/',
-      ),
-    )),
-  }
+    identifier: $ => seq(
+      $._identComponent,
+      repeat(seq(
+        token.immediate('.'),
+        token.immediate(/[A-Za-z_][A-Za-z_0-9'!?]*/),
+      )),
+    ),
+
+    _identComponent: _ => /[A-Za-z_][A-Za-z_0-9'!?]*/,
+  },
 });

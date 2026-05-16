@@ -1,7 +1,7 @@
 {
   "name": "tree-sitter-lean",
-  "version": "0.1.0",
-  "description": "Bindings for a tree sitter grammar for the Lean theorem prover",
+  "version": "0.2.0",
+  "description": "Tree-sitter grammar for the Lean 4 theorem prover",
   "repository": "github:Julian/tree-sitter-lean",
   "license": "MIT",
   "author": {
@@ -33,10 +33,10 @@
   },
   "devDependencies": {
     "prebuildify": "^6.0.1",
-    "tree-sitter-cli": "^0.24.6"
+    "tree-sitter-cli": "^0.26.0"
   },
   "peerDependencies": {
-    "tree-sitter": "^0.21.1"
+    "tree-sitter": "^0.25.0"
   },
   "peerDependenciesMeta": {
     "tree-sitter": {
