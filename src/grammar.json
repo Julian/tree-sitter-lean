@@ -2090,6 +2090,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "cdot"
+        },
+        {
+          "type": "SYMBOL",
           "name": "dot_ident"
         },
         {
@@ -2224,6 +2228,10 @@
           "name": "identifier"
         }
       ]
+    },
+    "cdot": {
+      "type": "STRING",
+      "value": "·"
     },
     "type_const": {
       "type": "PREC_RIGHT",
@@ -3456,6 +3464,14 @@
                     },
                     {
                       "type": "STRING",
+                      "value": "<&&>"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "<||>"
+                    },
+                    {
+                      "type": "STRING",
                       "value": "&&&"
                     },
                     {
@@ -3655,8 +3671,17 @@
             "type": "CHOICE",
             "members": [
               {
-                "type": "STRING",
-                "value": "mut"
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": "mut"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "rec"
+                  }
+                ]
               },
               {
                 "type": "BLANK"
@@ -3862,6 +3887,31 @@
           {
             "type": "STRING",
             "value": "if"
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "FIELD",
+                    "name": "hyp",
+                    "content": {
+                      "type": "SYMBOL",
+                      "name": "_binder_ident"
+                    }
+                  },
+                  {
+                    "type": "STRING",
+                    "value": ":"
+                  }
+                ]
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
           },
           {
             "type": "FIELD",

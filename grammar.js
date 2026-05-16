@@ -458,6 +458,7 @@ export default grammar({
       $.hole,
       $.synth_hole,
       $.named_hole,
+      $.cdot,
       $.dot_ident,
       $.type_const,
       $.sort_const,
@@ -493,6 +494,9 @@ export default grammar({
     hole:        _ => '_',
     synth_hole:  _ => '?_',
     named_hole:  $ => seq('?', $.identifier),
+    /* `·` (cdot) — placeholder for the next argument of an anonymous
+       function. `(·.foo bar)` reads as `(fun x => x.foo bar)`. */
+    cdot:        _ => '·',
 
     type_const: $ => prec.right(1, seq('Type', optional(choice(
       $.identifier,
@@ -650,7 +654,7 @@ export default grammar({
         field('op', choice(
           '>>', '<<', '>>>', '<<<',
           '>>=', '=<<',
-          '<$>', '<*>', '<|>', '<&>',
+          '<$>', '<*>', '<|>', '<&>', '<&&>', '<||>',
           '&&&', '|||', '^^^',
         )),
         field('rhs', $._op_term),
@@ -691,7 +695,7 @@ export default grammar({
        instead. The `←`/`<-` form is monadic bind for do-blocks. */
     let: $ => prec.right(seq(
       'let',
-      optional('mut'),
+      optional(choice('mut', 'rec')),
       field('name', $._binder_ident),
       optional($._type_spec),
       choice(':=', '←', '<-'),
@@ -717,8 +721,10 @@ export default grammar({
       ),
     )),
 
+    /* `if h : cond then a else b` — named hypothesis form. */
     if_then_else: $ => prec.right(seq(
       'if',
+      optional(seq(field('hyp', $._binder_ident), ':')),
       field('cond', $._term),
       'then',
       field('then', $._term),
