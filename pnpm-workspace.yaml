@@ -1,1 +1,3 @@
 autoInstallPeers: false
+onlyBuiltDependencies:
+  - tree-sitter-cli
