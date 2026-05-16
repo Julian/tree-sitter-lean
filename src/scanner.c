@@ -349,6 +349,12 @@ static bool scan_layout(struct Scanner *scanner, TSLexer *lexer,
     ? *array_back(&scanner->indents)
     : 0;
 
+  /* `|` always continues the surrounding rule (match alt, ctor alt,
+     pipe-operator) — never terminates a layout block. Suppress
+     NEWLINE/DEDENT at the start of a `|`-line so the parser stays
+     inside the match/inductive/etc. */
+  if (lexer->lookahead == '|') return false;
+
   if (indent > top && valid_symbols[INDENT]) {
     array_push(&scanner->indents, (uint16_t)indent);
     lexer->result_symbol = INDENT;
