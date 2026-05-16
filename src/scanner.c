@@ -1,24 +1,17 @@
 /*
  * External scanner for tree-sitter-lean.
  *
- * Externalized tokens fall into three groups:
- *   1. Identifiers — dotted, `«quoted»`, and Unicode-aware. Doing this in
- *      the LR lexer would bloat the DFA badly; the scanner approximates
- *      Lean's `isIdFirst`/`isIdRest` directly.
- *   2. Nested block/doc/module-doc comments. Tree-sitter regex cannot do
- *      balanced nesting.
- *   3. Raw string literals with a custom `#`-delimiter count (r"..."#).
+ * Externalized tokens:
+ *   1. `_scanned_ident` — dotted, `«quoted»`, or Unicode identifiers.
+ *      Plain ASCII single-component idents go through tree-sitter's
+ *      internal lexer so word/keyword extraction works.
+ *   2. Nested block/doc/module-doc comments.
+ *   3. Raw string literals with matched `#`-delimiter counts.
+ *   4. Layout-sensitive tokens `_indent`, `_dedent`, `_newline` that
+ *      delimit tactic and do-block bodies.
  *
- * Layout-sensitive tokens (indent/dedent/newline) arrive in a later stage
- * along with tactic blocks. The scanner state struct is intentionally
- * empty for now but kept so the serialization/deserialization plumbing
- * can grow without an ABI break.
- *
- * Lean's character classifications are mirrored from
- *   src/Init/Meta/Defs.lean
- * in upstream lean4. Full Unicode `Char.isAlpha` is approximated with the
- * common letter blocks Lean code actually uses; expand the table below
- * as needed.
+ * Lean's character classifications mirror `src/Init/Meta/Defs.lean`
+ * upstream.
  */
 
 #include "tree_sitter/parser.h"
@@ -27,6 +20,7 @@
 
 #include <stdbool.h>
 #include <stdint.h>
+#include <string.h>
 
 enum TokenType {
   SCANNED_IDENT,
@@ -34,6 +28,9 @@ enum TokenType {
   DOC_COMMENT,
   MODULE_DOC_COMMENT,
   RAW_STRING_LITERAL,
+  INDENT,
+  DEDENT,
+  NEWLINE,
   ERROR_SENTINEL,
 };
 
@@ -77,9 +74,13 @@ static bool is_id_rest(int32_t c) {
       || is_letter_like(c) || is_subscript_alnum(c);
 }
 
+/*
+ * Indent stack: each entry is the column (in columns, not bytes) of an
+ * open tactic/do block. Always contains at least one entry — the base
+ * (0). Tokens push and pop based on observed line indentation.
+ */
 struct Scanner {
-  // Reserved for layout state in a later stage.
-  int _unused;
+  Array(uint16_t) indents;
 };
 
 static inline void advance(TSLexer *lexer) { lexer->advance(lexer, false); }
@@ -281,15 +282,94 @@ static bool scan_raw_string_after_r(TSLexer *lexer) {
   }
 }
 
+/* ---------- layout (indent / dedent / newline) -------------------------- */
+
+/*
+ * If we're sitting on a newline AND any layout token is valid, walk
+ * forward to the next non-blank, non-comment line and report what
+ * happened to the indent level.
+ *
+ *   indent > top  → push, emit INDENT
+ *   indent < top  → pop one, emit DEDENT (caller will re-invoke us if
+ *                   more pops are needed)
+ *   indent == top → emit NEWLINE
+ *
+ * Lines that are entirely blank or contain only a comment don't
+ * participate — they're skipped, and we use the indent of the next
+ * real content line.
+ */
+static bool scan_layout(struct Scanner *scanner, TSLexer *lexer,
+                        const bool *valid_symbols) {
+  if (!(valid_symbols[INDENT]
+     || valid_symbols[DEDENT]
+     || valid_symbols[NEWLINE])) {
+    return false;
+  }
+
+  /* Find the start of an effective line. We've already had blank
+     whitespace skipped before this function; if we're not at a newline
+     or EOF, layout doesn't apply. */
+  if (lexer->lookahead != '\n' && !lexer->eof(lexer)) return false;
+
+  uint32_t indent = 0;
+  for (;;) {
+    if (lexer->lookahead == '\n') {
+      indent = 0;
+      skip(lexer);
+    } else if (lexer->lookahead == ' ') {
+      indent++;
+      skip(lexer);
+    } else if (lexer->lookahead == '\t') {
+      indent += 8;  /* tab = 8 spaces, mirroring Lean's pretty-printer */
+      skip(lexer);
+    } else if (lexer->eof(lexer)) {
+      /* EOF closes every open block. */
+      if (valid_symbols[DEDENT] && scanner->indents.size > 1) {
+        array_pop(&scanner->indents);
+        lexer->result_symbol = DEDENT;
+        return true;
+      }
+      return false;
+    } else {
+      break;
+    }
+  }
+
+  uint16_t top = scanner->indents.size > 0
+    ? *array_back(&scanner->indents)
+    : 0;
+
+  if (indent > top && valid_symbols[INDENT]) {
+    array_push(&scanner->indents, (uint16_t)indent);
+    lexer->result_symbol = INDENT;
+    return true;
+  }
+  if (indent < top && valid_symbols[DEDENT]) {
+    array_pop(&scanner->indents);
+    lexer->result_symbol = DEDENT;
+    return true;
+  }
+  if (valid_symbols[NEWLINE]) {
+    lexer->result_symbol = NEWLINE;
+    return true;
+  }
+  return false;
+}
+
 /* ---------- dispatch ----------------------------------------------------- */
 
 static bool scan(struct Scanner *scanner, TSLexer *lexer,
                  const bool *valid_symbols) {
-  (void)scanner;
-
   if (valid_symbols[ERROR_SENTINEL]) return false;
 
-  /* Skip whitespace so the scanner's view matches the lexer's. */
+  /* Layout tokens have to be considered before the whitespace skip —
+     they're triggered by newlines and leading-line indentation. */
+  if (valid_symbols[INDENT] || valid_symbols[DEDENT] || valid_symbols[NEWLINE]) {
+    if (scan_layout(scanner, lexer, valid_symbols)) return true;
+  }
+
+  /* Skip plain whitespace so the rest of the scanner's view matches
+     the lexer's. */
   while (lexer->lookahead == ' '
       || lexer->lookahead == '\t'
       || lexer->lookahead == '\r'
@@ -340,22 +420,44 @@ static bool scan(struct Scanner *scanner, TSLexer *lexer,
 /* ---------- tree-sitter ABI --------------------------------------------- */
 
 void *tree_sitter_lean_external_scanner_create(void) {
-  return ts_calloc(1, sizeof(struct Scanner));
+  struct Scanner *s = ts_calloc(1, sizeof(struct Scanner));
+  array_init(&s->indents);
+  array_push(&s->indents, 0);
+  return s;
 }
 
 void tree_sitter_lean_external_scanner_destroy(void *payload) {
-  ts_free(payload);
+  struct Scanner *s = payload;
+  array_delete(&s->indents);
+  ts_free(s);
 }
 
 unsigned tree_sitter_lean_external_scanner_serialize(void *payload, char *buffer) {
-  (void)payload; (void)buffer;
-  return 0;
+  struct Scanner *s = payload;
+  unsigned offset = 0;
+  for (uint32_t i = 0;
+       i < s->indents.size && offset + sizeof(uint16_t) <= TREE_SITTER_SERIALIZATION_BUFFER_SIZE;
+       i++) {
+    uint16_t v = *array_get(&s->indents, i);
+    memcpy(buffer + offset, &v, sizeof v);
+    offset += sizeof v;
+  }
+  return offset;
 }
 
 void tree_sitter_lean_external_scanner_deserialize(void *payload,
                                                    const char *buffer,
                                                    unsigned length) {
-  (void)payload; (void)buffer; (void)length;
+  struct Scanner *s = payload;
+  array_clear(&s->indents);
+  unsigned offset = 0;
+  while (offset + sizeof(uint16_t) <= length) {
+    uint16_t v;
+    memcpy(&v, buffer + offset, sizeof v);
+    array_push(&s->indents, v);
+    offset += sizeof v;
+  }
+  if (s->indents.size == 0) array_push(&s->indents, 0);
 }
 
 bool tree_sitter_lean_external_scanner_scan(void *payload, TSLexer *lexer,

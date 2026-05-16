@@ -42,6 +42,9 @@ export default grammar({
     $.doc_comment,
     $.module_doc_comment,
     $.raw_string,
+    $._indent,
+    $._dedent,
+    $._newline,
     $.error_sentinel,
   ],
 
@@ -580,20 +583,20 @@ export default grammar({
       field('body', $._term),
     )),
 
-    /* `let` and `have` require an explicit name slot. Use `_` for the
-       anonymous form (`let _ := ...`); this is a slight departure from
-       Lean syntax but eliminates a swarm of LR conflicts that the
-       optional name would otherwise introduce. Inline binders are not
-       modeled — write `let f := fun x => …` instead. */
+    /* `let` and `have` accept either the term form `let x := v; body`
+       (or `let x := v body` via the block's NEWLINE separator) or the
+       do-block statement form `let x := v` with the surrounding block
+       supplying the body implicitly. Use `_` for the anonymous name.
+       Inline binders are not modeled — write `let f := fun x => …`
+       instead. The `←`/`<-` form is monadic bind for do-blocks. */
     let: $ => prec.right(seq(
       'let',
       optional('mut'),
       field('name', $._binder_ident),
       optional($._type_spec),
-      ':=',
+      choice(':=', '←', '<-'),
       field('value', $._term),
-      optional(';'),
-      field('body', $._term),
+      optional(seq(';', field('body', $._term))),
     )),
 
     have: $ => prec.right(seq(
@@ -602,8 +605,7 @@ export default grammar({
       optional($._type_spec),
       ':=',
       field('value', $._term),
-      optional(';'),
-      field('body', $._term),
+      optional(seq(';', field('body', $._term))),
     )),
 
     show: $ => prec.right(seq(
@@ -624,13 +626,32 @@ export default grammar({
       field('else', $._term),
     )),
 
-    /* `by tac` — Stage 3 will replace the body with a proper tactic
-       block. For now, accept a single inline term so we can express
-       `by exact e` / `by sorry`. */
-    by: $ => prec.right(seq('by', field('tactic', $._term))),
+    /*
+     * `by` and `do` accept either a single inline term or an
+     * indent-delimited block of `;`/newline-separated terms.
+     *
+     * Tactics and do-elements are deliberately *not* given dedicated
+     * rules. Every extra rule pulling on `_term` multiplied the LR
+     * state count; an earlier draft with named tactic forms grew
+     * parser.c to 10MB. Tooling can still recognize specific tactic
+     * vocabulary by inspecting the head identifier of an `app` node.
+     *
+     * The grammar accepts `let mut`, `←`/`<-` (bind), and `for`/`while`
+     * /`return` etc. by virtue of those being valid Lean syntax that
+     * the term-tier rules already cover (via `let`, the `for` keyword
+     * inside ranges, etc.). Coverage is approximate but far cheaper.
+     */
+    by: $ => seq('by', $._block_body),
+    do_block: $ => seq('do', $._block_body),
 
-    /* same placeholder treatment for `do` */
-    do_block: $ => prec.right(seq('do', field('body', $._term))),
+    _block_body: $ => choice(
+      field('inline', $._term),
+      seq(
+        $._indent,
+        sep1(field('stmt', $._term), choice(';', $._newline)),
+        $._dedent,
+      ),
+    ),
 
     match: $ => prec.right(seq(
       'match',

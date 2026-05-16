@@ -1361,9 +1361,151 @@
     "type": "by",
     "named": true,
     "fields": {
-      "tactic": {
+      "inline": {
         "multiple": false,
-        "required": true,
+        "required": false,
+        "types": [
+          {
+            "type": "anon_ctor",
+            "named": true
+          },
+          {
+            "type": "app",
+            "named": true
+          },
+          {
+            "type": "binary_op",
+            "named": true
+          },
+          {
+            "type": "by",
+            "named": true
+          },
+          {
+            "type": "char_lit",
+            "named": true
+          },
+          {
+            "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "exists",
+            "named": true
+          },
+          {
+            "type": "false_const",
+            "named": true
+          },
+          {
+            "type": "forall",
+            "named": true
+          },
+          {
+            "type": "fun",
+            "named": true
+          },
+          {
+            "type": "have",
+            "named": true
+          },
+          {
+            "type": "hole",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "if_then_else",
+            "named": true
+          },
+          {
+            "type": "interpolated_str",
+            "named": true
+          },
+          {
+            "type": "let",
+            "named": true
+          },
+          {
+            "type": "list_lit",
+            "named": true
+          },
+          {
+            "type": "match",
+            "named": true
+          },
+          {
+            "type": "name_lit",
+            "named": true
+          },
+          {
+            "type": "named_hole",
+            "named": true
+          },
+          {
+            "type": "num_lit",
+            "named": true
+          },
+          {
+            "type": "paren",
+            "named": true
+          },
+          {
+            "type": "proj",
+            "named": true
+          },
+          {
+            "type": "prop_const",
+            "named": true
+          },
+          {
+            "type": "raw_string",
+            "named": true
+          },
+          {
+            "type": "scientific_lit",
+            "named": true
+          },
+          {
+            "type": "show",
+            "named": true
+          },
+          {
+            "type": "sorry",
+            "named": true
+          },
+          {
+            "type": "sort_const",
+            "named": true
+          },
+          {
+            "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "synth_hole",
+            "named": true
+          },
+          {
+            "type": "true_const",
+            "named": true
+          },
+          {
+            "type": "type_const",
+            "named": true
+          },
+          {
+            "type": "unary_op",
+            "named": true
+          }
+        ]
+      },
+      "stmt": {
+        "multiple": true,
+        "required": false,
         "types": [
           {
             "type": "anon_ctor",
@@ -2560,9 +2702,151 @@
     "type": "do_block",
     "named": true,
     "fields": {
-      "body": {
+      "inline": {
         "multiple": false,
-        "required": true,
+        "required": false,
+        "types": [
+          {
+            "type": "anon_ctor",
+            "named": true
+          },
+          {
+            "type": "app",
+            "named": true
+          },
+          {
+            "type": "binary_op",
+            "named": true
+          },
+          {
+            "type": "by",
+            "named": true
+          },
+          {
+            "type": "char_lit",
+            "named": true
+          },
+          {
+            "type": "do_block",
+            "named": true
+          },
+          {
+            "type": "exists",
+            "named": true
+          },
+          {
+            "type": "false_const",
+            "named": true
+          },
+          {
+            "type": "forall",
+            "named": true
+          },
+          {
+            "type": "fun",
+            "named": true
+          },
+          {
+            "type": "have",
+            "named": true
+          },
+          {
+            "type": "hole",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "if_then_else",
+            "named": true
+          },
+          {
+            "type": "interpolated_str",
+            "named": true
+          },
+          {
+            "type": "let",
+            "named": true
+          },
+          {
+            "type": "list_lit",
+            "named": true
+          },
+          {
+            "type": "match",
+            "named": true
+          },
+          {
+            "type": "name_lit",
+            "named": true
+          },
+          {
+            "type": "named_hole",
+            "named": true
+          },
+          {
+            "type": "num_lit",
+            "named": true
+          },
+          {
+            "type": "paren",
+            "named": true
+          },
+          {
+            "type": "proj",
+            "named": true
+          },
+          {
+            "type": "prop_const",
+            "named": true
+          },
+          {
+            "type": "raw_string",
+            "named": true
+          },
+          {
+            "type": "scientific_lit",
+            "named": true
+          },
+          {
+            "type": "show",
+            "named": true
+          },
+          {
+            "type": "sorry",
+            "named": true
+          },
+          {
+            "type": "sort_const",
+            "named": true
+          },
+          {
+            "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "synth_hole",
+            "named": true
+          },
+          {
+            "type": "true_const",
+            "named": true
+          },
+          {
+            "type": "type_const",
+            "named": true
+          },
+          {
+            "type": "unary_op",
+            "named": true
+          }
+        ]
+      },
+      "stmt": {
+        "multiple": true,
+        "required": false,
         "types": [
           {
             "type": "anon_ctor",
@@ -4744,7 +5028,7 @@
     "fields": {
       "body": {
         "multiple": false,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": "anon_ctor",
@@ -6801,7 +7085,7 @@
     "fields": {
       "body": {
         "multiple": false,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": "anon_ctor",
@@ -10651,6 +10935,10 @@
     "named": false
   },
   {
+    "type": "<-",
+    "named": false
+  },
+  {
     "type": "<->",
     "named": false
   },
@@ -11063,6 +11351,10 @@
   },
   {
     "type": "λ",
+    "named": false
+  },
+  {
+    "type": "←",
     "named": false
   },
   {
