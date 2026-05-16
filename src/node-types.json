@@ -905,6 +905,108 @@
     "type": "attribute_cmd",
     "named": true,
     "fields": {
+      "arg": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "anon_ctor",
+            "named": true
+          },
+          {
+            "type": "array_lit",
+            "named": true
+          },
+          {
+            "type": "char_lit",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
+            "named": true
+          },
+          {
+            "type": "false_const",
+            "named": true
+          },
+          {
+            "type": "hole",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "interpolated_str",
+            "named": true
+          },
+          {
+            "type": "list_lit",
+            "named": true
+          },
+          {
+            "type": "name_lit",
+            "named": true
+          },
+          {
+            "type": "named_hole",
+            "named": true
+          },
+          {
+            "type": "num_lit",
+            "named": true
+          },
+          {
+            "type": "paren",
+            "named": true
+          },
+          {
+            "type": "prop_const",
+            "named": true
+          },
+          {
+            "type": "raw_string",
+            "named": true
+          },
+          {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
+            "type": "scientific_lit",
+            "named": true
+          },
+          {
+            "type": "sorry",
+            "named": true
+          },
+          {
+            "type": "sort_const",
+            "named": true
+          },
+          {
+            "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
+            "named": true
+          },
+          {
+            "type": "synth_hole",
+            "named": true
+          },
+          {
+            "type": "true_const",
+            "named": true
+          },
+          {
+            "type": "type_const",
+            "named": true
+          }
+        ]
+      },
       "name": {
         "multiple": true,
         "required": true,
@@ -931,6 +1033,108 @@
     "type": "attributes",
     "named": true,
     "fields": {
+      "arg": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "anon_ctor",
+            "named": true
+          },
+          {
+            "type": "array_lit",
+            "named": true
+          },
+          {
+            "type": "char_lit",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
+            "named": true
+          },
+          {
+            "type": "false_const",
+            "named": true
+          },
+          {
+            "type": "hole",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "interpolated_str",
+            "named": true
+          },
+          {
+            "type": "list_lit",
+            "named": true
+          },
+          {
+            "type": "name_lit",
+            "named": true
+          },
+          {
+            "type": "named_hole",
+            "named": true
+          },
+          {
+            "type": "num_lit",
+            "named": true
+          },
+          {
+            "type": "paren",
+            "named": true
+          },
+          {
+            "type": "prop_const",
+            "named": true
+          },
+          {
+            "type": "raw_string",
+            "named": true
+          },
+          {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
+            "type": "scientific_lit",
+            "named": true
+          },
+          {
+            "type": "sorry",
+            "named": true
+          },
+          {
+            "type": "sort_const",
+            "named": true
+          },
+          {
+            "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
+            "named": true
+          },
+          {
+            "type": "synth_hole",
+            "named": true
+          },
+          {
+            "type": "true_const",
+            "named": true
+          },
+          {
+            "type": "type_const",
+            "named": true
+          }
+        ]
+      },
       "name": {
         "multiple": true,
         "required": true,
@@ -1259,6 +1463,10 @@
         "types": [
           {
             "type": "!=",
+            "named": false
+          },
+          {
+            "type": "$",
             "named": false
           },
           {
@@ -9571,6 +9779,10 @@
           "named": true
         },
         {
+          "type": "set_option",
+          "named": true
+        },
+        {
           "type": "universe",
           "named": true
         },
@@ -11001,6 +11213,124 @@
     }
   },
   {
+    "type": "set_option",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "anon_ctor",
+            "named": true
+          },
+          {
+            "type": "array_lit",
+            "named": true
+          },
+          {
+            "type": "char_lit",
+            "named": true
+          },
+          {
+            "type": "dot_ident",
+            "named": true
+          },
+          {
+            "type": "false_const",
+            "named": true
+          },
+          {
+            "type": "hole",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "interpolated_str",
+            "named": true
+          },
+          {
+            "type": "list_lit",
+            "named": true
+          },
+          {
+            "type": "name_lit",
+            "named": true
+          },
+          {
+            "type": "named_hole",
+            "named": true
+          },
+          {
+            "type": "num_lit",
+            "named": true
+          },
+          {
+            "type": "paren",
+            "named": true
+          },
+          {
+            "type": "prop_const",
+            "named": true
+          },
+          {
+            "type": "raw_string",
+            "named": true
+          },
+          {
+            "type": "rest_pat",
+            "named": true
+          },
+          {
+            "type": "scientific_lit",
+            "named": true
+          },
+          {
+            "type": "sorry",
+            "named": true
+          },
+          {
+            "type": "sort_const",
+            "named": true
+          },
+          {
+            "type": "str_lit",
+            "named": true
+          },
+          {
+            "type": "struct_lit",
+            "named": true
+          },
+          {
+            "type": "synth_hole",
+            "named": true
+          },
+          {
+            "type": "true_const",
+            "named": true
+          },
+          {
+            "type": "type_const",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "show",
     "named": true,
     "fields": {
@@ -11888,7 +12218,7 @@
     },
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "struct_field",
@@ -12828,6 +13158,10 @@
     "named": false
   },
   {
+    "type": "$",
+    "named": false
+  },
+  {
     "type": "%",
     "named": false
   },
@@ -13264,6 +13598,10 @@
   },
   {
     "type": "section",
+    "named": false
+  },
+  {
+    "type": "set_option",
     "named": false
   },
   {

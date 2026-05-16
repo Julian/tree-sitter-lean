@@ -49,7 +49,7 @@ export default grammar({
   ],
 
   extras: $ => [
-    /\s/,
+    /[ \t\r\n]/,
     $.line_comment,
     $.block_comment,
     $.doc_comment,
@@ -100,7 +100,17 @@ export default grammar({
       $.export,
       $.attribute_cmd,
       $.initialize,
+      $.set_option,
       $.declaration,
+    ),
+
+    /* `set_option pp.all true` — value is intentionally restricted to
+       an atom (literal/identifier) so it can't consume the rest of
+       the file as part of an over-eager `_term` parse. */
+    set_option: $ => seq(
+      'set_option',
+      field('name', $.identifier),
+      field('value', $._term_atom),
     ),
 
     /* `attribute [foo] bar baz` — bracketed attr list followed by
@@ -199,7 +209,13 @@ export default grammar({
       optional(choice('scoped', 'local')),
       $._attribute,
     ),
-    _attribute: $ => field('name', $.identifier),
+    /* Attributes can carry arguments (`@[simp 1000]`,
+       `@[combinator_parenthesizer foo, expose]`). Arguments are atoms
+       only to avoid `_term` re-entry. */
+    _attribute: $ => seq(
+      field('name', $.identifier),
+      repeat(field('arg', $._term_atom)),
+    ),
 
     decl_modifiers: $ => repeat1(choice(
       'noncomputable',
@@ -501,11 +517,15 @@ export default grammar({
     array_lit: $ => seq('#[', sep0($._term, ','), ']'),
 
     /* `{ field := value, ... }` (anonymous structure) and the
-       `{ src with field := value, ... }` update form. */
+       `{ src with field := value, ... }` update form. `{}` is an
+       empty struct. Lean allows newline-separated fields without
+       commas (rarer; seen in Parser/Basic.lean). */
     struct_lit: $ => seq(
       '{',
-      optional(seq(field('source', $._term), 'with')),
-      sep1($.struct_field, optional(',')),
+      optional(seq(
+        optional(seq(field('source', $._term), 'with')),
+        sep1($.struct_field, optional(',')),
+      )),
       '}',
     ),
     struct_field: $ => seq(
@@ -597,6 +617,13 @@ export default grammar({
       prec.left(PREC.pipe, seq(
         field('lhs', $._op_term),
         field('op', choice('|>', '<|')),
+        field('rhs', $._op_term),
+      )),
+      /* `$` is right-associative function application without parens
+         (`f $ g x = f (g x)`). Low precedence. */
+      prec.right(PREC.arrow, seq(
+        field('lhs', $._op_term),
+        field('op', '$'),
         field('rhs', $._op_term),
       )),
       /* Monad/applicative and parser-combinator operators. Grouped

@@ -306,21 +306,30 @@ static bool scan_layout(struct Scanner *scanner, TSLexer *lexer,
     return false;
   }
 
-  /* Find the start of an effective line. We've already had blank
-     whitespace skipped before this function; if we're not at a newline
-     or EOF, layout doesn't apply. */
+  /* Skip trailing spaces/tabs on the current line; we only care about
+     layout once we reach a newline. */
+  while (lexer->lookahead == ' ' || lexer->lookahead == '\t'
+      || lexer->lookahead == '\r') {
+    skip(lexer);
+  }
+
+  /* If we're not at a newline (or EOF), no layout token applies. */
   if (lexer->lookahead != '\n' && !lexer->eof(lexer)) return false;
 
   uint32_t indent = 0;
+  bool saw_newline = false;
   for (;;) {
     if (lexer->lookahead == '\n') {
       indent = 0;
+      saw_newline = true;
       skip(lexer);
     } else if (lexer->lookahead == ' ') {
       indent++;
       skip(lexer);
     } else if (lexer->lookahead == '\t') {
-      indent += 8;  /* tab = 8 spaces, mirroring Lean's pretty-printer */
+      indent += 8;
+      skip(lexer);
+    } else if (lexer->lookahead == '\r') {
       skip(lexer);
     } else if (lexer->eof(lexer)) {
       /* EOF closes every open block. */
@@ -334,6 +343,7 @@ static bool scan_layout(struct Scanner *scanner, TSLexer *lexer,
       break;
     }
   }
+  if (!saw_newline) return false;
 
   uint16_t top = scanner->indents.size > 0
     ? *array_back(&scanner->indents)
