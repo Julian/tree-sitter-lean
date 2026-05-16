@@ -581,7 +581,7 @@ export default grammar({
       )),
       prec.left(PREC.mul, seq(
         field('lhs', $._op_term),
-        field('op', choice('*', '/', '%', '∩')),
+        field('op', choice('*', '/', '%', '∩', '×')),
         field('rhs', $._op_term),
       )),
       prec.right(PREC.pow, seq(
@@ -747,7 +747,7 @@ export default grammar({
       '"',
       repeat(choice(
         $.escape_sequence,
-        token.immediate(prec(1, /[^"\\\n]+/)),
+        token.immediate(prec(1, /[^"\\]+/)),
       )),
       '"',
     ),
@@ -764,7 +764,7 @@ export default grammar({
       repeat(choice(
         $.escape_sequence,
         $.interpolation,
-        token.immediate(prec(1, /[^"\\\{\n]+/)),
+        token.immediate(prec(1, /[^"\\\{]+/)),
       )),
       '"',
     ),
