@@ -1,8 +1,62 @@
 [
   {
-    "type": "identifier",
+    "type": "char_lit",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "escape_sequence",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "check",
+    "named": true,
+    "fields": {
+      "term": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "char_lit",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "interpolated_str",
+            "named": true
+          },
+          {
+            "type": "name_lit",
+            "named": true
+          },
+          {
+            "type": "num_lit",
+            "named": true
+          },
+          {
+            "type": "raw_string",
+            "named": true
+          },
+          {
+            "type": "scientific_lit",
+            "named": true
+          },
+          {
+            "type": "str_lit",
+            "named": true
+          }
+        ]
+      }
+    }
   },
   {
     "type": "import",
@@ -39,6 +93,68 @@
     }
   },
   {
+    "type": "interpolated_str",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "escape_sequence",
+          "named": true
+        },
+        {
+          "type": "interpolation",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "interpolation",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "char_lit",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "interpolated_str",
+          "named": true
+        },
+        {
+          "type": "name_lit",
+          "named": true
+        },
+        {
+          "type": "num_lit",
+          "named": true
+        },
+        {
+          "type": "raw_string",
+          "named": true
+        },
+        {
+          "type": "scientific_lit",
+          "named": true
+        },
+        {
+          "type": "str_lit",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "module",
     "named": true,
     "root": true,
@@ -48,11 +164,19 @@
       "required": false,
       "types": [
         {
+          "type": "check",
+          "named": true
+        },
+        {
           "type": "import",
           "named": true
         },
         {
           "type": "moduleTk",
+          "named": true
+        },
+        {
+          "type": "module_doc_comment",
           "named": true
         },
         {
@@ -63,7 +187,50 @@
     }
   },
   {
-    "type": ".",
+    "type": "name_lit",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "str_lit",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "escape_sequence",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "\"",
+    "named": false
+  },
+  {
+    "type": "#check",
+    "named": false
+  },
+  {
+    "type": "'",
+    "named": false
+  },
+  {
+    "type": "`",
     "named": false
   },
   {
@@ -71,7 +238,34 @@
     "named": true
   },
   {
+    "type": "block_comment",
+    "named": true,
+    "extra": true
+  },
+  {
+    "type": "doc_comment",
+    "named": true,
+    "extra": true
+  },
+  {
+    "type": "escape_sequence",
+    "named": true
+  },
+  {
+    "type": "identifier",
+    "named": true
+  },
+  {
     "type": "import",
+    "named": false
+  },
+  {
+    "type": "line_comment",
+    "named": true,
+    "extra": true
+  },
+  {
+    "type": "m!\"",
     "named": false
   },
   {
@@ -83,11 +277,39 @@
     "named": true
   },
   {
+    "type": "module_doc_comment",
+    "named": true
+  },
+  {
+    "type": "num_lit",
+    "named": true
+  },
+  {
     "type": "prelude",
     "named": true
   },
   {
     "type": "public",
     "named": true
+  },
+  {
+    "type": "raw_string",
+    "named": true
+  },
+  {
+    "type": "s!\"",
+    "named": false
+  },
+  {
+    "type": "scientific_lit",
+    "named": true
+  },
+  {
+    "type": "{",
+    "named": false
+  },
+  {
+    "type": "}",
+    "named": false
   }
 ]
