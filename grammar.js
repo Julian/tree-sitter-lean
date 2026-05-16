@@ -351,7 +351,13 @@ export default grammar({
 
     _deriving_clause: $ => seq('deriving', sep1($.identifier, ',')),
 
-    _decl_val: $ => field('body', seq(':=', $._term)),
+    /* A declaration body is either `:= term` or a sequence of
+       match-style equations `| pat => body | …`. The latter form is
+       common for recursive functions defined by pattern matching. */
+    _decl_val: $ => choice(
+      field('body', seq(':=', $._term)),
+      repeat1($.match_alt),
+    ),
     _type_spec: $ => field('type', seq(':', $._term)),
 
     /* ===== binders ======================================================= */

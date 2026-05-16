@@ -1657,21 +1657,33 @@
       ]
     },
     "_decl_val": {
-      "type": "FIELD",
-      "name": "body",
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "STRING",
-            "value": ":="
-          },
-          {
-            "type": "SYMBOL",
-            "name": "_term"
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "body",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": ":="
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_term"
+              }
+            ]
           }
-        ]
-      }
+        },
+        {
+          "type": "REPEAT1",
+          "content": {
+            "type": "SYMBOL",
+            "name": "match_alt"
+          }
+        }
+      ]
     },
     "_type_spec": {
       "type": "FIELD",

@@ -5,7 +5,7 @@
     "fields": {
       "body": {
         "multiple": true,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": ":=",
@@ -347,11 +347,15 @@
       }
     },
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": false,
       "types": [
         {
           "type": "binders",
+          "named": true
+        },
+        {
+          "type": "match_alt",
           "named": true
         }
       ]
@@ -2977,11 +2981,15 @@
       }
     },
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": false,
       "types": [
         {
           "type": "binders",
+          "named": true
+        },
+        {
+          "type": "match_alt",
           "named": true
         }
       ]
@@ -3265,7 +3273,7 @@
     "fields": {
       "body": {
         "multiple": true,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": ":=",
@@ -3607,11 +3615,15 @@
       }
     },
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": false,
       "types": [
         {
           "type": "binders",
+          "named": true
+        },
+        {
+          "type": "match_alt",
           "named": true
         }
       ]
@@ -4157,7 +4169,7 @@
     "fields": {
       "body": {
         "multiple": true,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": ":=",
@@ -4489,11 +4501,15 @@
       }
     },
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": false,
       "types": [
         {
           "type": "binders",
+          "named": true
+        },
+        {
+          "type": "match_alt",
           "named": true
         }
       ]
@@ -8194,7 +8210,7 @@
     "fields": {
       "body": {
         "multiple": true,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": ":=",
@@ -8553,6 +8569,10 @@
         },
         {
           "type": "instance_binder",
+          "named": true
+        },
+        {
+          "type": "match_alt",
           "named": true
         },
         {
@@ -10598,11 +10618,15 @@
       }
     },
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": false,
       "types": [
         {
           "type": "binders",
+          "named": true
+        },
+        {
+          "type": "match_alt",
           "named": true
         }
       ]
@@ -13085,7 +13109,7 @@
     "fields": {
       "body": {
         "multiple": true,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": ":=",
@@ -13427,11 +13451,15 @@
       }
     },
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": false,
       "types": [
         {
           "type": "binders",
+          "named": true
+        },
+        {
+          "type": "match_alt",
           "named": true
         }
       ]
