@@ -2127,6 +2127,10 @@
         {
           "type": "SYMBOL",
           "name": "rest_pat"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "prec_annotated"
         }
       ]
     },
@@ -2150,6 +2154,43 @@
     "rest_pat": {
       "type": "STRING",
       "value": ".."
+    },
+    "prec_annotated": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "IMMEDIATE_TOKEN",
+          "content": {
+            "type": "STRING",
+            "value": ":"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "prec",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "identifier"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "num_lit"
+              }
+            ]
+          }
+        }
+      ]
     },
     "hole": {
       "type": "STRING",
@@ -3888,8 +3929,17 @@
                   "type": "FIELD",
                   "name": "stmt",
                   "content": {
-                    "type": "SYMBOL",
-                    "name": "_term"
+                    "type": "CHOICE",
+                    "members": [
+                      {
+                        "type": "SYMBOL",
+                        "name": "block_assign"
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "_term"
+                      }
+                    ]
                   }
                 },
                 {
@@ -3914,8 +3964,17 @@
                         "type": "FIELD",
                         "name": "stmt",
                         "content": {
-                          "type": "SYMBOL",
-                          "name": "_term"
+                          "type": "CHOICE",
+                          "members": [
+                            {
+                              "type": "SYMBOL",
+                              "name": "block_assign"
+                            },
+                            {
+                              "type": "SYMBOL",
+                              "name": "_term"
+                            }
+                          ]
                         }
                       }
                     ]
@@ -3928,6 +3987,31 @@
               "name": "_dedent"
             }
           ]
+        }
+      ]
+    },
+    "block_assign": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ":="
+        },
+        {
+          "type": "FIELD",
+          "name": "value",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_term"
+          }
         }
       ]
     },

@@ -465,6 +465,7 @@ export default grammar({
       $.array_lit,
       $.struct_lit,
       $.rest_pat,
+      $.prec_annotated,
     ),
 
     /* `.foo` is Lean's anonymous-namespace projection (used for
@@ -473,6 +474,15 @@ export default grammar({
 
     /* `..` rest-pattern, used inside match arms. */
     rest_pat: _ => '..',
+
+    /* `name:precNum` — precedence annotation on a parser combinator
+       like `leading_parser:leadPrec`. The `:` is immediate (no space
+       allowed). */
+    prec_annotated: $ => seq(
+      field('name', $.identifier),
+      token.immediate(':'),
+      field('prec', choice($.identifier, $.num_lit)),
+    ),
 
     hole:        _ => '_',
     synth_hole:  _ => '?_',
@@ -732,9 +742,17 @@ export default grammar({
       field('inline', $._term),
       seq(
         $._indent,
-        sep1(field('stmt', $._term), choice(';', $._newline)),
+        sep1(field('stmt', choice($.block_assign, $._term)),
+             choice(';', $._newline)),
         $._dedent,
       ),
+    ),
+
+    /* `x := v` mutation, valid only inside a do-block. */
+    block_assign: $ => seq(
+      field('name', $.identifier),
+      ':=',
+      field('value', $._term),
     ),
 
     match: $ => prec.right(seq(
