@@ -8,7 +8,7 @@
     "name": "Julian Berman",
     "email": "Julian+tree-sitter-lean@GrayVines.com"
   },
-  "packageManager": "pnpm@9.15.1",
+  "packageManager": "pnpm@11.1.2",
   "type": "module",
   "main": "bindings/node",
   "types": "bindings/node",

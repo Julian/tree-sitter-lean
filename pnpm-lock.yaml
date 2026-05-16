@@ -1,7 +1,7 @@
 lockfileVersion: '9.0'
 
 settings:
-  autoInstallPeers: true
+  autoInstallPeers: false
   excludeLinksFromLockfile: false
 
 importers:
@@ -14,9 +14,6 @@ importers:
       node-gyp-build:
         specifier: ^4.8.4
         version: 4.8.4
-      tree-sitter:
-        specifier: ^0.25.0
-        version: 0.25.0
     devDependencies:
       prebuildify:
         specifier: ^6.0.1
@@ -113,9 +110,6 @@ packages:
     resolution: {integrity: sha512-teQFMF5V/g8aIdakZ0M/eZoedCM3MuBt1JuDOICLloA2hy7QfeOInb99U6wiML4qXcBHWREwf0U1TWzw7p67YA==}
     engines: {node: '>=12.0.0'}
     hasBin: true
-
-  tree-sitter@0.25.0:
-    resolution: {integrity: sha512-PGZZzFW63eElZJDe/b/R/LbsjDDYJa5UEjLZJB59RQsMX+fo0j54fqBPn1MGKav/QNa0JR0zBiVaikYDWCj5KQ==}
 
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
@@ -216,11 +210,6 @@ snapshots:
       readable-stream: 3.6.2
 
   tree-sitter-cli@0.26.8: {}
-
-  tree-sitter@0.25.0:
-    dependencies:
-      node-addon-api: 8.7.0
-      node-gyp-build: 4.8.4
 
   util-deprecate@1.0.2: {}
 
