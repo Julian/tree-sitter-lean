@@ -563,9 +563,13 @@ export default grammar({
       field('value', $._term),
     ),
 
+    /* `f x` — left-associative application. The argument can be an
+       atom or a lead term (`f fun x => x`, `g do return 1`), which is
+       common in monadic code. The fn must stay in `_op_term` to keep
+       binary-op states from forking through every lead alternative. */
     app: $ => prec.left(PREC.app, seq(
       field('fn', $._op_term),
-      field('arg', $._term_atom),
+      field('arg', choice($._term_atom, $._lead_term)),
     )),
 
     proj: $ => prec.left(PREC.proj, seq(

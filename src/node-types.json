@@ -561,6 +561,10 @@
             "named": true
           },
           {
+            "type": "by",
+            "named": true
+          },
+          {
             "type": "cdot",
             "named": true
           },
@@ -569,11 +573,31 @@
             "named": true
           },
           {
+            "type": "do_block",
+            "named": true
+          },
+          {
             "type": "dot_ident",
             "named": true
           },
           {
+            "type": "exists",
+            "named": true
+          },
+          {
             "type": "false_const",
+            "named": true
+          },
+          {
+            "type": "forall",
+            "named": true
+          },
+          {
+            "type": "fun",
+            "named": true
+          },
+          {
+            "type": "have",
             "named": true
           },
           {
@@ -585,11 +609,23 @@
             "named": true
           },
           {
+            "type": "if_then_else",
+            "named": true
+          },
+          {
             "type": "interpolated_str",
             "named": true
           },
           {
+            "type": "let",
+            "named": true
+          },
+          {
             "type": "list_lit",
+            "named": true
+          },
+          {
+            "type": "match",
             "named": true
           },
           {
@@ -626,6 +662,10 @@
           },
           {
             "type": "scientific_lit",
+            "named": true
+          },
+          {
+            "type": "show",
             "named": true
           },
           {
