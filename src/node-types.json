@@ -15050,6 +15050,10 @@
     "named": false
   },
   {
+    "type": "lemma",
+    "named": false
+  },
+  {
     "type": "let",
     "named": false
   },

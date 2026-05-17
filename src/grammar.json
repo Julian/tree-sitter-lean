@@ -1003,8 +1003,17 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "theorem"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "theorem"
+            },
+            {
+              "type": "STRING",
+              "value": "lemma"
+            }
+          ]
         },
         {
           "type": "FIELD",

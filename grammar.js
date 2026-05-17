@@ -245,7 +245,7 @@ export default grammar({
     ),
 
     theorem: $ => seq(
-      'theorem',
+      choice('theorem', 'lemma'),
       field('name', $.identifier),
       optional($._binders),
       $._type_spec,

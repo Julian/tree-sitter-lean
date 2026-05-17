@@ -688,3 +688,22 @@ noncomputable section
 (module
   (section
     (decl_modifiers)))
+
+==============
+Lemma alias for theorem
+==============
+
+lemma foo (h : P) : Q := proof
+
+---
+
+(module
+  (declaration
+    (theorem
+      name: (identifier)
+      (binders
+        (explicit_binder
+          name: (identifier)
+          type: (identifier)))
+      type: (identifier)
+      body: (identifier))))
