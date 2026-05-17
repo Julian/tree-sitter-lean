@@ -1122,3 +1122,16 @@ Postfix operator inverse
   (check
     term: (postfix_op
       term: (identifier))))
+
+==============
+Cardinality prefix
+==============
+
+#check #X
+
+---
+
+(module
+  (check
+    term: (unary_op
+      rhs: (identifier))))

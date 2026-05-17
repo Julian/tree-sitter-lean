@@ -719,7 +719,7 @@ export default grammar({
     /* ----- operators ---------------------------------------------------- */
 
     unary_op: $ => prec(PREC.prefix, seq(
-      field('op', choice('-', '¬', '!', '←', '<-')),
+      field('op', choice('-', '¬', '!', '←', '<-', '#')),
       field('rhs', $._op_term),
     )),
 
