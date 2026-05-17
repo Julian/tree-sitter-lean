@@ -766,7 +766,7 @@ export default grammar({
       )),
       prec.left(PREC.mul, seq(
         field('lhs', $._op_term),
-        field('op', choice('*', '/', '%', '∩', '×')),
+        field('op', choice('*', '/', '%', '∩', '×', '•', '∙')),
         field('rhs', $._op_term),
       )),
       prec.right(PREC.pow, seq(

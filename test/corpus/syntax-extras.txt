@@ -1064,3 +1064,17 @@ Explicit args mode with application
           (identifier))
         arg: (identifier))
       arg: (identifier))))
+
+==============
+Scalar multiplication
+==============
+
+#check r • v
+
+---
+
+(module
+  (check
+    term: (binary_op
+      lhs: (identifier)
+      rhs: (identifier))))
