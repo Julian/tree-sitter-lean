@@ -158,8 +158,14 @@ export default grammar({
        namespaces unclosed (relying on EOF as `end`), which a nested
        grammar can't accept. Editor tooling can reconstruct scope by
        pairing namespace/end siblings via queries. */
-    namespace: $ => seq('namespace', field('name', $.identifier)),
-    section: $ => seq('section', optional(field('name', $.identifier))),
+    namespace: $ => seq(
+      optional($.decl_modifiers),
+      'namespace', field('name', $.identifier),
+    ),
+    section: $ => seq(
+      optional($.decl_modifiers),
+      'section', optional(field('name', $.identifier)),
+    ),
     end: $ => seq('end', optional(field('name', $.identifier))),
 
     variable: $ => seq('variable', repeat1($._bracketed_binder)),

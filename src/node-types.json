@@ -10831,6 +10831,16 @@
           }
         ]
       }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "decl_modifiers",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -12533,6 +12543,16 @@
           }
         ]
       }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "decl_modifiers",
+          "named": true
+        }
+      ]
     }
   },
   {

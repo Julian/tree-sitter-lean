@@ -676,3 +676,15 @@ Substitution operator
     term: (binary_op
       lhs: (identifier)
       rhs: (identifier))))
+
+==============
+Noncomputable section
+==============
+
+noncomputable section
+
+---
+
+(module
+  (section
+    (decl_modifiers)))
