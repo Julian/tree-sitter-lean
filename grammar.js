@@ -515,6 +515,7 @@ export default grammar({
       $.app,
       $.proj,
       $.subscript,
+      $.postfix_op,
       $.binary_op,
       $.unary_op,
     ),
@@ -691,6 +692,16 @@ export default grammar({
       field('term', $._op_term),
       token.immediate('.'),
       field('field', choice($.identifier, $.num_lit)),
+    )),
+
+    /* Mathlib-style postfix operators: `Aᵒᵖ` (opposite), `Aᵐᵒᵖ` (mul
+       opposite), `x⁻¹` (inverse), `Aᵀ` (transpose). Tree-sitter sees
+       these as separate tokens after the term, not as part of the
+       identifier (the modifier-letter unicode chars aren't in
+       `isIdRest`). */
+    postfix_op: $ => prec.left(PREC.proj, seq(
+      field('term', $._op_term),
+      field('op', choice('ᵒᵖ', 'ᵐᵒᵖ', '⁻¹', 'ᵀ', '⊥', '†')),
     )),
 
     /* `arr[idx]` — array/dict indexing. Distinguished from `f [list]`

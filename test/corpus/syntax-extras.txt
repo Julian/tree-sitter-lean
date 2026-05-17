@@ -1096,3 +1096,29 @@ example : Nat := by exact 0; rfl
           fn: (identifier)
           arg: (num_lit))
         inline: (identifier)))))
+
+==============
+Postfix operator opposite
+==============
+
+#check Aᵒᵖ
+
+---
+
+(module
+  (check
+    term: (postfix_op
+      term: (identifier))))
+
+==============
+Postfix operator inverse
+==============
+
+#check x⁻¹
+
+---
+
+(module
+  (check
+    term: (postfix_op
+      term: (identifier))))

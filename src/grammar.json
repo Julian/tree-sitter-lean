@@ -2397,6 +2397,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "postfix_op"
+        },
+        {
+          "type": "SYMBOL",
           "name": "binary_op"
         },
         {
@@ -3358,6 +3362,56 @@
                 {
                   "type": "SYMBOL",
                   "name": "num_lit"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "postfix_op": {
+      "type": "PREC_LEFT",
+      "value": 120,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "FIELD",
+            "name": "term",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_op_term"
+            }
+          },
+          {
+            "type": "FIELD",
+            "name": "op",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "ᵒᵖ"
+                },
+                {
+                  "type": "STRING",
+                  "value": "ᵐᵒᵖ"
+                },
+                {
+                  "type": "STRING",
+                  "value": "⁻¹"
+                },
+                {
+                  "type": "STRING",
+                  "value": "ᵀ"
+                },
+                {
+                  "type": "STRING",
+                  "value": "⊥"
+                },
+                {
+                  "type": "STRING",
+                  "value": "†"
                 }
               ]
             }
