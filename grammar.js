@@ -513,6 +513,7 @@ export default grammar({
       $.paren,
       $.anon_ctor,
       $.list_lit,
+      $.range_lit,
       $.array_lit,
       $.struct_lit,
       $.set_builder,
@@ -588,6 +589,16 @@ export default grammar({
     anon_ctor: $ => seq('⟨', sep0($._term, ','), '⟩'),
 
     list_lit: $ => seq('[', sep0($._term, ','), ']'),
+
+    /* `[a : b]` or `[a : b : step]` — range/subarray slice. */
+    range_lit: $ => seq(
+      '[',
+      optional(field('start', $._term)),
+      ':',
+      optional(field('stop', $._term)),
+      optional(seq(':', field('step', $._term))),
+      ']',
+    ),
 
     /* `#[a, b, c]` — array literal. */
     array_lit: $ => seq('#[', sep0($._term, ','), ']'),

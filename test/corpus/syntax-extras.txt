@@ -847,3 +847,45 @@ Modulo with spaces is still modulo
     term: (binary_op
       lhs: (identifier)
       rhs: (identifier))))
+
+==============
+Range literal
+==============
+
+#check [start : stop]
+
+---
+
+(module
+  (check
+    term: (range_lit
+      start: (identifier)
+      stop: (identifier))))
+
+==============
+Range with step
+==============
+
+#check [0 : 100 : 2]
+
+---
+
+(module
+  (check
+    term: (range_lit
+      start: (num_lit)
+      stop: (num_lit)
+      step: (num_lit))))
+
+==============
+Range with only stop
+==============
+
+#check [: 10]
+
+---
+
+(module
+  (check
+    term: (range_lit
+      stop: (num_lit))))
