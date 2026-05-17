@@ -920,3 +920,31 @@ Application with bracket arg
         (num_lit)
         (num_lit)
         (num_lit)))))
+
+==============
+Optional array indexing
+==============
+
+#check arr[i]?
+
+---
+
+(module
+  (check
+    term: (subscript
+      term: (identifier)
+      index: (identifier))))
+
+==============
+Panicking array indexing
+==============
+
+#check arr[i]!
+
+---
+
+(module
+  (check
+    term: (subscript
+      term: (identifier)
+      index: (identifier))))
