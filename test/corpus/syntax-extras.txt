@@ -635,3 +635,44 @@ Match-style fun
         body: (binary_op
           lhs: (identifier)
           rhs: (num_lit))))))
+
+==============
+Public section with attribute
+==============
+
+@[expose] public section
+
+---
+
+(module
+  (public_section
+    (attributes
+      name: (identifier))))
+
+==============
+Vsub operator
+==============
+
+#check p -ᵥ q
+
+---
+
+(module
+  (check
+    term: (binary_op
+      lhs: (identifier)
+      rhs: (identifier))))
+
+==============
+Substitution operator
+==============
+
+#check h ▸ rfl
+
+---
+
+(module
+  (check
+    term: (binary_op
+      lhs: (identifier)
+      rhs: (identifier))))

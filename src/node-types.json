@@ -1662,11 +1662,19 @@
             "named": false
           },
           {
+            "type": "+ᵥ",
+            "named": false
+          },
+          {
             "type": "-",
             "named": false
           },
           {
             "type": "->",
+            "named": false
+          },
+          {
+            "type": "-ᵥ",
             "named": false
           },
           {
@@ -1867,6 +1875,10 @@
           },
           {
             "type": "⊇",
+            "named": false
+          },
+          {
+            "type": "▸",
             "named": false
           }
         ]
@@ -12133,7 +12145,17 @@
   {
     "type": "public_section",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "attributes",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "quotation",
@@ -14686,6 +14708,10 @@
     "named": false
   },
   {
+    "type": "+ᵥ",
+    "named": false
+  },
+  {
     "type": ",",
     "named": false
   },
@@ -14695,6 +14721,10 @@
   },
   {
     "type": "->",
+    "named": false
+  },
+  {
+    "type": "-ᵥ",
     "named": false
   },
   {
@@ -15310,6 +15340,10 @@
   },
   {
     "type": "⊇",
+    "named": false
+  },
+  {
+    "type": "▸",
     "named": false
   },
   {

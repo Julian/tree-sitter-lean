@@ -141,8 +141,12 @@ export default grammar({
     )),
 
     /* `public section` is a Lean 4 module-system marker — everything
-       below is exported. It has no body and no matching `end`. */
-    public_section: _ => seq('public', 'section'),
+       below is exported. It has no body and no matching `end`.
+       Optionally preceded by attributes (e.g. `@[expose] public section`). */
+    public_section: $ => seq(
+      optional($.attributes),
+      'public', 'section',
+    ),
 
     check:  $ => seq('#check',  field('term', $._term)),
     eval:   $ => seq('#eval',   field('term', $._term)),
@@ -636,7 +640,11 @@ export default grammar({
       )),
       prec.left(PREC.add, seq(
         field('lhs', $._op_term),
-        field('op', choice('+', '-', '∪', '\\')),
+        field('op', choice(
+          '+', '-', '∪', '\\',
+          /* Mathlib torsor & substitution operators. */
+          '-ᵥ', '+ᵥ', '▸',
+        )),
         field('rhs', $._op_term),
       )),
       prec.left(PREC.mul, seq(

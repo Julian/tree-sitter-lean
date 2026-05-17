@@ -414,6 +414,18 @@
       "type": "SEQ",
       "members": [
         {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "attributes"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
           "type": "STRING",
           "value": "public"
         },
@@ -3297,6 +3309,18 @@
                     {
                       "type": "STRING",
                       "value": "\\"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "-ᵥ"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "+ᵥ"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "▸"
                     }
                   ]
                 }
