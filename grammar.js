@@ -101,7 +101,16 @@ export default grammar({
       $.attribute_cmd,
       $.initialize,
       $.set_option,
+      $.deriving_cmd,
       $.declaration,
+    ),
+
+    /* `deriving instance Foo, Bar for Baz` — standalone deriving. */
+    deriving_cmd: $ => seq(
+      'deriving', 'instance',
+      sep1(field('class', $.identifier), ','),
+      'for',
+      sep1(field('target', $.identifier), ','),
     ),
 
     /* `set_option pp.all true` — value is intentionally restricted to
@@ -148,9 +157,9 @@ export default grammar({
       'public', 'section',
     ),
 
-    check:  $ => seq('#check',  field('term', $._term)),
+    check:  $ => seq(choice('#check', '#check_failure'),  field('term', $._term)),
     eval:   $ => seq('#eval',   field('term', $._term)),
-    print:  $ => seq('#print',  field('term', $._term)),
+    print:  $ => seq(choice('#print', '#print_axioms'),   field('term', $._term)),
     reduce: $ => seq('#reduce', field('term', $._term)),
 
     /* `namespace`, `section`, and `end` are top-level commands rather
@@ -311,7 +320,7 @@ export default grammar({
       optional($._decl_val),
     ),
 
-    structure: $ => seq(
+    structure: $ => prec.right(seq(
       choice('structure', 'class'),
       field('name', $.identifier),
       optional($._binders),
@@ -323,9 +332,9 @@ export default grammar({
         repeat($.field),
       )),
       optional($._deriving_clause),
-    ),
+    )),
 
-    inductive: $ => seq(
+    inductive: $ => prec.right(seq(
       choice('inductive', seq('class', 'inductive')),
       field('name', $.identifier),
       optional($._binders),
@@ -334,7 +343,7 @@ export default grammar({
       optional(seq('where',
         repeat($.ctor_alt))),
       optional($._deriving_clause),
-    ),
+    )),
 
     _extends_clause: $ => seq('extends', sep1($._term, ',')),
 

@@ -741,3 +741,29 @@ Subtype
       pred: (binary_op
         lhs: (identifier)
         rhs: (num_lit)))))
+
+==============
+Check failure command
+==============
+
+#check_failure foo
+
+---
+
+(module
+  (check
+    term: (identifier)))
+
+==============
+Deriving instance command
+==============
+
+deriving instance DecidableEq, Repr for Foo
+
+---
+
+(module
+  (deriving_cmd
+    class: (identifier)
+    class: (identifier)
+    target: (identifier)))

@@ -4026,6 +4026,32 @@
     }
   },
   {
+    "type": "deriving_cmd",
+    "named": true,
+    "fields": {
+      "class": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "target": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "do_block",
     "named": true,
     "fields": {
@@ -11172,6 +11198,10 @@
           "named": true
         },
         {
+          "type": "deriving_cmd",
+          "named": true
+        },
+        {
           "type": "end",
           "named": true
         },
@@ -16052,11 +16082,19 @@
     "named": false
   },
   {
+    "type": "#check_failure",
+    "named": false
+  },
+  {
     "type": "#eval",
     "named": false
   },
   {
     "type": "#print",
+    "named": false
+  },
+  {
+    "type": "#print_axioms",
     "named": false
   },
   {
@@ -16387,6 +16425,10 @@
   },
   {
     "type": "false",
+    "named": false
+  },
+  {
+    "type": "for",
     "named": false
   },
   {
