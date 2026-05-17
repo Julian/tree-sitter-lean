@@ -488,6 +488,7 @@ export default grammar({
       $.struct_lit,
       $.rest_pat,
       $.prec_annotated,
+      $.quotation,
     ),
 
     /* `.foo` is Lean's anonymous-namespace projection (used for
@@ -855,6 +856,15 @@ export default grammar({
        current scope (`SyntaxNodeKind.full`). Both forms are common
        in Lean source. */
     name_lit: $ => seq(choice('`', '``'), field('name', $.identifier)),
+
+    /* `(term) or `(category| term) — syntax quotation. */
+    quotation: $ => seq(
+      '`',
+      token.immediate('('),
+      optional(seq(field('category', $.identifier), '|')),
+      $._term,
+      ')',
+    ),
 
     line_comment: _ => token(seq('--', /[^\n]*/)),
 

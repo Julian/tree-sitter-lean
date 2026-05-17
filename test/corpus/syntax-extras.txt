@@ -584,3 +584,34 @@ Lowercase true/false
 (module
   (check term: (true_const))
   (check term: (false_const)))
+
+==============
+Syntax quotation
+==============
+
+#check `(x + 1)
+
+---
+
+(module
+  (check
+    term: (quotation
+      (binary_op
+        lhs: (identifier)
+        rhs: (num_lit)))))
+
+==============
+Syntax quotation with category
+==============
+
+#check `(tactic| exact 1)
+
+---
+
+(module
+  (check
+    term: (quotation
+      category: (identifier)
+      (app
+        fn: (identifier)
+        arg: (num_lit)))))

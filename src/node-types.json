@@ -124,6 +124,10 @@
             "named": true
           },
           {
+            "type": "quotation",
+            "named": true
+          },
+          {
             "type": "raw_string",
             "named": true
           },
@@ -301,6 +305,10 @@
           },
           {
             "type": "prop_const",
+            "named": true
+          },
+          {
+            "type": "quotation",
             "named": true
           },
           {
@@ -494,6 +502,10 @@
           "named": true
         },
         {
+          "type": "quotation",
+          "named": true
+        },
+        {
           "type": "raw_string",
           "named": true
         },
@@ -653,6 +665,10 @@
             "named": true
           },
           {
+            "type": "quotation",
+            "named": true
+          },
+          {
             "type": "raw_string",
             "named": true
           },
@@ -776,6 +792,10 @@
           },
           {
             "type": "prop_const",
+            "named": true
+          },
+          {
+            "type": "quotation",
             "named": true
           },
           {
@@ -947,6 +967,10 @@
           "named": true
         },
         {
+          "type": "quotation",
+          "named": true
+        },
+        {
           "type": "raw_string",
           "named": true
         },
@@ -1067,6 +1091,10 @@
           },
           {
             "type": "prop_const",
+            "named": true
+          },
+          {
+            "type": "quotation",
             "named": true
           },
           {
@@ -1203,6 +1231,10 @@
           },
           {
             "type": "prop_const",
+            "named": true
+          },
+          {
+            "type": "quotation",
             "named": true
           },
           {
@@ -1394,6 +1426,10 @@
             "named": true
           },
           {
+            "type": "quotation",
+            "named": true
+          },
+          {
             "type": "raw_string",
             "named": true
           },
@@ -1537,6 +1573,10 @@
           },
           {
             "type": "prop_const",
+            "named": true
+          },
+          {
+            "type": "quotation",
             "named": true
           },
           {
@@ -1948,6 +1988,10 @@
             "named": true
           },
           {
+            "type": "quotation",
+            "named": true
+          },
+          {
             "type": "raw_string",
             "named": true
           },
@@ -2169,6 +2213,10 @@
             "named": true
           },
           {
+            "type": "quotation",
+            "named": true
+          },
+          {
             "type": "raw_string",
             "named": true
           },
@@ -2341,6 +2389,10 @@
             "named": true
           },
           {
+            "type": "quotation",
+            "named": true
+          },
+          {
             "type": "raw_string",
             "named": true
           },
@@ -2508,6 +2560,10 @@
           },
           {
             "type": "prop_const",
+            "named": true
+          },
+          {
+            "type": "quotation",
             "named": true
           },
           {
@@ -2698,6 +2754,10 @@
             "named": true
           },
           {
+            "type": "quotation",
+            "named": true
+          },
+          {
             "type": "raw_string",
             "named": true
           },
@@ -2871,6 +2931,10 @@
           },
           {
             "type": "prop_const",
+            "named": true
+          },
+          {
+            "type": "quotation",
             "named": true
           },
           {
@@ -3051,6 +3115,10 @@
           },
           {
             "type": "prop_const",
+            "named": true
+          },
+          {
+            "type": "quotation",
             "named": true
           },
           {
@@ -3271,6 +3339,10 @@
           },
           {
             "type": "prop_const",
+            "named": true
+          },
+          {
+            "type": "quotation",
             "named": true
           },
           {
@@ -3524,6 +3596,10 @@
             "named": true
           },
           {
+            "type": "quotation",
+            "named": true
+          },
+          {
             "type": "raw_string",
             "named": true
           },
@@ -3701,6 +3777,10 @@
           },
           {
             "type": "prop_const",
+            "named": true
+          },
+          {
+            "type": "quotation",
             "named": true
           },
           {
@@ -3894,6 +3974,10 @@
             "named": true
           },
           {
+            "type": "quotation",
+            "named": true
+          },
+          {
             "type": "raw_string",
             "named": true
           },
@@ -4061,6 +4145,10 @@
           },
           {
             "type": "prop_const",
+            "named": true
+          },
+          {
+            "type": "quotation",
             "named": true
           },
           {
@@ -4268,6 +4356,10 @@
             "named": true
           },
           {
+            "type": "quotation",
+            "named": true
+          },
+          {
             "type": "raw_string",
             "named": true
           },
@@ -4444,6 +4536,10 @@
             "named": true
           },
           {
+            "type": "quotation",
+            "named": true
+          },
+          {
             "type": "raw_string",
             "named": true
           },
@@ -4611,6 +4707,10 @@
           },
           {
             "type": "prop_const",
+            "named": true
+          },
+          {
+            "type": "quotation",
             "named": true
           },
           {
@@ -4804,6 +4904,10 @@
             "named": true
           },
           {
+            "type": "quotation",
+            "named": true
+          },
+          {
             "type": "raw_string",
             "named": true
           },
@@ -4971,6 +5075,10 @@
           },
           {
             "type": "prop_const",
+            "named": true
+          },
+          {
+            "type": "quotation",
             "named": true
           },
           {
@@ -5160,6 +5268,10 @@
             "named": true
           },
           {
+            "type": "quotation",
+            "named": true
+          },
+          {
             "type": "raw_string",
             "named": true
           },
@@ -5341,6 +5453,10 @@
           },
           {
             "type": "prop_const",
+            "named": true
+          },
+          {
+            "type": "quotation",
             "named": true
           },
           {
@@ -5551,6 +5667,10 @@
             "named": true
           },
           {
+            "type": "quotation",
+            "named": true
+          },
+          {
             "type": "raw_string",
             "named": true
           },
@@ -5735,6 +5855,10 @@
             "named": true
           },
           {
+            "type": "quotation",
+            "named": true
+          },
+          {
             "type": "raw_string",
             "named": true
           },
@@ -5907,6 +6031,10 @@
             "named": true
           },
           {
+            "type": "quotation",
+            "named": true
+          },
+          {
             "type": "raw_string",
             "named": true
           },
@@ -6074,6 +6202,10 @@
           },
           {
             "type": "prop_const",
+            "named": true
+          },
+          {
+            "type": "quotation",
             "named": true
           },
           {
@@ -6259,6 +6391,10 @@
             "named": true
           },
           {
+            "type": "quotation",
+            "named": true
+          },
+          {
             "type": "raw_string",
             "named": true
           },
@@ -6426,6 +6562,10 @@
           },
           {
             "type": "prop_const",
+            "named": true
+          },
+          {
+            "type": "quotation",
             "named": true
           },
           {
@@ -6608,6 +6748,10 @@
           },
           {
             "type": "prop_const",
+            "named": true
+          },
+          {
+            "type": "quotation",
             "named": true
           },
           {
@@ -6795,6 +6939,10 @@
             "named": true
           },
           {
+            "type": "quotation",
+            "named": true
+          },
+          {
             "type": "raw_string",
             "named": true
           },
@@ -6958,6 +7106,10 @@
           },
           {
             "type": "prop_const",
+            "named": true
+          },
+          {
+            "type": "quotation",
             "named": true
           },
           {
@@ -7138,6 +7290,10 @@
             "named": true
           },
           {
+            "type": "quotation",
+            "named": true
+          },
+          {
             "type": "raw_string",
             "named": true
           },
@@ -7301,6 +7457,10 @@
           },
           {
             "type": "prop_const",
+            "named": true
+          },
+          {
+            "type": "quotation",
             "named": true
           },
           {
@@ -7481,6 +7641,10 @@
           },
           {
             "type": "prop_const",
+            "named": true
+          },
+          {
+            "type": "quotation",
             "named": true
           },
           {
@@ -7671,6 +7835,10 @@
           },
           {
             "type": "prop_const",
+            "named": true
+          },
+          {
+            "type": "quotation",
             "named": true
           },
           {
@@ -7894,6 +8062,10 @@
             "named": true
           },
           {
+            "type": "quotation",
+            "named": true
+          },
+          {
             "type": "raw_string",
             "named": true
           },
@@ -8066,6 +8238,10 @@
         },
         {
           "type": "prop_const",
+          "named": true
+        },
+        {
+          "type": "quotation",
           "named": true
         },
         {
@@ -8258,6 +8434,10 @@
             "named": true
           },
           {
+            "type": "quotation",
+            "named": true
+          },
+          {
             "type": "raw_string",
             "named": true
           },
@@ -8422,6 +8602,10 @@
         },
         {
           "type": "prop_const",
+          "named": true
+        },
+        {
+          "type": "quotation",
           "named": true
         },
         {
@@ -8597,6 +8781,10 @@
           },
           {
             "type": "prop_const",
+            "named": true
+          },
+          {
+            "type": "quotation",
             "named": true
           },
           {
@@ -8777,6 +8965,10 @@
           },
           {
             "type": "prop_const",
+            "named": true
+          },
+          {
+            "type": "quotation",
             "named": true
           },
           {
@@ -8996,6 +9188,10 @@
             "named": true
           },
           {
+            "type": "quotation",
+            "named": true
+          },
+          {
             "type": "raw_string",
             "named": true
           },
@@ -9187,6 +9383,10 @@
           "named": true
         },
         {
+          "type": "quotation",
+          "named": true
+        },
+        {
           "type": "raw_string",
           "named": true
         },
@@ -9355,6 +9555,10 @@
           },
           {
             "type": "prop_const",
+            "named": true
+          },
+          {
+            "type": "quotation",
             "named": true
           },
           {
@@ -9542,6 +9746,10 @@
             "named": true
           },
           {
+            "type": "quotation",
+            "named": true
+          },
+          {
             "type": "raw_string",
             "named": true
           },
@@ -9705,6 +9913,10 @@
           },
           {
             "type": "prop_const",
+            "named": true
+          },
+          {
+            "type": "quotation",
             "named": true
           },
           {
@@ -9880,6 +10092,10 @@
           "named": true
         },
         {
+          "type": "quotation",
+          "named": true
+        },
+        {
           "type": "raw_string",
           "named": true
         },
@@ -10048,6 +10264,10 @@
           },
           {
             "type": "prop_const",
+            "named": true
+          },
+          {
+            "type": "quotation",
             "named": true
           },
           {
@@ -10233,6 +10453,10 @@
             "named": true
           },
           {
+            "type": "quotation",
+            "named": true
+          },
+          {
             "type": "raw_string",
             "named": true
           },
@@ -10396,6 +10620,10 @@
           },
           {
             "type": "prop_const",
+            "named": true
+          },
+          {
+            "type": "quotation",
             "named": true
           },
           {
@@ -10714,6 +10942,10 @@
             "named": true
           },
           {
+            "type": "quotation",
+            "named": true
+          },
+          {
             "type": "raw_string",
             "named": true
           },
@@ -10891,6 +11123,10 @@
           },
           {
             "type": "prop_const",
+            "named": true
+          },
+          {
+            "type": "quotation",
             "named": true
           },
           {
@@ -11130,6 +11366,10 @@
             "named": true
           },
           {
+            "type": "quotation",
+            "named": true
+          },
+          {
             "type": "raw_string",
             "named": true
           },
@@ -11300,6 +11540,10 @@
             "named": true
           },
           {
+            "type": "quotation",
+            "named": true
+          },
+          {
             "type": "raw_string",
             "named": true
           },
@@ -11464,6 +11708,10 @@
         },
         {
           "type": "prop_const",
+          "named": true
+        },
+        {
+          "type": "quotation",
           "named": true
         },
         {
@@ -11668,6 +11916,10 @@
             "named": true
           },
           {
+            "type": "quotation",
+            "named": true
+          },
+          {
             "type": "raw_string",
             "named": true
           },
@@ -11818,6 +12070,10 @@
             "named": true
           },
           {
+            "type": "quotation",
+            "named": true
+          },
+          {
             "type": "raw_string",
             "named": true
           },
@@ -11874,6 +12130,192 @@
     "type": "public_section",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "quotation",
+    "named": true,
+    "fields": {
+      "category": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "anon_ctor",
+          "named": true
+        },
+        {
+          "type": "app",
+          "named": true
+        },
+        {
+          "type": "array_lit",
+          "named": true
+        },
+        {
+          "type": "binary_op",
+          "named": true
+        },
+        {
+          "type": "by",
+          "named": true
+        },
+        {
+          "type": "cdot",
+          "named": true
+        },
+        {
+          "type": "char_lit",
+          "named": true
+        },
+        {
+          "type": "do_block",
+          "named": true
+        },
+        {
+          "type": "dot_ident",
+          "named": true
+        },
+        {
+          "type": "exists",
+          "named": true
+        },
+        {
+          "type": "false_const",
+          "named": true
+        },
+        {
+          "type": "forall",
+          "named": true
+        },
+        {
+          "type": "fun",
+          "named": true
+        },
+        {
+          "type": "have",
+          "named": true
+        },
+        {
+          "type": "hole",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "if_then_else",
+          "named": true
+        },
+        {
+          "type": "interpolated_str",
+          "named": true
+        },
+        {
+          "type": "let",
+          "named": true
+        },
+        {
+          "type": "list_lit",
+          "named": true
+        },
+        {
+          "type": "match",
+          "named": true
+        },
+        {
+          "type": "name_lit",
+          "named": true
+        },
+        {
+          "type": "named_hole",
+          "named": true
+        },
+        {
+          "type": "num_lit",
+          "named": true
+        },
+        {
+          "type": "paren",
+          "named": true
+        },
+        {
+          "type": "prec_annotated",
+          "named": true
+        },
+        {
+          "type": "proj",
+          "named": true
+        },
+        {
+          "type": "prop_const",
+          "named": true
+        },
+        {
+          "type": "quotation",
+          "named": true
+        },
+        {
+          "type": "raw_string",
+          "named": true
+        },
+        {
+          "type": "rest_pat",
+          "named": true
+        },
+        {
+          "type": "scientific_lit",
+          "named": true
+        },
+        {
+          "type": "show",
+          "named": true
+        },
+        {
+          "type": "sorry",
+          "named": true
+        },
+        {
+          "type": "sort_const",
+          "named": true
+        },
+        {
+          "type": "str_lit",
+          "named": true
+        },
+        {
+          "type": "struct_lit",
+          "named": true
+        },
+        {
+          "type": "synth_hole",
+          "named": true
+        },
+        {
+          "type": "true_const",
+          "named": true
+        },
+        {
+          "type": "type_const",
+          "named": true
+        },
+        {
+          "type": "unary_op",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "reduce",
@@ -11993,6 +12435,10 @@
           },
           {
             "type": "prop_const",
+            "named": true
+          },
+          {
+            "type": "quotation",
             "named": true
           },
           {
@@ -12143,6 +12589,10 @@
           },
           {
             "type": "prop_const",
+            "named": true
+          },
+          {
+            "type": "quotation",
             "named": true
           },
           {
@@ -12310,6 +12760,10 @@
             "named": true
           },
           {
+            "type": "quotation",
+            "named": true
+          },
+          {
             "type": "raw_string",
             "named": true
           },
@@ -12473,6 +12927,10 @@
           },
           {
             "type": "prop_const",
+            "named": true
+          },
+          {
+            "type": "quotation",
             "named": true
           },
           {
@@ -12711,6 +13169,10 @@
             "named": true
           },
           {
+            "type": "quotation",
+            "named": true
+          },
+          {
             "type": "raw_string",
             "named": true
           },
@@ -12893,6 +13355,10 @@
             "named": true
           },
           {
+            "type": "quotation",
+            "named": true
+          },
+          {
             "type": "raw_string",
             "named": true
           },
@@ -13062,6 +13528,10 @@
           },
           {
             "type": "prop_const",
+            "named": true
+          },
+          {
+            "type": "quotation",
             "named": true
           },
           {
@@ -13261,6 +13731,10 @@
             "named": true
           },
           {
+            "type": "quotation",
+            "named": true
+          },
+          {
             "type": "raw_string",
             "named": true
           },
@@ -13440,6 +13914,10 @@
           "named": true
         },
         {
+          "type": "quotation",
+          "named": true
+        },
+        {
           "type": "raw_string",
           "named": true
         },
@@ -13612,6 +14090,10 @@
           },
           {
             "type": "prop_const",
+            "named": true
+          },
+          {
+            "type": "quotation",
             "named": true
           },
           {
@@ -13792,6 +14274,10 @@
           },
           {
             "type": "prop_const",
+            "named": true
+          },
+          {
+            "type": "quotation",
             "named": true
           },
           {
@@ -14011,6 +14497,10 @@
           },
           {
             "type": "prop_const",
+            "named": true
+          },
+          {
+            "type": "quotation",
             "named": true
           },
           {
