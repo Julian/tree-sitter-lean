@@ -383,11 +383,20 @@ export default grammar({
        grouping: both create unresolvable ambiguities with the
        surrounding declaration. Real Lean code overwhelmingly uses one
        name per line in structure fields. doc_comment is in `extras`
-       so it still attaches to the field as trivia. */
-    field: $ => seq(
-      field('name', $._binder_ident),
-      $._type_spec,
-      optional(field('default', seq(':=', $._term))),
+       so it still attaches to the field as trivia. Also accepts
+       `[name : T]` instance-implicit field form. */
+    field: $ => choice(
+      seq(
+        field('name', $._binder_ident),
+        $._type_spec,
+        optional(field('default', seq(':=', $._term))),
+      ),
+      seq(
+        '[',
+        field('name', $._binder_ident),
+        $._type_spec,
+        ']',
+      ),
     ),
 
     ctor_alt: $ => seq(

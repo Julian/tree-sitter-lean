@@ -986,3 +986,24 @@ assert_not_imported Mathlib.Data.Foo
   (assert_cmd
     target: (identifier))
   (assert_cmd))
+
+==============
+Instance-implicit field
+==============
+
+class Foo where
+  [bar : Bar]
+  baz : Nat
+
+---
+
+(module
+  (declaration
+    (structure
+      name: (identifier)
+      (field
+        name: (identifier)
+        type: (identifier))
+      (field
+        name: (identifier)
+        type: (identifier)))))

@@ -1796,42 +1796,72 @@
       ]
     },
     "field": {
-      "type": "SEQ",
+      "type": "CHOICE",
       "members": [
         {
-          "type": "FIELD",
-          "name": "name",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_binder_ident"
-          }
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_type_spec"
-        },
-        {
-          "type": "CHOICE",
+          "type": "SEQ",
           "members": [
             {
               "type": "FIELD",
-              "name": "default",
+              "name": "name",
               "content": {
-                "type": "SEQ",
-                "members": [
-                  {
-                    "type": "STRING",
-                    "value": ":="
-                  },
-                  {
-                    "type": "SYMBOL",
-                    "name": "_term"
-                  }
-                ]
+                "type": "SYMBOL",
+                "name": "_binder_ident"
               }
             },
             {
-              "type": "BLANK"
+              "type": "SYMBOL",
+              "name": "_type_spec"
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "FIELD",
+                  "name": "default",
+                  "content": {
+                    "type": "SEQ",
+                    "members": [
+                      {
+                        "type": "STRING",
+                        "value": ":="
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "_term"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "["
+            },
+            {
+              "type": "FIELD",
+              "name": "name",
+              "content": {
+                "type": "SYMBOL",
+                "name": "_binder_ident"
+              }
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_type_spec"
+            },
+            {
+              "type": "STRING",
+              "value": "]"
             }
           ]
         }
