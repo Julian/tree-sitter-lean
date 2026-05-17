@@ -1007,3 +1007,30 @@ class Foo where
       (field
         name: (identifier)
         type: (identifier)))))
+
+==============
+Singleton set notation
+==============
+
+#check {p}
+
+---
+
+(module
+  (check
+    term: (struct_lit
+      singleton: (identifier))))
+
+==============
+Divides operator
+==============
+
+#check a ∣ b
+
+---
+
+(module
+  (check
+    term: (binary_op
+      lhs: (identifier)
+      rhs: (identifier))))

@@ -634,12 +634,16 @@ export default grammar({
     array_lit: $ => seq('#[', sep0($._term, ','), ']'),
 
     /* `{ field := value, ... }` (anonymous structure) and the
-       `{ src with field := value, ... }` update form. `{}` is empty. */
+       `{ src with field := value, ... }` update form. `{}` is empty.
+       `{e}` matches the Mathlib singleton-set notation. */
     struct_lit: $ => seq(
       '{',
-      optional(seq(
-        optional(seq(field('source', $._term), 'with')),
-        sep1($.struct_field, optional(',')),
+      optional(choice(
+        seq(
+          optional(seq(field('source', $._term), 'with')),
+          sep1($.struct_field, optional(',')),
+        ),
+        field('singleton', $._term),
       )),
       '}',
     ),
@@ -732,6 +736,7 @@ export default grammar({
           '>', '≥', '>=',
           '∈', '∉', '⊆', '⊂', '⊇', '⊃',
           '≡', '≢', '~', '≃', '≅',
+          '∣', '∤',  /* divides, not-divides */
         )),
         field('rhs', $._op_term),
       )),
