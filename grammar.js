@@ -519,6 +519,7 @@ export default grammar({
       $.subtype_lit,
       $.rest_pat,
       $.prec_annotated,
+      $.pct_macro,
       $.quotation,
     ),
 
@@ -536,6 +537,12 @@ export default grammar({
       field('name', $.identifier),
       token.immediate(':'),
       field('prec', choice($.identifier, $.num_lit)),
+    ),
+
+    /* `ident%` — Lean built-in macro postfix (e.g. `decl_name%`). */
+    pct_macro: $ => seq(
+      field('name', $.identifier),
+      token.immediate('%'),
     ),
 
     hole:        _ => '_',

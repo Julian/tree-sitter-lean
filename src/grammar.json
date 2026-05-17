@@ -2418,6 +2418,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "pct_macro"
+        },
+        {
+          "type": "SYMBOL",
           "name": "quotation"
         }
       ]
@@ -2476,6 +2480,26 @@
                 "name": "num_lit"
               }
             ]
+          }
+        }
+      ]
+    },
+    "pct_macro": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "IMMEDIATE_TOKEN",
+          "content": {
+            "type": "STRING",
+            "value": "%"
           }
         }
       ]

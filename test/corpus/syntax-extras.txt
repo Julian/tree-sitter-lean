@@ -820,3 +820,30 @@ Tuple destructuring let
       body: (binary_op
         lhs: (identifier)
         rhs: (identifier)))))
+
+==============
+Macro postfix percent
+==============
+
+#check decl_name%
+
+---
+
+(module
+  (check
+    term: (pct_macro
+      name: (identifier))))
+
+==============
+Modulo with spaces is still modulo
+==============
+
+#check a % b
+
+---
+
+(module
+  (check
+    term: (binary_op
+      lhs: (identifier)
+      rhs: (identifier))))
