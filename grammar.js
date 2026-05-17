@@ -57,7 +57,11 @@ export default grammar({
 
   word: $ => $._plain_ident,
 
-  conflicts: _ => [],
+  conflicts: $ => [
+    /* `public`/`meta` can start either an `import` or a Lean 4
+       module-system-visibility-prefixed declaration. */
+    [$.import, $.declaration],
+  ],
 
   rules: {
     module: $ => seq(
@@ -208,6 +212,7 @@ export default grammar({
 
     declaration: $ => seq(
       optional($.attributes),
+      optional($._visibility_mods),
       optional($.decl_modifiers),
       choice(
         $.def,
@@ -222,6 +227,11 @@ export default grammar({
         $.inductive,
       ),
     ),
+
+    /* Lean 4 module system visibility markers `public`/`meta` —
+       structured separately from decl_modifiers to avoid conflict
+       with the `import` prefix forms. */
+    _visibility_mods: $ => repeat1(choice($.public, $.meta)),
 
     attributes: $ => seq('@[', sep1($._attr_instance, ','), ']'),
     _attr_instance: $ => seq(

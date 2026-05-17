@@ -881,6 +881,18 @@
           "members": [
             {
               "type": "SYMBOL",
+              "name": "_visibility_mods"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
               "name": "decl_modifiers"
             },
             {
@@ -934,6 +946,22 @@
           ]
         }
       ]
+    },
+    "_visibility_mods": {
+      "type": "REPEAT1",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "public"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "meta"
+          }
+        ]
+      }
     },
     "attributes": {
       "type": "SEQ",
@@ -4905,7 +4933,12 @@
       "name": "doc_comment"
     }
   ],
-  "conflicts": [],
+  "conflicts": [
+    [
+      "import",
+      "declaration"
+    ]
+  ],
   "precedences": [],
   "externals": [
     {

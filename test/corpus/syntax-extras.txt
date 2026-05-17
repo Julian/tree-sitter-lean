@@ -767,3 +767,37 @@ deriving instance DecidableEq, Repr for Foo
     class: (identifier)
     class: (identifier)
     target: (identifier)))
+
+==============
+Public def (visibility modifier)
+==============
+
+@[expose] public def foo : Nat := 42
+
+---
+
+(module
+  (declaration
+    (attributes
+      name: (identifier))
+    (public)
+    (def
+      name: (identifier)
+      type: (identifier)
+      body: (num_lit))))
+
+==============
+Meta public def
+==============
+
+meta public def bar := 1
+
+---
+
+(module
+  (declaration
+    (meta)
+    (public)
+    (def
+      name: (identifier)
+      body: (num_lit))))

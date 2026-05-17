@@ -3613,7 +3613,15 @@
           "named": true
         },
         {
+          "type": "meta",
+          "named": true
+        },
+        {
           "type": "opaque",
+          "named": true
+        },
+        {
+          "type": "public",
           "named": true
         },
         {
