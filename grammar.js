@@ -106,7 +106,19 @@ export default grammar({
       $.initialize,
       $.set_option,
       $.deriving_cmd,
+      $.assert_cmd,
       $.declaration,
+    ),
+
+    /* `assert_not_exists Name`, `assert_not_imported Name`, etc. —
+       Lean's lightweight assertion commands taking a single ident. */
+    assert_cmd: $ => seq(
+      choice(
+        'assert_not_exists', 'assert_not_imported',
+        'assert_exists', 'check_assertions',
+        '#exit', '#synth', '#version',
+      ),
+      optional(field('target', $._term_atom)),
     ),
 
     /* `deriving instance Foo, Bar for Baz` — standalone deriving. */

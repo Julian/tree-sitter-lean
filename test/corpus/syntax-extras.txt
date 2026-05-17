@@ -969,3 +969,20 @@ structure Foo where
       (field
         name: (identifier)
         type: (identifier)))))
+
+==============
+Assertion commands
+==============
+
+assert_not_exists Finset
+assert_not_imported Mathlib.Data.Foo
+#exit
+
+---
+
+(module
+  (assert_cmd
+    target: (identifier))
+  (assert_cmd
+    target: (identifier))
+  (assert_cmd))

@@ -200,7 +200,65 @@
         },
         {
           "type": "SYMBOL",
+          "name": "assert_cmd"
+        },
+        {
+          "type": "SYMBOL",
           "name": "declaration"
+        }
+      ]
+    },
+    "assert_cmd": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "assert_not_exists"
+            },
+            {
+              "type": "STRING",
+              "value": "assert_not_imported"
+            },
+            {
+              "type": "STRING",
+              "value": "assert_exists"
+            },
+            {
+              "type": "STRING",
+              "value": "check_assertions"
+            },
+            {
+              "type": "STRING",
+              "value": "#exit"
+            },
+            {
+              "type": "STRING",
+              "value": "#synth"
+            },
+            {
+              "type": "STRING",
+              "value": "#version"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "target",
+              "content": {
+                "type": "SYMBOL",
+                "name": "_term_atom"
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         }
       ]
     },
