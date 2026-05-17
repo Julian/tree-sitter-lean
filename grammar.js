@@ -486,6 +486,7 @@ export default grammar({
       $._term_atom,
       $.app,
       $.proj,
+      $.subscript,
       $.binary_op,
       $.unary_op,
     ),
@@ -652,6 +653,15 @@ export default grammar({
       field('term', $._op_term),
       token.immediate('.'),
       field('field', choice($.identifier, $.num_lit)),
+    )),
+
+    /* `arr[idx]` — array/dict indexing. Distinguished from `f [list]`
+       by the immediate `[` (no whitespace between fn and bracket). */
+    subscript: $ => prec.left(PREC.proj, seq(
+      field('term', $._op_term),
+      token.immediate('['),
+      field('index', $._term),
+      ']',
     )),
 
     /* ----- operators ---------------------------------------------------- */

@@ -889,3 +889,34 @@ Range with only stop
   (check
     term: (range_lit
       stop: (num_lit))))
+
+==============
+Array indexing
+==============
+
+#check arr[i]
+
+---
+
+(module
+  (check
+    term: (subscript
+      term: (identifier)
+      index: (identifier))))
+
+==============
+Application with bracket arg
+==============
+
+#check f [1, 2, 3]
+
+---
+
+(module
+  (check
+    term: (app
+      fn: (identifier)
+      arg: (list_lit
+        (num_lit)
+        (num_lit)
+        (num_lit)))))
