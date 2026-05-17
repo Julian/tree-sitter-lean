@@ -1078,3 +1078,21 @@ Scalar multiplication
     term: (binary_op
       lhs: (identifier)
       rhs: (identifier))))
+
+==============
+Inline tactic semicolon chain
+==============
+
+example : Nat := by exact 0; rfl
+
+---
+
+(module
+  (declaration
+    (example
+      type: (identifier)
+      body: (by
+        inline: (app
+          fn: (identifier)
+          arg: (num_lit))
+        inline: (identifier)))))

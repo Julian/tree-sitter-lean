@@ -903,7 +903,9 @@ export default grammar({
     do_block: $ => seq('do', $._block_body),
 
     _block_body: $ => choice(
-      field('inline', $._term),
+      /* Inline `by tac; tac` and `do x; y` — multiple tactics
+         separated by semicolons, all on one line. */
+      prec.right(sep1(field('inline', $._term), ';')),
       seq(
         $._indent,
         sep1(field('stmt', choice($.block_assign, $._term)),

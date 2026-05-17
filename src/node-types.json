@@ -2717,7 +2717,7 @@
     "named": true,
     "fields": {
       "inline": {
-        "multiple": false,
+        "multiple": true,
         "required": false,
         "types": [
           {
@@ -4538,7 +4538,7 @@
     "named": true,
     "fields": {
       "inline": {
-        "multiple": false,
+        "multiple": true,
         "required": false,
         "types": [
           {
