@@ -552,3 +552,35 @@ Named arg in paren
       arg: (paren
         arg_name: (identifier)
         arg_value: (num_lit)))))
+
+==============
+Destructured tuple binder
+==============
+
+#check fun (x, y) => x + y
+
+---
+
+(module
+  (check
+    term: (fun
+      (binders
+        (tuple_binder
+          (identifier)
+          (identifier)))
+      body: (binary_op
+        lhs: (identifier)
+        rhs: (identifier)))))
+
+==============
+Lowercase true/false
+==============
+
+#check true
+#check false
+
+---
+
+(module
+  (check term: (true_const))
+  (check term: (false_const)))

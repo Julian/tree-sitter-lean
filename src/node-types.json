@@ -2005,7 +2005,7 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "explicit_binder",
@@ -2029,6 +2029,10 @@
         },
         {
           "type": "strict_implicit_binder",
+          "named": true
+        },
+        {
+          "type": "tuple_binder",
           "named": true
         }
       ]
@@ -13864,6 +13868,25 @@
     "type": "true_const",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "tuple_binder",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "hole",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "type_const",

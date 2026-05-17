@@ -372,7 +372,13 @@ export default grammar({
     /* ===== binders ======================================================= */
 
     _binders: $ => alias(repeat1($._binder), $.binders),
-    _binder: $ => choice($._binder_ident, $._bracketed_binder),
+    _binder: $ => choice($._binder_ident, $._bracketed_binder, $.tuple_binder),
+
+    /* `fun (x, y) => …` — destructured tuple as a single binder.
+       Distinct from `explicit_binder` (which has `:`). */
+    tuple_binder: $ => seq('(',
+      $._binder_ident, ',', sep1($._binder_ident, ','),
+      ')'),
 
     _binder_ident: $ => choice($.identifier, $.hole),
 
@@ -548,9 +554,7 @@ export default grammar({
     array_lit: $ => seq('#[', sep0($._term, ','), ']'),
 
     /* `{ field := value, ... }` (anonymous structure) and the
-       `{ src with field := value, ... }` update form. `{}` is an
-       empty struct. Lean allows newline-separated fields without
-       commas (rarer; seen in Parser/Basic.lean). */
+       `{ src with field := value, ... }` update form. `{}` is empty. */
     struct_lit: $ => seq(
       '{',
       optional(seq(
