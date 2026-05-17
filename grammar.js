@@ -683,12 +683,19 @@ export default grammar({
 
     /* ----- binder-using terms ------------------------------------------- */
 
+    /* `fun arg1 arg2 => body`  or  `fun | pat => body | …` (match
+       style). The latter is sugar for `fun x => match x with | … | …`. */
     fun: $ => prec.right(seq(
       choice('fun', 'λ'),
-      $._binders,
-      optional($._type_spec),
-      choice('=>', '↦'),
-      field('body', $._term),
+      choice(
+        seq(
+          $._binders,
+          optional($._type_spec),
+          choice('=>', '↦'),
+          field('body', $._term),
+        ),
+        repeat1($.match_alt),
+      ),
     )),
 
     forall: $ => prec.right(seq(

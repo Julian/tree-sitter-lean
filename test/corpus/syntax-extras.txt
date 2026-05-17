@@ -615,3 +615,23 @@ Syntax quotation with category
       (app
         fn: (identifier)
         arg: (num_lit)))))
+
+==============
+Match-style fun
+==============
+
+#check fun | 0 => 1 | n => n + 1
+
+---
+
+(module
+  (check
+    term: (fun
+      (match_alt
+        pattern: (num_lit)
+        body: (num_lit))
+      (match_alt
+        pattern: (identifier)
+        body: (binary_op
+          lhs: (identifier)
+          rhs: (num_lit))))))

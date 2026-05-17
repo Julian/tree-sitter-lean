@@ -6276,7 +6276,7 @@
     "fields": {
       "body": {
         "multiple": false,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": "anon_ctor",
@@ -6620,11 +6620,15 @@
       }
     },
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
           "type": "binders",
+          "named": true
+        },
+        {
+          "type": "match_alt",
           "named": true
         }
       ]
