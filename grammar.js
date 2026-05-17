@@ -725,7 +725,9 @@ export default grammar({
     /* ----- operators ---------------------------------------------------- */
 
     unary_op: $ => prec(PREC.prefix, seq(
-      field('op', choice('-', '¬', '!', '←', '<-', '#')),
+      field('op', choice('-', '¬', '!', '←', '<-', '#',
+        /* Coercion prefixes. */
+        '↥', '↑', '↓')),
       field('rhs', $._op_term),
     )),
 
@@ -750,12 +752,12 @@ export default grammar({
       )),
       prec.left(PREC.or, seq(
         field('lhs', $._op_term),
-        field('op', choice('∨', '||')),
+        field('op', choice('∨', '||', '⊔')),
         field('rhs', $._op_term),
       )),
       prec.left(PREC.and, seq(
         field('lhs', $._op_term),
-        field('op', choice('∧', '&&')),
+        field('op', choice('∧', '&&', '⊓')),
         field('rhs', $._op_term),
       )),
       prec.left(PREC.cmp, seq(
