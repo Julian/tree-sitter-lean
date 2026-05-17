@@ -948,3 +948,24 @@ Panicking array indexing
     term: (subscript
       term: (identifier)
       index: (identifier))))
+
+==============
+Private structure constructor
+==============
+
+structure Foo where
+  private mk ::
+  val : Nat
+
+---
+
+(module
+  (declaration
+    (structure
+      name: (identifier)
+      (ctor
+        (decl_modifiers)
+        name: (identifier))
+      (field
+        name: (identifier)
+        type: (identifier)))))
