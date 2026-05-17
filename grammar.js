@@ -193,7 +193,13 @@ export default grammar({
     ),
     end: $ => seq('end', optional(field('name', $.identifier))),
 
-    variable: $ => seq('variable', repeat1($._bracketed_binder)),
+    /* `variable [Foo R]` declares one or more vars. `variable (R) in
+       <cmd>` scopes the variable just to a single following command. */
+    variable: $ => prec.right(seq(
+      'variable',
+      repeat1($._bracketed_binder),
+      optional(seq('in', field('body', $._command))),
+    )),
 
     universe: $ => seq(
       choice('universe', 'universes'),
