@@ -2359,12 +2359,30 @@
       "value": "Prop"
     },
     "true_const": {
-      "type": "STRING",
-      "value": "True"
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "True"
+        },
+        {
+          "type": "STRING",
+          "value": "true"
+        }
+      ]
     },
     "false_const": {
-      "type": "STRING",
-      "value": "False"
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "False"
+        },
+        {
+          "type": "STRING",
+          "value": "false"
+        }
+      ]
     },
     "sorry": {
       "type": "CHOICE",

@@ -5418,6 +5418,11 @@
     }
   },
   {
+    "type": "false_const",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "field",
     "named": true,
     "fields": {
@@ -13856,6 +13861,11 @@
     }
   },
   {
+    "type": "true_const",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "type_const",
     "named": true,
     "fields": {},
@@ -14295,7 +14305,15 @@
     "named": false
   },
   {
+    "type": "False",
+    "named": false
+  },
+  {
     "type": "Sort",
+    "named": false
+  },
+  {
+    "type": "True",
     "named": false
   },
   {
@@ -14421,8 +14439,8 @@
     "named": false
   },
   {
-    "type": "false_const",
-    "named": true
+    "type": "false",
+    "named": false
   },
   {
     "type": "forall",
@@ -14606,8 +14624,8 @@
     "named": false
   },
   {
-    "type": "true_const",
-    "named": true
+    "type": "true",
+    "named": false
   },
   {
     "type": "universe",

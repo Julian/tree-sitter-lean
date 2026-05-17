@@ -1,0 +1,554 @@
+==============
+Dollar application operator
+==============
+
+#check f $ g x
+
+---
+
+(module
+  (check
+    term: (binary_op
+      lhs: (identifier)
+      rhs: (app
+        fn: (identifier)
+        arg: (identifier)))))
+
+==============
+Cdot anonymous fn placeholder
+==============
+
+#check List.map (·.fst) xs
+
+---
+
+(module
+  (check
+    term: (app
+      fn: (app
+        fn: (identifier)
+        arg: (paren
+          (proj
+            term: (cdot)
+            field: (identifier))))
+      arg: (identifier))))
+
+==============
+Dot ident
+==============
+
+#check .none
+
+---
+
+(module
+  (check
+    term: (dot_ident
+      name: (identifier))))
+
+==============
+Rest pattern
+==============
+
+#check match x with | .foo .. => 0
+
+---
+
+(module
+  (check
+    term: (match
+      scrutinee: (identifier)
+      (match_alt
+        pattern: (app
+          fn: (dot_ident name: (identifier))
+          arg: (rest_pat))
+        body: (num_lit)))))
+
+==============
+If with named hypothesis
+==============
+
+#check if h : a = b then x else y
+
+---
+
+(module
+  (check
+    term: (if_then_else
+      hyp: (identifier)
+      cond: (binary_op
+        lhs: (identifier)
+        rhs: (identifier))
+      then: (identifier)
+      else: (identifier))))
+
+==============
+Let rec
+==============
+
+#check let rec f := 1; f
+
+---
+
+(module
+  (check
+    term: (let
+      name: (identifier)
+      value: (num_lit)
+      body: (identifier))))
+
+==============
+Let mut
+==============
+
+#check let mut x := 0; x
+
+---
+
+(module
+  (check
+    term: (let
+      name: (identifier)
+      value: (num_lit)
+      body: (identifier))))
+
+==============
+Let monadic bind
+==============
+
+#check let x ← read; x
+
+---
+
+(module
+  (check
+    term: (let
+      name: (identifier)
+      value: (identifier)
+      body: (identifier))))
+
+==============
+Unary monadic extract
+==============
+
+#check (← read)
+
+---
+
+(module
+  (check
+    term: (paren
+      (unary_op
+        rhs: (identifier)))))
+
+==============
+App with fun arg
+==============
+
+#check List.map (fun x => x + 1) xs
+
+---
+
+(module
+  (check
+    term: (app
+      fn: (app
+        fn: (identifier)
+        arg: (paren
+          (fun
+            (binders (identifier))
+            body: (binary_op
+              lhs: (identifier)
+              rhs: (num_lit)))))
+      arg: (identifier))))
+
+==============
+App with bare fun arg
+==============
+
+#check List.map fun x => x + 1
+
+---
+
+(module
+  (check
+    term: (app
+      fn: (identifier)
+      arg: (fun
+        (binders (identifier))
+        body: (binary_op
+          lhs: (identifier)
+          rhs: (num_lit))))))
+
+==============
+App with do arg
+==============
+
+#check runIO do return 0
+
+---
+
+(module
+  (check
+    term: (app
+      fn: (identifier)
+      arg: (do_block
+        inline: (app
+          fn: (identifier)
+          arg: (num_lit))))))
+
+==============
+Anonymous structure literal
+==============
+
+#check { x := 1, y := 2 }
+
+---
+
+(module
+  (check
+    term: (struct_lit
+      (struct_field
+        name: (identifier)
+        value: (num_lit))
+      (struct_field
+        name: (identifier)
+        value: (num_lit)))))
+
+==============
+Empty structure literal
+==============
+
+#check {}
+
+---
+
+(module
+  (check
+    term: (struct_lit)))
+
+==============
+Structure update
+==============
+
+#check { s with x := 5 }
+
+---
+
+(module
+  (check
+    term: (struct_lit
+      source: (identifier)
+      (struct_field
+        name: (identifier)
+        value: (num_lit)))))
+
+==============
+Array literal
+==============
+
+#check #[1, 2, 3]
+
+---
+
+(module
+  (check
+    term: (array_lit
+      (num_lit)
+      (num_lit)
+      (num_lit))))
+
+==============
+Double-backtick name literal
+==============
+
+#check ``Foo.bar
+
+---
+
+(module
+  (check
+    term: (name_lit
+      name: (identifier))))
+
+==============
+Precedence-annotated identifier
+==============
+
+#check leading_parser:leadPrec
+
+---
+
+(module
+  (check
+    term: (prec_annotated
+      name: (identifier)
+      prec: (identifier))))
+
+==============
+Numeric precedence
+==============
+
+#check trailing_parser:65
+
+---
+
+(module
+  (check
+    term: (prec_annotated
+      name: (identifier)
+      prec: (num_lit))))
+
+==============
+Match-style def
+==============
+
+def f : Nat → Nat
+  | 0 => 0
+  | n => n + 1
+
+---
+
+(module
+  (declaration
+    (def
+      name: (identifier)
+      type: (binary_op
+        lhs: (identifier)
+        rhs: (identifier))
+      (match_alt
+        pattern: (num_lit)
+        body: (num_lit))
+      (match_alt
+        pattern: (identifier)
+        body: (binary_op
+          lhs: (identifier)
+          rhs: (num_lit))))))
+
+==============
+Where-struct def body (single field)
+==============
+
+def andthen : Parser where
+  info := andthenInfo
+
+---
+
+(module
+  (declaration
+    (def
+      name: (identifier)
+      type: (identifier)
+      (where_struct
+        (struct_field
+          name: (identifier)
+          value: (identifier))))))
+
+==============
+Public section
+==============
+
+public section
+
+def x := 1
+
+---
+
+(module
+  (public_section)
+  (declaration
+    (def
+      name: (identifier)
+      body: (num_lit))))
+
+==============
+Set option
+==============
+
+set_option pp.all true
+
+---
+
+(module
+  (set_option
+    name: (identifier)
+    value: (true_const)))
+
+==============
+Initialize
+==============
+
+builtin_initialize foo : Bar ← someValue
+
+---
+
+(module
+  (initialize
+    name: (identifier)
+    type: (identifier)
+    (identifier)))
+
+==============
+Attribute command
+==============
+
+attribute [simp, inline] foo bar
+
+---
+
+(module
+  (attribute_cmd
+    name: (identifier)
+    name: (identifier)
+    target: (identifier)
+    target: (identifier)))
+
+==============
+Attribute with args
+==============
+
+@[combinator_parenthesizer foo, expose] def bar := 1
+
+---
+
+(module
+  (declaration
+    (attributes
+      name: (identifier)
+      arg: (identifier)
+      name: (identifier))
+    (def
+      name: (identifier)
+      body: (num_lit))))
+
+==============
+Block assignment in do
+==============
+
+def main := do
+  let mut x := 0
+  x := 5
+
+---
+
+(module
+  (declaration
+    (def
+      name: (identifier)
+      body: (do_block
+        stmt: (let
+          name: (identifier)
+          value: (num_lit))
+        stmt: (block_assign
+          name: (identifier)
+          value: (num_lit))))))
+
+==============
+Multi-line string
+==============
+
+#check "first line
+second line
+third line"
+
+---
+
+(module
+  (check
+    term: (str_lit)))
+
+==============
+Less-than-and operator
+==============
+
+#check a <&&> b
+
+---
+
+(module
+  (check
+    term: (binary_op
+      lhs: (identifier)
+      rhs: (identifier))))
+
+==============
+Boolean equality
+==============
+
+#check a == b
+
+---
+
+(module
+  (check
+    term: (binary_op
+      lhs: (identifier)
+      rhs: (identifier))))
+
+==============
+Times product
+==============
+
+#check Nat × String
+
+---
+
+(module
+  (check
+    term: (binary_op
+      lhs: (identifier)
+      rhs: (identifier))))
+
+==============
+Subscripted identifier with prime
+==============
+
+#check List.foldl_α₀'
+
+---
+
+(module
+  (check
+    term: (identifier)))
+
+==============
+Raw string with multiple hash delimiters
+==============
+
+#check r##"contains "# and " inside"##
+
+---
+
+(module
+  (check
+    term: (raw_string)))
+
+==============
+Type universe with list
+==============
+
+#check Type.{u, v}
+
+---
+
+(module
+  (check
+    term: (type_const
+      (identifier)
+      (identifier))))
+
+==============
+Named arg in paren
+==============
+
+#check f (x := 5)
+
+---
+
+(module
+  (check
+    term: (app
+      fn: (identifier)
+      arg: (paren
+        arg_name: (identifier)
+        arg_value: (num_lit)))))

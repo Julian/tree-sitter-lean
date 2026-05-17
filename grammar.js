@@ -514,8 +514,10 @@ export default grammar({
     )))),
     sort_const: $ => prec.right(1, seq('Sort', optional($.identifier))),
     prop_const: _ => 'Prop',
-    true_const:  _ => 'True',
-    false_const: _ => 'False',
+    /* Capital `True`/`False` are Prop; lowercase `true`/`false` are
+       the boolean inductive's constructors. */
+    true_const:  _ => choice('True', 'true'),
+    false_const: _ => choice('False', 'false'),
     sorry:       _ => choice('sorry', 'admit'),
 
     paren: $ => seq(
