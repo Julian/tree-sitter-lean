@@ -3622,6 +3622,30 @@
                     },
                     {
                       "type": "STRING",
+                      "value": "→ₙ+"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "→ₙ*"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "→ₙ+*"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "→ₑ"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "→ₑ+"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "→ₑ*"
+                    },
+                    {
+                      "type": "STRING",
                       "value": "≃+"
                     },
                     {
@@ -3651,6 +3675,14 @@
                     {
                       "type": "STRING",
                       "value": "≃ᵃ"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "↪"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "↠"
                     }
                   ]
                 }

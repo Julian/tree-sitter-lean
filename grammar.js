@@ -740,8 +740,10 @@ export default grammar({
              `→ₗ[R]` parses as `→ₗ` + `[R]` applied to rhs).
              `≃` itself is in the cmp set; only the variants here. */
           '→+', '→*', '→+*', '→ₗ', '→ₐ', '→ₒ',
+          '→ₙ+', '→ₙ*', '→ₙ+*', '→ₑ', '→ₑ+', '→ₑ*',
           '≃+', '≃*', '≃+*', '≃ₗ', '≃ₐ', '≃ₒ',
           '→ᵃ', '≃ᵃ',
+          '↪', '↠',  /* embedding, surjection */
         )),
         field('rhs', $._term),
       )),

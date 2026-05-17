@@ -2222,6 +2222,18 @@
             "named": false
           },
           {
+            "type": "→ₑ",
+            "named": false
+          },
+          {
+            "type": "→ₑ*",
+            "named": false
+          },
+          {
+            "type": "→ₑ+",
+            "named": false
+          },
+          {
             "type": "→ₒ",
             "named": false
           },
@@ -2230,7 +2242,27 @@
             "named": false
           },
           {
+            "type": "→ₙ*",
+            "named": false
+          },
+          {
+            "type": "→ₙ+",
+            "named": false
+          },
+          {
+            "type": "→ₙ+*",
+            "named": false
+          },
+          {
             "type": "↔",
+            "named": false
+          },
+          {
+            "type": "↠",
+            "named": false
+          },
+          {
+            "type": "↪",
             "named": false
           },
           {
@@ -20052,11 +20084,35 @@
     "named": false
   },
   {
+    "type": "→ₑ",
+    "named": false
+  },
+  {
+    "type": "→ₑ*",
+    "named": false
+  },
+  {
+    "type": "→ₑ+",
+    "named": false
+  },
+  {
     "type": "→ₒ",
     "named": false
   },
   {
     "type": "→ₗ",
+    "named": false
+  },
+  {
+    "type": "→ₙ*",
+    "named": false
+  },
+  {
+    "type": "→ₙ+",
+    "named": false
+  },
+  {
+    "type": "→ₙ+*",
     "named": false
   },
   {
@@ -20068,11 +20124,19 @@
     "named": false
   },
   {
+    "type": "↠",
+    "named": false
+  },
+  {
     "type": "↥",
     "named": false
   },
   {
     "type": "↦",
+    "named": false
+  },
+  {
+    "type": "↪",
     "named": false
   },
   {
