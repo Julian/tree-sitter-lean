@@ -359,8 +359,13 @@ export default grammar({
 
     _extends_clause: $ => seq('extends', sep1($._term, ',')),
 
-    /* `MkStruct ::` declares a named constructor (followed by fields). */
-    ctor: $ => seq(field('name', $.identifier), '::'),
+    /* `MkStruct ::` declares a named constructor (followed by fields).
+       Optionally preceded by decl modifiers (e.g. `private mk ::`). */
+    ctor: $ => seq(
+      optional($.decl_modifiers),
+      field('name', $.identifier),
+      '::',
+    ),
 
     /* Fields do not allow inline attributes/doc-comments or multi-name
        grouping: both create unresolvable ambiguities with the
