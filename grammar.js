@@ -550,6 +550,7 @@ export default grammar({
       $.rest_pat,
       $.prec_annotated,
       $.pct_macro,
+      $.explicit_mode,
       $.quotation,
     ),
 
@@ -574,6 +575,10 @@ export default grammar({
       field('name', $.identifier),
       token.immediate('%'),
     ),
+
+    /* `@foo` — disables implicit insertion (explicit args mode).
+       Distinct from `@[…]` attributes via immediate-next-char check. */
+    explicit_mode: $ => seq('@', $.identifier),
 
 
     hole:        _ => '_',

@@ -52,6 +52,10 @@
             "named": true
           },
           {
+            "type": "explicit_mode",
+            "named": true
+          },
+          {
             "type": "false_const",
             "named": true
           },
@@ -253,6 +257,10 @@
           },
           {
             "type": "exists",
+            "named": true
+          },
+          {
+            "type": "explicit_mode",
             "named": true
           },
           {
@@ -470,6 +478,10 @@
           "named": true
         },
         {
+          "type": "explicit_mode",
+          "named": true
+        },
+        {
           "type": "false_const",
           "named": true
         },
@@ -657,6 +669,10 @@
             "named": true
           },
           {
+            "type": "explicit_mode",
+            "named": true
+          },
+          {
             "type": "false_const",
             "named": true
           },
@@ -820,6 +836,10 @@
           },
           {
             "type": "dot_ident",
+            "named": true
+          },
+          {
+            "type": "explicit_mode",
             "named": true
           },
           {
@@ -988,6 +1008,10 @@
         },
         {
           "type": "exists",
+          "named": true
+        },
+        {
+          "type": "explicit_mode",
           "named": true
         },
         {
@@ -1166,6 +1190,10 @@
             "named": true
           },
           {
+            "type": "explicit_mode",
+            "named": true
+          },
+          {
             "type": "false_const",
             "named": true
           },
@@ -1299,6 +1327,10 @@
           },
           {
             "type": "dot_ident",
+            "named": true
+          },
+          {
+            "type": "explicit_mode",
             "named": true
           },
           {
@@ -1455,6 +1487,10 @@
           },
           {
             "type": "dot_ident",
+            "named": true
+          },
+          {
+            "type": "explicit_mode",
             "named": true
           },
           {
@@ -1635,6 +1671,10 @@
           },
           {
             "type": "exists",
+            "named": true
+          },
+          {
+            "type": "explicit_mode",
             "named": true
           },
           {
@@ -1829,6 +1869,10 @@
           },
           {
             "type": "dot_ident",
+            "named": true
+          },
+          {
+            "type": "explicit_mode",
             "named": true
           },
           {
@@ -2260,6 +2304,10 @@
             "named": true
           },
           {
+            "type": "explicit_mode",
+            "named": true
+          },
+          {
             "type": "false_const",
             "named": true
           },
@@ -2505,6 +2553,10 @@
             "named": true
           },
           {
+            "type": "explicit_mode",
+            "named": true
+          },
+          {
             "type": "false_const",
             "named": true
           },
@@ -2701,6 +2753,10 @@
             "named": true
           },
           {
+            "type": "explicit_mode",
+            "named": true
+          },
+          {
             "type": "false_const",
             "named": true
           },
@@ -2892,6 +2948,10 @@
           },
           {
             "type": "exists",
+            "named": true
+          },
+          {
+            "type": "explicit_mode",
             "named": true
           },
           {
@@ -3106,6 +3166,10 @@
             "named": true
           },
           {
+            "type": "explicit_mode",
+            "named": true
+          },
+          {
             "type": "false_const",
             "named": true
           },
@@ -3303,6 +3367,10 @@
           },
           {
             "type": "exists",
+            "named": true
+          },
+          {
+            "type": "explicit_mode",
             "named": true
           },
           {
@@ -3507,6 +3575,10 @@
           },
           {
             "type": "exists",
+            "named": true
+          },
+          {
+            "type": "explicit_mode",
             "named": true
           },
           {
@@ -3761,6 +3833,10 @@
           },
           {
             "type": "exists",
+            "named": true
+          },
+          {
+            "type": "explicit_mode",
             "named": true
           },
           {
@@ -4046,6 +4122,10 @@
             "named": true
           },
           {
+            "type": "explicit_mode",
+            "named": true
+          },
+          {
             "type": "false_const",
             "named": true
           },
@@ -4247,6 +4327,10 @@
           },
           {
             "type": "exists",
+            "named": true
+          },
+          {
+            "type": "explicit_mode",
             "named": true
           },
           {
@@ -4490,6 +4574,10 @@
             "named": true
           },
           {
+            "type": "explicit_mode",
+            "named": true
+          },
+          {
             "type": "false_const",
             "named": true
           },
@@ -4681,6 +4769,10 @@
           },
           {
             "type": "exists",
+            "named": true
+          },
+          {
+            "type": "explicit_mode",
             "named": true
           },
           {
@@ -4912,6 +5004,10 @@
             "named": true
           },
           {
+            "type": "explicit_mode",
+            "named": true
+          },
+          {
             "type": "false_const",
             "named": true
           },
@@ -5112,6 +5208,10 @@
             "named": true
           },
           {
+            "type": "explicit_mode",
+            "named": true
+          },
+          {
             "type": "false_const",
             "named": true
           },
@@ -5303,6 +5403,10 @@
           },
           {
             "type": "exists",
+            "named": true
+          },
+          {
+            "type": "explicit_mode",
             "named": true
           },
           {
@@ -5520,6 +5624,10 @@
             "named": true
           },
           {
+            "type": "explicit_mode",
+            "named": true
+          },
+          {
             "type": "false_const",
             "named": true
           },
@@ -5711,6 +5819,10 @@
           },
           {
             "type": "exists",
+            "named": true
+          },
+          {
+            "type": "explicit_mode",
             "named": true
           },
           {
@@ -5924,6 +6036,10 @@
             "named": true
           },
           {
+            "type": "explicit_mode",
+            "named": true
+          },
+          {
             "type": "false_const",
             "named": true
           },
@@ -6132,6 +6248,10 @@
             "named": true
           },
           {
+            "type": "explicit_mode",
+            "named": true
+          },
+          {
             "type": "false_const",
             "named": true
           },
@@ -6277,6 +6397,21 @@
           }
         ]
       }
+    }
+  },
+  {
+    "type": "explicit_mode",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -6363,6 +6498,10 @@
             "named": true
           },
           {
+            "type": "explicit_mode",
+            "named": true
+          },
+          {
             "type": "false_const",
             "named": true
           },
@@ -6568,6 +6707,10 @@
           },
           {
             "type": "exists",
+            "named": true
+          },
+          {
+            "type": "explicit_mode",
             "named": true
           },
           {
@@ -6767,6 +6910,10 @@
             "named": true
           },
           {
+            "type": "explicit_mode",
+            "named": true
+          },
+          {
             "type": "false_const",
             "named": true
           },
@@ -6958,6 +7105,10 @@
           },
           {
             "type": "exists",
+            "named": true
+          },
+          {
+            "type": "explicit_mode",
             "named": true
           },
           {
@@ -7167,6 +7318,10 @@
             "named": true
           },
           {
+            "type": "explicit_mode",
+            "named": true
+          },
+          {
             "type": "false_const",
             "named": true
           },
@@ -7358,6 +7513,10 @@
           },
           {
             "type": "exists",
+            "named": true
+          },
+          {
+            "type": "explicit_mode",
             "named": true
           },
           {
@@ -7571,6 +7730,10 @@
             "named": true
           },
           {
+            "type": "explicit_mode",
+            "named": true
+          },
+          {
             "type": "false_const",
             "named": true
           },
@@ -7779,6 +7942,10 @@
             "named": true
           },
           {
+            "type": "explicit_mode",
+            "named": true
+          },
+          {
             "type": "false_const",
             "named": true
           },
@@ -7966,6 +8133,10 @@
           },
           {
             "type": "exists",
+            "named": true
+          },
+          {
+            "type": "explicit_mode",
             "named": true
           },
           {
@@ -8170,6 +8341,10 @@
             "named": true
           },
           {
+            "type": "explicit_mode",
+            "named": true
+          },
+          {
             "type": "false_const",
             "named": true
           },
@@ -8357,6 +8532,10 @@
           },
           {
             "type": "exists",
+            "named": true
+          },
+          {
+            "type": "explicit_mode",
             "named": true
           },
           {
@@ -8561,6 +8740,10 @@
           },
           {
             "type": "exists",
+            "named": true
+          },
+          {
+            "type": "explicit_mode",
             "named": true
           },
           {
@@ -8775,6 +8958,10 @@
           },
           {
             "type": "exists",
+            "named": true
+          },
+          {
+            "type": "explicit_mode",
             "named": true
           },
           {
@@ -9022,6 +9209,10 @@
             "named": true
           },
           {
+            "type": "explicit_mode",
+            "named": true
+          },
+          {
             "type": "false_const",
             "named": true
           },
@@ -9218,6 +9409,10 @@
         },
         {
           "type": "exists",
+          "named": true
+        },
+        {
+          "type": "explicit_mode",
           "named": true
         },
         {
@@ -9434,6 +9629,10 @@
             "named": true
           },
           {
+            "type": "explicit_mode",
+            "named": true
+          },
+          {
             "type": "false_const",
             "named": true
           },
@@ -9622,6 +9821,10 @@
         },
         {
           "type": "exists",
+          "named": true
+        },
+        {
+          "type": "explicit_mode",
           "named": true
         },
         {
@@ -9821,6 +10024,10 @@
           },
           {
             "type": "exists",
+            "named": true
+          },
+          {
+            "type": "explicit_mode",
             "named": true
           },
           {
@@ -10025,6 +10232,10 @@
           },
           {
             "type": "exists",
+            "named": true
+          },
+          {
+            "type": "explicit_mode",
             "named": true
           },
           {
@@ -10268,6 +10479,10 @@
             "named": true
           },
           {
+            "type": "explicit_mode",
+            "named": true
+          },
+          {
             "type": "false_const",
             "named": true
           },
@@ -10483,6 +10698,10 @@
           "named": true
         },
         {
+          "type": "explicit_mode",
+          "named": true
+        },
+        {
           "type": "false_const",
           "named": true
         },
@@ -10675,6 +10894,10 @@
           },
           {
             "type": "exists",
+            "named": true
+          },
+          {
+            "type": "explicit_mode",
             "named": true
           },
           {
@@ -10890,6 +11113,10 @@
             "named": true
           },
           {
+            "type": "explicit_mode",
+            "named": true
+          },
+          {
             "type": "false_const",
             "named": true
           },
@@ -11077,6 +11304,10 @@
           },
           {
             "type": "exists",
+            "named": true
+          },
+          {
+            "type": "explicit_mode",
             "named": true
           },
           {
@@ -11276,6 +11507,10 @@
           "named": true
         },
         {
+          "type": "explicit_mode",
+          "named": true
+        },
+        {
           "type": "false_const",
           "named": true
         },
@@ -11468,6 +11703,10 @@
           },
           {
             "type": "exists",
+            "named": true
+          },
+          {
+            "type": "explicit_mode",
             "named": true
           },
           {
@@ -11677,6 +11916,10 @@
             "named": true
           },
           {
+            "type": "explicit_mode",
+            "named": true
+          },
+          {
             "type": "false_const",
             "named": true
           },
@@ -11864,6 +12107,10 @@
           },
           {
             "type": "exists",
+            "named": true
+          },
+          {
+            "type": "explicit_mode",
             "named": true
           },
           {
@@ -12224,6 +12471,10 @@
             "named": true
           },
           {
+            "type": "explicit_mode",
+            "named": true
+          },
+          {
             "type": "false_const",
             "named": true
           },
@@ -12425,6 +12676,10 @@
           },
           {
             "type": "exists",
+            "named": true
+          },
+          {
+            "type": "explicit_mode",
             "named": true
           },
           {
@@ -12688,6 +12943,10 @@
             "named": true
           },
           {
+            "type": "explicit_mode",
+            "named": true
+          },
+          {
             "type": "false_const",
             "named": true
           },
@@ -12882,6 +13141,10 @@
             "named": true
           },
           {
+            "type": "explicit_mode",
+            "named": true
+          },
+          {
             "type": "false_const",
             "named": true
           },
@@ -13070,6 +13333,10 @@
         },
         {
           "type": "exists",
+          "named": true
+        },
+        {
+          "type": "explicit_mode",
           "named": true
         },
         {
@@ -13314,6 +13581,10 @@
             "named": true
           },
           {
+            "type": "explicit_mode",
+            "named": true
+          },
+          {
             "type": "false_const",
             "named": true
           },
@@ -13509,6 +13780,10 @@
           },
           {
             "type": "dot_ident",
+            "named": true
+          },
+          {
+            "type": "explicit_mode",
             "named": true
           },
           {
@@ -13711,6 +13986,10 @@
           "named": true
         },
         {
+          "type": "explicit_mode",
+          "named": true
+        },
+        {
           "type": "false_const",
           "named": true
         },
@@ -13906,6 +14185,10 @@
             "named": true
           },
           {
+            "type": "explicit_mode",
+            "named": true
+          },
+          {
             "type": "false_const",
             "named": true
           },
@@ -14096,6 +14379,10 @@
             "named": true
           },
           {
+            "type": "explicit_mode",
+            "named": true
+          },
+          {
             "type": "false_const",
             "named": true
           },
@@ -14283,6 +14570,10 @@
           },
           {
             "type": "exists",
+            "named": true
+          },
+          {
+            "type": "explicit_mode",
             "named": true
           },
           {
@@ -14479,6 +14770,10 @@
           },
           {
             "type": "exists",
+            "named": true
+          },
+          {
+            "type": "explicit_mode",
             "named": true
           },
           {
@@ -14718,6 +15013,10 @@
             "named": true
           },
           {
+            "type": "explicit_mode",
+            "named": true
+          },
+          {
             "type": "false_const",
             "named": true
           },
@@ -14912,6 +15211,10 @@
             "named": true
           },
           {
+            "type": "explicit_mode",
+            "named": true
+          },
+          {
             "type": "false_const",
             "named": true
           },
@@ -15098,6 +15401,10 @@
             "named": true
           },
           {
+            "type": "explicit_mode",
+            "named": true
+          },
+          {
             "type": "false_const",
             "named": true
           },
@@ -15251,6 +15558,10 @@
           },
           {
             "type": "exists",
+            "named": true
+          },
+          {
+            "type": "explicit_mode",
             "named": true
           },
           {
@@ -15441,6 +15752,10 @@
           },
           {
             "type": "exists",
+            "named": true
+          },
+          {
+            "type": "explicit_mode",
             "named": true
           },
           {
@@ -15703,6 +16018,10 @@
             "named": true
           },
           {
+            "type": "explicit_mode",
+            "named": true
+          },
+          {
             "type": "false_const",
             "named": true
           },
@@ -15909,6 +16228,10 @@
             "named": true
           },
           {
+            "type": "explicit_mode",
+            "named": true
+          },
+          {
             "type": "false_const",
             "named": true
           },
@@ -16105,6 +16428,10 @@
             "named": true
           },
           {
+            "type": "explicit_mode",
+            "named": true
+          },
+          {
             "type": "false_const",
             "named": true
           },
@@ -16292,6 +16619,10 @@
           },
           {
             "type": "exists",
+            "named": true
+          },
+          {
+            "type": "explicit_mode",
             "named": true
           },
           {
@@ -16515,6 +16846,10 @@
             "named": true
           },
           {
+            "type": "explicit_mode",
+            "named": true
+          },
+          {
             "type": "false_const",
             "named": true
           },
@@ -16711,6 +17046,10 @@
         },
         {
           "type": "exists",
+          "named": true
+        },
+        {
+          "type": "explicit_mode",
           "named": true
         },
         {
@@ -16913,6 +17252,10 @@
             "named": true
           },
           {
+            "type": "explicit_mode",
+            "named": true
+          },
+          {
             "type": "false_const",
             "named": true
           },
@@ -17088,6 +17431,10 @@
           },
           {
             "type": "dot_ident",
+            "named": true
+          },
+          {
+            "type": "explicit_mode",
             "named": true
           },
           {
@@ -17270,6 +17617,10 @@
           },
           {
             "type": "exists",
+            "named": true
+          },
+          {
+            "type": "explicit_mode",
             "named": true
           },
           {
@@ -17464,6 +17815,10 @@
           },
           {
             "type": "exists",
+            "named": true
+          },
+          {
+            "type": "explicit_mode",
             "named": true
           },
           {
@@ -17664,6 +18019,10 @@
           },
           {
             "type": "exists",
+            "named": true
+          },
+          {
+            "type": "explicit_mode",
             "named": true
           },
           {
@@ -17868,6 +18227,10 @@
           },
           {
             "type": "exists",
+            "named": true
+          },
+          {
+            "type": "explicit_mode",
             "named": true
           },
           {
@@ -18135,6 +18498,10 @@
           },
           {
             "type": "dot_ident",
+            "named": true
+          },
+          {
+            "type": "explicit_mode",
             "named": true
           },
           {
@@ -18549,6 +18916,10 @@
   },
   {
     "type": "?",
+    "named": false
+  },
+  {
+    "type": "@",
     "named": false
   },
   {

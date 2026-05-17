@@ -2530,6 +2530,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "explicit_mode"
+        },
+        {
+          "type": "SYMBOL",
           "name": "quotation"
         }
       ]
@@ -2609,6 +2613,19 @@
             "type": "STRING",
             "value": "%"
           }
+        }
+      ]
+    },
+    "explicit_mode": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "@"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
         }
       ]
     },

@@ -1034,3 +1034,33 @@ Divides operator
     term: (binary_op
       lhs: (identifier)
       rhs: (identifier))))
+
+==============
+Explicit args mode
+==============
+
+#check @foo
+
+---
+
+(module
+  (check
+    term: (explicit_mode
+      (identifier))))
+
+==============
+Explicit args mode with application
+==============
+
+#check @foo a b
+
+---
+
+(module
+  (check
+    term: (app
+      fn: (app
+        fn: (explicit_mode
+          (identifier))
+        arg: (identifier))
+      arg: (identifier))))
