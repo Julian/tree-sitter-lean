@@ -707,3 +707,37 @@ lemma foo (h : P) : Q := proof
           type: (identifier)))
       type: (identifier)
       body: (identifier))))
+
+==============
+Set builder
+==============
+
+#check { x : Nat | x > 0 }
+
+---
+
+(module
+  (check
+    term: (set_builder
+      binder: (identifier)
+      type: (identifier)
+      pred: (binary_op
+        lhs: (identifier)
+        rhs: (num_lit)))))
+
+==============
+Subtype
+==============
+
+#check { x : Nat // x ≠ 0 }
+
+---
+
+(module
+  (check
+    term: (subtype_lit
+      binder: (identifier)
+      type: (identifier)
+      pred: (binary_op
+        lhs: (identifier)
+        rhs: (num_lit)))))

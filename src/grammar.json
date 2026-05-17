@@ -2261,6 +2261,14 @@
         },
         {
           "type": "SYMBOL",
+          "name": "set_builder"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "subtype_lit"
+        },
+        {
+          "type": "SYMBOL",
           "name": "rest_pat"
         },
         {
@@ -2799,6 +2807,80 @@
               "type": "BLANK"
             }
           ]
+        },
+        {
+          "type": "STRING",
+          "value": "}"
+        }
+      ]
+    },
+    "set_builder": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "FIELD",
+          "name": "binder",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_binder_ident"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_type_spec"
+        },
+        {
+          "type": "STRING",
+          "value": "|"
+        },
+        {
+          "type": "FIELD",
+          "name": "pred",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_term"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "}"
+        }
+      ]
+    },
+    "subtype_lit": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "FIELD",
+          "name": "binder",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_binder_ident"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_type_spec"
+        },
+        {
+          "type": "STRING",
+          "value": "//"
+        },
+        {
+          "type": "FIELD",
+          "name": "pred",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_term"
+          }
         },
         {
           "type": "STRING",

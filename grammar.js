@@ -496,6 +496,8 @@ export default grammar({
       $.list_lit,
       $.array_lit,
       $.struct_lit,
+      $.set_builder,
+      $.subtype_lit,
       $.rest_pat,
       $.prec_annotated,
       $.quotation,
@@ -572,6 +574,26 @@ export default grammar({
         optional(seq(field('source', $._term), 'with')),
         sep1($.struct_field, optional(',')),
       )),
+      '}',
+    ),
+
+    /* `{ x : T | predicate }` — set-builder notation. */
+    set_builder: $ => seq(
+      '{',
+      field('binder', $._binder_ident),
+      $._type_spec,
+      '|',
+      field('pred', $._term),
+      '}',
+    ),
+
+    /* `{ x : T // predicate }` — subtype notation. */
+    subtype_lit: $ => seq(
+      '{',
+      field('binder', $._binder_ident),
+      $._type_spec,
+      '//',
+      field('pred', $._term),
       '}',
     ),
     struct_field: $ => seq(
