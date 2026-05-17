@@ -4094,8 +4094,17 @@
             "type": "FIELD",
             "name": "name",
             "content": {
-              "type": "SYMBOL",
-              "name": "_binder_ident"
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_binder_ident"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "tuple_binder"
+                }
+              ]
             }
           },
           {

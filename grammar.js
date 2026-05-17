@@ -778,7 +778,7 @@ export default grammar({
     let: $ => prec.right(seq(
       'let',
       optional(choice('mut', 'rec')),
-      field('name', $._binder_ident),
+      field('name', choice($._binder_ident, $.tuple_binder)),
       optional($._type_spec),
       choice(':=', '←', '<-'),
       field('value', $._term),

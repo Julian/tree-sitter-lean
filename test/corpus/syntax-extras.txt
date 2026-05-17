@@ -801,3 +801,22 @@ meta public def bar := 1
     (def
       name: (identifier)
       body: (num_lit))))
+
+==============
+Tuple destructuring let
+==============
+
+#check let (a, b) := pair; a + b
+
+---
+
+(module
+  (check
+    term: (let
+      name: (tuple_binder
+        (identifier)
+        (identifier))
+      value: (identifier)
+      body: (binary_op
+        lhs: (identifier)
+        rhs: (identifier)))))
