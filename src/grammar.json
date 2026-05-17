@@ -1138,8 +1138,17 @@
             "type": "FIELD",
             "name": "arg",
             "content": {
-              "type": "SYMBOL",
-              "name": "_term_atom"
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_term_atom"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "unary_op"
+                }
+              ]
             }
           }
         }

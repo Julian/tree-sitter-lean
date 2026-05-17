@@ -1456,6 +1456,10 @@
           {
             "type": "type_const",
             "named": true
+          },
+          {
+            "type": "unary_op",
+            "named": true
           }
         ]
       },
@@ -1615,6 +1619,10 @@
           },
           {
             "type": "type_const",
+            "named": true
+          },
+          {
+            "type": "unary_op",
             "named": true
           }
         ]

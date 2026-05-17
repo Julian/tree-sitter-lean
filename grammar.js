@@ -261,11 +261,12 @@ export default grammar({
       $._attribute,
     ),
     /* Attributes can carry arguments (`@[simp 1000]`,
-       `@[combinator_parenthesizer foo, expose]`). Arguments are atoms
-       only to avoid `_term` re-entry. */
+       `@[combinator_parenthesizer foo, expose]`, `@[simps -isSimp]`).
+       Args restricted to atoms or unary-prefixed atoms (`-isSimp`,
+       `←foo`) to keep state count bounded. */
     _attribute: $ => seq(
       field('name', $.identifier),
-      repeat(field('arg', $._term_atom)),
+      repeat(field('arg', choice($._term_atom, $.unary_op))),
     ),
 
 
