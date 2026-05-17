@@ -230,8 +230,18 @@ export default grammar({
 
     /* Lean 4 module system visibility markers `public`/`meta` —
        structured separately from decl_modifiers to avoid conflict
-       with the `import` prefix forms. */
+       with the `import` prefix forms. May appear before or after
+       decl_modifiers (`protected meta def …`). */
     _visibility_mods: $ => repeat1(choice($.public, $.meta)),
+
+    decl_modifiers: $ => repeat1(choice(
+      'noncomputable',
+      'partial',
+      'nonrec',
+      'private',
+      'protected',
+      'unsafe',
+    )),
 
     attributes: $ => seq('@[', sep1($._attr_instance, ','), ']'),
     _attr_instance: $ => seq(
@@ -246,14 +256,6 @@ export default grammar({
       repeat(field('arg', $._term_atom)),
     ),
 
-    decl_modifiers: $ => repeat1(choice(
-      'noncomputable',
-      'partial',
-      'nonrec',
-      'private',
-      'protected',
-      'unsafe',
-    )),
 
     def: $ => seq(
       'def',

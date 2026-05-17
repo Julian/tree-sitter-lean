@@ -963,6 +963,38 @@
         ]
       }
     },
+    "decl_modifiers": {
+      "type": "REPEAT1",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "noncomputable"
+          },
+          {
+            "type": "STRING",
+            "value": "partial"
+          },
+          {
+            "type": "STRING",
+            "value": "nonrec"
+          },
+          {
+            "type": "STRING",
+            "value": "private"
+          },
+          {
+            "type": "STRING",
+            "value": "protected"
+          },
+          {
+            "type": "STRING",
+            "value": "unsafe"
+          }
+        ]
+      }
+    },
     "attributes": {
       "type": "SEQ",
       "members": [
@@ -1054,38 +1086,6 @@
           }
         }
       ]
-    },
-    "decl_modifiers": {
-      "type": "REPEAT1",
-      "content": {
-        "type": "CHOICE",
-        "members": [
-          {
-            "type": "STRING",
-            "value": "noncomputable"
-          },
-          {
-            "type": "STRING",
-            "value": "partial"
-          },
-          {
-            "type": "STRING",
-            "value": "nonrec"
-          },
-          {
-            "type": "STRING",
-            "value": "private"
-          },
-          {
-            "type": "STRING",
-            "value": "protected"
-          },
-          {
-            "type": "STRING",
-            "value": "unsafe"
-          }
-        ]
-      }
     },
     "def": {
       "type": "SEQ",
