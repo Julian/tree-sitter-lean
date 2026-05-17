@@ -732,7 +732,15 @@ export default grammar({
     binary_op: $ => choice(
       prec.right(PREC.arrow, seq(
         field('lhs', $._op_term),
-        field('op', choice('→', '->')),
+        field('op', choice(
+          '→', '->',
+          /* Mathlib homomorphism arrows (without bracket param —
+             `→ₗ[R]` parses as `→ₗ` + `[R]` applied to rhs).
+             `≃` itself is in the cmp set; only the variants here. */
+          '→+', '→*', '→+*', '→ₗ', '→ₐ', '→ₒ',
+          '≃+', '≃*', '≃+*', '≃ₗ', '≃ₐ', '≃ₒ',
+          '→ᵃ', '≃ᵃ',
+        )),
         field('rhs', $._term),
       )),
       prec.right(PREC.iff, seq(
@@ -783,7 +791,12 @@ export default grammar({
       )),
       prec.left(PREC.mul, seq(
         field('lhs', $._op_term),
-        field('op', choice('*', '/', '%', '∩', '×', '•', '∙')),
+        field('op', choice(
+          '*', '/', '%', '∩', '×', '•', '∙',
+          /* Tensor and related Mathlib operators (without bracket
+             param — `⊗ₜ[R]` parses as `⊗ₜ` + `[R]` consumed by app). */
+          '⊗', '⊗ₜ', '⊗ₛ',
+        )),
         field('rhs', $._op_term),
       )),
       prec.right(PREC.pow, seq(

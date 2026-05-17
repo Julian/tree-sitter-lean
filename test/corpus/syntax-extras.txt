@@ -1135,3 +1135,31 @@ Cardinality prefix
   (check
     term: (unary_op
       rhs: (identifier))))
+
+==============
+Mathlib linear-map arrow
+==============
+
+#check Nat →ₗ Nat
+
+---
+
+(module
+  (check
+    term: (binary_op
+      lhs: (identifier)
+      rhs: (identifier))))
+
+==============
+Tensor product operator
+==============
+
+#check A ⊗ B
+
+---
+
+(module
+  (check
+    term: (binary_op
+      lhs: (identifier)
+      rhs: (identifier))))

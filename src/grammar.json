@@ -3583,6 +3583,62 @@
                     {
                       "type": "STRING",
                       "value": "->"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "→+"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "→*"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "→+*"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "→ₗ"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "→ₐ"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "→ₒ"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "≃+"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "≃*"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "≃+*"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "≃ₗ"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "≃ₐ"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "≃ₒ"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "→ᵃ"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "≃ᵃ"
                     }
                   ]
                 }
@@ -4025,6 +4081,18 @@
                     {
                       "type": "STRING",
                       "value": "∙"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "⊗"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "⊗ₜ"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "⊗ₛ"
                     }
                   ]
                 }
