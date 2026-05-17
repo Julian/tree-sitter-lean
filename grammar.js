@@ -594,7 +594,10 @@ export default grammar({
       '*',
       seq('.{', sep1($.identifier, ','), '}'),
     )))),
-    sort_const: $ => prec.right(1, seq('Sort', optional($.identifier))),
+    sort_const: $ => prec.right(1, seq('Sort', optional(choice(
+      $.identifier,
+      '*',
+    )))),
     prop_const: _ => 'Prop',
     /* Capital `True`/`False` are Prop; lowercase `true`/`false` are
        the boolean inductive's constructors. */
@@ -701,7 +704,10 @@ export default grammar({
        `isIdRest`). */
     postfix_op: $ => prec.left(PREC.proj, seq(
       field('term', $._op_term),
-      field('op', choice('ᵒᵖ', 'ᵐᵒᵖ', '⁻¹', 'ᵀ', '⊥', '†')),
+      field('op', choice(
+        'ᵒᵖ', 'ᵐᵒᵖ', '⁻¹', 'ᵀ', '⊥', '†',
+        'ᶜ', 'ˣ', '✝',
+      )),
     )),
 
     /* `arr[idx]` — array/dict indexing. Distinguished from `f [list]`

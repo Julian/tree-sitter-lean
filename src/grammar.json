@@ -2744,8 +2744,17 @@
             "type": "CHOICE",
             "members": [
               {
-                "type": "SYMBOL",
-                "name": "identifier"
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "identifier"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "*"
+                  }
+                ]
               },
               {
                 "type": "BLANK"
@@ -3412,6 +3421,18 @@
                 {
                   "type": "STRING",
                   "value": "†"
+                },
+                {
+                  "type": "STRING",
+                  "value": "ᶜ"
+                },
+                {
+                  "type": "STRING",
+                  "value": "ˣ"
+                },
+                {
+                  "type": "STRING",
+                  "value": "✝"
                 }
               ]
             }

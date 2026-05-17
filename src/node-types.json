@@ -13755,6 +13755,10 @@
         "required": true,
         "types": [
           {
+            "type": "ˣ",
+            "named": false
+          },
+          {
             "type": "ᵀ",
             "named": false
           },
@@ -13767,6 +13771,10 @@
             "named": false
           },
           {
+            "type": "ᶜ",
+            "named": false
+          },
+          {
             "type": "†",
             "named": false
           },
@@ -13776,6 +13784,10 @@
           },
           {
             "type": "⊥",
+            "named": false
+          },
+          {
+            "type": "✝",
             "named": false
           }
         ]
@@ -19884,6 +19896,10 @@
     "named": false
   },
   {
+    "type": "ˣ",
+    "named": false
+  },
+  {
     "type": "λ",
     "named": false
   },
@@ -19897,6 +19913,10 @@
   },
   {
     "type": "ᵒᵖ",
+    "named": false
+  },
+  {
+    "type": "ᶜ",
     "named": false
   },
   {
@@ -20025,6 +20045,10 @@
   },
   {
     "type": "▸",
+    "named": false
+  },
+  {
+    "type": "✝",
     "named": false
   },
   {
