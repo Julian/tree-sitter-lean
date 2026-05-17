@@ -5028,21 +5028,25 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "FIELD",
-                  "name": "category",
-                  "content": {
-                    "type": "SYMBOL",
-                    "name": "identifier"
+              "type": "PREC_DYNAMIC",
+              "value": 1,
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "FIELD",
+                    "name": "category",
+                    "content": {
+                      "type": "SYMBOL",
+                      "name": "identifier"
+                    }
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "|"
                   }
-                },
-                {
-                  "type": "STRING",
-                  "value": "|"
-                }
-              ]
+                ]
+              }
             },
             {
               "type": "BLANK"

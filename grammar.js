@@ -549,6 +549,7 @@ export default grammar({
       token.immediate('%'),
     ),
 
+
     hole:        _ => '_',
     synth_hole:  _ => '?_',
     named_hole:  $ => seq('?', $.identifier),
@@ -952,11 +953,13 @@ export default grammar({
        in Lean source. */
     name_lit: $ => seq(choice('`', '``'), field('name', $.identifier)),
 
-    /* `(term) or `(category| term) — syntax quotation. */
+    /* `(term)  or  `(category| term)  — syntax quotation. The
+       category-bar is `prec.dynamic(1, ...)` so tree-sitter prefers
+       it over treating `name |` as a stray pipe. */
     quotation: $ => seq(
       '`',
       token.immediate('('),
-      optional(seq(field('category', $.identifier), '|')),
+      optional(prec.dynamic(1, seq(field('category', $.identifier), '|'))),
       $._term,
       ')',
     ),
