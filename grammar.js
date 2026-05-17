@@ -858,7 +858,8 @@ export default grammar({
     )),
 
     forall: $ => prec.right(seq(
-      choice('∀', 'forall'),
+      /* `Π` is a deprecated Mathlib synonym for `∀` for product types. */
+      choice('∀', 'forall', 'Π'),
       $._binders,
       optional($._type_spec),
       ',',

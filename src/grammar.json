@@ -4489,6 +4489,10 @@
               {
                 "type": "STRING",
                 "value": "forall"
+              },
+              {
+                "type": "STRING",
+                "value": "Π"
               }
             ]
           },
