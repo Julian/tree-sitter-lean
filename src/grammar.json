@@ -2662,6 +2662,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "sigma"
+        },
+        {
+          "type": "SYMBOL",
           "name": "big_op_binder"
         },
         {
@@ -2813,6 +2817,10 @@
         {
           "type": "SYMBOL",
           "name": "anon_subterm"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "quotient_lit"
         },
         {
           "type": "SYMBOL",
@@ -3264,6 +3272,23 @@
         {
           "type": "STRING",
           "value": "›"
+        }
+      ]
+    },
+    "quotient_lit": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "⟦"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_term"
+        },
+        {
+          "type": "STRING",
+          "value": "⟧"
         }
       ]
     },
@@ -5053,6 +5078,56 @@
                     ]
                   }
                 ]
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          },
+          {
+            "type": "STRING",
+            "value": ","
+          },
+          {
+            "type": "FIELD",
+            "name": "body",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_term"
+            }
+          }
+        ]
+      }
+    },
+    "sigma": {
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "Σ"
+              },
+              {
+                "type": "STRING",
+                "value": "Σ'"
+              }
+            ]
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_binders"
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_type_spec"
               },
               {
                 "type": "BLANK"

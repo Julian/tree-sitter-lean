@@ -1540,3 +1540,57 @@ class PartialOrder (α : Sort u) where
               fn: (identifier)
               arg: (identifier))
             arg: (identifier)))))))
+
+==============
+Sigma binder
+==============
+
+#check Σ i, F i
+
+---
+
+(module
+  (check
+    term: (sigma
+      (binders
+        (identifier))
+      body: (app
+        fn: (identifier)
+        arg: (identifier)))))
+
+==============
+Quotient literal
+==============
+
+#check ⟦x⟧
+
+---
+
+(module
+  (check
+    term: (quotient_lit
+      (identifier))))
+
+==============
+Bottom constant
+==============
+
+#check ⊥
+
+---
+
+(module
+  (check
+    term: (bot_const)))
+
+==============
+Top constant
+==============
+
+#check ⊤
+
+---
+
+(module
+  (check
+    term: (top_const)))

@@ -562,6 +562,7 @@ export default grammar({
       $.if_then_else,
       $.forall,
       $.exists,
+      $.sigma,
       $.big_op_binder,
       $.by,
       $.do_block,
@@ -604,6 +605,7 @@ export default grammar({
       $.paren,
       $.anon_ctor,
       $.anon_subterm,
+      $.quotient_lit,
       $.list_lit,
       $.range_lit,
       $.array_lit,
@@ -699,6 +701,9 @@ export default grammar({
     /* `‹T›` — Lean's anonymous-subterm reference, filled by typeclass
        resolution. Used like `‹Group α›` to grab the ambient instance. */
     anon_subterm: $ => seq('‹', $._term, '›'),
+
+    /* `⟦x⟧` — quotient-class bracket (`Quotient.mk`). */
+    quotient_lit: $ => seq('⟦', $._term, '⟧'),
 
     list_lit: $ => seq('[', sep0($._term, ','), ']'),
 
@@ -980,6 +985,15 @@ export default grammar({
           field('bound', $._op_term),
         ),
       )),
+      ',',
+      field('body', $._term),
+    )),
+
+    /* `Σ x, T x` / `Σ' x, T x` — sigma / non-dependent-pair type binder. */
+    sigma: $ => prec.right(seq(
+      choice('Σ', "Σ'"),
+      $._binders,
+      optional($._type_spec),
       ',',
       field('body', $._term),
     )),
