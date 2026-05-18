@@ -1594,3 +1594,49 @@ Top constant
 (module
   (check
     term: (top_const)))
+
+==============
+Set option scoped with `in`
+==============
+
+set_option pp.all true in
+def x := 1
+
+---
+
+(module
+  (set_option
+    name: (identifier)
+    value: (true_const)
+    body: (declaration
+      (def
+        name: (identifier)
+        body: (num_lit)))))
+
+==============
+Order embedding arrow
+==============
+
+#check X ↪o Y
+
+---
+
+(module
+  (check
+    term: (binary_op
+      lhs: (identifier)
+      rhs: (identifier))))
+
+==============
+Long right arrow
+==============
+
+#check A ⟶ B
+
+---
+
+(module
+  (check
+    term: (binary_op
+      lhs: (identifier)
+      rhs: (identifier))))

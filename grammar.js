@@ -135,12 +135,14 @@ export default grammar({
 
     /* `set_option pp.all true` — value is intentionally restricted to
        an atom (literal/identifier) so it can't consume the rest of
-       the file as part of an over-eager `_term` parse. */
-    set_option: $ => seq(
+       the file as part of an over-eager `_term` parse. The `… in cmd`
+       form scopes the option to a single following command. */
+    set_option: $ => prec.right(seq(
       'set_option',
       field('name', $.identifier),
       field('value', $._term_atom),
-    ),
+      optional(seq('in', field('body', $._command))),
+    )),
 
     /* `attribute [foo] bar baz` — bracketed attr list followed by
        targets. Different syntax from declaration-leading `@[…]`. */
@@ -831,7 +833,7 @@ export default grammar({
       prec.right(PREC.arrow, seq(
         field('lhs', $._op_term),
         field('op', choice(
-          '→', '->',
+          '→', '->', '⟶',
           /* Mathlib homomorphism arrows (without bracket param —
              `→ₗ[R]` parses as `→ₗ` + `[R]` applied to rhs).
              `≃` itself is in the cmp set; only the variants here. */
@@ -839,7 +841,7 @@ export default grammar({
           '→ₙ+', '→ₙ*', '→ₙ+*', '→ₑ', '→ₑ+', '→ₑ*',
           '≃+', '≃*', '≃+*', '≃ₗ', '≃ₐ', '≃ₒ',
           '→ᵃ', '≃ᵃ',
-          '↪', '↠',  /* embedding, surjection */
+          '↪', '↠', '↪o', '↪+', '↪*', '↪+*',
           '⇨',       /* Heyting implication */
         )),
         field('rhs', $._term),
