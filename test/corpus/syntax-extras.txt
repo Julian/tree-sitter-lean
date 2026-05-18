@@ -533,9 +533,10 @@ Type universe with list
 
 (module
   (check
-    term: (type_const
-      (identifier)
-      (identifier))))
+    term: (universe_app
+      term: (type_const)
+      level: (identifier)
+      level: (identifier))))
 
 ==============
 Named arg in paren
@@ -1204,3 +1205,217 @@ Inf operator
     term: (binary_op
       lhs: (identifier)
       rhs: (identifier))))
+
+==============
+Operator section
+==============
+
+#check (↑)
+
+---
+
+(module
+  (check
+    term: (paren)))
+
+==============
+Fun with anonymous-constructor destructuring binder
+==============
+
+#check fun ⟨x, y⟩ => x
+
+---
+
+(module
+  (check
+    term: (fun
+      (binders
+        (anon_ctor_binder
+          (identifier)
+          (identifier)))
+      body: (identifier))))
+
+==============
+Fun with nested anon-ctor destructuring
+==============
+
+#check fun ⟨a, ⟨b, c⟩⟩ => b
+
+---
+
+(module
+  (check
+    term: (fun
+      (binders
+        (anon_ctor_binder
+          (identifier)
+          (anon_ctor_binder
+            (identifier)
+            (identifier))))
+      body: (identifier))))
+
+==============
+Function-style where_struct field with binders
+==============
+
+instance : Foo where
+  choice s hs := bar s hs
+  gc := baz
+
+---
+
+(module
+  (declaration
+    (instance
+      type: (identifier)
+      (where_struct
+        (struct_field
+          name: (identifier)
+          (binders
+            (identifier)
+            (identifier))
+          value: (app
+            fn: (app
+              fn: (identifier)
+              arg: (identifier))
+            arg: (identifier)))
+        (struct_field
+          name: (identifier)
+          value: (identifier))))))
+
+==============
+Multi-line where_struct does not eat next field
+==============
+
+def f : F where
+  a := g x <| h
+  b := y
+
+---
+
+(module
+  (declaration
+    (def
+      name: (identifier)
+      type: (identifier)
+      (where_struct
+        (struct_field
+          name: (identifier)
+          value: (binary_op
+            lhs: (app
+              fn: (identifier)
+              arg: (identifier))
+            rhs: (identifier)))
+        (struct_field
+          name: (identifier)
+          value: (identifier))))))
+
+==============
+Universe app on regular identifier
+==============
+
+#check Eq.ndrecOn.{u1, u2}
+
+---
+
+(module
+  (check
+    term: (universe_app
+      term: (identifier)
+      level: (identifier)
+      level: (identifier))))
+
+==============
+Attribute on section
+==============
+
+@[expose] section
+
+---
+
+(module
+  (section
+    (attributes
+      name: (identifier))))
+
+==============
+Big-operator binder
+==============
+
+#check ⨆ b, f b
+
+---
+
+(module
+  (check
+    term: (big_op_binder
+      (binders
+        (identifier))
+      body: (app
+        fn: (identifier)
+        arg: (identifier)))))
+
+==============
+Big-operator binder with membership constraint
+==============
+
+#check ⨆ b ∈ s, a ⊓ b
+
+---
+
+(module
+  (check
+    term: (big_op_binder
+      (binders
+        (identifier))
+      (identifier)
+      body: (binary_op
+        lhs: (identifier)
+        rhs: (identifier)))))
+
+==============
+Sum binder
+==============
+
+#check ∑ x, f x
+
+---
+
+(module
+  (check
+    term: (big_op_binder
+      (binders
+        (identifier))
+      body: (app
+        fn: (identifier)
+        arg: (identifier)))))
+
+==============
+Field with binders (function-style)
+==============
+
+class F where
+  foo (a : α) (s : Set α) : a ⊓ s ≤ b
+
+---
+
+(module
+  (declaration
+    (structure
+      name: (identifier)
+      (field
+        name: (identifier)
+        (binders
+          (explicit_binder
+            name: (identifier)
+            type: (identifier))
+          (explicit_binder
+            name: (identifier)
+            type: (app
+              fn: (identifier)
+              arg: (identifier))))
+        type: (binary_op
+          lhs: (identifier)
+          rhs: (binary_op
+            lhs: (identifier)
+            rhs: (identifier)))))))
