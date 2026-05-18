@@ -381,7 +381,15 @@ export default grammar({
       optional($._deriving_clause),
     )),
 
-    _extends_clause: $ => seq('extends', sep1($._term, ',')),
+    /* `extends Parent` or `extends Parent, name : Type, …` — the
+       named-projection form attaches an explicit field to a parent
+       projection (used in `MinimalAxioms` patterns). */
+    _extends_clause: $ => seq('extends', sep1(
+      choice(
+        $._term,
+        seq(field('name', $.identifier), ':', $._term),
+      ),
+      ',')),
 
     /* `MkStruct ::` declares a named constructor (followed by fields).
        Optionally preceded by decl modifiers (e.g. `private mk ::`). */
@@ -397,9 +405,11 @@ export default grammar({
        name per line in structure fields. doc_comment is in `extras`
        so it still attaches to the field as trivia. Function-style
        fields with binders are common (`f (a : α) : β`). Also accepts
-       `[name : T]` instance-implicit field form. */
+       `[name : T]` instance-implicit field form. Modifiers like
+       `protected`/`private` are recognized. */
     field: $ => choice(
       seq(
+        optional($.decl_modifiers),
         field('name', $._binder_ident),
         optional($._binders),
         $._type_spec,
@@ -767,7 +777,7 @@ export default grammar({
     postfix_op: $ => prec.left(PREC.proj, seq(
       field('term', $._op_term),
       field('op', choice(
-        'ᵒᵖ', 'ᵐᵒᵖ', '⁻¹', 'ᵀ', '⊥', '†',
+        'ᵒᵖ', 'ᵐᵒᵖ', 'ᵒᵈ', '⁻¹', 'ᵀ', '⊥', '†',
         'ᶜ', 'ˣ', '✝',
       )),
     )),
@@ -817,12 +827,14 @@ export default grammar({
       prec.left(PREC.or, seq(
         field('lhs', $._op_term),
         field('op', choice('∨', '||', '⊔')),
-        field('rhs', $._op_term),
+        /* Lattice-sup RHS often holds a big-op or `if`. */
+        field('rhs', $._term),
       )),
       prec.left(PREC.and, seq(
         field('lhs', $._op_term),
         field('op', choice('∧', '&&', '⊓')),
-        field('rhs', $._op_term),
+        /* Lattice-inf RHS often holds a big-op or `if`. */
+        field('rhs', $._term),
       )),
       prec.left(PREC.cmp, seq(
         field('lhs', $._op_term),
@@ -939,14 +951,15 @@ export default grammar({
     )),
 
     /* `⨆ x, f x` / `⨅ x, f x` / `∑ x, f x` / `∏ x, f x` — big-operator
-       binder notation. Mathlib also writes `⨆ x ∈ s, P x` (sugar) and
-       `∑ x ∈ s, f x`; the optional membership tail captures both.
-       Type ascription is intentionally omitted because the `:` after
-       binders would tangle the LR states with `forall`/`exists`. */
+       binder notation. Mathlib also writes `⨆ x ∈ s, P x` (sugar),
+       `∑ x ∈ s, f x`, and `⨆ x : T, f x`. */
     big_op_binder: $ => prec.right(seq(
       choice('⨆', '⨅', '∑', '∏'),
       $._binders,
-      optional(seq(choice('∈', '⊆', '⊂'), $._op_term)),
+      optional(choice(
+        $._type_spec,
+        seq(choice('∈', '⊆', '⊂'), $._op_term),
+      )),
       ',',
       field('body', $._term),
     )),
