@@ -1419,3 +1419,36 @@ class F where
           rhs: (binary_op
             lhs: (identifier)
             rhs: (identifier)))))))
+
+==============
+Anonymous subterm
+==============
+
+#check ‹Frame α›
+
+---
+
+(module
+  (check
+    term: (anon_subterm
+      (app
+        fn: (identifier)
+        arg: (identifier)))))
+
+==============
+Set builder without type
+==============
+
+#check {c | c ⊓ a ≤ b}
+
+---
+
+(module
+  (check
+    term: (set_builder
+      binder: (identifier)
+      pred: (binary_op
+        lhs: (identifier)
+        rhs: (binary_op
+          lhs: (identifier)
+          rhs: (identifier))))))

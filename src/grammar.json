@@ -2744,6 +2744,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "anon_subterm"
+        },
+        {
+          "type": "SYMBOL",
           "name": "list_lit"
         },
         {
@@ -3170,6 +3174,23 @@
         }
       ]
     },
+    "anon_subterm": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "‹"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_term"
+        },
+        {
+          "type": "STRING",
+          "value": "›"
+        }
+      ]
+    },
     "list_lit": {
       "type": "SEQ",
       "members": [
@@ -3449,8 +3470,16 @@
           }
         },
         {
-          "type": "SYMBOL",
-          "name": "_type_spec"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_type_spec"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         },
         {
           "type": "STRING",

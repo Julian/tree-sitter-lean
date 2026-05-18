@@ -592,6 +592,7 @@ export default grammar({
       $.sorry,
       $.paren,
       $.anon_ctor,
+      $.anon_subterm,
       $.list_lit,
       $.range_lit,
       $.array_lit,
@@ -681,6 +682,10 @@ export default grammar({
 
     anon_ctor: $ => seq('⟨', sep0($._term, ','), '⟩'),
 
+    /* `‹T›` — Lean's anonymous-subterm reference, filled by typeclass
+       resolution. Used like `‹Group α›` to grab the ambient instance. */
+    anon_subterm: $ => seq('‹', $._term, '›'),
+
     list_lit: $ => seq('[', sep0($._term, ','), ']'),
 
     /* `[a : b]` or `[a : b : step]` — range/subarray slice. */
@@ -711,11 +716,11 @@ export default grammar({
       '}',
     ),
 
-    /* `{ x : T | predicate }` — set-builder notation. */
+    /* `{ x : T | predicate }` or `{ x | predicate }` — set-builder. */
     set_builder: $ => seq(
       '{',
       field('binder', $._binder_ident),
-      $._type_spec,
+      optional($._type_spec),
       '|',
       field('pred', $._term),
       '}',
