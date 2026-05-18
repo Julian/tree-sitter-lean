@@ -1452,3 +1452,91 @@ Set builder without type
         rhs: (binary_op
           lhs: (identifier)
           rhs: (identifier))))))
+
+==============
+Forall with membership
+==============
+
+#check ∀ b ∈ s, P b
+
+---
+
+(module
+  (check
+    term: (forall
+      (binders
+        (identifier))
+      bound: (identifier)
+      body: (app
+        fn: (identifier)
+        arg: (identifier)))))
+
+==============
+Forall with non-equality
+==============
+
+#check ∀ b ≠ ⊥, P b
+
+---
+
+(module
+  (check
+    term: (forall
+      (binders
+        (identifier))
+      bound: (bot_const)
+      body: (app
+        fn: (identifier)
+        arg: (identifier)))))
+
+==============
+Heyting implication
+==============
+
+#check a ⇨ b
+
+---
+
+(module
+  (check
+    term: (binary_op
+      lhs: (identifier)
+      rhs: (identifier))))
+
+==============
+Structure with indented fields
+==============
+
+class PartialOrder (α : Sort u) where
+  rel : α → α → Prop
+  rel_refl : ∀ {x}, rel x x
+
+---
+
+(module
+  (declaration
+    (structure
+      name: (identifier)
+      (binders
+        (explicit_binder
+          name: (identifier)
+          type: (sort_const
+            (identifier))))
+      (field
+        name: (identifier)
+        type: (binary_op
+          lhs: (identifier)
+          rhs: (binary_op
+            lhs: (identifier)
+            rhs: (prop_const))))
+      (field
+        name: (identifier)
+        type: (forall
+          (binders
+            (implicit_binder
+              name: (identifier)))
+          body: (app
+            fn: (app
+              fn: (identifier)
+              arg: (identifier))
+            arg: (identifier)))))))

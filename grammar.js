@@ -364,8 +364,17 @@ export default grammar({
       optional($._extends_clause),
       optional(seq(
         'where',
-        optional($.ctor),
-        repeat($.field),
+        /* Indented field block separates fields with NEWLINE so a
+           greedy `_term`-typed type doesn't eat the next field. */
+        choice(
+          seq(optional($.ctor), repeat1($.field)),
+          seq(
+            $._indent,
+            optional($.ctor),
+            sep1($.field, $._newline),
+            $._dedent,
+          ),
+        ),
       )),
       optional($._deriving_clause),
     )),
@@ -589,6 +598,8 @@ export default grammar({
       $.prop_const,
       $.true_const,
       $.false_const,
+      $.bot_const,
+      $.top_const,
       $.sorry,
       $.paren,
       $.anon_ctor,
@@ -651,6 +662,9 @@ export default grammar({
       '*',
     )))),
     prop_const: _ => 'Prop',
+    /* `⊥`/`⊤` are the bottom/top elements of a (semi)lattice. */
+    bot_const: _ => '⊥',
+    top_const: _ => '⊤',
     /* Capital `True`/`False` are Prop; lowercase `true`/`false` are
        the boolean inductive's constructors. */
     true_const:  _ => choice('True', 'true'),
@@ -782,7 +796,7 @@ export default grammar({
     postfix_op: $ => prec.left(PREC.proj, seq(
       field('term', $._op_term),
       field('op', choice(
-        'ᵒᵖ', 'ᵐᵒᵖ', 'ᵒᵈ', '⁻¹', 'ᵀ', '⊥', '†',
+        'ᵒᵖ', 'ᵐᵒᵖ', 'ᵒᵈ', '⁻¹', 'ᵀ', '†',
         'ᶜ', 'ˣ', '✝',
       )),
     )),
@@ -821,6 +835,7 @@ export default grammar({
           '≃+', '≃*', '≃+*', '≃ₗ', '≃ₐ', '≃ₒ',
           '→ᵃ', '≃ᵃ',
           '↪', '↠',  /* embedding, surjection */
+          '⇨',       /* Heyting implication */
         )),
         field('rhs', $._term),
       )),
@@ -938,11 +953,19 @@ export default grammar({
       ),
     )),
 
+    /* `∀ x, body`, `∀ x : T, body`, `∀ x ∈ s, body` (sugar) — and
+       Mathlib's `∀ b ≠ ⊥, body` predicate-tail sugar. */
     forall: $ => prec.right(seq(
       /* `Π` is a deprecated Mathlib synonym for `∀` for product types. */
       choice('∀', 'forall', 'Π'),
       $._binders,
-      optional($._type_spec),
+      optional(choice(
+        $._type_spec,
+        seq(
+          field('rel', choice('∈', '∉', '≠')),
+          field('bound', $._op_term),
+        ),
+      )),
       ',',
       field('body', $._term),
     )),
@@ -950,7 +973,13 @@ export default grammar({
     exists: $ => prec.right(seq(
       choice('∃', 'exists'),
       $._binders,
-      optional($._type_spec),
+      optional(choice(
+        $._type_spec,
+        seq(
+          field('rel', choice('∈', '∉', '≠')),
+          field('bound', $._op_term),
+        ),
+      )),
       ',',
       field('body', $._term),
     )),
