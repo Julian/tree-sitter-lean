@@ -741,7 +741,7 @@ export default grammar({
 
     /* `{ field := value, ... }` (anonymous structure) and the
        `{ src with field := value, ... }` update form. `{}` is empty.
-       `{e}` matches the Mathlib singleton-set notation. */
+       `{a, b, c}` is Mathlib's finite-set / insert-chain notation. */
     struct_lit: $ => seq(
       '{',
       optional(choice(
@@ -749,7 +749,7 @@ export default grammar({
           optional(seq(field('source', $._term), 'with')),
           sep1($.struct_field, optional(',')),
         ),
-        field('singleton', $._term),
+        sep1(field('elem', $._term), ','),
       )),
       '}',
     ),
@@ -889,6 +889,7 @@ export default grammar({
           '∈', '∉', '⊆', '⊂', '⊇', '⊃',
           '≡', '≢', '~', '≃', '≅',
           '∣', '∤',  /* divides, not-divides */
+          '⋖', '⋗',  /* covby (atomic-cover) and its dual */
         )),
         /* `a = fun x => …` and `a ≤ if p then x else y` are common
            enough that comparison RHS must allow lead terms. */

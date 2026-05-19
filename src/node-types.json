@@ -3596,6 +3596,14 @@
             "named": false
           },
           {
+            "type": "⋖",
+            "named": false
+          },
+          {
+            "type": "⋗",
+            "named": false
+          },
+          {
             "type": "▸",
             "named": false
           },
@@ -21316,8 +21324,8 @@
     "type": "struct_lit",
     "named": true,
     "fields": {
-      "singleton": {
-        "multiple": false,
+      "elem": {
+        "multiple": true,
         "required": false,
         "types": [
           {
@@ -25249,6 +25257,14 @@
   },
   {
     "type": "⊗ₜ",
+    "named": false
+  },
+  {
+    "type": "⋖",
+    "named": false
+  },
+  {
+    "type": "⋗",
     "named": false
   },
   {

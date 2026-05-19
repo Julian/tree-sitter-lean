@@ -3721,12 +3721,37 @@
                   ]
                 },
                 {
-                  "type": "FIELD",
-                  "name": "singleton",
-                  "content": {
-                    "type": "SYMBOL",
-                    "name": "_term"
-                  }
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "FIELD",
+                      "name": "elem",
+                      "content": {
+                        "type": "SYMBOL",
+                        "name": "_term"
+                      }
+                    },
+                    {
+                      "type": "REPEAT",
+                      "content": {
+                        "type": "SEQ",
+                        "members": [
+                          {
+                            "type": "STRING",
+                            "value": ","
+                          },
+                          {
+                            "type": "FIELD",
+                            "name": "elem",
+                            "content": {
+                              "type": "SYMBOL",
+                              "name": "_term"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
                 }
               ]
             },
@@ -4593,6 +4618,14 @@
                     {
                       "type": "STRING",
                       "value": "∤"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "⋖"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "⋗"
                     }
                   ]
                 }

@@ -1020,7 +1020,7 @@ Singleton set notation
 (module
   (check
     term: (struct_lit
-      singleton: (identifier))))
+      elem: (identifier))))
 
 ==============
 Divides operator
@@ -1657,3 +1657,32 @@ abbrev Eq.ndrec.{u1, u2} : Foo := rfl
       level: (identifier)
       type: (identifier)
       body: (identifier))))
+
+==============
+Multi-element set literal
+==============
+
+#check {⊥, a, b}
+
+---
+
+(module
+  (check
+    term: (struct_lit
+      elem: (bot_const)
+      elem: (identifier)
+      elem: (identifier))))
+
+==============
+Covby operator
+==============
+
+#check ⊥ ⋖ a
+
+---
+
+(module
+  (check
+    term: (binary_op
+      lhs: (bot_const)
+      rhs: (identifier))))
