@@ -283,9 +283,18 @@ export default grammar({
     ),
 
 
+    /* `Eq.ndrec.{u1, u2}` — declaration name with explicit universe
+       parameters. The `.{` token must be immediate (no space). */
+    _decl_universes: $ => seq(
+      token.immediate('.{'),
+      sep1(field('level', $.identifier), ','),
+      '}',
+    ),
+
     def: $ => seq(
       'def',
       field('name', $.identifier),
+      optional($._decl_universes),
       optional($._binders),
       optional($._type_spec),
       $._decl_val,
@@ -294,6 +303,7 @@ export default grammar({
     theorem: $ => seq(
       choice('theorem', 'lemma'),
       field('name', $.identifier),
+      optional($._decl_universes),
       optional($._binders),
       $._type_spec,
       $._decl_val,
@@ -309,6 +319,7 @@ export default grammar({
     abbrev: $ => seq(
       'abbrev',
       field('name', $.identifier),
+      optional($._decl_universes),
       optional($._binders),
       optional($._type_spec),
       $._decl_val,
@@ -323,6 +334,7 @@ export default grammar({
       seq(
         'instance',
         field('name', $.identifier),
+        optional($._decl_universes),
         optional($._binders),
         $._type_spec,
         $._decl_val,
@@ -338,6 +350,7 @@ export default grammar({
     axiom: $ => seq(
       'axiom',
       field('name', $.identifier),
+      optional($._decl_universes),
       optional($._binders),
       $._type_spec,
     ),
@@ -345,6 +358,7 @@ export default grammar({
     opaque: $ => seq(
       'opaque',
       field('name', $.identifier),
+      optional($._decl_universes),
       optional($._binders),
       $._type_spec,
       optional($._decl_val),
@@ -353,6 +367,7 @@ export default grammar({
     constant: $ => seq(
       'constant',
       field('name', $.identifier),
+      optional($._decl_universes),
       optional($._binders),
       $._type_spec,
       optional($._decl_val),
@@ -361,6 +376,7 @@ export default grammar({
     structure: $ => prec.right(seq(
       choice('structure', 'class'),
       field('name', $.identifier),
+      optional($._decl_universes),
       optional($._binders),
       optional($._type_spec),
       optional($._extends_clause),
@@ -384,6 +400,7 @@ export default grammar({
     inductive: $ => prec.right(seq(
       choice('inductive', seq('class', 'inductive')),
       field('name', $.identifier),
+      optional($._decl_universes),
       optional($._binders),
       optional($._type_spec),
       optional($._extends_clause),

@@ -1640,3 +1640,20 @@ Long right arrow
     term: (binary_op
       lhs: (identifier)
       rhs: (identifier))))
+
+==============
+Declaration with universe parameters
+==============
+
+abbrev Eq.ndrec.{u1, u2} : Foo := rfl
+
+---
+
+(module
+  (declaration
+    (abbrev
+      name: (identifier)
+      level: (identifier)
+      level: (identifier)
+      type: (identifier)
+      body: (identifier))))

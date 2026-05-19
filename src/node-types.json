@@ -233,6 +233,16 @@
           }
         ]
       },
+      "level": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
       "name": {
         "multiple": false,
         "required": true,
@@ -2101,6 +2111,16 @@
     "type": "axiom",
     "named": true,
     "fields": {
+      "level": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
       "name": {
         "multiple": false,
         "required": true,
@@ -5041,6 +5061,16 @@
           }
         ]
       },
+      "level": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
       "name": {
         "multiple": false,
         "required": true,
@@ -5885,6 +5915,16 @@
           },
           {
             "type": "universe_app",
+            "named": true
+          }
+        ]
+      },
+      "level": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
             "named": true
           }
         ]
@@ -11910,6 +11950,16 @@
     "type": "inductive",
     "named": true,
     "fields": {
+      "level": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
       "name": {
         "multiple": true,
         "required": true,
@@ -13092,6 +13142,16 @@
           },
           {
             "type": "universe_app",
+            "named": true
+          }
+        ]
+      },
+      "level": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
             "named": true
           }
         ]
@@ -15888,6 +15948,16 @@
           },
           {
             "type": "universe_app",
+            "named": true
+          }
+        ]
+      },
+      "level": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
             "named": true
           }
         ]
@@ -21714,6 +21784,16 @@
     "type": "structure",
     "named": true,
     "fields": {
+      "level": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
       "name": {
         "multiple": true,
         "required": true,
@@ -23310,6 +23390,16 @@
           },
           {
             "type": "universe_app",
+            "named": true
+          }
+        ]
+      },
+      "level": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
             "named": true
           }
         ]
