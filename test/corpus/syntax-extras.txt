@@ -1686,3 +1686,30 @@ Covby operator
     term: (binary_op
       lhs: (bot_const)
       rhs: (identifier))))
+
+==============
+Heyting negation
+==============
+
+#check ￢a
+
+---
+
+(module
+  (check
+    term: (unary_op
+      rhs: (identifier))))
+
+==============
+Set cross product
+==============
+
+#check s ×ˢ t
+
+---
+
+(module
+  (check
+    term: (binary_op
+      lhs: (identifier)
+      rhs: (identifier))))

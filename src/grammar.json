@@ -4201,6 +4201,10 @@
                 {
                   "type": "STRING",
                   "value": "↓"
+                },
+                {
+                  "type": "STRING",
+                  "value": "￢"
                 }
               ]
             }
@@ -4808,6 +4812,10 @@
                     {
                       "type": "STRING",
                       "value": "×"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "×ˢ"
                     },
                     {
                       "type": "STRING",

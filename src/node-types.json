@@ -3372,6 +3372,10 @@
             "named": false
           },
           {
+            "type": "×ˢ",
+            "named": false
+          },
+          {
             "type": "•",
             "named": false
           },
@@ -23754,6 +23758,10 @@
           {
             "type": "↥",
             "named": false
+          },
+          {
+            "type": "￢",
+            "named": false
           }
         ]
       },
@@ -24944,6 +24952,10 @@
     "named": false
   },
   {
+    "type": "×ˢ",
+    "named": false
+  },
+  {
     "type": "ˣ",
     "named": false
   },
@@ -25309,6 +25321,10 @@
   },
   {
     "type": "⨆",
+    "named": false
+  },
+  {
+    "type": "￢",
     "named": false
   }
 ]
