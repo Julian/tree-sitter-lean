@@ -350,6 +350,16 @@ export default grammar({
       $._decl_val,
     ),
 
+    /* `(priority := N)` / `(name := myName)` — named-attribute prefix
+       on instance declarations, before any binders. */
+    _named_attr: $ => seq(
+      '(',
+      field('attr', choice('priority', 'name')),
+      ':=',
+      field('value', $._term),
+      ')',
+    ),
+
     /* Two distinct shapes so tree-sitter doesn't have to disambiguate
        `instance ident (` against `instance (binder)`. With a name, the
        binder list can be `_binders` (bare-ident or bracketed). Without a
@@ -358,6 +368,7 @@ export default grammar({
     instance: $ => choice(
       seq(
         'instance',
+        repeat($._named_attr),
         field('name', $.identifier),
         optional($._decl_universes),
         optional($._binders),
@@ -366,6 +377,7 @@ export default grammar({
       ),
       seq(
         'instance',
+        repeat($._named_attr),
         repeat($._bracketed_binder),
         $._type_spec,
         $._decl_val,

@@ -1816,3 +1816,19 @@ haveI for instance
       name: (identifier)
       value: (identifier)
       body: (identifier))))
+
+==============
+Instance with priority
+==============
+
+instance (priority := 100) Foo : Bar := rfl
+
+---
+
+(module
+  (declaration
+    (instance
+      value: (num_lit)
+      name: (identifier)
+      type: (identifier)
+      body: (identifier))))
