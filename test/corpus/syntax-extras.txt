@@ -1713,3 +1713,17 @@ Set cross product
     term: (binary_op
       lhs: (identifier)
       rhs: (identifier))))
+
+==============
+Mathematical double-struck identifier
+==============
+
+#check 𝟙 X
+
+---
+
+(module
+  (check
+    term: (app
+      fn: (identifier)
+      arg: (identifier))))

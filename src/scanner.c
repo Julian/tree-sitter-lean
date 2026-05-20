@@ -51,7 +51,7 @@ static bool is_letter_like(int32_t c) {
       || (0x3ca   <= c && c <= 0x3fb)
       || (0x1f00  <= c && c <= 0x1ffe)
       || (0x2100  <= c && c <= 0x214f)
-      || (0x1d49c <= c && c <= 0x1d59f)
+      || (0x1d400 <= c && c <= 0x1d7ff)  /* Math alphanumeric symbols (𝟙, 𝒜, 𝔽, …) */
       || (0x00c0  <= c && c <= 0x00ff && c != 0x00d7 && c != 0x00f7)
       || (0x0100  <= c && c <= 0x017f);
 }
