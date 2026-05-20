@@ -4801,6 +4801,39 @@
           }
         },
         {
+          "type": "PREC_LEFT",
+          "value": 95,
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "FIELD",
+                "name": "lhs",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_op_term"
+                }
+              },
+              {
+                "type": "FIELD",
+                "name": "op",
+                "content": {
+                  "type": "STRING",
+                  "value": "<;>"
+                }
+              },
+              {
+                "type": "FIELD",
+                "name": "rhs",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_op_term"
+                }
+              }
+            ]
+          }
+        },
+        {
           "type": "PREC_RIGHT",
           "value": 60,
           "content": {

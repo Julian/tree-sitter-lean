@@ -927,6 +927,13 @@ export default grammar({
         field('op', '::'),
         field('rhs', $._op_term),
       )),
+      /* `<;>` — tactic-combinator (run-on-all-goals); appears in
+         tactic-block bodies. */
+      prec.left(PREC.pipe, seq(
+        field('lhs', $._op_term),
+        field('op', '<;>'),
+        field('rhs', $._op_term),
+      )),
       prec.right(PREC.append, seq(
         field('lhs', $._op_term),
         field('op', '++'),

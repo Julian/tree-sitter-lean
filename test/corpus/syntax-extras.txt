@@ -1766,3 +1766,23 @@ PSigma type operator
     term: (binary_op
       lhs: (identifier)
       rhs: (identifier))))
+
+==============
+Tactic combinator <;>
+==============
+
+example := by convert x <;> apply foo
+
+---
+
+(module
+  (declaration
+    (example
+      body: (by
+        inline: (binary_op
+          lhs: (app
+            fn: (identifier)
+            arg: (identifier))
+          rhs: (app
+            fn: (identifier)
+            arg: (identifier)))))))
