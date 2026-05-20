@@ -1073,7 +1073,9 @@ export default grammar({
        Inline binders are not modeled — write `let f := fun x => …`
        instead. The `←`/`<-` form is monadic bind for do-blocks. */
     let: $ => prec.right(seq(
-      'let',
+      /* `letI` is Mathlib's "let instance" variant (immediately
+         registers the bound value as a typeclass instance). */
+      choice('let', 'letI'),
       optional(choice('mut', 'rec')),
       field('name', choice($._binder_ident, $.tuple_binder)),
       optional($._type_spec),
@@ -1083,7 +1085,8 @@ export default grammar({
     )),
 
     have: $ => prec.right(seq(
-      'have',
+      /* `haveI` is Mathlib's "have instance" variant. */
+      choice('have', 'haveI'),
       field('name', $._binder_ident),
       optional($._type_spec),
       ':=',

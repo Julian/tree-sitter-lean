@@ -5651,8 +5651,17 @@
         "type": "SEQ",
         "members": [
           {
-            "type": "STRING",
-            "value": "let"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "let"
+              },
+              {
+                "type": "STRING",
+                "value": "letI"
+              }
+            ]
           },
           {
             "type": "CHOICE",
@@ -5764,8 +5773,17 @@
         "type": "SEQ",
         "members": [
           {
-            "type": "STRING",
-            "value": "have"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "have"
+              },
+              {
+                "type": "STRING",
+                "value": "haveI"
+              }
+            ]
           },
           {
             "type": "FIELD",

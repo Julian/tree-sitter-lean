@@ -25235,6 +25235,10 @@
     "named": false
   },
   {
+    "type": "haveI",
+    "named": false
+  },
+  {
     "type": "hole",
     "named": true
   },
@@ -25272,6 +25276,10 @@
   },
   {
     "type": "let",
+    "named": false
+  },
+  {
+    "type": "letI",
     "named": false
   },
   {

@@ -1786,3 +1786,33 @@ example := by convert x <;> apply foo
           rhs: (app
             fn: (identifier)
             arg: (identifier)))))))
+
+==============
+letI for instance
+==============
+
+#check letI x := foo; bar
+
+---
+
+(module
+  (check
+    term: (let
+      name: (identifier)
+      value: (identifier)
+      body: (identifier))))
+
+==============
+haveI for instance
+==============
+
+#check haveI x := foo; bar
+
+---
+
+(module
+  (check
+    term: (have
+      name: (identifier)
+      value: (identifier)
+      body: (identifier))))
