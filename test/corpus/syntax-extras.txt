@@ -1727,3 +1727,42 @@ Mathematical double-struck identifier
     term: (app
       fn: (identifier)
       arg: (identifier))))
+
+==============
+Add decl doc command
+==============
+
+add_decl_doc extrinsicFix
+
+---
+
+(module
+  (decl_doc_cmd
+    name: (identifier)))
+
+==============
+Grind pattern command
+==============
+
+grind_pattern Subtype.property => self.val
+
+---
+
+(module
+  (grind_pattern_cmd
+    name: (identifier)
+    pattern: (identifier)))
+
+==============
+PSigma type operator
+==============
+
+#check α ×' β
+
+---
+
+(module
+  (check
+    term: (binary_op
+      lhs: (identifier)
+      rhs: (identifier))))

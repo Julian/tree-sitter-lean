@@ -204,6 +204,14 @@
         },
         {
           "type": "SYMBOL",
+          "name": "decl_doc_cmd"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "grind_pattern_cmd"
+        },
+        {
+          "type": "SYMBOL",
           "name": "declaration"
         }
       ]
@@ -259,6 +267,120 @@
               "type": "BLANK"
             }
           ]
+        }
+      ]
+    },
+    "decl_doc_cmd": {
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "add_decl_doc"
+              },
+              {
+                "type": "STRING",
+                "value": "library_note"
+              },
+              {
+                "type": "STRING",
+                "value": "recommended_spelling"
+              },
+              {
+                "type": "STRING",
+                "value": "initialize_simps_projections"
+              }
+            ]
+          },
+          {
+            "type": "FIELD",
+            "name": "name",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "identifier"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "str_lit"
+                }
+              ]
+            }
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "CHOICE",
+                    "members": [
+                      {
+                        "type": "STRING",
+                        "value": "=>"
+                      },
+                      {
+                        "type": "STRING",
+                        "value": "for"
+                      },
+                      {
+                        "type": "STRING",
+                        "value": "in"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "FIELD",
+                    "name": "rhs",
+                    "content": {
+                      "type": "SYMBOL",
+                      "name": "_term"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "grind_pattern_cmd": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "grind_pattern"
+        },
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "=>"
+        },
+        {
+          "type": "FIELD",
+          "name": "pattern",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_term"
+          }
         }
       ]
     },
@@ -4812,6 +4934,10 @@
                     {
                       "type": "STRING",
                       "value": "×"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "×'"
                     },
                     {
                       "type": "STRING",

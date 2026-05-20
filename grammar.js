@@ -111,6 +111,8 @@ export default grammar({
       $.set_option,
       $.deriving_cmd,
       $.assert_cmd,
+      $.decl_doc_cmd,
+      $.grind_pattern_cmd,
       $.declaration,
     ),
 
@@ -123,6 +125,29 @@ export default grammar({
         '#exit', '#synth', '#version',
       ),
       optional(field('target', $._term_atom)),
+    ),
+
+    /* Lean/Mathlib commands that attach a doc/spelling/grind note to
+       an existing declaration. Takes an identifier (and optionally
+       `=> rhs` or `for ident` continuations). */
+    decl_doc_cmd: $ => prec.right(seq(
+      choice(
+        'add_decl_doc', 'library_note', 'recommended_spelling',
+        'initialize_simps_projections',
+      ),
+      field('name', choice($.identifier, $.str_lit)),
+      optional(seq(
+        choice('=>', 'for', 'in'),
+        field('rhs', $._term),
+      )),
+    )),
+
+    /* `grind_pattern Foo => rhs` — registers a `grind` pattern. */
+    grind_pattern_cmd: $ => seq(
+      'grind_pattern',
+      field('name', $.identifier),
+      '=>',
+      field('pattern', $._term),
     ),
 
     /* `deriving instance Foo, Bar for Baz` — standalone deriving. */
@@ -919,7 +944,7 @@ export default grammar({
       prec.left(PREC.mul, seq(
         field('lhs', $._op_term),
         field('op', choice(
-          '*', '/', '%', '∩', '×', '×ˢ', '•', '∙',
+          '*', '/', '%', '∩', '×', "×'", '×ˢ', '•', '∙',
           /* Tensor and related Mathlib operators (without bracket
              param — `⊗ₜ[R]` parses as `⊗ₜ` + `[R]` consumed by app). */
           '⊗', '⊗ₜ', '⊗ₛ',
