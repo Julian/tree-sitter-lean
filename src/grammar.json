@@ -3168,6 +3168,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "empty_const"
+        },
+        {
+          "type": "SYMBOL",
           "name": "sorry"
         },
         {
@@ -3427,6 +3431,10 @@
     "top_const": {
       "type": "STRING",
       "value": "⊤"
+    },
+    "empty_const": {
+      "type": "STRING",
+      "value": "∅"
     },
     "true_const": {
       "type": "CHOICE",
@@ -5117,8 +5125,21 @@
                 "type": "FIELD",
                 "name": "op",
                 "content": {
-                  "type": "STRING",
-                  "value": "∘"
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": "∘"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "''"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "⁻¹'"
+                    }
+                  ]
                 }
               },
               {

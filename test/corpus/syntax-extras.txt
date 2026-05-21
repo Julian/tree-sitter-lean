@@ -1851,3 +1851,43 @@ Iff with exists on rhs
         body: (app
           fn: (identifier)
           arg: (identifier))))))
+
+==============
+Empty set constant
+==============
+
+#check ∅
+
+---
+
+(module
+  (check
+    term: (empty_const)))
+
+==============
+Image operator
+==============
+
+#check f '' s
+
+---
+
+(module
+  (check
+    term: (binary_op
+      lhs: (identifier)
+      rhs: (identifier))))
+
+==============
+Preimage operator
+==============
+
+#check f ⁻¹' s
+
+---
+
+(module
+  (check
+    term: (binary_op
+      lhs: (identifier)
+      rhs: (identifier))))

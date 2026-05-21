@@ -657,6 +657,7 @@ export default grammar({
       $.false_const,
       $.bot_const,
       $.top_const,
+      $.empty_const,
       $.sorry,
       $.paren,
       $.anon_ctor,
@@ -723,6 +724,8 @@ export default grammar({
     /* `⊥`/`⊤` are the bottom/top elements of a (semi)lattice. */
     bot_const: _ => '⊥',
     top_const: _ => '⊤',
+    /* `∅` is the empty-set/empty-collection literal. */
+    empty_const: _ => '∅',
     /* Capital `True`/`False` are Prop; lowercase `true`/`false` are
        the boolean inductive's constructors. */
     true_const:  _ => choice('True', 'true'),
@@ -978,7 +981,11 @@ export default grammar({
       )),
       prec.right(PREC.comp, seq(
         field('lhs', $._op_term),
-        field('op', '∘'),
+        field('op', choice(
+          '∘',
+          /* Mathlib's set image / preimage operators. */
+          "''", "⁻¹'",
+        )),
         field('rhs', $._op_term),
       )),
       prec.left(PREC.pipe, seq(
