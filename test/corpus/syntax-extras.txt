@@ -1891,3 +1891,48 @@ Preimage operator
     term: (binary_op
       lhs: (identifier)
       rhs: (identifier))))
+
+==============
+Alias command
+==============
+
+alias foo := bar
+
+---
+
+(module
+  (alias_cmd
+    name: (identifier)
+    value: (identifier)))
+
+==============
+Alias command with iff destructure
+==============
+
+alias ⟨l, r⟩ := bot_covBy_iff
+
+---
+
+(module
+  (alias_cmd
+    name: (anon_ctor
+      (identifier)
+      (identifier))
+    value: (identifier)))
+
+==============
+Have with anon-ctor destructure
+==============
+
+#check have ⟨b, hb⟩ := exists_ne; b
+
+---
+
+(module
+  (check
+    term: (have
+      name: (anon_ctor_binder
+        (identifier)
+        (identifier))
+      value: (identifier)
+      body: (identifier))))

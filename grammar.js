@@ -113,6 +113,7 @@ export default grammar({
       $.assert_cmd,
       $.decl_doc_cmd,
       $.grind_pattern_cmd,
+      $.alias_cmd,
       $.declaration,
     ),
 
@@ -148,6 +149,14 @@ export default grammar({
       field('name', $.identifier),
       '=>',
       field('pattern', $._term),
+    ),
+
+    /* `alias foo := bar` and `alias ⟨l, r⟩ := iff_lemma`. */
+    alias_cmd: $ => seq(
+      'alias',
+      field('name', choice($.identifier, $.anon_ctor)),
+      ':=',
+      field('value', $._term),
     ),
 
     /* `deriving instance Foo, Bar for Baz` — standalone deriving. */
@@ -1107,7 +1116,8 @@ export default grammar({
     have: $ => prec.right(seq(
       /* `haveI` is Mathlib's "have instance" variant. */
       choice('have', 'haveI'),
-      field('name', $._binder_ident),
+      /* Destructuring `have ⟨a, b⟩ := …` is common in Mathlib. */
+      field('name', choice($._binder_ident, $.anon_ctor_binder)),
       optional($._type_spec),
       ':=',
       field('value', $._term),
