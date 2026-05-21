@@ -1936,3 +1936,33 @@ Have with anon-ctor destructure
         (identifier))
       value: (identifier)
       body: (identifier))))
+
+==============
+Infix notation declaration
+==============
+
+@[inherit_doc] infixr:30 " ⊕ " => Sum
+
+---
+
+(module
+  (notation_decl_cmd
+    (attributes
+      name: (identifier))
+    prec: (num_lit)
+    op: (str_lit)
+    target: (identifier)))
+
+==============
+Postfix notation declaration
+==============
+
+postfix:max "⁻¹" => Inv.inv
+
+---
+
+(module
+  (notation_decl_cmd
+    prec: (identifier)
+    op: (str_lit)
+    target: (identifier)))

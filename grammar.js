@@ -114,6 +114,7 @@ export default grammar({
       $.decl_doc_cmd,
       $.grind_pattern_cmd,
       $.alias_cmd,
+      $.notation_decl_cmd,
       $.declaration,
     ),
 
@@ -157,6 +158,22 @@ export default grammar({
       field('name', choice($.identifier, $.anon_ctor)),
       ':=',
       field('value', $._term),
+    ),
+
+    /* `infix:20 " <-> " => Iff`, `infixr:30 " ⊕ " => Sum`,
+       `prefix:max " - " => Neg.neg`, etc. The `:prec` slot is
+       immediate so it sticks to the keyword. */
+    notation_decl_cmd: $ => seq(
+      optional($.attributes),
+      optional(choice('scoped', 'local')),
+      choice('infix', 'infixl', 'infixr', 'prefix', 'postfix'),
+      optional(seq(
+        token.immediate(':'),
+        field('prec', choice($.num_lit, $.identifier)),
+      )),
+      field('op', $.str_lit),
+      '=>',
+      field('target', $._term),
     ),
 
     /* `deriving instance Foo, Bar for Baz` — standalone deriving. */
@@ -430,7 +447,7 @@ export default grammar({
         'where',
         /* Indented field block separates fields with NEWLINE so a
            greedy `_term`-typed type doesn't eat the next field. */
-        choice(
+        optional(choice(
           seq(optional($.ctor), repeat1($.field)),
           seq(
             $._indent,
@@ -438,7 +455,7 @@ export default grammar({
             sep1($.field, $._newline),
             $._dedent,
           ),
-        ),
+        )),
       )),
       optional($._deriving_clause),
     )),
