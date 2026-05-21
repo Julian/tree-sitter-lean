@@ -1966,3 +1966,31 @@ postfix:max "⁻¹" => Inv.inv
     prec: (identifier)
     op: (str_lit)
     target: (identifier)))
+
+==============
+Subset-like comparison operators
+==============
+
+#check a ⊑ b
+
+---
+
+(module
+  (check
+    term: (binary_op
+      lhs: (identifier)
+      rhs: (identifier))))
+
+==============
+Approx equal operator
+==============
+
+#check a ≈ b
+
+---
+
+(module
+  (check
+    term: (binary_op
+      lhs: (identifier)
+      rhs: (identifier))))

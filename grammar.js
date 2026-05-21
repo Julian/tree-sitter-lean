@@ -176,6 +176,7 @@ export default grammar({
       field('target', $._term),
     ),
 
+
     /* `deriving instance Foo, Bar for Baz` — standalone deriving. */
     deriving_cmd: $ => seq(
       'deriving', 'instance',
@@ -955,8 +956,8 @@ export default grammar({
           '=', '==', '≠', '!=',
           '<', '≤', '<=',
           '>', '≥', '>=',
-          '∈', '∉', '⊆', '⊂', '⊇', '⊃',
-          '≡', '≢', '~', '≃', '≅',
+          '∈', '∉', '⊆', '⊂', '⊇', '⊃', '⊑', '⊒',
+          '≡', '≢', '~', '≃', '≅', '≈', '≉',
           '∣', '∤',  /* divides, not-divides */
           '⋖', '⋗',  /* covby (atomic-cover) and its dual */
         )),
