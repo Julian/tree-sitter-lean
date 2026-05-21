@@ -1832,3 +1832,22 @@ instance (priority := 100) Foo : Bar := rfl
       name: (identifier)
       type: (identifier)
       body: (identifier))))
+
+==============
+Iff with exists on rhs
+==============
+
+#check p ↔ ∃ x, q x
+
+---
+
+(module
+  (check
+    term: (binary_op
+      lhs: (identifier)
+      rhs: (exists
+        (binders
+          (identifier))
+        body: (app
+          fn: (identifier)
+          arg: (identifier))))))

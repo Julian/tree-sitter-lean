@@ -905,7 +905,8 @@ export default grammar({
       prec.right(PREC.iff, seq(
         field('lhs', $._op_term),
         field('op', choice('↔', '<->')),
-        field('rhs', $._op_term),
+        /* `p ↔ ∃ x, …` is extremely common in Mathlib. */
+        field('rhs', $._term),
       )),
       prec.left(PREC.or, seq(
         field('lhs', $._op_term),

@@ -4591,7 +4591,7 @@
                 "name": "rhs",
                 "content": {
                   "type": "SYMBOL",
-                  "name": "_op_term"
+                  "name": "_term"
                 }
               }
             ]
