@@ -265,7 +265,11 @@ export default grammar({
       repeat1(field('name', $.identifier)),
     ),
 
-    open: $ => seq('open', $._open_decl),
+    open: $ => prec.right(seq(
+      'open',
+      $._open_decl,
+      optional(seq('in', field('body', $._command))),
+    )),
     _open_decl: $ => choice(
       seq(
         field('namespace', $.identifier),
@@ -339,7 +343,7 @@ export default grammar({
        parameters. The `.{` token must be immediate (no space). */
     _decl_universes: $ => seq(
       token.immediate('.{'),
-      sep1(field('level', $.identifier), ','),
+      sep1(field('level', choice($.identifier, $.num_lit)), ','),
       '}',
     ),
 
@@ -869,13 +873,14 @@ export default grammar({
       field('field', choice($.identifier, $.num_lit)),
     )),
 
-    /* `Foo.{u₁, u₂}` — explicit universe-level application.
-       The `.{` is one immediate token so it wins the longest-match
-       race against the proj-dot. */
+    /* `Foo.{u₁, u₂}` or `NonemptyType.{0}` — explicit universe-level
+       application. The `.{` is one immediate token so it wins the
+       longest-match race against the proj-dot. Numeric levels appear
+       for `Type 0` etc. */
     universe_app: $ => prec.left(PREC.proj, seq(
       field('term', $._op_term),
       token.immediate('.{'),
-      sep1(field('level', $.identifier), ','),
+      sep1(field('level', choice($.identifier, $.num_lit)), ','),
       '}',
     )),
 

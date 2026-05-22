@@ -244,6 +244,10 @@
           {
             "type": "identifier",
             "named": true
+          },
+          {
+            "type": "num_lit",
+            "named": true
           }
         ]
       },
@@ -2407,6 +2411,10 @@
         "types": [
           {
             "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "num_lit",
             "named": true
           }
         ]
@@ -5446,6 +5454,10 @@
           {
             "type": "identifier",
             "named": true
+          },
+          {
+            "type": "num_lit",
+            "named": true
           }
         ]
       },
@@ -6565,6 +6577,10 @@
         "types": [
           {
             "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "num_lit",
             "named": true
           }
         ]
@@ -12947,6 +12963,10 @@
           {
             "type": "identifier",
             "named": true
+          },
+          {
+            "type": "num_lit",
+            "named": true
           }
         ]
       },
@@ -14176,6 +14196,10 @@
         "types": [
           {
             "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "num_lit",
             "named": true
           }
         ]
@@ -17543,6 +17567,10 @@
           {
             "type": "identifier",
             "named": true
+          },
+          {
+            "type": "num_lit",
+            "named": true
           }
         ]
       },
@@ -17814,6 +17842,100 @@
     "type": "open",
     "named": true,
     "fields": {
+      "body": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "alias_cmd",
+            "named": true
+          },
+          {
+            "type": "assert_cmd",
+            "named": true
+          },
+          {
+            "type": "attribute_cmd",
+            "named": true
+          },
+          {
+            "type": "check",
+            "named": true
+          },
+          {
+            "type": "decl_doc_cmd",
+            "named": true
+          },
+          {
+            "type": "declaration",
+            "named": true
+          },
+          {
+            "type": "deriving_cmd",
+            "named": true
+          },
+          {
+            "type": "end",
+            "named": true
+          },
+          {
+            "type": "eval",
+            "named": true
+          },
+          {
+            "type": "export",
+            "named": true
+          },
+          {
+            "type": "grind_pattern_cmd",
+            "named": true
+          },
+          {
+            "type": "initialize",
+            "named": true
+          },
+          {
+            "type": "namespace",
+            "named": true
+          },
+          {
+            "type": "notation_decl_cmd",
+            "named": true
+          },
+          {
+            "type": "open",
+            "named": true
+          },
+          {
+            "type": "print",
+            "named": true
+          },
+          {
+            "type": "public_section",
+            "named": true
+          },
+          {
+            "type": "reduce",
+            "named": true
+          },
+          {
+            "type": "section",
+            "named": true
+          },
+          {
+            "type": "set_option",
+            "named": true
+          },
+          {
+            "type": "universe",
+            "named": true
+          },
+          {
+            "type": "variable",
+            "named": true
+          }
+        ]
+      },
       "namespace": {
         "multiple": true,
         "required": false,
@@ -23487,6 +23609,10 @@
           {
             "type": "identifier",
             "named": true
+          },
+          {
+            "type": "num_lit",
+            "named": true
           }
         ]
       },
@@ -25125,6 +25251,10 @@
           {
             "type": "identifier",
             "named": true
+          },
+          {
+            "type": "num_lit",
+            "named": true
           }
         ]
       },
@@ -25691,6 +25821,10 @@
         "types": [
           {
             "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "num_lit",
             "named": true
           }
         ]

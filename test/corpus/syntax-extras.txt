@@ -1994,3 +1994,35 @@ Approx equal operator
     term: (binary_op
       lhs: (identifier)
       rhs: (identifier))))
+
+==============
+Open with scoped command
+==============
+
+open IO (Error) in
+def foo := 1
+
+---
+
+(module
+  (open
+    namespace: (identifier)
+    only: (identifier)
+    body: (declaration
+      (def
+        name: (identifier)
+        body: (num_lit)))))
+
+==============
+Universe app with numeric level
+==============
+
+#check NonemptyType.{0}
+
+---
+
+(module
+  (check
+    term: (universe_app
+      term: (identifier)
+      level: (num_lit))))
