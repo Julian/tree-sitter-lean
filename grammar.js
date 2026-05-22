@@ -130,8 +130,9 @@ export default grammar({
     ),
 
     /* Lean/Mathlib commands that attach a doc/spelling/grind note to
-       an existing declaration. Takes an identifier or string literal
-       followed by any number of `=> e` / `for e` / `in e` clauses
+       an existing declaration. Takes an identifier or string literal,
+       optional atomic args (`initialize_simps_projections Foo (a, b)`),
+       and any number of `=> e` / `for e` / `in e` clauses
        (`recommended_spelling "iff" for "↔" in [Iff, …]`). */
     decl_doc_cmd: $ => prec.right(seq(
       choice(
@@ -139,6 +140,7 @@ export default grammar({
         'initialize_simps_projections',
       ),
       field('name', choice($.identifier, $.str_lit)),
+      repeat(field('arg', $._term_atom)),
       repeat(seq(
         field('clause', choice('=>', 'for', 'in')),
         field('rhs', $._term),
