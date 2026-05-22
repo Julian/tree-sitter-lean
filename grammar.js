@@ -555,17 +555,18 @@ export default grammar({
        declares a value of a structure/instance type by field. The
        indented form uses scanner-emitted INDENT/NEWLINE/DEDENT so a
        field whose RHS is a multi-line term doesn't accidentally
-       swallow the next field's name. */
+       swallow the next field's name. The body is optional: an empty
+       `where` clause is legal when the structure has no fields. */
     where_struct: $ => prec.right(seq(
       'where',
-      choice(
+      optional(choice(
         $.struct_field,
         seq(
           $._indent,
           sep1($.struct_field, $._newline),
           $._dedent,
         ),
-      ),
+      )),
     )),
 
     /* ===== binders ======================================================= */

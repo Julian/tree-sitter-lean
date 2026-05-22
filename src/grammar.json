@@ -2861,46 +2861,54 @@
             "type": "CHOICE",
             "members": [
               {
-                "type": "SYMBOL",
-                "name": "struct_field"
-              },
-              {
-                "type": "SEQ",
+                "type": "CHOICE",
                 "members": [
                   {
                     "type": "SYMBOL",
-                    "name": "_indent"
+                    "name": "struct_field"
                   },
                   {
                     "type": "SEQ",
                     "members": [
                       {
                         "type": "SYMBOL",
-                        "name": "struct_field"
+                        "name": "_indent"
                       },
                       {
-                        "type": "REPEAT",
-                        "content": {
-                          "type": "SEQ",
-                          "members": [
-                            {
-                              "type": "SYMBOL",
-                              "name": "_newline"
-                            },
-                            {
-                              "type": "SYMBOL",
-                              "name": "struct_field"
+                        "type": "SEQ",
+                        "members": [
+                          {
+                            "type": "SYMBOL",
+                            "name": "struct_field"
+                          },
+                          {
+                            "type": "REPEAT",
+                            "content": {
+                              "type": "SEQ",
+                              "members": [
+                                {
+                                  "type": "SYMBOL",
+                                  "name": "_newline"
+                                },
+                                {
+                                  "type": "SYMBOL",
+                                  "name": "struct_field"
+                                }
+                              ]
                             }
-                          ]
-                        }
+                          }
+                        ]
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "_dedent"
                       }
                     ]
-                  },
-                  {
-                    "type": "SYMBOL",
-                    "name": "_dedent"
                   }
                 ]
+              },
+              {
+                "type": "BLANK"
               }
             ]
           }
