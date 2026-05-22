@@ -130,16 +130,17 @@ export default grammar({
     ),
 
     /* Lean/Mathlib commands that attach a doc/spelling/grind note to
-       an existing declaration. Takes an identifier (and optionally
-       `=> rhs` or `for ident` continuations). */
+       an existing declaration. Takes an identifier or string literal
+       followed by any number of `=> e` / `for e` / `in e` clauses
+       (`recommended_spelling "iff" for "↔" in [Iff, …]`). */
     decl_doc_cmd: $ => prec.right(seq(
       choice(
         'add_decl_doc', 'library_note', 'recommended_spelling',
         'initialize_simps_projections',
       ),
       field('name', choice($.identifier, $.str_lit)),
-      optional(seq(
-        choice('=>', 'for', 'in'),
+      repeat(seq(
+        field('clause', choice('=>', 'for', 'in')),
         field('rhs', $._term),
       )),
     )),
@@ -729,9 +730,23 @@ export default grammar({
       token.immediate('%'),
     ),
 
-    /* `@foo` — disables implicit insertion (explicit args mode).
-       Distinct from `@[…]` attributes via immediate-next-char check. */
-    explicit_mode: $ => seq('@', $.identifier),
+    /* `@expr` — disables implicit-argument insertion (explicit args
+       mode). Applies to arbitrary terms, not just identifiers
+       (`@fun x => …`, `@(f x)`). Excludes `[…]` follow-ups to keep
+       `@[…]` attributes unambiguous. */
+    explicit_mode: $ => prec(PREC.prefix, seq(
+      '@',
+      field('term', choice(
+        $.identifier,
+        $.dot_ident,
+        $.paren,
+        $.fun,
+        $.let,
+        $.have,
+        $.if_then_else,
+        $.match,
+      )),
+    )),
 
 
     hole:        _ => '_',

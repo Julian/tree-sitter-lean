@@ -323,12 +323,14 @@
             }
           },
           {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "SEQ",
-                "members": [
-                  {
+            "type": "REPEAT",
+            "content": {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "FIELD",
+                  "name": "clause",
+                  "content": {
                     "type": "CHOICE",
                     "members": [
                       {
@@ -344,21 +346,18 @@
                         "value": "in"
                       }
                     ]
-                  },
-                  {
-                    "type": "FIELD",
-                    "name": "rhs",
-                    "content": {
-                      "type": "SYMBOL",
-                      "name": "_term"
-                    }
                   }
-                ]
-              },
-              {
-                "type": "BLANK"
-              }
-            ]
+                },
+                {
+                  "type": "FIELD",
+                  "name": "rhs",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "_term"
+                  }
+                }
+              ]
+            }
           }
         ]
       }
@@ -3536,17 +3535,58 @@
       ]
     },
     "explicit_mode": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "@"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "identifier"
-        }
-      ]
+      "type": "PREC",
+      "value": 100,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "@"
+          },
+          {
+            "type": "FIELD",
+            "name": "term",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "identifier"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "dot_ident"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "paren"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "fun"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "let"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "have"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "if_then_else"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "match"
+                }
+              ]
+            }
+          }
+        ]
+      }
     },
     "hole": {
       "type": "STRING",

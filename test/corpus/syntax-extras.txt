@@ -1047,7 +1047,7 @@ Explicit args mode
 (module
   (check
     term: (explicit_mode
-      (identifier))))
+      term: (identifier))))
 
 ==============
 Explicit args mode with application
@@ -1062,7 +1062,7 @@ Explicit args mode with application
     term: (app
       fn: (app
         fn: (explicit_mode
-          (identifier))
+          term: (identifier))
         arg: (identifier))
       arg: (identifier))))
 
@@ -2026,3 +2026,18 @@ Universe app with numeric level
     term: (universe_app
       term: (identifier)
       level: (num_lit))))
+
+==============
+Explicit args mode on fun
+==============
+
+#check @fun x => x
+
+---
+
+(module
+  (check
+    term: (explicit_mode
+      term: (fun
+        (binders (identifier))
+        body: (identifier)))))
