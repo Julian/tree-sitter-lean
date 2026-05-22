@@ -2041,3 +2041,23 @@ Explicit args mode on fun
       term: (fun
         (binders (identifier))
         body: (identifier)))))
+
+==============
+Field in parens
+==============
+
+structure Foo where
+  of ::
+  (carrier : Type*)
+
+---
+
+(module
+  (declaration
+    (structure
+      name: (identifier)
+      (ctor
+        name: (identifier))
+      (field
+        name: (identifier)
+        type: (type_const)))))

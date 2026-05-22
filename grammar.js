@@ -503,9 +503,9 @@ export default grammar({
        surrounding declaration. Real Lean code overwhelmingly uses one
        name per line in structure fields. doc_comment is in `extras`
        so it still attaches to the field as trivia. Function-style
-       fields with binders are common (`f (a : α) : β`). Also accepts
-       `[name : T]` instance-implicit field form. Modifiers like
-       `protected`/`private` are recognized. */
+       fields with binders are common (`f (a : α) : β`). `(name : T)`
+       and `[name : T]` allow explicit / instance-implicit field forms.
+       Modifiers like `protected`/`private` are recognised. */
     field: $ => choice(
       seq(
         optional($.decl_modifiers),
@@ -513,6 +513,14 @@ export default grammar({
         optional($._binders),
         $._type_spec,
         optional(field('default', seq(':=', $._term))),
+      ),
+      seq(
+        '(',
+        field('name', $._binder_ident),
+        optional($._binders),
+        $._type_spec,
+        optional(field('default', seq(':=', $._term))),
+        ')',
       ),
       seq(
         '[',
