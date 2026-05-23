@@ -302,6 +302,14 @@
               {
                 "type": "STRING",
                 "value": "initialize_simps_projections"
+              },
+              {
+                "type": "STRING",
+                "value": "to_dual_insert_cast"
+              },
+              {
+                "type": "STRING",
+                "value": "to_dual_insert_cast_fun"
               }
             ]
           },
@@ -355,6 +363,10 @@
                       {
                         "type": "STRING",
                         "value": "in"
+                      },
+                      {
+                        "type": "STRING",
+                        "value": ":="
                       }
                     ]
                   }

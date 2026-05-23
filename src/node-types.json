@@ -6174,6 +6174,10 @@
         "required": false,
         "types": [
           {
+            "type": ":=",
+            "named": false
+          },
+          {
             "type": "=>",
             "named": false
           },
@@ -27032,6 +27036,14 @@
   },
   {
     "type": "theorem",
+    "named": false
+  },
+  {
+    "type": "to_dual_insert_cast",
+    "named": false
+  },
+  {
+    "type": "to_dual_insert_cast_fun",
     "named": false
   },
   {

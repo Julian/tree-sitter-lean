@@ -129,20 +129,22 @@ export default grammar({
       optional(field('target', $._term_atom)),
     ),
 
-    /* Lean/Mathlib commands that attach a doc/spelling/grind note to
-       an existing declaration. Takes an identifier or string literal,
-       optional atomic args (`initialize_simps_projections Foo (a, b)`),
-       and any number of `=> e` / `for e` / `in e` clauses
+    /* Lean/Mathlib commands that attach a doc/spelling/grind note or
+       a `:=`-bodied cast/coercion to an existing declaration. Takes
+       an identifier or string literal, optional atomic args
+       (`initialize_simps_projections Foo (a, b)`), and any number of
+       `=> e` / `for e` / `in e` / `:= e` clauses
        (`recommended_spelling "iff" for "↔" in [Iff, …]`). */
     decl_doc_cmd: $ => prec.right(seq(
       choice(
         'add_decl_doc', 'library_note', 'recommended_spelling',
         'initialize_simps_projections',
+        'to_dual_insert_cast', 'to_dual_insert_cast_fun',
       ),
       field('name', choice($.identifier, $.str_lit)),
       repeat(field('arg', $._term_atom)),
       repeat(seq(
-        field('clause', choice('=>', 'for', 'in')),
+        field('clause', choice('=>', 'for', 'in', ':=')),
         field('rhs', $._term),
       )),
     )),
