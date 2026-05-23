@@ -15654,6 +15654,10 @@
         "required": true,
         "types": [
           {
+            "type": "anon_ctor_binder",
+            "named": true
+          },
+          {
             "type": "hole",
             "named": true
           },

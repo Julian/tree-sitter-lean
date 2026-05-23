@@ -1157,7 +1157,11 @@ export default grammar({
          registers the bound value as a typeclass instance). */
       choice('let', 'letI'),
       optional(choice('mut', 'rec')),
-      field('name', choice($._binder_ident, $.tuple_binder)),
+      field('name', choice(
+        $._binder_ident,
+        $.tuple_binder,
+        $.anon_ctor_binder,
+      )),
       optional($._type_spec),
       choice(':=', '←', '<-'),
       field('value', $._term),

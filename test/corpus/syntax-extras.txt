@@ -2077,3 +2077,20 @@ Borrow ref prefix
         (unary_op
           rhs: (identifier)))
       rhs: (identifier))))
+
+==============
+Let with anon-ctor destructure
+==============
+
+#check let ⟨j, hJ⟩ := hcNe; j
+
+---
+
+(module
+  (check
+    term: (let
+      name: (anon_ctor_binder
+        (identifier)
+        (identifier))
+      value: (identifier)
+      body: (identifier))))

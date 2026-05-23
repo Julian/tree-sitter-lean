@@ -6154,6 +6154,10 @@
                 {
                   "type": "SYMBOL",
                   "name": "tuple_binder"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "anon_ctor_binder"
                 }
               ]
             }
