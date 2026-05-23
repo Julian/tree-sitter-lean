@@ -942,7 +942,9 @@ export default grammar({
         /* Coercion prefixes. */
         '↥', '↑', '↓',
         /* Heyting negation (Mathlib). */
-        '￢')),
+        '￢',
+        /* Lean's "borrow ref" prefix on argument types. */
+        '@&')),
       field('rhs', $._op_term),
     )),
 

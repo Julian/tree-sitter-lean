@@ -2061,3 +2061,19 @@ structure Foo where
       (field
         name: (identifier)
         type: (type_const)))))
+
+==============
+Borrow ref prefix
+==============
+
+#check (@& Nat) → Nat
+
+---
+
+(module
+  (check
+    term: (binary_op
+      lhs: (paren
+        (unary_op
+          rhs: (identifier)))
+      rhs: (identifier))))
