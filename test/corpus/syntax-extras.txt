@@ -2153,3 +2153,45 @@ Boundary prefix operator
   (check
     term: (unary_op
       rhs: (identifier))))
+
+==============
+Category morphism composition
+==============
+
+#check f ≫ g
+
+---
+
+(module
+  (check
+    term: (binary_op
+      lhs: (identifier)
+      rhs: (identifier))))
+
+==============
+Functor arrow
+==============
+
+#check C ⥤ D
+
+---
+
+(module
+  (check
+    term: (binary_op
+      lhs: (identifier)
+      rhs: (identifier))))
+
+==============
+Functor composition
+==============
+
+#check F ⋙ G
+
+---
+
+(module
+  (check
+    term: (binary_op
+      lhs: (identifier)
+      rhs: (identifier))))

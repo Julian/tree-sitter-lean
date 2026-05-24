@@ -969,6 +969,8 @@ export default grammar({
           '→ᵃ', '≃ᵃ',
           '↪', '↠', '↪o', '↪+', '↪*', '↪+*',
           '⇨',       /* Heyting implication */
+          '⥤',       /* Mathlib functor arrow */
+          '≌',       /* category equivalence */
         )),
         field('rhs', $._term),
       )),
@@ -1052,6 +1054,8 @@ export default grammar({
           '∘',
           /* Mathlib's set image / preimage operators. */
           "''", "⁻¹'",
+          /* Category-theory morphism / functor composition (Mathlib). */
+          '≫', '⋙',
         )),
         field('rhs', $._op_term),
       )),

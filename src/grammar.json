@@ -4957,6 +4957,14 @@
                     {
                       "type": "STRING",
                       "value": "⇨"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "⥤"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "≌"
                     }
                   ]
                 }
@@ -5563,6 +5571,14 @@
                     {
                       "type": "STRING",
                       "value": "⁻¹'"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "≫"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "⋙"
                     }
                   ]
                 }
