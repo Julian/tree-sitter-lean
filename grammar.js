@@ -65,6 +65,10 @@ export default grammar({
        (`method args := body`) or the singleton-set `{ app args }`. We
        always prefer the struct_field when followed by `:=`. */
     [$.struct_field, $._term_atom],
+    /* `{ a, b ... }` could be a set literal (`elem` list) or the
+       multi-source struct update `{ src₁, src₂ with … }`. `with`
+       one token after disambiguates. */
+    [$.struct_lit],
   ],
 
   rules: {
@@ -845,14 +849,18 @@ export default grammar({
 
     /* `{ field := value, ... }` (anonymous structure) and the
        `{ src with field := value, ... }` update form. `{}` is empty.
-       `{a, b, c}` is Mathlib's finite-set / insert-chain notation. */
+       `{ src₁, src₂ with }` (multi-source, no new fields) is the
+       Mathlib pattern for structure-extension. `{a, b, c}` is the
+       finite-set / insert-chain notation. */
     struct_lit: $ => seq(
       '{',
       optional(choice(
         seq(
-          optional(seq(field('source', $._term), 'with')),
-          sep1($.struct_field, optional(',')),
+          sep1(field('source', $._term), ','),
+          'with',
+          optional(sep1($.struct_field, optional(','))),
         ),
+        sep1($.struct_field, optional(',')),
         sep1(field('elem', $._term), ','),
       )),
       '}',

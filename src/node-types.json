@@ -23608,7 +23608,7 @@
         ]
       },
       "source": {
-        "multiple": false,
+        "multiple": true,
         "required": false,
         "types": [
           {

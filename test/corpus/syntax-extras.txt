@@ -2195,3 +2195,30 @@ Functor composition
     term: (binary_op
       lhs: (identifier)
       rhs: (identifier))))
+
+==============
+Multi-source struct update
+==============
+
+#check { src1, src2 with }
+
+---
+
+(module
+  (check
+    term: (struct_lit
+      source: (identifier)
+      source: (identifier))))
+
+==============
+Struct update with no new fields
+==============
+
+#check { src with }
+
+---
+
+(module
+  (check
+    term: (struct_lit
+      source: (identifier))))
