@@ -1095,7 +1095,8 @@ export default grammar({
     )),
 
     /* `∀ x, body`, `∀ x : T, body`, `∀ x ∈ s, body` (sugar) — and
-       Mathlib's `∀ b ≠ ⊥, body` predicate-tail sugar. */
+       Mathlib's `∀ b ≠ ⊥, body` / `∀ c ⊆ S, body` predicate-tail
+       sugar. */
     forall: $ => prec.right(seq(
       /* `Π` is a deprecated Mathlib synonym for `∀` for product types. */
       choice('∀', 'forall', 'Π'),
@@ -1103,7 +1104,7 @@ export default grammar({
       optional(choice(
         $._type_spec,
         seq(
-          field('rel', choice('∈', '∉', '≠')),
+          field('rel', choice('∈', '∉', '≠', '⊆', '⊂')),
           field('bound', $._op_term),
         ),
       )),
@@ -1117,7 +1118,7 @@ export default grammar({
       optional(choice(
         $._type_spec,
         seq(
-          field('rel', choice('∈', '∉', '≠')),
+          field('rel', choice('∈', '∉', '≠', '⊆', '⊂')),
           field('bound', $._op_term),
         ),
       )),

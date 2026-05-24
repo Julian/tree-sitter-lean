@@ -2094,3 +2094,21 @@ Let with anon-ctor destructure
         (identifier))
       value: (identifier)
       body: (identifier))))
+
+==============
+Forall with subset constraint
+==============
+
+#check ∀ c ⊆ S, IsChain c
+
+---
+
+(module
+  (check
+    term: (forall
+      (binders
+        (identifier))
+      bound: (identifier)
+      body: (app
+        fn: (identifier)
+        arg: (identifier)))))
