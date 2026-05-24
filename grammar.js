@@ -167,10 +167,15 @@ export default grammar({
 
     /* `infix:20 " <-> " => Iff`, `infixr:30 " ⊕ " => Sum`,
        `prefix:max " - " => Neg.neg`, `notation "⊥" => bot`. The
-       `:prec` slot is immediate so it sticks to the keyword. */
+       `:prec` slot is immediate so it sticks to the keyword. The
+       Mathlib `scoped[Foo]` variant pins the notation to a namespace. */
     notation_decl_cmd: $ => seq(
       optional($.attributes),
-      optional(choice('scoped', 'local')),
+      optional(choice(
+        'scoped',
+        'local',
+        seq('scoped', '[', field('namespace', $.identifier), ']'),
+      )),
       choice('infix', 'infixl', 'infixr', 'prefix', 'postfix', 'notation'),
       optional(seq(
         token.immediate(':'),
@@ -943,8 +948,8 @@ export default grammar({
       field('op', choice('-', '¬', '!', '←', '<-', '#',
         /* Coercion prefixes. */
         '↥', '↑', '↓',
-        /* Heyting negation (Mathlib). */
-        '￢',
+        /* Heyting negation, co-Heyting boundary (Mathlib). */
+        '￢', '∂',
         /* Lean's "borrow ref" prefix on argument types. */
         '@&')),
       field('rhs', $._op_term),

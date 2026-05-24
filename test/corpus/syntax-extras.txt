@@ -2125,3 +2125,31 @@ scoped notation "⊥" => bot
   (notation_decl_cmd
     op: (str_lit)
     target: (identifier)))
+
+==============
+Scoped notation with namespace
+==============
+
+scoped[Heyting] prefix:120 "∂ " => Coheyting.boundary
+
+---
+
+(module
+  (notation_decl_cmd
+    namespace: (identifier)
+    prec: (num_lit)
+    op: (str_lit)
+    target: (identifier)))
+
+==============
+Boundary prefix operator
+==============
+
+#check ∂ a
+
+---
+
+(module
+  (check
+    term: (unary_op
+      rhs: (identifier))))

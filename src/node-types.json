@@ -17281,6 +17281,16 @@
     "type": "notation_decl_cmd",
     "named": true,
     "fields": {
+      "namespace": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
       "op": {
         "multiple": false,
         "required": true,
@@ -25835,6 +25845,10 @@
             "named": false
           },
           {
+            "type": "∂",
+            "named": false
+          },
+          {
             "type": "￢",
             "named": false
           }
@@ -27324,6 +27338,10 @@
   },
   {
     "type": "∀",
+    "named": false
+  },
+  {
+    "type": "∂",
     "named": false
   },
   {
