@@ -166,12 +166,12 @@ export default grammar({
     ),
 
     /* `infix:20 " <-> " => Iff`, `infixr:30 " ⊕ " => Sum`,
-       `prefix:max " - " => Neg.neg`, etc. The `:prec` slot is
-       immediate so it sticks to the keyword. */
+       `prefix:max " - " => Neg.neg`, `notation "⊥" => bot`. The
+       `:prec` slot is immediate so it sticks to the keyword. */
     notation_decl_cmd: $ => seq(
       optional($.attributes),
       optional(choice('scoped', 'local')),
-      choice('infix', 'infixl', 'infixr', 'prefix', 'postfix'),
+      choice('infix', 'infixl', 'infixr', 'prefix', 'postfix', 'notation'),
       optional(seq(
         token.immediate(':'),
         field('prec', choice($.num_lit, $.identifier)),

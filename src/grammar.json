@@ -510,6 +510,10 @@
             {
               "type": "STRING",
               "value": "postfix"
+            },
+            {
+              "type": "STRING",
+              "value": "notation"
             }
           ]
         },

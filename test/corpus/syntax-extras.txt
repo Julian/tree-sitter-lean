@@ -2112,3 +2112,16 @@ Forall with subset constraint
       body: (app
         fn: (identifier)
         arg: (identifier)))))
+
+==============
+Notation declaration
+==============
+
+scoped notation "⊥" => bot
+
+---
+
+(module
+  (notation_decl_cmd
+    op: (str_lit)
+    target: (identifier)))
