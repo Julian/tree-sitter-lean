@@ -25861,6 +25861,10 @@
             "named": false
           },
           {
+            "type": "⇑",
+            "named": false
+          },
+          {
             "type": "∂",
             "named": false
           },
@@ -27354,6 +27358,10 @@
   },
   {
     "type": "↪o",
+    "named": false
+  },
+  {
+    "type": "⇑",
     "named": false
   },
   {

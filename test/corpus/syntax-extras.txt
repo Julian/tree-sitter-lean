@@ -2239,3 +2239,16 @@ Obtain pattern-bind
         (identifier))
       value: (identifier)
       body: (identifier))))
+
+==============
+Down-coercion prefix
+==============
+
+#check ⇑f
+
+---
+
+(module
+  (check
+    term: (unary_op
+      rhs: (identifier))))

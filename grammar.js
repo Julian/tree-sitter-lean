@@ -955,7 +955,7 @@ export default grammar({
     unary_op: $ => prec(PREC.prefix, seq(
       field('op', choice('-', '¬', '!', '←', '<-', '#',
         /* Coercion prefixes. */
-        '↥', '↑', '↓',
+        '↥', '↑', '↓', '⇑',
         /* Heyting negation, co-Heyting boundary (Mathlib). */
         '￢', '∂',
         /* Lean's "borrow ref" prefix on argument types. */
