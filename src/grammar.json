@@ -1487,6 +1487,14 @@
           {
             "type": "STRING",
             "value": "unsafe"
+          },
+          {
+            "type": "STRING",
+            "value": "scoped"
+          },
+          {
+            "type": "STRING",
+            "value": "local"
           }
         ]
       }

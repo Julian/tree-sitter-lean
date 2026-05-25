@@ -2318,3 +2318,19 @@ instance (n : Nat) : OfNat Nat n where ...
           arg: (identifier))
         arg: (identifier))
       (where_struct))))
+
+==============
+Scoped and local declaration modifiers
+==============
+
+scoped instance Foo : Bar := rfl
+
+---
+
+(module
+  (declaration
+    (decl_modifiers)
+    (instance
+      name: (identifier)
+      type: (identifier)
+      body: (identifier))))

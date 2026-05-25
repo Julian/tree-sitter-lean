@@ -336,6 +336,8 @@ export default grammar({
       'private',
       'protected',
       'unsafe',
+      'scoped',
+      'local',
     )),
 
     attributes: $ => seq('@[', sep1($._attr_instance, ','), ']'),
