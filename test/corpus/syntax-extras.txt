@@ -2275,3 +2275,25 @@ example := by rw [foo] at h ⊢
               arg: (identifier))
             arg: (identifier))
           arg: (goal_const))))))
+
+==============
+Suffices block
+==============
+
+example := by
+  suffices g : T from proof
+  apply foo
+
+---
+
+(module
+  (declaration
+    (example
+      body: (by
+        stmt: (suffices
+          name: (identifier)
+          type: (identifier)
+          value: (identifier))
+        stmt: (app
+          fn: (identifier)
+          arg: (identifier))))))

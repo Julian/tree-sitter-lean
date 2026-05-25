@@ -668,6 +668,7 @@ export default grammar({
       $.fun,
       $.let,
       $.have,
+      $.suffices,
       $.show,
       $.if_then_else,
       $.forall,
@@ -1202,6 +1203,19 @@ export default grammar({
       ':=',
       field('value', $._term),
       optional(seq(';', field('body', $._term))),
+    )),
+
+    /* `suffices g : T from proof` / `suffices g : T by tac` — a
+       tactic-language reframing. The `from`/`by` proves the new
+       suffices-goal, then the original goal is discharged via `g`. */
+    suffices: $ => prec.right(seq(
+      'suffices',
+      field('name', $._binder_ident),
+      $._type_spec,
+      choice(
+        seq('from', field('value', $._term)),
+        $.by,
+      ),
     )),
 
     show: $ => prec.right(seq(
