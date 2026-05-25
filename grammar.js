@@ -1173,9 +1173,10 @@ export default grammar({
        Inline binders are not modeled — write `let f := fun x => …`
        instead. The `←`/`<-` form is monadic bind for do-blocks. */
     let: $ => prec.right(seq(
-      /* `letI` is Mathlib's "let instance" variant; `obtain` is the
-         tactic-language sibling for pattern-binding from a result. */
-      choice('let', 'letI', 'obtain'),
+      /* `letI` is Mathlib's "let instance" variant; `obtain` and
+         `set` are tactic-language siblings for pattern-binding from
+         a result. */
+      choice('let', 'letI', 'obtain', 'set'),
       optional(choice('mut', 'rec')),
       field('name', choice(
         $._binder_ident,
