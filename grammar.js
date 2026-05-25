@@ -712,6 +712,7 @@ export default grammar({
       $.bot_const,
       $.top_const,
       $.empty_const,
+      $.goal_const,
       $.sorry,
       $.paren,
       $.anon_ctor,
@@ -794,6 +795,9 @@ export default grammar({
     top_const: _ => '⊤',
     /* `∅` is the empty-set/empty-collection literal. */
     empty_const: _ => '∅',
+    /* `⊢` is the tactic-language goal marker (used after `at` in
+       `rw [h] at h₁ ⊢`). */
+    goal_const: _ => '⊢',
     /* Capital `True`/`False` are Prop; lowercase `true`/`false` are
        the boolean inductive's constructors. */
     true_const:  _ => choice('True', 'true'),

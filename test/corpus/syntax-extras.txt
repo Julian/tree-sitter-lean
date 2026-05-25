@@ -2252,3 +2252,26 @@ Down-coercion prefix
   (check
     term: (unary_op
       rhs: (identifier))))
+
+==============
+Goal marker atom
+==============
+
+example := by rw [foo] at h ⊢
+
+---
+
+(module
+  (declaration
+    (example
+      body: (by
+        inline: (app
+          fn: (app
+            fn: (app
+              fn: (app
+                fn: (identifier)
+                arg: (list_lit
+                  (identifier)))
+              arg: (identifier))
+            arg: (identifier))
+          arg: (goal_const))))))

@@ -84,6 +84,10 @@
             "named": true
           },
           {
+            "type": "goal_const",
+            "named": true
+          },
+          {
             "type": "have",
             "named": true
           },
@@ -339,6 +343,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "goal_const",
             "named": true
           },
           {
@@ -610,6 +618,10 @@
             "named": true
           },
           {
+            "type": "goal_const",
+            "named": true
+          },
+          {
             "type": "have",
             "named": true
           },
@@ -843,6 +855,10 @@
         },
         {
           "type": "fun",
+          "named": true
+        },
+        {
+          "type": "goal_const",
           "named": true
         },
         {
@@ -1104,6 +1120,10 @@
           "named": true
         },
         {
+          "type": "goal_const",
+          "named": true
+        },
+        {
           "type": "have",
           "named": true
         },
@@ -1331,6 +1351,10 @@
             "named": true
           },
           {
+            "type": "goal_const",
+            "named": true
+          },
+          {
             "type": "have",
             "named": true
           },
@@ -1514,6 +1538,10 @@
           },
           {
             "type": "false_const",
+            "named": true
+          },
+          {
+            "type": "goal_const",
             "named": true
           },
           {
@@ -1729,6 +1757,10 @@
           "named": true
         },
         {
+          "type": "goal_const",
+          "named": true
+        },
+        {
           "type": "have",
           "named": true
         },
@@ -1932,6 +1964,10 @@
             "named": true
           },
           {
+            "type": "goal_const",
+            "named": true
+          },
+          {
             "type": "hole",
             "named": true
           },
@@ -2089,6 +2125,10 @@
           },
           {
             "type": "false_const",
+            "named": true
+          },
+          {
+            "type": "goal_const",
             "named": true
           },
           {
@@ -2273,6 +2313,10 @@
           },
           {
             "type": "false_const",
+            "named": true
+          },
+          {
+            "type": "goal_const",
             "named": true
           },
           {
@@ -2507,6 +2551,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "goal_const",
             "named": true
           },
           {
@@ -2756,6 +2804,10 @@
             "named": true
           },
           {
+            "type": "goal_const",
+            "named": true
+          },
+          {
             "type": "have",
             "named": true
           },
@@ -2990,6 +3042,10 @@
             "named": true
           },
           {
+            "type": "goal_const",
+            "named": true
+          },
+          {
             "type": "have",
             "named": true
           },
@@ -3201,6 +3257,10 @@
           "named": true
         },
         {
+          "type": "goal_const",
+          "named": true
+        },
+        {
           "type": "hole",
           "named": true
         },
@@ -3385,6 +3445,10 @@
           },
           {
             "type": "false_const",
+            "named": true
+          },
+          {
+            "type": "goal_const",
             "named": true
           },
           {
@@ -4060,6 +4124,10 @@
             "named": true
           },
           {
+            "type": "goal_const",
+            "named": true
+          },
+          {
             "type": "have",
             "named": true
           },
@@ -4349,6 +4417,10 @@
             "named": true
           },
           {
+            "type": "goal_const",
+            "named": true
+          },
+          {
             "type": "have",
             "named": true
           },
@@ -4585,6 +4657,10 @@
             "named": true
           },
           {
+            "type": "goal_const",
+            "named": true
+          },
+          {
             "type": "have",
             "named": true
           },
@@ -4816,6 +4892,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "goal_const",
             "named": true
           },
           {
@@ -5070,6 +5150,10 @@
             "named": true
           },
           {
+            "type": "goal_const",
+            "named": true
+          },
+          {
             "type": "have",
             "named": true
           },
@@ -5307,6 +5391,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "goal_const",
             "named": true
           },
           {
@@ -5565,6 +5653,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "goal_const",
             "named": true
           },
           {
@@ -5862,6 +5954,10 @@
             "named": true
           },
           {
+            "type": "goal_const",
+            "named": true
+          },
+          {
             "type": "have",
             "named": true
           },
@@ -6073,6 +6169,10 @@
           },
           {
             "type": "false_const",
+            "named": true
+          },
+          {
+            "type": "goal_const",
             "named": true
           },
           {
@@ -6295,6 +6395,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "goal_const",
             "named": true
           },
           {
@@ -6610,6 +6714,10 @@
             "named": true
           },
           {
+            "type": "goal_const",
+            "named": true
+          },
+          {
             "type": "have",
             "named": true
           },
@@ -6865,6 +6973,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "goal_const",
             "named": true
           },
           {
@@ -7148,6 +7260,10 @@
             "named": true
           },
           {
+            "type": "goal_const",
+            "named": true
+          },
+          {
             "type": "have",
             "named": true
           },
@@ -7379,6 +7495,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "goal_const",
             "named": true
           },
           {
@@ -7650,6 +7770,10 @@
             "named": true
           },
           {
+            "type": "goal_const",
+            "named": true
+          },
+          {
             "type": "have",
             "named": true
           },
@@ -7890,6 +8014,10 @@
             "named": true
           },
           {
+            "type": "goal_const",
+            "named": true
+          },
+          {
             "type": "have",
             "named": true
           },
@@ -8121,6 +8249,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "goal_const",
             "named": true
           },
           {
@@ -8378,6 +8510,10 @@
             "named": true
           },
           {
+            "type": "goal_const",
+            "named": true
+          },
+          {
             "type": "have",
             "named": true
           },
@@ -8581,6 +8717,10 @@
           },
           {
             "type": "false_const",
+            "named": true
+          },
+          {
+            "type": "goal_const",
             "named": true
           },
           {
@@ -8817,6 +8957,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "goal_const",
             "named": true
           },
           {
@@ -9070,6 +9214,10 @@
             "named": true
           },
           {
+            "type": "goal_const",
+            "named": true
+          },
+          {
             "type": "have",
             "named": true
           },
@@ -9315,6 +9463,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "goal_const",
             "named": true
           },
           {
@@ -9633,6 +9785,10 @@
             "named": true
           },
           {
+            "type": "goal_const",
+            "named": true
+          },
+          {
             "type": "have",
             "named": true
           },
@@ -9878,6 +10034,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "goal_const",
             "named": true
           },
           {
@@ -10131,6 +10291,10 @@
             "named": true
           },
           {
+            "type": "goal_const",
+            "named": true
+          },
+          {
             "type": "have",
             "named": true
           },
@@ -10334,6 +10498,10 @@
           },
           {
             "type": "false_const",
+            "named": true
+          },
+          {
+            "type": "goal_const",
             "named": true
           },
           {
@@ -10570,6 +10738,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "goal_const",
             "named": true
           },
           {
@@ -10819,6 +10991,10 @@
             "named": true
           },
           {
+            "type": "goal_const",
+            "named": true
+          },
+          {
             "type": "have",
             "named": true
           },
@@ -11050,6 +11226,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "goal_const",
             "named": true
           },
           {
@@ -11313,6 +11493,10 @@
             "named": true
           },
           {
+            "type": "goal_const",
+            "named": true
+          },
+          {
             "type": "have",
             "named": true
           },
@@ -11546,6 +11730,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "goal_const",
             "named": true
           },
           {
@@ -11801,6 +11989,10 @@
             "named": true
           },
           {
+            "type": "goal_const",
+            "named": true
+          },
+          {
             "type": "have",
             "named": true
           },
@@ -12028,6 +12220,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "goal_const",
             "named": true
           },
           {
@@ -12272,6 +12468,10 @@
             "named": true
           },
           {
+            "type": "goal_const",
+            "named": true
+          },
+          {
             "type": "have",
             "named": true
           },
@@ -12499,6 +12699,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "goal_const",
             "named": true
           },
           {
@@ -12743,6 +12947,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "goal_const",
             "named": true
           },
           {
@@ -12997,6 +13205,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "goal_const",
             "named": true
           },
           {
@@ -13298,6 +13510,10 @@
             "named": true
           },
           {
+            "type": "goal_const",
+            "named": true
+          },
+          {
             "type": "have",
             "named": true
           },
@@ -13534,6 +13750,10 @@
         },
         {
           "type": "fun",
+          "named": true
+        },
+        {
+          "type": "goal_const",
           "named": true
         },
         {
@@ -13790,6 +14010,10 @@
             "named": true
           },
           {
+            "type": "goal_const",
+            "named": true
+          },
+          {
             "type": "have",
             "named": true
           },
@@ -14018,6 +14242,10 @@
         },
         {
           "type": "fun",
+          "named": true
+        },
+        {
+          "type": "goal_const",
           "named": true
         },
         {
@@ -14271,6 +14499,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "goal_const",
             "named": true
           },
           {
@@ -14532,6 +14764,10 @@
             "named": true
           },
           {
+            "type": "goal_const",
+            "named": true
+          },
+          {
             "type": "have",
             "named": true
           },
@@ -14759,6 +14995,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "goal_const",
             "named": true
           },
           {
@@ -15042,6 +15282,10 @@
             "named": true
           },
           {
+            "type": "goal_const",
+            "named": true
+          },
+          {
             "type": "have",
             "named": true
           },
@@ -15297,6 +15541,10 @@
           "named": true
         },
         {
+          "type": "goal_const",
+          "named": true
+        },
+        {
           "type": "have",
           "named": true
         },
@@ -15529,6 +15777,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "goal_const",
             "named": true
           },
           {
@@ -15788,6 +16040,10 @@
             "named": true
           },
           {
+            "type": "goal_const",
+            "named": true
+          },
+          {
             "type": "have",
             "named": true
           },
@@ -16015,6 +16271,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "goal_const",
             "named": true
           },
           {
@@ -16254,6 +16514,10 @@
           "named": true
         },
         {
+          "type": "goal_const",
+          "named": true
+        },
+        {
           "type": "have",
           "named": true
         },
@@ -16486,6 +16750,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "goal_const",
             "named": true
           },
           {
@@ -16735,6 +17003,10 @@
             "named": true
           },
           {
+            "type": "goal_const",
+            "named": true
+          },
+          {
             "type": "have",
             "named": true
           },
@@ -16962,6 +17234,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "goal_const",
             "named": true
           },
           {
@@ -17408,6 +17684,10 @@
             "named": true
           },
           {
+            "type": "goal_const",
+            "named": true
+          },
+          {
             "type": "have",
             "named": true
           },
@@ -17655,6 +17935,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "goal_const",
             "named": true
           },
           {
@@ -17913,6 +18197,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "goal_const",
             "named": true
           },
           {
@@ -18310,6 +18598,10 @@
             "named": true
           },
           {
+            "type": "goal_const",
+            "named": true
+          },
+          {
             "type": "have",
             "named": true
           },
@@ -18562,6 +18854,10 @@
             "named": true
           },
           {
+            "type": "goal_const",
+            "named": true
+          },
+          {
             "type": "have",
             "named": true
           },
@@ -18790,6 +19086,10 @@
         },
         {
           "type": "fun",
+          "named": true
+        },
+        {
+          "type": "goal_const",
           "named": true
         },
         {
@@ -19062,6 +19362,10 @@
             "named": true
           },
           {
+            "type": "goal_const",
+            "named": true
+          },
+          {
             "type": "hole",
             "named": true
           },
@@ -19304,6 +19608,10 @@
             "named": true
           },
           {
+            "type": "goal_const",
+            "named": true
+          },
+          {
             "type": "have",
             "named": true
           },
@@ -19527,6 +19835,10 @@
           },
           {
             "type": "false_const",
+            "named": true
+          },
+          {
+            "type": "goal_const",
             "named": true
           },
           {
@@ -19773,6 +20085,10 @@
           "named": true
         },
         {
+          "type": "goal_const",
+          "named": true
+        },
+        {
           "type": "have",
           "named": true
         },
@@ -20005,6 +20321,10 @@
         },
         {
           "type": "fun",
+          "named": true
+        },
+        {
+          "type": "goal_const",
           "named": true
         },
         {
@@ -20243,6 +20563,10 @@
             "named": true
           },
           {
+            "type": "goal_const",
+            "named": true
+          },
+          {
             "type": "have",
             "named": true
           },
@@ -20473,6 +20797,10 @@
             "named": true
           },
           {
+            "type": "goal_const",
+            "named": true
+          },
+          {
             "type": "have",
             "named": true
           },
@@ -20700,6 +21028,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "goal_const",
             "named": true
           },
           {
@@ -20936,6 +21268,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "goal_const",
             "named": true
           },
           {
@@ -21219,6 +21555,10 @@
             "named": true
           },
           {
+            "type": "goal_const",
+            "named": true
+          },
+          {
             "type": "have",
             "named": true
           },
@@ -21450,6 +21790,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "goal_const",
             "named": true
           },
           {
@@ -21761,6 +22105,10 @@
             "named": true
           },
           {
+            "type": "goal_const",
+            "named": true
+          },
+          {
             "type": "hole",
             "named": true
           },
@@ -21950,6 +22298,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "goal_const",
             "named": true
           },
           {
@@ -22180,6 +22532,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "goal_const",
             "named": true
           },
           {
@@ -22429,6 +22785,10 @@
             "named": true
           },
           {
+            "type": "goal_const",
+            "named": true
+          },
+          {
             "type": "have",
             "named": true
           },
@@ -22660,6 +23020,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "goal_const",
             "named": true
           },
           {
@@ -22962,6 +23326,10 @@
             "named": true
           },
           {
+            "type": "goal_const",
+            "named": true
+          },
+          {
             "type": "have",
             "named": true
           },
@@ -23205,6 +23573,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "goal_const",
             "named": true
           },
           {
@@ -23454,6 +23826,10 @@
             "named": true
           },
           {
+            "type": "goal_const",
+            "named": true
+          },
+          {
             "type": "have",
             "named": true
           },
@@ -23681,6 +24057,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "goal_const",
             "named": true
           },
           {
@@ -23958,6 +24338,10 @@
             "named": true
           },
           {
+            "type": "goal_const",
+            "named": true
+          },
+          {
             "type": "have",
             "named": true
           },
@@ -24201,6 +24585,10 @@
           "named": true
         },
         {
+          "type": "goal_const",
+          "named": true
+        },
+        {
           "type": "have",
           "named": true
         },
@@ -24436,6 +24824,10 @@
             "named": true
           },
           {
+            "type": "goal_const",
+            "named": true
+          },
+          {
             "type": "have",
             "named": true
           },
@@ -24639,6 +25031,10 @@
           },
           {
             "type": "false_const",
+            "named": true
+          },
+          {
+            "type": "goal_const",
             "named": true
           },
           {
@@ -24865,6 +25261,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "goal_const",
             "named": true
           },
           {
@@ -25099,6 +25499,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "goal_const",
             "named": true
           },
           {
@@ -25339,6 +25743,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "goal_const",
             "named": true
           },
           {
@@ -25597,6 +26005,10 @@
           },
           {
             "type": "fun",
+            "named": true
+          },
+          {
+            "type": "goal_const",
             "named": true
           },
           {
@@ -25927,6 +26339,10 @@
             "named": true
           },
           {
+            "type": "goal_const",
+            "named": true
+          },
+          {
             "type": "hole",
             "named": true
           },
@@ -26142,6 +26558,10 @@
           },
           {
             "type": "false_const",
+            "named": true
+          },
+          {
+            "type": "goal_const",
             "named": true
           },
           {
@@ -26858,6 +27278,10 @@
   {
     "type": "fun",
     "named": false
+  },
+  {
+    "type": "goal_const",
+    "named": true
   },
   {
     "type": "grind_pattern",

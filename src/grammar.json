@@ -3514,6 +3514,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "goal_const"
+        },
+        {
+          "type": "SYMBOL",
           "name": "sorry"
         },
         {
@@ -3818,6 +3822,10 @@
     "empty_const": {
       "type": "STRING",
       "value": "∅"
+    },
+    "goal_const": {
+      "type": "STRING",
+      "value": "⊢"
     },
     "true_const": {
       "type": "CHOICE",
