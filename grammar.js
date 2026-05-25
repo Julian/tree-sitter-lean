@@ -567,10 +567,13 @@ export default grammar({
        indented form uses scanner-emitted INDENT/NEWLINE/DEDENT so a
        field whose RHS is a multi-line term doesn't accidentally
        swallow the next field's name. The body is optional: an empty
-       `where` clause is legal when the structure has no fields. */
+       `where` clause is legal when the structure has no fields.
+       `where ...` is Lean's "fill all required fields with sorry"
+       elision marker. */
     where_struct: $ => prec.right(seq(
       'where',
       optional(choice(
+        '...',
         $.struct_field,
         seq(
           $._indent,

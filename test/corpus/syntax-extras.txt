@@ -2297,3 +2297,24 @@ example := by
         stmt: (app
           fn: (identifier)
           arg: (identifier))))))
+
+==============
+Where with elision marker
+==============
+
+instance (n : Nat) : OfNat Nat n where ...
+
+---
+
+(module
+  (declaration
+    (instance
+      (explicit_binder
+        name: (identifier)
+        type: (identifier))
+      type: (app
+        fn: (app
+          fn: (identifier)
+          arg: (identifier))
+        arg: (identifier))
+      (where_struct))))

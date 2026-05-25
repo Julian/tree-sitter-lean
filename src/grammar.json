@@ -2905,6 +2905,10 @@
                 "type": "CHOICE",
                 "members": [
                   {
+                    "type": "STRING",
+                    "value": "..."
+                  },
+                  {
                     "type": "SYMBOL",
                     "name": "struct_field"
                   },
