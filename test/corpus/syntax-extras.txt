@@ -2222,3 +2222,20 @@ Struct update with no new fields
   (check
     term: (struct_lit
       source: (identifier))))
+
+==============
+Obtain pattern-bind
+==============
+
+#check obtain ⟨a, b⟩ := foo; a
+
+---
+
+(module
+  (check
+    term: (let
+      name: (anon_ctor_binder
+        (identifier)
+        (identifier))
+      value: (identifier)
+      body: (identifier))))

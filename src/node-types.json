@@ -26985,6 +26985,10 @@
     "named": true
   },
   {
+    "type": "obtain",
+    "named": false
+  },
+  {
     "type": "opaque",
     "named": false
   },

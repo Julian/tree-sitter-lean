@@ -6247,6 +6247,10 @@
               {
                 "type": "STRING",
                 "value": "letI"
+              },
+              {
+                "type": "STRING",
+                "value": "obtain"
               }
             ]
           },
