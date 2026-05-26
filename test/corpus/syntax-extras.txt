@@ -2334,3 +2334,25 @@ scoped instance Foo : Bar := rfl
       name: (identifier)
       type: (identifier)
       body: (identifier))))
+
+==============
+Tactic case
+==============
+
+example := by
+  case step x hx ih => exact ih
+
+---
+
+(module
+  (declaration
+    (example
+      body: (by
+        stmt: (tactic_case
+          name: (identifier)
+          arg: (identifier)
+          arg: (identifier)
+          arg: (identifier)
+          body: (app
+            fn: (identifier)
+            arg: (identifier)))))))

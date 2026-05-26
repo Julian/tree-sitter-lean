@@ -683,6 +683,7 @@ export default grammar({
       $.by,
       $.do_block,
       $.match,
+      $.tactic_case,
     ),
 
     _op_term: $ => choice(
@@ -1292,6 +1293,17 @@ export default grammar({
       '=>',
       field('body', $._term),
     ),
+
+    /* `case name args => body` — Lean tactic-language case selection
+       (analogous to a `match_alt` but goal-keyed). Stand-alone tactic
+       statement; commonly chained as sibling at the same indent. */
+    tactic_case: $ => prec.right(seq(
+      'case',
+      field('name', $.identifier),
+      repeat(field('arg', $._binder_ident)),
+      '=>',
+      field('body', $._term),
+    )),
 
     /* ===== lexicals (carried from stage 1) =============================== */
 

@@ -3401,6 +3401,10 @@
         {
           "type": "SYMBOL",
           "name": "match"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tactic_case"
         }
       ]
     },
@@ -6925,6 +6929,50 @@
           }
         }
       ]
+    },
+    "tactic_case": {
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "case"
+          },
+          {
+            "type": "FIELD",
+            "name": "name",
+            "content": {
+              "type": "SYMBOL",
+              "name": "identifier"
+            }
+          },
+          {
+            "type": "REPEAT",
+            "content": {
+              "type": "FIELD",
+              "name": "arg",
+              "content": {
+                "type": "SYMBOL",
+                "name": "_binder_ident"
+              }
+            }
+          },
+          {
+            "type": "STRING",
+            "value": "=>"
+          },
+          {
+            "type": "FIELD",
+            "name": "body",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_term"
+            }
+          }
+        ]
+      }
     },
     "num_lit": {
       "type": "TOKEN",
