@@ -896,16 +896,19 @@ export default grammar({
       field('pred', $._term),
       '}',
     ),
-    /* `name := value` or `name binders := value` (function-style
-       field, used in `instance F where method args := body`). Binders
-       are bare-ident-only here to avoid ambiguity with bracketed
-       atoms like `(a, b)` in the value position. Type ascription
-       `name : T := value` is intentionally omitted because the
-       leading `{ ident :` would conflict with `set_builder` /
-       `subtype_lit`. */
+    /* `name := value`, `name binders := value`, or `name {a b} :=
+       value` (function-style fields in `instance F where method args
+       := body`). Bare-ident, implicit-`{}`, and explicit-`()` binders
+       are accepted. Type ascription `name : T := value` is
+       intentionally omitted because the leading `{ ident :` would
+       conflict with `set_builder` / `subtype_lit`. */
     struct_field: $ => seq(
       field('name', $.identifier),
-      optional(alias(repeat1($._binder_ident), $.binders)),
+      optional(alias(repeat1(choice(
+        $._binder_ident,
+        $.implicit_binder,
+        $.explicit_binder,
+      )), $.binders)),
       ':=',
       field('value', $._term),
     ),
@@ -1304,6 +1307,7 @@ export default grammar({
       '=>',
       field('body', $._term),
     )),
+
 
     /* ===== lexicals (carried from stage 1) =============================== */
 

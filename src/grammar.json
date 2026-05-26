@@ -4517,8 +4517,21 @@
               "content": {
                 "type": "REPEAT1",
                 "content": {
-                  "type": "SYMBOL",
-                  "name": "_binder_ident"
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "_binder_ident"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "implicit_binder"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "explicit_binder"
+                    }
+                  ]
                 }
               },
               "named": true,

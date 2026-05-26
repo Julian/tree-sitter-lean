@@ -2356,3 +2356,26 @@ example := by
           body: (app
             fn: (identifier)
             arg: (identifier)))))))
+
+==============
+Struct field with implicit binder
+==============
+
+instance : Foo where
+  le_pred_of_lt {a b} h := bar
+
+---
+
+(module
+  (declaration
+    (instance
+      type: (identifier)
+      (where_struct
+        (struct_field
+          name: (identifier)
+          (binders
+            (implicit_binder
+              name: (identifier)
+              name: (identifier))
+            (identifier))
+          value: (identifier))))))
