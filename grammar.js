@@ -674,6 +674,7 @@ export default grammar({
       $.let,
       $.have,
       $.suffices,
+      $.by_cases,
       $.show,
       $.if_then_else,
       $.forall,
@@ -1228,6 +1229,14 @@ export default grammar({
         seq('from', field('value', $._term)),
         $.by,
       ),
+    )),
+
+    /* `by_cases h : cond` — splits a tactic goal on the truth of
+       `cond`, binding `h` to a proof in each branch. */
+    by_cases: $ => prec.right(seq(
+      'by_cases',
+      field('name', $._binder_ident),
+      $._type_spec,
     )),
 
     show: $ => prec.right(seq(

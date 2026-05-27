@@ -3368,6 +3368,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "by_cases"
+        },
+        {
+          "type": "SYMBOL",
           "name": "show"
         },
         {
@@ -6557,6 +6561,31 @@
                 "name": "by"
               }
             ]
+          }
+        ]
+      }
+    },
+    "by_cases": {
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "by_cases"
+          },
+          {
+            "type": "FIELD",
+            "name": "name",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_binder_ident"
+            }
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_type_spec"
           }
         ]
       }

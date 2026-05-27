@@ -2438,3 +2438,19 @@ Pipe operator with have
         name: (identifier)
         value: (identifier)
         body: (identifier)))))
+
+==============
+by_cases tactic
+==============
+
+example := by by_cases h : foo
+
+---
+
+(module
+  (declaration
+    (example
+      body: (by
+        inline: (by_cases
+          name: (identifier)
+          type: (identifier))))))
