@@ -2297,6 +2297,18 @@
                                   "type": "SYMBOL",
                                   "name": "field"
                                 }
+                              },
+                              {
+                                "type": "CHOICE",
+                                "members": [
+                                  {
+                                    "type": "SYMBOL",
+                                    "name": "_deriving_clause"
+                                  },
+                                  {
+                                    "type": "BLANK"
+                                  }
+                                ]
                               }
                             ]
                           },
@@ -2341,6 +2353,27 @@
                                         }
                                       ]
                                     }
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "CHOICE",
+                                "members": [
+                                  {
+                                    "type": "SEQ",
+                                    "members": [
+                                      {
+                                        "type": "SYMBOL",
+                                        "name": "_newline"
+                                      },
+                                      {
+                                        "type": "SYMBOL",
+                                        "name": "_deriving_clause"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "BLANK"
                                   }
                                 ]
                               },

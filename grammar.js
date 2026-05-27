@@ -472,13 +472,17 @@ export default grammar({
       optional(seq(
         'where',
         /* Indented field block separates fields with NEWLINE so a
-           greedy `_term`-typed type doesn't eat the next field. */
+           greedy `_term`-typed type doesn't eat the next field.
+           `deriving` may also live inside the indent block at the
+           same indent as the fields. */
         optional(choice(
-          seq(optional($.ctor), repeat1($.field)),
+          seq(optional($.ctor), repeat1($.field),
+              optional($._deriving_clause)),
           seq(
             $._indent,
             optional($.ctor),
             sep1($.field, $._newline),
+            optional(seq($._newline, $._deriving_clause)),
             $._dedent,
           ),
         )),

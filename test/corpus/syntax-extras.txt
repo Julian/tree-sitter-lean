@@ -2503,3 +2503,31 @@ Grind attribute with direction
         lhs: (identifier)
         rhs: (identifier))
       body: (identifier))))
+
+==============
+Deriving clause inside indent block
+==============
+
+structure Task (α : Type u) where
+  pure ::
+  get : α
+  deriving Inhabited, Nonempty
+
+---
+
+(module
+  (declaration
+    (structure
+      name: (identifier)
+      (binders
+        (explicit_binder
+          name: (identifier)
+          type: (type_const
+            (identifier))))
+      (ctor
+        name: (identifier))
+      (field
+        name: (identifier)
+        type: (identifier))
+      (identifier)
+      (identifier))))
