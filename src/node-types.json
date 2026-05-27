@@ -3850,6 +3850,10 @@
             "named": false
           },
           {
+            "type": "×ₗ",
+            "named": false
+          },
+          {
             "type": "•",
             "named": false
           },
@@ -29144,6 +29148,10 @@
   },
   {
     "type": "×ˢ",
+    "named": false
+  },
+  {
+    "type": "×ₗ",
     "named": false
   },
   {

@@ -1058,7 +1058,7 @@ export default grammar({
       prec.left(PREC.mul, seq(
         field('lhs', $._op_term),
         field('op', choice(
-          '*', '/', '%', '∩', '×', "×'", '×ˢ', '•', '∙',
+          '*', '/', '%', '∩', '×', "×'", '×ˢ', '×ₗ', '•', '∙',
           /* Tensor and related Mathlib operators (without bracket
              param — `⊗ₜ[R]` parses as `⊗ₜ` + `[R]` consumed by app). */
           '⊗', '⊗ₜ', '⊗ₛ',

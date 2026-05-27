@@ -2407,3 +2407,17 @@ Lex sum operator
     term: (binary_op
       lhs: (identifier)
       rhs: (identifier))))
+
+==============
+Lex pair operator
+==============
+
+#check α ×ₗ β
+
+---
+
+(module
+  (check
+    term: (binary_op
+      lhs: (identifier)
+      rhs: (identifier))))

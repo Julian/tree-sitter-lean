@@ -5573,6 +5573,10 @@
                     },
                     {
                       "type": "STRING",
+                      "value": "×ₗ"
+                    },
+                    {
+                      "type": "STRING",
                       "value": "•"
                     },
                     {
