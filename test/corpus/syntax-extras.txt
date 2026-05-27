@@ -2421,3 +2421,20 @@ Lex pair operator
     term: (binary_op
       lhs: (identifier)
       rhs: (identifier))))
+
+==============
+Pipe operator with have
+==============
+
+#check f <| have h := proof; body
+
+---
+
+(module
+  (check
+    term: (binary_op
+      lhs: (identifier)
+      rhs: (have
+        name: (identifier)
+        value: (identifier)
+        body: (identifier)))))

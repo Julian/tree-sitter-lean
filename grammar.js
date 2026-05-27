@@ -1086,7 +1086,8 @@ export default grammar({
       prec.left(PREC.pipe, seq(
         field('lhs', $._op_term),
         field('op', choice('|>', '<|')),
-        field('rhs', $._op_term),
+        /* `f <| have h := …; body` is common Mathlib. */
+        field('rhs', $._term),
       )),
       /* `$` is right-associative function application without parens
          (`f $ g x = f (g x)`). Low precedence. */
