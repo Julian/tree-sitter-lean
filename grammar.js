@@ -956,13 +956,17 @@ export default grammar({
     /* `arr[idx]` — array/dict indexing. Distinguished from `f [list]`
        by the immediate `[` (no whitespace between fn and bracket).
        `arr[idx]?` and `arr[idx]!` are option-returning and panicking
-       variants. */
+       variants. `arr[idx]'proof` supplies an in-bounds proof. */
     subscript: $ => prec.left(PREC.proj, seq(
       field('term', $._op_term),
       token.immediate('['),
       field('index', $._term),
       ']',
-      optional(choice(token.immediate('?'), token.immediate('!'))),
+      optional(choice(
+        token.immediate('?'),
+        token.immediate('!'),
+        seq(token.immediate("'"), field('proof', $._term_atom)),
+      )),
     )),
 
     /* ----- operators ---------------------------------------------------- */

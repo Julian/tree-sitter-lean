@@ -2454,3 +2454,18 @@ example := by by_cases h : foo
         inline: (by_cases
           name: (identifier)
           type: (identifier))))))
+
+==============
+Subscript with proof
+==============
+
+#check arr[i]'h
+
+---
+
+(module
+  (check
+    term: (subscript
+      term: (identifier)
+      index: (identifier)
+      proof: (identifier))))

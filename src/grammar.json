@@ -4828,6 +4828,26 @@
                       "type": "STRING",
                       "value": "!"
                     }
+                  },
+                  {
+                    "type": "SEQ",
+                    "members": [
+                      {
+                        "type": "IMMEDIATE_TOKEN",
+                        "content": {
+                          "type": "STRING",
+                          "value": "'"
+                        }
+                      },
+                      {
+                        "type": "FIELD",
+                        "name": "proof",
+                        "content": {
+                          "type": "SYMBOL",
+                          "name": "_term_atom"
+                        }
+                      }
+                    ]
                   }
                 ]
               },
