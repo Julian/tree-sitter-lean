@@ -5590,6 +5590,14 @@
                     {
                       "type": "STRING",
                       "value": "⊗ₛ"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "⊕"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "⊕ₗ"
                     }
                   ]
                 }

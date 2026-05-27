@@ -2379,3 +2379,31 @@ instance : Foo where
               name: (identifier))
             (identifier))
           value: (identifier))))))
+
+==============
+Direct sum operators
+==============
+
+#check α ⊕ β
+
+---
+
+(module
+  (check
+    term: (binary_op
+      lhs: (identifier)
+      rhs: (identifier))))
+
+==============
+Lex sum operator
+==============
+
+#check α ⊕ₗ β
+
+---
+
+(module
+  (check
+    term: (binary_op
+      lhs: (identifier)
+      rhs: (identifier))))

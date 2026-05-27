@@ -4090,6 +4090,14 @@
             "named": false
           },
           {
+            "type": "⊕",
+            "named": false
+          },
+          {
+            "type": "⊕ₗ",
+            "named": false
+          },
+          {
             "type": "⊗",
             "named": false
           },
@@ -29476,6 +29484,14 @@
   },
   {
     "type": "⊔",
+    "named": false
+  },
+  {
+    "type": "⊕",
+    "named": false
+  },
+  {
+    "type": "⊕ₗ",
     "named": false
   },
   {

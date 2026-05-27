@@ -1062,6 +1062,8 @@ export default grammar({
           /* Tensor and related Mathlib operators (without bracket
              param — `⊗ₜ[R]` parses as `⊗ₜ` + `[R]` consumed by app). */
           '⊗', '⊗ₜ', '⊗ₛ',
+          /* Sum/direct-sum operators (Mathlib). */
+          '⊕', '⊕ₗ',
         )),
         field('rhs', $._op_term),
       )),
