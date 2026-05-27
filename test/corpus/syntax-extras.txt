@@ -2469,3 +2469,18 @@ Subscript with proof
       term: (identifier)
       index: (identifier)
       proof: (identifier))))
+
+==============
+Named arg with trailing tuple
+==============
+
+#check (attr := simps, implicit_reducible)
+
+---
+
+(module
+  (check
+    term: (paren
+      arg_name: (identifier)
+      arg_value: (identifier)
+      (identifier))))

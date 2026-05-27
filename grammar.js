@@ -815,11 +815,13 @@ export default grammar({
     paren: $ => seq(
       '(',
       optional(choice(
-        /* Named-argument form: `(name := value)`. */
+        /* Named-argument form: `(name := value)` with an optional
+           trailing arg list (`(attr := simps, implicit_reducible)`). */
         seq(
           field('arg_name', $.identifier),
           ':=',
           field('arg_value', $._term),
+          repeat(seq(',', $._term)),
         ),
         /* Operator section: `(↑)`, `(↓)`, `(↥)` — bare prefix/coercion
            operator inside parens, treated as a function value. */
