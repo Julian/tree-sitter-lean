@@ -1593,6 +1593,22 @@
                 {
                   "type": "SYMBOL",
                   "name": "unary_op"
+                },
+                {
+                  "type": "STRING",
+                  "value": "="
+                },
+                {
+                  "type": "STRING",
+                  "value": "←"
+                },
+                {
+                  "type": "STRING",
+                  "value": "→"
+                },
+                {
+                  "type": "STRING",
+                  "value": "↔"
                 }
               ]
             }

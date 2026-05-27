@@ -2172,6 +2172,10 @@
         "required": false,
         "types": [
           {
+            "type": "=",
+            "named": false
+          },
+          {
             "type": "anon_ctor",
             "named": true
           },
@@ -2326,6 +2330,18 @@
           {
             "type": "unary_op",
             "named": true
+          },
+          {
+            "type": "←",
+            "named": false
+          },
+          {
+            "type": "→",
+            "named": false
+          },
+          {
+            "type": "↔",
+            "named": false
           }
         ]
       },
@@ -2360,6 +2376,10 @@
         "required": false,
         "types": [
           {
+            "type": "=",
+            "named": false
+          },
+          {
             "type": "anon_ctor",
             "named": true
           },
@@ -2514,6 +2534,18 @@
           {
             "type": "unary_op",
             "named": true
+          },
+          {
+            "type": "←",
+            "named": false
+          },
+          {
+            "type": "→",
+            "named": false
+          },
+          {
+            "type": "↔",
+            "named": false
           }
         ]
       },

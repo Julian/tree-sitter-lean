@@ -346,12 +346,17 @@ export default grammar({
       $._attribute,
     ),
     /* Attributes can carry arguments (`@[simp 1000]`,
-       `@[combinator_parenthesizer foo, expose]`, `@[simps -isSimp]`).
-       Args restricted to atoms or unary-prefixed atoms (`-isSimp`,
-       `←foo`) to keep state count bounded. */
+       `@[combinator_parenthesizer foo, expose]`, `@[simps -isSimp]`,
+       `@[grind =]`, `@[grind →]`). Args restricted to atoms,
+       unary-prefixed atoms, or bare directive tokens to keep state
+       count bounded. */
     _attribute: $ => seq(
       field('name', $.identifier),
-      repeat(field('arg', choice($._term_atom, $.unary_op))),
+      repeat(field('arg', choice(
+        $._term_atom,
+        $.unary_op,
+        '=', '←', '→', '↔',
+      ))),
     ),
 
 

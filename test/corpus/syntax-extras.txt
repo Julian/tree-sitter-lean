@@ -2484,3 +2484,22 @@ Named arg with trailing tuple
       arg_name: (identifier)
       arg_value: (identifier)
       (identifier))))
+
+==============
+Grind attribute with direction
+==============
+
+@[grind =] theorem foo : a = a := rfl
+
+---
+
+(module
+  (declaration
+    (attributes
+      name: (identifier))
+    (theorem
+      name: (identifier)
+      type: (binary_op
+        lhs: (identifier)
+        rhs: (identifier))
+      body: (identifier))))
