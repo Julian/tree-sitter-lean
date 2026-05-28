@@ -1216,6 +1216,8 @@ export default grammar({
         $.tuple_binder,
         $.anon_ctor_binder,
       )),
+      /* `let rec foo (x : T) : U := …` — function-style binders. */
+      optional($._binders),
       optional($._type_spec),
       choice(':=', '←', '<-'),
       field('value', $._term),

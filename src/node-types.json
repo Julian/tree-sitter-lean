@@ -17417,6 +17417,16 @@
           }
         ]
       }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "binders",
+          "named": true
+        }
+      ]
     }
   },
   {

@@ -2531,3 +2531,31 @@ structure Task (α : Type u) where
         type: (identifier))
       (identifier)
       (identifier))))
+
+
+==============
+Let rec with binders
+==============
+
+#check let rec go (j : Nat) (h : Bool) : Nat := j; go 0 true
+
+---
+
+(module
+  (check
+    term: (let
+      name: (identifier)
+      (binders
+        (explicit_binder
+          name: (identifier)
+          type: (identifier))
+        (explicit_binder
+          name: (identifier)
+          type: (identifier)))
+      type: (identifier)
+      value: (identifier)
+      body: (app
+        fn: (app
+          fn: (identifier)
+          arg: (num_lit))
+        arg: (true_const)))))

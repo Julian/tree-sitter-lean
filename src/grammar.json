@@ -6451,6 +6451,18 @@
             "members": [
               {
                 "type": "SYMBOL",
+                "name": "_binders"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
                 "name": "_type_spec"
               },
               {
