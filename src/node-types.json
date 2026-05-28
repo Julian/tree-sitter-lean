@@ -21102,20 +21102,23 @@
     }
   },
   {
-    "type": "public",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "public_section",
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
-      "required": false,
+      "multiple": true,
+      "required": true,
       "types": [
         {
           "type": "attributes",
+          "named": true
+        },
+        {
+          "type": "meta",
+          "named": true
+        },
+        {
+          "type": "public",
           "named": true
         }
       ]
@@ -29834,7 +29837,7 @@
   },
   {
     "type": "public",
-    "named": false
+    "named": true
   },
   {
     "type": "raw_string",

@@ -61,6 +61,9 @@ export default grammar({
     /* `public`/`meta` can start either an `import` or a Lean 4
        module-system-visibility-prefixed declaration. */
     [$.import, $.declaration],
+    /* `public meta section` shares its prefix with the
+       visibility-prefixed-declaration form. */
+    [$.public_section, $.declaration],
     /* `{ ident <ident> … }` could be a function-style struct_field
        (`method args := body`) or the singleton-set `{ app args }`. We
        always prefer the struct_field when followed by `:=`. */
@@ -237,12 +240,15 @@ export default grammar({
       ),
     )),
 
-    /* `public section` is a Lean 4 module-system marker — everything
-       below is exported. It has no body and no matching `end`.
-       Optionally preceded by attributes (e.g. `@[expose] public section`). */
+    /* `public section` / `public meta section` — Lean 4 module-system
+       marker; everything below is exported. It has no body and no
+       matching `end`. Optionally preceded by attributes
+       (e.g. `@[expose] public section`). */
     public_section: $ => seq(
       optional($.attributes),
-      'public', 'section',
+      $.public,
+      optional($.meta),
+      'section',
     ),
 
     check:  $ => seq(choice('#check', '#check_failure'),  field('term', $._term)),

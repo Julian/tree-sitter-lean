@@ -355,7 +355,8 @@ def x := 1
 ---
 
 (module
-  (public_section)
+  (public_section
+    (public))
   (declaration
     (def
       name: (identifier)
@@ -648,7 +649,8 @@ Public section with attribute
 (module
   (public_section
     (attributes
-      name: (identifier))))
+      name: (identifier))
+    (public)))
 
 ==============
 Vsub operator
@@ -2559,3 +2561,16 @@ Let rec with binders
           fn: (identifier)
           arg: (num_lit))
         arg: (true_const)))))
+
+==============
+Public meta section
+==============
+
+public meta section
+
+---
+
+(module
+  (public_section
+    (public)
+    (meta)))

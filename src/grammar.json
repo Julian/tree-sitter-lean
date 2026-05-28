@@ -939,8 +939,20 @@
           ]
         },
         {
-          "type": "STRING",
-          "value": "public"
+          "type": "SYMBOL",
+          "name": "public"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "meta"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         },
         {
           "type": "STRING",
@@ -7467,6 +7479,10 @@
   "conflicts": [
     [
       "import",
+      "declaration"
+    ],
+    [
+      "public_section",
       "declaration"
     ],
     [
