@@ -1344,6 +1344,7 @@ export default grammar({
     )),
 
 
+
     /* ===== lexicals (carried from stage 1) =============================== */
 
     num_lit: _ => token(choice(
@@ -1389,7 +1390,7 @@ export default grammar({
       )),
       '"',
     ),
-    _interp_open: _ => choice('s!"', 'm!"'),
+    _interp_open: _ => choice('s!"', 'm!"', 'f!"'),
     interpolation: $ => seq(
       token.immediate('{'),
       $._term,

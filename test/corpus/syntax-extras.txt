@@ -2574,3 +2574,17 @@ public meta section
   (public_section
     (public)
     (meta)))
+
+==============
+Format string macro
+==============
+
+#check f!"hello {name}"
+
+---
+
+(module
+  (check
+    term: (interpolated_str
+      (interpolation
+        (identifier)))))
