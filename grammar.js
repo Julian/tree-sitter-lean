@@ -1390,7 +1390,7 @@ export default grammar({
       )),
       '"',
     ),
-    _interp_open: _ => choice('s!"', 'm!"', 'f!"'),
+    _interp_open: _ => choice('s!"', 'm!"'),
     interpolation: $ => seq(
       token.immediate('{'),
       $._term,

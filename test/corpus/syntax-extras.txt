@@ -2576,10 +2576,10 @@ public meta section
     (meta)))
 
 ==============
-Format string macro
+m! string macro
 ==============
 
-#check f!"hello {name}"
+#check m!"hello {name}"
 
 ---
 
