@@ -58,11 +58,11 @@ export default grammar({
   word: $ => $._plain_ident,
 
   conflicts: $ => [
-    /* `public`/`meta` can start either an `import` or a Lean 4
-       module-system-visibility-prefixed declaration. */
-    [$.import, $.declaration],
-    /* `public meta section` shares its prefix with the
-       visibility-prefixed-declaration form. */
+    /* `public`/`meta` can start an `import`, a `public meta section`
+       marker, or a Lean 4 visibility-prefixed declaration. */
+    [$.import, $.public_section, $.declaration],
+    /* After `attributes`, `import` is no longer possible, but
+       `public meta …` still chooses between section and declaration. */
     [$.public_section, $.declaration],
     /* `{ ident <ident> … }` could be a function-style struct_field
        (`method args := body`) or the singleton-set `{ app args }`. We

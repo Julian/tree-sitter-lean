@@ -7479,6 +7479,7 @@
   "conflicts": [
     [
       "import",
+      "public_section",
       "declaration"
     ],
     [
