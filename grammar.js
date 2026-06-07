@@ -122,6 +122,9 @@ export default grammar({
       $.grind_pattern_cmd,
       $.alias_cmd,
       $.notation_decl_cmd,
+      $.syntax_cmd,
+      $.macro_cmd,
+      $.macro_rules_cmd,
       $.declaration,
     ),
 
@@ -193,6 +196,83 @@ export default grammar({
       field('target', $._term),
     ),
 
+
+    /* `macro_rules | pat => body | …` — declares Lean macro rewrite
+       rules. Body is a match-alt list. The optional kind annotation
+       (`scoped`/`local`) modifies registration scope. */
+    macro_rules_cmd: $ => seq(
+      optional(choice('scoped', 'local')),
+      'macro_rules',
+      optional(seq(
+        token.immediate(':'),
+        field('prec', choice($.num_lit, $.identifier)),
+      )),
+      repeat1($.match_alt),
+    ),
+
+    /* `macro [prec]? [(name := X)]? "kw" arg* : category => body` —
+       coarse parse of Lean's macro-declaration command. The macro's
+       body after `=>` is a single term (typically a `(…)` quotation).
+       Argument list before `:` accepts any term-shaped tokens. */
+    macro_cmd: $ => prec.right(seq(
+      optional($.attributes),
+      optional(choice('scoped', 'local')),
+      'macro',
+      optional(seq(
+        token.immediate(':'),
+        field('prec', choice($.num_lit, $.identifier)),
+      )),
+      optional($._named_attr),
+      repeat($._term_atom),
+      ':',
+      field('category', $.identifier),
+      '=>',
+      field('body', $._term),
+    )),
+
+    /* `syntax [prec]? [(name := X)]? arg+ : category` — coarse parse
+       of Lean's syntax-declaration command, and also the abbreviation
+       form `syntax id := body`. Arguments are `_syntax_atom`s —
+       term-shaped tokens plus the syntax-DSL postfixes `*`/`?`/`+`. */
+    syntax_cmd: $ => prec.right(seq(
+      optional($.attributes),
+      optional(choice('scoped', 'local')),
+      'syntax',
+      optional(seq(
+        token.immediate(':'),
+        field('prec', choice($.num_lit, $.identifier)),
+      )),
+      optional($._named_attr),
+      choice(
+        seq(
+          field('name', $.identifier),
+          ':=',
+          repeat1($._syntax_atom),
+        ),
+        seq(
+          repeat1($._syntax_atom),
+          ':',
+          field('category', $.identifier),
+        ),
+      ),
+    )),
+
+    /* Coarse syntax-DSL atom for use inside `syntax`/`macro` headers.
+       Term atoms suffice for most cases (identifiers, string atoms,
+       parens contain richer sub-patterns). Plus the syntax-combinator
+       postfixes `*`/`?`/`+` that don't make sense as Lean terms. */
+    _syntax_atom: $ => choice(
+      $._term_atom,
+      $.syntax_postfix,
+    ),
+    syntax_postfix: $ => prec.left(seq(
+      field('inner', $._term_atom),
+      field('op', choice(
+        token.immediate('*'),
+        token.immediate('?'),
+        token.immediate('+'),
+      )),
+    )),
 
     /* `deriving instance Foo, Bar for Baz` — standalone deriving. */
     deriving_cmd: $ => seq(

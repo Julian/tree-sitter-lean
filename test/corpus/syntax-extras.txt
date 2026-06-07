@@ -2760,3 +2760,80 @@ example : Foo := by cases b <;> rfl
           lhs: (induction
             target: (identifier))
           rhs: (identifier))))))
+
+==============
+syntax declaration with named-attr and category
+==============
+
+syntax (name := intro) "intro" notFollowedBy("|") (ppSpace colGt term:max)* : tactic
+
+---
+
+(module
+  (syntax_cmd
+    value: (identifier)
+    (str_lit)
+    (identifier)
+    (paren
+      (str_lit))
+    (syntax_postfix
+      inner: (paren
+        (app
+          fn: (app
+            fn: (identifier)
+            arg: (identifier))
+          arg: (prec_annotated
+            name: (identifier)
+            prec: (identifier)))))
+    category: (identifier)))
+
+==============
+syntax abbreviation
+==============
+
+syntax clearValueStar := "*"
+
+---
+
+(module
+  (syntax_cmd
+    name: (identifier)
+    (str_lit)))
+
+==============
+macro with quotation body
+==============
+
+macro "exfalso" : tactic => `(tactic| refine False.elim ?_)
+
+---
+
+(module
+  (macro_cmd
+    (str_lit)
+    category: (identifier)
+    body: (quotation
+      category: (identifier)
+      (app
+        fn: (app
+          fn: (identifier)
+          arg: (identifier))
+        arg: (synth_hole)))))
+
+==============
+macro_rules with single alt
+==============
+
+macro_rules | `(tactic| rfl) => `(tactic| apply_rfl)
+
+---
+
+(module
+  (macro_rules_cmd
+    (match_alt
+      pattern: (quotation
+        category: (identifier)
+        (identifier))
+      body: (quotation
+        category: (identifier)
+        (identifier)))))
