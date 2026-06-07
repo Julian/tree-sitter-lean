@@ -575,7 +575,7 @@ export default grammar({
     _decl_val: $ => choice(
       seq(field('body', seq(':=', $._term)), optional($.where_decls)),
       seq(repeat1($.match_alt), optional($.where_decls)),
-      $.where_struct,
+      seq($.where_struct, optional($.where_decls)),
     ),
     _type_spec: $ => field('type', seq(':', $._term)),
 
@@ -749,6 +749,7 @@ export default grammar({
       $.binary_op,
       $.unary_op,
       $.universe_app,
+      $.induction,
     ),
 
     _term_atom: $ => choice(
@@ -1298,6 +1299,19 @@ export default grammar({
       'by_cases',
       field('name', $._binder_ident),
       $._type_spec,
+    )),
+
+    /* `induction x [using ind]? [generalizing ys]? [with | … ]?` —
+       Lean's structural-induction tactic. Same shape with `cases` for
+       the case-analysis tactic. Both are written as terms inside a
+       `by`-block, so they belong with the other lead terms. The
+       `with`-clause holds match-style branches. */
+    induction: $ => prec.right(seq(
+      choice('induction', 'cases'),
+      sep1(field('target', $._term_atom), ','),
+      optional(seq('using', field('elim', $.identifier))),
+      optional(seq('generalizing', repeat1(field('gen', $._binder_ident)))),
+      optional(seq('with', repeat1($.match_alt))),
     )),
 
     show: $ => prec.right(seq(

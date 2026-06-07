@@ -2682,3 +2682,81 @@ instance : Foo where
                   fn: (identifier)
                   arg: (identifier))
                 arg: (identifier)))))))))
+
+==============
+induction tactic with match arms
+==============
+
+example : Foo := by
+  induction x with
+  | zero => rfl
+  | succ x ih => exact ih
+
+---
+
+(module
+  (declaration
+    (example
+      type: (identifier)
+      body: (by
+        stmt: (induction
+          target: (identifier)
+          (match_alt
+            pattern: (identifier)
+            body: (identifier))
+          (match_alt
+            pattern: (app
+              fn: (app
+                fn: (identifier)
+                arg: (identifier))
+              arg: (identifier))
+            body: (app
+              fn: (identifier)
+              arg: (identifier))))))))
+
+==============
+cases tactic with match arms
+==============
+
+example : Bar := by
+  cases as with
+  | nil => rfl
+  | cons a as' => simp
+
+---
+
+(module
+  (declaration
+    (example
+      type: (identifier)
+      body: (by
+        stmt: (induction
+          target: (identifier)
+          (match_alt
+            pattern: (identifier)
+            body: (identifier))
+          (match_alt
+            pattern: (app
+              fn: (app
+                fn: (identifier)
+                arg: (identifier))
+              arg: (identifier))
+            body: (identifier)))))))
+
+==============
+cases tactic combined with <;>
+==============
+
+example : Foo := by cases b <;> rfl
+
+---
+
+(module
+  (declaration
+    (example
+      type: (identifier)
+      body: (by
+        inline: (binary_op
+          lhs: (induction
+            target: (identifier))
+          rhs: (identifier))))))
