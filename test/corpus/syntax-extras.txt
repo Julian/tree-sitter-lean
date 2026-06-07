@@ -2650,3 +2650,35 @@ where
                       (binary_op
                         lhs: (identifier)
                         rhs: (identifier)))))))))))))
+
+==============
+Multi-line app continues on more-indented line
+==============
+
+instance : Foo where
+  field := app a b c
+    (long fourth arg)
+
+---
+
+(module
+  (declaration
+    (instance
+      type: (identifier)
+      (where_struct
+        (struct_field
+          name: (identifier)
+          value: (app
+            fn: (app
+              fn: (app
+                fn: (app
+                  fn: (identifier)
+                  arg: (identifier))
+                arg: (identifier))
+              arg: (identifier))
+            arg: (paren
+              (app
+                fn: (app
+                  fn: (identifier)
+                  arg: (identifier))
+                arg: (identifier)))))))))

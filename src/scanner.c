@@ -355,17 +355,24 @@ static bool scan_layout(struct Scanner *scanner, TSLexer *lexer,
      inside the match/inductive/etc. */
   if (lexer->lookahead == '|') return false;
 
-  if (indent > top && valid_symbols[INDENT]) {
-    array_push(&scanner->indents, (uint16_t)indent);
-    lexer->result_symbol = INDENT;
-    return true;
+  if (indent > top) {
+    if (valid_symbols[INDENT]) {
+      array_push(&scanner->indents, (uint16_t)indent);
+      lexer->result_symbol = INDENT;
+      return true;
+    }
+    /* Continuation of a multi-line expression: the new line is more
+       indented than the surrounding block, so neither INDENT, DEDENT,
+       nor NEWLINE applies. Returning nothing lets the parser keep
+       consuming tokens as part of the same enclosing rule. */
+    return false;
   }
   if (indent < top && valid_symbols[DEDENT]) {
     array_pop(&scanner->indents);
     lexer->result_symbol = DEDENT;
     return true;
   }
-  if (valid_symbols[NEWLINE]) {
+  if (indent == top && valid_symbols[NEWLINE]) {
     lexer->result_symbol = NEWLINE;
     return true;
   }
