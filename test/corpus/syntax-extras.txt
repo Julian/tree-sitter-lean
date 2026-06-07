@@ -2588,3 +2588,65 @@ m! string macro
     term: (interpolated_str
       (interpolation
         (identifier)))))
+
+==============
+where with auxiliary function-style helper
+==============
+
+def mapList (f : List α → β) : Task β :=
+  go []
+where
+  go
+    | [], as => .pure (f as.reverse)
+    | t::ts, as => t.bind (fun a => go (a :: as))
+
+---
+
+(module
+  (declaration
+    (def
+      name: (identifier)
+      (binders
+        (explicit_binder
+          name: (identifier)
+          type: (binary_op
+            lhs: (app
+              fn: (identifier)
+              arg: (identifier))
+            rhs: (identifier))))
+      type: (app
+        fn: (identifier)
+        arg: (identifier))
+      body: (app
+        fn: (identifier)
+        arg: (list_lit))
+      (where_decls
+        (where_aux_def
+          name: (identifier)
+          (match_alt
+            pattern: (list_lit)
+            pattern: (identifier)
+            body: (app
+              fn: (dot_ident
+                name: (identifier))
+              arg: (paren
+                (app
+                  fn: (identifier)
+                  arg: (identifier)))))
+          (match_alt
+            pattern: (binary_op
+              lhs: (identifier)
+              rhs: (identifier))
+            pattern: (identifier)
+            body: (app
+              fn: (identifier)
+              arg: (paren
+                (fun
+                  (binders
+                    (identifier))
+                  body: (app
+                    fn: (identifier)
+                    arg: (paren
+                      (binary_op
+                        lhs: (identifier)
+                        rhs: (identifier)))))))))))))

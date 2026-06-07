@@ -573,8 +573,8 @@ export default grammar({
        body of `field := value` lines (instance/anonymous-structure
        def form). */
     _decl_val: $ => choice(
-      field('body', seq(':=', $._term)),
-      repeat1($.match_alt),
+      seq(field('body', seq(':=', $._term)), optional($.where_decls)),
+      seq(repeat1($.match_alt), optional($.where_decls)),
       $.where_struct,
     ),
     _type_spec: $ => field('type', seq(':', $._term)),
@@ -586,7 +586,17 @@ export default grammar({
        swallow the next field's name. The body is optional: an empty
        `where` clause is legal when the structure has no fields.
        `where ...` is Lean's "fill all required fields with sorry"
-       elision marker. */
+       elision marker.
+
+       The same `where` clause also introduces auxiliary helper
+       definitions on a regular `def`/`theorem`:
+         def f x := body
+         where
+           helper := …
+           another | pat => …
+       A `where_item` covers both forms: a struct field
+       (`name [binders] := value`) or a function-style helper
+       (`name | pat => … | pat => …`). */
     where_struct: $ => prec.right(seq(
       'where',
       optional(choice(
@@ -598,6 +608,34 @@ export default grammar({
           $._dedent,
         ),
       )),
+    )),
+    /* `where` block of auxiliary helper definitions trailing a
+       `def`/`theorem`. Distinct from `where_struct`: the items here
+       are full sub-declarations (function-style match alts), not
+       struct field assignments. */
+    where_decls: $ => seq(
+      'where',
+      choice(
+        $.where_aux_def,
+        seq(
+          $._indent,
+          sep1($.where_aux_def, $._newline),
+          $._dedent,
+        ),
+      ),
+    ),
+    where_aux_def: $ => prec.right(seq(
+      field('name', $.identifier),
+      optional(alias(repeat1(choice(
+        $._binder_ident,
+        $.implicit_binder,
+        $.explicit_binder,
+      )), $.binders)),
+      optional($._type_spec),
+      choice(
+        seq(':=', field('body', $._term)),
+        repeat1($.match_alt),
+      ),
     )),
 
     /* ===== binders ======================================================= */
