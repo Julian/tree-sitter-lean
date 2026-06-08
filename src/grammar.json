@@ -4051,6 +4051,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "open_in"
+        },
+        {
+          "type": "SYMBOL",
           "name": "show"
         },
         {
@@ -7416,6 +7420,35 @@
           {
             "type": "SYMBOL",
             "name": "_type_spec"
+          }
+        ]
+      }
+    },
+    "open_in": {
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "open"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_open_decl"
+          },
+          {
+            "type": "STRING",
+            "value": "in"
+          },
+          {
+            "type": "FIELD",
+            "name": "body",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_term"
+            }
           }
         ]
       }

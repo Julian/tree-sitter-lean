@@ -808,6 +808,7 @@ export default grammar({
       $.have,
       $.suffices,
       $.by_cases,
+      $.open_in,
       $.show,
       $.if_then_else,
       $.forall,
@@ -1385,6 +1386,17 @@ export default grammar({
       'by_cases',
       field('name', $._binder_ident),
       $._type_spec,
+    )),
+
+    /* `open scoped Classical in expr` and `open Foo in expr` —
+       term-level open clause that scopes the names available in
+       `expr`. Distinct from the command form (which scopes a single
+       following command instead of a following term). */
+    open_in: $ => prec.right(seq(
+      'open',
+      $._open_decl,
+      'in',
+      field('body', $._term),
     )),
 
     /* `induction x [using ind]? [generalizing ys]? [with | … ]?` —
