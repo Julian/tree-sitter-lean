@@ -2837,3 +2837,30 @@ macro_rules | `(tactic| rfl) => `(tactic| apply_rfl)
       body: (quotation
         category: (identifier)
         (identifier)))))
+
+==============
+Multi-line struct literal with newline-separated fields
+==============
+
+def x := {
+  a := 1
+  b := 2
+  c := 3
+}
+
+---
+
+(module
+  (declaration
+    (def
+      name: (identifier)
+      body: (struct_lit
+        (struct_field
+          name: (identifier)
+          value: (num_lit))
+        (struct_field
+          name: (identifier)
+          value: (num_lit))
+        (struct_field
+          name: (identifier)
+          value: (num_lit))))))

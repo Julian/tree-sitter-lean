@@ -1006,9 +1006,15 @@ export default grammar({
         seq(
           sep1(field('source', $._term), ','),
           'with',
-          optional(sep1($.struct_field, optional(','))),
+          optional(choice(
+            sep1($.struct_field, optional(',')),
+            seq($._indent, sep1($.struct_field,
+              choice(',', $._newline)), $._dedent),
+          )),
         ),
         sep1($.struct_field, optional(',')),
+        seq($._indent, sep1($.struct_field,
+          choice(',', $._newline)), $._dedent),
         sep1(field('elem', $._term), ','),
       )),
       '}',
