@@ -1180,6 +1180,7 @@ export default grammar({
           '>', '≥', '>=',
           '∈', '∉', '⊆', '⊂', '⊇', '⊃', '⊑', '⊒',
           '≡', '≢', '~', '≃', '≅', '≈', '≉',
+          '≍', '≃ₘ', '≃ᵤ',  /* heq, measureable-equiv, uniform-equiv */
           '∣', '∤',  /* divides, not-divides */
           '⋖', '⋗',  /* covby (atomic-cover) and its dual */
         )),
@@ -1189,7 +1190,7 @@ export default grammar({
       )),
       prec.right(PREC.append, seq(
         field('lhs', $._op_term),
-        field('op', '::'),
+        field('op', choice('::', '::ᵣ', '::ₘ')),
         field('rhs', $._op_term),
       )),
       /* `<;>` — tactic-combinator (run-on-all-goals); appears in

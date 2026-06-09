@@ -3850,6 +3850,14 @@
             "named": false
           },
           {
+            "type": "::ᵣ",
+            "named": false
+          },
+          {
+            "type": "::ₘ",
+            "named": false
+          },
+          {
             "type": "<",
             "named": false
           },
@@ -4134,6 +4142,10 @@
             "named": false
           },
           {
+            "type": "≃ᵤ",
+            "named": false
+          },
+          {
             "type": "≃ₐ",
             "named": false
           },
@@ -4143,6 +4155,10 @@
           },
           {
             "type": "≃ₗ",
+            "named": false
+          },
+          {
+            "type": "≃ₘ",
             "named": false
           },
           {
@@ -4159,6 +4175,10 @@
           },
           {
             "type": "≌",
+            "named": false
+          },
+          {
+            "type": "≍",
             "named": false
           },
           {
@@ -32342,6 +32362,14 @@
     "named": false
   },
   {
+    "type": "::ᵣ",
+    "named": false
+  },
+  {
+    "type": "::ₘ",
+    "named": false
+  },
+  {
     "type": ":=",
     "named": false
   },
@@ -33281,6 +33309,10 @@
     "named": false
   },
   {
+    "type": "≃ᵤ",
+    "named": false
+  },
+  {
     "type": "≃ₐ",
     "named": false
   },
@@ -33290,6 +33322,10 @@
   },
   {
     "type": "≃ₗ",
+    "named": false
+  },
+  {
+    "type": "≃ₘ",
     "named": false
   },
   {
@@ -33306,6 +33342,10 @@
   },
   {
     "type": "≌",
+    "named": false
+  },
+  {
+    "type": "≍",
     "named": false
   },
   {

@@ -2884,3 +2884,31 @@ syntax g := &"trace" <|> &"info" <|> &"warning"
           lit: (str_lit))
         rhs: (nonreserved_atom
           lit: (str_lit))))))
+
+==============
+HEq and ::ᵣ operators
+==============
+
+theorem t (h : a ≍ b) : (x ::ᵣ xs).head = x := h
+
+---
+
+(module
+  (declaration
+    (theorem
+      name: (identifier)
+      (binders
+        (explicit_binder
+          name: (identifier)
+          type: (binary_op
+            lhs: (identifier)
+            rhs: (identifier))))
+      type: (binary_op
+        lhs: (proj
+          term: (paren
+            (binary_op
+              lhs: (identifier)
+              rhs: (identifier)))
+          field: (identifier))
+        rhs: (identifier))
+      body: (identifier))))

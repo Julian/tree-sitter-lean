@@ -6244,6 +6244,18 @@
                     },
                     {
                       "type": "STRING",
+                      "value": "≍"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "≃ₘ"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "≃ᵤ"
+                    },
+                    {
+                      "type": "STRING",
                       "value": "∣"
                     },
                     {
@@ -6290,8 +6302,21 @@
                 "type": "FIELD",
                 "name": "op",
                 "content": {
-                  "type": "STRING",
-                  "value": "::"
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": "::"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "::ᵣ"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "::ₘ"
+                    }
+                  ]
                 }
               },
               {
