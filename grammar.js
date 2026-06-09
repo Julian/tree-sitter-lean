@@ -260,10 +260,13 @@ export default grammar({
     /* Coarse syntax-DSL atom for use inside `syntax`/`macro` headers.
        Term atoms suffice for most cases (identifiers, string atoms,
        parens contain richer sub-patterns). Plus the syntax-combinator
-       postfixes `*`/`?`/`+` that don't make sense as Lean terms. */
+       postfixes `*`/`?`/`+` and the `<|>` alternative combinator.
+       `&"trace"` marks a non-reserved symbol token. */
     _syntax_atom: $ => choice(
       $._term_atom,
       $.syntax_postfix,
+      $.syntax_alt,
+      $.nonreserved_atom,
     ),
     syntax_postfix: $ => prec.left(seq(
       field('inner', $._term_atom),
@@ -273,6 +276,12 @@ export default grammar({
         token.immediate('+'),
       )),
     )),
+    syntax_alt: $ => prec.right(seq(
+      field('lhs', choice($._term_atom, $.syntax_postfix, $.nonreserved_atom)),
+      '<|>',
+      field('rhs', $._syntax_atom),
+    )),
+    nonreserved_atom: $ => seq('&', field('lit', $.str_lit)),
 
     /* `deriving instance Foo, Bar for Baz` — standalone deriving. */
     deriving_cmd: $ => seq(

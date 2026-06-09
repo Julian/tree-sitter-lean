@@ -971,6 +971,14 @@
         {
           "type": "SYMBOL",
           "name": "syntax_postfix"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "syntax_alt"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "nonreserved_atom"
         }
       ]
     },
@@ -1020,6 +1028,65 @@
           }
         ]
       }
+    },
+    "syntax_alt": {
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "FIELD",
+            "name": "lhs",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_term_atom"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "syntax_postfix"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "nonreserved_atom"
+                }
+              ]
+            }
+          },
+          {
+            "type": "STRING",
+            "value": "<|>"
+          },
+          {
+            "type": "FIELD",
+            "name": "rhs",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_syntax_atom"
+            }
+          }
+        ]
+      }
+    },
+    "nonreserved_atom": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "&"
+        },
+        {
+          "type": "FIELD",
+          "name": "lit",
+          "content": {
+            "type": "SYMBOL",
+            "name": "str_lit"
+          }
+        }
+      ]
     },
     "deriving_cmd": {
       "type": "SEQ",

@@ -2887,3 +2887,23 @@ def foo : Prop :=
           cond: (identifier)
           then: (identifier)
           else: (identifier))))))
+
+==============
+syntax with nonreserved-symbol and alternatives
+==============
+
+syntax g := &"trace" <|> &"info" <|> &"warning"
+
+---
+
+(module
+  (syntax_cmd
+    name: (identifier)
+    (syntax_alt
+      lhs: (nonreserved_atom
+        lit: (str_lit))
+      rhs: (syntax_alt
+        lhs: (nonreserved_atom
+          lit: (str_lit))
+        rhs: (nonreserved_atom
+          lit: (str_lit))))))
