@@ -592,8 +592,10 @@ export default grammar({
       optional($._binders),
       optional($._type_spec),
       optional($._extends_clause),
-      optional(seq('where',
-        repeat($.ctor_alt))),
+      optional(choice(
+        seq(choice('where', ':='), repeat($.ctor_alt)),
+        repeat1($.ctor_alt),
+      )),
       optional($._deriving_clause),
     )),
 
@@ -817,7 +819,6 @@ export default grammar({
       $.have,
       $.suffices,
       $.by_cases,
-      $.open_in,
       $.show,
       $.if_then_else,
       $.forall,
@@ -1397,18 +1398,7 @@ export default grammar({
       $._type_spec,
     )),
 
-    /* `open scoped Classical in expr` and `open Foo in expr` —
-       term-level open clause that scopes the names available in
-       `expr`. Distinct from the command form (which scopes a single
-       following command instead of a following term). */
-    open_in: $ => prec.right(seq(
-      'open',
-      $._open_decl,
-      'in',
-      field('body', $._term),
-    )),
-
-    /* `induction x [using ind]? [generalizing ys]? [with | … ]?` —
+/* `induction x [using ind]? [generalizing ys]? [with | … ]?` —
        Lean's structural-induction tactic. Same shape with `cases` for
        the case-analysis tactic. Both are written as terms inside a
        `by`-block, so they belong with the other lead terms. The

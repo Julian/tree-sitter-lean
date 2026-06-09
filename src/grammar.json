@@ -2999,14 +2999,35 @@
             "type": "CHOICE",
             "members": [
               {
-                "type": "SEQ",
+                "type": "CHOICE",
                 "members": [
                   {
-                    "type": "STRING",
-                    "value": "where"
+                    "type": "SEQ",
+                    "members": [
+                      {
+                        "type": "CHOICE",
+                        "members": [
+                          {
+                            "type": "STRING",
+                            "value": "where"
+                          },
+                          {
+                            "type": "STRING",
+                            "value": ":="
+                          }
+                        ]
+                      },
+                      {
+                        "type": "REPEAT",
+                        "content": {
+                          "type": "SYMBOL",
+                          "name": "ctor_alt"
+                        }
+                      }
+                    ]
                   },
                   {
-                    "type": "REPEAT",
+                    "type": "REPEAT1",
                     "content": {
                       "type": "SYMBOL",
                       "name": "ctor_alt"
@@ -4115,10 +4136,6 @@
         {
           "type": "SYMBOL",
           "name": "by_cases"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "open_in"
         },
         {
           "type": "SYMBOL",
@@ -7487,35 +7504,6 @@
           {
             "type": "SYMBOL",
             "name": "_type_spec"
-          }
-        ]
-      }
-    },
-    "open_in": {
-      "type": "PREC_RIGHT",
-      "value": 0,
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "STRING",
-            "value": "open"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "_open_decl"
-          },
-          {
-            "type": "STRING",
-            "value": "in"
-          },
-          {
-            "type": "FIELD",
-            "name": "body",
-            "content": {
-              "type": "SYMBOL",
-              "name": "_term"
-            }
           }
         ]
       }

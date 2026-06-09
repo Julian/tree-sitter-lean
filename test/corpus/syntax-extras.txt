@@ -2866,29 +2866,6 @@ def x := {
           value: (num_lit))))))
 
 ==============
-open in as term-level
-==============
-
-def foo : Prop :=
-  open scoped Classical in
-  if h : x then a else b
-
----
-
-(module
-  (declaration
-    (def
-      name: (identifier)
-      type: (prop_const)
-      body: (open_in
-        scoped: (identifier)
-        body: (if_then_else
-          hyp: (identifier)
-          cond: (identifier)
-          then: (identifier)
-          else: (identifier))))))
-
-==============
 syntax with nonreserved-symbol and alternatives
 ==============
 
