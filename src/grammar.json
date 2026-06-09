@@ -3912,15 +3912,28 @@
           "value": "("
         },
         {
-          "type": "REPEAT1",
-          "content": {
-            "type": "FIELD",
-            "name": "name",
-            "content": {
-              "type": "SYMBOL",
-              "name": "_binder_ident"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "REPEAT1",
+              "content": {
+                "type": "FIELD",
+                "name": "name",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_binder_ident"
+                }
+              }
+            },
+            {
+              "type": "FIELD",
+              "name": "name",
+              "content": {
+                "type": "SYMBOL",
+                "name": "anon_ctor_binder"
+              }
             }
-          }
+          ]
         },
         {
           "type": "CHOICE",

@@ -764,7 +764,10 @@ export default grammar({
 
     explicit_binder: $ => seq(
       '(',
-      repeat1(field('name', $._binder_ident)),
+      choice(
+        repeat1(field('name', $._binder_ident)),
+        field('name', $.anon_ctor_binder),
+      ),
       optional($._type_spec),
       optional(field('default', seq(':=', $._term))),
       ')',

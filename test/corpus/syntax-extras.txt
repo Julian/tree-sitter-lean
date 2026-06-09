@@ -2912,3 +2912,26 @@ theorem t (h : a ≍ b) : (x ::ᵣ xs).head = x := h
           field: (identifier))
         rhs: (identifier))
       body: (identifier))))
+
+==============
+Typed anonymous-ctor binder in fun
+==============
+
+#check fun (⟨r, x⟩ : R × M) ↦ r * x
+
+---
+
+(module
+  (check
+    term: (fun
+      (binders
+        (explicit_binder
+          name: (anon_ctor_binder
+            (identifier)
+            (identifier))
+          type: (binary_op
+            lhs: (identifier)
+            rhs: (identifier))))
+      body: (binary_op
+        lhs: (identifier)
+        rhs: (identifier)))))
