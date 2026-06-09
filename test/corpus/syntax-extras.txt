@@ -2980,3 +2980,22 @@ Antiquotation parenthesized
           (app
             fn: (identifier)
             arg: (identifier)))))))
+
+==============
+Antiquotation with type and repeat
+==============
+
+#check `($kind:attrKind $bs* $[$cs]?)
+
+---
+
+(module
+  (check
+    term: (quotation
+      (app
+        fn: (app
+          fn: (antiquot
+            kind: (identifier))
+          arg: (antiquot))
+        arg: (antiquot
+          (antiquot))))))

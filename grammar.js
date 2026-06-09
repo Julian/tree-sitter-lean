@@ -910,16 +910,33 @@ export default grammar({
       token.immediate('%'),
     ),
 
-    /* `$ident` and `$(expr)` — antiquotation marker inside a Lean
-       backtick-quotation, splicing a term into the quoted syntax.
-       Distinct from `$` as a binary operator (right-assoc function
-       application). Lexed as a single token whose `$` immediately
-       precedes the name, to keep `f $ x` (binary form) unambiguous. */
-    antiquot: $ => choice(
-      $._antiquot_ident,
-      seq($._antiquot_open, $._term, ')'),
-      seq($._antiquot_obrack, $._term, ']'),
-    ),
+    /* `$ident`, `$(expr)`, `$[…]` — antiquotation marker inside a
+       Lean backtick-quotation, splicing a term into the quoted
+       syntax. Distinct from `$` as a binary operator (right-assoc
+       function application). The leading `$` is lexed as part of a
+       single token so `f $ x` (binary form) is unambiguous.
+
+       Antiquotations carry optional type annotations (`$kind:attrKind`)
+       and DSL-postfix repeaters (`$pre?`, `$bs*`, `$ids,*`). */
+    antiquot: $ => prec.right(seq(
+      choice(
+        $._antiquot_ident,
+        seq($._antiquot_open, $._term, ')'),
+        seq($._antiquot_obrack, $._term, ']'),
+      ),
+      optional(seq(
+        token.immediate(':'),
+        field('kind', $.identifier),
+      )),
+      optional(field('repeat', choice(
+        token.immediate('?'),
+        token.immediate('*'),
+        token.immediate('+'),
+        token.immediate(',*'),
+        token.immediate(',+'),
+        token.immediate(',?'),
+      ))),
+    )),
     _antiquot_ident: _ => token(seq('$', /[A-Za-z_α-ωΑ-Ω][A-Za-z_α-ωΑ-Ω0-9]*/)),
     _antiquot_open: _ => token(seq('$', '(')),
     _antiquot_obrack: _ => token(seq('$', '[')),

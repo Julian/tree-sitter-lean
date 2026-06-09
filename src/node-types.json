@@ -1385,7 +1385,48 @@
   {
     "type": "antiquot",
     "named": true,
-    "fields": {},
+    "fields": {
+      "kind": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "repeat": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "*",
+            "named": false
+          },
+          {
+            "type": "+",
+            "named": false
+          },
+          {
+            "type": ",*",
+            "named": false
+          },
+          {
+            "type": ",+",
+            "named": false
+          },
+          {
+            "type": ",?",
+            "named": false
+          },
+          {
+            "type": "?",
+            "named": false
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": false,
       "required": false,
@@ -33066,6 +33107,18 @@
   },
   {
     "type": ",",
+    "named": false
+  },
+  {
+    "type": ",*",
+    "named": false
+  },
+  {
+    "type": ",+",
+    "named": false
+  },
+  {
+    "type": ",?",
     "named": false
   },
   {
