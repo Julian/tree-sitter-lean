@@ -2935,3 +2935,48 @@ Typed anonymous-ctor binder in fun
       body: (binary_op
         lhs: (identifier)
         rhs: (identifier)))))
+
+==============
+Antiquotation markers
+==============
+
+abbrev qNF (R : Q(Type u)) := Q(NF $R)
+
+---
+
+(module
+  (declaration
+    (abbrev
+      name: (identifier)
+      (binders
+        (explicit_binder
+          name: (identifier)
+          type: (app
+            fn: (identifier)
+            arg: (paren
+              (type_const
+                (identifier))))))
+      body: (app
+        fn: (identifier)
+        arg: (paren
+          (app
+            fn: (identifier)
+            arg: (antiquot)))))))
+
+==============
+Antiquotation parenthesized
+==============
+
+#check Q($(mkIdent foo))
+
+---
+
+(module
+  (check
+    term: (app
+      fn: (identifier)
+      arg: (paren
+        (antiquot
+          (app
+            fn: (identifier)
+            arg: (identifier)))))))

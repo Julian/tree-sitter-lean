@@ -4382,6 +4382,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "antiquot"
+        },
+        {
+          "type": "SYMBOL",
           "name": "explicit_mode"
         },
         {
@@ -4467,6 +4471,97 @@
           }
         }
       ]
+    },
+    "antiquot": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_antiquot_ident"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_antiquot_open"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_term"
+            },
+            {
+              "type": "STRING",
+              "value": ")"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_antiquot_obrack"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_term"
+            },
+            {
+              "type": "STRING",
+              "value": "]"
+            }
+          ]
+        }
+      ]
+    },
+    "_antiquot_ident": {
+      "type": "TOKEN",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "$"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[A-Za-z_α-ωΑ-Ω][A-Za-z_α-ωΑ-Ω0-9]*"
+          }
+        ]
+      }
+    },
+    "_antiquot_open": {
+      "type": "TOKEN",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "$"
+          },
+          {
+            "type": "STRING",
+            "value": "("
+          }
+        ]
+      }
+    },
+    "_antiquot_obrack": {
+      "type": "TOKEN",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "$"
+          },
+          {
+            "type": "STRING",
+            "value": "["
+          }
+        ]
+      }
     },
     "explicit_mode": {
       "type": "PREC",

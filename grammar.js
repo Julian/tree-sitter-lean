@@ -883,6 +883,7 @@ export default grammar({
       $.rest_pat,
       $.prec_annotated,
       $.pct_macro,
+      $.antiquot,
       $.explicit_mode,
       $.quotation,
     ),
@@ -908,6 +909,20 @@ export default grammar({
       field('name', $.identifier),
       token.immediate('%'),
     ),
+
+    /* `$ident` and `$(expr)` — antiquotation marker inside a Lean
+       backtick-quotation, splicing a term into the quoted syntax.
+       Distinct from `$` as a binary operator (right-assoc function
+       application). Lexed as a single token whose `$` immediately
+       precedes the name, to keep `f $ x` (binary form) unambiguous. */
+    antiquot: $ => choice(
+      $._antiquot_ident,
+      seq($._antiquot_open, $._term, ')'),
+      seq($._antiquot_obrack, $._term, ']'),
+    ),
+    _antiquot_ident: _ => token(seq('$', /[A-Za-z_α-ωΑ-Ω][A-Za-z_α-ωΑ-Ω0-9]*/)),
+    _antiquot_open: _ => token(seq('$', '(')),
+    _antiquot_obrack: _ => token(seq('$', '[')),
 
     /* `@expr` — disables implicit-argument insertion (explicit args
        mode). Applies to arbitrary terms, not just identifiers
