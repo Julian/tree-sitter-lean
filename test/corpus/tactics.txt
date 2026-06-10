@@ -119,3 +119,39 @@ def main := do return 0
         inline: (app
           fn: (identifier)
           arg: (num_lit))))))
+
+==============
+Show tactic bare
+==============
+
+example : True := by show True; trivial
+
+---
+
+(module
+  (declaration
+    (example
+      type: (true_const)
+      body: (by
+        inline: (show
+          type: (true_const))
+        inline: (identifier)))))
+
+==============
+Simp star
+==============
+
+example : True := by simp [*, foo]
+
+---
+
+(module
+  (declaration
+    (example
+      type: (true_const)
+      body: (by
+        inline: (app
+          fn: (identifier)
+          arg: (list_lit
+            (star)
+            (identifier)))))))

@@ -490,3 +490,73 @@ Sorry
 (module
   (check
     term: (sorry)))
+
+==============
+Indexed union with membership binder
+==============
+
+#check ⋃ i ∈ s, t i
+
+---
+
+(module
+  (check
+    term: (big_op_binder
+      (binders
+        (identifier))
+      (identifier)
+      body: (app
+        fn: (identifier)
+        arg: (identifier)))))
+
+==============
+Almost-everywhere quantifier with measure
+==============
+
+#check ∀ᵐ x ∂μ, p x
+
+---
+
+(module
+  (check
+    term: (big_op_binder
+      (binders
+        (identifier))
+      (identifier)
+      body: (app
+        fn: (identifier)
+        arg: (identifier)))))
+
+==============
+Integral with range and measure
+==============
+
+#check ∫ x in s, f x ∂μ
+
+---
+
+(module
+  (check
+    term: (big_op_binder
+      (binders
+        (identifier))
+      (identifier)
+      body: (binary_op
+        lhs: (app
+          fn: (identifier)
+          arg: (identifier))
+        rhs: (identifier)))))
+
+==============
+Iso composition operator
+==============
+
+#check e ≪≫ f
+
+---
+
+(module
+  (check
+    term: (binary_op
+      lhs: (identifier)
+      rhs: (identifier))))

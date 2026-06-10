@@ -4450,6 +4450,10 @@
             "named": false
           },
           {
+            "type": "∂",
+            "named": false
+          },
+          {
             "type": "∈",
             "named": false
           },
@@ -4567,6 +4571,10 @@
           },
           {
             "type": "≥",
+            "named": false
+          },
+          {
+            "type": "≪≫",
             "named": false
           },
           {
@@ -18700,6 +18708,10 @@
           "named": true
         },
         {
+          "type": "star",
+          "named": true
+        },
+        {
           "type": "str_lit",
           "named": true
         },
@@ -27120,6 +27132,11 @@
     }
   },
   {
+    "type": "star",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "str_lit",
     "named": true,
     "fields": {},
@@ -34913,11 +34930,19 @@
     "named": false
   },
   {
+    "type": "∀ᵐ",
+    "named": false
+  },
+  {
     "type": "∂",
     "named": false
   },
   {
     "type": "∃",
+    "named": false
+  },
+  {
+    "type": "∃ᵐ",
     "named": false
   },
   {
@@ -34930,6 +34955,10 @@
   },
   {
     "type": "∏",
+    "named": false
+  },
+  {
+    "type": "∐",
     "named": false
   },
   {
@@ -34966,6 +34995,14 @@
   },
   {
     "type": "∪",
+    "named": false
+  },
+  {
+    "type": "∫",
+    "named": false
+  },
+  {
+    "type": "∫⁻",
     "named": false
   },
   {
@@ -35049,6 +35086,10 @@
     "named": false
   },
   {
+    "type": "≪≫",
+    "named": false
+  },
+  {
     "type": "≫",
     "named": false
   },
@@ -35105,6 +35146,22 @@
     "named": false
   },
   {
+    "type": "⋀",
+    "named": false
+  },
+  {
+    "type": "⋁",
+    "named": false
+  },
+  {
+    "type": "⋂",
+    "named": false
+  },
+  {
+    "type": "⋃",
+    "named": false
+  },
+  {
     "type": "⋖",
     "named": false
   },
@@ -35157,11 +35214,23 @@
     "named": false
   },
   {
+    "type": "⨁",
+    "named": false
+  },
+  {
+    "type": "⨂",
+    "named": false
+  },
+  {
     "type": "⨅",
     "named": false
   },
   {
     "type": "⨆",
+    "named": false
+  },
+  {
+    "type": "⨍",
     "named": false
   },
   {

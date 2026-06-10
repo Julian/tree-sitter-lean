@@ -1058,7 +1058,9 @@ export default grammar({
     /* `⟦x⟧` — quotient-class bracket (`Quotient.mk`). */
     quotient_lit: $ => seq('⟦', $._term, '⟧'),
 
-    list_lit: $ => seq('[', sep0($._term, ','), ']'),
+    /* `*` is valid as a simp-set element (`simp [*, foo]`). */
+    list_lit: $ => seq('[', sep0(choice($._term, $.star), ','), ']'),
+    star: _ => '*',
 
     /* `[a : b]` or `[a : b : step]` — range/subarray slice. */
     range_lit: $ => seq(
@@ -1291,6 +1293,9 @@ export default grammar({
         field('lhs', $._op_term),
         field('op', choice(
           '*', '/', '%', '∩', '×', "×'", '×ˢ', '×ₗ', '•', '∙',
+          /* `∫ x, f x ∂μ` — the measure marker binds the integrand
+             to its measure. */
+          '∂',
           /* Tensor and related Mathlib operators (without bracket
              param — `⊗ₜ[R]` parses as `⊗ₜ` + `[R]` consumed by app). */
           '⊗', '⊗ₜ', '⊗ₛ',
@@ -1310,8 +1315,9 @@ export default grammar({
           '∘',
           /* Mathlib's set image / preimage operators. */
           "''", "⁻¹'",
-          /* Category-theory morphism / functor composition (Mathlib). */
-          '≫', '⋙',
+          /* Category-theory morphism / functor / iso composition
+             (Mathlib). */
+          '≫', '⋙', '≪≫',
         )),
         field('rhs', $._op_term),
       )),
@@ -1403,13 +1409,23 @@ export default grammar({
 
     /* `⨆ x, f x` / `⨅ x, f x` / `∑ x, f x` / `∏ x, f x` — big-operator
        binder notation. Mathlib also writes `⨆ x ∈ s, P x` (sugar),
-       `∑ x ∈ s, f x`, and `⨆ x : T, f x`. */
+       `∑ x ∈ s, f x`, and `⨆ x : T, f x`. Indexed unions/intersections
+       and lattice ops take the same shape, as do the measure-theoretic
+       quantifiers (`∀ᵐ x ∂μ, p x`) and integrals (`∫ x in s, f x ∂μ`,
+       where the binder range is spelled with `in`). */
     big_op_binder: $ => prec.right(seq(
-      choice('⨆', '⨅', '∑', '∏'),
+      choice(
+        '⨆', '⨅', '∑', '∏',
+        '⋃', '⋂', '⋀', '⋁', '⨁', '⨂', '∐',
+        '∀ᵐ', '∃ᵐ',
+        '∫', '∫⁻', '⨍',
+      ),
       $._binders,
       optional(choice(
         $._type_spec,
-        seq(choice('∈', '⊆', '⊂'), $._op_term),
+        seq(choice('∈', '⊆', '⊂', 'in'), $._op_term),
+        /* `∀ᵐ x ∂μ, p` — "for almost every x w.r.t. measure μ". */
+        seq('∂', $._op_term),
       )),
       ',',
       field('body', $._term),
@@ -1488,13 +1504,21 @@ export default grammar({
     show: $ => prec.right(seq(
       'show',
       field('type', $._term),
-      choice(
+      /* Bare `show T` is the tactic form (re-states the goal);
+         `show T from e` / `show T by tac` are the term forms. */
+      optional(choice(
         seq('from', field('value', $._term)),
         $.by,
-      ),
+      )),
     )),
 
-    /* `if h : cond then a else b` — named hypothesis form. */
+    /* `if h : cond then a else b` — named hypothesis form. An
+       optional `else` (for do-block `if cond then stmt`) was tried
+       and abandoned twice: it splits LR states through the whole
+       term grammar and generate runs for tens of minutes at
+       multi-GB memory. Same for allowing `block_assign` in the
+       branches. Do-block `if … then` without `else` therefore
+       still parses with an error node. */
     if_then_else: $ => prec.right(seq(
       'if',
       optional(seq(field('hyp', $._binder_ident), ':')),
