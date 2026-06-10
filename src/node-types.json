@@ -553,6 +553,10 @@
           "named": true
         },
         {
+          "type": "identifier",
+          "named": true
+        },
+        {
           "type": "match_alt",
           "named": true
         },
@@ -8246,6 +8250,10 @@
       "types": [
         {
           "type": "binders",
+          "named": true
+        },
+        {
+          "type": "identifier",
           "named": true
         },
         {

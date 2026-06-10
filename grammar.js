@@ -493,14 +493,15 @@ export default grammar({
       '}',
     ),
 
-    def: $ => seq(
+    def: $ => prec.right(seq(
       'def',
       field('name', $.identifier),
       optional($._decl_universes),
       optional($._binders),
       optional($._type_spec),
       $._decl_val,
-    ),
+      optional($._deriving_clause),
+    )),
 
     theorem: $ => seq(
       choice('theorem', 'lemma'),
@@ -518,14 +519,15 @@ export default grammar({
       $._decl_val,
     ),
 
-    abbrev: $ => seq(
+    abbrev: $ => prec.right(seq(
       'abbrev',
       field('name', $.identifier),
       optional($._decl_universes),
       optional($._binders),
       optional($._type_spec),
       $._decl_val,
-    ),
+      optional($._deriving_clause),
+    )),
 
     /* `(priority := N)` / `(name := myName)` — named-attribute prefix
        on instance declarations, before any binders. */
