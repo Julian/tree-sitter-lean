@@ -125,8 +125,38 @@ export default grammar({
       $.syntax_cmd,
       $.macro_cmd,
       $.macro_rules_cmd,
+      $.register_cmd,
+      $.unif_hint_cmd,
       $.declaration,
     ),
+
+    /* `register_builtin_option name : Type := value` and
+       `register_error_explanation name { … }` — coarse parse of
+       Lean's various registration commands. The body is either a
+       `:= expr` value or a `{ … }` struct literal. */
+    register_cmd: $ => prec.right(seq(
+      choice(
+        'register_builtin_option',
+        'register_option',
+        'register_error_explanation',
+      ),
+      field('name', $.identifier),
+      optional($._type_spec),
+      optional(choice(
+        seq(':=', field('value', $._term)),
+        $.struct_lit,
+      )),
+    )),
+
+    /* `unif_hint name (binders)? where lhs ⊢ rhs` — Lean's
+       unification-hint declaration. Body is intentionally permissive. */
+    unif_hint_cmd: $ => prec.right(seq(
+      'unif_hint',
+      optional(field('name', $.identifier)),
+      repeat($._bracketed_binder),
+      'where',
+      repeat($._term),
+    )),
 
     /* `assert_not_exists Name`, `assert_not_imported Name`, etc. —
        Lean's lightweight assertion commands taking a single ident. */

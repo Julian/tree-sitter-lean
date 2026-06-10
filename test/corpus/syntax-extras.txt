@@ -2999,3 +2999,39 @@ Antiquotation with type and repeat
           arg: (antiquot))
         arg: (antiquot
           (antiquot))))))
+
+==============
+register and unif_hint commands
+==============
+
+register_error_explanation lean.someError {
+  summary := "Short error description."
+  sinceVersion := "4.22.0"
+}
+
+register_builtin_option diagnostics : Bool := false
+
+unif_hint someHint (p : Prop) where x
+
+---
+
+(module
+  (register_cmd
+    name: (identifier)
+    (struct_lit
+      (struct_field
+        name: (identifier)
+        value: (str_lit))
+      (struct_field
+        name: (identifier)
+        value: (str_lit))))
+  (register_cmd
+    name: (identifier)
+    type: (identifier)
+    value: (false_const))
+  (unif_hint_cmd
+    name: (identifier)
+    (explicit_binder
+      name: (identifier)
+      type: (prop_const))
+    (identifier)))
