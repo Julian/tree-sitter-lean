@@ -3035,3 +3035,52 @@ unif_hint someHint (p : Prop) where x
       name: (identifier)
       type: (prop_const))
     (identifier)))
+
+==============
+Struct literal field punning
+==============
+
+#check { x, y }
+
+---
+
+(module
+  (check
+    term: (struct_lit
+      elem: (identifier)
+      elem: (identifier))))
+
+==============
+Struct literal punned and assigned fields
+==============
+
+#check { toFoo, x := 1 }
+
+---
+
+(module
+  (check
+    term: (struct_lit
+      (struct_field
+        name: (identifier))
+      (struct_field
+        name: (identifier)
+        value: (num_lit)))))
+
+==============
+Struct update with punned field
+==============
+
+#check { s with valid, n := 3 }
+
+---
+
+(module
+  (check
+    term: (struct_lit
+      source: (identifier)
+      (struct_field
+        name: (identifier))
+      (struct_field
+        name: (identifier)
+        value: (num_lit)))))

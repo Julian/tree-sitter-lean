@@ -1085,12 +1085,12 @@ export default grammar({
           sep1(field('source', $._term), ','),
           'with',
           optional(choice(
-            sep1($.struct_field, optional(',')),
+            sep1($.struct_field, ','),
             seq($._indent, sep1($.struct_field,
               choice(',', $._newline)), $._dedent),
           )),
         ),
-        sep1($.struct_field, optional(',')),
+        sep1($.struct_field, ','),
         seq($._indent, sep1($.struct_field,
           choice(',', $._newline)), $._dedent),
         sep1(field('elem', $._term), ','),
@@ -1123,15 +1123,21 @@ export default grammar({
        are accepted. Type ascription `name : T := value` is
        intentionally omitted because the leading `{ ident :` would
        conflict with `set_builder` / `subtype_lit`. */
-    struct_field: $ => seq(
+    struct_field: $ => choice(
+      seq(
+        field('name', $.identifier),
+        optional(alias(repeat1(choice(
+          $._binder_ident,
+          $.implicit_binder,
+          $.explicit_binder,
+        )), $.binders)),
+        ':=',
+        field('value', $._term),
+      ),
+      /* Field-name punning: `{ x, y }` abbreviates `{ x := x, y := y
+         }`. No binders on this branch — a bare name is a complete
+         field, so `x y := e` stays unambiguous (binders of `x`). */
       field('name', $.identifier),
-      optional(alias(repeat1(choice(
-        $._binder_ident,
-        $.implicit_binder,
-        $.explicit_binder,
-      )), $.binders)),
-      ':=',
-      field('value', $._term),
     ),
 
     /* `f x` — left-associative application. The argument can be an
