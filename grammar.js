@@ -1212,6 +1212,7 @@ export default grammar({
       field('op', choice(
         'ᵒᵖ', 'ᵐᵒᵖ', 'ᵒᵈ', '⁻¹', 'ᵀ', '†',
         'ᶜ', 'ˣ', '✝',
+        '⁺',  /* positive part (`a⁺`) */
       )),
     )),
 
@@ -1260,6 +1261,7 @@ export default grammar({
           '⇨',       /* Heyting implication */
           '⥤',       /* Mathlib functor arrow */
           '≌',       /* category equivalence */
+          '⟹',       /* natural transformation (`F ⟹ G`) */
         )),
         field('rhs', $._term),
       )),
@@ -1320,6 +1322,8 @@ export default grammar({
         field('lhs', $._op_term),
         field('op', choice(
           '+', '-', '∪', '\\',
+          /* `∆` — set symmetric difference. */
+          '∆',
           /* Mathlib torsor & substitution operators. */
           '-ᵥ', '+ᵥ', '▸',
         )),

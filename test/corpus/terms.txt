@@ -588,3 +588,30 @@ Entailment operator
     term: (binary_op
       lhs: (identifier)
       rhs: (identifier))))
+
+==============
+Positive-part postfix operator
+==============
+
+#check a⁺
+
+---
+
+(module
+  (check
+    term: (postfix_op
+      term: (identifier))))
+
+==============
+Symmetric difference operator
+==============
+
+#check s ∆ t
+
+---
+
+(module
+  (check
+    term: (binary_op
+      lhs: (identifier)
+      rhs: (identifier))))

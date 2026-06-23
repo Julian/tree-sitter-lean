@@ -4462,6 +4462,10 @@
             "named": false
           },
           {
+            "type": "∆",
+            "named": false
+          },
+          {
             "type": "∈",
             "named": false
           },
@@ -4687,6 +4691,10 @@
           },
           {
             "type": "⟶",
+            "named": false
+          },
+          {
+            "type": "⟹",
             "named": false
           },
           {
@@ -22766,6 +22774,10 @@
             "named": false
           },
           {
+            "type": "⁺",
+            "named": false
+          },
+          {
             "type": "⁻¹",
             "named": false
           },
@@ -35234,6 +35246,10 @@
     "named": false
   },
   {
+    "type": "⁺",
+    "named": false
+  },
+  {
     "type": "⁻¹",
     "named": false
   },
@@ -35379,6 +35395,10 @@
   },
   {
     "type": "∃ᵐ",
+    "named": false
+  },
+  {
+    "type": "∆",
     "named": false
   },
   {
@@ -35663,6 +35683,10 @@
   },
   {
     "type": "⟶",
+    "named": false
+  },
+  {
+    "type": "⟹",
     "named": false
   },
   {
