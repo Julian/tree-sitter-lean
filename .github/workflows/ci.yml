@@ -37,8 +37,11 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Regenerate the grammar
-        run: pnpm exec tree-sitter generate
-
+      # The committed src/parser.c is the build artifact under test.
+      # We deliberately do NOT regenerate here: `tree-sitter generate`
+      # for this grammar peaks around 9 GB and OOM-kills the Linux
+      # runner. Parser/grammar.js sync is enforced separately by the
+      # "Regenerate the Grammar" workflow on a swap-tolerant macOS
+      # runner.
       - name: Test the grammar
         run: pnpm exec tree-sitter test
