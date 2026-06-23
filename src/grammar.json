@@ -7063,6 +7063,10 @@
                     },
                     {
                       "type": "STRING",
+                      "value": "↾"
+                    },
+                    {
+                      "type": "STRING",
                       "value": "-ᵥ"
                     },
                     {
@@ -7206,6 +7210,10 @@
                     {
                       "type": "STRING",
                       "value": "⊙"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "◫"
                     }
                   ]
                 }

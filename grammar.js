@@ -1335,8 +1335,10 @@ export default grammar({
         field('lhs', $._op_term),
         field('op', choice(
           '+', '-', '∪', '\\',
-          /* `∆` — set symmetric difference; `⊞` — boxplus. */
-          '∆', '⊞',
+          /* `∆` — set symmetric difference; `⊞` — boxplus;
+             `↾` — restriction. (`⨁` is a big_op_binder prefix, not
+             an infix operator — adding it here conflicts.) */
+          '∆', '⊞', '↾',
           /* Mathlib torsor & substitution operators. */
           '-ᵥ', '+ᵥ', '▸',
         )),
@@ -1358,8 +1360,9 @@ export default grammar({
           '⨯', '∗', '⋆', '⬝',
           /* Circled/boxed products (applicative seq, external product). */
           '⊛', '⊠',
-          /* Kronecker product, matrix-vector dot, Hadamard product. */
-          '⊗ₖ', '⬝ᵥ', '⊙',
+          /* Kronecker product, matrix-vector dot, Hadamard product,
+             box product. */
+          '⊗ₖ', '⬝ᵥ', '⊙', '◫',
         )),
         field('rhs', $._op_term),
       )),
