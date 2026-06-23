@@ -7194,6 +7194,18 @@
                     {
                       "type": "STRING",
                       "value": "⊠"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "⊗ₖ"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "⬝ᵥ"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "⊙"
                     }
                   ]
                 }
@@ -7293,6 +7305,10 @@
                     {
                       "type": "STRING",
                       "value": "⊚"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "∘ₗ"
                     }
                   ]
                 }

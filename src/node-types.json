@@ -4618,6 +4618,10 @@
             "named": false
           },
           {
+            "type": "∘ₗ",
+            "named": false
+          },
+          {
             "type": "∙",
             "named": false
           },
@@ -4786,11 +4790,19 @@
             "named": false
           },
           {
+            "type": "⊗ₖ",
+            "named": false
+          },
+          {
             "type": "⊗ₛ",
             "named": false
           },
           {
             "type": "⊗ₜ",
+            "named": false
+          },
+          {
+            "type": "⊙",
             "named": false
           },
           {
@@ -4867,6 +4879,10 @@
           },
           {
             "type": "⬝",
+            "named": false
+          },
+          {
+            "type": "⬝ᵥ",
             "named": false
           }
         ]
@@ -36996,6 +37012,10 @@
     "named": false
   },
   {
+    "type": "∘ₗ",
+    "named": false
+  },
+  {
     "type": "∙",
     "named": false
   },
@@ -37172,11 +37192,19 @@
     "named": false
   },
   {
+    "type": "⊗ₖ",
+    "named": false
+  },
+  {
     "type": "⊗ₛ",
     "named": false
   },
   {
     "type": "⊗ₜ",
+    "named": false
+  },
+  {
+    "type": "⊙",
     "named": false
   },
   {
@@ -37341,6 +37369,10 @@
   },
   {
     "type": "⬝",
+    "named": false
+  },
+  {
+    "type": "⬝ᵥ",
     "named": false
   },
   {

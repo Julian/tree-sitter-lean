@@ -1358,6 +1358,8 @@ export default grammar({
           '⨯', '∗', '⋆', '⬝',
           /* Circled/boxed products (applicative seq, external product). */
           '⊛', '⊠',
+          /* Kronecker product, matrix-vector dot, Hadamard product. */
+          '⊗ₖ', '⬝ᵥ', '⊙',
         )),
         field('rhs', $._op_term),
       )),
@@ -1377,6 +1379,8 @@ export default grammar({
           '≫', '⋙', '≪≫',
           /* Whiskering (bicategory) and circle-composition. */
           '◁', '⊚',
+          /* Linear-map composition. */
+          '∘ₗ',
         )),
         field('rhs', $._op_term),
       )),
