@@ -940,6 +940,8 @@ export default grammar({
       $.anon_ctor,
       $.anon_subterm,
       $.quotient_lit,
+      $.floor_lit,
+      $.ceil_lit,
       $.list_lit,
       $.range_lit,
       $.array_lit,
@@ -1091,6 +1093,16 @@ export default grammar({
 
     /* `⟦x⟧` — quotient-class bracket (`Quotient.mk`). */
     quotient_lit: $ => seq('⟦', $._term, '⟧'),
+
+    /* `⌊x⌋` floor and `⌈x⌉` ceil, each with an optional `₊`
+       non-negative variant (`⌊x⌋₊`). These use distinct open/close
+       brackets, so they are safe delimited atoms. Norm `‖x‖` and abs
+       `|x|` are deliberately omitted: their open and close delimiter
+       is the SAME token, and a symmetric delimiter around an unbounded
+       `_term` blows up LR generation (norm was measured at 39 min,
+       non-converging). */
+    floor_lit: $ => seq('⌊', $._term, choice('⌋', '⌋₊')),
+    ceil_lit: $ => seq('⌈', $._term, choice('⌉', '⌉₊')),
 
     /* `*` is valid as a simp-set element (`simp [*, foo]`). */
     list_lit: $ => seq('[', sep0(choice($._term, $.star), ','), ']'),

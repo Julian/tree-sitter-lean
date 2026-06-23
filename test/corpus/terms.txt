@@ -609,6 +609,22 @@ Entailment operator
       rhs: (identifier))))
 
 ==============
+Floor and ceiling brackets
+==============
+
+#check ⌊x⌋₊ + ⌈y⌉
+
+---
+
+(module
+  (check
+    term: (binary_op
+      lhs: (floor_lit
+        (identifier))
+      rhs: (ceil_lit
+        (identifier)))))
+
+==============
 Positive-part postfix operator
 ==============
 
