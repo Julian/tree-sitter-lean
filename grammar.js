@@ -1265,7 +1265,7 @@ export default grammar({
       )),
       prec.right(PREC.iff, seq(
         field('lhs', $._op_term),
-        field('op', choice('↔', '<->')),
+        field('op', choice('↔', '<->', '⇔')),
         /* `p ↔ ∃ x, …` is extremely common in Mathlib. */
         field('rhs', $._term),
       )),
@@ -1292,6 +1292,8 @@ export default grammar({
           '≍', '≃ₘ', '≃ᵤ',  /* heq, measureable-equiv, uniform-equiv */
           '∣', '∤',  /* divides, not-divides */
           '⋖', '⋗',  /* covby (atomic-cover) and its dual */
+          '⊨', '⇒',  /* entailment / relation-implication (Relator) */
+          '≺', '≼',  /* strict and non-strict order relations */
         )),
         /* `a = fun x => …` and `a ≤ if p then x else y` are common
            enough that comparison RHS must allow lead terms. */
@@ -1335,6 +1337,8 @@ export default grammar({
           '⊗', '⊗ₜ', '⊗ₛ',
           /* Sum/direct-sum operators (Mathlib). */
           '⊕', '⊕ₗ',
+          /* Product, convolution/star, and matrix-dot products. */
+          '⨯', '∗', '⋆', '⬝',
         )),
         field('rhs', $._op_term),
       )),
@@ -1352,6 +1356,8 @@ export default grammar({
           /* Category-theory morphism / functor / iso composition
              (Mathlib). */
           '≫', '⋙', '≪≫',
+          /* Whiskering (bicategory) and circle-composition. */
+          '◁', '⊚',
         )),
         field('rhs', $._op_term),
       )),

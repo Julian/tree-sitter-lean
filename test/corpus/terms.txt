@@ -560,3 +560,31 @@ Iso composition operator
     term: (binary_op
       lhs: (identifier)
       rhs: (identifier))))
+
+==============
+Whiskering and relation operators
+==============
+
+#check f ◁ g
+
+---
+
+(module
+  (check
+    term: (binary_op
+      lhs: (identifier)
+      rhs: (identifier))))
+
+==============
+Entailment operator
+==============
+
+#check Γ ⊨ φ
+
+---
+
+(module
+  (check
+    term: (binary_op
+      lhs: (identifier)
+      rhs: (identifier))))

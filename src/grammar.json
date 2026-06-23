@@ -6536,6 +6536,10 @@
                     {
                       "type": "STRING",
                       "value": "<->"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "⇔"
                     }
                   ]
                 }
@@ -6790,6 +6794,22 @@
                     {
                       "type": "STRING",
                       "value": "⋗"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "⊨"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "⇒"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "≺"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "≼"
                     }
                   ]
                 }
@@ -7062,6 +7082,22 @@
                     {
                       "type": "STRING",
                       "value": "⊕ₗ"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "⨯"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "∗"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "⋆"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "⬝"
                     }
                   ]
                 }
@@ -7153,6 +7189,14 @@
                     {
                       "type": "STRING",
                       "value": "≪≫"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "◁"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "⊚"
                     }
                   ]
                 }
