@@ -625,6 +625,24 @@ Floor and ceiling brackets
         (identifier)))))
 
 ==============
+Norm bars
+==============
+
+#check ‖f x‖₊ + ‖y‖
+
+---
+
+(module
+  (check
+    term: (binary_op
+      lhs: (norm_lit
+        (app
+          fn: (identifier)
+          arg: (identifier)))
+      rhs: (norm_lit
+        (identifier)))))
+
+==============
 Positive-part postfix operator
 ==============
 

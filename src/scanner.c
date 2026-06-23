@@ -31,8 +31,13 @@ enum TokenType {
   INDENT,
   DEDENT,
   NEWLINE,
+  NORM_OPEN,
+  NORM_CLOSE,
   ERROR_SENTINEL,
 };
+
+#define NORM_BAR        0x2016 // ‖
+#define SUBSCRIPT_PLUS  0x208a // ₊
 
 #define ID_BEGIN_ESCAPE 0x00ab // «
 #define ID_END_ESCAPE   0x00bb // »
@@ -398,6 +403,24 @@ static bool scan(struct Scanner *scanner, TSLexer *lexer,
       || lexer->lookahead == '\r'
       || lexer->lookahead == '\n') {
     skip(lexer);
+  }
+
+  /* Norm bars `‖ … ‖`. The same glyph opens and closes, disambiguated
+     by parser context: prefer CLOSE (only valid once a norm is open and
+     its term parsed) so non-nested `‖x‖` closes eagerly; otherwise OPEN.
+     A trailing `₊` (non-negative norm `‖x‖₊`) folds into the close. */
+  if (lexer->lookahead == NORM_BAR
+      && (valid_symbols[NORM_OPEN] || valid_symbols[NORM_CLOSE])) {
+    advance(lexer);
+    if (valid_symbols[NORM_CLOSE]) {
+      if (lexer->lookahead == SUBSCRIPT_PLUS) advance(lexer);
+      lexer->mark_end(lexer);
+      lexer->result_symbol = NORM_CLOSE;
+      return true;
+    }
+    lexer->mark_end(lexer);
+    lexer->result_symbol = NORM_OPEN;
+    return true;
   }
 
   if ((valid_symbols[BLOCK_COMMENT]

@@ -4652,6 +4652,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "norm_lit"
+        },
+        {
+          "type": "SYMBOL",
           "name": "list_lit"
         },
         {
@@ -5425,6 +5429,23 @@
               "value": "⌉₊"
             }
           ]
+        }
+      ]
+    },
+    "norm_lit": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_norm_open"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_term"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_norm_close"
         }
       ]
     },
@@ -9268,6 +9289,14 @@
     {
       "type": "SYMBOL",
       "name": "_newline"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "_norm_open"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "_norm_close"
     },
     {
       "type": "SYMBOL",
