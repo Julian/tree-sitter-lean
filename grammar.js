@@ -1273,13 +1273,13 @@ export default grammar({
       )),
       prec.left(PREC.or, seq(
         field('lhs', $._op_term),
-        field('op', choice('∨', '||', '⊔')),
+        field('op', choice('∨', '||', '⊔', '⊻')),  /* ⊻ = xor */
         /* Lattice-sup RHS often holds a big-op or `if`. */
         field('rhs', $._term),
       )),
       prec.left(PREC.and, seq(
         field('lhs', $._op_term),
-        field('op', choice('∧', '&&', '⊓')),
+        field('op', choice('∧', '&&', '⊓', '⊼')),  /* ⊼ = nand */
         /* Lattice-inf RHS often holds a big-op or `if`. */
         field('rhs', $._term),
       )),
@@ -1296,6 +1296,7 @@ export default grammar({
           '⋖', '⋗',  /* covby (atomic-cover) and its dual */
           '⊨', '⇒',  /* entailment / relation-implication (Relator) */
           '≺', '≼',  /* strict and non-strict order relations */
+          '⊣',       /* adjunction (`F ⊣ G`) */
         )),
         /* `a = fun x => …` and `a ≤ if p then x else y` are common
            enough that comparison RHS must allow lead terms. */
@@ -1322,8 +1323,8 @@ export default grammar({
         field('lhs', $._op_term),
         field('op', choice(
           '+', '-', '∪', '\\',
-          /* `∆` — set symmetric difference. */
-          '∆',
+          /* `∆` — set symmetric difference; `⊞` — boxplus. */
+          '∆', '⊞',
           /* Mathlib torsor & substitution operators. */
           '-ᵥ', '+ᵥ', '▸',
         )),
@@ -1343,6 +1344,8 @@ export default grammar({
           '⊕', '⊕ₗ',
           /* Product, convolution/star, and matrix-dot products. */
           '⨯', '∗', '⋆', '⬝',
+          /* Circled/boxed products (applicative seq, external product). */
+          '⊛', '⊠',
         )),
         field('rhs', $._op_term),
       )),
@@ -1619,7 +1622,8 @@ export default grammar({
     match_alt: $ => seq(
       '|',
       sep1(field('pattern', $._term), ','),
-      '=>',
+      /* Mathlib prefers `↦` over `=>` in match arms. */
+      choice('=>', '↦'),
       field('body', $._term),
     ),
 

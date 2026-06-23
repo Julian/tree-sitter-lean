@@ -467,6 +467,25 @@ Match expression
         body: (identifier)))))
 
 ==============
+Match with mapsto arrows
+==============
+
+#check match x with | 0 ↦ 1 | n ↦ n
+
+---
+
+(module
+  (check
+    term: (match
+      scrutinee: (identifier)
+      (match_alt
+        pattern: (num_lit)
+        body: (num_lit))
+      (match_alt
+        pattern: (identifier)
+        body: (identifier)))))
+
+==============
 By term
 ==============
 
