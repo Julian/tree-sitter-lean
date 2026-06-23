@@ -7708,6 +7708,32 @@
     }
   },
   {
+    "type": "declare_syntax_cat_cmd",
+    "named": true,
+    "fields": {
+      "behavior": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "def",
     "named": true,
     "fields": {
@@ -20622,6 +20648,10 @@
           "named": true
         },
         {
+          "type": "declare_syntax_cat_cmd",
+          "named": true
+        },
+        {
           "type": "deriving_cmd",
           "named": true
         },
@@ -20667,6 +20697,10 @@
         },
         {
           "type": "module_doc_comment",
+          "named": true
+        },
+        {
+          "type": "mutual",
           "named": true
         },
         {
@@ -21706,6 +21740,10 @@
             "named": true
           },
           {
+            "type": "declare_syntax_cat_cmd",
+            "named": true
+          },
+          {
             "type": "deriving_cmd",
             "named": true
           },
@@ -21739,6 +21777,10 @@
           },
           {
             "type": "macro_rules_cmd",
+            "named": true
+          },
+          {
+            "type": "mutual",
             "named": true
           },
           {
@@ -26102,6 +26144,10 @@
             "named": true
           },
           {
+            "type": "declare_syntax_cat_cmd",
+            "named": true
+          },
+          {
             "type": "deriving_cmd",
             "named": true
           },
@@ -26135,6 +26181,10 @@
           },
           {
             "type": "macro_rules_cmd",
+            "named": true
+          },
+          {
+            "type": "mutual",
             "named": true
           },
           {
@@ -33503,6 +33553,10 @@
             "named": true
           },
           {
+            "type": "declare_syntax_cat_cmd",
+            "named": true
+          },
+          {
             "type": "deriving_cmd",
             "named": true
           },
@@ -33536,6 +33590,10 @@
           },
           {
             "type": "macro_rules_cmd",
+            "named": true
+          },
+          {
+            "type": "mutual",
             "named": true
           },
           {
@@ -34561,6 +34619,10 @@
     "named": false
   },
   {
+    "type": "behavior",
+    "named": false
+  },
+  {
     "type": "block_comment",
     "named": true,
     "extra": true
@@ -34603,6 +34665,10 @@
   },
   {
     "type": "constant",
+    "named": false
+  },
+  {
+    "type": "declare_syntax_cat",
     "named": false
   },
   {
@@ -34802,6 +34868,10 @@
   {
     "type": "mut",
     "named": false
+  },
+  {
+    "type": "mutual",
+    "named": true
   },
   {
     "type": "name",

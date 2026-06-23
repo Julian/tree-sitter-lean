@@ -244,7 +244,73 @@
         },
         {
           "type": "SYMBOL",
+          "name": "declare_syntax_cat_cmd"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "mutual"
+        },
+        {
+          "type": "SYMBOL",
           "name": "declaration"
+        }
+      ]
+    },
+    "mutual": {
+      "type": "STRING",
+      "value": "mutual"
+    },
+    "declare_syntax_cat_cmd": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "declare_syntax_cat"
+        },
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "("
+                },
+                {
+                  "type": "STRING",
+                  "value": "behavior"
+                },
+                {
+                  "type": "STRING",
+                  "value": ":="
+                },
+                {
+                  "type": "FIELD",
+                  "name": "behavior",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "identifier"
+                  }
+                },
+                {
+                  "type": "STRING",
+                  "value": ")"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         }
       ]
     },

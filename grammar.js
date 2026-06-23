@@ -128,7 +128,27 @@ export default grammar({
       $.elab_rules_cmd,
       $.register_cmd,
       $.unif_hint_cmd,
+      $.declare_syntax_cat_cmd,
+      $.mutual,
       $.declaration,
+    ),
+
+    /* `mutual … end` groups mutually-recursive declarations. Like
+       `namespace`/`section`/`end`, it is modeled as a flat marker
+       rather than a nesting block: the inner declarations parse as
+       siblings and the closing `end` is the ordinary `end` command.
+       Pairing is left to tooling, consistent with the rest of the
+       grammar (and avoids an `end`-disambiguation conflict). */
+    mutual: _ => 'mutual',
+
+    /* `declare_syntax_cat name (behavior := both)?` — introduces a new
+       syntax category for the parser DSL. */
+    declare_syntax_cat_cmd: $ => seq(
+      'declare_syntax_cat',
+      field('name', $.identifier),
+      optional(seq(
+        '(', 'behavior', ':=', field('behavior', $.identifier), ')',
+      )),
     ),
 
     /* `register_builtin_option name : Type := value` and

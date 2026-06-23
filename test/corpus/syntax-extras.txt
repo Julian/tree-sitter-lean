@@ -2859,6 +2859,42 @@ elab_rules : tactic
         (identifier)))))
 
 ==============
+Mutual block
+==============
+
+mutual
+  def f := 0
+  def g := 1
+end
+
+---
+
+(module
+  (mutual)
+  (declaration
+    (def
+      name: (identifier)
+      body: (num_lit)))
+  (declaration
+    (def
+      name: (identifier)
+      body: (num_lit)))
+  (end))
+
+==============
+declare_syntax_cat with behavior
+==============
+
+declare_syntax_cat foo (behavior := both)
+
+---
+
+(module
+  (declare_syntax_cat_cmd
+    name: (identifier)
+    behavior: (identifier)))
+
+==============
 Multi-line struct literal with newline-separated fields
 ==============
 
