@@ -2839,6 +2839,26 @@ macro_rules | `(tactic| rfl) => `(tactic| apply_rfl)
         (identifier)))))
 
 ==============
+elab_rules with category and alt
+==============
+
+elab_rules : tactic
+  | `(tactic| foo) => `(tactic| skip)
+
+---
+
+(module
+  (elab_rules_cmd
+    category: (identifier)
+    (match_alt
+      pattern: (quotation
+        category: (identifier)
+        (identifier))
+      body: (quotation
+        category: (identifier)
+        (identifier)))))
+
+==============
 Multi-line struct literal with newline-separated fields
 ==============
 

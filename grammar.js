@@ -125,6 +125,7 @@ export default grammar({
       $.syntax_cmd,
       $.macro_cmd,
       $.macro_rules_cmd,
+      $.elab_rules_cmd,
       $.register_cmd,
       $.unif_hint_cmd,
       $.declaration,
@@ -237,6 +238,19 @@ export default grammar({
         token.immediate(':'),
         field('prec', choice($.num_lit, $.identifier)),
       )),
+      repeat1($.match_alt),
+    ),
+
+    /* `elab_rules : tactic | `(…) => body | …` — declares an
+       elaborator by rewrite rules for a syntax category. Mirrors
+       `macro_rules` but keyed on a `: category` instead of a prec.
+       Body terms are usually `do …` blocks or quotations. */
+    elab_rules_cmd: $ => seq(
+      optional(choice('scoped', 'local')),
+      'elab_rules',
+      optional($._named_attr),
+      ':',
+      field('category', $.identifier),
       repeat1($.match_alt),
     ),
 
