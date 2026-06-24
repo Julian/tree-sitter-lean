@@ -4656,6 +4656,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "dbl_angle_lit"
+        },
+        {
+          "type": "SYMBOL",
           "name": "list_lit"
         },
         {
@@ -5446,6 +5450,52 @@
         {
           "type": "SYMBOL",
           "name": "_norm_close"
+        }
+      ]
+    },
+    "dbl_angle_lit": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "⟪"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_term"
+                },
+                {
+                  "type": "REPEAT",
+                  "content": {
+                    "type": "SEQ",
+                    "members": [
+                      {
+                        "type": "STRING",
+                        "value": ","
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "_term"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "⟫"
         }
       ]
     },

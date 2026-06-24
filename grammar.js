@@ -951,6 +951,7 @@ export default grammar({
       $.floor_lit,
       $.ceil_lit,
       $.norm_lit,
+      $.dbl_angle_lit,
       $.list_lit,
       $.range_lit,
       $.array_lit,
@@ -1114,6 +1115,10 @@ export default grammar({
        glyph doesn't blow up generation. The scanner folds the optional
        trailing `₊` into the close token. */
     norm_lit: $ => seq($._norm_open, $._term, $._norm_close),
+
+    /* `⟪x, y⟫` — double-angle-bracket constructor (inner products,
+       spans, pairings). Distinct open/close brackets, so safe. */
+    dbl_angle_lit: $ => seq('⟪', sep0($._term, ','), '⟫'),
 
     /* `*` is valid as a simp-set element (`simp [*, foo]`). */
     list_lit: $ => seq('[', sep0(choice($._term, $.star), ','), ']'),

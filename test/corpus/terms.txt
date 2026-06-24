@@ -643,6 +643,20 @@ Norm bars
         (identifier)))))
 
 ==============
+Double angle bracket constructor
+==============
+
+#check ⟪v, w⟫
+
+---
+
+(module
+  (check
+    term: (dbl_angle_lit
+      (identifier)
+      (identifier))))
+
+==============
 Positive-part postfix operator
 ==============
 
