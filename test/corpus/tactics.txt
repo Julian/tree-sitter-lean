@@ -155,3 +155,30 @@ example : True := by simp [*, foo]
           arg: (list_lit
             (star)
             (identifier)))))))
+
+==============
+Nested have-by tactic
+==============
+
+example : True := by
+  have h : True := by
+    exact trivial
+  exact h
+
+---
+
+(module
+  (declaration
+    (example
+      type: (true_const)
+      body: (by
+        stmt: (have
+          name: (identifier)
+          type: (true_const)
+          value: (by
+            stmt: (app
+              fn: (identifier)
+              arg: (identifier))))
+        stmt: (app
+          fn: (identifier)
+          arg: (identifier))))))
