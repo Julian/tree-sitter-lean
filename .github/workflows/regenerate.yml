@@ -30,7 +30,7 @@ jobs:
     # Use the pnpm-pinned tree-sitter-cli (not brew's) so generated
     # output is byte-identical to what produced the committed parser;
     # a version skew would make the sync check fail spuriously.
-    - uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271 # v6.0.9
+    - uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6.0.10
       with:
         package_json_file: package.json
         run_install: false
