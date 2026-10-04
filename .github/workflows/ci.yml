@@ -23,25 +23,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: tree-sitter/setup-action@49f8c1f20b60102eae8c033bb7c7f6cd056f6086
         with:
-          persist-credentials: false
-      - uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6.0.10
-        with:
-          package_json_file: package.json
-          run_install: false
-      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
-        with:
-          node-version-file: package.json
-          cache: 'pnpm'
-      - name: Install dependencies
-        run: pnpm install
-
-      # The committed src/parser.c is the build artifact under test.
-      # We deliberately do NOT regenerate here: `tree-sitter generate`
-      # for this grammar peaks around 9 GB and OOM-kills the Linux
-      # runner. Parser/grammar.js sync is enforced separately by the
-      # "Regenerate the Grammar" workflow on a swap-tolerant macOS
-      # runner.
-      - name: Test the grammar
-        run: pnpm exec tree-sitter test
+          install-lib: false
+          # Until tree-sitter generate's performance improvements hit a release
+          tree-sitter-ref: nightly
+      - run: tree-sitter generate
+      - run: tree-sitter test
