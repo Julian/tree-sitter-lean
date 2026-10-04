@@ -27,6 +27,6 @@ jobs:
         with:
           install-lib: false
           # Until tree-sitter generate's performance improvements hit a release
-          tree-sitter-ref: nightly
+          tree-sitter-ref: 2ef426e10b4fa8189a761025f17548073249c2fc
       - run: tree-sitter generate
       - run: tree-sitter test
