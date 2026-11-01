@@ -26,7 +26,7 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-      - uses: tree-sitter/setup-action@49f8c1f20b60102eae8c033bb7c7f6cd056f6086
+      - uses: tree-sitter/setup-action@faab9a23fa6195da0f1cf868219cc1e89f238d3d
         with:
           install-lib: false
           # Until tree-sitter generate's performance improvements hit a release
