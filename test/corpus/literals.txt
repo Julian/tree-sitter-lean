@@ -122,6 +122,20 @@ String with escapes
       (escape_sequence))))
 
 ==============
+String gap
+==============
+
+#check "hello\
+  world"
+
+---
+
+(module
+  (check
+    term: (str_lit
+      (escape_sequence))))
+
+==============
 Raw string
 ==============
 
