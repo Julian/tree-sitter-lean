@@ -1709,6 +1709,9 @@ export default grammar({
       /x[0-9a-fA-F]{2}/,
       /u[0-9a-fA-F]{4}/,
       /u\{[0-9a-fA-F]+\}/,
+      /* string gap: backslash + line break (Lean 4.5+); the newline and
+         the next line's leading whitespace are consumed. */
+      /\r?\n[ \t]*/,
     ))),
 
     interpolated_str: $ => seq(
